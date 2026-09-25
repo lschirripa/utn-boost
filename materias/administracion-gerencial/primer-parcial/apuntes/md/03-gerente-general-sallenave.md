@@ -1,46 +1,60 @@
 # El gerente general según Sallenave
 
-> Fuente: fuentes/respuestas-finales-por-unidad.docx (unidad IV, págs. 31–35 del libro) + examenes/2013-2019_compilado-preguntas-respuestas.docx (respuestas de parciales)
+> Fuente: fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf, págs. 30–34 (cap. IV) + examenes/2013-2019_compilado-preguntas-respuestas.docx (preguntas de parcial con respuestas de alumnos)
 
 ---
 
 ## Índice
 
-- [unidad IV, p. 31–35] — Campo de acción del gerente general: personas, estructuras, estrategia, medio ambiente
-- [parcial 2014-05-06] — Responsabilidades del gerente general (definir estrategia, recursos, coordinar, revisar)
+- [p. 30] — Qué hace el gerente general (responsabilidades)
+- [p. 30–31] — Campo de acción del gerente general: personas, estructuras, estrategia, medio ambiente externo
 - 📝 Pregunta de parcial — sin fecha (juego A) (P3): campo de acción del gerente general
-- [unidad IV, p. 31–35] — Funciones de mando del gerente general
-- [unidad IV, p. 31–35] — Papeles del gerente general: estratega, organizador, líder
-- [unidad IV, p. 31–35] — El estratega (reactivo / proactivo, virtud y fortuna)
-- [unidad IV, p. 31–35] — El organizador (estructura sigue a la estrategia)
-- 📝 Pregunta de parcial — sin fecha (foto) (P5): el rol de "organizador"
-- [unidad IV, p. 31–35] — El líder: comunicador y líder con dos sensibilidades
+- [p. 31] — Los tres papeles (líder, organizador, estratega) y las tres funciones de mando
 - 📝 Pregunta de parcial — 2014-05-06 (P1): campo de acción y papeles básicos del gerente
+- [p. 31–32] — El gerente general estratega: político, virtud y fortuna, dos tipos de estrategas, manipulador y castillo de poder
+- [p. 32–33] — El gerente general organizador: estructura sigue a la estrategia, estrategias de base, teoría contingente
+- 📝 Pregunta de parcial — sin fecha (foto) (P5): el rol de "organizador"
+- [p. 33–34] — El gerente general líder: comunicador y líder, doble sensibilidad, estilos y grid gerencial
 - 📝 Pregunta de parcial — 2018-05-02 (P2): ámbito de acción del gerente general
 
 ---
 
-## Campo de acción del gerente general — [unidad IV, p. 31–35]
+## Qué hace el gerente general (responsabilidades) — [p. 30]
 
-El gerente general actúa sobre cuatro elementos:
+El capítulo arranca definiendo al gerente general por lo que hace. Es el responsable de:
 
-- **Personas:** a las cuales dirige.
-- **Estructuras de la empresa:** en ellas el trabajo está organizado, codificado y jerarquizado. Delimitan los límites de responsabilidad y de autoridad.
-- **Estrategia:** el gerente puede y debe modificarla si la subsistencia y el crecimiento de la empresa lo requieren.
-- **Medio ambiente externo.**
+- **Definir la estrategia de la empresa:** determinar sus **objetivos** y los **medios** necesarios para lograrlos.
+- **Marcar las pautas para la obtención y el uso de los recursos** de la empresa conforme a un plan, y **organizar las tareas** de los miembros componentes de la empresa.
+- **Coordinar y controlar** las operaciones según un plan previsto.
+- **Revisar la estrategia y las estructuras** de la empresa en respuesta a los **imprevistos**, que pueden ser:
+  - **externos** (ej.: una crisis energética), o
+  - **internos** (ej.: una huelga).
 
-### Medio ambiente interno, externo y estrategia — [parcial 2014-05-06]
+## Campo de acción del gerente general — [p. 30–31]
 
-- El conjunto de **personas + estructura** forma el **medio ambiente interno** de la empresa, que tiene un comportamiento organizacional que interactúa con el **ambiente externo**.
-- **Estrategia** = el conjunto de relaciones entre el medio ambiente interno y el externo de la empresa, que se da gracias a la **permeabilidad de los límites**.
-- La estrategia es una **reacción al medio ambiente**.
+> **Ilustración 4 — "El Gerente según Sallenave" (p. 30):** una hélice de tres aspas sobre anillos concéntricos. Del centro hacia afuera los anillos son **Personas → Estructura → Estrategias**; las tres aspas son **Planeamiento y control**, **Organización** y **Liderazgo**; y una flecha horizontal marca la frontera **Ambiente interno | Ambiente externo**.
 
-### Responsabilidades del gerente general — [parcial 2014-05-06]
+El campo de acción del gerente general está formado por **cuatro elementos**:
 
-- Es el responsable de la **definición de la estrategia** de la empresa: determinar sus objetivos y los medios necesarios para lograrlos.
-- Fija las **pautas de obtención y uso de los recursos** y organiza las tareas de los miembros.
-- **Coordina y controla** las operaciones según un plan previsto.
-- **Revisa la estrategia y las estructuras** de la empresa en respuesta a los imprevistos externos e internos.
+- **Personas:** a las cuales el gerente dirige.
+- **Estructuras de la empresa:** en las cuales el trabajo está **organizado, codificado y jerarquizado**. En ellas se delimitan los **límites de responsabilidad y de autoridad**.
+- **Estrategia:** que el gerente **puede y debe modificar** si la **subsistencia y el crecimiento** de la empresa lo requieren.
+- **El medio ambiente externo.**
+
+### Medio ambiente interno, externo y estrategia — [p. 30–31]
+
+- El gerente dirige **no solamente a las personas, sino a la organización de las personas**, o sea la **estructura misma** de la empresa.
+- El conjunto **personas / estructura** forma el **medio ambiente interno** de la empresa, que tiene un **comportamiento propio** (comportamiento organizacional) e **interactúa con el ambiente externo**.
+- Esa interacción va en los dos sentidos:
+  - A veces de la estructura **surge una acción dirigida a modificar el ambiente externo** (ej. del libro: *"una empresa que lanza una guerra de precios para eliminar a un competidor"*).
+  - Otras veces se presentan **cambios en el ambiente externo que determinan una reacción de la empresa**.
+- Por eso, **estrategia en sentido amplio** = el **conjunto de relaciones entre el medio ambiente interno y externo** de la empresa.
+- Ese intercambio se da gracias a la **permeabilidad de los límites del sistema**: como se vio en la Teoría General de Sistemas, un sistema **no permeable (aislado) tiende a desaparecer**.
+- Hay un **paralelo estrategia / comportamiento**: los dos términos designan un conjunto de relaciones entre el medio externo y la **empresa** (estrategia) o el **individuo** (comportamiento), respectivamente; en ambos casos el medio ambiente interno.
+
+### Resumen del campo de acción — [p. 31]
+
+El gerente general es responsable de su estrategia; por lo tanto debe ser **líder, organizador y estratega**, y su campo de acción es la **triple dimensión** de la figura, **Personas, Estructuras y Estrategias** (los anillos concéntricos), **a la cual se le incluye el medio ambiente externo**.
 
 <details>
 <summary>📝 Pregunta de parcial — sin fecha (juego A) (P3): campo de acción del gerente general</summary>
@@ -49,56 +63,21 @@ Según Sallenave, ¿cuál es el campo de acción del gerente general?
 
 *(sin respuesta en la fuente; armarla con la teoría de arriba)*
 
-</details>
-
-## Funciones de mando del gerente general — [unidad IV, p. 31–35]
-
-Las tres funciones fundamentales del gerente general son:
-
-1. **Preservar la empresa.**
-2. **Controlar las reacciones de la organización** cuando las previsiones no ocurren y los objetivos no se logran.
-3. **Concebir el futuro y proponer los objetivos a alcanzar.**
-
-Para cumplir estas tres funciones, el gerente general debe ser **estratega, organizador y líder** (los tres papeles de la sección siguiente).
-
-## Papeles del gerente general: estratega, organizador, líder — [unidad IV, p. 31–35]
-
-### El estratega — [unidad IV, p. 31–35]
-
-- Se encamina a **modificar el medio**, o las relaciones entre la empresa y su entorno: **es un político**.
-- Pretende **ver las cosas como son y no como deberían ser**.
-- Requiere de:
-  - **Virtud:** habilidad de fijarse objetivos realistas y alcanzarlos con los medios más económicos.
-  - **Fortuna:** la suerte que le sonríe a los audaces.
-- Según algunos autores hay **dos tipos de estrategas**:
-  - **Reactivos:** actúan presionados por las circunstancias.
-  - **Proactivos:** buscan activamente oportunidades.
-- Es **manipulador**: busca mantener y aumentar su influencia y la aceptación de sus estrategias.
-
-### El organizador — [unidad IV, p. 31–35]
-
-- La **estructura** de la empresa es un **dato en el presente, pero una variable en el futuro**.
-- **Ajusta estructura y estrategia** para que haya **congruencia** entre las dos y que se valoren mutuamente.
-- Se puede decir que **la estructura sigue a la estrategia**, y que las estructuras más complejas derivan de la aplicación secuencial de varias **estrategias de base**: expansión, diversificación geográfica, integración vertical, diversificación de productos.
-- El **desafío** del gerente general organizador es **ajustar constantemente el esquema organizacional** de la empresa a las modificaciones de la estrategia, de manera que asegure un mejor desempeño.
-- Es **responsable del desempeño global** de la empresa; pero ese desempeño, a su vez, depende de la estrategia de la empresa, de su esquema organizacional y de la congruencia entre los dos.
-
-<details>
-<summary>📝 Pregunta de parcial — sin fecha (foto) (P5): el rol de "organizador"</summary>
-
-Según Sallenave, ¿en qué consiste el trabajo del gerente, en su rol de "organizador"?
-
-*(sin respuesta en la fuente; armarla con la teoría de arriba)*
+**Dónde está en el libro:** p. 30–31 (sección "Campo de acción del gerente general": los cuatro elementos personas / estructuras / estrategia / medio ambiente externo, más la Ilustración 4 con los anillos concéntricos).
 
 </details>
 
-### El líder: comunicador y líder — [unidad IV, p. 31–35]
+## Los tres papeles y las tres funciones de mando — [p. 31]
 
-- **Como comunicador:** debe hacer llegar la información a la gente (al personal) de manera **clara y comprensible**.
-- **Como líder:** influye para apuntar a los objetivos de la organización. Requiere **dos sensibilidades**:
-  - **Sensibilidad a las personas:** el líder es un **jefe**. Es un **manipulador**: utiliza su poder y su influencia, que están **legitimados por su autoridad jerárquica**.
-  - **Sensibilidad a los objetivos de la organización:** el líder tiene una **visión clara de las metas**. Sabe **subordinar los objetivos individuales a los objetivos organizacionales**. Sabe acomodarse a las situaciones, aunque sean comportamientos negativos.
-- La fuente menciona un ítem «Tipos de líder» sin desarrollarlo [poco claro en la fuente].
+- El gerente general es **responsable de su estrategia**, por lo tanto debe ser:
+  - **Líder**
+  - **Organizador**
+  - **Estratega**
+- Estas cualidades le ayudan a cumplir las **tres funciones fundamentales** que debe asumir el empresario según las **Funciones de Mando**:
+  1. **Preservar su empresa.**
+  2. **Controlar las reacciones de la organización** cuando las previsiones no ocurren y los objetivos no se logran.
+  3. **Concebir el futuro y proponer los objetivos a alcanzar.**
+- Estas tareas requieren las **cualidades personales de un verdadero líder**. Las tres secciones siguientes detallan cada característica.
 
 <details>
 <summary>📝 Pregunta de parcial — 2014-05-06 (P1): campo de acción y papeles básicos del gerente</summary>
@@ -126,7 +105,105 @@ Explicar el campo de acción y papeles básicos del gerente según Sallenave.
 
 </details>
 
+**Ojo (libro, p. 30–31):** la respuesta mezcla responsabilidades con campo de acción y nunca enumera los cuatro elementos del campo (personas, estructuras, estrategia y medio ambiente externo); y la segunda función de mando es "controlar las **reacciones** de la organización", no "relaciones".
+
+**Dónde está en el libro:** p. 30 (responsabilidades y campo de acción) y p. 31 (los tres papeles y las Funciones de Mando).
+
 </details>
+
+## El gerente general estratega — [p. 31–32]
+
+- Es una persona que realiza **acciones encaminadas a modificar el medio**, o las **relaciones entre la empresa y su entorno**: **es un político, no un filósofo**.
+- Esta característica es la que **incluye al medio ambiente externo** en el campo de acción del gerente general.
+- Pretende **ver las cosas tal como son y no como deberían ser**.
+- Requiere **dos cualidades** muy importantes:
+  - **Virtud:** la habilidad de **fijarse objetivos realistas y alcanzarlos con los medios más económicos**.
+  - **Fortuna:** la **suerte que le sonríe a los audaces**.
+- **No existe una fórmula** para transformar a un funcionario de nivel medio en un estratega.
+
+### Dos grupos de estrategas — [p. 31–32]
+
+Para algunos autores contemporáneos los estrategas se dividen en dos grupos:
+
+- **Los que no actúan a menos que sean presionados por las circunstancias.** Poseen el arte de **sacar partido de una situación desfavorable**; presionados por un medio ambiente cargado de amenazas logran salir adelante. Vista así, la estrategia sería **salir de los apuros de cualquier manera**.
+- **Los "empresarios":** no sólo resuelven problemas provenientes del medio ambiente, sino que **buscan activamente oportunidades**. Identifican y exploran **oportunidades, no problemas**, lo que los lleva a **asumir riesgos sistemáticamente**. Son reconocidos como **"emprendedores"**.
+
+### El estratega como manipulador: el castillo de poder — [p. 32]
+
+- "No todo es nobleza": el gerente general estratega **también es un manipulador**, que maneja **no solamente el tiempo sino también a las personas**, para **mantener y a veces aumentar su poder** y para obtener la **cooperación efectiva de los públicos** de la empresa: **empleados, clientes, proveedores, accionistas**, etc.
+- Es poco probable que un gerente tome decisiones brillantes para la empresa pero nefastas para su propio futuro. Así va construyendo un **castillo de poder**, que se crea y se refuerza mediante un **juego de favores**.
+- **Los favores son la moneda de cambio en el poder organizacional.** La lógica del libro: *yo hago algo que me cuesta poco pero es de gran utilidad para vos; después te pido un favor que te costará menos de lo que me beneficiará*.
+- Los favores son un **mal necesario**: aseguran la **cooperación entre los distintos departamentos**. Sin ellos la organización pronto estaría paralizada (las organizaciones que trabajan **"a reglamento"** son una visión clara de este problema).
+- El problema surge cuando los favores se hacen de una persona a otra **en detrimento de la empresa**: en ese caso no es un favor sino un **prevaricato**.
+
+## El gerente general organizador — [p. 32–33]
+
+- El **esquema organizacional** de la empresa es lo que **delimita el poder del gerente general**.
+- Para él la estructura representa **un dato en el presente, pero una variable en el futuro**.
+- Su **función**: **ajustar la estructura y la estrategia** de modo que exista **congruencia** entre las dos y que **se valoricen mutuamente**.
+- Se puede decir que **la estructura sigue a la estrategia**, y que las **estructuras más complejas derivan de la aplicación secuencial de varias estrategias de base**. Las estrategias de base son:
+  - la **expansión**,
+  - la **diversificación geográfica**,
+  - la **integración vertical**, y
+  - la **diversificación de productos**.
+- **Cada estrategia de base está relacionada con una estructura diferente**, que le permite a la empresa **optimizar la asignación de recursos** para **satisfacer el mercado actual** y **adaptarse a las exigencias del mercado futuro**.
+- Nace así la **Teoría Contingente**: se admite que **no hay una estructura ideal**; en los tiempos que corren (turbulentos, dinámicos, llenos de cambios abruptos, de marchas y contramarchas) **no todas las estructuras son igualmente válidas**, su **selección es contingente** y deben ser **modificadas conforme a los cambios estratégicos**.
+- El **desafío** del gerente general organizador es **ajustar constantemente el esquema organizacional de la empresa a las modificaciones de la estrategia**, de manera que asegure un **mejor desempeño**.
+- El gerente es **responsable del desempeño global de la empresa**, pero ese desempeño depende a la vez de **la estrategia**, de **su esquema organizacional** y de la **congruencia entre los dos**.
+
+### Ilustración 5 — Estrategia vs. estructura — [p. 33]
+
+Tabla de dos filas con flechas hacia abajo: a cada **estrategia de base** le corresponde una **estructura inducida**.
+
+| Estrategia de base | Estructura inducida |
+|---|---|
+| Expansión de volumen | Organización centralizada |
+| Expansión geográfica | Organización funcional |
+| Integración vertical | Organización divisional |
+| Diversificación de productos | Organización multidivisional |
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (foto) (P5): el rol de "organizador"</summary>
+
+Según Sallenave, ¿en qué consiste el trabajo del gerente, en su rol de "organizador"?
+
+*(sin respuesta en la fuente; armarla con la teoría de arriba)*
+
+**Dónde está en el libro:** p. 32–33 (sección "El gerente general organizador": estructura como dato/variable, congruencia estructura–estrategia, las cuatro estrategias de base, Teoría Contingente, desafío del organizador y responsabilidad por el desempeño global; Ilustración 5 estrategia vs. estructura).
+
+</details>
+
+## El gerente general líder — [p. 33–34]
+
+- Aunque el gerente general sea un **excelente técnico (estratega y organizador)**, **no podrá alcanzar el éxito sin la cooperación** de quienes están ligados a la empresa: **empleados, clientes, proveedores, accionistas, banqueros**.
+- **El corazón de la organización está formado por personas.** Esto requiere las cualidades de **comunicador** y de **líder**.
+- **Como comunicador:** debe **hacer comprender a sus públicos cuál es la estrategia de la empresa y por qué ésta requiere determinado esquema organizacional**.
+- **Como líder:** **influye en el comportamiento de sus colaboradores** con miras a **lograr los objetivos de la organización en forma eficaz**.
+
+### La doble sensibilidad — [p. 33]
+
+El **liderazgo organizacional** es una cualidad que proviene de una **doble sensibilidad**:
+
+- **Sensibilidad a las personas:** el líder es un **jefe**. Es un **manipulador**: utiliza su **poder y su influencia**, que están **legitimados por su autoridad jerárquica**.
+- **Sensibilidad a los objetivos de la organización:** el líder tiene una **visión clara de las metas**. Sabe **subordinar los objetivos individuales a los objetivos organizacionales**. Sabe **acomodarse a las situaciones**, aunque sean comportamientos negativos.
+
+La sensibilidad a las personas y a los objetivos de la organización son **las cualidades peor distribuidas entre los gerentes generales**.
+
+### No hay un líder ideal: estilos y adaptabilidad — [p. 33]
+
+- El esquema es simple, pero tiene el inconveniente de dar una **visión estática** de lo que es un líder.
+- **No hay un tipo de líder ideal, sino una variedad de estilos**, cada uno de los cuales se adapta a la **realidad y necesidad de la organización en determinada situación**.
+- Cada líder tiene **los mismos genes que el autócrata, el burócrata y el demócrata**, pero además posee el atributo de la **adaptabilidad**. De eso carecen quienes **se encierran en un sistema de pensamiento**.
+- Cita del libro: *"El líder es un hombre abierto que une el sentido de lo humano al sentido de sus responsabilidades"*.
+
+### Ilustración 6 — El grid gerencial — [p. 34]
+
+Si se clasifica a los dirigentes según su tipo de liderazgo, el libro presenta una grilla de 2×2: eje horizontal **sensibilidad a las personas** (débil / aguda), eje vertical **sensibilidad a los objetivos de la organización** (débil / aguda), cruzada por una diagonal que va de **Directivo** (arriba a la izquierda) a **Permisivo** (abajo a la derecha).
+
+| | Sensibilidad a las personas **débil** | Sensibilidad a las personas **aguda** |
+|---|---|---|
+| Sensibilidad a los objetivos **aguda** | **Autócrata** | **Líder** |
+| Sensibilidad a los objetivos **débil** | **Burócrata o despreocupado** | **Demócrata o demagogo** |
 
 <details>
 <summary>📝 Pregunta de parcial — 2018-05-02 (P2): ámbito de acción del gerente general</summary>
@@ -144,4 +221,12 @@ Las funciones del gerente general según Sallenave son **preservar su empresa, c
 
 </details>
 
+**Ojo (libro, p. 30–33):** el libro llama "campo de acción" a la triple dimensión personas / estructuras / estrategia más el medio ambiente externo (p. 30–31), no a los tres papeles; conviene arrancar por ahí y después desarrollar los papeles. Las etiquetas "reactivo / proactivo" no aparecen en el libro (describe los dos grupos sin nombrarlos, p. 31–32), y como comunicador el gerente debe hacer comprender a sus públicos **la estrategia y por qué requiere determinado esquema organizacional** (p. 33), no solo "información clara".
+
+**Dónde está en el libro:** p. 30–31 (campo de acción y funciones de mando), p. 31–32 (estratega), p. 32–33 (organizador), p. 33–34 (líder).
+
 </details>
+
+---
+
+*Generado el 2026-09-25 a partir de `fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf` (cap. IV, págs. 30–34) y `examenes/2013-2019_compilado-preguntas-respuestas.docx` (preguntas de parcial con respuestas de alumnos).*

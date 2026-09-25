@@ -40,30 +40,33 @@
 
 ## Temario por evaluación
 
-El libro/apunte de cátedra tiene 18 unidades (las respuestas de los alumnos citan sus
-páginas). Por las páginas citadas, el corte es **1P = unidades I–XI (págs. 5–84)** y
-**2P = unidades XII–XVIII (págs. 85–155)**.
+El libro de cátedra 2026 (`fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf`,
+Texido, 140 págs., 16 capítulos; el número impreso al pie coincide con la página del PDF)
+es la fuente oficial. **Programa del 1P según el profesor (2026-09-25): capítulos 2, 3, 4,
+5, 7 y 8**, y "lo importante es leer el PDF completo". Quedan afuera el cap. 6 (gerente
+emprendedor y negociador) y el 9 (comunicador), aunque en parciales viejos cayeron
+negociación y escucha activa. Ojo: `fuentes/respuestas-finales-por-unidad.docx` usa una
+numeración vieja del libro (18 unidades, con "administración del tiempo" y "reuniones"
+que ya no existen); la numeración que vale es la del PDF 2026.
 
-- **Primer parcial:** I conceptos básicos sobre organizaciones y administración (5–7);
-  II evolución histórica de la dirección: **taylorismo y paradigma mecanicista**, escuela
+- **Primer parcial (caps. 2, 3, 4, 5, 7 y 8 del PDF 2026):** cap. II evolución histórica de la dirección: **taylorismo y paradigma mecanicista**, escuela
   de relaciones humanas (Elton Mayo) y **paradigma organicista**, **teoría de la
-  contingencia** (8–21); III **cultura de la organización**: definición clásica, cultura
+  contingencia** (págs. 7–20); cap. III **cultura de la organización**: definición clásica, cultura
   organizacional, grupos primarios y secundarios, pertenencia/identificación/implicación,
   culturas fuertes y débiles, sistemas culturales formales e informales, subculturas,
-  utilidad de conocer la cultura (22–30); IV **el gerente general según Sallenave**:
-  campo de acción, funciones de mando, papeles de estratega/organizador/líder (31–35);
-  V conceptos actuales sobre la gerencia: **roles de Mintzberg** (esferas interpersonal,
+  utilidad de conocer la cultura (21–29); cap. IV **el gerente general según Sallenave**:
+  campo de acción, funciones de mando, papeles de estratega/organizador/líder (30–34);
+  cap. V concepciones actuales sobre la gerencia: **roles de Mintzberg** (esferas interpersonal,
   informacional y decisional) y **habilidades del gerente** (conceptuales, técnicas,
-  humanas) por nivel (36–43); VI el gerente emprendedor y **negociador** (estrategias
-  distributiva/integradora; Rique) (44–48); VII **liderazgo**: cómo se genera, tipos
+  humanas) por nivel (35–42); cap. VII **liderazgo**: cómo se genera, tipos
   elementales (autócrata/demócrata/paternalista), teoría de los rasgos y sus críticas,
   teorías contingentes, **liderazgo situacional** (dirigir/instruir/apoyar/delegar),
-  **ruta-meta** (4 comportamientos + factores contingentes) (49–58); VIII el gerente
-  motivador: estímulo vs. motivación, **Maslow**, **Herzberg**, frustración, herramientas
-  para motivar (59–65); IX el gerente comunicador: formas y clasificaciones de la
-  comunicación, **escucha activa (Farinstein, cap. 9)** (66–68); X administración del
-  tiempo (69–78); XI conducción de reuniones (79–84).
-- **Segundo parcial:** XII poder y autoridad (influencia, fuentes y formas de expresión
+  **ruta-meta** (4 comportamientos + factores contingentes), enfoques emergentes (48–56);
+  cap. VIII el gerente motivador: estímulo vs. motivación, **Maslow**, **Herzberg**, frustración, herramientas
+  para motivar, motivación como función del grupo (57–63). **Fuera del programa 2026
+  (pero tomados en parciales viejos):** cap. VI negociación (43–47) y cap. IX comunicación /
+  escucha activa (64–66).
+- **Segundo parcial (numeración del PDF 2026):** cap. X poder y autoridad (influencia, fuentes y formas de expresión
   del poder, modelos de organización); XIII delegación y participación
   (descentralización vertical/horizontal, factores contingentes, requisitos); XIV ética,
   moral y RSE; XV doble moral, acoso (mobbing) y desmoralización; XVI estrategia y
@@ -74,16 +77,16 @@ páginas). Por las páginas citadas, el corte es **1P = unidades I–XI (págs. 
 ## Fuentes
 
 - **Videos:** no hay.
-- **Apuntes del 1P:** `primer-parcial/apuntes/md/01…07` (paradigmas, cultura, Sallenave,
-  Mintzberg + habilidades, liderazgo, motivación, comunicación + negociación), armados con
-  `/apunte-doc` a partir de las respuestas de alumnos (compilado del 1P + doc de finales):
-  teoría visible + cada pregunta real de parcial en `<details>` con su respuesta. Si aparece
-  el libro de cátedra, regenerarlos desde la fuente original.
+- **Libro de cátedra:** `fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf`
+  (Texido, 140 págs., con capa de texto; volcado con `pdftotext`). Es LA fuente.
+- **Apuntes del 1P:** `primer-parcial/apuntes/md/01…06` regenerados el 2026-09-25 desde
+  los capítulos 2, 3, 4, 5, 7 y 8 del libro (teoría completa del capítulo) + cada pregunta
+  real de parcial de ese capítulo en `<details>` con la respuesta de alumnos del compilado y
+  la página del libro donde está. `07-comunicacion-y-negociacion.md` quedó como estaba
+  (caps. 6 y 9, fuera del programa 2026).
 - **Documentos:** `fuentes/respuestas-finales-por-unidad.docx` — respuestas de alumnos a
-  preguntas de finales, ordenadas por unidad del libro (I–XVIII) con rangos de página.
-  Cubre casi todo el 1P (unidades II, III, IV, V, VII, VIII, XI) y sirve como
-  **material de estudio** junto con las respuestas del compilado del 1P. El libro de
-  cátedra en sí **no está en el repo**: _(completar si se consigue el PDF)_.
+  preguntas de finales, ordenadas por unidad de una edición vieja del libro (18 unidades).
+  Sirvió para los primeros apuntes; ahora es material secundario.
 - **Exámenes reales:** primer parcial: **12 hojas de examen de 9 instancias (2013 →
   ~2024)** en `primer-parcial/examenes/`, indexadas en `INDICE.md`:
   `2013-2019_compilado-preguntas-respuestas.docx` (7 hojas fechadas, **con respuestas**),
@@ -122,6 +125,6 @@ electrónica) `#ClasificacionComunicacion` (formal / informal) `#EscuchaActiva` 
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
-| **Primer parcial (2026-09-28)** | ✅ 7 (uno por unidad, generados desde las respuestas del compilado y de `fuentes/`; html + pdf) | ✅ 12 hojas / 9 instancias | ✅ | — (los apuntes ya son solo lo que cae) | ✅ (2026-09-23, 5 días) | ✅ (vacío) | — | — | — |
+| **Primer parcial (2026-09-28)** | ✅ 6 desde el libro (caps. 2,3,4,5,7,8) + 07 fuera de programa; html + pdf | ✅ 12 hojas / 9 instancias | ✅ | — (los apuntes ya son solo lo que cae) | ✅ (2026-09-23, 5 días) | ✅ (vacío) | — | — | — |
 | Segundo parcial | — | pendiente (3 archivos sin indexar) | — | — | — | ✅ (vacío) | — | — | — |
 | Final | — | — | — | — | — | ✅ (vacío) | — | — | — |

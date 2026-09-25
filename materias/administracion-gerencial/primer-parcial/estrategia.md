@@ -30,6 +30,24 @@ unidades I, X y XI, que no cayeron nunca.
 > contingente, fuerte/débil ↔ paradigmas, habilidades ↔ nivel): los apuntes las marcan con
 > una nota para armarlas en clase o consulta. El patrón no cambia.
 
+> **Actualización 2026-09-25 (3 días para el parcial):** apareció el **libro de cátedra
+> 2026** (`fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf`, 140 págs.) y el
+> profesor dijo que el parcial incluye **los capítulos 2, 3, 4, 5, 7 y 8** y que lo
+> importante es leer el PDF completo. Consecuencias:
+> - Los 6 capítulos del programa son exactamente los bloques del núcleo duro de la tabla
+>   de abajo (paradigmas, cultura, Sallenave, Mintzberg + habilidades, liderazgo,
+>   motivación). **Refuerza el patrón**, no lo cambia.
+> - El cap. 6 (negociación) y el cap. 9 (comunicación / escucha activa) **quedan afuera
+>   del programa**: `#Negociacion`, `#FormasComunicacion`, `#ClasificacionComunicacion` y
+>   `#EscuchaActiva` pasan a ⚪ descartables. La brecha de escucha activa desaparece.
+> - Los apuntes 01–06 se **regeneraron desde el libro** (teoría completa del capítulo, con
+>   página), conservando las preguntas reales de parcial con su respuesta. Las tres
+>   "relaciones" que faltaban (por qué la situacional es contingente, fuerte/débil ↔
+>   paradigmas, habilidades ↔ nivel) ahora tienen su lugar en el libro: ver cada apunte.
+> - Son ~45 páginas de libro en total (7–20, 21–29, 30–34, 35–42, 48–56, 57–63): se leen
+>   enteras en una tarde. El plan vivo con la disponibilidad real (viernes AG, finde AM2,
+>   lunes a la mañana repaso) está en `plan.md`.
+
 ## 1. Estructura del examen
 
 5 preguntas teóricas de desarrollo, sin práctica. No hay posiciones fijas (P1 no es
