@@ -1,0 +1,1124 @@
+# Flashcards — Primer Parcial Administración Gerencial
+
+> Mazo de repaso teórico (**80 cartas**). Fuente de preguntas: checklist teórico de
+> `estrategia.md` (§6) sin el bloque «Comunicación y negociación» (caps. 6 y 9 fuera del
+> programa 2026), las preguntas recicladas de §2 y las `📝 Pregunta de parcial` de cada
+> apunte; fuente de respuestas: `apuntes/md/01…06` (libro de cátedra 2026, con página).
+> Versión Anki: `flashcards-anki.tsv`. Parcial: **2026-09-28**, 5 preguntas teóricas a desarrollar.
+
+**Cómo usarlo el lunes a la mañana:** leé el frente, respondé en voz alta o en un papel como si
+fuera la pregunta del parcial (10–12 renglones), recién después abrí «Ver respuesta». Cada
+pregunta reciclada se contesta con 1–3 cartas seguidas; las cartas `[método]` son las listas
+que hay que saber de memoria, las `[enunciado]` las definiciones y teorías para desarrollar.
+
+| # | Tema | Prioridad | Cartas | Por qué |
+|---|---|---|---|---|
+| 1 | Liderazgo | 🔴 dominar | 1–23 (23) | cae en 11 de 12 hojas; situacional + «¿es contingente?» (5 hojas) y ruta-meta (3) son las recicladas |
+| 2 | Gerente: Sallenave, Mintzberg y habilidades | 🟠 alta | 24–42 (19) | 8 de 12 hojas; rota la esfera de Mintzberg (hay que saber las tres) y Sallenave campo de acción / organizador |
+| 3 | Cultura de la organización | 🟠 alta | 43–58 (16) | 8 de 12 hojas; rota el sub-tema, todo sale del cap. III |
+| 4 | Motivación: Maslow y Herzberg | 🟠 alta | 59–68 (10) | 6 de 12 hojas; Maslow con «qué pasa al satisfacer un nivel» es la reciclada |
+| 5 | Paradigmas de dirección | 🟡 media | 69–80 (12) | 5 de 12 hojas; rota «críticas al mecanicismo» ↔ «críticas al organicismo», más taylorismo y contingencia |
+
+Tipos: 35 `[enunciado]` · 45 `[método]`. Sin `[demostración]` ni `[fórmula]`: la materia no tiene matemática.
+
+
+## 1. Liderazgo — prioridad 🔴 dominar
+
+### 1. [enunciado] Qué es el liderazgo y por qué no es jefatura
+**P:** Definí liderazgo según Young y explicá por qué no es lo mismo que jefatura.
+<details><summary>Ver respuesta</summary>
+
+- **Young:** el liderazgo "representa un dominio fundado en una **personalidad poderosa**, en la **aceptación del grupo** o en **conocimientos pertinentes** en una **situación dada**".
+- Por eso se relaciona específicamente con una determinada situación y **no es lo mismo que jefatura**:
+  1. La **jefatura es poder formal**.
+  2. El **liderazgo es "informal"** (no está oficialmente establecido) y está **restringido a un tiempo y lugar**.
+- Eso no impide que a veces el liderazgo **coincida con la autoridad formal**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Generalidades (p. 48).*
+</details>
+
+### 2. [método] Cómo se genera el liderazgo (Harris)
+**P:** ¿Cómo se genera o se produce el fenómeno del liderazgo? (mecanismo de Harris)
+<details><summary>Ver respuesta</summary>
+
+1. Una **situación dada crea un imperativo en el grupo**.
+2. Un **individuo hace conscientes a los demás** de ese imperativo, y así aquéllos **sirven voluntariamente** al imperativo.
+3. En la medida en que ese individuo sea capaz de **liberar capacidades colectivas y aptitudes emocionales dirigidas a ese fin, se convierte en líder**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Generalidades — Cómo se genera el liderazgo (p. 48).*
+</details>
+
+### 3. [enunciado] El liderazgo como función colectiva
+**P:** ¿Por qué el liderazgo es una «función colectiva»? ¿Qué significa que el grupo «elija» al líder?
+<details><summary>Ver respuesta</summary>
+
+- El liderazgo **no reside fundamentalmente en el individuo** (por dominante o eficaz que sea) sino **en la situación real**.
+- No excluye que el líder deba poseer **ciertas cualidades** (p. ej., determinado grado de inteligencia).
+- **Ni el líder más poderoso puede extraer del grupo aquello que no se encuentre allí de antemano y que el grupo quiera ceder.**
+- Que el líder sea "elegido" por el grupo (aunque sea tácitamente) **no asegura que sea el más indicado para dirigirlo**: sólo significa que **representa en la conciencia de los demás los sentimientos y aspiraciones del grupo**.
+- Recomendación para las empresas: promover a quienes demuestren **eficiencia funcional** y **aceptación por el grupo**, no a los que "se ponen al frente" por **afán de trepar** (bajo la apariencia de firmeza suele haber inseguridad emotiva e ineptitud).
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Generalidades — El liderazgo es una función colectiva (p. 48).*
+</details>
+
+### 4. [método] Tipos elementales de liderazgo
+**P:** Describí brevemente los tipos elementales de liderazgo más conocidos.
+<details><summary>Ver respuesta</summary>
+
+1. **Autócratas:** concentran el **poder y la responsabilidad**, impidiendo de hecho el **desarrollo de los demás**.
+2. **Demócratas:** dan **participación**, **orientan**, **delegan** y tienden a obtener **soluciones colectivas**.
+3. **Paternalistas:** bajo su apariencia "democrática" y benevolente, terminan **decidiendo siempre todo por sí mismos**.
+- La división es **muy elemental y esquemática**: en la realidad hay numerosas variantes que combinan ambos caracteres básicos (el paternalista es el ejemplo).
+- Los estilos se reflejan en los **sistemas de supervisión**. Evolución de las teorías: **rasgos → conductuales → contingentes → enfoques emergentes**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Tipología del liderazgo (p. 48).*
+</details>
+
+### 5. [enunciado] Teoría de los rasgos: qué plantea
+**P:** ¿Qué plantea la teoría de los rasgos y por qué su búsqueda dio «callejones sin salida»?
+<details><summary>Ver respuesta</summary>
+
+- Busca **características específicas que distingan a quienes son líderes de quienes no lo son** (inteligencia, carisma, decisión, entusiasmo, integridad, confianza…). Dominó los **primeros esfuerzos de investigación** del liderazgo.
+- Si el concepto fuera válido, debería haber rasgos presentes en **todos** los líderes; pero líderes reconocidos (Martin Luther King, Juana de Arco, Mandela, Thatcher, Gandhi…) tienen **rasgos completamente diferentes**.
+- **Callejones sin salida:** no se pudo identificar una serie de rasgos que **siempre** distinguiera a líderes de seguidores, ni a líderes efectivos de los que no lo son. Era **demasiado optimista** pretender rasgos únicos válidos para **cualquier tipo de organización** (comercial, estatal, militar, religiosa, sin fines de lucro…).
+- Sí tuvieron más éxito los intentos de identificar rasgos **consistentemente asociados** al liderazgo: los **seis rasgos** (carta siguiente).
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Teoría de los rasgos (p. 49).*
+</details>
+
+### 6. [método] Los 6 rasgos de Kirkpatrick y Locke
+**P:** ¿Cuáles son los seis rasgos que distinguen a los líderes de quienes no lo son (Kirkpatrick y Locke)?
+<details><summary>Ver respuesta</summary>
+
+1. **Empuje:** alto nivel de esfuerzo; alto deseo de logro, ambiciosos, mucha energía, incansablemente persistentes, muestran iniciativa.
+2. **Deseo de dirigir:** fuerte deseo de influir y dirigir a otros; disposición a asumir responsabilidades.
+3. **Honestidad e integridad:** construyen relaciones de confianza con sus subalternos al ser sinceros y mostrar alta consistencia entre su palabra y los hechos.
+4. **Confianza en sí mismos:** los subalternos los ven carentes de dudas; necesaria para convencer de lo correcto de las metas y decisiones.
+5. **Inteligencia:** para reunir, resumir e interpretar grandes cantidades de información, generar iniciativas, resolver problemas y tomar las decisiones correctas.
+6. **Conocimiento relativo al trabajo:** alto conocimiento sobre la compañía, la industria y cuestiones técnicas; permite decisiones bien informadas y comprender sus implicaciones.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Los 6 rasgos (p. 49–50).*
+</details>
+
+### 7. [enunciado] Por qué los rasgos no alcanzan
+**P:** ¿Por qué no alcanza con la teoría de los rasgos para explicar el liderazgo?
+<details><summary>Ver respuesta</summary>
+
+1. Los **rasgos en sí mismos no son suficientes** para explicar el liderazgo.
+2. Las explicaciones basadas exclusivamente en rasgos **dejan de lado las interacciones del líder con sus colaboradores** y los **factores situacionales**.
+3. Poseer las características adecuadas **sólo facilita** ser un líder efectivo: **hay que tomar las acciones debidas**, y **lo correcto en una situación no necesariamente lo es en otra**.
+- Cronología: el movimiento que se aparta de los rasgos empieza en la **década del '40**; de fines de los '40 a mediados de los '60 la investigación se concentra en los **estilos de comportamiento**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Por qué los rasgos no alcanzan (p. 50).*
+</details>
+
+### 8. [enunciado] Teorías conductuales: qué buscan
+**P:** ¿Qué buscan las teorías conductuales del liderazgo y qué implicación práctica distinta tendrían frente a las de rasgos?
+<details><summary>Ver respuesta</summary>
+
+- La imposibilidad de "encontrar oro en la mina de los rasgos" llevó a buscar los **comportamientos** que exhiben los líderes: ¿hay algo único en lo que los líderes efectivos **hacen**?
+- Implicaciones prácticas muy diferentes:
+  1. Si la investigación de **rasgos** hubiera tenido éxito → base para **seleccionar** a las personas "correctas" para el liderazgo formal.
+  2. Si los estudios del **comportamiento** encuentran determinantes decisivas → se podría **entrenar** a las personas para ser líderes.
+- Uno de los primeros y más populares estudios: **Universidad de Iowa, Kurt Lewin** y colegas.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Teorías conductuales (p. 50).*
+</details>
+
+### 9. [método] Los tres estilos de Lewin (Iowa)
+**P:** ¿Cuáles son los tres estilos de liderazgo del estudio de Lewin (Iowa)?
+<details><summary>Ver respuesta</summary>
+
+1. **Autocrático:** tiende a **centralizar la autoridad**, **dicta métodos de trabajo**, toma **decisiones unilaterales** y **limita la participación** de los colaboradores.
+2. **Democrático:** **involucra a los colaboradores en la toma de decisiones**, **delega la autoridad**, **alienta la participación** en la decisión de métodos y metas y **emplea la retroalimentación** como oportunidad para guiar.
+3. **Laissez-faire:** otorga al grupo **libertad completa** para decidir y completar el trabajo como mejor le parezca; se limita a **proporcionar los materiales** o **contestar preguntas**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § El continuo autocrático-democrático (p. 50–51).*
+</details>
+
+### 10. [método] Resultados del experimento de Iowa
+**P:** ¿Qué estilo resultó más efectivo en el experimento de Iowa y qué mostraron los estudios posteriores?
+<details><summary>Ver respuesta</summary>
+
+Experimento (adultos entrenados en cada estilo dirigiendo grupos de jóvenes de clubes infantiles):
+1. El **laissez-faire fue inefectivo en todos los criterios** de desempeño frente al democrático y al autocrático.
+2. La **cantidad de trabajo** fue la **misma** en grupos autocráticos y democráticos.
+3. La **calidad del trabajo** y la **satisfacción del grupo** fueron **más altas en los democráticos**.
+Estudios posteriores: resultados **variados**: el democrático a veces produjo **más desempeño** que el autocrático, pero otras veces **inferior o apenas igual**. Lo **más consistente**: la **satisfacción de los colaboradores** es normalmente **mayor bajo liderazgo democrático**. Quedan preguntas: ¿los gerentes siempre deben ser democráticos? ¿Qué pasa con los que no están acostumbrados a que sus colaboradores decidan?
+
+*Fuente: `apuntes/md/05-liderazgo.md` § El continuo autocrático-democrático (p. 51).*
+</details>
+
+### 11. [enunciado] El continuo de Tannenbaum y Schmidt (Ilustración 9)
+**P:** Explicá el continuo autocrático-democrático de Tannenbaum y Schmidt (Ilustración 9) y las tres fuerzas que decide el gerente para ubicarse en él.
+<details><summary>Ver respuesta</summary>
+
+- Tannenbaum y Schmidt estudiaron ese dilema (básicamente respecto de la **toma de decisiones**) y desarrollaron un **continuo de comportamientos de líder**.
+- **Ilustración 9:** un rectángulo cortado por una diagonal; el triángulo superior-izquierdo es el **"Empleo de la autoridad por el gerente"** y el inferior-derecho el **"Área de libertad para los colaboradores"**. A la izquierda, estilo **centrado en el jefe (autocrático)**; hacia la derecha se achica la autoridad y crece la libertad: estilo **centrado en los colaboradores (democrático)**. Cinco flechas marcan posiciones intermedias: no hay dos estilos, hay un **rango**.
+- Para decidir qué comportamiento emplear, el gerente observa tres fuerzas:
+  1. Sus **fuerzas internas** (p. ej., la comodidad con la alternativa elegida).
+  2. Las **fuerzas internas del colaborador** (p. ej., la disposición a asumir responsabilidades).
+  3. Las **fuerzas internas de la situación** (p. ej., presiones de tiempo).
+- Sugieren dirigirse **a la larga hacia estilos más centrados en los colaboradores** (influencia positiva sobre motivación, calidad de las decisiones, trabajo en equipo, clima y desarrollo).
+- **Naturaleza dual** del comportamiento del líder: énfasis **en el trabajo** y **en las personas** (clave también en los estudios de Ohio y Michigan y en el Grid de Blake y Mouton).
+
+*Fuente: `apuntes/md/05-liderazgo.md` § El continuo autocrático-democrático (p. 50–52).*
+</details>
+
+### 12. [enunciado] Por qué surgen las teorías contingentes de liderazgo
+**P:** ¿Por qué son importantes las teorías contingentes del liderazgo y cómo surgen?
+<details><summary>Ver respuesta</summary>
+
+1. Era evidente que **ni los rasgos personales del líder ni sus comportamientos permitían predecir su éxito**.
+2. Los nuevos estudios se guiaron por la **Teoría de la Contingencia**, intentando **relacionar el estilo de liderazgo con variables "independientes" de la situación de trabajo**.
+3. Consecuencia: la **efectividad del líder dependería de proceder adecuadamente a las condiciones reinantes**.
+4. Los enfoques de mayor reconocimiento y aparente éxito: la **teoría situacional de Hersey y Blanchard** y la **teoría de la ruta-meta**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Teorías contingentes (p. 52).*
+</details>
+
+### 13. [enunciado] Teoría situacional: qué plantea y por qué el énfasis en los subalternos
+**P:** Explicá la teoría situacional del liderazgo (Hersey y Blanchard): qué plantea y por qué hace énfasis en los subalternos.
+<details><summary>Ver respuesta</summary>
+
+- Es una **teoría de contingencia que hace énfasis en los subalternos**.
+- El liderazgo de éxito se alcanza al **seleccionar el estilo de liderazgo adecuado**, que es **contingente a la conjunción de**:
+  1. la **capacidad para desempeñar las tareas específicas del puesto**, y
+  2. la **disposición de los colaboradores para cumplirlas**.
+- **Por qué el énfasis en los subalternos:** son ellos quienes **aceptan o rechazan al líder**; **sin tomar en cuenta lo que el líder haga, la efectividad depende de las acciones de sus subalternos**. Esta dimensión fue sobrevaluada por algunas teorías y subestimada por otras.
+- **Disposición** = la **capacidad y propensión de las personas para asumir la responsabilidad de dirigir su propio comportamiento**.
+- No se ha sometido a evaluaciones extensas, pero se la incluye por su **amplia aceptación**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § La teoría situacional (Hersey y Blanchard) (p. 52–53).*
+</details>
+
+### 14. [método] Las dos dimensiones del comportamiento del líder (situacional)
+**P:** ¿Cuáles son las dos dimensiones del comportamiento del líder en la teoría situacional?
+<details><summary>Ver respuesta</summary>
+
+1. Hacia el **eficaz cumplimiento de las tareas**: **capacitando y entrenando** (comportamiento rector, de dirección).
+2. Hacia la **intensidad del apoyo** que brinde al colaborador a través de sus **relaciones interpersonales**: **estimulando y motivando** (comportamiento de relación).
+- Varios autores plasmaron esta concepción en tablas y gráficos sobre la **madurez de los colaboradores** y los **comportamientos adecuados del líder**: los de **Hersey y Blanchard** se explican en la obra de **Robbins y Coulter**; la visión de **Blanchard, Zigarmi y Zigarmi** es muy similar.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § La teoría situacional — Las dos dimensiones (p. 52–53).*
+</details>
+
+### 15. [método] Los 4 estilos situacionales: dirigir / instruir / apoyar / delegar
+**P:** ¿Cuáles son los cuatro estilos de la teoría situacional y a qué tipo de colaborador corresponde cada uno?
+<details><summary>Ver respuesta</summary>
+
+1. **DIRIGIR:** **estructurar, controlar y supervisar**. Para quienes **carecen de competencia pero tienen interés y entusiasmo**; necesitan **directivas y supervisión** para iniciarse en su cometido.
+2. **INSTRUIR:** **orientar y ayudar**. Para quienes **poseen alguna competencia pero les falta interés**; necesitan dirección y supervisión (todavía son novatos) y también **apoyo y elogios** para forjar su autoestima, e **intervenir en las decisiones** para restaurar su interés.
+3. **APOYAR:** **elogiar, escuchar y dar facilidades**. Para quienes **poseen competencia pero carecen de seguridad en sí mismos o de motivación**; ya saben qué hacer, conviene **ayudarles a reforzar su seguridad y su motivación**.
+4. **DELEGAR:** **traspasar la responsabilidad de las decisiones cotidianas**. Para el personal que **tiene competencia e interés**; trabajan por cuenta propia, bajo **escasa supervisión** y sin pedir ayuda, y están dispuestos a hacerlo.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Los 4 estilos situacionales (p. 53).*
+</details>
+
+### 16. [método] Ilustración 10: la curva del líder y la madurez del colaborador
+**P:** Describí la Ilustración 10 de la teoría situacional: cómo se cruza la acción del líder con la situación del colaborador.
+<details><summary>Ver respuesta</summary>
+
+- **Acción del líder:** eje vertical **comportamiento de relación** (apoyo), eje horizontal **comportamiento rector** (dirección/tareas). Sobre el gráfico, una **curva en forma de campana** con cuatro puntos, de izquierda a derecha: **DELEGAR** (poca relación, poca dirección) · **APOYAR** (mucha relación, dirección baja-media) · **INSTRUIR** (mucha relación, dirección media-alta) · **DIRIGIR** (poca relación, mucha dirección).
+- **Situación del colaborador** (misma columna, capacidad × disposición):
+  1. Delegar ← **capacitado + dispuesto**.
+  2. Apoyar ← **capacitado + no dispuesto**.
+  3. Instruir ← **no capacitado + no dispuesto**.
+  4. Dirigir ← **no capacitado + dispuesto**.
+- Lectura: la **situación del colaborador determina la acción del líder**; a medida que el colaborador madura, el líder recorre la curva **dirigir → instruir → apoyar → delegar**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Ilustración 10 — La teoría situacional (p. 53).*
+</details>
+
+### 17. [enunciado] Por qué la teoría situacional es contingente
+**P:** ¿Por qué la teoría situacional se considera una teoría de contingencia? Identificá la variable independiente y la dependiente.
+<details><summary>Ver respuesta</summary>
+
+- Una teoría de liderazgo es contingente cuando el **estilo a adoptar (variable dependiente)** se hace depender de **variables independientes de la situación de trabajo**: **no hay un único mejor estilo**, sino el que corresponde a las condiciones reinantes (relación "si-entonces" de la teoría de la contingencia).
+- El autor adhiere al **"enfoque de contingencias"**: **"No existe una única manera de mejor organizar..."**.
+- En la teoría situacional:
+  1. **Variable contingente independiente:** el **grado de desarrollo (motivación y capacidad) del colaborador**.
+  2. **Variable dependiente:** el **comportamiento del superior**.
+- El libro la define desde el arranque como "una **teoría de contingencia que hace énfasis en los subalternos**": el estilo es contingente a la conjunción de **capacidad + disposición** de los colaboradores.
+- **Discrepancia del autor:** la curva con forma de **campana de Gauss** (Ilustración 10) puede sugerir que **la mayoría del personal está en un nivel mediano de desarrollo**, con minorías en baja madurez y en alto desarrollo, cosa que no tiene por qué ser así.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Teorías contingentes + Opinión del autor: por qué la situacional es contingente (p. 52 y 54).*
+</details>
+
+### 18. [enunciado] Ruta-meta (House): qué es, esencia y origen del nombre
+**P:** Explicá la teoría de la ruta-meta (House): qué es, cuál es su esencia y de dónde deriva el nombre.
+<details><summary>Ver respuesta</summary>
+
+- Es uno de los enfoques **más respetables** para comprender el liderazgo: un **modelo de contingencia del liderazgo** que utiliza, entre otros elementos, la **teoría motivacional de las expectativas**. Creador: **Robert House**.
+- Es principalmente sobre el **comportamiento de un supervisor sobre una persona en base a una tarea**. **No abarca:** el liderazgo de toda la organización, los líderes emergentes o informales, el efecto de los líderes en distintos niveles ni su comportamiento frente a los cambios.
+- **Esencia:** el rol del líder es **apoyar a sus subalternos para alcanzar sus metas** y **proporcionar la dirección necesaria y/o el apoyo** para asegurarse de que sus metas sean **compatibles con los objetivos generales del grupo o de la organización** (lo que el capítulo de cultura llama "implicación").
+- **Origen del nombre:** los **líderes efectivos esclarecen el camino** para ayudar a sus subalternos a ir **desde donde se encuentran hasta la consecución de las metas** de su trabajo, y hacen **la jornada más fácil al reducir obstáculos y dificultades**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Teoría de la ruta-meta (House) (p. 54).*
+</details>
+
+### 19. [método] Ruta-meta: variables contingentes independientes y dependiente
+**P:** Describí las variables contingentes independientes y dependientes del modelo ruta-meta.
+<details><summary>Ver respuesta</summary>
+
+- Como es una teoría de la contingencia, hay **uno o varios factores contingentes** en base a los cuales tenemos una **variable dependiente**.
+- **Variable dependiente** (la que se adapta): el **tipo de liderazgo a implementar en cada situación** (director / apoyador / participativo / orientado a logros).
+- **Variables contingentes (independientes)**, en dos grupos:
+  1. **Factores ambientales:** **estructura de las tareas** · **sistema de autoridad formal** · **grupo de trabajo**.
+  2. **Factores del colaborador:** **autocontrol** · **experiencia** · **habilidad**.
+- **Ilustración 11:** caja "Líder" (con los cuatro comportamientos) → flecha horizontal → caja "Objetivos"; arriba la caja "Factores ambientales" y abajo "Factores del colaborador", ambas con flechas que **inciden sobre la flecha Líder → Objetivos**. Las dos cajas laterales son las variables independientes; el estilo que elige el líder, la dependiente.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Por qué la ruta-meta es contingente + Ilustración 11 (p. 54–55).*
+</details>
+
+### 20. [método] Ruta-meta: los 4 comportamientos de liderazgo
+**P:** ¿Cuáles son los cuatro comportamientos de liderazgo de la teoría ruta-meta?
+<details><summary>Ver respuesta</summary>
+
+1. **Líder director:** permite que sus colaboradores **sepan qué se espera de ellos**, **programa el trabajo** a realizar y proporciona una **guía específica** de cómo cumplir las tareas.
+2. **Líder apoyador:** es **amistoso** y muestra su **interés por las necesidades** de los colaboradores.
+3. **Líder participativo:** **consulta** con sus colaboradores y **considera sus sugerencias** antes de tomar una decisión.
+4. **Líder orientado a logros:** establece **metas desafiantes** y espera que los colaboradores se desempeñen a su **más alto nivel**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Los 4 comportamientos de liderazgo (p. 54–55).*
+</details>
+
+### 21. [método] Ruta-meta: cuándo el comportamiento del líder es aceptable, motivante o ineficaz
+**P:** Según la ruta-meta, ¿cuándo el comportamiento del líder es aceptable y motivante, y cuándo resulta ineficaz?
+<details><summary>Ver respuesta</summary>
+
+- **Aceptable:** en la medida en que los colaboradores lo vean como **fuente inmediata de satisfacción** o como **medio para satisfacción futura**.
+- **Motivante:** en la medida en que 1. hace que la **satisfacción-necesidad del colaborador sea contingente a un desempeño efectivo**, y 2. proporciona la **asesoría, guía, apoyo y recompensas** necesarias para ese desempeño.
+- **Flexibilidad:** la teoría supone que los líderes son flexibles: **el mismo líder puede manifestar cualquiera de los cuatro estilos**, según la situación.
+- **Ineficaz:**
+  1. cuando resulta **redundante con las fuentes de estructura ambiental** (estructura de la tarea, sistema formal de autoridad, grupo de trabajo), o
+  2. cuando es **incongruente con las características del colaborador** (control de sí mismo, experiencia, habilidad percibida).
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Cuándo el comportamiento del líder es aceptable y motivante + Flexibilidad del líder (p. 54–55).*
+</details>
+
+### 22. [enunciado] Enfoques emergentes: liderazgo carismático
+**P:** Explicá la teoría del liderazgo carismático: qué afirma, las tres características según House, sus efectos y sus límites.
+<details><summary>Ver respuesta</summary>
+
+- Afirma que los colaboradores **atribuyen capacidades de liderazgo heroicas o extraordinarias** cuando observan **ciertos comportamientos**.
+- **Robert House** identificó tres características: 1. **confianza elevada extrema**; 2. **carácter dominante**; 3. **fuerte convicción en sus creencias**.
+- **Efecto:** correlaciones impresionantes con **alto desempeño y satisfacción**; quienes trabajan para líderes carismáticos hacen un **esfuerzo adicional** y expresan **mayor satisfacción**.
+- **Límites:** no siempre da ese resultado; sería más apropiado cuando la tarea tiene un **alto componente de adhesión ideológica** (organizaciones "normativas" de **Etzioni**): por eso surgen más en **política, religión o empresas en crisis**. **Desaparecida la crisis** puede convertirse en una **carga**: su confianza exagerada le **impide escuchar**, se siente **incómodo cuando lo desafían** y desarrolla una **creencia injustificada y empedernida** en su visión.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Enfoques emergentes — Teoría del liderazgo carismático (p. 55–56).*
+</details>
+
+### 23. [enunciado] Enfoques emergentes: liderazgo transaccional vs. transformacional
+**P:** Diferenciá al líder transaccional del transformacional. ¿Son enfoques opuestos?
+<details><summary>Ver respuesta</summary>
+
+- **Transaccional:** **guía o motiva a sus subalternos hacia las metas establecidas al esclarecer los requerimientos de roles y tareas** (la mayor parte de las teorías anteriores se refieren a ellos).
+- **Transformacional:** **inspira a sus seguidores a trascender sus intereses personales por el bien de la organización** y tiene un efecto profundo y extraordinario (Wexner, Kelleher, Gates). 1. Presta atención a las **inquietudes y necesidades de desarrollo individuales**; 2. **cambia la percepción de los problemas** de sus subalternos; 3. es capaz de **emocionar, despertar e inspirar** para un esfuerzo adicional.
+- **No son opuestos:** el transformacional **se levanta por encima** del transaccional y produce **niveles de esfuerzo y desempeño mayores** que un enfoque transaccional exclusivo.
+- **Transformacional > carisma:** el puramente carismático quiere que adopten su visión y no vayan más allá; el transformacional infunde la **capacidad de cuestionar**, incluso los puntos de vista **del propio líder**.
+- **Evidencia:** oficiales militares (EE. UU., Canadá, Alemania) evaluados como **más efectivos**; gerentes de **Federal Express** con alto desempeño y más promociones; correlación con **menor rotación, mayor productividad y más alta satisfacción**.
+
+*Fuente: `apuntes/md/05-liderazgo.md` § Liderazgo transaccional y transformacional (p. 56).*
+</details>
+
+
+## 2. Gerente: Sallenave, Mintzberg y habilidades — prioridad 🟠 alta
+
+### 24. [método] Sallenave: responsabilidades del gerente general
+**P:** Según Sallenave, ¿de qué es responsable el gerente general? (qué hace)
+<details><summary>Ver respuesta</summary>
+
+1. **Definir la estrategia de la empresa:** determinar sus **objetivos** y los **medios** necesarios para lograrlos.
+2. **Marcar las pautas para la obtención y el uso de los recursos** conforme a un plan, y **organizar las tareas** de los miembros de la empresa.
+3. **Coordinar y controlar** las operaciones según un plan previsto.
+4. **Revisar la estrategia y las estructuras** en respuesta a los **imprevistos**, que pueden ser **externos** (ej.: una crisis energética) o **internos** (ej.: una huelga).
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § Qué hace el gerente general (responsabilidades) (p. 30).*
+</details>
+
+### 25. [método] Sallenave: campo de acción del gerente general
+**P:** Según Sallenave, ¿cuál es el campo de acción del gerente general?
+<details><summary>Ver respuesta</summary>
+
+Está formado por **cuatro elementos**:
+1. **Personas:** a las cuales el gerente dirige.
+2. **Estructuras de la empresa:** en las que el trabajo está **organizado, codificado y jerarquizado**; delimitan los **límites de responsabilidad y de autoridad**.
+3. **Estrategia:** que el gerente **puede y debe modificar** si la **subsistencia y el crecimiento** de la empresa lo requieren.
+4. **El medio ambiente externo.**
+- **Ilustración 4 ("El Gerente según Sallenave"):** una hélice de tres aspas (**Planeamiento y control**, **Organización**, **Liderazgo**) sobre anillos concéntricos **Personas → Estructura → Estrategias**, con una flecha que marca la frontera **Ambiente interno | Ambiente externo**.
+- Resumen: el campo de acción es la **triple dimensión Personas, Estructuras y Estrategias**, **a la cual se le incluye el medio ambiente externo**. Como es responsable de su estrategia, el gerente debe ser **líder, organizador y estratega**.
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § Campo de acción del gerente general (p. 30–31).*
+</details>
+
+### 26. [enunciado] Sallenave: medio ambiente interno, externo y estrategia en sentido amplio
+**P:** Según Sallenave, ¿qué forman el medio ambiente interno y externo, y qué es la estrategia «en sentido amplio»?
+<details><summary>Ver respuesta</summary>
+
+- El gerente dirige **no solamente a las personas, sino a la organización de las personas**: la **estructura misma** de la empresa.
+- **Personas + estructura = medio ambiente interno**, que tiene un **comportamiento propio** (organizacional) e **interactúa con el ambiente externo** en los dos sentidos:
+  1. de la estructura **surge una acción dirigida a modificar el ambiente externo** (ej.: una empresa que lanza una guerra de precios para eliminar a un competidor);
+  2. **cambios en el ambiente externo** determinan una **reacción de la empresa**.
+- **Estrategia en sentido amplio** = el **conjunto de relaciones entre el medio ambiente interno y externo** de la empresa.
+- El intercambio se da gracias a la **permeabilidad de los límites del sistema**: un sistema **no permeable (aislado) tiende a desaparecer** (Teoría General de Sistemas).
+- Paralelo: **estrategia** (relaciones medio externo ↔ empresa) y **comportamiento** (medio externo ↔ individuo).
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § Medio ambiente interno, externo y estrategia (p. 30–31).*
+</details>
+
+### 27. [método] Sallenave: los 3 papeles y las 3 funciones de mando
+**P:** ¿Cuáles son los tres papeles básicos del gerente general según Sallenave y cuáles las tres funciones de mando que esas cualidades le ayudan a cumplir?
+<details><summary>Ver respuesta</summary>
+
+Papeles (porque es responsable de su estrategia): 1. **Líder** · 2. **Organizador** · 3. **Estratega**.
+Las tres **funciones fundamentales** del empresario según las **Funciones de Mando**:
+1. **Preservar su empresa.**
+2. **Controlar las reacciones de la organización** cuando las previsiones no ocurren y los objetivos no se logran.
+3. **Concebir el futuro y proponer los objetivos a alcanzar.**
+- Estas tareas requieren las **cualidades personales de un verdadero líder**.
+- En el cap. V los tres papeles se nombran **estratega, planeador-organizador y líder-comunicador**.
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § Los tres papeles y las tres funciones de mando (p. 31).*
+</details>
+
+### 28. [enunciado] Sallenave: el gerente general estratega
+**P:** Según Sallenave, ¿en qué consiste el papel de estratega del gerente general? (cualidades, dos grupos de estrategas, castillo de poder)
+<details><summary>Ver respuesta</summary>
+
+- Realiza **acciones encaminadas a modificar el medio**, o las **relaciones entre la empresa y su entorno**: **es un político, no un filósofo**. Esta característica es la que **incluye al medio ambiente externo** en el campo de acción.
+- Pretende **ver las cosas tal como son y no como deberían ser**.
+- Dos cualidades: 1. **Virtud:** fijarse **objetivos realistas y alcanzarlos con los medios más económicos**; 2. **Fortuna:** la suerte que le sonríe a los audaces. **No existe una fórmula** para transformar a un funcionario medio en estratega.
+- **Dos grupos de estrategas:** 1. los que **no actúan a menos que sean presionados por las circunstancias** (arte de **sacar partido de una situación desfavorable**; la estrategia sería "salir de los apuros"); 2. los **"empresarios"**, que **buscan activamente oportunidades** (no problemas) y **asumen riesgos sistemáticamente**: los "emprendedores". (El compilado los llama *reactivo / proactivo*; el libro no usa esas etiquetas.)
+- "No todo es nobleza": también es un **manipulador** que maneja tiempo y personas para **mantener y aumentar su poder** y obtener la cooperación de los públicos (empleados, clientes, proveedores, accionistas). Construye un **castillo de poder** mediante un **juego de favores**: **los favores son la moneda de cambio del poder organizacional**, un mal necesario que asegura la cooperación entre departamentos; hechos **en detrimento de la empresa** son **prevaricato**.
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § El gerente general estratega (p. 31–32).*
+</details>
+
+### 29. [enunciado] Sallenave: el gerente general organizador
+**P:** Según Sallenave, ¿en qué consiste el trabajo del gerente en su rol de «organizador»?
+<details><summary>Ver respuesta</summary>
+
+- El **esquema organizacional** delimita el poder del gerente general; para él la estructura es **un dato en el presente, pero una variable en el futuro**.
+- **Función:** **ajustar la estructura y la estrategia** de modo que exista **congruencia** entre las dos y que **se valoricen mutuamente**.
+- **La estructura sigue a la estrategia**; las estructuras más complejas derivan de aplicar secuencialmente varias **estrategias de base**: 1. **expansión** · 2. **diversificación geográfica** · 3. **integración vertical** · 4. **diversificación de productos**. Cada una se relaciona con una **estructura diferente**, que permite **optimizar la asignación de recursos** para el mercado actual y el futuro.
+- **Ilustración 5 (estrategia de base → estructura inducida):** expansión de volumen → organización **centralizada**; expansión geográfica → **funcional**; integración vertical → **divisional**; diversificación de productos → **multidivisional**.
+- Nace así la **Teoría Contingente**: **no hay una estructura ideal**; en tiempos turbulentos **no todas las estructuras son igualmente válidas**, su **selección es contingente** y deben **modificarse conforme a los cambios estratégicos**.
+- **Desafío del organizador:** **ajustar constantemente el esquema organizacional a las modificaciones de la estrategia** para asegurar un mejor desempeño. Es **responsable del desempeño global**, que depende de **la estrategia**, del **esquema organizacional** y de la **congruencia entre los dos**.
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § El gerente general organizador + Ilustración 5 (p. 32–33).*
+</details>
+
+### 30. [enunciado] Sallenave: el gerente general líder y la doble sensibilidad
+**P:** Según Sallenave, ¿qué implica el papel de líder (y comunicador) del gerente general y cuál es la «doble sensibilidad»?
+<details><summary>Ver respuesta</summary>
+
+- Aunque sea un **excelente técnico (estratega y organizador)**, **no podrá alcanzar el éxito sin la cooperación** de empleados, clientes, proveedores, accionistas, banqueros: **el corazón de la organización está formado por personas**. Requiere las cualidades de **comunicador** y de **líder**.
+- **Como comunicador:** hacer comprender a sus públicos **cuál es la estrategia de la empresa y por qué requiere determinado esquema organizacional**.
+- **Como líder:** **influir en el comportamiento de sus colaboradores** para lograr los objetivos de la organización en forma eficaz.
+- **Doble sensibilidad** (de donde proviene el liderazgo organizacional):
+  1. **Sensibilidad a las personas:** el líder es un **jefe**, un **manipulador** que utiliza su **poder y su influencia**, **legitimados por su autoridad jerárquica**.
+  2. **Sensibilidad a los objetivos de la organización:** tiene una **visión clara de las metas**; sabe **subordinar los objetivos individuales a los organizacionales** y **acomodarse a las situaciones**, aunque sean comportamientos negativos.
+- Son **las cualidades peor distribuidas entre los gerentes generales**.
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § El gerente general líder + La doble sensibilidad (p. 33).*
+</details>
+
+### 31. [método] Sallenave: no hay líder ideal; la grilla de la Ilustración 6
+**P:** Según Sallenave, ¿existe un tipo de líder ideal? ¿Qué muestra la grilla de la Ilustración 6?
+<details><summary>Ver respuesta</summary>
+
+- El esquema de la doble sensibilidad da una **visión estática**. **No hay un tipo de líder ideal, sino una variedad de estilos**, cada uno adaptado a la **realidad y necesidad de la organización en determinada situación**.
+- Cada líder tiene **los mismos genes que el autócrata, el burócrata y el demócrata**, pero además posee **adaptabilidad**; de eso carecen quienes **se encierran en un sistema de pensamiento**. "El líder es un hombre abierto que une el sentido de lo humano al sentido de sus responsabilidades".
+- **Ilustración 6 (grilla 2×2):** eje horizontal **sensibilidad a las personas** (débil / aguda), eje vertical **sensibilidad a los objetivos** (débil / aguda):
+  1. Objetivos **aguda** + personas **débil** → **Autócrata**.
+  2. Objetivos **aguda** + personas **aguda** → **Líder**.
+  3. Objetivos **débil** + personas **débil** → **Burócrata o despreocupado**.
+  4. Objetivos **débil** + personas **aguda** → **Demócrata o demagogo**.
+  Una diagonal va de **Directivo** (arriba a la izquierda) a **Permisivo** (abajo a la derecha).
+
+*Fuente: `apuntes/md/03-gerente-general-sallenave.md` § No hay un líder ideal + Ilustración 6 (p. 33–34).*
+</details>
+
+### 32. [enunciado] Mintzberg: qué es un rol y cómo llega a los papeles
+**P:** ¿Qué es un rol y cómo llega Mintzberg a los papeles interpersonales, informativos y decisionales? ¿Por qué funciones y papeles no son lo mismo?
+<details><summary>Ver respuesta</summary>
+
+- **Rol:** "los patrones de conducta que se esperan de un individuo en una unidad social"; **lo que se espera que alguien haga para satisfacer los requerimientos de su puesto**.
+- **Mintzberg** (encuesta amplia y rigurosa): "existe considerable semejanza en el comportamiento de los administradores en todos los niveles". Encadenamiento:
+  1. Todos poseen **autoridad formal** sobre sus unidades.
+  2. Esa autoridad les confiere un **"estatus"**.
+  3. El estatus hace que tengan **relaciones interpersonales** con colaboradores, colegas y superiores.
+  4. Esas personas les **suministran la información** que necesitan para la **toma de decisiones**.
+  5. Esos aspectos los impulsan a asumir papeles **interpersonales, informativos y decisionales**.
+- Papeles = "**conjuntos orgánicos de comportamientos que se identifican con un puesto**".
+- **Nota de la cátedra:** es impropio asimilar **funciones** con **papeles**: las funciones se **asignan formalmente a cada puesto**; los papeles (roles) están más sujetos a las **características personales** de quienes desempeñan los cargos.
+- Mintzberg: hay una **leyenda** sobre lo que hacen los gerentes y una **realidad** más elástica, variada y dinámica, que **no desmiente los principios teóricos**.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Roles de los gerentes: qué es un rol y el enfoque de Mintzberg (p. 36).*
+</details>
+
+### 33. [método] Mintzberg: las 3 esferas y los 10 papeles
+**P:** ¿Cuáles son las tres esferas de actuación del gerente según Mintzberg y qué papeles tiene cada una?
+<details><summary>Ver respuesta</summary>
+
+El trabajo del gerente es la **suma de varios papeles o comportamientos**, en dos planos sucesivos e interconectados. Tres esferas, **10 papeles** (3 + 3 + 4):
+1. **Interpersonal** (3 papeles): **Representante** (figura directiva) · **Líder** · **Enlace**.
+2. **Informacional** (3 papeles; el gerente es el **foco central de información de la empresa**): **Monitor** · **Difusor** (diseminador) · **Portavoz** (vocero).
+3. **Decisional** (4 papeles; la información es la fuente básica para decidir y quien decide en la unidad es el gerente): **Emprendedor** · **Árbitro** (manejador de conflictos) · **Administrador de recursos** · **Negociador**.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Las esferas de actuación del gerente según Mintzberg (p. 37).*
+</details>
+
+### 34. [método] Mintzberg: esfera interpersonal
+**P:** Desarrollá los papeles de Mintzberg en la esfera de actuación interpersonal.
+<details><summary>Ver respuesta</summary>
+
+1. **Representante (figura directiva):** desempeña funciones como **cabeza de su unidad**, incluidos papeles **simbólicos o ceremoniales**; ante los miembros de la organización y ante los observadores externos **personifica los aciertos y fracasos** de aquélla.
+2. **Líder:** inherente a su carácter de **responsable del trabajo de su gente** (algunas tareas implican liderazgo directo); **coordina, dirige y motiva** a sus colaboradores; debe **conciliar los objetivos personales de cada uno con los de la organización**. La **autoridad formal** le da una cantidad de poder; el **liderazgo legitimado** determina **cuánto de ese poder puede usar**.
+3. **Enlace:** "deben aprender a trabajar dentro o fuera de la organización" con quienquiera que pueda ayudarles; establece **contactos fuera de su línea vertical de mando** (usa tanto tiempo con colaboradores como con colegas y personas ajenas); forma **redes de obligaciones recíprocas** y **coaliciones**, y se apoya en sus relaciones para **lograr cooperación**; en sentido formal, **conecta a la empresa o a su departamento con el entorno**.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Esfera interpersonal: representante, líder, enlace (p. 37–38).*
+</details>
+
+### 35. [método] Mintzberg: esfera informacional
+**P:** Desarrollá los papeles de Mintzberg en la esfera de actuación informacional.
+<details><summary>Ver respuesta</summary>
+
+El gerente se constituye en el **foco central de información de la empresa**.
+1. **Monitor:** **permanente búsqueda, examen y seguimiento de informaciones del ambiente externo**, mediante requerimientos a sus colaboradores o a otros enlaces; recibe gran cantidad de **información no solicitada**, sobre todo a través de **redes de contactos formales y extraoficiales que él mismo desarrolló**.
+2. **Difusor (diseminador):** debe **compartir gran parte de esa información**; los informes que recaba de contactos externos pueden ser necesarios dentro de la organización; **distribuye y divulga la información relevante para sus colaboradores**, la que necesitan para **tomar decisiones acertadas** y desempeñar eficazmente sus funciones.
+3. **Portavoz (vocero):** **transmite parte de su información a terceros, fuera de su unidad, particularmente a sus superiores** (todo gerente debe informar a las personas influyentes que controlan su unidad); igual que los **diplomáticos**, se guía por **lo que conviene a la empresa y a su área**.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Esfera informacional: monitor, difusor, portavoz (p. 38).*
+</details>
+
+### 36. [método] Mintzberg: esfera decisional
+**P:** Desarrollá los papeles de Mintzberg en la esfera de actuación decisional.
+<details><summary>Ver respuesta</summary>
+
+La información **no es un fin en sí misma**: es la **fuente básica para tomar decisiones**, y quien decide en la unidad es el **gerente** (**sólo él tiene la información completa y al día** para el conjunto de decisiones que determina la estrategia del área). Cuatro papeles:
+1. **Emprendedor:** es el **estratega** y *creador de negocios por excelencia*; debe **iniciar cambios** cuando su conocimiento de la organización y del ambiente lo indique; trata de **mejorar y adaptar** la unidad a las condiciones cambiantes; en **constante sondeo de nuevas ideas**: cuando aparece una buena **inicia un proyecto de desarrollo** (lo supervisa o lo delega) y va **chequeando el avance** de cada proyecto.
+2. **Árbitro:** no existen organizaciones sin conflictos: debe **manejarlos y resolverlos** para **mantener la estabilidad interna**; debe **pensar analítica y conceptualmente** y **prever las implicaciones** de sus decisiones; **afrontar las perturbaciones** (una huelga, un enfrentamiento dentro de su unidad, un cliente importante que quiebra); si hace caso omiso, terminan en **crisis**.
+3. **Administrador de recursos:** decide "qué se le dará a cada uno dentro de la unidad y cómo se dividirá el trabajo" (detalle en la carta siguiente).
+4. **Negociador:** dedica gran parte de su tiempo a negociaciones internas y externas (detalle dos cartas más adelante).
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Esfera decisional: emprendedor, árbitro, administrador de recursos, negociador (p. 38–39).*
+</details>
+
+### 37. [enunciado] Mintzberg: el papel de administrador de recursos
+**P:** Explicá en detalle el papel de administrador de recursos de Mintzberg.
+<details><summary>Ver respuesta</summary>
+
+1. La responsabilidad de decidir **"qué se le dará a cada uno dentro de la unidad y cómo se dividirá el trabajo"** está en manos del gerente.
+2. Una de las cosas de más valor que asigna es **su propio tiempo**.
+3. Al **reservarse este poder**, se asegura que las decisiones estén en **sincronismo con los recursos asignados**.
+4. Como hay gran cantidad de objetivos y metas (**complementarios y contrapuestos** a la vez), los responsables bajo su mando **compiten por los recursos, tanto materiales como humanos**.
+5. Los recursos son **siempre limitados**: como organizador de su unidad, debe asignarlos logrando un **balanceo de objetivos**.
+- Agregado de la cátedra: *las definiciones de prioridades que comporta este rol son, casi siempre, la expresión concreta de la verdadera política de un gerente*.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Esfera decisional — Administrador de recursos (p. 39).*
+</details>
+
+### 38. [enunciado] Mintzberg: el papel de negociador
+**P:** Explicá en detalle el papel de negociador de Mintzberg.
+<details><summary>Ver respuesta</summary>
+
+1. Los estudios indican que los gerentes utilizan **gran cantidad de su tiempo en negociaciones**.
+2. Para ellos son **una forma de vida**, porque cuentan con los **conocimientos y las facultades** necesarias y tienen la **autoridad para comprometer los recursos** de la organización o de su unidad.
+3. Se da tanto en el **ámbito interno** (los gerentes departamentales con sus pares) como en el **externo** (con el sindicato, los competidores, los proveedores).
+4. Eso determina **a qué nivel gerencial le corresponde negociar cada situación**: el presidente o gerente general encabeza las negociaciones para evitar una huelga; el capataz discute una queja con el jefe de taller (agregado de la cátedra).
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Esfera decisional — Negociador (p. 39).*
+</details>
+
+### 39. [enunciado] Mintzberg: relevancia según la jerarquía, inseparabilidad y afinidades
+**P:** ¿Los 10 papeles de Mintzberg pesan igual en todos los niveles? ¿Son separables? ¿Qué afinidades muestra la Ilustración 7?
+<details><summary>Ver respuesta</summary>
+
+- Son los papeles que se espera que cumpla un gerente; tienen **distinta relevancia según la jerarquía y las circunstancias**, y los desempeñan de una u otra forma **los gerentes de todo nivel**.
+- **No son fácilmente separables:** interpersonal, informativo y decisional son **casi siempre inseparables**: *un gerente sin contactos de enlace carece de información; como resultado no puede diseminar información ni tomar decisiones*.
+- Ejemplos de relevancia: el de **Representante** es más frecuente en **niveles altos**; el de **Enlace**, en el **nivel medio** (internamente) y **alto** (hacia afuera).
+- **Afinidades (Ilustración 7):**
+  1. El **representante** se suele aprovechar para ser **portavoz** y, de hecho, **negociador** con otras firmas.
+  2. El **líder** también es **difusor** para sus colaboradores.
+  3. En los procesos de **enlace** externos es de hecho un **portavoz**.
+  4. Entre las responsabilidades del **líder** está **arbitrar** los conflictos intra-grupales (influye en el desempeño y el clima).
+  5–6. El **emprendedor** busca **enlaces** con el entorno, lo que exige decisiones para aprovechar recursos (**monitor** y **administrador de recursos**).
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Los 10 papeles: relevancia según la jerarquía e inseparabilidad + Ilustración 7 (p. 39–40).*
+</details>
+
+### 40. [método] Correspondencia Sallenave–Mintzberg
+**P:** ¿Cómo se corresponden los tres papeles de Sallenave con los diez de Mintzberg?
+<details><summary>Ver respuesta</summary>
+
+1. **Estratega** ↔ Emprendedor, Negociador, Portavoz, Enlace, Representante.
+2. **Planeador-organizador** ↔ Administrador de recursos, Monitor, Árbitro.
+3. **Líder y comunicador** ↔ Representante, Líder, Difusor, Portavoz, Árbitro.
+- El libro expone cada enfoque por separado y después los relaciona para alcanzar una **concepción más totalizadora** de la labor gerencial.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Correspondencia Sallenave–Mintzberg (p. 39).*
+</details>
+
+### 41. [método] Habilidades del gerente: conceptuales, técnicas y humanas
+**P:** ¿Cuáles son las tres habilidades que se requieren de los gerentes? Describí cada una.
+<details><summary>Ver respuesta</summary>
+
+1. **Conceptuales:** tener **visión de la complejidad del todo**; la **capacidad de abstraer lo esencial** que subyace en un conjunto de situaciones particulares (p. ej., comprender las relaciones entre las unidades a su cargo, o descubrir hacia dónde tienden los mercados de su empresa).
+2. **Técnicas:** el **conocimiento, procedimientos y recursos que se aplican en un campo de especialización** (ingeniería, cómputo, contabilidad, producción de bienes o servicios, etc.).
+3. **Humanas:** la **capacidad de interactuar y trabajar bien con otras personas**, individual o en grupo; **motivar**; **resolver problemas interpersonales**.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Habilidades que se requieren de los gerentes (p. 41).*
+</details>
+
+### 42. [método] Habilidades y nivel de la estructura (Ilustración 8)
+**P:** Relacioná las tres habilidades gerenciales con la escala ocupada dentro de la estructura organizacional.
+<details><summary>Ver respuesta</summary>
+
+- Los requerimientos **no son iguales en todos los niveles de la estructura**: las funciones y roles exigen **en mayor medida algunas habilidades y menos otras**, pero **ninguno está eximido** de contar con ellas.
+- **Ilustración 8** (pirámide alto / medio / bajo vs. habilidades requeridas):
+  1. **Nivel alto:** predominan las **conceptuales**; menos técnicas.
+  2. **Nivel medio:** mezcla intermedia de conceptuales y técnicas.
+  3. **Nivel bajo:** predominan las **técnicas**; menos conceptuales.
+  4. **Humanas:** importancia **pareja en todos los niveles** (bloque del mismo ancho).
+- **Caso de las humanas:** no sólo para la **conducción de colaboradores** sino para la **relación con pares**; su importancia **viene creciendo**: ya no sólo para quienes manejan personal numeroso (niveles inferiores) sino para aumentar la **motivación y satisfacción de los funcionarios más altos** (no bastan remuneraciones atractivas ni el sentido de responsabilidad). **Cualquier gerente, sin depender de su posición, debe poseer habilidades humanas.**
+- El cuadro expresa la **importancia relativa** de cada grupo, **sin absolutizarla**.
+
+*Fuente: `apuntes/md/04-roles-de-mintzberg-y-habilidades-del-gerente.md` § Habilidades y nivel de la estructura (Ilustración 8) (p. 41).*
+</details>
+
+
+## 3. Cultura de la organización — prioridad 🟠 alta
+
+### 43. [enunciado] El macroambiente
+**P:** ¿Qué es el macroambiente de una organización y qué sistemas lo forman?
+<details><summary>Ver respuesta</summary>
+
+- Cada organización existe en un **ambiente sumamente complejo** que influye sobre su composición y actividad: ese entorno total es el **macroambiente**.
+- Está formado **como mínimo por tres sistemas principales: cultural, político y económico**; el libro agrega la **tecnología** y el **sistema social** (Ilustración 3: sistema cultural externo → sistema cultural interno → sistema organización, con doble flecha hacia los cinco sistemas).
+- El integrante de una organización **sufre la influencia de esas fuerzas, reacciona frente a ellas y necesita comprender su naturaleza** para desempeñarse bien. El **dinamismo y la complejidad crecen a un ritmo sin precedentes**.
+- De toda esa red, el capítulo analiza la **interdependencia entre cultura, sociedad y organización**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Generalidades — El macroambiente (p. 21).*
+</details>
+
+### 44. [enunciado] Definición clásica de cultura
+**P:** Dá la definición clásica de cultura y aclará su alcance.
+<details><summary>Ver respuesta</summary>
+
+- **Cultura:** "el conjunto complejo que comprende **conocimientos, creencias, arte, moral, ley, costumbres** y cualesquiera otras **capacidades y hábitos adquiridos por el hombre como miembro de la sociedad**".
+- Es un concepto **antropológico**, referido únicamente al Hombre: **no abarca el reino animal** ni otros aspectos del medio natural.
+- Denotación más extensa: **todo lo que la especie humana introdujo o creó en el medio ambiente**, incluida toda construcción material.
+- En el plano del libro, cultura es "el **modo en que la sociedad vive**, incluyendo las relaciones entre **valores, roles y normas de comportamiento**", y el **conjunto de respuestas incorporadas por la sociedad frente a situaciones determinadas**, que permiten a sus integrantes vivir e interactuar.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Generalidades — Definición clásica de cultura (p. 21).*
+</details>
+
+### 45. [enunciado] Cultura organizacional: definición
+**P:** Definí cultura organizacional (incluida la definición de Robbins y Coulter) y explicá por qué es una subcultura.
+<details><summary>Ver respuesta</summary>
+
+- Cada organización **crea su propia cultura, que es una subcultura respecto de la que reina en su ambiente social**: **patrones de conducta propios de la organización, adquiridos y ajustados al contexto del patrón cultural de la sociedad**, más amplio y que lo comprende.
+- Esos patrones representan lo que se considera **"bueno" para los fines** de la organización y, **tácitamente aceptados por sus miembros**, pasan a ser el **sistema de valores** al que se espera que ajusten sus normas individuales.
+- **Robbins y Coulter:** "la cultura organizacional se refiere a un **sistema de significados compartidos** entre sus miembros y que **distingue a una organización de las otras**".
+- Los patrones a veces se **establecen formalmente** y otras **rigen de manera implícita**.
+- Base: cada persona es **portadora de valores y conductas modeladas en sus grupos de pertenencia** (familia, escuela, amistades, sector social); las organizaciones son **sistemas sociales** que hay que estudiar **siempre en relación con el sistema cultural, nunca como entes aislados**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § La cultura de la organización como subcultura de la sociedad (p. 22).*
+</details>
+
+### 46. [método] Características comunes de las culturas organizacionales y el estilo de la Alta Dirección
+**P:** ¿Qué características comunes tienen las culturas organizacionales y qué papel juega el estilo de la Alta Dirección?
+<details><summary>Ver respuesta</summary>
+
+Características comunes:
+1. Se **instalan por imitación, interacción y aprendizaje**.
+2. Son **dinámicas** y suelen experimentar **cambios que escapan al control de la Dirección**.
+3. Se desarrollan en un marco de **interacciones recíprocas con el contexto**.
+4. Pueden tener **perfil propio** o **tender a emular a otras culturas organizacionales exitosas**.
+Estilo de la Alta Dirección: elemento de **importancia decisiva, aunque no el único**; los rasgos de personalidad de la Alta Dirección (frutos de sus propias subculturas) se **proyectan con peso considerable en los mandos intermedios**, pero suelen ser **atenuados o condicionados** por el **contexto económico-social**, el **tipo de tecnología** y los **valores y creencias del ambiente externo**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Características comunes + El estilo de la Alta Dirección (p. 22).*
+</details>
+
+### 47. [método] Grupos primarios
+**P:** ¿Qué son los grupos primarios y cuáles son sus características?
+<details><summary>Ver respuesta</summary>
+
+- Grupos **no determinados por la estructura formal**, integrados por **pocas personas** entre las que hay **interacción** y un **cierto interés común** que los hace una **entidad reconocida** por ellos y/o por terceros. Forman parte de la **"organización informal"**. Su **relevancia en todo el proceso organizacional** (incluido el manejo y control) se acepta unánimemente.
+1. **Base afectiva:** afinidades entre sus miembros, que **no necesariamente trabajan en el mismo espacio físico** (aunque suelen surgir en un mismo sector).
+2. Son **pequeños**.
+3. Su relación es **espontánea, voluntaria, durable**.
+4. **Se constituye en un fin en sí misma:** la aparición de **objetivos del grupo es generalmente posterior a su formación**.
+- **No siempre se reúnen todas estas condiciones.** Son los grupos que **interesan para analizar la organización en sus aspectos informales**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Interrelaciones individuo–grupo–empresa — Grupos primarios (p. 22–23).*
+</details>
+
+### 48. [método] Grupos secundarios y contraste con los primarios
+**P:** ¿Qué son los grupos secundarios? Contrastalos con los primarios.
+<details><summary>Ver respuesta</summary>
+
+- Características en general **opuestas** a las de los primarios: son el **resultado de las relaciones formales establecidas en la estructura**: **los objetivos y tareas que se les asignan dan origen al grupo**.
+- Normalmente de **mayor tamaño** (a veces muy numerosos), según el **grado de departamentalización** de la estructura.
+- Corresponden a la **organización formal**, lo cual **no impide que dentro de ellos se formen y coexistan grupos primarios**, basados en relaciones más estrechas y personales.
+Contraste rápido:
+1. **Origen:** primario = organización informal (no determinado por la estructura); secundario = relaciones formales de la estructura.
+2. **Tamaño:** pequeño vs. mayor.
+3. **Relación:** espontánea, voluntaria, durable, afectiva y fin en sí misma vs. dada por los objetivos y tareas asignados.
+4. **Objetivos:** aparecen después de formado el grupo vs. el objetivo/tarea da origen al grupo.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Grupos secundarios + Contraste rápido (p. 23).*
+</details>
+
+### 49. [enunciado] Los grupos como vehículo de control social; la organización como sistema social
+**P:** ¿Qué función cumplen los grupos como vehículos de control social, y por qué la organización se define como un sistema social?
+<details><summary>Ver respuesta</summary>
+
+- Los grupos son **uno de los principales vehículos de control social**: mediante el grupo el individuo **adquiere metas, actitudes e ideales**; **coactiva o persuasivamente** imponen a sus miembros el cumplimiento de sus pautas.
+- Como la vinculación de los primarios es **cara a cara**, la **tecnología** (que condiciona las relaciones del proceso) **determina en muchos casos su formación**.
+- Los grupos informales cumplen una **función integradora** e **influyen y determinan en gran medida el comportamiento** de sus integrantes; pueden **conferir cohesión** o ser **vehículos de disociación**, según el **clima social imperante** y la coincidencia entre las medidas instrumentadas y los fines grupales. Son **vías de comunicación** e **instrumentos de integración**.
+- Conclusión: **la organización puede definirse como un sistema social**: **complejo, dinámico y abierto**; por eso **puede renovarse estructuralmente cuando afronta una crisis**, aunque **conserva ciertos rasgos inherentes a su identidad**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Los grupos y el control social + Conclusión: la organización como sistema social (p. 23).*
+</details>
+
+### 50. [enunciado] Pertenencia
+**P:** Explicá y detallá la pertenencia.
+<details><summary>Ver respuesta</summary>
+
+- Contexto: la cultura comprende **hipótesis fundamentales** (conocimientos de partida para actuar, tomadas como verdades primarias); **el hecho de compartirlas es el criterio de pertenencia a la cultura**. Los sentimientos de los integrantes hacia la organización se manifiestan en **grados: pertenencia, implicación e identificación**.
+- **Pertenencia:** una **percepción del sujeto**: el miembro tiene **clara noción de a qué organización "pertenece"**, sin que ello signifique necesariamente **adhesión, satisfacción o involucración**.
+- Es una **relación unívoca**, que puede darse o no, y que puede o no generar después **crecientes grados de adhesión** que aseguren el aporte de su esfuerzo.
+- Ejemplos: 1. la **"no pertenencia"** del chico de la Puna en *La deuda interna* ("cuando estuvimos en la Argentina"); 2. el **jugador de fútbol** hincha de un club que juega en otro: cuando sale a la cancha **pertenece (aunque sea transitoriamente) al que lo contrató**.
+- Cuando alguien **reconoce realmente la pertenencia** a una organización, percibe a su vez que **la organización le pertenece**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Pertenencia, implicación, identificación — i) Pertenencia (p. 23–24).*
+</details>
+
+### 51. [enunciado] Implicación (involucración)
+**P:** Explicá y detallá la implicación (involucración), incluida la definición de Porter.
+<details><summary>Ver respuesta</summary>
+
+- **Relación biunívoca / bidireccional:** el empleado **comparte los objetivos de la organización, los siente propios**, porque existe **coherencia entre ellos y las posibilidades de llevarlos a cabo** y porque percibe que **son útiles para ambos**. Se compromete porque **siente creíbles los objetivos**.
+- Conducta **positiva**: asegura una **marcha paralela entre la organización y el empleado**, pero **sólo por un tramo de la vida**.
+- **Porter:** 1. **convencimiento y aceptación de los objetivos y valores** de la organización; 2. **voluntad de actuar en la dirección de los objetivos y misiones** fijados; 3. **fuerte deseo de participar en la vida de la organización**.
+- Su base es un **claro sistema de objetivos**: **si el objetivo no es creíble, la implicación será nula** (subir la calidad de 90 % a 95 % es aceptable; "en un mes" lo vuelve inalcanzable).
+- Favorece la eficacia sin significar **adhesión incondicional ni adoración**. Requiere un **clima de confianza y comunicación**; las comunicaciones **nunca deben convertirse en manipulaciones** (manipular = influir explotando las habilidades del otro pero **enrareciéndole el objetivo**; el individuo lo nota enseguida).
+- Sólo se llega con **comunidad de objetivos y medios y confianza mutua**: el individuo **acuerda primero y luego actúa convencido**; los objetivos ambiciosos son más creíbles con **mecanismos de consenso**, y la empresa convence si **la realidad se corresponde con los valores** que proclama.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § ii) Implicación (p. 24–25).*
+</details>
+
+### 52. [enunciado] Identificación
+**P:** Explicá y detallá la identificación. ¿Por qué Argyris la considera malsana?
+<details><summary>Ver respuesta</summary>
+
+- El individuo siente que **la suerte de la organización es su propia suerte**: lo bueno o malo que le pasa a aquélla es como si le pasara a él mismo.
+- Ejemplos: el **hincha de fútbol** que dice "ganamos", "perdimos" sin intervenir en el juego; el **militante político o religioso** que confunde sus creencias con su propia vida.
+- **Chris Argyris:** sería **malsano en el caso de las empresas**: para ser **eficaz en su trabajo el individuo necesita una buena vida de "no-trabajo"** ("ponerse la camiseta de la empresa cuando está en ella y sacársela cuando sale").
+- Las empresas suelen **pedir la identificación** (portavoces y primeras víctimas: los **jefes**): es una mirada de **corto plazo**; la entrega absoluta es **insostenible en el largo plazo**: el agente se vuelve **pasivo, sometido, rutinario**, o **se va** para vivir con mayor plenitud.
+- El libro coincide con Argyris: la identificación es malsana **para el empleado y, a la corta o a la larga, para la propia empresa**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § iii) Identificación (p. 25).*
+</details>
+
+### 53. [método] Niveles culturales y qué son las subculturas
+**P:** ¿Qué niveles culturales enmarcan la cultura empresarial? ¿Qué son las subculturas y qué comparten?
+<details><summary>Ver respuesta</summary>
+
+Tres niveles:
+1. La **cultura empresarial**: sólo concierne al grupo social dentro de los límites de la empresa.
+2. Una **cultura exterior a la empresa, nacional o regional** (valores, percepciones comunes, maneras parecidas de enfocar la realidad).
+3. Una **variedad de culturas internas (subculturas)**, que corresponden a los **grupos sociales de los que provienen sus miembros**, **no forzosamente coherentes entre sí**.
+- La cultura de la empresa **resulta de la combinación de un conjunto de subculturas**.
+- **Subculturas:** **expresiones de grupos humanos** que **se autorregulan** mediante **normas y reglas implícitas** y un **patrimonio de experiencias comunes**, lo que les da un **enfoque relativamente unificado de la realidad**. Comparten: 1. **Supuestos** (marcos de referencia: maneras de pensar y de hacer); 2. **Valores** (en qué creemos, qué principios importan más); 3. **Significados** (cómo interpretamos los hechos); 4. **Imagen corporativa** (cómo nos vemos y cómo creemos que nos ven).
+- La cultura **no es sólo un conjunto de signos folklóricos**: es el resultado de un proceso de **creación, verificación y selección de normas y maneras de hacer**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Niveles culturales que enmarcan la cultura empresarial (subculturas) (p. 25–26).*
+</details>
+
+### 54. [enunciado] Por qué surgen las subculturas
+**P:** ¿Por qué surgen las subculturas y cómo se relacionan con la dirección de la empresa?
+<details><summary>Ver respuesta</summary>
+
+1. Su existencia **no es programada por la dirección** ni es consecuencia de un proyecto empresarial: en cualquier organización se desarrollan **procesos no conducidos ni controlados**, sin relación directa con las estrategias internas.
+2. La **cultura de los dirigentes**, aunque importante, es **una entre todas las demás subculturas**: la cultura empresarial **no es necesariamente la de sus dirigentes** (aunque la de éstos tiene una influencia poderosa).
+3. Agrupan a los individuos por **razones distintas** de las que habitualmente clasifican a los participantes: variables como la **formación**, la **actitud respecto del trabajo** o una **historia común**.
+4. La base de la conformación de la cultura **no es la negación de las subculturas**, sino la **creación de otros lugares comunes de reconocimiento y de representación a nivel del conjunto**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Por qué surgen las subculturas y cómo se relacionan con la dirección (p. 25–26).*
+</details>
+
+### 55. [método] Culturas fuertes y débiles (y la relación con los paradigmas)
+**P:** ¿Qué es una cultura fuerte y una débil? ¿Cuál conviene? ¿Cómo se relacionan con los paradigmas mecanicista y organicista?
+<details><summary>Ver respuesta</summary>
+
+- Criterio: el **grado de homogeneidad en el interior de la organización**.
+1. **Fuerte:** las **normas, estándares y guías fijadas por los distintos niveles de Dirección** son **bastante uniformes, conocidas y compartidas por todos** (o por una gran mayoría), fomentando una **orientación común de comportamiento**.
+2. **Débil:** las **normas de subgrupos, o aun individuales, sobrepasan la influencia de las normas emanadas de la Dirección**: **predominan las subculturas grupales**.
+- **Sin carga valorativa: débil no significa siempre malo.** A veces es deseable **facilitar y/o estimular la influencia de las subculturas** (permite **diversidad de pensamientos y acciones**); pero en culturas débiles **no es fácil lograr comportamientos consistentes** en toda la organización.
+- Se aplica el **"enfoque de Contingencias"**: las **variables tecnológicas y sociales del ambiente interno** determinan, según el caso, la conveniencia de una cultura fuerte o débil.
+- **Relación con los paradigmas:** el cap. III **no la desarrolla** (los paradigmas están en el cap. II) y la respuesta del compilado tampoco. La relación que propone `estrategia.md` §3.1 para armarla en el examen: **fuerte** = normas uniformes emanadas de la Dirección ≈ **mecanicismo**; **débil** = predominio de subculturas y diversidad ≈ **organicismo**; y la elección entre ambas es **contingente** (no hay una única mejor). *(Relación armada, no textual del libro.)*
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Culturas «fuertes» y culturas «débiles» (p. 26).*
+</details>
+
+### 56. [método] Sistemas culturales formales: los 5 elementos
+**P:** ¿Qué son los sistemas culturales y cuáles son los cinco elementos del sistema cultural formal?
+<details><summary>Ver respuesta</summary>
+
+- La cultura organizacional (o **corporativa**) tiene **componentes** (básicamente **valores y creencias**) que caracterizan la **personalidad e identidad** de la empresa, proporcionan **patrones de evaluación** e **influyen decisivamente en cómo funciona** (repercuten en el comportamiento de sus integrantes). Se manifiestan a través de **dos sistemas culturales: formales e informales**.
+- **Formales:** las **normas formales** y las **políticas trazadas por sus autoridades** son expresión de la **cultura oficial**. Cinco elementos crean y sostienen la cultura:
+1. **Estructura organizacional:** típicamente **burocrática** (estricta división de tareas, estandarización, competencia y especialización); las grandes la requieren para sobrevivir, pero tiene disfunciones: la gente **obedece a la autoridad sin importar qué ordene**, los jefes **evaden culpas**, el trabajo y los roles se **fragmentan** (nadie se responsabiliza del producto final). Los nuevos diseños **extienden la responsabilidad hacia abajo** (Barcos, "Gerencia Múltiple": libertad de actuar dentro de principios unificadores).
+2. **Líderes:** los líderes formales son un **componente crítico**: pueden **crear, mantener o cambiar la cultura**; los **fundadores** dan la orientación inicial; **personifican los valores** (rol modelo) y guían decisiones a todo nivel.
+3. **Códigos y políticas:** valores, misiones y credos (abstractos) y **códigos formales**; un código puede **prescribir el comportamiento**, pero si no se sigue produce una organización **"fuera de línea"** (dice algo y hace otra cosa): deben ser **consistentes con el sistema cultural**.
+4. **Sistemas de recompensa:** las bases de remuneraciones e incentivos son un **mensaje sobre qué valores se premian**; como **la gente hace lo que tiene recompensa**, los objetivos deben ser **coherentes con las políticas proclamadas** y no cumplirse con comportamientos indeseables (premiar el objetivo sin mirar los medios impulsa conductas reñidas con la ética).
+5. **Programas de orientación y entrenamiento:** comunican **valores y guías** para desenvolverse en la organización; deben ser **consistentes con la cultura**, si no fracasan o no se toman en serio.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Sistemas culturales + Sistemas culturales formales (p. 26–28).*
+</details>
+
+### 57. [método] Sistemas culturales informales: los 5 elementos
+**P:** ¿Cuáles son los cinco elementos del sistema cultural informal?
+<details><summary>Ver respuesta</summary>
+
+- Suelen ser **elementos inmateriales, producto de la creación espontánea de los miembros**; pueden **incorporarse a las normas** de la organización y adquirir carácter formal.
+1. **Mística e historias:** la gente **inventa historias y construye místicas para darle sentido a su mundo**; son **anécdotas de sucesos importantes** que a veces se magnifican en **mitos legendarios**; protagonistas: los **fundadores** o empleados **"héroes"**; la **moraleja expresa valores** de la organización.
+2. **Ritos:** **gestos y ceremonias instituidos por la costumbre**; informales (saludos de rutina, festejos) o formalizados (la presentación e iniciación del nuevo empleado, **"inducción"**); dicen **simbólicamente qué se debe hacer y qué se espera**: afirman y comunican la cultura de manera tangible.
+3. **Tabúes:** lo que se considera **prohibido o, al menos, inconveniente**; proceden del medio cultural social, pero cada organización crea los suyos (ej.: el **tuteo** en ciertos niveles).
+4. **Símbolos de estatus:** formalizados (**tamaño del escritorio o del despacho** según jerarquía, **derecho a estacionar**) o basados en la costumbre (dónde se almuerza).
+5. **Jerga:** el **lenguaje peculiar de la actividad**, términos acuñados espontáneamente dentro de la organización o de un sector; sirve para **comunicar valores**, es **eficiente y directo**, es **muestra patente de pertenencia** y fomenta la **solidaridad** del grupo.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Sistemas culturales informales (p. 28).*
+</details>
+
+### 58. [método] Utilidad del estudio de la cultura de la organización
+**P:** ¿Por qué es importante conocer la cultura de una organización?
+<details><summary>Ver respuesta</summary>
+
+Para el profesional que participa o interviene en una organización, el estudio de su cultura es útil porque:
+1. **Fomenta la comprensión:** muchas conductas **adquieren sentido al revelarse los condicionamientos culturales que las impulsan**.
+2. **Permite predecir el comportamiento:** los **valores, las creencias y las normas** determinan **la forma en que las personas actuarán frente a una situación dada**.
+3. **Sustituye a la experiencia:** el conocimiento de los factores culturales permite **asimilar más rápidamente su sistema de valores**.
+4. **Facilita el cambio:** la comprensión de la dinámica cultural permite la **flexibilidad y adaptación de la Dirección a las nuevas circunstancias**.
+- Además (p. 26): la cultura **influye decisivamente en la forma en que funciona la empresa**, porque **repercute en el comportamiento de sus integrantes**.
+
+*Fuente: `apuntes/md/02-cultura-de-la-organizacion.md` § Utilidad del estudio de la cultura de la organización (p. 29).*
+</details>
+
+
+## 4. Motivación: Maslow y Herzberg — prioridad 🟠 alta
+
+### 59. [enunciado] Estímulo vs. motivo; definición de motivación
+**P:** Diferenciá estímulo de motivo y definí motivación.
+<details><summary>Ver respuesta</summary>
+
+1. **Estímulo:** un **hecho objetivo de la realidad que circunda al hombre** (necesidades materiales propias o de la familia, pago, exigencias sociales): un **impulso exterior**.
+2. **Motivo:** por lo contrario, un **impulso interior**, **reflejo de su conciencia**, con mayor o menor fuerza.
+- **Motivación:** un **proceso dinámico que se manifiesta en la conducta del individuo por la intención y acción hacia la satisfacción de necesidades**.
+- Contexto: motivar y recompensar es una de las actividades **más importantes y desafiantes** del gerente; lo que motiva a los gerentes puede tener **poco o ningún efecto** en sus colaboradores: hay que **ajustar las prácticas motivacionales** a sus necesidades. Sallenave: el gerente, como **líder** y **organizador**, debe **estimular y motivar** al personal **compatibilizando los intereses individuales con los organizacionales**.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § Estímulo vs. motivo (p. 57).*
+</details>
+
+### 60. [enunciado] Cómo se vincula el estímulo con la motivación
+**P:** ¿Cómo se convierte un estímulo en motivación? ¿Es un vínculo directo?
+<details><summary>Ver respuesta</summary>
+
+1. El estímulo es siempre un **determinado cambio en las circunstancias o condiciones externas**; **la reacción a ese cambio es la motivación**.
+2. El vínculo **no es sencillo ni directo**: se realiza a través del **tamiz de su personalidad, experiencias y concepción del mundo**.
+3. Los estímulos (**materiales o ideales**), **percibidos como algo atrayente**, se transforman en la conciencia en **impulsos para la acción**, es decir, en **motivos** que llevan a la actividad laboral.
+4. Consecuencia: para caracterizar la actitud del hombre hacia una actividad laboral es esencial establecer **a qué género de estímulos es más sensible**, cuáles se convierten para él en motivos.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § Cómo se vincula el estímulo con la motivación (p. 57).*
+</details>
+
+### 61. [método] El ciclo motivacional (Ilustración 12)
+**P:** Describí el ciclo motivacional (Ilustración 12).
+<details><summary>Ver respuesta</summary>
+
+**Equilibrio interno → Estímulo o incentivo → Necesidad → Tensión → Comportamiento o acción → Satisfacción** → vuelve al equilibrio interno.
+1. Se parte de un **equilibrio interno**.
+2. Un **estímulo o incentivo** despierta una **necesidad**.
+3. La necesidad genera **tensión**.
+4. La tensión dispara un **comportamiento o acción**.
+5. La acción lleva a la **satisfacción**, y el individuo vuelve al equilibrio.
+- Es un **proceso reiterativo**: cada satisfacción cierra un ciclo y deja al individuo listo para el siguiente estímulo.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § El ciclo motivacional (Ilustración 12) (p. 57).*
+</details>
+
+### 62. [enunciado] Maslow: la jerarquía de necesidades y su idea central
+**P:** ¿Qué formuló Maslow y cuál es la idea central de su jerarquía de necesidades?
+<details><summary>Ver respuesta</summary>
+
+- En **1943 Abraham Maslow** formuló su concepto de **jerarquía de necesidades que influyen en el comportamiento humano** (título del libro: "Jerarquía de las necesidades y escala motivacional").
+- La concibió porque **el hombre es una criatura que demuestra sus necesidades en el transcurso de la vida**.
+- **Idea central:** **en la medida en que el hombre satisface sus necesidades básicas, otras más elevadas toman el predominio del comportamiento**.
+- En sociedades con **alto nivel de vida**, la mayoría de las personas tiene los **tres primeros niveles** (fisiológicas, seguridad y sociales) **regularmente satisfechos, sin mucho esfuerzo y sin mucho efecto motivacional**.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § Teorías de la motivación: la jerarquía de necesidades de Maslow (p. 58).*
+</details>
+
+### 63. [método] Maslow: los cinco niveles de la pirámide
+**P:** Enumerá los cinco niveles de la pirámide de Maslow con ejemplos, y decí cuáles son necesidades primarias y cuáles secundarias.
+<details><summary>Ver respuesta</summary>
+
+De la base a la cima (Ilustración 13):
+1. **Fisiológicas:** aire, comida, reposo, abrigo, etc.
+2. **Seguridad:** protección contra el peligro o privación.
+3. **Sociales:** amistad, ingreso a grupos, etc.
+4. **Estimación:** reputación, reconocimiento, autorrespeto, amor, etc.
+5. **Auto-realización:** realización del potencial, utilización plena del talento individual, etc.
+- **Primarias:** fisiológicas + seguridad; enfocadas hacia la **conservación personal**.
+- **Secundarias:** sociales + estimación + auto-realización.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § Los cinco niveles y la pirámide (Ilustración 13) (p. 58).*
+</details>
+
+### 64. [método] Maslow: qué pasa cuando se satisface un nivel
+**P:** ¿Qué pasa con cada nivel de Maslow cuando es satisfecho? Explicá el recorrido nivel por nivel.
+<details><summary>Ver respuesta</summary>
+
+- **Regla general:** **una necesidad satisfecha no es motivadora de comportamiento**, porque "**produce saciedad**"; **apenas las necesidades no satisfechas** influyen sobre el comportamiento, dirigiéndolo hacia objetivos individuales.
+1. **Fisiológicas:** el individuo **nace** con ellas (**innatas o hereditarias**); al inicio el comportamiento se enfoca **exclusivamente** en hambre, sed, ciclo sueño-actividad, sexo.
+2. **Satisfechas las fisiológicas → surgen las de seguridad** (protección contra el peligro, las amenazas y la privación); el individuo ingresa en una **larga trayectoria de aprendizaje de nuevos patrones de necesidades**. Fisiológicas + seguridad = **primarias** (conservación personal).
+3. **Controladas fisiológicas y seguridad → surgen lenta y gradualmente las secundarias**: sociales, de estima y de auto-realización.
+4. **Satisfechas las sociales → surgen las de estima**; por eso las de estima son **complementarias a las sociales**.
+5. **Alcanzadas las de estima → surgen las de auto-realización**, que **sólo surgen cuando los niveles más bajos están relativamente controlados**.
+- **No todos los individuos llegan** al nivel de auto-realización, ni siquiera al de estima.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § Aspectos de la teoría de Maslow: qué pasa cuando un nivel se satisface (p. 58–59).*
+</details>
+
+### 65. [método] McGregor: los cuatro grupos de necesidades
+**P:** ¿Cómo clasifica McGregor las necesidades?
+<details><summary>Ver respuesta</summary>
+
+De manera análoga a Maslow, **Douglas McGregor** clasificó las necesidades en cuatro grupos:
+1. **Fisiológicas y de seguridad** (primarias o inferiores): comida, vestido, abrigo, o lo que conduce a obtenerlos (**el salario**).
+2. **Sociales:** afecto, pertenencia a un grupo.
+3. **Egotistas:** reputación y autoestima.
+4. **Superiores:** posibilidad de un **desarrollo continuo o integral del potencial individual**.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § La clasificación de McGregor (p. 59).*
+</details>
+
+### 66. [método] Herzberg: dos «zonas» de satisfacción y dos tipos de trabajadores
+**P:** ¿Cuáles son las dos «zonas» de satisfacción y los dos tipos de trabajadores según Herzberg?
+<details><summary>Ver respuesta</summary>
+
+- Estudio de **Frederick Herzberg** sobre la **motivación en el trabajo**, en **Texas Instruments** (estancamiento tras una década de crecimiento). Analizando las actitudes del personal llegó a dos conclusiones:
+1. **Dos "zonas" de satisfacción (y de motivación):** a) la provista por la **tarea "en sí misma"**: estímulos dinamizadores de la conducta (sentido de responsabilidad, necesidad de prestigio y de realización); b) la provista por **elementos "periféricos"** a la tarea: salario, beneficios sociales, control, normas del grupo.
+2. **Dos tipos de trabajadores:** a) los **movidos por las motivaciones intrínsecas**; b) los que **buscan principalmente los elementos periféricos con propósitos de mantenimiento**.
+- Matices: **la subsistencia es siempre necesaria, pero puede no resultar suficiente**; la dirección debe considerar estos factores al fijar estímulos (los métodos que los ignoran frustran, sobre todo a los "buscadores de motivación intrínseca"); las necesidades **egotistas y de realización no tienen límites** (responden siempre a nuevas estimulaciones), pero **inducen a la pasividad si no son satisfechas**.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § Herzberg: las dos «zonas» de satisfacción y los dos tipos de trabajadores (p. 59).*
+</details>
+
+### 67. [método] Herzberg: factores higiénicos vs. factores de motivación
+**P:** Diferenciá los factores higiénicos (de mantenimiento) de los factores de motivación según Herzberg. ¿Qué produce la presencia y la ausencia de cada uno?
+<details><summary>Ver respuesta</summary>
+
+1. **Higiénicos o de mantenimiento:** se relacionan con la **subsistencia y la seguridad**. **Su insatisfacción es causa de desmotivación, pero su satisfacción no motiva: sólo elimina la desmotivación.**
+2. **De motivación:** vinculados a la **autoestima, al prestigio y a la realización plena**. **Altamente motivadores cuando se satisfacen; la ausencia de su satisfacción no llega a desmotivar: sólo priva de motivación.**
+Esquema de la teoría dual (condición × factor):
+- **Higiénicos — presencia:** sólo evita la **insatisfacción**; **ausencia:** produce **insatisfacción**.
+- **Motivación — presencia:** produce **satisfacción**; **ausencia:** impide la **satisfacción**.
+Conclusión de Herzberg: los estímulos **higiénicos** (mejora del salario o de las condiciones de trabajo) probablemente **eviten conflictos**, pero son de **corto alcance** como motivadores; los estímulos **motivadores** propiamente dichos son **inagotables como fuente de motivación**.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § Herzberg: factores higiénicos (de mantenimiento) vs. factores de motivación (p. 59–60).*
+</details>
+
+### 68. [enunciado] Frustración laboral: definición, conducta adaptada e inadaptada
+**P:** Definí frustración laboral y explicá la conducta adaptada y los tipos de conducta inadaptada.
+<details><summary>Ver respuesta</summary>
+
+- **Frustración:** la **situación resultante de hallar obstáculos para la consecución de objetivos que tienden a satisfacer necesidades**. Los obstáculos pueden estar **en el medio** (personas u objetos) **o dentro de sí mismo** (metas contrapuestas). Obstáculos típicos: salario insuficiente, poca seguridad, imposibilidad de progresar, escaso prestigio del puesto, malas relaciones con el supervisor o el grupo, el tipo de tarea (la **monotonía**: el trabajo no permite aplicar la capacidad creativa; consecuencia de la extremada división del trabajo; se neutraliza con **rotación de puestos** y **enriquecimiento de la tarea**).
+- **Conducta adaptada:** **trata de solucionar el problema o eludir el obstáculo**; es una conducta **sana**.
+- **Conducta inadaptada o enferma:** **gasta sus energías sin lograr el objetivo**. Tipos:
+  1. **Agresión** hacia el causante (real o presunto) del obstáculo: violencia física o verbal, o represalias en el ambiente social (calumnias).
+  2. **Regresión:** interrumpe los intentos y **vuelve a estados primitivos, infantiles, anonadados**.
+  3. **Fijación:** **repite inútilmente la conducta ineficaz**.
+  4. **Proyección:** variante de agresión en el fuero interno; se **autoexculpa y responsabiliza a otros** de sus problemas.
+  5. **Desinterés fingido:** **finge perder el interés** por el objetivo perseguido y cambiar de metas.
+
+*Fuente: `apuntes/md/06-motivacion-maslow-y-herzberg.md` § La frustración laboral: la monotonía + definición, conducta adaptada e inadaptada (p. 61).*
+</details>
+
+
+## 5. Paradigmas de dirección — prioridad 🟡 media
+
+### 69. [enunciado] Qué es un paradigma de dirección
+**P:** ¿Qué es un paradigma (de dirección) y cuáles recorre el capítulo?
+<details><summary>Ver respuesta</summary>
+
+- **Edgar Morin:** un paradigma "está constituido por un cierto tipo de **relación lógica extremadamente fuerte entre nociones maestras, nociones clave, principios clave**. Esa relación y esos principios van a **gobernar todos los discursos** que obedecen, inconscientemente, a su gobierno".
+- En el cuerpo del texto: **relaciones fuertes entre nociones y principios, que dominan nuestros actos**.
+- El capítulo recorre tres paradigmas: **mecanicismo**, **organicismo** y **teoría de la contingencia**, y cierra con las **nuevas tendencias**.
+- Contexto: la Administración como disciplina científica toma importancia desde el **último tercio del siglo XIX**; su evolución la determinaron **la tecnología y la cultura** (predominio de la **racionalidad** como forma de pensamiento). Los nombres "mecanicismo" y "organicista" los dieron los investigadores del **Instituto Tavistock**.
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Evolución de los paradigmas en la dirección (p. 7–8).*
+</details>
+
+### 70. [método] Taylorismo: en qué se basó
+**P:** ¿En qué se basó el taylorismo? ¿Cuáles eran, según Taylor, las razones de la ineficiencia del trabajo humano?
+<details><summary>Ver respuesta</summary>
+
+- **Frederick W. Taylor**, ingeniero de una de las mayores empresas industriales de EE. UU. a fines del siglo XIX, implantó una concepción nueva de la organización del trabajo fabril: la **"Administración científica"**.
+- **Supuesto de base:** las empresas sufrían "enormes pérdidas" causadas por la **ineficiencia del trabajo humano**, cuyas razones serían:
+1. La **deliberada lentitud** del personal.
+2. El **carácter de los obreros** (holgazanes e ineptos).
+3. La **falta de métodos racionales de trabajo**, por culpa de los propios empresarios.
+4. El **error de los empresarios** al creer en la capacidad e iniciativa de los trabajadores, que no están bien dotados para ello.
+5. El **desaprovechamiento de la ambición personal** de los trabajadores, que debería estimularse con **incentivos económicos** (rechazaba los acuerdos o regulaciones de salarios).
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § El «Taylorismo»: supuestos (p. 9).*
+</details>
+
+### 71. [método] Los 4 principios del paradigma mecanicista (taylorismo)
+**P:** ¿Cuáles son los cuatro principios del taylorismo que son «fiel expresión del paradigma mecanicista»?
+<details><summary>Ver respuesta</summary>
+
+1. Se concibe el **comportamiento de la empresa** como totalmente ajustado a lo previsto en su **organización formal** (la oficialmente establecida).
+2. Se concibe el **trabajo de los operarios** como una **ejecución mecánica y sin desvíos** de las instrucciones y programas que se les indique.
+3. Se plantea la **división del trabajo** en rotundos términos de separación entre el **trabajo intelectual y el trabajo manual**.
+4. Se concibe al **trabajador guiado por su interés económico**, con exclusión de cualquier otra motivación.
+- Raíces del mecanicismo: la **organización militar prusiana** (verticalista, estandarizada, elementos reemplazables, lenguaje de órdenes); muchas organizaciones se diseñaron **como máquinas**, esperando que sus empleados se comporten como **piezas**; su característica es trabajar **a través de patrones de autoridad** (derecho a dar órdenes y exigir exacta obediencia).
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § El «Taylorismo»: principios + De la mecanización a la organización como máquina (p. 8–9).*
+</details>
+
+### 72. [método] Las 6 medidas de Taylor
+**P:** ¿Qué medidas creó, recomendó y llevó a la práctica Taylor?
+<details><summary>Ver respuesta</summary>
+
+1. La **organización del trabajo del obrero es exclusiva facultad y responsabilidad del directivo**: un sector programa hasta el menor detalle, el otro ejecuta sin desvío, con **máxima fragmentación y especialización repetitiva**.
+2. Utilizar **métodos científicos** para determinar el modo más eficiente de realizar el trabajo.
+3. **Seleccionar al personal más adecuado** a cada trabajo, diferenciando a los "intelectuales" de los "ejecutores mecánicos".
+4. **Instruir al trabajador** conforme a **estudios de movimientos y tiempos, fichas de instrucciones precisas, estudios de costos, planeamiento**: para cada tarea, **"the one best way"** (la única y mejor forma).
+5. **Controlar el rendimiento** de los trabajadores para asegurar que siguieron los procedimientos y se lograron los resultados.
+6. **Aplicar incentivos económicos** como medio principal de la política de personal, para **generar competencia entre los obreros**; el sistema evitaba que el monto subiera mucho y recomendaba **"usar el trato duro"** cuando fuese necesario.
+- Encontró gran resistencia (obreros, científicos, el Congreso de EE. UU. lo prohibió un tiempo) pero **tuvo éxito** porque era la tecnología que necesitaban las **grandes corporaciones monopolistas**. Dos etapas: **Taylorismo-Fordismo** (producción en cadena, ~1910) y **crisis a fines de los '70**. Ejemplo actual: **comida rápida** (directivos "piensan", empleados "hacen").
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § El «Taylorismo»: medidas + Resistencia, éxito y las dos etapas (p. 9–10).*
+</details>
+
+### 73. [método] Cuándo funcionan bien las organizaciones mecanicistas
+**P:** Según Morgan, ¿cuándo funcionan bien las organizaciones mecanicistas?
+<details><summary>Ver respuesta</summary>
+
+Funcionan bien cuando:
+1. Existe una **tarea lineal** para realizar.
+2. El **entorno asegura** que el producto realizado será el esperado.
+3. Se desea producir **exactamente el mismo producto una y otra vez** (sin introducir innovaciones).
+4. La **precisión** es una premisa.
+5. La **parte humana de la máquina es obediente** y se comporta como se le ha asignado.
+- Esencia de la mecanización: **reducir los procesos complejos a un conjunto de movimientos separados** que pueden reproducirse mecánicamente (máxima expresión: cuando los **robots** sean la principal fuerza productiva).
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Crítica del mecanicismo: cuándo funciona (p. 11).*
+</details>
+
+### 74. [método] Críticas (limitaciones) al mecanicismo
+**P:** ¿Cuáles son las críticas o limitaciones que se le hacen al paradigma mecanicista?
+<details><summary>Ver respuesta</summary>
+
+Aunque hoy hay organizaciones que lo aplican con éxito, tiene **severas limitaciones**:
+1. **Dificultades para adaptarse a cambios en el contexto:** se crearon **para alcanzar determinados objetivos y no para las innovaciones**; la **rigidez** y la tendencia a la **segmentación** entre niveles jerárquicos, funciones, roles y personas crean barreras → ineficiencia y retrasos ante lo no previsto, inactividad y falta de control; la **información llega distorsionada** (comunicación pobre entre departamentos; el personal **oculta sus errores por temor a ser castigado**).
+2. Pueden dar lugar a una **burocracia sin límites**.
+3. **Consecuencias no previstas y no deseables:** la jerarquía es también un **sistema de promoción**: los individuos **compiten por las limitadas plazas altas y por los recursos** de cada área → comportamiento **irracional para el conjunto** aunque racional para el área; la organización termina persiguiendo **objetivos no formales**, incluso contrarios al diseño original.
+4. **Efectos deshumanizadores**, sobre todo en los niveles bajos: **limita el desarrollo de la capacidad humana**, moldea al hombre como complemento de la organización en vez de estructurarla según sus potencialidades; se pierde la **contribución inteligente y creativa**; **actitudes negligentes** ("éste no es mi trabajo", "la responsabilidad es de otro").
+- Siguen siendo populares por su **eficacia** en numerosas tareas y por **reforzar modelos de poder y control**.
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Crítica del mecanicismo: limitaciones (p. 11–12).*
+</details>
+
+### 75. [enunciado] Cómo surge el organicismo
+**P:** ¿Cómo surge el organicismo? (Mayo y Hawthorne, contexto cultural, Escuela de las Relaciones Humanas, Barnard y los sistemas abiertos)
+<details><summary>Ver respuesta</summary>
+
+1. **Elton Mayo**, inicios de los '20, experiencias en **Western Electric, Hawthorne**: buscaban relacionar condiciones laborales con productividad, pero **revelaron** la **importancia de las necesidades sociales** (los grupos pueden satisfacerlas **restringiendo la producción**) y la existencia de una **"organización informal"** basada en la camaradería. Nueva teoría: los grupos humanos, como los organismos biológicos, **trabajan más eficazmente cuando sus necesidades son satisfechas** (implicaciones desastrosas para la burocracia, que supone individuos motivados sólo por dinero).
+2. **Contexto cultural:** terminada la 1ª Guerra, **crecimiento de la sindicalización**, **resistencia al autoritarismo y a la deshumanización del trabajo**, **contraculturas en la organización** (principal descubrimiento de Mayo).
+3. **Escuela de las Relaciones Humanas:** a) la **falta de campo para la iniciativa**, aun en los niveles de ejecución, perjudica la productividad potencial; b) las **líneas de comunicación fijadas de antemano** llevan a conflictos absurdos (mejor **comunicación espontánea y libre**); c) fijar **líneas de autoridad a priori**, al margen de las reconocidas espontáneamente, es la fuente más frecuente de conflictos.
+4. Pese al fracaso de medidas de Mayo (ingenuidad, paternalismo) y a la crisis de 1929, **Chester Barnard** (Escuela de los Sistemas Sociales) reforzó la atención a los aspectos **humanos y técnicos** y a la dependencia del **entorno**: pensar las organizaciones como **"sistemas abiertos"** (cuestión que los clásicos no atendieron). Las corrientes sociológicas incluyeron los **factores sociológicos y psicológicos al mismo nivel** que los tecnológicos y los estímulos materiales.
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Organicismo: Mayo y Hawthorne, contexto cultural, Barnard (p. 12–13).*
+</details>
+
+### 76. [método] Los 4 elementos básicos del organicismo
+**P:** Describí los cuatro elementos básicos del paradigma organicista (y qué dice el libro sobre la delegación de autoridad).
+<details><summary>Ver respuesta</summary>
+
+1. **Asimila las organizaciones a los organismos biológicos**: la base de la **metáfora orgánica**.
+2. Las estudia como **sistemas abiertos**, cuyo punto clave es el **hincapié en el entorno** en el que existen (los mecanicistas la trataron como un **sistema mecánico cerrado**).
+3. Consecuencia: las define en términos de **subsistemas interrelacionados**.
+4. En un entorno donde los **cambios tecnológicos y de mercado** son cada vez más veloces y frecuentes, la organización requiere **mayor flexibilidad**.
+- Sobre la **delegación de autoridad** (Burns y Stalker, p. 15): en el sistema **orgánico** la interacción es **vertical y lateral** y las tareas se guían por el **conocimiento general de las necesidades y objetivos** de la empresa; en **empresas dinámicas y variables** hay **mayor autonomía de decisiones** y supervisión más amplia (vs. **menor delegación** y control más estrecho en las estabilizadas).
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Elementos básicos del paradigma organicista + Burns y Stalker (p. 14–15).*
+</details>
+
+### 77. [método] Ventajas y críticas (limitaciones) del organicismo
+**P:** ¿Cuáles son las ventajas y cuáles las críticas (limitaciones) que se le hacen al paradigma organicista?
+<details><summary>Ver respuesta</summary>
+
+Ventajas (4):
+1. El descubrimiento de la importancia del **entendimiento de las relaciones entre la organización y su entorno**.
+2. La dirección puede mejorarse con una **atención sistemática a las necesidades que deben satisfacerse para que la organización sobreviva**.
+3. Podemos identificar las distintas **"especies" de organización**, sabiendo que siempre hay un **abanico de opciones**.
+4. La virtud de la forma orgánica en los **procesos innovadores**.
+Limitaciones de la metáfora orgánica (5):
+1. Vemos a las organizaciones y sus entornos de modo **demasiado concreto**, cuando son producto de **ideas, visiones, normas y creencias**: su **forma y estructura son mucho más endebles** que las de un organismo.
+2. La organización tiene la **misma oportunidad de supervivencia tanto si compite como si colabora**.
+3. Las circunstancias en que **un elemento sabotea el trabajo en conjunto** son excepcionales y potencialmente peligrosas.
+4. Los casos en que los elementos operan con un **grado de armonía ideal** son más la excepción que la regla.
+5. **Permitir que la metáfora orgánica se transforme en una ideología**, como ocurrió con la metáfora de la máquina.
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Ventajas del organicismo + Limitaciones de la metáfora orgánica (p. 14–15).*
+</details>
+
+### 78. [enunciado] Teoría de la contingencia: síntesis, Burns y Stalker, Lawrence y Lorsch
+**P:** Desarrollá la teoría de la contingencia aplicada a la dirección: cómo surge como síntesis, qué hallaron Burns y Stalker y cuál es el concepto fundamental de Lawrence y Lorsch.
+<details><summary>Ver respuesta</summary>
+
+- La disputa **mecanicista vs. orgánica** llevó a **intentos de síntesis**: ninguna posición resolvía por sí sola los problemas; se integraron **incluyendo en la organización formal los aspectos psicológicos y sociológicos** o **flexibilizando los rígidos esquemas tradicionales**. Sobre esa doble atención se apoyan los **"sistemas sociotécnicos"**: lo humano y lo técnico son **mutuamente interdependientes**.
+- **Burns y Stalker** (Tavistock, comienzos de los '60, una veintena de industrias): dos sistemas de administración: 1. **mecanicista** (métodos, obligaciones y poderes definidos con precisión; interacción **vertical**; el conocimiento en el **vértice** de la firma), apropiado para **empresas relativamente estables**; 2. **orgánico** (interacción **vertical y lateral**; tareas guiadas por el conocimiento general de necesidades y objetivos), exigido por las **condiciones de transformación**. Primera relación contingente: estables → más formalidad y menor delegación; dinámicas → mayor autonomía.
+- **Lawrence y Lorsch** (plásticos, alimentos envasados y contenedores; división departamental y coordinación integradora): **concepto fundamental**: **"No existe una única manera de mejor organizar… las organizaciones necesitan ser sistemáticamente ajustadas a las condiciones ambientales"**.
+- Por lo tanto, **no rechaza los principios y preceptos de las diversas corrientes**, sino que **condiciona su aplicación a las circunstancias**, a la contingencia ("lo que puede suceder"). Usa las características de la teoría adecuada al momento, buscando el **equilibrio entre mecanicismo y organicismo** y entre teoría y práctica.
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Teoría de la Contingencia: síntesis, Burns y Stalker, Lawrence y Lorsch (p. 15).*
+</details>
+
+### 79. [método] Luthans: la relación «si-entonces», las variables circundantes y el objetivo
+**P:** Explicá la relación contingente «si-entonces» de Luthans, las variables circundantes y el objetivo de la Administración de Contingencia.
+<details><summary>Ver respuesta</summary>
+
+- **Luthans:** **no es un enfoque asistemático ni librado a la casualidad**. La **relación contingente** es una **relación funcional entre dos o más variables**, expresable por el par **"si-entonces"**: 1. **"si"** = **variable independiente** (ej.: estado de la tecnología, estructura del mercado); 2. **"entonces"** = **variable dependiente** (ej.: estilo de supervisión, grado de centralización).
+- Definición: "la Administración de Contingencia se ocupa de la **relación entre variables circundantes pertinentes y conceptos y técnicas de administración apropiados**, que lleven al logro eficaz de objetivos".
+- Ejemplo: **si** en la cultura social predomina la libre expresión y la empresa ocupa personal muy calificado en alta tecnología, **entonces** conviene una **supervisión abierta y participativa**.
+- **Variables circundantes** = las que están **fuera de la administración** (el medio): **medio externo** (clientes, competidores, régimen legal, situación económica: **poco controlable**) y **medio interno** (el sistema de organización formal, su estructura y sus procesos: **más controlable**). Ilustración 1: anillos **medio interno → externo específico** (clientes, competidores, proveedores) **→ externo general** (social, tecnológico, económico, político-legal).
+- Casi siempre el **medio es la variable independiente** y las **técnicas administrativas la dependiente**, pero **a veces se invierte** (producción en cadena → supervisión centralizada; pero una supervisión "democrática" → mayor desacople de las etapas productivas).
+- **Objetivo:** la **mayor efectividad** aplicando los conceptos y técnicas más apropiados a partir de su **relación funcional real (no teórica)** con el ambiente: los **principios** se sustituyen por **"criterios de ajuste"**. Las relaciones se simbolizan en una **matriz de doble entrada** ("si" × "entonces") cuyas celdillas se van llenando; **muy pocas están llenas** (Ilustración 2).
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Luthans: la relación contingente «si-entonces» + Las variables «circundantes» + Ejemplos, objetivo y matriz (p. 16–18).*
+</details>
+
+### 80. [método] Valoración y crítica de la teoría de la contingencia
+**P:** ¿Cómo se valora la teoría de la contingencia (antecedentes, base empírica, equilibrio teoría-práctica) y cuál es su mayor limitación y su riesgo?
+<details><summary>Ver respuesta</summary>
+
+1. **Reconoce antecedentes** aun entre los clásicos y neoclásicos, entre ellos **Fayol** ("no hay nada rígido ni absoluto… debe haber cierto margen para las cambiantes circunstancias").
+2. **No fue mera especulación** sino producto de investigaciones sobre la realidad: **Tavistock** (minas de carbón), **Gouldner** (planta de yeso), **Joan Woodward** (100 empresas), **Chandler** (cuatro empresas líderes de EE. UU.), **Emery, Thompson y Perrow**: relaciones funcionales reales entre ambiente y diseños organizacionales.
+3. **Busca un equilibrio entre la práctica y la teoría:** los **teóricos** dan por sentada la **universalidad de sus conceptos**; los **practicantes**, la de su **estilo individual**. **"El enfoque de contingencia salva esta brecha"**: los conceptos modernos no son erróneos, sólo **no adecuados a situaciones particulares**.
+4. **Opinión de la cátedra:** es un **avance significativo** porque reconoce la **particularidad de cada organización** (y de cada momento) **sin dejar de apelar a la validez universal del arsenal teórico**; es **menos rígido que la teoría pura y más científico que el mero empirismo**, y puede **enriquecer la teoría** al relacionarla con la práctica.
+- **Mayor limitación:** tendió **más a la búsqueda de un repertorio de reglas pragmáticas que a extraer nuevas leyes** que expliquen el comportamiento de las organizaciones.
+- **Riesgo:** aplicar las relaciones contingentes **como si fuesen recetas** y caer en un **nuevo mecanicismo** ajeno al análisis concreto de la realidad (Luthans: los ejemplos "no deben tomarse como soluciones mecanicistas de complejos problemas administrativos").
+
+*Fuente: `apuntes/md/01-paradigmas-de-direccion.md` § Valoración y crítica de la Teoría de la Contingencia (p. 18–19).*
+</details>
+
+---
+
+*Generado el 2026-09-25 desde `estrategia.md` (checklist §6 y patrón §2, actualización del 2026-09-25: caps. 2, 3, 4, 5, 7 y 8), las `📝 Pregunta de parcial` de los apuntes y `apuntes/md/01…06` (libro de cátedra «Administración Gerencial completo – V1.1.8 – 2026»). No existe `que-saltear.md` para esta evaluación. Los ítems de comunicación y negociación (apunte 07) quedaron afuera por decisión del profesor. Importar en Anki: File → Import → `flashcards-anki.tsv` → tipo de nota Basic, separador Tab, «Allow HTML in fields» activado.*
