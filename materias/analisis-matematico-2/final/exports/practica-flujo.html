@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Práctica de flujo — la teoría que toman + un ejercicio de cada tipo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light dark; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body { color: #e6e6e6; background: #16181c; }
+  a { color: #6cb6ff; }
+  details { background: #1f2228; border-color: #30343c; }
+  summary { background: #232730; }
+  blockquote { color: #aab; border-color: #30343c; }
+  code { background: #232730; }
+  th { background: #232730; }
+  th, td { border-color: #30343c; }
+  tbody tr:nth-child(even) { background: #1c1f24; }
+}
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Práctica de flujo — la teoría que toman + un ejercicio de cada tipo
+
+> Armado el 2026-09-26 para el final del 2026-09-29. Fuentes: `examenes/INDICE.md`
+> (todos los ítems T y P con `#Flujo`/`#Divergencia`), `estrategia.md` §4, `repaso/machete.md`
+> §1, §8 y §9. Los resultados de la Parte 3 los calculó Claude y fueron verificados a mano;
+> donde existe una resolución en `examenes/resueltos/`, esa manda.
+>
+> **Cómo usar esto hoy:** Parte 1 (teoría, ~45 min) → Parte 2 (enunciados, hacelos con reloj:
+> 30 min cada uno) → recién después Parte 3 (resoluciones). No leas la Parte 3 antes.
+
+---
+
+## Parte 1 · La teoría de flujo que toman
+
+### 1.1 Qué piden exactamente
+
+En 24 finales, la teoría de flujo aparece **siempre como el teorema de Gauss** (nunca piden
+"definir flujo" ni deducir la integral de superficie). El ítem a) es enunciar; el ítem b) es
+una aplicación corta que se resuelve en 3 renglones **con la divergencia**.
+
+| Examen | Ítem a) | Ítem b) que lo acompaña |
+|---|---|---|
+| `2025-02-18 T1a/b` | Enunciar el teorema de la divergencia con hipótesis | Hallar $a$ tal que el flujo de $f=(2xy,\ z-y^2,\ 2az)$ por la frontera de $V$ sea $8\cdot\mathrm{vol}(V)$ |
+| `2026-02-10 T1a/b` | Enunciar Gauss con hipótesis. **¿Es aplicable en forma directa** al flujo de $f=(xy,\ x^2,\ z-3)$ por $x^2-2x+y^2=0$, $-1\le z\le1$? | ¿Es nulo el flujo de $f=(2x,\ z^2+y,\ z-8)$ por una esfera de radio 2? |
+| `2026-02-24 T2a/b` | Enunciar Gauss con **todas** sus hipótesis y dar un ejemplo donde se note su practicidad | Inventar un campo cuyo flujo por cualquier superficie cerrada sea $3\cdot\mathrm{vol}$ del cuerpo; justificar |
+| `2024-07-23 T1a` | V/F: el flujo de $F=(x+y,\ y+z,\ x+z)$ por $S:\ x^2+y^2+z^2-2z=0$, $z\ge1$, normal con componente $z$ positiva, vale $\pi/2$ | — |
+| `2024-05-10 T2`, `2025-02-11 T1a` | Definir superficie parametrizada y punto regular (es la teoría de la normal que usás en el flujo directo) | ¿Es $(1,1,2)$ punto regular de $F(u,v)=(u-v,\ u+v,\ 2u^2+2v^2)$? |
+
+Patrón: **a) enunciado con hipótesis + b) un cálculo con $\operatorname{div}$**. Si sabés escribir el
+enunciado y calcular tres derivadas parciales, el teórico de flujo está.
+
+### 1.2 Respuesta modelo: el enunciado que escribís en el examen
+
+> **Teorema de Gauss (de la divergencia).** Sea $f:D\subseteq\mathbb{R}^3\to\mathbb{R}^3$ un campo
+> vectorial de clase $C^1$ en el abierto $D$. Sea $\Omega\subset D$ un sólido acotado (región
+> simple) cuya frontera $\partial\Omega$ es una superficie **cerrada**, suave a trozos y
+> orientable, orientada con la normal **saliente** $\hat n$. Entonces
+>
+> $$\oiint_{\partial\Omega} f\cdot\hat n\,dS=\iiint_{\Omega}\operatorname{div}f\,dV,\qquad \operatorname{div}f=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}.$$
+
+Cada hipótesis está ahí por algo, y eso es lo que un corrector busca cuando dice "con hipótesis":
+
+1. **$f\in C^1$ en un abierto que contiene a $\Omega$ entero** (no sólo a la superficie): la
+   divergencia tiene que existir y ser continua en todo el sólido para poder integrarla. Si
+   el campo no está definido en un punto interior (el clásico $f=\vec r/|\vec r|^3$ con el origen
+   adentro), el teorema **no se aplica**.
+2. **La superficie es cerrada**: es la frontera de un sólido. Una superficie abierta (un
+   paraboloide sin tapa, un cilindro sin tapas) no encierra nada, y no hay "$\Omega$" sobre el que
+   integrar.
+3. **Normal saliente**: con la normal entrante el flujo cambia de signo y la igualdad falla por
+   un $-$.
+4. **Suave a trozos y orientable**: para que el flujo esté definido cara por cara (un cubo tiene
+   seis caras suaves) y la normal se pueda elegir de forma consistente.
+
+**Ejemplo de "practicidad"** (lo pide `2026-02-24 T2a`): el flujo de
+$f=(x^3+yz^2,\ 4y+e^{2xz},\ z^3+xe^{y})$ por la frontera del cilindro $x^2+z^2\le4$, $0\le y\le2$
+(`2026-07-28 P1`, lo hiciste). Directo habría que integrar $e^{2xz}$ y $xe^{y}$ sobre tres
+caras; con Gauss, $\operatorname{div}f=3x^2+4+3z^2$ y las exponenciales **desaparecen** porque no
+dependen de la variable respecto de la que se derivan. Una integral triple en cilíndricas en
+vez de tres integrales de superficie imposibles.
+
+### 1.3 La pregunta trampa: "¿se aplica en forma directa a una superficie abierta?"
+
+`2026-02-10 T1a`: $f=(xy,\ x^2,\ z-3)$ por $x^2-2x+y^2=0$, $-1\le z\le1$.
+
+**Respuesta:** completando cuadrados, $(x-1)^2+y^2=1$: es la **pared lateral de un cilindro** de
+radio 1 centrado en $(1,0)$, entre $z=-1$ y $z=1$, **sin tapas**. No es una superficie cerrada,
+no es frontera de ningún sólido, así que Gauss **no se aplica en forma directa**. Lo que sí se
+puede hacer es cerrarla con las dos tapas $z=1$ y $z=-1$, aplicar Gauss al cilindro macizo y
+despejar el flujo lateral (machete §1.4). Si en el examen te queda tiempo, mostrás que sabés
+hacerlo:
+
+- $\operatorname{div}f=y+0+1=y+1$. Sobre el cilindro macizo, $\iiint y\,dV=0$ por simetría (el
+  cilindro es simétrico respecto de $y=0$) y $\iiint1\,dV=\pi\cdot1^2\cdot2=2\pi$.
+- Tapa de arriba, $z=1$, normal saliente $(0,0,1)$: $f\cdot N=z-3=-2$, área $\pi$ → $-2\pi$.
+- Tapa de abajo, $z=-1$, normal saliente $(0,0,-1)$: $f\cdot N=-(z-3)=4$ → $4\pi$.
+- Flujo lateral saliente $=2\pi-(-2\pi)-4\pi=0$.
+
+Y el ítem b) del mismo examen: ¿es nulo el flujo de $f=(2x,\ z^2+y,\ z-8)$ por una esfera de
+radio 2? Es cerrada, así que Gauss directo: $\operatorname{div}f=2+1+1=4$, constante, y el flujo
+es $4\cdot\mathrm{vol}=4\cdot\tfrac43\pi\cdot8=\tfrac{128\pi}{3}\neq0$. **No es nulo.** Ojo: el
+$z^2$ y el $-8$ no aportan nada a la divergencia; no te distraigas con ellos.
+(Resolución de la cátedra en `resueltos/2026-02-10_resuelto-sylvina.pdf`.)
+
+### 1.4 Los otros ítems b), resueltos
+
+**`2025-02-18 T1b`** — hallar $a$ tal que el flujo de $f=(2xy,\ z-y^2,\ 2az)$ por la frontera
+de $V$ sea $8\cdot\mathrm{vol}(V)$.
+$\operatorname{div}f=2y-2y+2a=2a$, constante. Por Gauss el flujo saliente es
+$\iiint2a\,dV=2a\cdot\mathrm{vol}(V)$. Entonces $2a=8$ y **$a=4$**, para cualquier sólido $V$.
+
+**`2026-02-24 T2b`** — inventar un campo cuyo flujo por cualquier superficie cerrada sea
+$3\cdot\mathrm{vol}$ del cuerpo encerrado.
+Alcanza con que $\operatorname{div}f=3$ en todo $\mathbb{R}^3$: el más simple es
+**$f=(x,y,z)$** (también sirven $(3x,0,0)$ o $(x,2y,0)$). Justificación: $f$ es $C^1$ en todo el
+espacio, así que para cualquier sólido $\Omega$ con frontera cerrada y normal saliente vale Gauss
+y $\oiint f\cdot\hat n\,dS=\iiint3\,dV=3\cdot\mathrm{vol}(\Omega)$. Escribí las hipótesis: es
+lo que están evaluando.
+
+**`2024-07-23 T1a`** — V/F: el flujo de $F=(x+y,\ y+z,\ x+z)$ por $S:\ x^2+y^2+z^2-2z=0$,
+$z\ge1$, normal con componente $z$ positiva, vale $\pi/2$.
+$x^2+y^2+(z-1)^2=1$: esfera de radio 1 centrada en $(0,0,1)$; con $z\ge1$ es la **semiesfera
+superior**, abierta. Gauss con tapa (el disco $z=1$, $x^2+y^2\le1$):
+$\operatorname{div}F=3$ → $\iiint=3\cdot\tfrac23\pi=2\pi$. Tapa con normal saliente $(0,0,-1)$:
+$F\cdot N=-(x+z)=-(x+1)$, y $\iint(x+1)\,dA=0+\pi$ → $\Phi_T=-\pi$. Entonces
+$\Phi_S=2\pi-(-\pi)=3\pi$. **Falso**: vale $3\pi$.
+(Respuestas oficiales en `resueltos/2024-07-23_respuestas-oficiales.pdf`.)
+
+### 1.5 Superficie parametrizada y punto regular (la teoría de la normal)
+
+> **Definición.** Una superficie parametrizada es una función $\Phi:D\subseteq\mathbb{R}^2\to\mathbb{R}^3$,
+> $\Phi(u,v)=(x(u,v),y(u,v),z(u,v))$, de clase $C^1$ en el abierto $D$. Un punto $\Phi(u_0,v_0)$
+> es **regular** si $\Phi_u(u_0,v_0)\times\Phi_v(u_0,v_0)\neq\vec0$: ahí existe plano tangente y
+> ese producto es la normal que usás en el flujo directo. Si el producto es nulo, la
+> parametrización "colapsa" y no hay normal.
+
+**`2024-05-10 T2`**: $F(u,v)=(u-v,\ u+v,\ 2u^2+2v^2)$, ¿es $(1,1,2)$ regular?
+Primero el punto: $u-v=1$, $u+v=1$ → $u=1$, $v=0$; y $2\cdot1+0=2$ ✓ (está en la superficie).
+$F_u=(1,1,4u)=(1,1,4)$, $F_v=(-1,1,4v)=(-1,1,0)$;
+$F_u\times F_v=(1\cdot0-4\cdot1,\ 4\cdot(-1)-1\cdot0,\ 1\cdot1-1\cdot(-1))=(-4,-4,2)\neq\vec0$.
+**Es regular**, con normal $(-4,-4,2)$ (o $(-2,-2,1)$).
+
+### 1.6 Cómo practicarlo hoy (45 min)
+
+1. Cerrá esto. Escribí en papel el enunciado de Gauss con las 4 hipótesis y la tesis. Abrí y
+   comparalo con 1.2: falta una hipótesis = no está.
+2. Respondé sin mirar, en papel: la trampa de 1.3, el $a$ de `2025-02-18`, el campo de
+   `2026-02-24`, el V/F de `2024-07-23`. Cada uno en 3 a 5 renglones, siempre arrancando
+   por $\operatorname{div}f$.
+3. Comparalo con 1.3 y 1.4. Lo que falló, lo reescribís una vez. Después pasás a la Parte 2.
+
+---
+
+## Parte 2 · Un flujo de cada tipo que todavía no hiciste
+
+Hiciste Gauss cerrado (`2026-07-28 P1`, `2025-07-29 P4`), Gauss con tapa (`2025-09-25 P2`,
+`2025-12-09 P2`) y directo por cilindro parametrizado (`2025-07-15 P4`). Estos seis son las
+formas de resolver que **no** pasaron por tus manos. Cada uno entrena una decisión distinta;
+en la columna "qué entrena" está lo que tenés que decidir **antes** de escribir una integral.
+
+| # | Examen | Tipo de resolución | Qué entrena | Resolución en `resueltos/` |
+|---|---|---|---|---|
+| A | `2024-07-30 P2` | Gauss cerrado con una función desconocida que **desaparece** en la divergencia | Ver que $\nabla^2h=0$ mata las incógnitas; volumen de semiesfera | manuscrita en el propio `2024-07-30_Final.pdf`, págs. 2-5 |
+| B | `2024-10-09 P1` | **Directo por un plano** (normal constante) con región elíptica | Primero armar el plano tangente; polares elípticas (§7.4) | — |
+| C | `2026-02-10 P2` | **Directo por una gráfica con $y$ despejada**, $y=g(x,z)$ | La normal $(-g_x,\,1,\,-g_z)$ y su signo; el dominio en $(x,z)$ | `2026-02-10_resuelto-sylvina.pdf` y `2026-02-10_resuelto-fotos/` |
+| D | `2025-02-11 P2` | Gauss con tapa **obligado**: el campo sólo se conoce sobre la tapa | Leer "solenoidal" como $\operatorname{div}=0$ y darse cuenta de que el dato en $z=0$ es la tapa | `2025-02-11_resuelto.pdf` |
+| E | `2024-03-05 P3` | **Plantear** (sin calcular) por Gauss sobre un poliedro | Límites de una integral triple; por qué Gauss ahorra 5 caras | `2024-03-05_resuelto.pdf` |
+| F | `2024-07-30 P3` | **Flujo de un rotor** = circulación por el borde (Stokes al revés) | Reconocer que "flujo de $\operatorname{rot}F$" no es un flujo: es Stokes; cerrar el borde con un segmento | manuscrita en `2024-07-30_Final.pdf` |
+
+Orden sugerido si no llegás a los seis: **D → C → B → A → F → E** (E sólo el planteo, 10 min).
+
+### Enunciados
+
+**A · `2024-07-30 P2`.** Calcular el flujo saliente de
+$F=(3x+h'_x,\ -2y+h'_y,\ 2x^2+h'_z)$ por la frontera de $T:\ x^2+y^2+z^2\le9,\ z\ge0$, siendo
+$h$ armónica ($\nabla^2h=h''_{xx}+h''_{yy}+h''_{zz}=0$).
+
+**B · `2024-10-09 P1`.** Sea $\Pi$ el plano tangente a la superficie $x^2+y^3+z^3-z=2$ en
+$(1,1,0)$. Calcular el flujo de $f=(y,0,0)$ a través de la porción de $\Pi$ con $4x^2+y^2\le4$,
+$y\ge0$, con normal de tercera componente positiva.
+
+**C · `2026-02-10 P2`.** Calcular el flujo de $F=(x,\ y,\ x+2y+xz)$ a través de
+$S:\ y=x^2$ con $0\le z\le9-x^2$, con normal de segunda componente negativa.
+
+**D · `2025-02-11 P2`.** Sea $f$ un campo solenoidal (divergencia nula) tal que
+$f(x,y,0)=(x,\ y-2,\ y^2)$. Calcular el flujo de $f$ a través de $\Sigma:\ z=\sqrt{4-x^2-y^2}$
+e indicar el versor normal utilizado.
+
+**E · `2024-03-05 P3`.** Plantear (sin calcular) el flujo de $\nabla\varphi$, con
+$\varphi=2x^2-4yz^2$, a través de la frontera de $W:\ 2x+y\le4,\ x+z\le2$, en el primer
+octante.
+
+**F · `2024-07-30 P3`.** Sea $F=(yz+2,\ g(x,y,z),\ z)$ con $g\in C^2(\mathbb{R}^3)$. Se sabe que
+la circulación de $F$ a lo largo de $r(t)=(\cos t,\ \operatorname{sen}t,\ \operatorname{sen}t)$,
+$t\in[0,\pi]$, es 1. Calcular el flujo de $\operatorname{rot}F$ a través de la porción del plano
+$y=z$ con $x^2+y^2\le1$, $y\ge0$, con normal de componente $z$ positiva.
+
+---
+
+## Parte 3 · Resoluciones (leer después de hacerlos)
+
+### A · `2024-07-30 P2` → $18\pi$
+
+1. **¿Cerrada?** Sí: "frontera de $T$", y $T$ es la semiesfera maciza de radio 3. Gauss.
+2. **Divergencia.** $\operatorname{div}F=3+h''_{xx}-2+h''_{yy}+0+h''_{zz}=1+\nabla^2h=1$.
+   Las derivadas de $h$ se juntan en el laplaciano, que es cero por hipótesis. Ese es todo el
+   truco del ejercicio: el "$h$ armónica" está puesto para que $h$ desaparezca.
+3. **Integral.** $\Phi=\iiint_T1\,dV=\mathrm{vol}(T)=\tfrac12\cdot\tfrac43\pi\cdot27=18\pi$.
+   Orientación saliente, que es la que pide.
+
+### B · `2024-10-09 P1` → $-\tfrac{16}{3}$
+
+1. **El plano.** $G(x,y,z)=x^2+y^3+z^3-z$; $\nabla G=(2x,\ 3y^2,\ 3z^2-1)$; en $(1,1,0)$:
+   $(2,3,-1)$. Plano: $2(x-1)+3(y-1)-z=0$, o sea $z=2x+3y-5$.
+2. **¿Cerrada?** No, es un pedazo de plano. **¿Gauss con tapa?** Cerrar necesitaría varias
+   caras y el campo es trivial: **directo**. Un plano tiene normal constante, así que $f\cdot N$
+   sale en una línea.
+3. **Normal.** Como gráfica $z=g(x,y)$: $N=(-g_x,-g_y,1)=(-2,-3,1)$, tercera componente
+   positiva ✓ (es el gradiente cambiado de signo; da lo mismo).
+4. **$f\cdot N=(y,0,0)\cdot(-2,-3,1)=-2y$.**
+5. **Región.** $4x^2+y^2\le4$ es la elipse $\frac{x^2}{1}+\frac{y^2}{4}\le1$ ($a=1$, $b=2$),
+   mitad superior. Polares elípticas: $x=\rho\cos\varphi$, $y=2\rho\operatorname{sen}\varphi$,
+   $|J|=2\rho$, $\rho\in[0,1]$, $\varphi\in[0,\pi]$.
+6. **Integral.**
+   $\Phi=\iint(-2y)\,dA=-2\int_0^{\pi}\!\!\int_0^1(2\rho\operatorname{sen}\varphi)\,2\rho\,d\rho\,d\varphi
+   =-8\cdot\tfrac13\cdot2=-\tfrac{16}{3}$.
+   Chequeo en cartesianas: $\int_{-1}^{1}\int_0^{2\sqrt{1-x^2}}(-2y)\,dy\,dx=\int_{-1}^{1}-4(1-x^2)\,dx=-\tfrac{16}{3}$ ✓.
+   El signo negativo es correcto: $f$ apunta hacia $+x$ y la normal tiene componente $x$ negativa.
+
+### C · `2026-02-10 P2` → $\tfrac{324}{5}$
+
+1. **¿Cerrada?** No: $y=x^2$ es un cilindro parabólico, recortado por $0\le z\le9-x^2$.
+   Cerrarlo pide dos tapas curvas → **directo**. Y $f\cdot N$ va a salir corto.
+2. **La gráfica tiene $y$ despejada.** No despejes $z$ (no se puede: la superficie es vertical).
+   Parametrizás con las otras dos variables: $\Phi(x,z)=(x,\ x^2,\ z)$.
+3. **Normal.** $\Phi_x=(1,2x,0)$, $\Phi_z=(0,0,1)$;
+   $\Phi_x\times\Phi_z=(2x,\ -1,\ 0)$. Segunda componente negativa ✓, es la que piden.
+   (Regla general para $y=g(x,z)$: $N=\pm(-g_x,\ 1,\ -g_z)$; acá $(-2x,1,0)$ y le cambiás el
+   signo.)
+4. **$F\cdot N=2x\cdot x-y+0=2x^2-x^2=x^2$**, usando que sobre la superficie $y=x^2$. El
+   $x+2y+xz$ de la tercera componente **no aparece** porque la normal no tiene componente $z$.
+5. **Dominio en $(x,z)$.** $0\le z\le9-x^2$ exige $9-x^2\ge0$, o sea $x\in[-3,3]$.
+6. **Integral.**
+   $\Phi=\int_{-3}^{3}\int_0^{9-x^2}x^2\,dz\,dx=\int_{-3}^{3}x^2(9-x^2)\,dx
+   =2\left[3x^3-\tfrac{x^5}{5}\right]_0^3=2\left(81-\tfrac{243}{5}\right)=\tfrac{324}{5}$.
+
+### D · `2025-02-11 P2` → $4\pi$, con $\hat n=\tfrac12(x,y,z)$ (saliente, hacia arriba)
+
+1. **Leer el enunciado.** "Solenoidal" = $\operatorname{div}f=0$. No te dan $f$, sólo su valor
+   en $z=0$. Entonces el flujo directo por la semiesfera es **imposible** (no conocés $f$ ahí).
+   El único camino es Gauss con tapa, y la tapa es justamente $z=0$, donde sí conocés $f$.
+2. **Cerrar.** $\Sigma$ es la semiesfera superior de radio 2. Tapa $D$: disco $x^2+y^2\le4$ en
+   $z=0$. Cuerpo: semiesfera maciza $\Omega$.
+3. **Gauss.** $\Phi_\Sigma^{\text{sal}}+\Phi_D^{\text{sal}}=\iiint_\Omega0\,dV=0$, así que
+   $\Phi_\Sigma^{\text{sal}}=-\Phi_D^{\text{sal}}$.
+4. **La tapa.** Normal saliente del cuerpo en $z=0$ es $(0,0,-1)$;
+   $f\cdot N=-y^2$. $\Phi_D^{\text{sal}}=-\iint_{x^2+y^2\le4}y^2\,dA
+   =-\int_0^{2\pi}\!\!\int_0^2\rho^2\operatorname{sen}^2\varphi\,\rho\,d\rho\,d\varphi=-\tfrac{16}{4}\cdot\pi=-4\pi$.
+5. **Resultado.** $\Phi_\Sigma=4\pi$ con la normal saliente de la semiesfera, que es
+   $\hat n=\tfrac{(x,y,z)}{2}$ (componente $z$ positiva). Si el enunciado no fija orientación,
+   **vos la indicás**; es parte de la respuesta.
+
+### E · `2024-03-05 P3` → planteo (y, de yapa, $-\tfrac{128}{3}$)
+
+1. **Campo.** $f=\nabla\varphi=(4x,\ -4z^2,\ -8yz)$; $\operatorname{div}f=4+0-8y=4-8y$
+   (es el laplaciano de $\varphi$).
+2. **¿Cerrada?** Sí, frontera de $W$. $W$ es un poliedro de 5 caras (los tres planos
+   coordenados más $2x+y=4$ y $x+z=2$). Directo serían **cinco** flujos; Gauss es **una**
+   integral triple. Esa es la razón de elegir Gauss aunque el campo sea polinómico.
+3. **Límites.** En el primer octante, $y\le4-2x$ y $z\le2-x$ exigen $x\le2$. Para cada
+   $x\in[0,2]$: $0\le y\le4-2x$ y $0\le z\le2-x$, independientes entre sí.
+4. **Planteo** (lo que piden):
+
+$$\Phi=\int_{0}^{2}\int_{0}^{4-2x}\int_{0}^{2-x}(4-8y)\,dz\,dy\,dx$$
+
+5. Si querés el valor: $\int_0^2(2-x)\left[4(4-2x)-4(4-2x)^2\right]dx$; con $u=4-2x$ queda
+   $\int_0^4(u^2-u^3)\,du=\tfrac{64}{3}-64=-\tfrac{128}{3}$.
+
+### F · `2024-07-30 P3` → $5$
+
+1. **No es un flujo, es Stokes.** "Flujo de $\operatorname{rot}F$ por una superficie" es
+   exactamente el lado derecho de Stokes: $\iint_S\operatorname{rot}F\cdot\hat n\,dS=\oint_{\partial S}F\cdot ds$.
+   Y $g$ es desconocida, así que calcular $\operatorname{rot}F$ es imposible: **hay que ir por
+   el borde**.
+2. **La superficie y su borde.** $S$ = porción del plano $y=z$ sobre el semidisco
+   $x^2+y^2\le1$, $y\ge0$. Su borde tiene dos partes: el arco $r(t)$ (que va de $(1,0,0)$ a
+   $(-1,0,0)$ pasando por $(0,1,1)$; es la mitad de la elipse $x^2+y^2=1\cap y=z$) y el
+   **segmento** sobre el eje $x$ de $(-1,0,0)$ a $(1,0,0)$, donde $y=z=0$.
+3. **Orientación.** Parametrizando $S$ como $\Phi(x,y)=(x,y,y)$:
+   $\Phi_x\times\Phi_y=(1,0,0)\times(0,1,1)=(0,-1,1)$, componente $z$ positiva ✓. Con esa
+   normal, el borde positivo es el antihorario del semidisco en $(x,y)$: segmento de
+   $(-1,0)$ a $(1,0)$ y después el arco de $(1,0)$ a $(-1,0)$ por arriba. Es justo el sentido
+   de $r(t)$ ✓, así que la circulación dada, $1$, entra con signo $+$.
+4. **El segmento.** Sobre $y=z=0$: $F=(2,\ g(x,0,0),\ 0)$ y $ds=(dx,0,0)$, entonces
+   $F\cdot ds=2\,dx$ y $g$ **no aparece** (por eso pueden dejarla desconocida).
+   $\int_{-1}^{1}2\,dx=4$.
+5. **Resultado.** $\Phi_{\operatorname{rot}F}=1+4=5$.
+
+---
+
+_Generado el 2026-09-26 · fuentes: `examenes/INDICE.md`, `estrategia.md` §4, `repaso/machete.md` §1/§8/§9 · resultados calculados por Claude y verificados a mano; las resoluciones de `examenes/resueltos/` tienen precedencia._
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+</script>
+</body>
+</html>
