@@ -1,0 +1,212 @@
+# Práctica de EDO de primer orden — lo que cayó en los finales
+
+> Objetivo: cubrir en una sesión todas las formas en que una EDO de **primer orden** apareció
+> en los 24 finales, con énfasis en 2026, donde casi siempre viene **escondida** dentro de otro
+> problema. Parte 1: cómo aparece. Parte 2: los enunciados reales para hacer sin mirar.
+> Parte 3: resoluciones, al final, para no verlas antes de tiempo. Receta base: machete §3.2 y §3.3.
+
+---
+
+## Parte 1 · Cómo aparece (y con qué receta sale)
+
+| # | Forma en que aparece | Receta | Finales | ¿2026? |
+|---|---|---|---|---|
+| 1 | **Lineal pura**, a veces escrita como $M\,dx+N\,dy=0$ | $y'+P(x)y=Q(x)$, $\mu=e^{\int P}$ | `2024-07-23 P4` · `2025-12-16 P4` | — |
+| 2 | **V/F: «$y=\dots$ es solución de…»** | derivar y reemplazar; comprobar el punto | `2026-02-24 T1b` · `2024-12-10 T1a` | ✅ |
+| 3 | **Líneas de campo** de $F=(P,Q)$ | $y'=Q/P$ y receta de la fila 1 (o homogénea) | `2024-03-05 P2` · `2024-07-30 T2b` | — |
+| 4 | **Trayectorias ortogonales**: resolver, hallar un parámetro, o V/F | pendiente de la familia sin la constante; $y'_\perp=-1/y'$ | `2025-02-11 P3` · `2026-03-03 P3` · `2026-05-19 T2b` · `2025-02-25 P2` | ✅ ✅ |
+| 5 | **Escondida en Green**: la curva solución es el borde, o «hallá $h$ tal que…» | fila 1 + Green | `2024-05-10 P1` · `2026-02-24 P2` | ✅ |
+| 6 | **Escondida en conservativo**: «hallá $g$ para que sea conservativo» | $P_y=Q_x$ → EDO en $g$ (suele ser de 2º orden) | `2026-07-14 P4` | ✅ |
+| 7 | **Escondida en aproximación lineal**: $y_p$ es un ingrediente | resolver $y_p$, después §5.3 | `2026-02-10 P1` | ✅ |
+| 8 | **Línea equipotencial** de un campo con potencial | hallar $\varphi$, igualarla al valor en el punto | `2025-07-15 T2b` · `2025-12-09 T2b` | — |
+
+Lo que hay que ver: **en 2026 no cayó ni una lineal pura.** Cayó V/F (fila 2), trayectorias
+ortogonales dos veces (fila 4), y tres veces adentro de Green, conservativo o aproximación
+lineal (filas 5, 6, 7). La cuenta de la EDO en sí es corta; lo que se evalúa es reconocer que
+hay una EDO y qué condición la genera.
+
+Las tres recetas que resuelven todo lo de arriba:
+
+- **Lineal** $y'+P(x)\,y=Q(x)$: $\mu=e^{\int P\,dx}$, entonces $(\mu y)'=\mu Q$ e integrás. Si
+  viene como $M\,dx+N\,dy=0$ con $N=x$ o similar, dividí por $N\,dx$ y despejá $y'$.
+- **Separable** $y'=A(x)B(y)$: $\int\frac{dy}{B(y)}=\int A(x)\,dx$. Todas las trayectorias
+  ortogonales del dataset terminaron acá.
+- **Homogénea** $y'=F(y/x)$: $y=ux$, $y'=u+xu'$, queda separable en $u$. Cayó una sola vez.
+
+---
+
+## Parte 2 · Enunciados para hacer sin mirar
+
+**Núcleo (60–70 min, en este orden):** A → D → E → F → H → I. Después, si hay tiempo: B, C, G, J, K.
+
+### A · Lineal pura — `2024-07-23 P4`
+
+Hallá la solución de $(2y-4x^2)\,dx+x\,dy=0$ que pasa por $(1,1)$.
+
+### B · V/F — `2026-02-24 T1b`
+
+V/F: la ecuación $x\,y'-y=x^3$ tiene por solución particular $y=x^2+3x$, que pasa por $(1,3)$.
+
+### C · Lineal disfrazada, con un límite al final — `2025-12-16 P4`
+
+Sea $y_p$ la solución de $\dfrac{dy}{dx}=\dfrac{2\sec^2(2x)-y}{x}$ con $y(\pi)=0$. Mostrá que $\lim_{x\to0}y_p(x)$ es el extremo relativo (y global) de $g(x,y)=x^2y^2+2$.
+
+### D · Líneas de campo — `2024-03-05 P2`
+
+Hallá las líneas de campo de $F(x,y)=(x-y,\;x+y)$ y, en particular, la que pasa por $(1,-1)$.
+
+### E · Trayectoria ortogonal por un punto — `2025-02-11 P3`
+
+Hallá la curva ortogonal a la familia $xy=K$ que pasa por $(5,3)$. Parametrizala para $x,y>0$.
+
+### F · Parámetro para que dos familias sean ortogonales — `2026-03-03 P3`
+
+Hallá $a$ para que las familias $y=kx^3$ y $x^2+ay^2=C$ sean ortogonales.
+
+### G · V/F de ortogonalidad — `2026-05-19 T2b`
+
+V/F: la familia $xy=k$ es ortogonal a la familia $x^2+y^2=R^2$.
+
+### H · EDO escondida en Green — `2024-05-10 P1`
+
+Calculá $\oint_{C}F\cdot d\lambda$ con $F(x,y)=(x+2y,\;g(y)-x)$, $g\in C^1$, siendo $C$ la frontera de la región limitada por la recta $y=2x+1$ y la curva solución de $2xy\,dx-y\,dy=0$ que tiene recta tangente $y=2x$ en el punto $(1,y_0)$.
+
+### I · EDO escondida en conservativo — `2026-07-14 P4`
+
+Hallá $g$ tal que $f(x,y)=\left(y^2+4y\,g(x),\;2xy-4x^2+g'(x)\right)$ sea conservativo y $f(0,1)=(13,4)$.
+
+### J · EDO escondida en aproximación lineal — `2026-02-10 P1`
+
+Sea $y_p$ la solución de $y'=2x$ con $y(1)=4$. Sabiendo que $\nabla F(1,0)=(1,-1)$, $F(1,0)=0{,}5$ y $G(x,y)=y_p(x)-4F(x,y)$, calculá aproximadamente $G(1{,}01;\,0{,}02)$ por aproximación lineal. *(En el índice el punto figura como $(1{,}01;\,2{,}02)$ con el dato de $F$ en $(1,0)$; es un examen escaneado. Practicalo con base $(1,0)$: el número final no cambia.)*
+
+### K · Hallar $h$ por Green — `2026-02-24 P2`
+
+Sea $f(x,y)=\left(y\,h(x),\;h'(x)+2h(x)\right)$ con $f(0,1)=(2,2)$. Determiná $h(x)$ para que la circulación de $f$ en sentido positivo por la frontera de cualquier región $D$ sea $4\cdot\text{área}(D)$.
+
+### L · Línea equipotencial — `2025-12-09 T2b`
+
+$f=\left(\dfrac{-y}{x^2+y^2},\;\dfrac{x}{x^2+y^2}\right)$ admite potencial $\varphi$ en $A=\{y>0\}$ con $\varphi(1,1)=\pi/4$. Determiná la línea equipotencial que pasa por $(1,1)$.
+
+---
+
+## Parte 3 · Resoluciones
+
+### A · `2024-07-23 P4`
+
+$N=x$: dividí por $x\,dx$: $x\,y'=4x^2-2y$, es decir $y'+\dfrac{2}{x}\,y=4x$. Lineal con $\mu=e^{\int 2/x}=x^2$:
+
+$$(x^2y)'=4x^3\ \Rightarrow\ x^2y=x^4+C\ \Rightarrow\ y=x^2+\frac{C}{x^2}.$$
+
+Con $(1,1)$: $1=1+C$, $C=0$.
+
+$$\boxed{\;y=x^2\;}$$
+
+*(Alternativa: la ecuación no es exacta, $M_y=2\ne N_x=1$, pero multiplicada por $x$ sí: $\varphi=x^2y-x^4=C$. Mismo resultado. El ejercicio `2024-07-30 T2b`, líneas de campo de $(-x,\,2y-4x^2)$, es exactamente esta misma ecuación: $y'=\frac{2y-4x^2}{-x}$.)*
+
+### B · `2026-02-24 T1b`
+
+**Falso.** Si $y=x^2+3x$, entonces $y'=2x+3$ y $x\,y'-y=2x^2+3x-x^2-3x=x^2\ne x^3$. No es solución (sí pasa por $(1,3)$, pero eso no alcanza). Para saber cuál es: $y'-\frac{y}{x}=x^2$, $\mu=1/x$, $(y/x)'=x$, $y=\frac{x^3}{2}+Cx$; con $(1,3)$, $C=\frac52$.
+
+$$\boxed{\;\text{Falso: la solución por }(1,3)\text{ es }y=\tfrac{x^3}{2}+\tfrac{5}{2}x\;}$$
+
+### C · `2025-12-16 P4`
+
+Multiplicá por $x$: $x\,y'+y=2\sec^2(2x)$, y el lado izquierdo es $(xy)'$:
+
+$$xy=\tan(2x)+C.$$
+
+$y(\pi)=0$: $\tan(2\pi)=0$, así que $C=0$ y $y_p=\dfrac{\tan(2x)}{x}$. Límite: $\lim_{x\to0}\dfrac{\tan 2x}{x}=\lim\dfrac{\tan 2x}{2x}\cdot2=2$.
+
+$g=x^2y^2+2\ge2$ en todo el plano, con igualdad sobre los ejes ($xy=0$): el mínimo global vale $2$, que es el límite pedido. (Los puntos críticos $g_x=2xy^2=0$, $g_y=2x^2y=0$ son todos los de los ejes; el Hessiano se anula y no decide, por eso se argumenta con $g\ge2$.)
+
+$$\boxed{\;y_p=\frac{\tan 2x}{x},\quad \lim_{x\to0}y_p=2=\min g\;}$$
+
+### D · `2024-03-05 P2`
+
+$y'=\dfrac{Q}{P}=\dfrac{x+y}{x-y}$, homogénea. Con $y=ux$, $y'=u+xu'$:
+
+$$u+xu'=\frac{1+u}{1-u}\ \Rightarrow\ xu'=\frac{1+u^2}{1-u}\ \Rightarrow\ \frac{1-u}{1+u^2}\,du=\frac{dx}{x}.$$
+
+Integrando: $\arctan u-\tfrac12\ln(1+u^2)=\ln|x|+C$. Volviendo a $u=y/x$ y usando $\ln(1+y^2/x^2)=\ln(x^2+y^2)-2\ln|x|$:
+
+$$\arctan\frac{y}{x}-\frac12\ln\left(x^2+y^2\right)=C.$$
+
+En polares es $\theta-\ln r=C$, o sea $r=Ae^{\theta}$: espirales logarítmicas. Por $(1,-1)$: $r=\sqrt2$, $\theta=-\pi/4$, $A=\sqrt2\,e^{\pi/4}$.
+
+$$\boxed{\;\arctan\tfrac{y}{x}-\tfrac12\ln(x^2+y^2)=-\tfrac{\pi}{4}-\tfrac12\ln2\quad\Longleftrightarrow\quad r=\sqrt2\,e^{\theta+\pi/4}\;}$$
+
+### E · `2025-02-11 P3`
+
+Pendiente de la familia sin la constante: $xy=K\Rightarrow y+xy'=0\Rightarrow y'=-\dfrac{y}{x}$. Ortogonal: $y'=\dfrac{x}{y}$, separable: $y\,dy=x\,dx$, $y^2-x^2=C$. Por $(5,3)$: $9-25=-16$.
+
+$$\boxed{\;x^2-y^2=16,\qquad x=4\cosh t,\ y=4\operatorname{senh}t\ (t>0)\ \text{ o } \ (\sqrt{t^2+16},\,t),\ t>0\;}$$
+
+### F · `2026-03-03 P3`
+
+$y=kx^3$: $y'=3kx^2=\dfrac{3y}{x}$. $x^2+ay^2=C$: $2x+2ayy'=0\Rightarrow y'=-\dfrac{x}{ay}$. Producto $=-\dfrac{3}{a}=-1$.
+
+$$\boxed{\;a=3\;}$$
+
+*(Regla general: $y=kx^n$ es ortogonal a $x^2+ny^2=C$. En `2024-12-03 P4` con $n=4$ da $b=4$.)*
+
+### G · `2026-05-19 T2b`
+
+Pendientes: $xy=k\Rightarrow y'=-y/x$; $x^2+y^2=R^2\Rightarrow y'=-x/y$. Producto $=\dfrac{y}{x}\cdot\dfrac{x}{y}=1\ne-1$.
+
+$$\boxed{\;\text{Falso (la ortogonal de }xy=k\text{ es }y^2-x^2=C\text{)}\;}$$
+
+### H · `2024-05-10 P1`
+
+**La EDO:** $2xy\,dx-y\,dy=0\Rightarrow y\,(2x\,dx-dy)=0\Rightarrow y'=2x$ (descartando $y\equiv0$), así que la familia es $y=x^2+C$. La tangente en $x=1$ tiene pendiente $2$ para cualquier $C$; su ecuación es $y=(1+C)+2(x-1)=2x+C-1$, y para que sea $y=2x$ hace falta $C=1$. La curva es $y=x^2+1$ (y $y_0=2$).
+
+**Green:** $y=2x+1$ y $y=x^2+1$ se cortan en $x^2=2x$, $x=0$ y $x=2$; en $[0,2]$ la recta va por arriba. $Q_x-P_y=-1-2=-3$, y $g$ desaparece.
+
+$$\text{área}(D)=\int_0^2\left[(2x+1)-(x^2+1)\right]dx=\int_0^2(2x-x^2)\,dx=4-\frac83=\frac43 .$$
+
+$$\boxed{\;\oint_C F\cdot d\lambda=-3\cdot\frac43=-4\ \text{(sentido antihorario)}\;}$$
+
+### I · `2026-07-14 P4`
+
+Conservativo en $\mathbb R^2$ ⇔ $P_y=Q_x$: $2y+4g(x)=2y-8x+g''(x)$, es decir
+
+$$g''-4g=8x.$$
+
+Es de 2º orden (§3.1): $r^2=4$, $g_h=Ae^{2x}+Be^{-2x}$; particular $g_p=ax+b$: $-4ax-4b=8x\Rightarrow a=-2,\ b=0$. Entonces $g=Ae^{2x}+Be^{-2x}-2x$.
+
+Datos: $P(0,1)=1+4g(0)=13\Rightarrow g(0)=3\Rightarrow A+B=3$. $Q(0,1)=g'(0)=4\Rightarrow 2A-2B-2=4\Rightarrow A-B=3$. Luego $A=3$, $B=0$.
+
+$$\boxed{\;g(x)=3e^{2x}-2x\;}$$
+
+### J · `2026-02-10 P1`
+
+$y'=2x\Rightarrow y=x^2+C$; $y(1)=4\Rightarrow C=3$; $y_p(x)=x^2+3$, $y_p'(x)=2x$.
+
+$G(x,y)=y_p(x)-4F(x,y)$, así que $\nabla G=(y_p'(x),\,0)-4\nabla F$. En $(1,0)$: $G(1,0)=4-4\cdot0{,}5=2$ y $\nabla G(1,0)=(2,0)-4(1,-1)=(-2,4)$.
+
+$$G(1{,}01;\,0{,}02)\approx2+(-2)(0{,}01)+4(0{,}02)=2-0{,}02+0{,}08 .$$
+
+$$\boxed{\;G\approx2{,}06\;}$$
+
+### K · `2026-02-24 P2`
+
+Circulación $=4\cdot$área para toda $D$ ⇔ $Q_x-P_y\equiv4$: $h''(x)+2h'(x)-h(x)=4$. Es de 2º orden con $r^2+2r-1=0$, $r=-1\pm\sqrt2$, y particular $h_p=-4$:
+
+$$h(x)=-4+Ae^{(-1+\sqrt2)x}+Be^{(-1-\sqrt2)x}.$$
+
+Datos: $P(0,1)=h(0)=2\Rightarrow A+B=6$; $Q(0,1)=h'(0)+2h(0)=2\Rightarrow h'(0)=-2$, y $h'(0)=-(A+B)+\sqrt2(A-B)=-6+\sqrt2(A-B)=-2\Rightarrow A-B=2\sqrt2$.
+
+$$\boxed{\;h(x)=-4+(3+\sqrt2)\,e^{(\sqrt2-1)x}+(3-\sqrt2)\,e^{-(\sqrt2+1)x}\;}$$
+
+Los números son feos porque el enunciado viene de un escaneo y puede tener un detalle distinto. Lo que vale de este ejercicio es el **método**: condición → $Q_x-P_y\equiv k$ → EDO en $h$ → constantes con $f(0,1)$. Si en el examen te queda algo así, seguí igual; no es señal de error.
+
+### L · `2025-12-09 T2b`
+
+En $A=\{y>0\}$ el potencial es el ángulo polar: $\varphi=\dfrac{\pi}{2}-\arctan\dfrac{x}{y}+C$ (verificá: $\varphi_x=\dfrac{-y}{x^2+y^2}$, $\varphi_y=\dfrac{x}{x^2+y^2}$). Con $\varphi(1,1)=\pi/4$: $\dfrac{\pi}{2}-\dfrac{\pi}{4}+C=\dfrac{\pi}{4}\Rightarrow C=0$. La equipotencial por $(1,1)$ es $\varphi=\pi/4$, o sea $\arctan(x/y)=\pi/4$, $x=y$.
+
+$$\boxed{\;\text{la semirrecta }y=x,\ y>0\;}$$
+
+*(Compará con `2025-07-15 T2b`: $\frac{(2x,2y)}{x^2+y^2}=\nabla\ln(x^2+y^2)$, $\varphi=\ln(x^2+y^2)+3$, equipotencial por $(1,0)$: $x^2+y^2=1$.)*
+
+---
+
+_Generado el 2026-09-27 a partir de `examenes/INDICE.md` (todos los ítems con `#EDOPrimerOrden`, `#LineasCampo`, `#TrayectoriasOrtogonales` y las EDO escondidas en `#Green`/`#Conservativo`/`#AproximacionLineal`) y `repaso/machete.md` §3.2, §3.3, §2.5, §5.3. Resoluciones oficiales disponibles para A (`resueltos/2024-07-23_respuestas-oficiales.pdf`), D (`resueltos/2024-03-05_resuelto.pdf`), E (`resueltos/2025-02-11_resuelto.pdf`) y H (`resueltos/2024-05-10_resuelto.pdf`)._
