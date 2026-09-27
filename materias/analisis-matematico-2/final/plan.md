@@ -73,19 +73,23 @@ flashcards del viernes y el domingo; no se estudian aparte.
 - [ ] `/registrar`.
 - [ ] **AG 1½ h** — cultura + motivación.
 
-### 🔴 D4 · sábado 26/09 — Simulacro 2 + teóricos cerrados · AM2 3 h
-- [ ] `/simulacro` (nuevo, distinto al del jueves) → **2 horas con reloj**, misma disciplina.
-- [ ] Corregir. **30 min.** `/registrar`.
-- [ ] **T-A y T-B** en papel otra vez, seguidos, sin mirar. Si salen limpios, el teórico está cerrado; si no, se repite el domingo en el bloque de AM2. **30 min.**
-- [ ] **AG 1½ h** — paradigmas + comunicación (comodines).
+### 🔴 D4 · sábado 26/09 — hecho: teoría de Gauss + seis flujos (reemplazó al simulacro)
+- [x] `repaso/practica-flujo.md`: teoría de Gauss (T-D) y seis flujos de tipos nuevos.
+- [ ] Pendiente si queda energía hoy: **T-B en papel** (Green + área). 20 min. Si no, pasa al domingo.
+- **Hallazgo del día** (`repaso/patrones-por-mesa.md`): en 2026 el teórico obligatorio es siempre
+  *enunciar* Green, Gauss o Stokes; la EDO cae de 1er orden; Green desplazó a Stokes en los P.
 
-### 🟡 D5 · domingo 27/09 — Día de AG · AM2 1 h
-- [ ] **AG 3 h** — flashcards + simulacro cronometrado (ver plan de AG, D5).
-- [ ] AM2, liviano y sin ejercicios: flashcards 1–13 **20 min** + lectura de machete §0, §1, §2, §3 **40 min**. Si el sábado T-A o T-B no salieron limpios, escribirlos una vez más (20 min) en lugar de la lectura de §3.
+### 🔴 D5 · domingo 27/09 — Día de AG · AM2 2½ h (simulacro estilo 2026)
+- [ ] **AG 3 h** — flashcards + simulacro cronometrado (ver plan de AG, D5). Primero AG, porque es mañana.
+- [ ] **AM2 · simulacro 01** (`simulacros/2026-09-26-simulacro-01.md`, correcciones plegadas): **2 h con reloj**, eligiendo 3 de 6 en los primeros 10 minutos. Copia el esqueleto de los finales de 2026.
+- [ ] Corregir con el criterio de cada ítem y `/registrar` con errores concretos. **30 min.**
+- [ ] Si todavía no escribiste T-B: hacerlo antes del simulacro, 20 min, aunque se recorte la corrección.
 
-### 🟡 D6 · lunes 28/09 — Parcial de AG · víspera de AM2
+### 🟡 D6 · lunes 28/09 — Parcial de AG · víspera de AM2 (1½ h a la noche)
 - [ ] Rendir AG.
-- [ ] A la noche, sólo esto: `exports/machete.pdf` completo, una lectura. **40 min.** Enunciados de `2026-07-14` y `2026-07-28` en `INDICE.md`, sin resolver. Dormir temprano.
+- [ ] **Los tres enunciados en papel, de memoria, seguidos:** Green con hipótesis + deducción del área (T-B), Stokes (T-C), Gauss (T-D) con la respuesta a «¿se aplica directo a una superficie abierta?». Comparar con machete §8. **30 min.** Es el ítem obligatorio y en 2026 uno de los tres cae siempre.
+- [ ] Rehacer **sólo los ítems fallados** del simulacro 01, sin reloj. **20 min.**
+- [ ] `exports/machete.pdf`: §0, §1, §2, §3.2 y §8. Una lectura. **40 min.** Enunciados de `2026-07-14` y `2026-07-28` en `INDICE.md`, sin resolver. Dormir temprano.
 
 ---
 
@@ -94,12 +98,12 @@ flashcards del viernes y el domingo; no se estudian aparte.
 - **3 h/día (2 AM2 + 1 AG):** hoy se cae el conservativo `2026-07-14 P4`; el viernes se cae la opcional y las flashcards pasan al domingo; el sábado se recorta la corrección a 20 min. Los simulacros y T-A/T-B **no se tocan**. En AG se cae el bloque de paradigmas/comunicación del sábado.
 - **Perdés un día entero:** cae el simulacro 2 y se reemplaza por «rehacer con reloj los ítems fallados del simulacro 1» (1 h) el día que vuelvas.
 - **Perdés dos días:** corré `/plan`. El mínimo absoluto para presentarte con chances es: T-A y T-B escritos dos veces + un simulacro corregido + lectura del machete la víspera.
-- **Nunca se saltean:** T-A y T-B de hoy, y al menos un simulacro.
+- **Nunca se saltean:** T-B, T-C y T-D escritos de memoria (lunes a la noche como mínimo), y el simulacro 01 del domingo.
 
 ## El día del examen
 
 1. Leer los 6 enunciados con la tabla §0 en la cabeza. 10 minutos.
-2. Teórico: si hay T-A o T-B, ese. Si hay T-C o T-D, ese. Si no, el «defina X» más corto.
+2. Teórico: si piden enunciar Green, Stokes o Gauss (T-B, T-C, T-D), ese: el inciso b) sale con la misma receta del práctico. Si hay T-A, ese. Si no, el «defina X» o el V/F más corto (§5.5, §6).
 3. Prácticos: el flujo y la circulación, salvo que uno sea una variante rara y otro P sea una EDO de 2º orden (tu tercer práctico de respaldo).
 4. Antes de resolver cada práctico, escribir en una línea el camino elegido y la orientación.
 5. No tocar los otros 3.

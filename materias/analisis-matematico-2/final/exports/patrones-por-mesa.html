@@ -207,6 +207,54 @@ Número de finales del año con la familia **en algún teórico** (enunciar / de
 
 ---
 
+## 6. Radiografía de 2026: el patrón ítem por ítem
+
+| Fecha | T1 | T2 | P1 | P2 | P3 | P4 |
+|---|---|---|---|---|---|---|
+| 02-10 | **Gauss** enunciar + ¿aplicable? · V/F flujo nulo | Green área (dos campos) · V/F circulación | aprox. lineal + EDO1 | flujo directo (y = x²) | Green con `Df` dada, curva abierta | cadena + implícita + plano tg |
+| 02-24 | V/F diferenciable⇒derivable · V/F EDO1 | **Gauss** enunciar + ejemplo · campo con div 3 | curva, recta tangente | Green: hallar `h` (EDO1) | trabajo, conservativo | gradiente, recta normal |
+| 03-03 | **Green** enunciar + área · circulación con `DF` | polares + jacobiano · plantear | masa (plantear) | implícita + aprox. lineal | trayectorias ortogonales | flujo directo (paraboloide, `h` desconocida) |
+| 05-19 | **Green** enunciar · circulación con `Q'_x−P'_y` dato | V/F plano tg ⊥ recta tg · V/F trayectorias | Stokes | integral de superficie | flujo saliente Gauss (⅛ esfera) | extremos en un disco |
+| 07-14 | **Stokes** enunciar · circulación con `Df` dada | V/F extremos · V/F volumen en cilíndricas | plano tg paralelo a otro | flujo saliente Gauss (1er octante) | Green con `h` desconocida, curva abierta | hallar `g` conservativo (EDO1) |
+| 07-28 | demo derivada direccional · V/F diferenciable | **Stokes** enunciar · V/F circulación triángulo | flujo saliente Gauss (cilindro) | Green (¼ de elipse) | EDO2 | gradiente + implícita, máximo decrecimiento |
+
+**Teóricos (lo que se repite en los 6):**
+
+- Un T es **enunciar** Green, Gauss o Stokes con hipótesis. No piden la demostración del
+  teorema: piden el enunciado y un inciso b) de aplicación corta (flujo nulo por una esfera,
+  campo con `div ≡ 3`, circulación con `Df` dada, circulación con `Q'_x − P'_y` conocido,
+  V/F sobre un triángulo). Con Green piden además **deducir la fórmula del área**.
+- El otro T es de primer parcial y casi siempre en formato **V/F**: diferenciabilidad de una
+  función partida en el origen (3 veces en 2 años), extremos, plano tangente, volumen en
+  cilíndricas, trayectorias ortogonales, EDO de 1er orden. La única demostración larga de
+  2026 fue la de derivada direccional (`07-28 T1a`).
+- V/F aparece en 5 de los 6 finales.
+
+**Prácticos (el esqueleto de 4):**
+
+1. **Flujo.** Saliente por Gauss sobre un cuerpo con «basura» en el campo que muere al derivar
+   (`y⁹`, `e^{2xz}`, `xe^y`), en regiones recortadas: primer octante, ⅛ de esfera, cilindro
+   acostado. O directo por una superficie abierta con función desconocida `h` que se cancela
+   con la normal.
+2. **Circulación por Green.** Con campo parcialmente desconocido (`h(y)`, `Df` dada) y **curva
+   abierta que hay que cerrar** con un segmento del eje, o ¼ de elipse. Stokes en P sólo una
+   vez; en julio pasó al teórico.
+3. **Una EDO, casi siempre de 1er orden y escondida** dentro de otro problema: la `y_p` de una
+   aproximación lineal, el `h(x)` que hace que Green dé `4·área`, el `g(x)` que hace
+   conservativo al campo, trayectorias ortogonales. EDO de 2º orden pura: sólo `07-28 P3`.
+4. **Un ítem de primer parcial**: implícita + gradiente (máximo crecimiento/decrecimiento,
+   recta normal), plano tangente (paralelo a otro, en un punto), aproximación lineal.
+
+**Lo que ya no está:** volumen/masa como P de cálculo (sólo plantear, `03-03`), Taylor,
+derivada direccional en un P, líneas de campo como P solo.
+
+**Posición:** no hay. El flujo cayó en P1, P2, P3 y P4; la circulación en P2 y P3; la EDO en
+P1, P2, P3 y P4. Se elige por tema, no por número.
+
+**El simulacro `simulacros/2026-09-26-simulacro-01.md` sigue exactamente este esqueleto.**
+
+---
+
 _Generado el 2026-09-26 a partir de `examenes/INDICE.md` (24 finales, 2024-03-05 → 2026-07-28).
 Las familias se agruparon por tag: Flujo/Gauss = `#Flujo` ∪ `#Divergencia`; EDO1 = `#EDOPrimerOrden` ∪ `#LineasCampo`;
 integrales múltiples = `#Volumen` ∪ `#MasaCuerpo` ∪ `#AreaRegion` ∪ `#AreaSuperficie` ∪ `#MasaChapa`._
