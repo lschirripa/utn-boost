@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulacro 01 — Final (Análisis Matemático II) · estilo 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light dark; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body { color: #e6e6e6; background: #16181c; }
+  a { color: #6cb6ff; }
+  details { background: #1f2228; border-color: #30343c; }
+  summary { background: #232730; }
+  blockquote { color: #aab; border-color: #30343c; }
+  code { background: #232730; }
+  th { background: #232730; }
+  th, td { border-color: #30343c; }
+  tbody tr:nth-child(even) { background: #1c1f24; }
+}
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Simulacro 01 — Final (Análisis Matemático II) · estilo 2026
+
+> **Duración:** 2 horas. **Estructura:** `T1`, `T2` (teóricos con incisos a/b) y `P1`–`P4`.
+> **Aprobación:** tres ejercicios correctamente resueltos, **uno** de T1/T2 y **dos** de P1–P4.
+> Justificá todos los pasos. En flujos y circulaciones, **indicá la orientación** elegida.
+>
+> Este simulacro copia el esqueleto de los seis finales de 2026: un teórico con Green/Stokes/Gauss,
+> el otro con V/F de primer parcial, un flujo saliente por Gauss, una circulación por Green con
+> función desconocida, una EDO de primer orden y un ítem de implícita + gradiente.
+
+---
+
+## T1)
+
+**a)** Enunciá el **teorema de Green** con todas sus hipótesis y deducí a partir de él una fórmula para calcular el área de una región plana mediante una integral de línea.
+
+**b)** Sea $f=(P,Q)\in C^1(\mathbb{R}^2)$ tal que $Q'_x-P'_y=4$ en todo el plano y $f(x,0)=(x^2,\,5x)$. Calculá la circulación de $f$ a lo largo de la semicircunferencia $x^2+y^2=9$, $y\ge 0$, recorrida desde $(3,0)$ hasta $(-3,0)$.
+
+
+
+---
+
+## T2)
+
+**a)** V/F, justificando: la función $f(x,y)=\dfrac{xy^2}{x^2+y^2}$ si $(x,y)\ne(0,0)$, $f(0,0)=0$, es diferenciable en $(0,0)$.
+
+**b)** V/F, justificando: $f(x,y)=x^3+y^3-3xy$ no tiene máximos locales.
+
+
+
+---
+
+## P1)
+
+Calculá el flujo **saliente** de $f(x,y,z)=\left(xz+y^7,\; yz-\cos x,\; e^{xy}-5\right)$ a través de la frontera del cuerpo $V:\ x^2+y^2\le z\le 4$ contenido en el primer octante.
+
+
+
+---
+
+## P2)
+
+Sea $h\in C^1(\mathbb{R})$ y $f(x,y)=\left(x^2+y,\; h(y)+3x\right)$. Calculá la circulación de $f$ a lo largo de la curva $C:\ y=4-x^2$, $y\ge 0$, recorrida desde $(2,0)$ hasta $(-2,0)$.
+
+
+
+---
+
+## P3)
+
+**a)** Hallá la línea de campo de $F(x,y)=\left(x,\; x^2+2y\right)$ que pasa por el punto $(1,2)$.
+
+**b)** Hallá $a\in\mathbb{R}$ para que las familias de curvas $y=kx^2$ y $x^2+ay^2=C$ sean ortogonales.
+
+
+
+---
+
+## P4)
+
+La ecuación $x^2+yz+z^3=3$ define implícitamente $z=g(x,y)$ en un entorno de $(1,1,1)$.
+
+**a)** Justificá que la define, y hallá la dirección y el sentido de **máximo decrecimiento** de $g$ en $(1,1)$ y el valor de la derivada direccional en esa dirección.
+
+**b)** Escribí la ecuación del plano tangente a la superficie en $(1,1,1)$.
+
+
+
+---
+
+## Cómo usar este simulacro
+
+1. **2 horas con reloj**, sin machete ni apuntes. Para rendir usá **`exports/2026-09-26-simulacro-01-enunciados.pdf`** (solo los enunciados). Las correcciones están en `exports/2026-09-26-simulacro-01.pdf`: abrilo recién al terminar.
+2. En los primeros 10 minutos elegí los 3 que vas a hacer (uno de T1/T2, dos de P1–P4) con la tabla §0 del machete en la cabeza. Anotá en una línea el camino y la orientación antes de empezar cada uno. Si te sobra tiempo, recién ahí un cuarto.
+3. Al terminar, abrí cada corrección y puntuá con el criterio. Aprobado = tres ítems con al menos 7/10.
+4. `/registrar` con cada error concreto: tema, qué falló, cómo se corrige.
+5. Si el teórico que cayó no fue el tuyo: en un final de 2026 el otro teórico probable es enunciar **Stokes** o **Gauss** con hipótesis (machete §8, T-C y T-D; `repaso/practica-flujo.md` Parte 1 para Gauss).
+
+---
+
+_Generado el 2026-09-26 desde `examenes/INDICE.md` (los seis finales de 2026) y `repaso/patrones-por-mesa.md`. Inspiración por ítem: T1a `2026-03-03 T1a`/`2026-05-19 T1a`; T1b variante de `2026-05-19 T1b`; T2a reciclado de la familia `2024-03-05 T2b` ≡ `2025-12-16 T2b` ≡ `2026-07-28 T1b`; T2b estilo `2026-07-14 T2a`; P1 variante de `2026-07-14 P2`; P2 variante de `2026-07-14 P3`; P3 variantes de `2024-03-05 P2` y `2026-03-03 P3`; P4 variante de `2026-07-28 P4` + `2026-07-14 P1`. Sin exámenes reservados declarados en `estrategia.md`._
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+</script>
+</body>
+</html>

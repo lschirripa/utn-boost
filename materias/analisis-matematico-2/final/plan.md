@@ -82,7 +82,7 @@ flashcards del viernes y el domingo; no se estudian aparte.
 ### 🔴 D5 · domingo 27/09 — Día de AG · AM2 3¼ h (EDO1 + simulacro estilo 2026)
 - [ ] **AG 3 h** — flashcards + simulacro cronometrado (ver plan de AG, D5). Primero AG, porque es mañana.
 - [ ] **AM2 · EDO de 1er orden** (`repaso/practica-edo1.md`, PDF en `exports/`): el núcleo A → D → E → F → H → I. **45 min.** Es la familia que no practicaste y en 2026 cae escondida en Green, conservativo y aproximación lineal.
-- [ ] **AM2 · simulacro 01** (`simulacros/2026-09-26-simulacro-01.md`, correcciones plegadas): **2 h con reloj**, eligiendo 3 de 6 en los primeros 10 minutos. Copia el esqueleto de los finales de 2026.
+- [ ] **AM2 · simulacro 01** (rendir con `exports/2026-09-26-simulacro-01-enunciados.pdf`; corregir con `exports/2026-09-26-simulacro-01.pdf`): **2 h con reloj**, eligiendo 3 de 6 en los primeros 10 minutos. Copia el esqueleto de los finales de 2026.
 - [ ] Corregir con el criterio de cada ítem y `/registrar` con errores concretos. **30 min.**
 - [ ] Si todavía no escribiste T-B: hacerlo antes del simulacro, 20 min, aunque se recorte la corrección.
 

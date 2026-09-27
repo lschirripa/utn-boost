@@ -144,6 +144,8 @@ el usuario no la da:
   `contents`). Correr con `venv/bin/python`.
 - `md_to_html.py <ruta.md>` — export a HTML con KaTeX; `--pdf` genera PDF con Chrome
   headless (para iPad los `<details>` salen expandidos). `--out-dir` para elegir carpeta.
+  `--solo-enunciados` quita todos los `<details>` y agrega el sufijo `-enunciados`
+  (simulacro para rendir sin las correcciones a la vista).
 - `fetch_transcripts.py` — descarga masiva de transcripciones desde IP residencial
   cuando YouTube bloquea (editar su lista `REMAINING`).
 - `extract_notes.py` — LEGACY: el pipeline original con Gemini. Ya no se usa (Claude

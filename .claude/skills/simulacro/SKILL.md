@@ -134,16 +134,17 @@ Estructura del archivo:
    `estrategia.md` si se usó, y qué exámenes/fechas inspiraron cada problema —
    **sin** revelar cuáles son los reservados).
 
-Con `--pdf`, exportar después de escribir:
+Con `--pdf`, exportar después de escribir **dos** PDFs a `<base>/exports/`:
 
 ```bash
-venv/bin/python tools/md_to_html.py <base>/simulacros/AAAA-MM-DD-simulacro-NN.md --pdf
-# fallback si no hay venv:
-python tools/md_to_html.py <base>/simulacros/AAAA-MM-DD-simulacro-NN.md --pdf
+# versión para rendir: solo enunciados, sin correcciones (sufijo -enunciados)
+venv/bin/python tools/md_to_html.py <base>/simulacros/AAAA-MM-DD-simulacro-NN.md --pdf --solo-enunciados --out-dir <base>/exports
+# versión para corregir: con todas las correcciones abiertas
+venv/bin/python tools/md_to_html.py <base>/simulacros/AAAA-MM-DD-simulacro-NN.md --pdf --out-dir <base>/exports
 ```
 
-(Para PDF los `<details>` salen expandidos — avisarle al usuario que la versión
-para rendir es el `.md`/HTML con las correcciones plegadas.)
+El usuario lee PDFs (su visor no renderiza LaTeX en `.md`): indicarle que rinda con
+el `-enunciados.pdf` y corrija con el completo. Nunca mandarlo al `.md` para rendir.
 
 ## Reglas
 

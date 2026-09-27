@@ -122,14 +122,37 @@ def extract_title(markdown: str, fallback: str) -> str:
     return match.group(1).strip() if match else fallback
 
 
-def build_html(md_path: Path, *, expand_details: bool = False) -> str:
+def strip_details(markdown: str) -> str:
+    """Elimina todos los bloques <details>…</details> (anidados incluidos).
+
+    Sirve para exportar un simulacro "solo enunciados": la versión para rendir,
+    sin las correcciones a la vista.
+    """
+    out: list[str] = []
+    depth = 0
+    for token in re.split(r"(<details[^>]*>|</details>)", markdown):
+        if token.startswith("<details"):
+            depth += 1
+        elif token == "</details>":
+            depth = max(depth - 1, 0)
+        elif depth == 0:
+            out.append(token)
+    return "".join(out)
+
+
+def build_html(
+    md_path: Path, *, expand_details: bool = False, only_statements: bool = False
+) -> str:
     """Construye el HTML autocontenido de un .md.
 
     Con ``expand_details`` abre todos los bloques <details> (necesario para el
-    PDF, donde no se pueden desplegar a mano).
+    PDF, donde no se pueden desplegar a mano). Con ``only_statements`` los
+    elimina por completo (simulacro para rendir, sin correcciones).
     """
     markdown = md_path.read_text(encoding="utf-8")
-    if expand_details:
+    if only_statements:
+        markdown = strip_details(markdown)
+    elif expand_details:
         markdown = markdown.replace("<details>", "<details open>")
     # Evita que el contenido cierre el <script> que lo embebe.
     safe_markdown = markdown.replace("</script", "<\\/script")
@@ -142,9 +165,11 @@ def build_html(md_path: Path, *, expand_details: bool = False) -> str:
     )
 
 
-def convert(md_path: Path, out_path: Path) -> None:
+def convert(md_path: Path, out_path: Path, *, only_statements: bool = False) -> None:
     """Convierte un .md en un .html autocontenido."""
-    out_path.write_text(build_html(md_path), encoding="utf-8")
+    out_path.write_text(
+        build_html(md_path, only_statements=only_statements), encoding="utf-8"
+    )
 
 
 def find_chrome() -> str:
@@ -169,7 +194,7 @@ def find_chrome() -> str:
     )
 
 
-def convert_pdf(md_path: Path, out_path: Path) -> None:
+def convert_pdf(md_path: Path, out_path: Path, *, only_statements: bool = False) -> None:
     """Renderiza el .md a un PDF estático (math horneada) usando Chrome headless.
 
     El render ocurre en esta máquina, así que el PDF resultante se abre en
@@ -180,7 +205,9 @@ def convert_pdf(md_path: Path, out_path: Path) -> None:
     with tempfile.NamedTemporaryFile(
         "w", suffix=".html", delete=False, encoding="utf-8"
     ) as tmp:
-        tmp.write(build_html(md_path, expand_details=True))
+        tmp.write(
+            build_html(md_path, expand_details=True, only_statements=only_statements)
+        )
         tmp_path = Path(tmp.name)
     try:
         subprocess.run(
@@ -241,6 +268,12 @@ def main(argv: list[str] | None = None) -> int:
         help="No escribir el .html (solo tiene sentido con --pdf, p. ej. para volcar el "
         "PDF en su propia carpeta sin dejar un .html al lado).",
     )
+    parser.add_argument(
+        "--solo-enunciados",
+        action="store_true",
+        help="Quitar todos los bloques <details> (correcciones) y agregar el sufijo "
+        "-enunciados a la salida: la versión de un simulacro para rendir.",
+    )
     args = parser.parse_args(argv)
 
     if args.no_html and not args.pdf:
@@ -255,16 +288,17 @@ def main(argv: list[str] | None = None) -> int:
     if args.out_dir:
         args.out_dir.mkdir(parents=True, exist_ok=True)
 
+    suffix = "-enunciados" if args.solo_enunciados else ""
     for md_path in md_files:
         out_dir = args.out_dir or md_path.parent
         if not args.no_html:
-            html_path = out_dir / f"{md_path.stem}.html"
-            convert(md_path, html_path)
+            html_path = out_dir / f"{md_path.stem}{suffix}.html"
+            convert(md_path, html_path, only_statements=args.solo_enunciados)
             print(f"✓ {md_path.name} → {html_path}")
         if args.pdf:
-            pdf_path = out_dir / f"{md_path.stem}.pdf"
+            pdf_path = out_dir / f"{md_path.stem}{suffix}.pdf"
             try:
-                convert_pdf(md_path, pdf_path)
+                convert_pdf(md_path, pdf_path, only_statements=args.solo_enunciados)
             except (RuntimeError, subprocess.CalledProcessError) as exc:
                 print(f"  PDF falló: {exc}", file=sys.stderr)
             else:
