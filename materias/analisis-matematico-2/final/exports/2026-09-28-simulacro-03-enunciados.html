@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulacro 03 — Final (Análisis Matemático II)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light dark; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body { color: #e6e6e6; background: #16181c; }
+  a { color: #6cb6ff; }
+  details { background: #1f2228; border-color: #30343c; }
+  summary { background: #232730; }
+  blockquote { color: #aab; border-color: #30343c; }
+  code { background: #232730; }
+  th { background: #232730; }
+  th, td { border-color: #30343c; }
+  tbody tr:nth-child(even) { background: #1c1f24; }
+}
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Simulacro 03 — Final (Análisis Matemático II)
+
+> **Duración:** 2 horas. **Estructura:** `T1`, `T2` (teóricos con incisos a/b) y `P1`–`P4`.
+> **Aprobación:** tres ejercicios correctamente resueltos, **uno** de T1/T2 y **dos** de P1–P4.
+> Justificá todos los pasos. En flujos y circulaciones, **indicá la orientación** elegida.
+>
+> Tercer simulacro: **seis ítems reales de los finales de 2026, casi textuales**, elegidos entre los
+> que no aparecieron en los simulacros 01 y 02. Mismo esqueleto: un teórico con Gauss (el único
+> de los tres teoremas que todavía no había caído en un simulacro), el otro con una demostración
+> de primer parcial y un V/F, un flujo saliente por Gauss, una circulación por Stokes, la EDO de
+> segundo orden del último final y un ítem de cadena + implícita + plano tangente.
+
+---
+
+## T1)
+
+**a)** Enunciá el **teorema de Gauss** (o de la divergencia) con todas sus hipótesis. ¿Es aplicable en forma directa para calcular el flujo de $f=(xy,\ x^2,\ z-3)$ a través de la superficie $x^2-2x+y^2=0$, $-1\le z\le1$? Justificá.
+
+**b)** ¿Es nulo el flujo de $f=(2x,\ z^2+y,\ z-8)$ a través de una esfera de radio $2$? Justificá.
+
+
+
+---
+
+## T2)
+
+**a)** Demostrá que si $f:\mathbb{R}^2\to\mathbb{R}$ es diferenciable en $X_0$, entonces $f'(X_0,\check u)=\nabla f(X_0)\cdot\check u$ para todo versor $\check u$.
+
+**b)** V/F, justificando: el plano tangente a $S:\ x^3z+xy-xz^2=-3$ en $(1,-1,2)$ y la recta tangente a $C:\ \lambda(t)=(t^2,\ 2t+1,\ 2t^2)$ en ese mismo punto son perpendiculares.
+
+
+
+---
+
+## P1)
+
+Calculá el flujo de $f=(y^2+z^2,\ x^2+z^2,\ z^2)$ a través de la frontera de $V:\ x^2+y^2+z^2\le9$, $x\ge0$, $z\ge0$. Indicá la orientación elegida.
+
+
+
+---
+
+## P2)
+
+Calculá la circulación de $g=\big(yz+\operatorname{sen}(x^2),\ 2xz^2+\cos(y^2),\ \operatorname{sen}(z^2)\big)$ a lo largo de la curva $C:\ z=\sqrt{x^2+y^2}\ \cap\ z=6-x^2-y^2$. Indicá la orientación elegida.
+
+
+
+---
+
+## P3)
+
+Hallá la solución general de
+
+$$
+y''-4y'+4y=25\operatorname{sen}(x).
+$$
+
+
+
+---
+
+## P4)
+
+Sea $w=u^2\ln(2x-1)$, donde $u=f(x,y)$ está definida implícitamente por $uy+e^{u-x}=2$ en un entorno de $(1,1)$. Hallá la ecuación del plano tangente a la gráfica de $w=h(x,y)$ en el punto $(1,1,w_0)$.
+
+
+
+---
+
+## Cómo usar este simulacro
+
+1. Rendilo **cronometrado, 2 horas**, sin apuntes y sin abrir ninguna corrección. Usá el PDF `-enunciados`.
+2. En los primeros 10 minutos elegí los 3 que vas a hacer (uno de T1/T2, dos de P1–P4) con la tabla §0 del machete en la cabeza. Anotá en una línea el camino y la orientación antes de empezar cada uno. Si te sobra tiempo, recién ahí un cuarto.
+3. Al terminar, abrí cada corrección y puntuá con el criterio. Aprobado = tres ítems con al menos 7/10.
+4. `/registrar` con cada error concreto: tema, qué falló, cómo se corrige.
+5. Este simulacro son ítems reales: si te quedan dudas, `2026-05-19 P1` y `P3` tienen resolución de cátedra en `examenes/resueltos/2026-05-19_resuelto-sylvina.pdf`, y `2026-02-10 T1` y `P4` en `examenes/resueltos/2026-02-10_resuelto-sylvina.pdf`. Esas resoluciones mandan sobre esta corrección si difieren.
+
+---
+
+_Generado el 2026-09-28 desde `examenes/INDICE.md` (los seis finales de 2026), tomando sólo ítems que no aparecieron en `2026-09-26-simulacro-01.md` ni en `2026-09-28-simulacro-02.md`. Origen por ítem (casi textual): T1 = `2026-02-10 T1a` + `T1b`; T2a = `2026-07-28 T1a`; T2b = `2026-05-19 T2a`; P1 = `2026-05-19 P3`; P2 = `2026-05-19 P1`; P3 = `2026-07-28 P3`; P4 = `2026-02-10 P4`. Quedan sin usar de 2026, por si hace falta un cuarto simulacro: `02-10 T2, P3` · `02-24 T1a, P1, P3, P4` · `03-03 T2, P1` · `05-19 P2, P4` · `07-28 T2b`. Sin exámenes reservados declarados en `estrategia.md`._
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+</script>
+</body>
+</html>
