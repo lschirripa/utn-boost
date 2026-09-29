@@ -1,0 +1,619 @@
+# FORMULARIO — Análisis Matemático II · Final
+
+> Sólo fórmulas. Sin recetas ni explicaciones: para el *cómo* y el *cuándo* está
+> [`machete.md`](machete.md). Cubre todo lo que apareció en los **24 finales**
+> (`examenes/INDICE.md`): teóricos T1/T2 y prácticos P1–P4. Regla del examen: **3 de 6**
+> (un teórico + dos prácticos).
+>
+> Notación: $f=(P,Q,R)$ campo vectorial · $\hat u$ versor · $N$ normal sin normalizar ·
+> $\hat n=N/\lVert N\rVert$ · $D$ región plana · $V$ u $\Omega$ sólido · $\rho,\varphi,\theta$
+> como en §6.2.
+
+## Índice
+
+| § | Tema | § | Tema |
+|---|---|---|---|
+| 0 | Operadores y vectores | 7 | Integral de línea: circulación, conservativo, Green, Stokes |
+| 1 | Varias variables: límite, continuidad, diferenciabilidad, direccional, cadena, implícita, Taylor | 8 | Integral de superficie: área, escalar, flujo, Gauss |
+| 2 | Plano tangente, recta normal, curvas y superficies, punto regular | 9 | Ecuaciones diferenciales |
+| 3 | Extremos | 10 | Geometría: áreas, volúmenes, superficies, centroides |
+| 4 | Parametrización de curvas (2D y 3D) | 11 | Integrales y primitivas que se repiten |
+| 5 | Parametrización de superficies y normales | 12 | Teoremas: enunciado en una línea |
+| 6 | Integrales múltiples: coordenadas, jacobianos, límites de regiones y sólidos | | |
+
+---
+
+## 0 · Operadores y vectores
+
+$$
+\nabla f=(f_x,f_y,f_z)\qquad
+\operatorname{div}f=P_x+Q_y+R_z\qquad
+\nabla^2 f=f_{xx}+f_{yy}+f_{zz}
+$$
+
+$$
+\operatorname{rot}f=\begin{vmatrix}\hat i&\hat j&\hat k\\ \partial_x&\partial_y&\partial_z\\ P&Q&R\end{vmatrix}
+=\big(R_y-Q_z,\;P_z-R_x,\;Q_x-P_y\big)
+$$
+
+$$
+Df=\begin{pmatrix}P_x&P_y&P_z\\ Q_x&Q_y&Q_z\\ R_x&R_y&R_z\end{pmatrix}\ (\text{fila = componente})\qquad
+Hf=\begin{pmatrix}f_{xx}&f_{xy}\\ f_{xy}&f_{yy}\end{pmatrix}
+$$
+
+| Identidad | Nombre |
+|---|---|
+| $\operatorname{rot}(\nabla\varphi)=\bar0$ | todo gradiente es irrotacional |
+| $\operatorname{div}(\operatorname{rot}f)=0$ | todo rotor es solenoidal |
+| $\operatorname{div}(\nabla\varphi)=\nabla^2\varphi$ | laplaciano; $\nabla^2 h=0$ ⇔ $h$ armónica |
+| $\operatorname{rot}f$ se lee de $Df$: $R_y=Df_{32}$, $Q_z=Df_{23}$, $P_z=Df_{13}$, $R_x=Df_{31}$, $Q_x=Df_{21}$, $P_y=Df_{12}$ | la diagonal de $Df$ no interviene |
+
+$$
+a\times b=(a_2b_3-a_3b_2,\ a_3b_1-a_1b_3,\ a_1b_2-a_2b_1)\qquad
+\lVert a\times b\rVert=\text{área del paralelogramo}\qquad
+\hat u=\frac{u}{\lVert u\rVert}
+$$
+
+$$
+\cos\theta=\frac{a\cdot b}{\lVert a\rVert\lVert b\rVert}\qquad
+a\parallel b\Leftrightarrow a=\lambda b\qquad
+a\perp b\Leftrightarrow a\cdot b=0\qquad
+d(P_0,\pi)=\frac{\lvert ax_0+by_0+cz_0-d\rvert}{\sqrt{a^2+b^2+c^2}}
+$$
+
+---
+
+## 1 · Funciones de varias variables
+
+**Límite y continuidad.** $\lim_{X\to A}f(X)=L$ ⇔ $\forall\varepsilon>0\ \exists\delta>0:\ 0<\lVert X-A\rVert<\delta\Rightarrow\lvert f(X)-L\rvert<\varepsilon$. Continua en $A$ ⇔ $\lim_{X\to A}f(X)=f(A)$.
+Negar: dos caminos ($y=mx$, $y=kx^2$) con límites distintos. Afirmar: acotar $\lvert f\rvert\le g\to0$, o polares con $\rho\to0$ uniforme en $\varphi$. Cota útil: $\dfrac{x^2}{x^2+y^2}\le1$, $\lvert xy\rvert\le\tfrac12(x^2+y^2)$.
+
+**Derivada direccional (definición).**
+
+$$
+f'(A,\hat u)=\lim_{t\to0}\frac{f(A+t\hat u)-f(A)}{t}\qquad f_x=f'(A,(1,0)),\ f_y=f'(A,(0,1))
+$$
+
+**Diferenciabilidad en $A$.**
+
+$$
+\lim_{H\to0}\frac{f(A+H)-f(A)-\nabla f(A)\cdot H}{\lVert H\rVert}=0\qquad(\text{en }\mathbb R^2:\ H=(h,k),\ \lVert H\rVert=\sqrt{h^2+k^2})
+$$
+
+$C^1$ en un entorno ⇒ diferenciable ⇒ continua, tiene todas las direccionales y admite plano tangente. Tener parciales **no** implica diferenciable ni continua.
+
+**Derivada direccional si $f$ es diferenciable.**
+
+$$
+f'(A,\hat u)=\nabla f(A)\cdot\hat u=\lVert\nabla f(A)\rVert\cos\theta
+$$
+
+| Piden | Valor | Dirección $\hat u$ |
+|---|---|---|
+| máxima | $\lVert\nabla f\rVert$ | $\nabla f/\lVert\nabla f\rVert$ |
+| mínima (máximo decrecimiento) | $-\lVert\nabla f\rVert$ | $-\nabla f/\lVert\nabla f\rVert$ |
+| nula | $0$ | $\perp\nabla f$; en 2D: $\pm(-f_y,f_x)/\lVert\nabla f\rVert$ |
+
+**Regla de la cadena.** $h=f\circ g$:
+
+$$
+Dh(A)=Df\big(g(A)\big)\cdot Dg(A)\qquad
+\nabla h(A)=\nabla f\big(g(A)\big)\cdot Dg(A)\qquad
+\frac{d}{dt}f\big(x(t),y(t)\big)=f_x\,x'+f_y\,y'
+$$
+
+**Derivación implícita** ($F\in C^1$, $F(P)=0$, derivada del denominador $\ne0$ en $P$):
+
+$$
+F(x,y)=0:\ y'=-\frac{F_x}{F_y}\qquad
+F(x,y,z)=0:\ z_x=-\frac{F_x}{F_z},\ z_y=-\frac{F_y}{F_z}\qquad
+\nabla z=-\frac{(F_x,F_y)}{F_z}
+$$
+
+**Aproximación lineal y Taylor de grado 2** ($\Delta x=x-x_0$, $\Delta y=y-y_0$):
+
+$$
+f(X)\approx f(A)+\nabla f(A)\cdot(X-A)
+$$
+
+$$
+p_2=f+f_x\Delta x+f_y\Delta y+\tfrac12\big(f_{xx}\Delta x^2+2f_{xy}\Delta x\Delta y+f_{yy}\Delta y^2\big)
+=f+\nabla f\cdot\Delta X+\tfrac12\,\Delta X^{T}Hf\,\Delta X
+$$
+
+Lectura de un $p_2$ dado: $f(A)=$ término independiente · $\nabla f=$ (coef $\Delta x$, coef $\Delta y$) · $f_{xx}=2\,$coef$(\Delta x^2)$ · $f_{xy}=$ coef$(\Delta x\Delta y)$ · $f_{yy}=2\,$coef$(\Delta y^2)$.
+
+---
+
+## 2 · Plano tangente · recta normal · curvas · superficies
+
+| Objeto | Vector que lo define | Ecuaciones |
+|---|---|---|
+| superficie $F(x,y,z)=0$ | normal $N=\nabla F(P)$ | plano tangente $\nabla F(P)\cdot(X-P)=0$ · recta normal $X=P+t\,\nabla F(P)$ |
+| gráfica $z=g(x,y)$ | $N=(g_x,g_y,-1)$ o $(-g_x,-g_y,1)$ | $z=g(P)+g_x\Delta x+g_y\Delta y$ |
+| superficie paramétrica $\sigma(u,v)$ | $N=\sigma_u\times\sigma_v$ | $(\sigma_u\times\sigma_v)\cdot(X-P)=0$; **regular** en $P$ ⇔ $\sigma_u\times\sigma_v\ne\bar0$ |
+| curva de nivel $f(x,y)=c$ | normal $\nabla f(P)$ | recta tangente $\nabla f(P)\cdot(X-P)=0$ · recta normal $X=P+t\,\nabla f(P)$ |
+| curva $\lambda(t)$ | tangente $T=\lambda'(t_0)$ | recta tangente $X=P+t\,\lambda'(t_0)$ · plano normal $\lambda'(t_0)\cdot(X-P)=0$ |
+| curva $F_1=0\cap F_2=0$ | $T=\nabla F_1(P)\times\nabla F_2(P)$ | ídem fila anterior con este $T$ |
+
+- **Punto regular de curva:** $\lambda'(t_0)\ne\bar0$. **Simple:** $\lambda$ inyectiva en el intervalo (no pasa dos veces por el mismo punto). **Curva regular:** $\lambda\in C^1$ y $\lambda'\ne\bar0$ en todo $t$.
+- **Superficie parametrizada:** $\sigma:D\subset\mathbb R^2\to\mathbb R^3$, $\sigma\in C^1$; **regular** si $\sigma_u\times\sigma_v\ne\bar0$ en $D$ (entonces tiene plano tangente en cada punto).
+- $\nabla f\perp$ curvas/superficies de nivel de $f$ (demostración: derivar $f(\lambda(t))=c$ ⇒ $\nabla f\cdot\lambda'=0$).
+- Planos paralelos ⇔ normales proporcionales ($\nabla F(X_0)=\lambda(a,b,c)$). Plano tangente horizontal ⇔ $\nabla g=(0,0)$. Plano tangente a $S$ $\perp$ recta tangente a $C$ ⇔ $\nabla F\parallel\lambda'$.
+
+---
+
+## 3 · Extremos
+
+**Definiciones.** $A$ es **máximo local** si $f(X)\le f(A)$ para todo $X$ en un entorno de $A$ (mínimo: $\ge$); **absoluto** si vale en todo el dominio; **estricto** si la igualdad sólo se da en $A$. **Punto crítico:** $\nabla f(A)=\bar0$ (o no existe). **Punto silla:** crítico que no es extremo (en todo entorno hay $f>f(A)$ y $f<f(A)$).
+
+**Condición necesaria:** extremo local con $f$ diferenciable ⇒ $\nabla f(A)=\bar0$.
+
+**Criterio del Hessiano** ($f\in C^2$, $\nabla f(A)=\bar0$):
+
+$$
+D=f_{xx}f_{yy}-f_{xy}^2\quad\text{evaluado en }A
+$$
+
+| $D>0,\ f_{xx}>0$ | $D>0,\ f_{xx}<0$ | $D<0$ | $D=0$ |
+|---|---|---|---|
+| mínimo local | máximo local | silla | no decide → signo de $f(X)-f(A)$ |
+
+**Extremos condicionados (Lagrange):** extremos de $f$ sobre $g=0$: $\nabla f=\lambda\nabla g$, $g=0$. Dos restricciones: $\nabla f=\lambda\nabla g+\mu\nabla h$.
+
+**Región cerrada y acotada:** candidatos = críticos interiores ∪ extremos sobre la frontera (parametrizada, $f(\lambda(t))$ en una variable, o Lagrange) ∪ vértices/extremos del parámetro. Evaluar todos y comparar.
+
+---
+
+## 4 · Parametrización de curvas
+
+Convención: $\lambda(t)$, $t\in[a,b]$; $\lambda(a)$ = punto inicial. Invertir el sentido = cambiar el signo de la integral de línea. Vector tangente $\lambda'(t)$; $ds=\lVert\lambda'(t)\rVert\,dt$.
+
+### 4.1 Curvas planas
+
+| Curva | $\lambda(t)$ | $t\in$ | $\lambda'(t)$ / observaciones |
+|---|---|---|---|
+| segmento $A\to B$ | $A+t(B-A)$ | $[0,1]$ | $\lambda'=B-A$ |
+| segmento sobre el eje $x$, de $x_0$ a $x_1$ | $(t,0)$ | $[x_0,x_1]$ | $dy=0$: sobrevive $\int P(t,0)\,dt$ |
+| segmento sobre el eje $y$ | $(0,t)$ | $[y_0,y_1]$ | $dx=0$: sobrevive $\int Q(0,t)\,dt$ |
+| gráfica $y=g(x)$ | $(t,\,g(t))$ | $[x_0,x_1]$ | $\lambda'=(1,g')$ |
+| gráfica $x=h(y)$ | $(h(t),\,t)$ | $[y_0,y_1]$ | $\lambda'=(h',1)$ |
+| circunferencia $x^2+y^2=R^2$ (antihorario) | $(R\cos t,\ R\operatorname{sen}t)$ | $[0,2\pi]$ | $\lambda'=(-R\operatorname{sen}t,R\cos t)$; $\lVert\lambda'\rVert=R$ |
+| circunferencia horario | $(R\cos t,\ -R\operatorname{sen}t)$ | $[0,2\pi]$ | o la antihoraria con signo $-$ |
+| semicircunferencia $y\ge0$ | $(R\cos t,\ R\operatorname{sen}t)$ | $[0,\pi]$ | va de $(R,0)$ a $(-R,0)$ |
+| cuarto de circunferencia (1er cuadrante) | ídem | $[0,\pi/2]$ | |
+| circunferencia corrida $(x-a)^2+(y-b)^2=R^2$ | $(a+R\cos t,\ b+R\operatorname{sen}t)$ | $[0,2\pi]$ | $x^2+y^2=2ax$ ⇒ centro $(a,0)$, radio $a$ |
+| elipse $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$ | $(a\cos t,\ b\operatorname{sen}t)$ | $[0,2\pi]$ | $\lambda'=(-a\operatorname{sen}t,b\cos t)$ |
+| elipse corrida $\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}=1$ | $(x_0+a\cos t,\ y_0+b\operatorname{sen}t)$ | $[0,2\pi]$ | |
+| parábola $y=x^2$ | $(t,\,t^2)$ | | $\lambda'=(1,2t)$ |
+| hipérbola $x^2-y^2=a^2$, rama $x>0$ | $(a\cosh t,\ a\operatorname{senh}t)$ | $\mathbb R$ | $\cosh^2-\operatorname{senh}^2=1$ |
+| hipérbola $xy=k$ | $(t,\,k/t)$ | | |
+| curva polar $\rho=\rho(\varphi)$ | $(\rho(\varphi)\cos\varphi,\ \rho(\varphi)\operatorname{sen}\varphi)$ | | |
+| frontera de una región | unión de tramos, cada uno con su sentido | | antihorario = región a la izquierda |
+
+### 4.2 Curvas en el espacio
+
+| Curva | $\lambda(t)$ | Observaciones |
+|---|---|---|
+| recta por $P$ con dirección $v$ | $P+t\,v$ | |
+| segmento $A\to B$ en $\mathbb R^3$ | $A+t(B-A)$, $t\in[0,1]$ | |
+| cilindro $x^2+y^2=R^2$ ∩ superficie $z=g(x,y)$ (o plano) | $(R\cos t,\ R\operatorname{sen}t,\ g(R\cos t,R\operatorname{sen}t))$ | $t\in[0,2\pi]$; la $z$ sale de reemplazar |
+| cilindro corrido ∩ $z=g$ | $(a+R\cos t,\ b+R\operatorname{sen}t,\ g(\dots))$ | |
+| cilindro elíptico ∩ $z=g$ | $(a\cos t,\ b\operatorname{sen}t,\ g(\dots))$ | |
+| esfera $x^2+y^2+z^2=R^2$ ∩ plano $z=k$ | $(r\cos t,\ r\operatorname{sen}t,\ k)$, $r=\sqrt{R^2-k^2}$ | circunferencia a altura $k$ |
+| paraboloide $z=x^2+y^2$ ∩ plano $z=k$ | $(\sqrt k\cos t,\ \sqrt k\operatorname{sen}t,\ k)$ | |
+| dos superficies en general | igualarlas → proyección $D$ (circunferencia/elipse) → parametrizar $D$ → levantar $z$ con una de las ecuaciones | tangente en un punto: $\nabla F_1\times\nabla F_2$ |
+| triángulo $A\to B\to C\to A$ | tres segmentos | orientación = la que induce la normal por mano derecha |
+| curva $y=f(x)$, $z=g(x)$ | $(t,\ f(t),\ g(t))$ | |
+
+---
+
+## 5 · Parametrización de superficies y normales
+
+$N=r_u\times r_v$ (sin normalizar); $dS=\lVert N\rVert\,du\,dv$; $\hat n=N/\lVert N\rVert$. Para el flujo se usa $N$ directamente: $\iint_S f\cdot\hat n\,dS=\iint_D f(r(u,v))\cdot N\,du\,dv$.
+
+**Gráficas** (la variable despejada lleva el $1$; las otras, $-$ su derivada parcial):
+
+| Superficie | $r(u,v)$ | $N$ | Apunta hacia | $\lVert N\rVert$ |
+|---|---|---|---|---|
+| $z=g(x,y)$ | $(x,\,y,\,g)$ | $(-g_x,\,-g_y,\,1)$ | $z^+$ | $\sqrt{1+g_x^2+g_y^2}$ |
+| $y=g(x,z)$ | $(x,\,g,\,z)$ | $(-g_x,\,1,\,-g_z)$ | $y^+$ | $\sqrt{1+g_x^2+g_z^2}$ |
+| $x=g(y,z)$ | $(g,\,y,\,z)$ | $(1,\,-g_y,\,-g_z)$ | $x^+$ | $\sqrt{1+g_y^2+g_z^2}$ |
+
+**Superficies concretas:**
+
+| Superficie | $r(u,v)$ y rango | $N=r_u\times r_v$ | Apunta | $\lVert N\rVert$ |
+|---|---|---|---|---|
+| plano $ax+by+cz=d$ | gráfica $z=\frac{d-ax-by}{c}$ | $(a,b,c)$ (∝) | según signo de $c$ | $\sqrt{a^2+b^2+c^2}/\lvert c\rvert$ por $dA$ |
+| plano por $P$ con direcciones $v_1,v_2$ | $P+u\,v_1+v\,v_2$ | $v_1\times v_2$ | constante | |
+| tapa $z=k$ sobre $D$ | $(x,y,k)$ | $(0,0,\pm1)$ | $\pm z$ | $1$ |
+| tapa $x=k$ / $y=k$ | $(k,y,z)$ / $(x,k,z)$ | $(\pm1,0,0)$ / $(0,\pm1,0)$ | | $1$ |
+| esfera radio $R$ centro $O$ | $(R\operatorname{sen}\theta\cos\varphi,\ R\operatorname{sen}\theta\operatorname{sen}\varphi,\ R\cos\theta)$, $\theta\in[0,\pi]$, $\varphi\in[0,2\pi]$ | $R\operatorname{sen}\theta\,(x,y,z)$ | saliente | $R^2\operatorname{sen}\theta$ |
+| esfera, forma implícita | | $(x,y,z)$ ∝ $\nabla F$ | saliente | $\hat n=(x,y,z)/R$ |
+| semiesfera $z=\sqrt{R^2-x^2-y^2}$ | gráfica sobre $x^2+y^2\le R^2$ | $\big(\tfrac{x}{z},\tfrac{y}{z},1\big)=\tfrac{(x,y,z)}{z}$ | $z^+$ (saliente) | $R/z$ |
+| esfera centro $(a,b,c)$ | sumar el centro | $(x-a,\,y-b,\,z-c)$ | saliente | |
+| cilindro $x^2+y^2=R^2$ | $(R\cos t,\ R\operatorname{sen}t,\ z)$, $t\in[0,2\pi]$ | $(R\cos t,\ R\operatorname{sen}t,\ 0)=(x,y,0)$ | saliente | $R$ |
+| cilindro corrido $(x-a)^2+(y-b)^2=R^2$ | $(a+R\cos t,\ b+R\operatorname{sen}t,\ z)$ | $(R\cos t,\ R\operatorname{sen}t,\ 0)=(x-a,\,y-b,\,0)$ | saliente | $R$ |
+| cilindro elíptico $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$ | $(a\cos t,\ b\operatorname{sen}t,\ z)$ | $(b\cos t,\ a\operatorname{sen}t,\ 0)$ | saliente | $\sqrt{b^2\cos^2t+a^2\operatorname{sen}^2t}$ |
+| cilindro de eje $x$: $y^2+z^2=R^2$ | $(x,\ R\cos t,\ R\operatorname{sen}t)$ | $(0,\,y,\,z)$ (∝) | saliente | $R$ |
+| cilindro parabólico $y=x^2$ | gráfica $y=g(x,z)$: $(x,\,x^2,\,z)$ | $(-2x,\,1,\,0)$ | $y^+$ | $\sqrt{1+4x^2}$ |
+| cono $z=\sqrt{x^2+y^2}$ | gráfica; o $(\rho\cos\varphi,\ \rho\operatorname{sen}\varphi,\ \rho)$ | gráfica: $\big(-\tfrac{x}{z},-\tfrac{y}{z},1\big)$ · polar: $(-\rho\cos\varphi,\,-\rho\operatorname{sen}\varphi,\,\rho)$ | $z^+$ | $\sqrt2$ por $dA$ · $\rho\sqrt2$ |
+| cono $z=k\sqrt{x^2+y^2}$ | $(\rho\cos\varphi,\ \rho\operatorname{sen}\varphi,\ k\rho)$ | $(-k\rho\cos\varphi,\,-k\rho\operatorname{sen}\varphi,\,\rho)$ | $z^+$ | $\rho\sqrt{1+k^2}$ |
+| paraboloide $z=x^2+y^2$ | gráfica; o $(\rho\cos\varphi,\ \rho\operatorname{sen}\varphi,\ \rho^2)$ | $(-2x,\,-2y,\,1)$ · polar: $(-2\rho^2\cos\varphi,\,-2\rho^2\operatorname{sen}\varphi,\,\rho)$ | $z^+$ | $\sqrt{1+4\rho^2}$ por $dA$ · $\rho\sqrt{1+4\rho^2}$ |
+| paraboloide $z=h-x^2-y^2$ | gráfica | $(2x,\,2y,\,1)$ | $z^+$ (saliente del cuerpo bajo él) | $\sqrt{1+4\rho^2}$ |
+| paraboloide elíptico $z=c\big(1-\frac{x^2}{a^2}-\frac{y^2}{b^2}\big)$ | gráfica; o $(a\rho\cos\varphi,\ b\rho\operatorname{sen}\varphi,\ c(1-\rho^2))$, $\rho\in[0,1]$ | $\big(\tfrac{2cx}{a^2},\,\tfrac{2cy}{b^2},\,1\big)$ | $z^+$ | |
+| elipsoide $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$ | $(a\operatorname{sen}\theta\cos\varphi,\ b\operatorname{sen}\theta\operatorname{sen}\varphi,\ c\cos\theta)$ | ∝ $\nabla F=\big(\tfrac{2x}{a^2},\tfrac{2y}{b^2},\tfrac{2z}{c^2}\big)$ | saliente | |
+| superficie de nivel $F=0$ cualquiera | | $\nabla F$ | hacia donde crece $F$ | |
+
+Orientación: mirar la componente que nombra el enunciado ("tercera componente positiva", "saliente", "hacia el eje $z$") y usar $N$ o $-N$. **Escribir cuál se eligió.**
+
+---
+
+## 6 · Integrales múltiples
+
+### 6.1 Fubini y regiones planas
+
+$$
+\iint_D f\,dA=\int_a^b\!\!\int_{g_1(x)}^{g_2(x)}f\,dy\,dx\ (\text{tipo I})
+=\int_c^d\!\!\int_{h_1(y)}^{h_2(y)}f\,dx\,dy\ (\text{tipo II})\qquad
+\text{área}(D)=\iint_D dA
+$$
+
+| Región plana | Límites |
+|---|---|
+| disco $x^2+y^2\le R^2$ | polares: $\rho\in[0,R]$, $\varphi\in[0,2\pi]$ |
+| semidisco $y\ge0$ / $x\ge0$ | $\varphi\in[0,\pi]$ / $\varphi\in[-\tfrac\pi2,\tfrac\pi2]$ |
+| cuarto de disco (1er cuadrante) | $\varphi\in[0,\tfrac\pi2]$ |
+| corona $r\le\sqrt{x^2+y^2}\le R$ | $\rho\in[r,R]$ |
+| disco corrido $x^2+y^2\le2ax$ | $\rho\in[0,2a\cos\varphi]$, $\varphi\in[-\tfrac\pi2,\tfrac\pi2]$ (o polares centradas en $(a,0)$) |
+| disco corrido $x^2+y^2\le2ay$ | $\rho\in[0,2a\operatorname{sen}\varphi]$, $\varphi\in[0,\pi]$ |
+| elipse $\frac{x^2}{a^2}+\frac{y^2}{b^2}\le1$ | polares elípticas: $\rho\in[0,1]$, $\varphi\in[0,2\pi]$ |
+| triángulo $(0,0),(a,0),(0,b)$ | $x\in[0,a]$, $y\in[0,\,b(1-\tfrac xa)]$ |
+| entre dos curvas $y=g_1(x)$ y $y=g_2(x)$ | $x$ entre las intersecciones, $y\in[g_1,g_2]$ |
+| sector de ángulo $\alpha$ | $\varphi\in[\varphi_0,\varphi_0+\alpha]$, $\rho\in[0,R]$ |
+
+Completar cuadrados: $x^2+y^2=2ax$ ⇔ $(x-a)^2+y^2=a^2$ ⇔ $\rho=2a\cos\varphi$ · $x^2+y^2=2ay$ ⇔ $\rho=2a\operatorname{sen}\varphi$ · $x^2-2x+y^2=0$ ⇔ $(x-1)^2+y^2=1$.
+
+### 6.2 Cambio de variables y sistemas de coordenadas
+
+$$
+\iint_D f(x,y)\,dx\,dy=\iint_{D^*}f\big(x(u,v),y(u,v)\big)\,\lvert J\rvert\,du\,dv,\qquad
+J=\det\frac{\partial(x,y)}{\partial(u,v)}=\begin{vmatrix}x_u&x_v\\ y_u&y_v\end{vmatrix}
+$$
+
+| Sistema | Ecuaciones | Rangos | $\lvert J\rvert$ | Inversas útiles |
+|---|---|---|---|---|
+| polares | $x=\rho\cos\varphi$, $y=\rho\operatorname{sen}\varphi$ | $\rho\ge0$, $\varphi\in[0,2\pi]$ | $\rho$ | $x^2+y^2=\rho^2$ |
+| polares elípticas | $x=a\rho\cos\varphi$, $y=b\rho\operatorname{sen}\varphi$ | $\rho\in[0,1]$ para la elipse | $ab\,\rho$ | $\frac{x^2}{a^2}+\frac{y^2}{b^2}=\rho^2$ |
+| polares corridas | $x=x_0+\rho\cos\varphi$, $y=y_0+\rho\operatorname{sen}\varphi$ | | $\rho$ | $(x-x_0)^2+(y-y_0)^2=\rho^2$ |
+| cilíndricas | polares $+\ z=z$ | | $\rho$ | |
+| cilíndricas elípticas | polares elípticas $+\ z=z$ | | $ab\,\rho$ | |
+| esféricas | $x=\rho\operatorname{sen}\theta\cos\varphi$, $y=\rho\operatorname{sen}\theta\operatorname{sen}\varphi$, $z=\rho\cos\theta$ | $\theta\in[0,\pi]$ (desde $z^+$), $\varphi\in[0,2\pi]$ | $\rho^2\operatorname{sen}\theta$ | $x^2+y^2+z^2=\rho^2$; $x^2+y^2=\rho^2\operatorname{sen}^2\theta$ |
+| esféricas escaladas (elipsoide) | $x=a\rho\operatorname{sen}\theta\cos\varphi$, $y=b\rho\operatorname{sen}\theta\operatorname{sen}\varphi$, $z=c\rho\cos\theta$ | $\rho\in[0,1]$ | $abc\,\rho^2\operatorname{sen}\theta$ | |
+| lineal $(x,y)=T(u,v)$ | $x=\alpha u+\beta v$, $y=\gamma u+\delta v$ | | $\lvert\alpha\delta-\beta\gamma\rvert$ constante | área$(D)=\lvert J\rvert\cdot$área$(D^*)$ |
+| triple general | $J=\det\frac{\partial(x,y,z)}{\partial(u,v,w)}$ | | | |
+
+Cono $z=\sqrt{x^2+y^2}$ en esféricas: $\theta=\tfrac\pi4$. Cono $z=k\sqrt{x^2+y^2}$: $\tan\theta=1/k$. Plano $z=h$ en esféricas: $\rho=h/\cos\theta$.
+
+### 6.3 Volumen, masa, área
+
+$$
+V=\iiint_V dV=\iint_D\big(z_{\text{techo}}-z_{\text{piso}}\big)\,dA\qquad
+m=\iiint_V\delta\,dV\qquad
+m_{\text{chapa}}=\iint_D\delta\,dA
+$$
+
+Densidad proporcional a la distancia: al eje $z$ → $\delta=k\sqrt{x^2+y^2}=k\rho$ · al plano $xy$ → $k\lvert z\rvert$ · al plano $yz$ → $k\lvert x\rvert$ · al origen → $k\sqrt{x^2+y^2+z^2}$ ($=k\rho$ en esféricas).
+
+### 6.4 Límites de sólidos típicos
+
+| Sólido | Coordenadas | Límites |
+|---|---|---|
+| esfera $x^2+y^2+z^2\le R^2$ | esféricas | $\rho\in[0,R]$, $\theta\in[0,\pi]$, $\varphi\in[0,2\pi]$ |
+| semiesfera $z\ge0$ / primer octante | esféricas | $\theta\in[0,\tfrac\pi2]$ / además $\varphi\in[0,\tfrac\pi2]$ |
+| esfera en cilíndricas | cilíndricas | $\rho\in[0,R]$, $z\in[-\sqrt{R^2-\rho^2},\sqrt{R^2-\rho^2}]$ |
+| capa esférica $r\le\sqrt{x^2+y^2+z^2}\le R$ | esféricas | $\rho\in[r,R]$ |
+| cilindro $x^2+y^2\le R^2$, $0\le z\le h$ | cilíndricas | $\rho\in[0,R]$, $\varphi\in[0,2\pi]$, $z\in[0,h]$ |
+| cilindro corrido $x^2+y^2\le2ax$ | cilíndricas | $\rho\in[0,2a\cos\varphi]$, $\varphi\in[-\tfrac\pi2,\tfrac\pi2]$ |
+| cono $z\ge\sqrt{x^2+y^2}$, $z\le h$ | cilíndricas | $\rho\in[0,h]$, $z\in[\rho,h]$ |
+| ídem | esféricas | $\theta\in[0,\tfrac\pi4]$, $\rho\in[0,h/\cos\theta]$ |
+| cono ∩ esfera: $z\ge\sqrt{x^2+y^2}$, $x^2+y^2+z^2\le R^2$ | esféricas | $\rho\in[0,R]$, $\theta\in[0,\tfrac\pi4]$ |
+| ídem | cilíndricas | $\rho\in[0,R/\sqrt2]$, $z\in[\rho,\sqrt{R^2-\rho^2}]$ (se cortan en $z=\rho=R/\sqrt2$) |
+| paraboloide $z\ge x^2+y^2$, $z\le h$ | cilíndricas | $\rho\in[0,\sqrt h]$, $z\in[\rho^2,h]$ |
+| bajo el paraboloide $z=h-x^2-y^2$, $z\ge0$ | cilíndricas | $\rho\in[0,\sqrt h]$, $z\in[0,h-\rho^2]$ |
+| paraboloide ∩ esfera: $x^2+y^2\le z$, $x^2+y^2+z^2\le R^2$ | cilíndricas | $\rho^2+\rho^4=R^2$ da $\rho_0$; $\rho\in[0,\rho_0]$, $z\in[\rho^2,\sqrt{R^2-\rho^2}]$ |
+| entre paraboloides $z=x^2+y^2$ y $z=2h-x^2-y^2$ | cilíndricas | $\rho\in[0,\sqrt h]$, $z\in[\rho^2,2h-\rho^2]$ |
+| paraboloide elíptico bajo $z=c(1-\frac{x^2}{a^2}-\frac{y^2}{b^2})$ | cilíndricas elípticas | $\rho\in[0,1]$, $z\in[0,c(1-\rho^2)]$ |
+| tetraedro $x,y,z\ge0$, $\frac xa+\frac yb+\frac zc\le1$ | cartesianas | $x\in[0,a]$, $y\in[0,b(1-\frac xa)]$, $z\in[0,c(1-\frac xa-\frac yb)]$ |
+| prisma / cuña $0\le z\le g(x,y)$ sobre $D$ | cartesianas o polares | $(x,y)\in D$, $z\in[0,g]$ |
+| cilindro con techo curvo $x^2+y^2\le R^2$, $0\le z\le g(x,y)$ | cilíndricas | $\rho\in[0,R]$, $z\in[0,g(\rho\cos\varphi,\rho\operatorname{sen}\varphi)]$ |
+| elipsoide | esféricas escaladas | $\rho\in[0,1]$, $\theta\in[0,\pi]$, $\varphi\in[0,2\pi]$ |
+
+Dos proyecciones distintas ("exprese mediante dos integrales"): proyectar sobre $xy$ ($dz$ adentro) y sobre $xz$ o $yz$ ($dy$ o $dx$ adentro).
+
+---
+
+## 7 · Integral de línea
+
+$$
+\int_C f\cdot d\lambda=\int_a^b f\big(\lambda(t)\big)\cdot\lambda'(t)\,dt=\int_C P\,dx+Q\,dy+R\,dz\qquad
+\int_C h\,ds=\int_a^b h\big(\lambda(t)\big)\,\lVert\lambda'(t)\rVert\,dt
+$$
+
+Trabajo $=$ circulación $=\int_C f\cdot d\lambda$. Longitud $=\int_C ds$.
+
+### 7.1 Campos conservativos
+
+| Concepto | Fórmula |
+|---|---|
+| $f$ conservativo (de gradientes) | $\exists\varphi:\ f=\nabla\varphi$; $\varphi$ = función potencial |
+| condición necesaria ($f\in C^1$) | $Df$ simétrica: 2D $P_y=Q_x$; 3D además $P_z=R_x$, $Q_z=R_y$ ⇔ $\operatorname{rot}f=\bar0$ |
+| suficiente | necesaria **+** dominio simplemente conexo (sin agujeros) |
+| independencia de la trayectoria | $\int_C\nabla\varphi\cdot d\lambda=\varphi(B)-\varphi(A)$; curva cerrada ⇒ $0$ |
+| construcción de $\varphi$ | $\varphi=\int P\,dx+c(y,z)$ → $\varphi_y=Q$ da $c_y$ → $c=\int c_y\,dy+d(z)$ → $\varphi_z=R$ da $d(z)$; verificar $\nabla\varphi=f$ |
+| línea equipotencial por $P_0$ | $\varphi(x,y)=\varphi(P_0)$ (curva de nivel de $\varphi$) |
+| línea de campo de $(P,Q)$ | $\dfrac{dy}{dx}=\dfrac{Q(x,y)}{P(x,y)}$; en 3D $\dfrac{dx}{P}=\dfrac{dy}{Q}=\dfrac{dz}{R}$ |
+| líneas de campo $\perp$ equipotenciales | porque $\nabla\varphi\perp$ curvas de nivel de $\varphi$ |
+| agujero típico | $\frac{(-y,x)}{x^2+y^2}$: $P_y=Q_x$ pero $\oint_{\text{circ. centrada}}=2\pi$; conservativo sólo en dominios sin el origen adentro (p. ej. $y>0$) |
+
+### 7.2 Green (curva plana cerrada, $C=\partial D$ antihoraria, $f\in C^1$ en $D$)
+
+$$
+\oint_{C^+}P\,dx+Q\,dy=\iint_D\big(Q_x-P_y\big)\,dA
+$$
+
+$$
+\text{área}(D)=\oint_{C^+}x\,dy=-\oint_{C^+}y\,dx=\tfrac12\oint_{C^+}\big(x\,dy-y\,dx\big)\qquad(\text{campos }(0,x),\ (-y,0),\ \tfrac12(-y,x))
+$$
+
+Curva abierta $C$ de $A$ a $B$: cerrar con un tramo $\Gamma$ ($B\to A$) y despejar: $\int_C=\iint_D(Q_x-P_y)\,dA-\int_\Gamma$. Sentido horario ⇒ signo $-$. $Q_x-P_y=k$ constante ⇒ circulación $=k\cdot$área$(D)$.
+
+### 7.3 Stokes (curva en el espacio, $C=\partial S$, orientaciones coherentes por mano derecha)
+
+$$
+\oint_{C^+}f\cdot d\lambda=\iint_S\operatorname{rot}f\cdot\hat n\,dS=\iint_D\operatorname{rot}f\big(r(u,v)\big)\cdot N\,du\,dv
+$$
+
+$S$ plana con borde $C$: plano $ax+by+cz=d$ ⇒ $N=(a,b,c)$; disco $z=z_0$ ⇒ $N=(0,0,\pm1)$. Mano derecha: pulgar $\hat n$, dedos recorren $C$; con $\hat n=+\hat k$, $C$ antihoraria vista desde arriba. Circulación por cualquier curva cerrada en el plano $y=k$ nula ⇔ $(\operatorname{rot}f)_2=P_z-R_x=0$ ahí.
+
+### 7.4 "Hallar $g$ tal que…" (queda una EDO en $g$)
+
+| Condición | Ecuación |
+|---|---|
+| conservativo | $P_y=Q_x$ (3D: $\operatorname{rot}f=\bar0$) |
+| solenoidal | $\operatorname{div}f=0$ |
+| irrotacional | $\operatorname{rot}f=\bar0$ |
+| flujo $=k\cdot$vol para todo cuerpo | $\operatorname{div}f\equiv k$ |
+| circulación $=k\cdot$área para toda región | $Q_x-P_y\equiv k$ |
+| armónica | $\nabla^2 g=0$ |
+
+---
+
+## 8 · Integral de superficie
+
+### 8.1 Área e integral escalar
+
+$$
+dS=\lVert r_u\times r_v\rVert\,du\,dv\qquad
+z=g(x,y):\ dS=\sqrt{1+g_x^2+g_y^2}\,dA\qquad
+A(S)=\iint_S dS\qquad
+\iint_S h\,d\sigma=\iint_D h\big(r(u,v)\big)\,\lVert r_u\times r_v\rVert\,du\,dv
+$$
+
+Masa de una chapa curva: $\iint_S\delta\,dS$. Si $\lVert N\rVert$ es constante: $A(S)=\lVert N\rVert\cdot$área$(D)$.
+
+### 8.2 Flujo
+
+$$
+\Phi=\iint_S f\cdot\hat n\,dS=\iint_D f\big(r(u,v)\big)\cdot\big(r_u\times r_v\big)\,du\,dv
+\qquad
+z=g(x,y),\ \hat n\text{ hacia }z^+:\ \Phi=\iint_D\big(-P\,g_x-Q\,g_y+R\big)\,dA
+$$
+
+(reemplazar $z=g(x,y)$ dentro de $P,Q,R$ antes de integrar).
+
+| Tapa plana | $N$ saliente del cuerpo | Flujo |
+|---|---|---|
+| $z=k$, cuerpo debajo (tapa superior) | $(0,0,1)$ | $\iint_D R(x,y,k)\,dA$ |
+| $z=k$, cuerpo arriba (piso) | $(0,0,-1)$ | $-\iint_D R(x,y,k)\,dA$ |
+| $x=k$ | $(\pm1,0,0)$ | $\pm\iint P(k,y,z)\,dy\,dz$ |
+| $y=k$ | $(0,\pm1,0)$ | $\pm\iint Q(x,k,z)\,dx\,dz$ |
+
+### 8.3 Gauss (superficie cerrada, normal saliente, $f\in C^1$ en un abierto que contiene a $\Omega$)
+
+$$
+\oiint_{\partial\Omega}f\cdot\hat n\,dS=\iiint_\Omega\operatorname{div}f\,dV
+$$
+
+$\operatorname{div}f=k$ constante ⇒ $\Phi=k\cdot\text{vol}(\Omega)$. Normal entrante ⇒ signo $-$. **Superficie abierta:** cerrar con tapa(s) $T$ y despejar:
+
+$$
+\Phi_S=\iiint_\Omega\operatorname{div}f\,dV-\Phi_T\qquad(\text{todo con normal saliente})
+$$
+
+No aplicable directo si la superficie no es cerrada o si $f$ no está definida en algún punto interior de $\Omega$.
+
+**Flujo de un rotor:** $\iint_S\operatorname{rot}f\cdot\hat n\,dS=\oint_{\partial S}f\cdot d\lambda$ (Stokes); por una superficie cerrada vale $0$.
+
+---
+
+## 9 · Ecuaciones diferenciales
+
+### 9.1 Primer orden
+
+| Tipo | Forma | Solución |
+|---|---|---|
+| separable | $y'=A(x)\,B(y)$ | $\displaystyle\int\frac{dy}{B(y)}=\int A(x)\,dx+C$ |
+| lineal | $y'+P(x)\,y=Q(x)$ | $\mu=e^{\int P\,dx}$; $\displaystyle y=\frac1\mu\Big(\int\mu\,Q\,dx+C\Big)$; equivalente: $(\mu y)'=\mu Q$ |
+| exacta | $M\,dx+N\,dy=0$ con $M_y=N_x$ | $\varphi$ con $\varphi_x=M$, $\varphi_y=N$ (construir como en §7.1); solución $\varphi(x,y)=C$ |
+| no exacta, factor integrante | $M_y\ne N_x$ | si $\frac{M_y-N_x}{N}=h(x)$: $\mu=e^{\int h\,dx}$; si $\frac{N_x-M_y}{M}=h(y)$: $\mu=e^{\int h\,dy}$; o probar $x^k$, $y^k$ |
+| homogénea | $y'=F(y/x)$ | $y=ux$, $y'=u+xu'$ → separable en $u$ |
+| Bernoulli | $y'+P\,y=Q\,y^n$ | $v=y^{1-n}$ → lineal en $v$ |
+
+**Trayectorias ortogonales.** Familia $F(x,y,C)=0$ → derivar implícitamente y eliminar $C$ → $y'=m(x,y)$ → la familia ortogonal cumple $y'=-\dfrac{1}{m(x,y)}$ → resolver. Dos familias son ortogonales ⇔ producto de pendientes $=-1$ en cada punto de cruce. Resultado tipo: $y=kx^n\ \perp\ x^2+ny^2=C$.
+
+**Líneas de campo:** $y'=Q/P$ (§7.1).
+
+### 9.2 Segundo orden lineal a coeficientes constantes $y''+ay'+by=h(x)$
+
+$y=y_H+y_p$. **Homogénea:** $r^2+ar+b=0$.
+
+| Raíces | $y_H$ |
+|---|---|
+| $r_1\ne r_2$ reales | $C_1e^{r_1x}+C_2e^{r_2x}$ |
+| $r$ doble | $(C_1+C_2x)\,e^{rx}$ |
+| $\alpha\pm\beta i$ | $e^{\alpha x}\big(C_1\cos\beta x+C_2\operatorname{sen}\beta x\big)$ |
+
+**Particular (coeficientes indeterminados):**
+
+| $h(x)$ | candidato $y_p$ |
+|---|---|
+| polinomio de grado $n$ | polinomio completo de grado $n$ |
+| $Ce^{kx}$ | $Ae^{kx}$ |
+| $\cos\omega x$ y/o $\operatorname{sen}\omega x$ | $A\cos\omega x+B\operatorname{sen}\omega x$ |
+| $e^{kx}\cos\omega x$ | $e^{kx}(A\cos\omega x+B\operatorname{sen}\omega x)$ |
+| producto polinomio·$e^{kx}$ | (polinomio completo)$\cdot e^{kx}$ |
+| suma | suma de candidatos |
+
+**Resonancia:** si el candidato ya está en $y_H$, multiplicar por $x$; si la raíz es doble, por $x^2$. Con $b=0$, $r=0$ es raíz: una constante en $h$ resuena → candidato $Ax$.
+
+**Datos:** se aplican sobre $y_H+y_p$. "Recta tangente $y=mx+c$ en $x=0$" ⇔ $y(0)=c$, $y'(0)=m$. Límites: $x^ne^{-kx}\to0$ ($k>0$), $e^{kx}\to\infty$ ($k>0$).
+
+Casos directos: $y''=h(x)$ → integrar dos veces. $y''+\omega^2y=0$ → $C_1\cos\omega x+C_2\operatorname{sen}\omega x$. $y''-\omega^2y=0$ → $C_1e^{\omega x}+C_2e^{-\omega x}$.
+
+---
+
+## 10 · Geometría: áreas, volúmenes, superficies, centroides
+
+### 10.1 Áreas planas
+
+| Figura | Área |
+|---|---|
+| disco radio $R$ | $\pi R^2$ · semidisco $\tfrac12\pi R^2$ · cuarto $\tfrac14\pi R^2$ |
+| sector de ángulo $\alpha$ | $\tfrac12\alpha R^2$ |
+| corona $r\le\rho\le R$ | $\pi(R^2-r^2)$ |
+| elipse semiejes $a,b$ | $\pi ab$ · cuarto $\tfrac14\pi ab$ |
+| triángulo $A,B,C$ | $\tfrac12\lVert(B-A)\times(C-A)\rVert$; en el plano $\tfrac12\lvert\det(B-A,\,C-A)\rvert$; base·altura$/2$ |
+| triángulo de interceptos $(a,0),(0,b)$ | $\tfrac12ab$ |
+| rectángulo / paralelogramo | $ab$ / $\lVert u\times v\rVert$ |
+| bajo $y=g(x)\ge0$ en $[a,b]$ | $\int_a^b g\,dx$ |
+| región polar $\rho\le\rho(\varphi)$ | $\tfrac12\int\rho(\varphi)^2\,d\varphi$ |
+| segmento parabólico entre $y=x^2$ e $y=k$ | $\tfrac43k^{3/2}$ |
+
+### 10.2 Volúmenes
+
+| Cuerpo | Volumen |
+|---|---|
+| esfera radio $R$ | $\tfrac43\pi R^3$ · semiesfera $\tfrac23\pi R^3$ · octante $\tfrac16\pi R^3$ |
+| elipsoide $a,b,c$ | $\tfrac43\pi abc$ |
+| cilindro radio $R$, altura $h$ | $\pi R^2h$ · cilindro elíptico $\pi abh$ |
+| cono radio $R$, altura $h$ (el cono $z=\sqrt{x^2+y^2}$ bajo $z=h$: $R=h$) | $\tfrac13\pi R^2h$ |
+| cono $z=k\sqrt{x^2+y^2}$ bajo $z=h$ | $\tfrac13\pi\big(\tfrac hk\big)^2h$ |
+| cono ∩ esfera ($\theta\le\tfrac\pi4$, $\rho\le R$) | $\tfrac23\pi R^3\big(1-\tfrac{\sqrt2}{2}\big)$ · en general $\tfrac23\pi R^3(1-\cos\theta_0)$ |
+| casquete esférico de altura $h$ | $\pi h^2\big(R-\tfrac h3\big)$ |
+| paraboloide $z=h-\frac{x^2+y^2}{k}$ sobre $z\ge0$ (base $R=\sqrt{kh}$) | $\tfrac12\pi R^2h$ (mitad del cilindro) |
+| paraboloide elíptico $z=c(1-\frac{x^2}{a^2}-\frac{y^2}{b^2})$, $z\ge0$ | $\tfrac12\pi abc$ |
+| entre $z=x^2+y^2$ y $z=2h-x^2-y^2$ | $\pi h^2$ |
+| $z\ge x^2+y^2$, $z\le h$ | $\tfrac12\pi h^2$ |
+| tetraedro de interceptos $a,b,c$ | $\tfrac{abc}{6}$ |
+| prisma de base $D$ y altura $h$ | $h\cdot$área$(D)$ |
+| cuña $0\le z\le h$ sobre semidisco | $\tfrac12\pi R^2h$ |
+| sólido de revolución de $y=g(x)$ alrededor del eje $x$ | $\pi\int_a^b g^2\,dx$ |
+
+### 10.3 Áreas de superficies y $dS$
+
+| Superficie | $dS$ | Área |
+|---|---|---|
+| plano $z=ax+by+c$ sobre $D$ | $\sqrt{1+a^2+b^2}\,dA$ | $\sqrt{1+a^2+b^2}\cdot$área$(D)$ |
+| plano $ax+by+cz=d$ sobre $D$ (proyección en $xy$) | $\frac{\sqrt{a^2+b^2+c^2}}{\lvert c\rvert}\,dA$ | |
+| cono $z=\sqrt{x^2+y^2}$ | $\sqrt2\,dA$ | $\sqrt2\cdot$área$(D)$; hasta $z=h$: $\sqrt2\,\pi h^2$ |
+| cono $z=k\sqrt{x^2+y^2}$ | $\sqrt{1+k^2}\,dA$ | lateral de cono $R,h$: $\pi R\sqrt{R^2+h^2}$ |
+| esfera radio $R$ | $R^2\operatorname{sen}\theta\,d\theta\,d\varphi$ · como gráfica: $\frac{R}{z}\,dA$ | $4\pi R^2$ · semiesfera $2\pi R^2$ · casquete de altura $h$: $2\pi Rh$ (casquete $z\ge k$: $2\pi R(R-k)$) |
+| cilindro $x^2+y^2=R^2$ | $R\,dt\,dz$ | lateral $2\pi Rh$ |
+| paraboloide $z=x^2+y^2$ sobre $\rho\le R$ | $\sqrt{1+4\rho^2}\,\rho\,d\rho\,d\varphi$ | $\tfrac\pi6\big[(1+4R^2)^{3/2}-1\big]$ |
+| paraboloide $z=h-x^2-y^2$ | ídem | ídem con el $R$ de la base |
+| gráfica $z=g(x,y)$ | $\sqrt{1+g_x^2+g_y^2}\,dA$ | |
+
+### 10.4 Centroides ($\iint_D x\,dA=\bar x\cdot$área, $\iiint_V z\,dV=\bar z\cdot$vol)
+
+| Región | Centroide |
+|---|---|
+| disco / elipse centrados en $(x_0,y_0)$ | $(x_0,y_0)$ ⇒ $\iint x\,dA=\iint y\,dA=0$ si están centrados en $O$ |
+| semidisco $y\ge0$ | $\big(0,\tfrac{4R}{3\pi}\big)$ |
+| cuarto de disco (1er cuadrante) | $\big(\tfrac{4R}{3\pi},\tfrac{4R}{3\pi}\big)$ |
+| triángulo $A,B,C$ | $\tfrac13(A+B+C)$ |
+| rectángulo | centro |
+| esfera / cilindro / elipsoide centrados | el centro |
+| semiesfera $z\ge0$ radio $R$ | $\bar z=\tfrac38R$ |
+| cono de altura $h$ (base en $z=0$, vértice en $z=h$) | $\bar z=\tfrac h4$ · cono $z=\sqrt{x^2+y^2}$ bajo $z=h$ (vértice abajo): $\bar z=\tfrac34h$ |
+| paraboloide $z=h-\frac{x^2+y^2}{k}$, $z\ge0$ | $\bar z=\tfrac h3$ |
+| tetraedro de interceptos $a,b,c$ | $\big(\tfrac a4,\tfrac b4,\tfrac c4\big)$ |
+
+Simetría: sobre una región simétrica respecto de $x=0$, $\iint x\,dA=0$ y $\iint x^{2k+1}g(y)\,dA=0$; ídem con $y$ y con $z$ en sólidos.
+
+---
+
+## 11 · Integrales y primitivas que se repiten
+
+| Integral definida | Valor |
+|---|---|
+| $\int_0^{2\pi}\cos\varphi=\int_0^{2\pi}\operatorname{sen}\varphi=\int_0^{2\pi}\operatorname{sen}\varphi\cos\varphi$ | $0$ |
+| $\int_0^{2\pi}\cos^2\varphi=\int_0^{2\pi}\operatorname{sen}^2\varphi$ | $\pi$ |
+| $\int_0^{2\pi}\cos^3\varphi=\int_0^{2\pi}\operatorname{sen}^3\varphi$ | $0$ (potencia impar en una vuelta) |
+| $\int_0^{2\pi}\cos^4\varphi=\int_0^{2\pi}\operatorname{sen}^4\varphi$ | $\tfrac34\pi$ |
+| $\int_0^{2\pi}\operatorname{sen}^2\varphi\cos^2\varphi$ | $\tfrac\pi4$ |
+| $\int_0^{\pi}\operatorname{sen}\varphi$ | $2$ · $\int_0^{\pi}\cos\varphi=0$ |
+| $\int_0^{\pi}\operatorname{sen}^2\varphi=\int_0^{\pi}\cos^2\varphi$ | $\tfrac\pi2$ |
+| $\int_0^{\pi/2}\operatorname{sen}\varphi=\int_0^{\pi/2}\cos\varphi$ | $1$ |
+| $\int_0^{\pi/2}\operatorname{sen}^2\varphi=\int_0^{\pi/2}\cos^2\varphi$ | $\tfrac\pi4$ |
+| $\int_0^{\pi/2}\operatorname{sen}\varphi\cos\varphi$ | $\tfrac12$ |
+| $\int_0^{\pi/2}\cos^3\varphi=\int_0^{\pi/2}\operatorname{sen}^3\varphi$ | $\tfrac23$ |
+| $\int_{-\pi/2}^{\pi/2}\cos^3\varphi$ | $\tfrac43$ · $\int_{-\pi/2}^{\pi/2}\cos^2\varphi=\tfrac\pi2$ |
+| $\int_0^{\pi}\operatorname{sen}^3\theta$ | $\tfrac43$ · $\int_0^{\pi}\operatorname{sen}\theta\cos^2\theta=\tfrac23$ · $\int_0^{\pi}\operatorname{sen}\theta\cos\theta=0$ |
+| $\int_0^{\pi/2}\operatorname{sen}\theta\cos\theta=\tfrac12$ · $\int_0^{\pi/4}\operatorname{sen}\theta=1-\tfrac{\sqrt2}2$ | (esféricas: cono ∩ esfera) |
+| $\int_0^R\rho^n\,d\rho$ | $\tfrac{R^{n+1}}{n+1}$ |
+| $\int_0^R\rho\sqrt{1+4\rho^2}\,d\rho$ | $\tfrac1{12}\big[(1+4R^2)^{3/2}-1\big]$ |
+| $\int_0^R\rho\sqrt{R^2-\rho^2}\,d\rho$ | $\tfrac13R^3$ |
+| $\int_0^R\rho^3\,d\rho=\tfrac{R^4}4$ ; $\int_0^R\rho(R^2-\rho^2)\,d\rho=\tfrac{R^4}4$ | |
+
+| Primitiva | |
+|---|---|
+| $\int\operatorname{sen}^2x\,dx=\tfrac x2-\tfrac{\operatorname{sen}2x}4$ | $\int\cos^2x\,dx=\tfrac x2+\tfrac{\operatorname{sen}2x}4$ |
+| $\int\operatorname{sen}^3x\,dx=-\cos x+\tfrac{\cos^3x}3$ | $\int\cos^3x\,dx=\operatorname{sen}x-\tfrac{\operatorname{sen}^3x}3$ |
+| $\int\operatorname{sen}x\cos x\,dx=\tfrac12\operatorname{sen}^2x$ | $\int\tan x\,dx=-\ln\lvert\cos x\rvert$ · $\int\sec^2x\,dx=\tan x$ |
+| $\int xe^{ax}\,dx=\tfrac{e^{ax}}{a^2}(ax-1)$ | $\int x^2e^{ax}\,dx=\tfrac{e^{ax}}{a^3}(a^2x^2-2ax+2)$ |
+| $\int\ln x\,dx=x\ln x-x$ | $\int x\ln x\,dx=\tfrac{x^2}2\ln x-\tfrac{x^2}4$ |
+| $\int\frac{dx}{1+x^2}=\arctan x$ · $\int\frac{dx}{a^2+x^2}=\tfrac1a\arctan\tfrac xa$ | $\int\frac{dx}{\sqrt{R^2-x^2}}=\operatorname{arcsen}\tfrac xR$ |
+| $\int\sqrt{R^2-x^2}\,dx=\tfrac12\Big(x\sqrt{R^2-x^2}+R^2\operatorname{arcsen}\tfrac xR\Big)$ | $\int_{-R}^{R}\sqrt{R^2-x^2}\,dx=\tfrac12\pi R^2$ |
+| $\int\frac{x\,dx}{\sqrt{a\pm x^2}}=\pm\sqrt{a\pm x^2}$ | $\int\frac{dx}{x^2-1}=\tfrac12\ln\Big\lvert\tfrac{x-1}{x+1}\Big\rvert$ |
+| $\int u\,dv=uv-\int v\,du$ | $(\cosh)'=\operatorname{senh}$, $(\operatorname{senh})'=\cosh$ |
+
+Identidades: $\cos^2x=\tfrac{1+\cos2x}2$ · $\operatorname{sen}^2x=\tfrac{1-\cos2x}2$ · $\operatorname{sen}2x=2\operatorname{sen}x\cos x$ · $\operatorname{sen}^3x=\operatorname{sen}x(1-\cos^2x)$.
+
+Regla mental sobre una vuelta completa: potencia impar de $\cos$ o $\operatorname{sen}$, o el producto $\operatorname{sen}\cos$ → $0$; cuadrados → $\pi$. Por eso $\iint_D x\,dA=\iint_D y\,dA=\iint_D xy\,dA=0$ sobre un disco centrado en $O$, y $\iint_D x^2\,dA=\iint_D y^2\,dA=\tfrac\pi4R^4$.
+
+---
+
+## 12 · Teoremas: enunciado en una línea
+
+| Teorema | Hipótesis | Tesis |
+|---|---|---|
+| **Green** | $D$ región plana regular, $\partial D$ cerrada simple suave a trozos, antihoraria; $f=(P,Q)\in C^1$ en un abierto que contiene a $D$ | $\oint_{\partial D}P\,dx+Q\,dy=\iint_D(Q_x-P_y)\,dA$ |
+| **Stokes** | $S$ superficie regular orientable, con borde $\partial S$ curva cerrada simple suave a trozos, orientaciones coherentes (mano derecha); $f\in C^1$ en un abierto que contiene a $S$ | $\oint_{\partial S}f\cdot d\lambda=\iint_S\operatorname{rot}f\cdot\hat n\,dS$ |
+| **Gauss** | $\Omega$ sólido acotado, $\partial\Omega$ cerrada, suave a trozos, orientable, normal saliente; $f\in C^1$ en un abierto que contiene a $\Omega$ | $\oiint_{\partial\Omega}f\cdot\hat n\,dS=\iiint_\Omega\operatorname{div}f\,dV$ |
+| **Independencia de la trayectoria** | $f=\nabla\varphi$, $\varphi\in C^1$; $\lambda:[a,b]\to$ dominio, $C^1$ a trozos, $\lambda(a)=A$, $\lambda(b)=B$ | $\int_\lambda f\cdot d\lambda=\varphi(B)-\varphi(A)$ (demostración: $h(t)=\varphi(\lambda(t))$, $h'=f(\lambda)\cdot\lambda'$, Barrow) |
+| **Condición necesaria de conservativo** | $f=\nabla\varphi$ con $\varphi\in C^2$ | $Df$ simétrica ($P_y=Q_x$…) por Schwarz $\varphi_{xy}=\varphi_{yx}$ |
+| **Cambio de variables** | $T:D^*\to D$ biyectiva, $C^1$, $J\ne0$ (salvo medida nula); $f$ integrable | $\iint_Df\,dx\,dy=\iint_{D^*}(f\circ T)\,\lvert J\rvert\,du\,dv$; polares: $J=\rho$ |
+| **Función implícita** | $F\in C^1$, $F(P)=0$, $F_z(P)\ne0$ | existe $z=f(x,y)\in C^1$ cerca de $P$ con $f_x=-F_x/F_z$, $f_y=-F_y/F_z$ |
+| **Diferenciable ⇒ derivable** | $f$ diferenciable en $A$ | $f'(A,\hat u)=\nabla f(A)\cdot\hat u$ para todo $\hat u$ (demostración: en la definición de diferenciabilidad tomar $H=t\hat u$) |
+| **Gradiente ⊥ nivel** | $f\in C^1$, $\lambda$ curva $C^1$ en la superficie/curva de nivel $f=c$ | $\nabla f(\lambda(t))\cdot\lambda'(t)=0$ (derivar $f(\lambda(t))=c$) |
+| **Schwarz** | $f\in C^2$ | $f_{xy}=f_{yx}$ |
+| **Regla de la cadena** | $g$ diferenciable en $A$, $f$ diferenciable en $g(A)$ | $D(f\circ g)(A)=Df(g(A))\cdot Dg(A)$ |
+| **Condición necesaria de extremo** | $f$ diferenciable, extremo local en $A$ | $\nabla f(A)=\bar0$ |
+| **Fubini** | $f$ continua en $D$ tipo I/II | la integral doble es una iterada en cualquier orden |
+
+---
+
+*Generado el 2026-09-28 a partir de `repaso/machete.md` (fórmulas de `../segundo-parcial/apuntes/md/`
+01–19 y de `../primer-parcial/repaso/machete.md`), `estrategia.md` y `examenes/INDICE.md`
+(24 finales). Versión de trabajo: se exporta a `exports/formulario.pdf` recién en la versión final.*
