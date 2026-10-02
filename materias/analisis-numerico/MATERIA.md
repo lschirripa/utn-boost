@@ -69,7 +69,8 @@
 
 - **Videos:** clases virtuales grabadas de la cátedra (Aula Virtual UTN; el índice de
   links con teórica/práctica/OneNote por tema está en `fuentes/clases-virtuales-links.pdf`,
-  los links no son públicos). Transcripciones cacheadas en `<eval>/apuntes/transcripts/`.
+  teóricas en SharePoint de la UTN y prácticas en Google Drive, ambas con cuenta institucional; solo el OneNote de la práctica de Z es público). Los **OneNote** de cada práctica son PDFs con la guía tipeada + resolución manuscrita del profesor: material ideal para `/apunte-doc`. Transcripciones cacheadas en `<eval>/apuntes/transcripts/`.
+- **Permitido en el parcial:** `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (4 págs: STF/SEF, propiedades y tabla de Laplace, propiedades y tabla de Z, Euler, binomio; las págs 3–4 son del 2P) + tabla de integrales. Nada más. El machete se arma como **complemento** de ese ayudamemoria (lo que NO está: regla par/impar, `Cₙ = ½(aₙ − j bₙ)`, media onda, fracciones simples, Ruffini, tabla polo → respuesta, ROC por geométricas, `Z{aⁿ/n!} = e^{a/z}`).
 - **Documentos:** `fuentes/formulas-y-metodos-manuscrito.pdf` (hoja de fórmulas propia,
   6 páginas: Fourier, Laplace, sistemas estables, Z, fracciones simples; base del
   machete), `fuentes/metodo-fracciones-simples.pdf` (apunte de cátedra),
