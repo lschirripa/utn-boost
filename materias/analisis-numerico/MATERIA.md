@@ -113,5 +113,5 @@ integro-diferenciales) `#SistemaEDO`
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
-| **Primer parcial (2026-10-06)** | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (4 días, 2026-10-02) | ✅ (vacío) | — | — | — |
+| **Primer parcial (2026-10-06)** | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (3 días, recalculado 2026-10-03 alrededor de las guías lineales `guia/01–04`) | ✅ (vacío) | — | — | — |
 | Segundo parcial (2026-11-24) | — | pendiente (4 archivos sin indexar) | — | — | — | ✅ (vacío) | — | — | — |

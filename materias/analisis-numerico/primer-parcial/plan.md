@@ -1,7 +1,7 @@
 # Plan de estudio — Primer parcial · Análisis Numérico
 
-> Examen: **martes 2026-10-06** · Hoy: viernes 2026-10-02 · **4 días restantes + la
-> mañana/tarde del martes** (vie noche ≈ 3 h, sáb/dom/lun ≈ 8–9 h cada uno, mar liviano).
+> Examen: **martes 2026-10-06** · Recalculado: sábado 2026-10-03 · **3 días restantes + la
+> mañana/tarde del martes** (sáb/dom/lun ≈ 8–9 h cada uno, mar liviano; el viernes no se usó).
 > Restricciones declaradas: **punto de partida en cero**; objetivo **promocionar (≥ 8)**;
 > no trabaja: tiene el fin de semana y el lunes enteros.
 > Fuentes: [`estrategia.md`](estrategia.md) · [`examenes/INDICE.md`](examenes/INDICE.md) ·
@@ -29,7 +29,7 @@ el colchón para que un error en otro ítem no te baje de 8.
 corrige contra la hoja resuelta. Si un tipo de ítem sale bien dos veces seguidas, se cierra y
 no se vuelve a tocar. Terminá cada bloque con `/registrar` (lo que falló manda el lunes).
 
-### Qué apunte leer cada bloque (agregado 2026-10-02, apuntes en `apuntes/md/`)
+### Qué apunte leer cada bloque (2026-10-02; **reemplazado el 2026-10-03 por las guías de `guia/`**: esto queda solo como referencia para cuando te trabás)
 
 Leé **solo la teoría visible y la sección "Lo que el profe remarca"**; los ejercicios del
 apunte son para consultar cuando te trabás, no para hacer todos.
@@ -63,19 +63,33 @@ Qué confirma: **los mismos moldes del dataset, casi textuales** (π−t de 2025
 **ecuación en diferencias de 2º orden con raíz doble** (guía 7e). En la tabla, los ítems del
 repaso van marcados **R-A … R-I** y siempre se hacen **antes** que los del dataset.
 
-## Plan día por día
+## Plan día por día (recalculado el sábado 2026-10-03: el viernes no se usó)
 
-| Día | Foco | Entregable del día |
-|---|---|---|
-| **vie 2026-10-02 (noche, ≈3 h)** | 🔴 **Fourier I — la receta.** Leer `RESOLUCIONES-2025.md` Ej1a T1/T2/rec (30 min) + hoja de fórmulas p.1. Decisión fija: *reales/cosenos ⇒ par (bₙ=0)*, *imaginarios/senos ⇒ impar (a₀=aₙ=0)*; anotar `T, L, ω₀`; integral por partes; `cos(nπ)=(−1)ⁿ`; reindexar en `2k+1`. Después Ej1b: `2 sen x cos x = sen 2x` (un término), `cos³`/`sen³` por exponenciales. | **R-A** a) y b) (π−t: es el 2025-1C T1 Ej1a + la SEF del T2 Ej1a), en papel, corregido con la hoja de práctica. Si sobra: **2025-1C T2 Ej1a** tal como vino. `/registrar`. |
-| **sáb 2026-10-03 (≈9 h)** | **Mañana 🔴 Fourier II:** `Cₙ = ½(aₙ − j bₙ)`, `C₀ = a₀/2`, valor medio, **media onda** (`f(t+T/2) = −f(t)`: gráfico + tramos, no la serie). **Tarde 🔴 Laplace I:** integral impropia = transformada evaluada; `L{t f} = −F'`; `L{f/t} = ∫_s^∞ F` (chequear el límite en 0); `L{aᵗ}` con su demostración. **Noche 🟠 Laplace II:** convolución ida y vuelta, `1/(s²+1)²` y `s²/(s²+1)²` (producto → suma). | Mañana: **R-B** (V/F conceptual, 15 min), **2015-05-29 T1 Ej1** (`4/k`: k=2, SEF), **2025-1C T1 Ej1c** y **T2 Ej1c** (SMO), **sin-fecha K3521 T2 Ej3** (`3x`, cosenos + `Cₙ` sin integrar). Tarde: **2025-1C T1 Ej2a**, **2025-1C rec Ej2a**… ⚠ reservado: usar en su lugar **sin-fecha K3521 T2 Ej2** (`ln 2`, mismo ejercicio) y **sin-fecha K3521 T1 Ej2** (`4/289`); escribir **`L(2ᵗ)`** de memoria. Noche: **R-C** (`cos³`, el profe lo marcó "Practicar") y **R-D** (`1/(s²+1)²`; son los mismos que 2024-2C rec Ej3a/b y 2025-1C T1 Ej2b, así que esos no se repiten), después **2025-1C T2 Ej2a/b** (`sen³` y `s²/(s²+1)²`). Leer (no hacer) **2024-1C T1 Ej2** como ejemplo de ecuación integral. `/registrar`. |
-| **dom 2026-10-04 (≈9 h)** | 🔴 **Sistemas estables, el día entero (3 puntos).** Mañana: Ruffini → polo con Re>0 → **K que lo cancela**, polos/ceros, regla cualitativa del corte por el eje real (∞ en polos, 0 en ceros, lomo en complejos), tabla **polo → tipo de respuesta** (hoja de fórmulas p.4). Tarde: **respuesta temporal**: `Y = G·F`, fracciones simples (cover-up + coeficientes), completar cuadrados, partir en `(s+a)` + constante, **valor estable** = coeficiente de `A/s`. Noche: variantes (impulso `F=1`, entrada `e^{−t}`, `G(s)` desde la EDO con reposo) + repaso instrumental de complejos (30 min: raíces de `s²+6s+10`, polar). | Mañana: **R-F** (`K=7` + polos/ceros + corte + impulso), **2025-1C T2 Ej3a** (k=3), **2022-10-11 Ej5a/b**, **2024-2C rec Ej4a** (a y b). Tarde: **R-G** (entrada `e^{−3t}`), **2025-1C T2 Ej3b/c** (el reciclado ×3; `y = −3 + 3cos t e^{−3t} + 19 sen t e^{−3t}`, oscilatoria amortiguada, estable −3), **2024-1C T1 Ej5** completo, **2024-2C T2 Ej4a/b**. Noche: **R-E** (circuito RLC con impulso) y **2025-1C T1 Ej3a/b** (sistema mecánico): son el mismo molde; después **2024-1C T2 Ej4a/b** (impulso) si queda energía. Cronómetro en todos. `/registrar`. |
-| **lun 2026-10-05 (≈9 h)** | **Mañana 🔴 Z I:** sucesión por paridad → dos geométricas (`z^{−2k}`, `z^{−(2k+1)}`), **ROC = intersección**; sumas `Σ x(n)c^{−n} = X(c)` con tablas (`Z{aⁿ/n!} = e^{a/z}`, `Z{cos Ωn}`); secuencia finita por definición. **Mediodía 🔴 Z II:** ecuación en diferencias de 1er orden: `Z{x(n+1)} = zX − z x(0)`, fracciones simples sobre `X(z)/z`, tablas `aⁿ`, `n aⁿ`, **verificar `x(2)`**. **Tarde 🔴 Simulacro a ciegas:** `examenes/2025-1C_Recuperatorio.pdf`, 2 h de reloj, **pero reemplazando su Ej3** (ya no es ciego: es el R-G) por **sin-fecha K3521 T1 Ej4** (`G(s) = (41(s³+s²)+87s+87)/(s(s+3)(s²+10s+29))`: ¿estable?, corte por el eje real, respuesta al impulso; resuelto en `examenes/resueltos/sin-fecha_Parcial-K3521-T1_resuelto.pdf`), solo con la hoja de fórmulas (o la tabla que permita la cátedra). Corregir con `RESOLUCIONES-2025.md` → "Recuperatorio". **Noche:** `/machete` (hoja de fórmulas + lo que falló) y rehacer los ítems ❌ del simulacro. | Mañana: **R-H** (ROC con múltiplos de 5, V/F), **2025-1C T1 Ej4a/b**, **2025-1C T2 Ej4a**, **2024-2C T2 Ej5a/b**, **sin-fecha K3521 T1 Ej5**. Mediodía: **R-I** (2º orden con raíz doble, usa `Z[n·aⁿ]`), **2025-1C T2 Ej4b** (= sin-fecha K3521 T2 Ej5), **2015-05-29 T2 Ej4**, **2024-2C rec Ej5**. Tarde: simulacro completo con nota estimada (`/registrar`). Noche: `repaso/machete.md` cerrado. |
-| **mar 2026-10-06 (liviano, antes del examen)** | 🟢 Repaso del machete (30 min). Rehacer **una vez** los dos ítems que peor salieron el lunes, en limpio, desde `exports/practica-repaso-2026-enunciados.pdf` si son del repaso. Checklist de `estrategia.md` §6 de memoria: `L(aᵗ)`, regla par/impar, SMO, tabla polo → respuesta, ROC como intersección, propiedades de Z. **Nada nuevo.** | Examen. |
+**Cambio de método:** cada bloque se estudia con **una sola guía lineal** de `guia/`, de arriba abajo:
+idea → receta → ejemplo guiado → tu turno. Los apuntes largos de `apuntes/md/` quedan solo
+para consultar si te trabás. Los ejercicios del repaso 2026 (R-A … R-I) ya están metidos en el
+lugar justo de cada guía. Se estudia con el PDF `exports/NN-…-enunciados.pdf`, que no trae las
+correcciones, y se corrige con `exports/NN-….pdf`.
+
+| Día | Bloque | Guía | Entregable |
+|---|---|---|---|
+| **sáb 2026-10-03, mañana y mediodía (≈4 h)** | 🔴 **Fourier** (Ej1, 3 puntos) | `guia/01-fourier-desde-cero` | Tu turno 1–8, con **R-A** y **R-B**. Checkpoint. `/registrar`. |
+| **sáb 2026-10-03, tarde y noche (≈4–5 h)** | 🔴 **Laplace** (Ej2, 3 puntos) | `guia/02-laplace-desde-cero` | §3–§6 y §9–§11, con **R-C** y **R-D**. La **§9 (fracciones simples) no se saltea**: es la base del domingo. Si falta energía, se corta la §7. `/registrar`. |
+| **dom 2026-10-04 (≈8 h)** | 🔴 **Sistemas estables** (Ej3, 3 puntos) | `guia/03-sistemas-desde-cero` | §3–§9 con **R-F**, **R-G** y **R-E** en su lugar. El checkpoint es el reciclado 2025-1C T2 Ej3, a ciegas. `/registrar`. |
+| **lun 2026-10-05, mañana (≈4 h)** | 🔴 **Transformada Z** (Ej4, 2 puntos) | `guia/04-z-desde-cero` | §3–§9 con **R-H** y **R-I**. Checkpoint. |
+| **lun 2026-10-05, tarde (2 h + corrección)** | 🔴 **Simulacro a ciegas** | — | `examenes/2025-1C_Recuperatorio.pdf`, con reloj y solo el ayudamemoria. **Su Ej3 se reemplaza** por **sin-fecha K3521 T1 Ej4** (resuelto en `examenes/resueltos/sin-fecha_Parcial-K3521-T1_resuelto.pdf`). **Su Ej4a no es ciego**: es la misma sucesión del 2025-1C T1 Ej4a de la guía de Z, así que se hace igual pero no cuenta para la nota estimada. Se corrige con `RESOLUCIONES-2025.md` → "Recuperatorio". `/registrar` con la nota. |
+| **lun 2026-10-05, noche** | Machete y errores | — | `/machete`: lo que el ayudamemoria no trae más lo que falló. Rehacer los ítems ❌ del simulacro. |
+| **mar 2026-10-06 (liviano)** | 🟢 Repaso | — | Machete (30 min) y los checkpoints de las cuatro guías, **de memoria**. Rehacer **una vez** los dos ítems que peor salieron. **Nada nuevo.** |
+
+**Si un día se atrasa:** no se arrastra. Se corta el final de la guía de ese día (las secciones
+opcionales y los últimos "tu turno") y se arranca la siguiente a la hora prevista. Prioridad de
+corte, de lo primero que se saca a lo último: Laplace §7 → Sistemas §9 → Z §6 → Fourier §9.
 
 ---
 
 ## Qué cambió respecto del plan anterior
+
+- **2026-10-03:** el viernes no se usó y Lucho no podía arrancar desde los apuntes largos. Se armaron **cuatro guías lineales desde cero** (`guia/01`–`04`: idea, receta, ejemplos guiados y tu turno del dataset, verificados con sympy), con los R-A … R-I ya ubicados adentro. Fourier y Laplace pasan al sábado, Sistemas queda el domingo y Z el lunes a la mañana. En el simulacro, además del Ej3 ya reemplazado, el **Ej4a deja de ser ciego**, porque la guía de Z usa la misma sucesión.
 
 - **2026-10-02 (noche):** entraron los 9 ejercicios de la clase de repaso 2026 (fotos). Van **primeros** en cada bloque (R-A … R-I); se sacaron los ítems del dataset que eran idénticos (2024-2C rec Ej3a/b, 2025-1C T1 Ej2b, 2015-05-29 T1 Ej4). Vuelven las ecuaciones en diferencias de 2º orden. El Ej3 del simulacro (2025-1C rec) dejó de ser ciego y se reemplaza por sin-fecha K3521 T1 Ej4.
 

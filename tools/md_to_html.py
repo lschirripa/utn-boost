@@ -89,6 +89,7 @@ tbody tr:nth-child(even) {{ background: #f8f9fa; }}
   th {{ background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
   tbody tr:nth-child(even) {{ background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
 }}
+{pdf_css}
 </style>
 </head>
 <body>
@@ -110,6 +111,7 @@ tbody tr:nth-child(even) {{ background: #f8f9fa; }}
       katexOptions: {{ throwOnError: false }},
     }});
   document.getElementById("content").innerHTML = md.render(source);
+{fit_js}
 </script>
 </body>
 </html>
@@ -140,8 +142,50 @@ def strip_details(markdown: str) -> str:
     return "".join(out)
 
 
+# Para el PDF: página A4 con márgenes fijos y el cuerpo con el MISMO ancho en pantalla
+# y en impresión. Así el JS que mide las fórmulas ve el ancho real de la hoja.
+PDF_CSS = """
+@page {{ size: A4; margin: 1.4cm 1.3cm; }}
+body {{ width: 184mm; max-width: none; margin: 0 auto; padding: 0; }}
+@media print {{ body {{ width: 184mm; margin: 0; padding: 0; }} }}
+"""
+
+# Achica (CSS zoom) cada fórmula en bloque, tabla o figura que no entre en el ancho,
+# en vez de dejar que el PDF la corte. Deja en <body data-overflow> lo que siga sin
+# entrar (lo usa `--check`).
+FIT_JS = """
+  // Se mide recién con las fuentes de KaTeX cargadas: antes los anchos son falsos.
+  function fitToWidth() {{
+    const avail = document.getElementById("content").clientWidth;
+    document.querySelectorAll(".katex-display").forEach((el) => {{
+      const k = el.querySelector(".katex");
+      if (k && el.scrollWidth > el.clientWidth + 1) {{
+        k.style.zoom = (el.clientWidth / el.scrollWidth * 0.98).toFixed(3);
+      }}
+    }});
+    document.querySelectorAll("table, pre, svg").forEach((el) => {{
+      const w = el.getBoundingClientRect().width;
+      if (w > avail + 1) el.style.zoom = (avail / w * 0.98).toFixed(3);
+    }});
+    const bad = [];
+    document.querySelectorAll(".katex-display").forEach((el) => {{
+      if (el.scrollWidth > el.clientWidth + 1) bad.push(el.textContent.slice(0, 60));
+    }});
+    document.querySelectorAll("table, pre, svg").forEach((el) => {{
+      if (el.getBoundingClientRect().width > avail + 1) bad.push(el.tagName + ": " + el.textContent.slice(0, 60));
+    }});
+    document.body.dataset.overflow = JSON.stringify(bad);
+  }}
+  window.addEventListener("load", () => document.fonts.ready.then(fitToWidth));
+"""
+
+
 def build_html(
-    md_path: Path, *, expand_details: bool = False, only_statements: bool = False
+    md_path: Path,
+    *,
+    expand_details: bool = False,
+    only_statements: bool = False,
+    for_pdf: bool = False,
 ) -> str:
     """Construye el HTML autocontenido de un .md.
 
@@ -162,6 +206,8 @@ def build_html(
         katex=KATEX_VERSION,
         mdit=MARKDOWN_IT_VERSION,
         texmath=TEXMATH_VERSION,
+        pdf_css=PDF_CSS.format() if for_pdf else "",
+        fit_js=FIT_JS.format() if for_pdf else "",
     )
 
 
@@ -206,7 +252,12 @@ def convert_pdf(md_path: Path, out_path: Path, *, only_statements: bool = False)
         "w", suffix=".html", delete=False, encoding="utf-8"
     ) as tmp:
         tmp.write(
-            build_html(md_path, expand_details=True, only_statements=only_statements)
+            build_html(
+                md_path,
+                expand_details=True,
+                only_statements=only_statements,
+                for_pdf=True,
+            )
         )
         tmp_path = Path(tmp.name)
     try:
