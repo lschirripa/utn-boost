@@ -146,6 +146,7 @@ el usuario no la da:
   headless (para iPad los `<details>` salen expandidos). `--out-dir` para elegir carpeta.
   `--solo-enunciados` quita todos los `<details>` y agrega el sufijo `-enunciados`
   (simulacro para rendir sin las correcciones a la vista).
+- `transcribe_local.py <video.mp4>` — transcribe un video/audio LOCAL (SharePoint, Zoom, mp4 descargado) con Whisper en la Mac (`mlx-whisper`, large-v3-turbo; ~30× tiempo real) y emite el mismo JSON que `dump_transcript.py`, con marcadores `[mm:ss|Ns]` sin links. `--out <ruta.json> --title … --prompt "vocabulario de la materia"`. Los mp4 no se versionan (`.gitignore`).
 - `fetch_transcripts.py` — descarga masiva de transcripciones desde IP residencial
   cuando YouTube bloquea (editar su lista `REMAINING`).
 - `extract_notes.py` — LEGACY: el pipeline original con Gemini. Ya no se usa (Claude

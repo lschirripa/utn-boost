@@ -69,11 +69,13 @@
 
 - **Videos:** clases virtuales grabadas de la cátedra (Aula Virtual UTN; el índice de
   links con teórica/práctica/OneNote por tema está en `fuentes/clases-virtuales-links.pdf`,
-  los links no son públicos). Transcripciones cacheadas en `<eval>/apuntes/transcripts/`.
+  teóricas en SharePoint de la UTN y prácticas en Google Drive, ambas con cuenta institucional; solo el OneNote de la práctica de Z es público). Los **OneNote** de cada práctica son PDFs con la guía tipeada + resolución manuscrita del profesor: material ideal para `/apunte-doc`. Transcripciones cacheadas en `<eval>/apuntes/transcripts/`.
+- **Permitido en el parcial:** `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (4 págs: STF/SEF, propiedades y tabla de Laplace, propiedades y tabla de Z, Euler, binomio; las págs 3–4 son del 2P) + tabla de integrales. Nada más. El machete se arma como **complemento** de ese ayudamemoria (lo que NO está: regla par/impar, `Cₙ = ½(aₙ − j bₙ)`, media onda, fracciones simples, Ruffini, tabla polo → respuesta, ROC por geométricas, `Z{aⁿ/n!} = e^{a/z}`).
 - **Documentos:** `fuentes/formulas-y-metodos-manuscrito.pdf` (hoja de fórmulas propia,
   6 páginas: Fourier, Laplace, sistemas estables, Z, fracciones simples; base del
   machete), `fuentes/metodo-fracciones-simples.pdf` (apunte de cátedra),
   `fuentes/cronograma-2026-2C.pdf`, `fuentes/TP-minimos-cuadrados-consigna.pdf`.
+- **Clases grabadas (descargadas, en `fuentes/clases/<tema>/`, prefijo `T_` teórica / `P_` práctica; los mp4 no se versionan):** teórica STF, teórica SEF + transformada de Fourier, teórica Laplace, teórica aplicaciones de Laplace (`P_TLaplace.mp4`, que en realidad es la 2ª teórica), teórica y práctica de sistemas estables, teórica de Z y repaso del 1P. Transcriptas con `tools/transcribe_local.py` (Whisper large-v3-turbo en la Mac) a `primer-parcial/apuntes/transcripts/10–17`. **Las prácticas de Fourier, Laplace y Z están en Google Drive con descarga bloqueada por el dueño**: se cubren con sus OneNote (apuntes 01–06). Pendiente de bajar: el 2º video de práctica de Z (SharePoint).
 - **Exámenes reales:** primer parcial: **16 hojas de examen distintas (11 instancias,
   2015 → 2025)** en `primer-parcial/examenes/`, indexadas en `INDICE.md`. 4 archivos son
   enunciados puros (2024-2C y 2025-1C, parcial + 1er recuperatorio), 14 están en
@@ -111,5 +113,5 @@ integro-diferenciales) `#SistemaEDO`
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
-| **Primer parcial (2026-10-06)** | — (sin apuntes; hoja de fórmulas en `fuentes/`) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ | — (no hay apuntes que podar) | ✅ | ✅ (vacío) | — | — | — |
+| **Primer parcial (2026-10-06)** | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (4 días, 2026-10-02) | ✅ (vacío) | — | — | — |
 | Segundo parcial (2026-11-24) | — | pendiente (4 archivos sin indexar) | — | — | — | ✅ (vacío) | — | — | — |
