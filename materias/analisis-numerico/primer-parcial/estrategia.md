@@ -29,6 +29,15 @@ que muestran exactamente cómo la cátedra espera cada paso. LA brecha no es de 
 sino de **calendario**: AN compite con el final de AM2 hasta el 22/9. La sobrecarga a
 evitar: números complejos como tema aparte (81 % histórico, **0 % en el formato 2025**).
 
+> **Actualización 2026-10-02:** **la brecha de apuntes quedó cerrada.** Hay 15 apuntes en
+> `apuntes/md/`: 01–07 desde los OneNote de práctica del profesor y 10–17 desde las clases
+> grabadas (transcriptas con Whisper local). Lo que dicen los profesores **refuerza el
+> patrón del dataset** y agrega recortes que bajan prioridad sin culpa:
+> - **Confirmado que cae:** "muchos ejercicios se reciclan, se les cambian dos numeritos" y todos los profes toman lo mismo (`10` [1:06:12]); fracciones simples "sí o sí" (`10` [1:04:04]); K que cancela el polo inestable (`10` [1:24:42]); división por t / el `ln 2` "se toma mucho" (`14` [1:08:42]); sucesión par/impar + ROC "bastante de parcial" (`12` [36:04]); tipo de respuesta "muy típico" (`13` [1:50:15]); constelación + módulo o argumento en un punto como primer ítem (`13` [1:05:05]); sistema físico por Laplace "de parcial o de final" (`11` [1:07:52]); alguna EDO por Laplace (`14` [14:17]).
+> - **Confirmado que NO cae (⚪ descartable):** transformada de Fourier (`14` [1:07:09], `17` [1:31:31]) → el apunte `03` no se estudia; fracciones simples con raíces complejas **múltiples** y polos múltiples (`10` [1:04:36], `11` [1:22:29]); cortes que no sean por el eje real o el imaginario (`10` [1:30:58]); demostraciones de propiedades de Laplace (`15` [17:30]); más de 2 desplazamientos en Z, multiplicación por `n` más allá de `n²` (`12` [58:38], [1:03:21]).
+> - **Duda abierta:** el repaso grabado (`10`) arranca con 4 ejercicios de **números complejos** y da reglas de corrección para ellos; el último recuperatorio con complejos (2025-02-13) es del mismo docente (L. Garofalo). Si el curso de Lucho es de ese docente, complejos vuelve a ser un ejercicio probable y sube a 🟠 (material: apuntes `07` y `10`).
+> - **Permitido en el parcial:** solo `../fuentes/AYUDAMEMORIA-OFICIAL.pdf` + tabla de integrales (`10` [02:40]). El machete de repaso se arma como complemento de lo que el ayudamemoria no trae.
+
 ---
 
 ## 1. Estructura del examen

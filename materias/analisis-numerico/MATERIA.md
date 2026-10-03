@@ -75,6 +75,7 @@
   6 páginas: Fourier, Laplace, sistemas estables, Z, fracciones simples; base del
   machete), `fuentes/metodo-fracciones-simples.pdf` (apunte de cátedra),
   `fuentes/cronograma-2026-2C.pdf`, `fuentes/TP-minimos-cuadrados-consigna.pdf`.
+- **Clases grabadas (descargadas, en `fuentes/clases/<tema>/`, prefijo `T_` teórica / `P_` práctica; los mp4 no se versionan):** teórica STF, teórica SEF + transformada de Fourier, teórica Laplace, teórica aplicaciones de Laplace (`P_TLaplace.mp4`, que en realidad es la 2ª teórica), teórica y práctica de sistemas estables, teórica de Z y repaso del 1P. Transcriptas con `tools/transcribe_local.py` (Whisper large-v3-turbo en la Mac) a `primer-parcial/apuntes/transcripts/10–17`. **Las prácticas de Fourier, Laplace y Z están en Google Drive con descarga bloqueada por el dueño**: se cubren con sus OneNote (apuntes 01–06). Pendiente de bajar: el 2º video de práctica de Z (SharePoint).
 - **Exámenes reales:** primer parcial: **16 hojas de examen distintas (11 instancias,
   2015 → 2025)** en `primer-parcial/examenes/`, indexadas en `INDICE.md`. 4 archivos son
   enunciados puros (2024-2C y 2025-1C, parcial + 1er recuperatorio), 14 están en
@@ -112,5 +113,5 @@ integro-diferenciales) `#SistemaEDO`
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
-| **Primer parcial (2026-10-06)** | — (sin apuntes; hoja de fórmulas en `fuentes/`) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ | — (no hay apuntes que podar) | ✅ | ✅ (vacío) | — | — | — |
+| **Primer parcial (2026-10-06)** | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (4 días, 2026-10-02) | ✅ (vacío) | — | — | — |
 | Segundo parcial (2026-11-24) | — | pendiente (4 archivos sin indexar) | — | — | — | ✅ (vacío) | — | — | — |

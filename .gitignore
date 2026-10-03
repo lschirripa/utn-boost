@@ -17,3 +17,9 @@ venv/
 # Temporales de Office y macOS
 ~$*
 .DS_Store
+
+# Videos de clases (pesados; la transcripción cacheada en apuntes/transcripts/ es la fuente versionada)
+*.mp4
+*.m4a
+*.mov
+*.mkv

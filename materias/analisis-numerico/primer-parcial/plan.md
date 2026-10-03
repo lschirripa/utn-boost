@@ -29,6 +29,23 @@ el colchón para que un error en otro ítem no te baje de 8.
 corrige contra la hoja resuelta. Si un tipo de ítem sale bien dos veces seguidas, se cierra y
 no se vuelve a tocar. Terminá cada bloque con `/registrar` (lo que falló manda el lunes).
 
+### Qué apunte leer cada bloque (agregado 2026-10-02, apuntes en `apuntes/md/`)
+
+Leé **solo la teoría visible y la sección "Lo que el profe remarca"**; los ejercicios del
+apunte son para consultar cuando te trabás, no para hacer todos.
+
+| Bloque | Antes de practicar (≈30 min) | Si te trabás |
+|---|---|---|
+| Fourier I (vie) | `01` teoría + `10` "Lo que el profe dice del parcial" | `16` (teórica STF) |
+| Fourier II (sáb mañana) | `02` teoría (impar desplazada, dos condiciones ⇒ cuadruplicar) | `17` (teórica SEF), `07` ej. de Fourier |
+| Laplace (sáb tarde/noche) | `14` "Lo que el profe remarca" + `04` recetas `t·f`, `f/t`, convolución | `15` (teórica), `04` ejercicios |
+| Sistemas (dom) | `11` "Lo que el profe remarca" + `13` tabla de los seis casos de polos | `05` (13 ejercicios resueltos), `07` ej. 8–9 |
+| Z (lun mañana) | `12` "Lo que el profe remarca" + `06` recetas (paridad, ROC, "una z afuera") | `06` ejercicios |
+| Lun noche, después del simulacro | `07` y `10` completos: es el repaso del profe | — |
+
+**Descartado sin culpa:** `03` (transformada de Fourier, el profe dijo que no se toma) y los
+fasores de `16`.
+
 ---
 
 ## Plan día por día
