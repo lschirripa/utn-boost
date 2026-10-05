@@ -1,6 +1,6 @@
 # Plan de estudio — Primer parcial · Análisis Numérico
 
-> Examen: **martes 2026-10-06** · Recalculado: sábado 2026-10-03 · **3 días restantes + la
+> Examen: **martes 2026-10-06** · Recalculado: lunes 2026-10-05, 15:00 · **3 días restantes + la
 > mañana/tarde del martes** (sáb/dom/lun ≈ 8–9 h cada uno, mar liviano; el viernes no se usó).
 > Restricciones declaradas: **punto de partida en cero**; objetivo **promocionar (≥ 8)**;
 > no trabaja: tiene el fin de semana y el lunes enteros.
@@ -63,31 +63,44 @@ Qué confirma: **los mismos moldes del dataset, casi textuales** (π−t de 2025
 **ecuación en diferencias de 2º orden con raíz doble** (guía 7e). En la tabla, los ítems del
 repaso van marcados **R-A … R-I** y siempre se hacen **antes** que los del dataset.
 
-## Plan día por día (recalculado el sábado 2026-10-03: el viernes no se usó)
+## Plan de emergencia (lunes 2026-10-05, 15:00 → examen)
 
-**Cambio de método:** cada bloque se estudia con **una sola guía lineal** de `guia/`, de arriba abajo:
-idea → receta → ejemplo guiado → tu turno. Los apuntes largos de `apuntes/md/` quedan solo
-para consultar si te trabás. Los ejercicios del repaso 2026 (R-A … R-I) ya están metidos en el
-lugar justo de cada guía. Se estudia con el PDF `exports/NN-…-enunciados.pdf`, que no trae las
-correcciones, y se corrige con `exports/NN-….pdf`.
+**Situación real:** Fourier hecho. Laplace hasta la §5 (división por $t$). Sistemas y Z sin empezar.
+Quedan ≈ 9 h hoy y la mañana del martes. **No entra todo: se estudia solo lo que cayó en 2025
+(T1, T2 y recuperatorio) o en el repaso 2026.** El simulacro a ciegas **se cancela**; el machete
+lo genera Claude esta noche para leer mañana.
 
-| Día | Bloque | Guía | Entregable |
-|---|---|---|---|
-| **sáb 2026-10-03, mañana y mediodía (≈4 h)** | 🔴 **Fourier** (Ej1, 3 puntos) | `guia/01-fourier-desde-cero` | Tu turno 1–8, con **R-A** y **R-B**. Checkpoint. `/registrar`. |
-| **sáb 2026-10-03, tarde y noche (≈4–5 h)** | 🔴 **Laplace** (Ej2, 3 puntos) | `guia/02-laplace-desde-cero` | §3–§6 y §9–§11, con **R-C** y **R-D**. La **§9 (fracciones simples) no se saltea**: es la base del domingo. Si falta energía, se corta la §7. `/registrar`. |
-| **dom 2026-10-04 (≈8 h)** | 🔴 **Sistemas estables** (Ej3, 3 puntos) | `guia/03-sistemas-desde-cero` | §3–§9 con **R-F**, **R-G** y **R-E** en su lugar. El checkpoint es el reciclado 2025-1C T2 Ej3, a ciegas. `/registrar`. |
-| **lun 2026-10-05, mañana (≈4 h)** | 🔴 **Transformada Z** (Ej4, 2 puntos) | `guia/04-z-desde-cero` | §3–§9 con **R-H** y **R-I**. Checkpoint. |
-| **lun 2026-10-05, tarde (2 h + corrección)** | 🔴 **Simulacro a ciegas** | — | `examenes/2025-1C_Recuperatorio.pdf`, con reloj y solo el ayudamemoria. **Su Ej3 se reemplaza** por **sin-fecha K3521 T1 Ej4** (resuelto en `examenes/resueltos/sin-fecha_Parcial-K3521-T1_resuelto.pdf`). **Su Ej4a no es ciego**: es la misma sucesión del 2025-1C T1 Ej4a de la guía de Z, así que se hace igual pero no cuenta para la nota estimada. Se corrige con `RESOLUCIONES-2025.md` → "Recuperatorio". `/registrar` con la nota. |
-| **lun 2026-10-05, noche** | Machete y errores | — | `/machete`: lo que el ayudamemoria no trae más lo que falló. Rehacer los ítems ❌ del simulacro. |
-| **mar 2026-10-06 (liviano)** | 🟢 Repaso | — | Machete (30 min) y los checkpoints de las cuatro guías, **de memoria**. Rehacer **una vez** los dos ítems que peor salieron. **Nada nuevo.** |
+### Qué se saltea de cada guía (y por qué)
 
-**Si un día se atrasa:** no se arrastra. Se corta el final de la guía de ese día (las secciones
-opcionales y los últimos "tu turno") y se arranca la siguiente a la hora prevista. Prioridad de
-corte, de lo primero que se saca a lo último: Laplace §7 → Sistemas §9 → Z §6 → Fourier §9.
+| Guía | Se hace | Se saltea |
+|---|---|---|
+| `02-laplace` | §11 ($\mathcal{L}[a^t]$, 10 min, punto regalado) → §6 Euler + **R-C** → §9 fracciones simples (base de Sistemas) → §10 convolución + **R-D** | §7 (transformada de una integral: 1 ítem en 1 de 3 hojas 2025), §8 (lo repite §9) |
+| `03-sistemas` | §4 polos/ceros/estabilidad → §5 hallar $K$ + **R-F** a/b → §7 respuesta temporal + **R-G** → §8 tipo de respuesta y valor estable → §6 solo la regla cualitativa del corte (10 min) | §3 (ya lo hiciste en Laplace §9), §9 EDO y **R-E** (solo si sobra: 1 punto en 2025-1C T1) |
+| `04-z` | §3 geométrica → §4 paridad y ROC + **R-H** → §5 sumas vía Z (evaluar $X(c)$) → §7 + §8 ecuación en diferencias de 1er orden | §6 secuencia finita, §9 2º orden y **R-I** (solo si sobra) |
+
+### Hora por hora
+
+| Hora | Qué | Puntos que cubre |
+|---|---|---|
+| 15:00–17:00 | **Laplace:** §11 → §6 + R-C → §9 → §10 + R-D | Ej2 completo (3) |
+| 17:00–17:30 | Corte. Comer algo. | |
+| 17:30–21:30 | **Sistemas:** §4 (30 min) → §5 + R-F (60) → §7 + R-G (90) → §8 (30) → regla del corte (10) | Ej3 (3) |
+| 21:30–22:00 | Cena. | |
+| 22:00–00:00 | **Z:** §3–§4 + R-H (60) → §5 (30) → §7–§8 (30) | Ej4 (2) |
+| **mar, mañana** | Machete (`exports/machete.pdf`, 30 min) → checkpoints de las cuatro guías de memoria → rehacer **R-A, R-F y R-H** en limpio, con reloj. Nada nuevo. | |
+
+**Regla de corte:** si a las **21:30** no terminaste Sistemas, cortá igual y pasá a Z §3–§4 + R-H:
+es 1 punto casi seguro y lleva 1 h. Si a las **00:00** no llegaste a §8 de Z, dormí: la
+ecuación en diferencias vale 1 punto y mañana lo leés en el machete.
+
+**Nota estimada si sale todo:** Fourier 3 + Laplace 2–3 + Sistemas 2 + Z 1–2 = **8–10**. Con
+Sistemas a medias, 7–8. Fourier y Laplace son los que te sostienen: no los descuides mañana.
 
 ---
 
 ## Qué cambió respecto del plan anterior
+
+- **2026-10-05 (15:00):** Lucho va por Laplace §5; Sistemas y Z sin empezar. Plan de emergencia: se saltean las secciones que no cayeron en 2025 ni en el repaso 2026, se cancela el simulacro, Claude genera el machete.
 
 - **2026-10-03:** el viernes no se usó y Lucho no podía arrancar desde los apuntes largos. Se armaron **cuatro guías lineales desde cero** (`guia/01`–`04`: idea, receta, ejemplos guiados y tu turno del dataset, verificados con sympy), con los R-A … R-I ya ubicados adentro. Fourier y Laplace pasan al sábado, Sistemas queda el domingo y Z el lunes a la mañana. En el simulacro, además del Ej3 ya reemplazado, el **Ej4a deja de ser ciego**, porque la guía de Z usa la misma sucesión.
 
