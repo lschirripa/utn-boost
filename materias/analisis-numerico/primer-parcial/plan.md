@@ -78,30 +78,34 @@ lo genera Claude esta noche para leer mañana.
 | `03-sistemas` | §4 polos/ceros/estabilidad → §5 hallar $K$ + **R-F** a/b → §7 respuesta temporal + **R-G** → §8 tipo de respuesta y valor estable → §6 solo la regla cualitativa del corte (10 min) | §3 (ya lo hiciste en Laplace §9), §9 EDO y **R-E** (solo si sobra: 1 punto en 2025-1C T1) |
 | `04-z` | §3 geométrica → §4 paridad y ROC + **R-H** → §5 sumas vía Z (evaluar $X(c)$) → §7 + §8 ecuación en diferencias de 1er orden | §6 secuencia finita, §9 2º orden y **R-I** (solo si sobra) |
 
-### Hora por hora (reajustado lunes 21:00: Laplace casi cerrado, Sistemas y Z sin empezar)
+### Martes 2026-10-06, el día del examen (Laplace cerrado el lunes a la noche; Sistemas y Z sin empezar)
 
-**Criterio:** no se descarta ningún tema entero. En el formato 2025 cada ejercicio tiene ítems de
-1 punto y **el primer ítem de Sistemas (K / polos / estabilidad) y el de Z (paridad + ROC) son
-baratos** (≈1 h cada uno) y casi independientes del resto. Lo caro es la respuesta temporal de
-Sistemas y la ecuación en diferencias de Z. Descartar Sistemas entero obligaría a un 8/8 perfecto.
+**Orden por puntos por hora:** primero Z (dos ítems baratos en 2 h), después el primer ítem de
+Sistemas (1 h), después la respuesta temporal (lo único que se recorta si falta tiempo), y al
+final un refresco fijo de Fourier + Laplace, que son los 5–6 puntos que ya tenés.
 
 | Hora | Qué | Puntos |
 |---|---|---|
-| lun 21:00–22:30 | **Cerrar Laplace:** §11 (10 min) → los dos "tu turno" de §9 fracciones simples (40) → §10 + R-D (40) | Ej2 (3) |
-| lun 22:30–00:30 | **Sistemas §4 + §5** con R-F a) y b): polos, ceros, estabilidad, hallar $K$. Nada de respuesta temporal todavía. | Ej3a (1) |
-| mar 08:30–09:30 | **Z §3–§4 + R-H**: paridad + ROC. Punto rápido, cabeza fresca. | Ej4a (1) |
-| mar 09:30–11:30 | **Sistemas §7 + §8 con R-G**: respuesta temporal (es fracciones simples con $s+a$), tipo de respuesta, valor estable. Si cuesta, cortar a las 11:30 igual. | Ej3b/c (1–2) |
-| mar 11:30–12:00 | Comer. | |
-| mar 12:00–13:00 | **Z §5 sumas** (30 min) y, si da, **§7–§8** leído del machete, no practicado. | Ej4b (0–1) |
-| mar 13:00–15:00 | **Refresco:** machete (30) → R-A en limpio con reloj (30) → un tu turno de fracciones simples de Laplace (20) → checkpoints de las 4 guías de memoria (40). | sostiene Ej1 y Ej2 |
-| mar 15:00–17:00 | Parar. Comer, ducha, viaje. Nada nuevo. | |
+| 08:00–10:00 | **Z:** §3 geométrica (20) → §4 paridad + ROC y **R-H** (60) → §5 sumas vía Z (40). Salteá §6–§9. | Ej4 (2) |
+| 10:00–10:15 | Corte. | |
+| 10:15–11:15 | **Sistemas §4 + §5** con **R-F a) y b)**: polos, ceros, estabilidad, hallar $K$. | Ej3a (1) |
+| 11:15–12:45 | **Sistemas §7 + §8** con **R-G**: respuesta temporal (fracciones simples con $s+a$), tipo de respuesta y valor estable. **Se corta a las 12:45 pase lo que pase.** | Ej3b/c (0–2) |
+| 12:45–13:30 | Almuerzo. | |
+| 13:30–15:00 | **Refresco de lo seguro:** machete §Fourier y §Laplace (20) → **R-A** a) en limpio con reloj (25) → **R-C** o **R-D** de Laplace + un ítem de fracciones simples (30) → checkpoints de las guías 01 y 02 de memoria (15). | sostiene Ej1 + Ej2 (5–6) |
+| 15:00–17:00 | Parar. Comer, ducha, viaje. Nada nuevo. | |
 
-**Nota esperada:** Fourier 3 + Laplace 2–3 + Sistemas 1–2 + Z 1–2 = **7–10**; el 8 queda alcanzable
-sin depender de un examen perfecto.
+**Nota esperada:** Fourier 3 + Laplace 2–3 + Z 1–2 + Sistemas 1–2 = **7–10**. Aprobar (6) está
+prácticamente asegurado con Fourier + Laplace + un ítem más; el 8 lo deciden los dos ítems baratos de la
+mañana (Z paridad+ROC y Sistemas K/polos).
+
+**En el examen:** empezá por Ej1 y Ej2 (lo que sabés), después Ej4a, después Ej3a; la respuesta
+temporal al final, con el tiempo que quede.
 
 ---
 
 ## Qué cambió respecto del plan anterior
+
+- **2026-10-06 (00:30):** Laplace cerrado; Sistemas no se empezó el lunes. Plan del martes: Z primero (2 ítems baratos), Sistemas K/polos, respuesta temporal con corte fijo a las 12:45, refresco de Fourier + Laplace de 13:30 a 15:00.
 
 - **2026-10-05 (21:00):** Laplace a falta de §11, práctica de fracciones simples y convolución; Sistemas y Z sin empezar. Decisión: no descartar ningún tema; hacer el primer ítem barato de Sistemas (K/polos) hoy y el de Z (paridad+ROC) mañana temprano, respuesta temporal mañana a media mañana, refresco de 2 h al final.
 
