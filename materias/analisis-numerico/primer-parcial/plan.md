@@ -78,27 +78,32 @@ lo genera Claude esta noche para leer mañana.
 | `03-sistemas` | §4 polos/ceros/estabilidad → §5 hallar $K$ + **R-F** a/b → §7 respuesta temporal + **R-G** → §8 tipo de respuesta y valor estable → §6 solo la regla cualitativa del corte (10 min) | §3 (ya lo hiciste en Laplace §9), §9 EDO y **R-E** (solo si sobra: 1 punto en 2025-1C T1) |
 | `04-z` | §3 geométrica → §4 paridad y ROC + **R-H** → §5 sumas vía Z (evaluar $X(c)$) → §7 + §8 ecuación en diferencias de 1er orden | §6 secuencia finita, §9 2º orden y **R-I** (solo si sobra) |
 
-### Hora por hora
+### Hora por hora (reajustado lunes 21:00: Laplace casi cerrado, Sistemas y Z sin empezar)
 
-| Hora | Qué | Puntos que cubre |
+**Criterio:** no se descarta ningún tema entero. En el formato 2025 cada ejercicio tiene ítems de
+1 punto y **el primer ítem de Sistemas (K / polos / estabilidad) y el de Z (paridad + ROC) son
+baratos** (≈1 h cada uno) y casi independientes del resto. Lo caro es la respuesta temporal de
+Sistemas y la ecuación en diferencias de Z. Descartar Sistemas entero obligaría a un 8/8 perfecto.
+
+| Hora | Qué | Puntos |
 |---|---|---|
-| 15:00–17:00 | **Laplace:** §11 → §6 + R-C → §9 → §10 + R-D | Ej2 completo (3) |
-| 17:00–17:30 | Corte. Comer algo. | |
-| 17:30–21:30 | **Sistemas:** §4 (30 min) → §5 + R-F (60) → §7 + R-G (90) → §8 (30) → regla del corte (10) | Ej3 (3) |
-| 21:30–22:00 | Cena. | |
-| 22:00–00:00 | **Z:** §3–§4 + R-H (60) → §5 (30) → §7–§8 (30) | Ej4 (2) |
-| **mar, mañana** | Machete (`exports/machete.pdf`, 30 min) → checkpoints de las cuatro guías de memoria → rehacer **R-A, R-F y R-H** en limpio, con reloj. Nada nuevo. | |
+| lun 21:00–22:30 | **Cerrar Laplace:** §11 (10 min) → los dos "tu turno" de §9 fracciones simples (40) → §10 + R-D (40) | Ej2 (3) |
+| lun 22:30–00:30 | **Sistemas §4 + §5** con R-F a) y b): polos, ceros, estabilidad, hallar $K$. Nada de respuesta temporal todavía. | Ej3a (1) |
+| mar 08:30–09:30 | **Z §3–§4 + R-H**: paridad + ROC. Punto rápido, cabeza fresca. | Ej4a (1) |
+| mar 09:30–11:30 | **Sistemas §7 + §8 con R-G**: respuesta temporal (es fracciones simples con $s+a$), tipo de respuesta, valor estable. Si cuesta, cortar a las 11:30 igual. | Ej3b/c (1–2) |
+| mar 11:30–12:00 | Comer. | |
+| mar 12:00–13:00 | **Z §5 sumas** (30 min) y, si da, **§7–§8** leído del machete, no practicado. | Ej4b (0–1) |
+| mar 13:00–15:00 | **Refresco:** machete (30) → R-A en limpio con reloj (30) → un tu turno de fracciones simples de Laplace (20) → checkpoints de las 4 guías de memoria (40). | sostiene Ej1 y Ej2 |
+| mar 15:00–17:00 | Parar. Comer, ducha, viaje. Nada nuevo. | |
 
-**Regla de corte:** si a las **21:30** no terminaste Sistemas, cortá igual y pasá a Z §3–§4 + R-H:
-es 1 punto casi seguro y lleva 1 h. Si a las **00:00** no llegaste a §8 de Z, dormí: la
-ecuación en diferencias vale 1 punto y mañana lo leés en el machete.
-
-**Nota estimada si sale todo:** Fourier 3 + Laplace 2–3 + Sistemas 2 + Z 1–2 = **8–10**. Con
-Sistemas a medias, 7–8. Fourier y Laplace son los que te sostienen: no los descuides mañana.
+**Nota esperada:** Fourier 3 + Laplace 2–3 + Sistemas 1–2 + Z 1–2 = **7–10**; el 8 queda alcanzable
+sin depender de un examen perfecto.
 
 ---
 
 ## Qué cambió respecto del plan anterior
+
+- **2026-10-05 (21:00):** Laplace a falta de §11, práctica de fracciones simples y convolución; Sistemas y Z sin empezar. Decisión: no descartar ningún tema; hacer el primer ítem barato de Sistemas (K/polos) hoy y el de Z (paridad+ROC) mañana temprano, respuesta temporal mañana a media mañana, refresco de 2 h al final.
 
 - **2026-10-05 (15:00):** Lucho va por Laplace §5; Sistemas y Z sin empezar. Plan de emergencia: se saltean las secciones que no cayeron en 2025 ni en el repaso 2026, se cancela el simulacro, Claude genera el machete.
 
