@@ -9,7 +9,8 @@
 
 | Evaluación | Carpeta | Fecha | Estado |
 |---|---|---|---|
-| Primer parcial | `primer-parcial/` | **2026-09-28** | **próximo** |
+| Primer parcial | `primer-parcial/` | 2026-09-28 | rendido |
+| TP cuatrimestral | `tp-cuatrimestral/` | **2026-11-08** (entrega) | **próximo** |
 | Segundo parcial | `segundo-parcial/` | _(a definir)_ | pendiente |
 | Final | `final/` | _(a definir)_ | pendiente |
 
@@ -34,6 +35,12 @@
   planeamiento estratégico, 5 fuerzas y cadena de valor de Porter, matriz BCG, escenarios,
   estrategias de crecimiento y supervivencia, tablero de control, crisis y cambio.
   _(sin indexar todavía: 3 archivos en `segundo-parcial/examenes/`)_
+- **TP cuatrimestral:** trabajo grupal (6 integrantes, un rol gerencial cada uno) de
+  simulación gerencial sobre una empresa tecnológica real o ficticia. Entrega única en
+  **Google Slides** (`00_TP Cuatrimestral_Gx`, en el GDrive del grupo) con plantilla
+  obligatoria de 6 secciones: datos del grupo, empresa, liderazgo, cadena de valor de
+  Porter, matriz BCG y decisiones estratégicas con KPI. Posible consulta oral a los
+  "gerentes". Enunciado transcripto en `tp-cuatrimestral/enunciado.md`.
 - **Final:** _(completar cuando haya finales; las respuestas por unidad de
   `fuentes/respuestas-finales-por-unidad.docx` sugieren preguntas del mismo estilo sobre
   las 18 unidades)_
