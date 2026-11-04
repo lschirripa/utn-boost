@@ -40,7 +40,8 @@
   **Google Slides** (`00_TP Cuatrimestral_Gx`, en el GDrive del grupo) con plantilla
   obligatoria de 6 secciones: datos del grupo, empresa, liderazgo, cadena de valor de
   Porter, matriz BCG y decisiones estratégicas con KPI. Posible consulta oral a los
-  "gerentes". Enunciado transcripto en `tp-cuatrimestral/enunciado.md`.
+  "gerentes". Enunciado transcripto en `tp-cuatrimestral/enunciado.md`; contenido en
+  `tp-cuatrimestral/borrador.md` (contrastado con el libro: caps. IV, V, VII, VIII, XIV, XV).
 - **Final:** _(completar cuando haya finales; las respuestas por unidad de
   `fuentes/respuestas-finales-por-unidad.docx` sugieren preguntas del mismo estilo sobre
   las 18 unidades)_
@@ -73,13 +74,13 @@ que ya no existen); la numeración que vale es la del PDF 2026.
   para motivar, motivación como función del grupo (57–63). **Fuera del programa 2026
   (pero tomados en parciales viejos):** cap. VI negociación (43–47) y cap. IX comunicación /
   escucha activa (64–66).
-- **Segundo parcial (numeración del PDF 2026):** cap. X poder y autoridad (influencia, fuentes y formas de expresión
-  del poder, modelos de organización); XIII delegación y participación
-  (descentralización vertical/horizontal, factores contingentes, requisitos); XIV ética,
-  moral y RSE; XV doble moral, acoso (mobbing) y desmoralización; XVI estrategia y
+- **Segundo parcial (numeración del PDF 2026, verificada 2026-11-04):** cap. X poder y autoridad (influencia, fuentes y formas de expresión
+  del poder, modelos de organización); XI delegación y participación
+  (descentralización vertical/horizontal, factores contingentes, requisitos); XII ética,
+  moral y RSE; XIII doble moral, acoso (mobbing) y desmoralización; XIV estrategia y
   planeamiento (objetivos, niveles de planeamiento, 5 fuerzas y cadena de valor de
-  Porter, matriz BCG, escenarios, estrategias de supervivencia y crecimiento); XVII
-  tablero de control; XVIII crisis y cambio (tipos de crisis, anomia, comportamientos).
+  Porter, matriz BCG, escenarios, estrategias de supervivencia y crecimiento); XV
+  informática gerencial y tablero de control; XVI crisis y cambio (tipos de crisis, anomia, comportamientos).
 
 ## Fuentes
 

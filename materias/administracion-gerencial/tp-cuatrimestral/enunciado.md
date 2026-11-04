@@ -75,5 +75,5 @@ Tabla: Decisión estratégica · KPI de control.
 
 - Liderazgo → cap. VII del libro 2026 (tipos elementales, situacional, ruta-meta); apuntes del 1P.
 - Funciones/roles del gerente → caps. IV (Sallenave) y V (Mintzberg); sirve para la columna "responsabilidad principal" de cada rol.
-- Cadena de valor y BCG → cap. XVI (estrategia y planeamiento), temario del 2P.
-- KPIs de control → cap. XVII (tablero de control), temario del 2P.
+- Cadena de valor y BCG → cap. XIV (estrategia y planeamiento), temario del 2P.
+- KPIs de control → cap. XV (informática gerencial y tablero de control), temario del 2P.

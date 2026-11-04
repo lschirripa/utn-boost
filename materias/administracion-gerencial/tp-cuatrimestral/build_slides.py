@@ -188,21 +188,21 @@ def build(grupo):
     rows = [
         ["Integrante", "Rol gerencial", "Responsabilidad principal"],
         ["Germán Martín Bergera Vila", "Gerente General",
-         "Estrategia, coordinación del equipo directivo y decisión final (estratega, organizador y líder, según Sallenave)"],
+         "Estrategia, coordinación del equipo directivo y decisión final (estratega, planeador-organizador y líder-comunicador, según Sallenave)"],
         ["Juan Ignacio Cobas", "Operaciones",
-         "Procesamiento de pagos, mercados y servicios; eficiencia y continuidad operativa"],
+         "Procesamiento de pagos, mercados y servicios; continuidad operativa (árbitro de perturbaciones, según Mintzberg)"],
         ["Matías Tadeo Rossi", "Comercial / Marketing",
-         "Marca Chase, adquisición y retención de clientes, venta cruzada"],
+         "Marca Chase, adquisición y retención de clientes, venta cruzada (enlace y portavoz)"],
         ["Clara Belén Busca", "RRHH",
-         "Talento, cultura, desarrollo de líderes y plan de sucesión"],
+         "Talento, cultura, desarrollo de líderes y plan de sucesión (líder)"],
         ["Franco Ezequiel Piccininno", "Finanzas",
-         "Presupuesto (incluido el tecnológico), eficiencia y control de KPI"],
+         "Presupuesto (incluido el tecnológico), eficiencia y control de KPI (administrador de recursos)"],
         ["Luciano Schirripa", "Sistemas / Innovación",
-         "Plataformas tecnológicas, modernización (cloud), IA y ciberseguridad"],
+         "Plataformas tecnológicas, modernización (cloud), IA y ciberseguridad (monitor, difusor y emprendedor)"],
     ]
     table(s, 0.6, 1.5, 12.1, rows, [3.3, 2.4, 6.4], size=14, row_h=0.72, bold_first_col=True)
     text(s, 0.6, 6.55, 12, 0.4,
-         "Seis roles gerenciales distintos, como pide la consigna. Cada decisión final de la sección 6 tiene un gerente responsable.",
+         "Seis roles gerenciales distintos, como pide la consigna. Entre paréntesis, los papeles de Sallenave (cap. IV) y de Mintzberg (cap. V) que predominan en cada uno.",
          size=12, color=GRAY, italic=True)
     footer(s, grupo)
 
@@ -239,21 +239,25 @@ def build(grupo):
     title(s, 3, "Liderazgo")
     cards = [
         ("Estilo de liderazgo",
-         [[("Liderazgo situacional", True), (" (Hersey y Blanchard), con base demócrata y, en la cúpula, un estilo ", False),
-           ("orientado al logro", True), (" (ruta-meta): exigente, directo y basado en datos.", False)]]),
+         [[("Liderazgo situacional", True), (" (Hersey y Blanchard) con base demócrata en los niveles gerenciales.", False)],
+          [("En la cúpula, ", False), ("liderazgo transformacional", True),
+           (" con rasgos carismáticos (Jamie Dimon, CEO desde 2005): metas desafiantes y una visión que trasciende lo "
+            "transaccional.", False)]]),
         ("Justificación",
-         [[("Con más de 300.000 personas y negocios muy distintos, un único estilo no sirve. En las áreas reguladas "
-            "(riesgo, compliance) los líderes ", False), ("dirigen e instruyen", True),
-           (": procedimientos claros y control. En tecnología e innovación ", False), ("delegan y apoyan", True),
-           (": equipos con autonomía, objetivos exigentes y seguimiento por métricas. Jamie Dimon (CEO desde 2005) "
-            "fija la vara desde arriba con una cultura de “hacer negocios de primera clase, de una manera de "
-            "primera clase”.", False)]]),
+         [[("Con más de 300.000 personas no sirve un único estilo: el líder adapta su comportamiento al ", False),
+           ("grado de desarrollo de cada colaborador", True), (" (competencia y disposición). A un ingeniero senior del "
+            "hub de Buenos Aires se le ", False), ("delega", True), ("; a un recién ingresado se lo ", False),
+           ("dirige", True), (" o ", False), ("instruye", True),
+           (". Dimon fija metas exigentes y una cultura de “negocios de primera clase, de una manera de primera "
+            "clase”, e inspira a trascender el interés individual: el rasgo del líder transformacional.", False)]]),
         ("Problema potencial de liderazgo",
-         [[("Sucesión: ", True), ("el liderazgo está muy asociado a la figura del CEO; un recambio mal preparado "
-                                 "afecta la cultura.", False)],
-          [("Desajuste situacional: ", True), ("aplicar el estilo “dirigir” de las áreas reguladas a equipos "
-                                              "técnicos ya competentes genera frustración y fuga de talento (Herzberg: "
-                                              "el control excesivo es un factor de higiene que desmotiva).", False)]]),
+         [[("Dependencia del líder carismático: ", True),
+           ("cuando la confianza extrema del líder le impide escuchar y tolerar que lo desafíen, pasa a ser una carga "
+            "para la organización (House). Con Dimon de 70 años, el riesgo concreto es una ", False),
+           ("sucesión mal preparada", True), (".", False)],
+          [("Desajuste situacional: ", True),
+           ("dirigir y controlar a equipos competentes y dispuestos (cuando corresponde delegar) es redundante con la "
+            "estructura de la tarea (ruta-meta) y actúa como factor higiénico que desmotiva (Herzberg).", False)]]),
     ]
     xs = [0.6, 4.75, 8.9]
     for (hd, body), x in zip(cards, xs):
@@ -266,13 +270,13 @@ def build(grupo):
     # ---------- 4. Porter: esquema ----------
     s = prs.slides.add_slide(blank)
     title(s, 4, "Cadena de Valor de Porter (adaptada a un banco)")
-    x0, lab_w, cw = 0.6, 2.35, 9.35
+    x0, lab_w, cw = 0.6, 2.6, 9.1
     y = 1.45
     sup = [
-        ("Infraestructura de la empresa", "Gobierno corporativo, riesgo, compliance y legales; capital y licencias bancarias", "prob"),
-        ("Gestión de RRHH", "Más de 300.000 personas; reclutamiento tecnológico en hubs (Buenos Aires, India, Reino Unido); desarrollo de líderes", None),
-        ("Desarrollo tecnológico", "US$19.800 millones por año; plataformas propias (Payments, Kinexys, LLM Suite); cloud y ciberseguridad", "v1"),
-        ("Abastecimiento", "Proveedores de nube, datos de mercado, hardware y servicios; alianzas con fintechs y redes de tarjetas", None),
+        ("Infraestructura gerencial", "Gestión general, planificación y finanzas; riesgo, compliance y legales; capital y licencias bancarias", "prob"),
+        ("Gestión de recursos humanos", "Más de 300.000 personas; reclutamiento tecnológico en hubs (Buenos Aires, India, Reino Unido); desarrollo de líderes", None),
+        ("Desarrollo de la tecnología", "US$19.800 millones por año; plataformas propias (Payments, Kinexys, LLM Suite); cloud y ciberseguridad", "v1"),
+        ("Adquisiciones", "Proveedores de nube, datos de mercado, hardware y servicios; alianzas con fintechs y redes de tarjetas", None),
     ]
     rh = 0.62
     text(s, x0, y - 0.02, 4, 0.3, "ACTIVIDADES DE APOYO", size=10, bold=True, color=GRAY)
@@ -293,8 +297,8 @@ def build(grupo):
         ("Logística de entrada", "Captación de depósitos y fondos; datos de clientes y de mercado", None),
         ("Operaciones", "Pagos (≈ US$10 billones/día), crédito, trading y custodia", "v2"),
         ("Logística de salida", "Canales: app y web Chase, sucursales, cajeros, APIs para empresas", None),
-        ("Marketing y ventas", "Marca Chase, tarjetas Sapphire, banca privada, recompensas", None),
-        ("Servicio posventa", "Atención 24/7, asesoramiento financiero, prevención de fraude", None),
+        ("Comercialización y ventas", "Marca Chase, tarjetas Sapphire, banca privada, recompensas", None),
+        ("Servicio post-venta", "Atención 24/7, asesoramiento financiero, prevención de fraude", None),
     ]
     pw = (lab_w + cw) / 5
     ph = 1.55
@@ -320,13 +324,15 @@ def build(grupo):
     title(s, 4, "Cadena de Valor de Porter: análisis")
     rows = [
         ["Actividad donde se genera mayor valor (1)",
-         [("Desarrollo tecnológico. ", True), ("Es lo que diferencia a JPM de un banco tradicional: las plataformas propias "
-          "bajan el costo por transacción y permiten lanzar productos (Chase UK/Alemania, Kinexys) sin depender de terceros.", False)]],
+         [("Desarrollo de la tecnología. ", True), ("Es lo que diferencia a JPM de un banco tradicional: las plataformas propias "
+          "bajan el costo por transacción y permiten lanzar productos (Chase UK/Alemania, Kinexys) sin depender de terceros. "
+          "Es el “know-how” que atraviesa toda la cadena.", False)]],
         ["Actividad donde se genera mayor valor (2)",
          [("Operaciones. ", True), ("La escala del procesamiento (pagos, mercados, custodia) genera ingresos por comisiones "
-          "y datos que ningún competidor nuevo puede replicar rápido.", False)]],
+          "y datos que ningún competidor nuevo puede replicar rápido. Porter: se puede ser el mejor en marketing, pero no es "
+          "ventaja si no se equipara con las operaciones.", False)]],
         ["Actividad problemática",
-         [("Infraestructura (riesgo y compliance) sobre sistemas heredados. ", True), ("Cada cambio pasa por controles "
+         [("Infraestructura gerencial (riesgo y compliance) sobre sistemas heredados. ", True), ("Cada cambio pasa por controles "
           "regulatorios y por sistemas legacy: la modernización compite con “mantener las luces prendidas” y "
           "frena el tiempo de salida al mercado.", False)]],
         ["Rol de los Sistemas de Información",
@@ -344,19 +350,19 @@ def build(grupo):
     gx, gy, gw, gh = 1.6, 1.55, 7.6, 5.0
     quads = [
         (gx, gy, "ESTRELLA", TINT2),
-        (gx + gw / 2, gy, "INTERROGANTE", TINT),
+        (gx + gw / 2, gy, "DILEMA", TINT),
         (gx, gy + gh / 2, "VACA LECHERA", TINT),
-        (gx + gw / 2, gy + gh / 2, "PERRO", TINT2),
+        (gx + gw / 2, gy + gh / 2, "PESO MUERTO (PERRO)", TINT2),
     ]
     for qx, qy, name, fill in quads:
         box(s, qx, qy, gw / 2 - 0.04, gh / 2 - 0.04, fill)
         text(s, qx + 0.12, qy + 0.06, 3, 0.3, name, size=11, bold=True, color=GRAY)
     # ejes
-    text(s, 0.5, gy, 1.0, gh, "CRECIMIENTO DEL MERCADO", size=10, bold=True, color=GRAY, align=PP_ALIGN.CENTER,
+    text(s, 0.5, gy, 1.0, gh, "CRECIMIENTO DE LA DEMANDA", size=10, bold=True, color=GRAY, align=PP_ALIGN.CENTER,
          anchor=MSO_ANCHOR.MIDDLE).rotation = 270
     text(s, 1.15, gy + 0.05, 0.45, 0.3, "Alto", size=10, color=GRAY, align=PP_ALIGN.RIGHT)
     text(s, 1.15, gy + gh - 0.35, 0.45, 0.3, "Bajo", size=10, color=GRAY, align=PP_ALIGN.RIGHT)
-    text(s, gx, gy + gh + 0.05, gw, 0.3, "PARTICIPACIÓN RELATIVA DE MERCADO", size=10, bold=True, color=GRAY,
+    text(s, gx, gy + gh + 0.05, gw, 0.3, "PARTICIPACIÓN RELATIVA EN EL MERCADO", size=10, bold=True, color=GRAY,
          align=PP_ALIGN.CENTER)
     text(s, gx, gy + gh + 0.05, 1, 0.3, "Alta", size=10, color=GRAY)
     text(s, gx + gw - 1, gy + gh + 0.05, 1, 0.3, "Baja", size=10, color=GRAY, align=PP_ALIGN.RIGHT)
@@ -375,10 +381,10 @@ def build(grupo):
     box(s, 9.6, 1.55, 3.15, 5.0, TINT, shape=MSO_SHAPE.ROUNDED_RECTANGLE)
     text(s, 9.8, 1.7, 2.8, 0.4, "Cómo leerla", size=14, bold=True, color=NAVY, font=HEAD)
     text(s, 9.8, 2.15, 2.8, 4.3, [
-        [("Vaca lechera: ", True), ("Chase minorista financia todo lo demás.", False)],
-        [("Estrellas: ", True), ("CIB y Payments, lideran mercados que siguen creciendo.", False)],
-        [("Interrogantes: ", True), ("banca digital en Europa, blockchain e IA: mucho crecimiento, participación todavía baja.", False)],
-        [("Perro: ", True), ("Chase Pay, billetera propia discontinuada en 2019.", False)],
+        [("Vaca lechera: ", True), ("Chase minorista genera el efectivo que financia a estrellas y dilemas.", False)],
+        [("Estrellas: ", True), ("CIB y Payments: alta participación en demanda que sigue creciendo; necesitan inversión impulsora.", False)],
+        [("Dilemas: ", True), ("banca digital en Europa, blockchain e IA: demanda en crecimiento, participación todavía baja; decisión incierta.", False)],
+        [("Peso muerto: ", True), ("Chase Pay, billetera propia discontinuada en 2019; sin nuevas inversiones.", False)],
         [("El tamaño de cada burbuja sugiere el peso relativo en ingresos (cualitativo).", False)],
     ], size=12)
     footer(s, grupo)
@@ -389,19 +395,19 @@ def build(grupo):
     rows = [
         ["Producto / Servicio", "Cuadrante BCG", "Decisión estratégica"],
         ["Chase: banca minorista en EE.UU. (cuentas, tarjetas, hipotecas)", "Vaca lechera",
-         "Mantener y cosechar: financia la inversión tecnológica y la expansión"],
+         "Seguir explotando sin grandes inversiones nuevas: financia la inversión tecnológica y la expansión"],
         ["Banca de inversión y mercados (CIB)", "Estrella",
-         "Invertir para sostener el liderazgo: trading electrónico y datos"],
+         "Inversión impulsora para sostener la participación: trading electrónico y datos"],
         ["JPMorgan Payments", "Estrella",
          "Invertir: pagos en tiempo real, expansión global, integración con Kinexys"],
-        ["Chase Reino Unido y Alemania (banca digital internacional)", "Interrogante",
-         "Invertir con hitos: crecer hasta el punto de equilibrio o frenar"],
-        ["Kinexys (blockchain) e IA generativa (LLM Suite)", "Interrogante",
+        ["Chase Reino Unido y Alemania (banca digital internacional)", "Dilema",
+         "Invertir con hitos: crecer hasta el punto de equilibrio (y volverse estrella) o frenar"],
+        ["Kinexys (blockchain) e IA generativa (LLM Suite)", "Dilema",
          "Invertir selectivamente: pilotos con casos de uso medibles"],
-        ["Chase Pay (billetera digital propia, discontinuada en 2019)", "Perro",
-         "Desinvertir (ya ejecutado): apoyarse en Apple Pay, Google Pay y Zelle"],
+        ["Chase Pay (billetera digital propia, discontinuada en 2019)", "Peso muerto (perro)",
+         "No invertir para mantenerlo vivo (ya ejecutado): apoyarse en Apple Pay, Google Pay y Zelle"],
     ]
-    qfill = {"Vaca lechera": TINT, "Estrella": GOLD_LIGHT, "Interrogante": TINT2, "Perro": RED_LIGHT}
+    qfill = {"Vaca lechera": TINT, "Estrella": GOLD_LIGHT, "Dilema": TINT2, "Peso muerto (perro)": RED_LIGHT}
     fills = [None] + [[None, qfill[r[1]], None] for r in rows[1:]]
     table(s, 0.6, 1.5, 12.1, rows, [4.6, 1.9, 5.6], size=13, row_h=0.72, fills=fills)
     footer(s, grupo)
@@ -410,31 +416,33 @@ def build(grupo):
     s = prs.slides.add_slide(blank)
     title(s, 6, "Decisiones estratégicas finales")
     rows = [
-        ["Gerente", "Decisión estratégica", "KPI de control"],
+        ["Gerente", "Decisión estratégica", "KPI de control", "Perspectiva del tablero"],
         ["Gerente General", "Expansión europea de Chase (Reino Unido → Alemania) con hitos go/no-go",
-         "Clientes activos; fecha de punto de equilibrio del negocio"],
+         "Clientes activos; fecha de punto de equilibrio del negocio", "Cliente / Económico-financiera"],
         ["Operaciones", "Escalar Payments: liquidación en tiempo real y automatización (STP)",
-         "Volumen diario procesado; % de operaciones sin intervención manual"],
+         "Volumen diario procesado; % de operaciones sin intervención manual", "Procesos internos"],
         ["Comercial / Marketing", "Profundizar la relación con clientes Chase (venta cruzada: inversión, tarjetas)",
-         "Productos por cliente; NPS"],
+         "Productos por cliente; NPS", "Cliente"],
         ["RRHH", "Plan de sucesión y desarrollo de líderes situacionales",
-         "% de puestos críticos con sucesor identificado; rotación voluntaria de talento clave"],
+         "% de puestos críticos con sucesor identificado; rotación voluntaria de talento clave", "Innovación y aprendizaje"],
         ["Finanzas", "Disciplina del presupuesto tecnológico: más “cambio”, menos “mantenimiento”",
-         "Ratio de eficiencia (gastos / ingresos); % del gasto tech en nuevas capacidades"],
+         "Ratio de eficiencia (gastos / ingresos); % del gasto tech en nuevas capacidades", "Económico-financiera"],
         ["Sistemas / Innovación", "Modernización: migración a cloud, baja de legacy y despliegue de IA generativa",
-         "% de aplicaciones modernizadas; incidentes críticos por trimestre; % de empleados activos en LLM Suite"],
+         "% de aplicaciones modernizadas; incidentes críticos por trimestre; % de empleados activos en LLM Suite",
+         "Procesos internos / Innovación y aprendizaje"],
     ]
-    table(s, 0.6, 1.5, 12.1, rows, [2.2, 5.2, 4.7], size=13, row_h=0.72, bold_first_col=True)
-    text(s, 0.6, 6.6, 12, 0.4,
-         "Cada decisión responde a un hallazgo de las secciones 3 a 5 y tiene un dueño y un indicador para el tablero de control.",
-         size=12, color=GRAY, italic=True)
+    table(s, 0.6, 1.45, 12.1, rows, [1.9, 4.4, 3.9, 1.9], size=12, row_h=0.72, bold_first_col=True)
+    text(s, 0.6, 6.55, 12, 0.45,
+         "Indicadores estratégicos de un tablero de control estratégico (cap. XV), clasificados por sus cuatro perspectivas: "
+         "cliente, económico-financiera, procesos internos, innovación y aprendizaje. Cada decisión tiene un dueño.",
+         size=11, color=GRAY, italic=True)
     footer(s, grupo)
 
     # ---------- Fuentes ----------
     s = prs.slides.add_slide(blank)
     title(s, "i", "Fuentes")
     text(s, 0.6, 1.5, 12, 4.5, [
-        "Texido, D. (2026). Administración Gerencial, libro de cátedra: caps. IV y V (el gerente), VII (liderazgo), XVI (estrategia y planeamiento: cadena de valor y BCG) y XVII (tablero de control).",
+        "Texido, D. (2026). Administración Gerencial, libro de cátedra: caps. IV y V (el gerente: Sallenave y Mintzberg), VII (liderazgo), VIII (motivación: Herzberg), XIV (estrategia y planeamiento: cadena de valor y BCG) y XV (tablero de control).",
         "JPMorgan Chase & Co. (2026). Annual Report 2025 y resultados del cuarto trimestre de 2025 (SEC EDGAR).",
         "Reuters (septiembre de 2025). JPMorgan lanzará su banco digital minorista en Alemania en 2026.",
         "Bloomberg Línea (diciembre de 2024) y El Economista (2025). Buenos Aires Corporate Center y nueva sede en Núñez.",
