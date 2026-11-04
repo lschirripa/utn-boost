@@ -1,7 +1,8 @@
 # TP Cuatrimestral AG 2C26 — Borrador (JPMorgan Chase)
 
 > Fuente canónica del contenido del Slides. El deck se genera con `build_slides.py` → `exports/00_TP Cuatrimestral_Gx.pptx` y se sube a Drive (se convierte a Google Slides). Si se cambia algo acá, cambiarlo también en el script (o al revés).
-> Google Slides (nativo, el entregable): https://docs.google.com/presentation/d/1tTJdOupXbTbHOzt2hcow5uC2tLUHzQyppOCO437tkXM/edit (en Mi unidad de Luciano; mover a la carpeta `Tps/tp cuatrimestral` del grupo).
+> Google Slides (nativo, el entregable, en la carpeta `Tps/tp cuatrimestral` del grupo, cuenta UTN): https://docs.google.com/presentation/d/1dJtr7s-nmZQwtKj7QZwHsELuT-prtbSO2gN0VVT1KbU/edit
+> (Borrador anterior en el gmail de Luciano, ya superado: https://docs.google.com/presentation/d/1tTJdOupXbTbHOzt2hcow5uC2tLUHzQyppOCO437tkXM/edit)
 > Generado el 2026-11-03; contrastado contra el libro de cátedra el 2026-11-04 (ver sección final). Sigue la plantilla obligatoria del `enunciado.md`, sección por sección.
 
 ---
