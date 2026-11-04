@@ -301,14 +301,18 @@ def build(grupo):
         ("Servicio post-venta", "Atención 24/7, asesoramiento financiero, prevención de fraude", None),
     ]
     pw = (lab_w + cw) / 5
-    ph = 1.55
+    ph = 1.55          # alto total del bloque (flecha + descripción)
+    ah = 0.62          # alto de la flecha
     for i, (name, desc, tag) in enumerate(prim):
         fill = GOLD_LIGHT if tag == "v2" else TINT2
-        # la flecha va sin texto: Google Slides calcula mal el área de texto de los chevrons
-        box(s, x0 + i * pw, y, pw - 0.06, ph, fill, shape=MSO_SHAPE.CHEVRON if i else MSO_SHAPE.PENTAGON)
-        tx = x0 + i * pw + (0.32 if i else 0.12)
-        text(s, tx, y + 0.1, pw - 0.06 - (0.32 if i else 0.12) - 0.32, ph - 0.2,
-             [[(name, True)], [(desc, False)]], size=11, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, margin=0.02)
+        # la flecha lleva solo el nombre, y en una caja de texto aparte: Google Slides
+        # calcula mal el área de texto de los chevrons y el texto largo se desborda por las puntas
+        box(s, x0 + i * pw, y, pw - 0.06, ah, fill, shape=MSO_SHAPE.CHEVRON if i else MSO_SHAPE.PENTAGON)
+        notch = 0.3 if i else 0.1
+        text(s, x0 + i * pw + notch, y, pw - 0.06 - notch - 0.3, ah, name, size=11, bold=True, color=NAVY,
+             align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, margin=0.02)
+        text(s, x0 + i * pw, y + ah + 0.05, pw - 0.06, ph - ah - 0.05, desc, size=10.5, color=BLACK,
+             align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.TOP, margin=0.04)
     # margen a la derecha
     box(s, x0 + lab_w + cw + 0.1, 1.75, 0.9, y + ph - 1.75, NAVY, "MARGEN", size=11, bold=True, color=WHITE)
     # leyenda
