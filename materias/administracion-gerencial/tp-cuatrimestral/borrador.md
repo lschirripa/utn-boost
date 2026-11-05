@@ -4,6 +4,7 @@
 > Google Slides (nativo, el entregable, en la carpeta `Tps/tp cuatrimestral` del grupo, cuenta UTN): https://docs.google.com/presentation/d/1dJtr7s-nmZQwtKj7QZwHsELuT-prtbSO2gN0VVT1KbU/edit
 > (Borrador anterior en el gmail de Luciano, ya superado: https://docs.google.com/presentation/d/1tTJdOupXbTbHOzt2hcow5uC2tLUHzQyppOCO437tkXM/edit)
 > Generado el 2026-11-03; contrastado contra el libro de cátedra el 2026-11-04 (ver sección final). Sigue la plantilla obligatoria del `enunciado.md`, sección por sección.
+> Desde el 2026-11-05 el deck CALCA la plantilla oficial: mismos títulos de sección, mismas tablas y los mismos rótulos de campo ("Tipo (Real / Ficticia)", "Justificación (máx. 5 líneas)", "Actividad donde se genera mayor valor (1)", "Decisión Estratégica · KPI de Control", etc.), con el esquema de Porter y el gráfico BCG donde la plantilla dice "Insertar".
 
 ---
 
@@ -113,6 +114,8 @@ Una decisión por gerente, con su indicador estratégico y la perspectiva del ta
 a la que pertenece (cliente, económico-financiera, procesos internos, innovación y aprendizaje).
 Es un tablero de control **estratégico**: información para la alta dirección sobre el
 posicionamiento a largo plazo.
+
+En el deck esta tabla se muestra con las dos columnas de la plantilla (Decisión Estratégica · KPI de Control): el gerente va en negrita al inicio de la decisión y la perspectiva, en gris al final del KPI.
 
 | Gerente | Decisión estratégica | KPI de control | Perspectiva |
 |---|---|---|---|

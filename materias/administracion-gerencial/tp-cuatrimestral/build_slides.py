@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 """Genera el deck del TP cuatrimestral de AG (JPMorgan Chase) con python-pptx.
 
+Cada slide calca una sección de la PLANTILLA OFICIAL del enunciado (mismos títulos, mismas
+tablas y los mismos rótulos de campo), porque la consigna exige respetar esa estructura.
 Salida: exports/00_TP Cuatrimestral_Gx.pptx  (después se sube a Drive y se convierte a Slides).
 Contenido canónico en borrador.md: si se cambia uno, cambiar el otro.
 Uso: python3 build_slides.py [--grupo B]
 """
 import argparse
 import os
+from lxml import etree
 from pptx import Presentation
-from pptx.util import Inches, Pt, Emu
+from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
+from pptx.oxml.ns import qn
 
 NAVY = RGBColor(0x14, 0x21, 0x3D)
 GOLD = RGBColor(0xC9, 0xA2, 0x27)
@@ -23,6 +27,7 @@ RED = RGBColor(0xA4, 0x3A, 0x2E)
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
 GRAY = RGBColor(0x5F, 0x6B, 0x7A)
 BLACK = RGBColor(0x1A, 0x1A, 0x1A)
+LINE = "B8C0CC"          # borde de celda (gris, como la planilla)
 HEAD = "Cambria"
 BODY = "Calibri"
 
@@ -97,7 +102,7 @@ def box(slide, x, y, w, h, fill, s=None, size=12, bold=False, color=BLACK,
 
 
 def title(slide, num, s):
-    """Motivo del deck: número de sección en un círculo dorado + título."""
+    """Motivo del deck: número de sección en un círculo dorado + título textual de la plantilla."""
     c = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(0.6), Inches(0.5), Inches(0.62), Inches(0.62))
     rgb(c, GOLD)
     no_line(c)
@@ -117,46 +122,85 @@ def title(slide, num, s):
          anchor=MSO_ANCHOR.MIDDLE, margin=0)
 
 
+def kicker(slide, s):
+    """Instrucción textual de la plantilla, debajo del título (p. ej. 'Insertar a continuación…')."""
+    text(slide, 0.6, 1.17, 12.1, 0.3, s, size=11, color=GRAY, italic=True, margin=0)
+
+
 def footer(slide, grupo):
-    text(slide, 0.6, 7.02, 9, 0.3, f"AG · TP Cuatrimestral 2C26 · Grupo {grupo} · JPMorgan Chase",
+    text(slide, 0.6, 7.02, 12.1, 0.3,
+         f"AG · TP Cuatrimestral 2C26 · Grupo {grupo} · JPMorgan Chase & Co. · plantilla oficial de la cátedra",
          size=10, color=GRAY)
 
 
-def table(slide, x, y, w, rows, col_w, size=13, header=True, row_h=0.5, bold_first_col=False,
-          fills=None):
-    """rows: lista de listas de str. col_w: anchos en pulgadas (suma ≈ w)."""
+def cell_borders(cell, color=LINE, width=0.75):
+    """Bordes finos en las cuatro caras (la planilla es una grilla). Van ANTES del relleno en tcPr."""
+    tcPr = cell._tc.get_or_add_tcPr()
+    tags = ("a:lnL", "a:lnR", "a:lnT", "a:lnB")
+    for tag in tags:
+        old = tcPr.find(qn(tag))
+        if old is not None:
+            tcPr.remove(old)
+    for i, tag in enumerate(tags):
+        ln = etree.Element(qn(tag), w=str(int(Pt(width))), cap="flat", cmpd="sng", algn="ctr")
+        sf = etree.SubElement(ln, qn("a:solidFill"))
+        etree.SubElement(sf, qn("a:srgbClr"), val=color)
+        etree.SubElement(ln, qn("a:prstDash"), val="solid")
+        tcPr.insert(i, ln)
+
+
+def _paragraphs(val):
+    """str | [(t,b[,color])…] (un párrafo) | [[(t,b)…], …] (varios párrafos) → lista de párrafos."""
+    if isinstance(val, str):
+        return [[(val, False)]]
+    if val and isinstance(val[0], list):
+        return val
+    return [val]
+
+
+def table(slide, x, y, w, rows, col_w, size=12, header=True, row_h=0.5, label_col=False,
+          fills=None, header_fill=TINT2, header_color=NAVY):
+    """Tabla con la estética de la planilla: encabezado sombreado, columna de rótulos sombreada,
+    bordes grises. rows: lista de filas; cada celda str o runs (ver _paragraphs).
+    row_h: número o lista por fila. col_w: anchos en pulgadas (suma ≈ w)."""
     nrows, ncols = len(rows), len(rows[0])
-    gt = slide.shapes.add_table(nrows, ncols, Inches(x), Inches(y), Inches(w), Inches(row_h * nrows))
+    rh = row_h if isinstance(row_h, list) else [row_h] * nrows
+    gt = slide.shapes.add_table(nrows, ncols, Inches(x), Inches(y), Inches(w), Inches(sum(rh)))
     tbl = gt.table
-    # sin estilo de tabla de Office (bandas): id del estilo "No Style, No Grid"
     tblPr = gt._element.graphic.graphicData.tbl.tblPr
     tblPr.set("bandRow", "0")
     tblPr.set("firstRow", "0")
     for j, cw in enumerate(col_w):
         tbl.columns[j].width = Inches(cw)
     for i in range(nrows):
-        tbl.rows[i].height = Inches(row_h)
+        tbl.rows[i].height = Inches(rh[i])
         for j in range(ncols):
             cell = tbl.cell(i, j)
+            cell_borders(cell)
             cell.margin_left = cell.margin_right = Inches(0.08)
             cell.margin_top = cell.margin_bottom = Inches(0.05)
             cell.vertical_anchor = MSO_ANCHOR.MIDDLE
             is_head = header and i == 0
-            fill = NAVY if is_head else (fills[i][j] if fills and fills[i] and fills[i][j] else WHITE)
+            is_label = label_col and j == 0 and not is_head
+            custom = fills[i][j] if fills and fills[i] and fills[i][j] else None
+            fill = header_fill if is_head else (custom or (TINT if is_label else WHITE))
             cell.fill.solid()
             cell.fill.fore_color.rgb = fill
             tf = cell.text_frame
             tf.word_wrap = True
-            val = rows[i][j]
-            parts = val if isinstance(val, list) else [(val, False)]
-            p = tf.paragraphs[0]
-            for t, b in parts:
-                r = p.add_run()
-                r.text = t
-                r.font.size = Pt(size)
-                r.font.name = BODY
-                r.font.bold = is_head or b or (bold_first_col and j == 0)
-                r.font.color.rgb = WHITE if is_head else BLACK
+            for k, runs in enumerate(_paragraphs(rows[i][j])):
+                p = tf.paragraphs[0] if k == 0 else tf.add_paragraph()
+                if k:
+                    p.space_before = Pt(4)
+                for part in runs:
+                    t, b = part[0], part[1]
+                    col = part[2] if len(part) > 2 else (header_color if is_head else BLACK)
+                    r = p.add_run()
+                    r.text = t
+                    r.font.size = Pt(size)
+                    r.font.name = BODY
+                    r.font.bold = is_head or b or is_label
+                    r.font.color.rgb = col
     return gt
 
 
@@ -166,29 +210,35 @@ def build(grupo):
     prs.slide_height = Inches(H)
     blank = prs.slide_layouts[6]
 
-    # ---------- Portada ----------
+    # ---------- Portada (calca la carátula del enunciado) ----------
     s = prs.slides.add_slide(blank)
-    bg = box(s, 0, 0, W, H, NAVY)
+    box(s, 0, 0, W, H, NAVY)
     box(s, 0.9, 1.0, 0.16, 0.16, GOLD, shape=MSO_SHAPE.OVAL)
-    text(s, 1.2, 0.88, 10, 0.4, "Universidad Tecnológica Nacional · FRBA · Ingeniería en Sistemas de Información",
+    text(s, 1.2, 0.88, 11, 0.4,
+         "Universidad Tecnológica Nacional · Facultad Regional Buenos Aires · Ingeniería en Sistemas de Información",
          size=14, color=WHITE)
-    text(s, 0.9, 2.0, 11.5, 1.0, "Trabajo Práctico Cuatrimestral", size=44, bold=True, color=WHITE, font=HEAD)
-    text(s, 0.9, 3.0, 11.5, 0.7, "Administración Gerencial · 2C 2026 · Curso K5571", size=22, color=GOLD, font=HEAD)
-    text(s, 0.9, 4.2, 11.5, 0.6, [[("Simulación gerencial: ", False), ("JPMorgan Chase & Co.", True)]],
-         size=24, color=WHITE)
-    text(s, 0.9, 5.3, 11.5, 0.4, f"Grupo {grupo} · Bergera Vila · Busca · Cobas · Piccininno · Rossi · Schirripa",
-         size=14, color=WHITE)
-    text(s, 0.9, 5.7, 11.5, 0.4, "Profesor: Mg. Ing. Daniel Texido · Ayudantes: Ing. Daniel Ordoñez, Ing. Pablo Brancone",
+    text(s, 0.9, 1.75, 11.5, 0.9, "Administración Gerencial", size=40, bold=True, color=WHITE, font=HEAD)
+    text(s, 0.9, 2.65, 11.5, 0.8, "Trabajo Práctico Cuatrimestral (2C26)", size=28, color=GOLD, font=HEAD)
+    text(s, 0.9, 3.75, 11.5, 0.5, [[("Empresa analizada: ", False), ("JPMorgan Chase & Co.", True)]],
+         size=20, color=WHITE)
+    text(s, 0.9, 4.3, 11.5, 0.5, f"Grupo {grupo} · Bergera Vila · Busca · Cobas · Piccininno · Rossi · Schirripa",
+         size=16, color=WHITE)
+    text(s, 0.9, 5.35, 11.5, 1.2, [
+        [("Profesor: ", True), ("Mg. Ing. Daniel Texido", False)],
+        [("Ayudantes: ", True), ("Ing. Daniel Ordoñez · Ing. Pablo Brancone", False)],
+        [("Curso: ", True), ("K.5571", False)],
+    ], size=13, color=TINT2)
+    text(s, 0.9, 6.6, 11.5, 0.4, "Entrega: 8 de noviembre de 2026 · 00_TP Cuatrimestral_G" + grupo,
          size=12, color=TINT2)
-    text(s, 0.9, 6.6, 6, 0.4, "Entrega: 8 de noviembre de 2026", size=12, color=TINT2)
 
-    # ---------- 1. Datos del grupo ----------
+    # ---------- 1. Datos del Grupo ----------
     s = prs.slides.add_slide(blank)
-    title(s, 1, "Datos del grupo")
+    title(s, 1, "Datos del Grupo")
     rows = [
-        ["Integrante", "Rol gerencial", "Responsabilidad principal"],
+        ["Integrante", "Rol Gerencial", "Responsabilidad Principal"],
         ["Germán Martín Bergera Vila", "Gerente General",
-         "Estrategia, coordinación del equipo directivo y decisión final (estratega, planeador-organizador y líder-comunicador, según Sallenave)"],
+         "Estrategia, coordinación del equipo directivo y decisión final (estratega, planeador-organizador y "
+         "líder-comunicador, según Sallenave)"],
         ["Juan Ignacio Cobas", "Operaciones",
          "Procesamiento de pagos, mercados y servicios; continuidad operativa (árbitro de perturbaciones, según Mintzberg)"],
         ["Matías Tadeo Rossi", "Comercial / Marketing",
@@ -200,78 +250,71 @@ def build(grupo):
         ["Luciano Schirripa", "Sistemas / Innovación",
          "Plataformas tecnológicas, modernización (cloud), IA y ciberseguridad (monitor, difusor y emprendedor)"],
     ]
-    table(s, 0.6, 1.5, 12.1, rows, [3.3, 2.4, 6.4], size=14, row_h=0.72, bold_first_col=True)
-    text(s, 0.6, 6.55, 12, 0.4,
-         "Seis roles gerenciales distintos, como pide la consigna. Entre paréntesis, los papeles de Sallenave (cap. IV) y de Mintzberg (cap. V) que predominan en cada uno.",
-         size=12, color=GRAY, italic=True)
+    table(s, 0.6, 1.45, 12.1, rows, [3.3, 2.4, 6.4], size=13, row_h=[0.5] + [0.75] * 6, label_col=True)
+    text(s, 0.6, 6.5, 12.1, 0.4,
+         "Seis roles gerenciales distintos, en el orden de la plantilla. Entre paréntesis, los papeles de Sallenave "
+         "(cap. IV) y de Mintzberg (cap. V) que predominan en cada uno.",
+         size=11, color=GRAY, italic=True)
     footer(s, grupo)
 
-    # ---------- 2. Empresa ----------
+    # ---------- 2. Empresa Analizada ----------
     s = prs.slides.add_slide(blank)
-    title(s, 2, "Empresa analizada: JPMorgan Chase & Co.")
+    title(s, 2, "Empresa Analizada")
     rows = [
-        ["Tipo", "Real"],
+        ["Tipo (Real / Ficticia)", [("Real", True), (" · JPMorgan Chase & Co. (Nueva York; NYSE: JPM)", False)]],
         ["Rubro", "Servicios financieros globales (banca minorista, banca de inversión, pagos y gestión de patrimonios) "
-                  "con desarrollo tecnológico propio a escala de empresa tech"],
+                  "con desarrollo tecnológico propio a escala de empresa tech."],
         ["Tamaño", "Más de 300.000 empleados en más de 100 países · activos por ≈ US$4 billones · presupuesto tecnológico "
-                   "2026 ≈ US$19.800 millones (≈ US$1.200 millones en IA) y más de 50.000 tecnólogos · centro en Buenos "
-                   "Aires desde 2014 (≈ 3.800 personas, nueva torre en Núñez)"],
+                   "2026 ≈ US$19.800 millones (≈ US$1.200 millones en IA) y más de 50.000 tecnólogos · centro tecnológico "
+                   "en Buenos Aires desde 2014 (≈ 3.800 personas, nueva torre en Núñez)."],
         ["Mercado objetivo", "Personas y pymes (Chase, en EE.UU. y ahora Reino Unido y Alemania) · empresas, gobiernos e "
-                             "inversores institucionales (CIB) · grandes patrimonios (AWM)"],
-    ]
-    table(s, 0.6, 1.45, 7.3, rows, [1.7, 5.6], size=12, header=False, row_h=0.9, bold_first_col=True,
-          fills=[[TINT, None]] * 4)
-    # descripción breve a la derecha
-    box(s, 8.3, 1.45, 4.45, 5.25, TINT, shape=MSO_SHAPE.ROUNDED_RECTANGLE)
-    text(s, 8.5, 1.6, 4.1, 0.4, "Descripción breve", size=14, bold=True, color=NAVY, font=HEAD)
-    text(s, 8.5, 2.0, 4.1, 4.6,
+                             "inversores institucionales (CIB) · grandes patrimonios (AWM)."],
+        ["Descripción breve (1 párrafo)",
          "JPMorgan Chase & Co. es el banco más grande de Estados Unidos y uno de los mayores del mundo. Opera en tres "
          "segmentos: banca de consumo (Chase), banca comercial y de inversión (CIB) y gestión de activos y patrimonios "
          "(AWM). Se diferencia por construir su propia tecnología: plataformas de pagos que mueven del orden de "
          "US$10 billones por día, Kinexys (blockchain), LLM Suite (IA generativa interna) y una red global de centros "
          "tecnológicos, entre ellos el Buenos Aires Corporate Center. Por eso lo analizamos como empresa tecnológica: "
-         "su producto corre sobre software propio y su mayor inversión es en tecnología.",
-         size=12, color=BLACK)
+         "su producto corre sobre software propio y su mayor inversión es en tecnología."],
+    ]
+    table(s, 0.6, 1.45, 12.1, rows, [3.0, 9.1], size=12, header=False,
+          row_h=[0.5, 0.8, 1.1, 0.8, 1.9], label_col=True)
     footer(s, grupo)
 
     # ---------- 3. Liderazgo ----------
     s = prs.slides.add_slide(blank)
     title(s, 3, "Liderazgo")
-    cards = [
-        ("Estilo de liderazgo",
-         [[("Liderazgo situacional", True), (" (Hersey y Blanchard) con base demócrata en los niveles gerenciales.", False)],
-          [("En la cúpula, ", False), ("liderazgo transformacional", True),
-           (" con rasgos carismáticos (Jamie Dimon, CEO desde 2005): metas desafiantes y una visión que trasciende lo "
-            "transaccional.", False)]]),
-        ("Justificación",
-         [[("Con más de 300.000 personas no sirve un único estilo: el líder adapta su comportamiento al ", False),
-           ("grado de desarrollo de cada colaborador", True), (" (competencia y disposición). A un ingeniero senior del "
-            "hub de Buenos Aires se le ", False), ("delega", True), ("; a un recién ingresado se lo ", False),
-           ("dirige", True), (" o ", False), ("instruye", True),
-           (". Dimon fija metas exigentes y una cultura de “negocios de primera clase, de una manera de primera "
-            "clase”, e inspira a trascender el interés individual: el rasgo del líder transformacional.", False)]]),
-        ("Problema potencial de liderazgo",
-         [[("Dependencia del líder carismático: ", True),
-           ("cuando la confianza extrema del líder le impide escuchar y tolerar que lo desafíen, pasa a ser una carga "
-            "para la organización (House). Con Dimon de 70 años, el riesgo concreto es una ", False),
-           ("sucesión mal preparada", True), (".", False)],
-          [("Desajuste situacional: ", True),
-           ("dirigir y controlar a equipos competentes y dispuestos (cuando corresponde delegar) es redundante con la "
-            "estructura de la tarea (ruta-meta) y actúa como factor higiénico que desmotiva (Herzberg).", False)]]),
+    rows = [
+        ["Estilo de liderazgo", [
+            [("Liderazgo situacional", True), (" (Hersey y Blanchard) con base demócrata en los niveles gerenciales.", False)],
+            [("En la cúpula, ", False), ("liderazgo transformacional", True),
+             (" con rasgos carismáticos (Jamie Dimon, CEO desde 2005): metas desafiantes y una visión que trasciende lo "
+              "transaccional.", False)]]],
+        ["Justificación (máx. 5 líneas)", [
+            [("Con más de 300.000 personas no sirve un único estilo: el líder adapta su comportamiento al ", False),
+             ("grado de desarrollo de cada colaborador", True), (" (competencia y disposición). A un ingeniero senior del "
+              "hub de Buenos Aires se le ", False), ("delega", True), ("; a un recién ingresado se lo ", False),
+             ("dirige", True), (" o ", False), ("instruye", True),
+             (". Dimon fija metas exigentes y una cultura de “negocios de primera clase, de una manera de primera clase”, "
+              "e inspira a trascender el interés individual: el rasgo del líder transformacional.", False)]]],
+        ["Problema potencial de liderazgo", [
+            [("Dependencia del líder carismático: ", True),
+             ("cuando la confianza extrema del líder le impide escuchar y tolerar que lo desafíen, pasa a ser una carga "
+              "para la organización (House). Con Dimon de 70 años, el riesgo concreto es una ", False),
+             ("sucesión mal preparada", True), (".", False)],
+            [("Desajuste situacional: ", True),
+             ("dirigir y controlar a equipos competentes y dispuestos (cuando corresponde delegar) es redundante con la "
+              "estructura de la tarea (ruta-meta) y actúa como factor higiénico que desmotiva (Herzberg).", False)]]],
     ]
-    xs = [0.6, 4.75, 8.9]
-    for (hd, body), x in zip(cards, xs):
-        box(s, x, 1.5, 3.85, 5.2, TINT, shape=MSO_SHAPE.ROUNDED_RECTANGLE)
-        box(s, x + 0.25, 1.75, 0.14, 0.14, GOLD, shape=MSO_SHAPE.OVAL)
-        text(s, x + 0.5, 1.6, 3.2, 0.45, hd, size=15, bold=True, color=NAVY, font=HEAD, anchor=MSO_ANCHOR.MIDDLE)
-        text(s, x + 0.25, 2.2, 3.4, 4.3, body, size=13)
+    table(s, 0.6, 1.45, 12.1, rows, [3.0, 9.1], size=12.5, header=False, row_h=[1.2, 1.5, 1.8], label_col=True)
     footer(s, grupo)
 
-    # ---------- 4. Porter: esquema ----------
+    # ---------- 4. Cadena de Valor de Porter: esquema ----------
     s = prs.slides.add_slide(blank)
-    title(s, 4, "Cadena de Valor de Porter (adaptada a un banco)")
+    title(s, 4, "Cadena de Valor de Porter")
+    kicker(s, "Esquema simple de la Cadena de Valor de Porter, adaptado a JPMorgan Chase (un banco que construye su propia tecnología)")
     x0, lab_w, cw = 0.6, 2.6, 9.1
-    y = 1.45
+    y = 1.5
     sup = [
         ("Infraestructura gerencial", "Gestión general, planificación y finanzas; riesgo, compliance y legales; capital y licencias bancarias", "prob"),
         ("Gestión de recursos humanos", "Más de 300.000 personas; reclutamiento tecnológico en hubs (Buenos Aires, India, Reino Unido); desarrollo de líderes", None),
@@ -313,19 +356,17 @@ def build(grupo):
              align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, margin=0.02)
         text(s, x0 + i * pw, y + ah + 0.05, pw - 0.06, ph - ah - 0.05, desc, size=10.5, color=BLACK,
              align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.TOP, margin=0.04)
-    # margen a la derecha
-    box(s, x0 + lab_w + cw + 0.1, 1.75, 0.9, y + ph - 1.75, NAVY, "MARGEN", size=11, bold=True, color=WHITE)
-    # leyenda
-    ly = y + ph + 0.15
+    box(s, x0 + lab_w + cw + 0.1, 1.8, 0.9, y + ph - 1.8, NAVY, "MARGEN", size=11, bold=True, color=WHITE)
+    ly = y + ph + 0.12
     box(s, x0, ly + 0.05, 0.25, 0.2, GOLD_LIGHT)
     text(s, x0 + 0.3, ly, 3.5, 0.3, "Actividades donde se genera mayor valor", size=11, color=GRAY)
     box(s, x0 + 3.9, ly + 0.05, 0.25, 0.2, RED_LIGHT, line=RED)
     text(s, x0 + 4.2, ly, 3.5, 0.3, "Actividad problemática", size=11, color=GRAY)
     footer(s, grupo)
 
-    # ---------- 4b. Porter: análisis ----------
+    # ---------- 4. Cadena de Valor de Porter: campos de la plantilla ----------
     s = prs.slides.add_slide(blank)
-    title(s, 4, "Cadena de Valor de Porter: análisis")
+    title(s, 4, "Cadena de Valor de Porter (continuación)")
     rows = [
         ["Actividad donde se genera mayor valor (1)",
          [("Desarrollo de la tecnología. ", True), ("Es lo que diferencia a JPM de un banco tradicional: las plataformas propias "
@@ -344,14 +385,15 @@ def build(grupo):
           "integran datos (entrada), automatizan operaciones (STP), son el canal (app, APIs) y el control (fraude, "
           "compliance). El hub de Buenos Aires es parte de esa cadena.", False)]],
     ]
-    table(s, 0.6, 1.5, 12.1, rows, [3.4, 8.7], size=13, header=False, row_h=1.2, bold_first_col=True,
-          fills=[[TINT, None], [TINT, None], [RED_LIGHT, None], [GOLD_LIGHT, None]])
+    table(s, 0.6, 1.45, 12.1, rows, [3.4, 8.7], size=13, header=False, row_h=1.2, label_col=True,
+          fills=[[None, None], [None, None], [RED_LIGHT, None], [GOLD_LIGHT, None]])
     footer(s, grupo)
 
-    # ---------- 5. BCG: gráfico ----------
+    # ---------- 5. Matriz BCG: gráfico ----------
     s = prs.slides.add_slide(blank)
-    title(s, 5, "Matriz BCG: cartera de JPMorgan Chase")
-    gx, gy, gw, gh = 1.6, 1.55, 7.6, 5.0
+    title(s, 5, "Matriz BCG")
+    kicker(s, "Gráfico simple de la Matriz BCG: cartera de negocios de JPMorgan Chase")
+    gx, gy, gw, gh = 1.6, 1.6, 7.6, 4.9
     quads = [
         (gx, gy, "ESTRELLA", TINT2),
         (gx + gw / 2, gy, "DILEMA", TINT),
@@ -361,7 +403,6 @@ def build(grupo):
     for qx, qy, name, fill in quads:
         box(s, qx, qy, gw / 2 - 0.04, gh / 2 - 0.04, fill)
         text(s, qx + 0.12, qy + 0.06, 3, 0.3, name, size=11, bold=True, color=GRAY)
-    # ejes
     text(s, 0.5, gy, 1.0, gh, "CRECIMIENTO DE LA DEMANDA", size=10, bold=True, color=GRAY, align=PP_ALIGN.CENTER,
          anchor=MSO_ANCHOR.MIDDLE).rotation = 270
     text(s, 1.15, gy + 0.05, 0.45, 0.3, "Alto", size=10, color=GRAY, align=PP_ALIGN.RIGHT)
@@ -370,20 +411,18 @@ def build(grupo):
          align=PP_ALIGN.CENTER)
     text(s, gx, gy + gh + 0.05, 1, 0.3, "Alta", size=10, color=GRAY)
     text(s, gx + gw - 1, gy + gh + 0.05, 1, 0.3, "Baja", size=10, color=GRAY, align=PP_ALIGN.RIGHT)
-    # burbujas (x, y, diámetro, etiqueta)
     bubbles = [
         (gx + 0.45, gy + 0.55, 1.55, "CIB: banca de inversión y mercados", NAVY, WHITE),
         (gx + 2.15, gy + 0.9, 1.45, "JPMorgan Payments", NAVY, WHITE),
         (gx + 4.15, gy + 0.5, 1.35, "Chase Reino Unido y Alemania", GOLD, NAVY),
         (gx + 5.75, gy + 1.0, 1.3, "Kinexys e IA generativa (LLM Suite)", GOLD, NAVY),
-        (gx + 0.55, gy + 2.75, 1.9, "Chase: banca minorista EE.UU.", NAVY, WHITE),
-        (gx + 5.4, gy + 3.3, 1.1, "Chase Pay (2019)", GRAY, WHITE),
+        (gx + 0.55, gy + 2.7, 1.9, "Chase: banca minorista EE.UU.", NAVY, WHITE),
+        (gx + 5.4, gy + 3.25, 1.1, "Chase Pay (2019)", GRAY, WHITE),
     ]
     for bx, by, d, lab, fill, fc in bubbles:
         box(s, bx, by, d, d, fill, lab, size=10, bold=True, color=fc, shape=MSO_SHAPE.OVAL)
-    # nota lateral
-    box(s, 9.6, 1.55, 3.15, 5.0, TINT, shape=MSO_SHAPE.ROUNDED_RECTANGLE)
-    text(s, 9.8, 1.7, 2.8, 0.4, "Cómo leerla", size=14, bold=True, color=NAVY, font=HEAD)
+    box(s, 9.6, 1.6, 3.15, 4.9, TINT, shape=MSO_SHAPE.ROUNDED_RECTANGLE)
+    text(s, 9.8, 1.72, 2.8, 0.4, "Cómo leerla", size=14, bold=True, color=NAVY, font=HEAD)
     text(s, 9.8, 2.15, 2.8, 4.3, [
         [("Vaca lechera: ", True), ("Chase minorista genera el efectivo que financia a estrellas y dilemas.", False)],
         [("Estrellas: ", True), ("CIB y Payments: alta participación en demanda que sigue creciendo; necesitan inversión impulsora.", False)],
@@ -393,11 +432,11 @@ def build(grupo):
     ], size=12)
     footer(s, grupo)
 
-    # ---------- 5b. BCG: tabla ----------
+    # ---------- 5. Matriz BCG: tabla de la plantilla ----------
     s = prs.slides.add_slide(blank)
-    title(s, 5, "Matriz BCG: cuadrante y decisión por producto")
+    title(s, 5, "Matriz BCG (continuación)")
     rows = [
-        ["Producto / Servicio", "Cuadrante BCG", "Decisión estratégica"],
+        ["Producto / Servicio", "Cuadrante BCG", "Decisión Estratégica"],
         ["Chase: banca minorista en EE.UU. (cuentas, tarjetas, hipotecas)", "Vaca lechera",
          "Seguir explotando sin grandes inversiones nuevas: financia la inversión tecnológica y la expansión"],
         ["Banca de inversión y mercados (CIB)", "Estrella",
@@ -413,33 +452,36 @@ def build(grupo):
     ]
     qfill = {"Vaca lechera": TINT, "Estrella": GOLD_LIGHT, "Dilema": TINT2, "Peso muerto (perro)": RED_LIGHT}
     fills = [None] + [[None, qfill[r[1]], None] for r in rows[1:]]
-    table(s, 0.6, 1.5, 12.1, rows, [4.6, 1.9, 5.6], size=13, row_h=0.72, fills=fills)
+    table(s, 0.6, 1.45, 12.1, rows, [4.6, 1.9, 5.6], size=13, row_h=[0.5] + [0.75] * 6, fills=fills)
     footer(s, grupo)
 
-    # ---------- 6. Decisiones ----------
+    # ---------- 6. Decisiones Estratégicas Finales ----------
     s = prs.slides.add_slide(blank)
-    title(s, 6, "Decisiones estratégicas finales")
-    rows = [
-        ["Gerente", "Decisión estratégica", "KPI de control", "Perspectiva del tablero"],
-        ["Gerente General", "Expansión europea de Chase (Reino Unido → Alemania) con hitos go/no-go",
-         "Clientes activos; fecha de punto de equilibrio del negocio", "Cliente / Económico-financiera"],
-        ["Operaciones", "Escalar Payments: liquidación en tiempo real y automatización (STP)",
-         "Volumen diario procesado; % de operaciones sin intervención manual", "Procesos internos"],
-        ["Comercial / Marketing", "Profundizar la relación con clientes Chase (venta cruzada: inversión, tarjetas)",
-         "Productos por cliente; NPS", "Cliente"],
-        ["RRHH", "Plan de sucesión y desarrollo de líderes situacionales",
-         "% de puestos críticos con sucesor identificado; rotación voluntaria de talento clave", "Innovación y aprendizaje"],
-        ["Finanzas", "Disciplina del presupuesto tecnológico: más “cambio”, menos “mantenimiento”",
-         "Ratio de eficiencia (gastos / ingresos); % del gasto tech en nuevas capacidades", "Económico-financiera"],
-        ["Sistemas / Innovación", "Modernización: migración a cloud, baja de legacy y despliegue de IA generativa",
+    title(s, 6, "Decisiones Estratégicas Finales")
+    dec = [
+        ("Gerente General", "Expansión europea de Chase (Reino Unido → Alemania) con hitos go/no-go",
+         "Clientes activos; fecha de punto de equilibrio del negocio", "cliente / económico-financiera"),
+        ("Operaciones", "Escalar Payments: liquidación en tiempo real y automatización (STP)",
+         "Volumen diario procesado; % de operaciones sin intervención manual", "procesos internos"),
+        ("Comercial / Marketing", "Profundizar la relación con clientes Chase (venta cruzada: inversión, tarjetas)",
+         "Productos por cliente; NPS", "cliente"),
+        ("RRHH", "Plan de sucesión y desarrollo de líderes situacionales",
+         "% de puestos críticos con sucesor identificado; rotación voluntaria de talento clave", "innovación y aprendizaje"),
+        ("Finanzas", "Disciplina del presupuesto tecnológico: más “cambio”, menos “mantenimiento”",
+         "Ratio de eficiencia (gastos / ingresos); % del gasto tech en nuevas capacidades", "económico-financiera"),
+        ("Sistemas / Innovación", "Modernización: migración a cloud, baja de legacy y despliegue de IA generativa",
          "% de aplicaciones modernizadas; incidentes críticos por trimestre; % de empleados activos en LLM Suite",
-         "Procesos internos / Innovación y aprendizaje"],
+         "procesos internos / innovación y aprendizaje"),
     ]
-    table(s, 0.6, 1.45, 12.1, rows, [1.9, 4.4, 3.9, 1.9], size=12, row_h=0.72, bold_first_col=True)
-    text(s, 0.6, 6.55, 12, 0.45,
-         "Indicadores estratégicos de un tablero de control estratégico (cap. XV), clasificados por sus cuatro perspectivas: "
-         "cliente, económico-financiera, procesos internos, innovación y aprendizaje. Cada decisión tiene un dueño.",
-         size=11, color=GRAY, italic=True)
+    rows = [["Decisión Estratégica", "KPI de Control"]]
+    for owner, d, kpi, persp in dec:
+        rows.append([[(owner + " · ", True), (d, False)],
+                     [(kpi, False), ("  (perspectiva: " + persp + ")", False, GRAY)]])
+    table(s, 0.6, 1.45, 12.1, rows, [6.0, 6.1], size=12, row_h=[0.45] + [0.78] * 6)
+    text(s, 0.6, 6.62, 12.1, 0.35,
+         "Cada decisión tiene un gerente dueño. Los KPI son indicadores de un tablero de control estratégico (cap. XV), "
+         "clasificados por sus cuatro perspectivas: cliente, económico-financiera, procesos internos, innovación y aprendizaje.",
+         size=10.5, color=GRAY, italic=True)
     footer(s, grupo)
 
     # ---------- Fuentes ----------
