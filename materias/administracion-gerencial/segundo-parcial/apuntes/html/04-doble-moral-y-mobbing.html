@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doble moral, acoso y desmoralización en el trabajo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light dark; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body { color: #e6e6e6; background: #16181c; }
+  a { color: #6cb6ff; }
+  details { background: #1f2228; border-color: #30343c; }
+  summary { background: #232730; }
+  blockquote { color: #aab; border-color: #30343c; }
+  code { background: #232730; }
+  th { background: #232730; }
+  th, td { border-color: #30343c; }
+  tbody tr:nth-child(even) { background: #1c1f24; }
+}
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Doble moral, acoso y desmoralización en el trabajo
+
+> Fuente: fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf, págs. 89–96 (cap. XIII) + examenes/2012-2018_compilado-preguntas-respuestas.docx (preguntas de parcial con respuestas de alumnos)
+
+---
+
+## Índice
+
+- [p. 89–90] — Introducción: las dos perspectivas de la decisión, legitimación social, inmoral vs. amoral, la ética autoritaria (Etkin)
+- [p. 90] — La doble moral en las organizaciones: la "organización dual"
+- [p. 90–91] — La perversidad en las organizaciones: el vector de la perversidad (Ilustración 15) y los conceptos de hipocresía, mentira, doble discurso e ideología
+- [p. 91] — Tipología de las desviaciones perversas (a–e)
+- [p. 91–92] — Ejemplos de prácticas de perversidad y las dos formas más comunes de la doble moral
+- [p. 92] — Acoso psicológico laboral: definición y características (sistemático, ≥ 1 vez por semana, > 6 meses)
+- 📝 Pregunta de parcial — 2014-11-06 (P1): características del mobbing
+- [p. 92–93] — La burocracia administrativa como agente desmoralizador del "ejecutivo eficiente" (Stelzer)
+- [p. 93] — Naturaleza y mecanismos del acoso psicológico: rasgos característicos
+- [p. 93–94] — Personalidades de la víctima y del acosador; el acoso como abuso de autoridad
+- [p. 94–95] — Formas de expresión del acoso en el trabajo (5 grupos)
+- 📝 Pregunta de parcial — 2018-06-13 (P1): formas de expresión del acoso psicológico en el trabajo
+- [p. 95] — Consecuencias del acoso laboral (psicológicas, físicas, estadísticas)
+- [p. 95–96] — Prevención del acoso laboral
+
+> **Para el parcial:** de este capítulo solo cayó mobbing (2014-11-06 P1, 2018-06-13 P1); doble moral y desmoralización nunca se tomaron (según examenes/INDICE.md).
+
+---
+
+## Introducción — [p. 89–90]
+
+El capítulo retoma lo visto en "Ética, moral y responsabilidad social empresaria": la ética en los negocios es una cuestión muy debatida. Se postula cada vez más que los directivos tengan en cuenta, al tomar sus decisiones de negocios, **dos perspectivas diferentes**:
+
+- Una **técnica**, que persigue los **objetivos empresariales** y se rige por **ecuaciones económicas**.
+- Otra **ética**, que considera los **efectos que sus decisiones tendrán sobre las personas** involucradas (los **stakeholders** o participantes interesados).
+
+Lo ideal sería **unir ambas perspectivas** en la toma de decisiones, buscando su **combinación armónica**.
+
+### Valor económico y fines de la empresa — [p. 89]
+
+- La empresa debe generar **suficiente valor económico agregado** para ser **redituable** para sus miembros y para brindar un **servicio a la comunidad**, pero no menos importante para proporcionar a sus miembros **satisfacción personal y perfeccionamiento humano**, garantizarles **continuidad, permanencia, capacitación, progreso**.
+- Cumpliendo este conjunto de finalidades, la empresa contribuye con su conducta a la **construcción y preservación de la ética de la sociedad**.
+- Para satisfacer necesidades humanas la empresa requiere **medios idóneos y beneficios o excedente**. Pero así como para beneficiar a sus miembros no debe ignorar los derechos de **consumidores ni proveedores**, tampoco debe hacerlo a costa de los **derechos (económicos y morales) de su personal**.
+
+### La explicación pragmática de la ética: legitimación social — [p. 89]
+
+- Cada día es más clara la **necesidad de legitimación social** que requieren las empresas para alcanzar el éxito comercial. Por ello apelar a la ética tiene también una **explicación pragmática, de conveniencia**.
+- La **confianza de la sociedad** en la empresa se convierte en un **valor empresarial**; la **falta de credibilidad** no es una carta de triunfo en los negocios.
+- El **cumplimiento de las normas morales de la organización** es una condición para mejorar su funcionamiento: **reduce el número de conflictos** entre sus miembros y **aumenta el grado de cooperación interna**. Otro efecto concomitante suele ser la **mejora de la imagen externa**.
+
+### ¿Se pueden cohesionar ética y moral con negocios? Inmoral vs. amoral — [p. 89]
+
+- Existe una clase de empresarios cuyo objetivo declarado es asegurar que el éxito corporativo se alcance **sin comprometer la integridad personal y el juego limpio**, y que **predican con el ejemplo**.
+- Pero aparece con bastante frecuencia la figura de personas, **generalmente con atribuciones de poder**, que caen en **conductas inmorales o amorales** en aras de sus **objetivos egoístas**.
+- **Inmoral:** "aquél que en su obrar **se desvía, transgrede o viola** el marco representado por la moral".
+- **Amoral:** el que "**desconoce** el marco dado por la moral… y **define la moral a partir de la particular interpretación** que hace de sus actos, propósitos, sentimientos e inclinaciones". El empresario amoral **tergiversa el carácter heterónomo de la moral**, asumiéndola como **autónoma** para **autojustificarse**.
+
+### La ética autoritaria según Etkin — [p. 89–90]
+
+- Según **Etkin**, una de las dificultades para mantener una ética en los negocios deriva de la "**imposición de una ética autoritaria** por parte de la organización, que **coarta la libertad de los individuos** al limitar su capacidad de discernimiento y diferenciación".
+- Esto se manifiesta en las organizaciones de dos maneras:
+  - A través de **normas que contrarían los valores que acepta la sociedad** en su conjunto (**menos frecuente**, por el desprestigio ético que traería para la imagen pública de la organización), o
+  - **Más comúnmente**, por la **transgresión de las normas morales (reglamentadas o no) que la propia Dirección ha establecido o dice sostener**.
+- Estas son manifestaciones de la **"Doble moral"** (el libro dice que la aborda "en el capítulo siguiente", pero en el PDF 2026 sigue dentro de este mismo capítulo).
+
+## La doble moral en las organizaciones — [p. 90]
+
+- Llamamos **"organización dual"** a aquella que está impregnada de una **"Doble Moral"**, consistente en la **oposición/contradicción entre el discurso y la acción**, produciendo así un **ambiente de injusticia y marginación**.
+- La **dualidad** refiere a **decisiones que se oponen al discurso de la organización, sabiendo cuáles serán las consecuencias**.
+- Hay **dualidades creadas** y otras que son **admitidas por la indiferencia** o porque los actores entienden que **no es su tarea resolverlas** ("si nadie dice nada, entonces actuemos del modo que queramos").
+- La práctica de la doble moral o inmoralidad se traduce en **sistemas perversos**, que ponen de manifiesto un **orden destructivo**.
+
+## La perversidad en las organizaciones — [p. 90–91]
+
+- La perversidad tiene **su lógica, su racionalidad destructiva**, una **relación de fuerzas establecida**, la **moral de la hipocresía**, los **círculos viciosos** que se fomentan en un ambiente de **complicidad e impunidad**.
+- Los sistemas perversos **profundizan sus desviaciones**, incapaces de **tomar conciencia y corregirse por sí solos**. Desde el lugar de los actores sociales, ellos **no admiten que en sus actos exista algo desviado o destructivo**.
+
+### El vector de la perversidad — [p. 90]
+
+- Es un **modelo conceptual** que exhibe los **posibles puntos de ruptura en los comportamientos sociales**, respecto del ideal de los **principios morales** y la **transparencia en las relaciones**.
+- Las **diferencias críticas** en el proceso se producen entre:
+  - **pensar–decir** → **hipocresía y mentira**;
+  - **decir–hacer** → **falso discurso**;
+  - **pensar–hacer** → **actos irracionales**;
+  - o el **decir cambiante** → **doble discurso**.
+- Se trata de explicar por qué los participantes **"no piensan lo que dicen que hacen" en forma deliberada**. La desviación es **intencional**, ocurre en el nivel de **lo consciente** de quienes la promueven, hay una **voluntad de perversidad**, y las relaciones en las que esa voluntad se manifiesta configuran un **vínculo social habitual o recurrente**.
+- Los hechos perversos se articulan en **círculos viciosos** en que los **efectos realimentan las condiciones de origen**. El vector marca una **dirección**, pero la realidad es la **circularidad**.
+
+> **Ilustración 15 — "Vector de la perversidad" (p. 90):** una frase armada en cadena que se lee "Porque… **NO hacen LO que dicen QUE piensan** / **NO piensan LO que dicen QUE hacen**". Sobre los tramos de la cadena están rotulados los puntos de ruptura: arriba, **mentira** (entre "hacen" y "que dicen") e **hipocresía** (entre "que dicen" y "piensan"); abajo, **ideología** (entre "piensan" y "que dicen") y **doble discurso** (entre "que dicen" y "hacen").
+
+### Por qué la calificación de perverso viene de afuera — [p. 91]
+
+- La calificación de **inmoral o perverso viene de afuera de la organización**, porque las **normas morales son heterónomas**, o sea, **externas a la voluntad de quien practica las acciones**.
+- Por tanto, es **inaceptable el argumento de que cada situación es específica o relativa**, eximida del juicio de la moral social vigente.
+
+### Los conceptos: hipocresía, mentira, doble discurso, ideología — [p. 91]
+
+- **Hipocresía:** cuando **no se dice, se oculta o deforma lo que se piensa**.
+- **Mentira:** cuando se dice **con intención de engañar**.
+- **"Doble discurso" o "doble mensaje":** cuando se dice **de diferentes maneras contradictorias** lo que se piensa.
+- **Ideologías o promesas incumplidas:** cuando hay **diferencias intencionales entre lo dicho y lo que se piensa**.
+- Las **limitaciones propias del lenguaje** también hacen posible las **comunicaciones perversas** (por ejemplo, mensajes que contienen **requerimientos contradictorios**).
+- La dualidad es **destructiva para todos**: los integrantes de la organización, los usuarios, clientes, proveedores y el medio social.
+
+## Tipología de las desviaciones perversas — [p. 91]
+
+El libro cita (entre comillas, de Etkin) cinco tipos:
+
+- **a) Desviaciones en las misiones de la institución social.** La organización **transgrede o abandona los propósitos de su fundación** o los que se espera de ella desde su contexto social. La perversión está en la **privación que sufren los actores sociales que necesitan de la función social** que está siendo desplazada o incumplida.
+- **b) Desviaciones provenientes de los excesos en el uso de las prerrogativas del poder.** El efecto perverso consiste en la **impunidad del transgresor** y los **daños para los indefensos**.
+- **c) Desviaciones que vienen de la influencia del aparato burocrático.** La transgresión consiste en hacer **prioritario el cumplimiento de normas sobre los servicios** que la organización ofrece a la comunidad.
+- **d) Desviaciones que provienen de la hipocresía, el engaño deliberado, la mentira convencional** en las instituciones sociales. Se lleva a los actores sociales a realizar **actos que los perjudican** o destinados a **favorecer fines no declarados** en los mensajes.
+- **e) Formas de inhibición y fijación cultural** que componen el propio sistema organizativo. **Rigidez en los valores y creencias** que llevan al **cierre de la organización**.
+  - Nota al pie del libro: con "cierre de la organización" Etkin se refiere a aquella que **se encierra en su propia cultura de manera dogmática, impermeable a los cambios en los valores de la sociedad**.
+
+## Ejemplos de prácticas de perversidad en organizaciones duales — [p. 91–92]
+
+Ejemplos que da el libro para ilustrar la tipología:
+
+- **Trabajos peligrosos e insalubres** que los obreros se ven obligados a aceptar en estados de **carencia y desocupación**.
+- El peso de **inconfesas premisas ideológicas o políticas** y de **prejuicios raciales, religiosos o de género**, que afectan en determinados trámites las decisiones adoptadas por el poder.
+- Los **procesos de poder que producen ignorancia o injusticia evitables**, de manera que permite a los decisores sobrevivir gracias a la **explotación de esas desigualdades** (situación típica en algunos **fenómenos burocráticos**).
+- Las **políticas y prácticas de Recursos Humanos** que se basan en el **manejo de los miedos y ansiedades** que las personas no controlan racionalmente, a fin de hacer creer que esas acciones son producto de un hecho **natural, necesario e inevitable**.
+- **Preferencias de los jueces** hacia los casos de dictamen más rápido y sencillo, **postergando los litigios de mayor complejidad e injusticia**.
+- **Predicciones no fundadas que se confirman en la práctica** por efecto de las acciones que la propia predicción ha provocado (las **"profecías autocumplidas"**).
+- **Directivos que hablan de misión social** al tiempo que **contaminan el medio ambiente**.
+- **Centros de salud que predican la excelencia** y la calidad de atención, pero **sólo hacen operaciones rentables a quienes pueden pagarlas**.
+
+### Las dos formas más comunes de la doble moral — [p. 92]
+
+El libro anuncia que "en los dos capítulos siguientes" se refiere con más detalle a las **formas más comunes en que se manifiesta la doble moral**:
+
+- La **solución falaz e interesada cuando hay enfrentamiento entre ética y negocios**, en la que no pocas veces incurren las empresas **a pesar de sus proclamas de responsabilidad social**, que se convierten así en un **doble discurso**.
+- El **acoso psicológico y moral (mobbing)**, las **vejaciones y violencia laboral**, como también la **transculturación forzosa**, todas las cuales confluyen en la **desmoralización del trabajador, su enfermedad y, en casos extremos, su muerte**.
+
+## Acoso psicológico laboral: definición y características — [p. 92]
+
+- En las organizaciones es fácil encontrar **roces o discusiones puntuales** entre compañeros y/o superiores e inferiores. Pero **algo distinto** es cuando **una persona o un grupo de personas** ejercen una **violencia psicológica extrema**:
+  - de forma **sistemática** (**al menos una vez por semana**),
+  - durante un **tiempo prolongado** (**más de seis meses**),
+  - **sobre otra persona** en el **lugar de trabajo**.
+- En estos casos podemos hablar de **acoso psicológico**. El término *mobbing* es el que se suele emplear en la literatura psicológica internacional (del inglés **to mob: acosar**).
+- En castellano se usan: **"acoso moral en el trabajo"**, **"acoso psicológico en el trabajo"**, **"psicoterror laboral"** u **"hostigamiento psicológico en el trabajo"**. El libro adopta **acoso psicológico en el trabajo**.
+- Los especialistas coinciden en que la violencia psicológica en el trabajo está alcanzando **niveles de epidemia**. **Chismes malintencionados, vacío, humillaciones**: todo forma parte de este tipo de maltrato.
+- Aunque también afecta al sexo masculino, las **víctimas favoritas suelen ser las mujeres**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-11-06 (P1): características del mobbing</summary>
+
+Características del mobbing.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Mobbing:** cuando una persona o un grupo de personas ejercen **hostigamiento psicológico, acoso moral, acoso psicológico o violencia psicológica extrema**, de forma **sistemática (al menos una vez por semana)**, durante un **tiempo prolongado (más de seis meses)**, sobre otra persona en el **lugar de trabajo** (las víctimas favoritas son las mujeres).
+
+</details>
+
+<details>
+<summary>Ver respuesta (ampliada desde el libro)</summary>
+
+- **Qué es (p. 92):** no son los roces o discusiones puntuales normales de cualquier organización, sino una **violencia psicológica extrema** que **una persona o un grupo** ejerce **sobre otra persona en el lugar de trabajo**, de forma **sistemática (al menos una vez por semana)** y **prolongada (más de seis meses)**. *Mobbing* viene del inglés *to mob* (acosar); en castellano: acoso moral / acoso psicológico en el trabajo, psicoterror laboral, hostigamiento psicológico. Incluye chismes malintencionados, vacío y humillaciones; afecta a ambos sexos pero las víctimas favoritas suelen ser las mujeres.
+- **Rasgos característicos de su naturaleza y mecanismos (p. 93):** es una **sofisticada forma de persecución u hostigamiento psicológico** que se manifiesta por:
+  - **Sutileza:** habitualmente no hay agresividad manifiesta (aunque a veces aparece reforzando las conductas arteras).
+  - **Continuidad en el tiempo:** es un **proceso lento de desgaste psicológico**.
+  - **Serie de conductas iniciales** que buscan **calumniar, ofender, ridiculizar y aislar** a la víctima del grupo; sostenidas en el tiempo buscan **desestabilizarla y destruirla psicológicamente** para que **abandone voluntariamente** la organización.
+  - **Silencio o complicidad de los compañeros**, apoyo necesario de estas prácticas (por miedo a ser agredidos también, a perder el puesto, envidia o resentimiento).
+  - **Autoexclusión como objetivo final:** que la víctima deje el puesto tras haber sido arrinconada y desmoralizada.
+- **Es siempre un abuso de autoridad (p. 94):** el acosador busca **mantener su poder** y la víctima le resulta una **"amenaza"**; un **liderazgo mal ejercido** convierte cualquier situación laboral en fuente de riesgo.
+- **Se expresa (p. 94–95)** con medidas organizacionales, ataques a la pertenencia social al grupo, ataques a la vida privada, discriminaciones y agresiones verbales y/o físicas.
+- **Consecuencias (p. 95):** devastadoras; estrés, ansiedad y depresión en lo psicológico, y en lo físico dolencias dermatológicas, cardíacas, gastrointestinales o alérgicas al bajar las defensas.
+
+</details>
+
+**Ojo (libro, p. 92–94):** la respuesta del compilado coincide con el libro, pero se queda en la **definición** (sistemático ≥ 1 vez por semana, > 6 meses). Si la pregunta pide "características" conviene sumar los **rasgos característicos** de la sección "Naturaleza y mecanismos" (sutileza, continuidad en el tiempo, serie de conductas para aislar, silencio/complicidad de los compañeros, autoexclusión como objetivo final) y que el acoso es **siempre un abuso de autoridad**. Las páginas 110–111 que anota el compilado son del libro viejo; en el PDF 2026 el tema está en las p. 92–94.
+
+**Dónde está en el libro:** p. 92 (sección "Acoso psicológico laboral": definición, frecuencia y duración, nombres en castellano), p. 93 (sección "Naturaleza y mecanismos del acoso psicológico en el trabajo": rasgos característicos), p. 94 (el acoso como abuso de autoridad).
+
+</details>
+
+## La burocracia administrativa como agente desmoralizador — [p. 92–93]
+
+- La **burocracia administrativa** es el **agente desmoralizador** de los que **Stelzer** denomina **"ejecutivos eficientes"**: aquellos ejecutivos a quienes además de **exigírseles eficiencia**, se les **inculca la obsesión por ser eficientes**.
+- La **burocracia directiva** trata de **descontextualizar la naturaleza y el significado de un conflicto** de carácter **administrativo-epistemológico-ideológico**, **transformándolo en un conflicto personal**.
+- Ocultan para ello que las **diferentes formas de administrar** propuestas por el "ejecutivo eficiente" y la burocracia están basadas en **diferentes formas de entender la tarea**, en **diferentes concepciones e ideologías**, y tienen **significado político-institucional** en tanto que **lucha de poderes**.
+- En la medida que la dirección burocrática **tiene éxito en transformar este conflicto en uno de tipo personal**, el resultado es la **desmoralización del ejecutivo**.
+- Con **técnicas específicas aprendidas en cursos de "administración"** (nota al pie: un ejemplo notable es *"El Método Gronholm"*, obra teatral del catalán Jordi Galcerán), la burocracia, apelando a **emociones humanas profundas y básicas —la vergüenza y la culpa personal—**, descontextualiza el problema y trata de **"criminalizar"** al ejecutivo (caracterización metafórica de J. Stelzer).
+
+### El mecanismo de la acusación personal y el círculo vicioso — [p. 93]
+
+- Esto suele llevarse a cabo **montando una acusación personal contra el ejecutivo** (**exagerada, desligada del contexto o simplemente inventada**).
+- La burocracia administrativa **no destruye la legalidad, pero la subvierte a su favor**.
+- La **publicación de las "sospechas"** no daña en nada a la burocracia, pero sí **hace temblar la vida personal del acusado**, más todavía en una cultura en la cual **no se reconoce la naturaleza ideológica del conflicto burocracia–ejecutivo**, sino que éste es "leído" en términos de **culpa y vergüenza personales**.
+- Esto genera un **círculo vicioso**: cuanto más es sentido el conflicto como **personal y no ideológico**, **menos inclinada se siente la víctima a comunicar a otros su problema**, y esto produce una **falta de aprendizaje colectivo, social**, de este tipo de manipulaciones de la burocracia.
+
+## Naturaleza y mecanismos del acoso psicológico en el trabajo — [p. 93]
+
+Es una **sofisticada forma de persecución u hostigamiento psicológico** que un empleado sufre en su lugar de trabajo. Suele manifestarse por ciertos **rasgos característicos**:
+
+- **Sutileza:** no se trata habitualmente de **muestras de agresividad manifiestas** (aunque éstas a veces aparecen **reforzando las conductas arteras**).
+- **Continuidad en el tiempo:** es un **proceso lento de desgaste psicológico**.
+- **Serie de conductas, como paso inicial**, que persiguen **calumniar, ofender, ridiculizar y conducir a la víctima al aislamiento del grupo**. Con el mantenimiento en el tiempo de esta situación, se busca **desestabilizar y destruir psicológicamente a la persona**, y que ésta **abandone de forma voluntaria la organización**.
+- **Silencio o complicidad de los compañeros** de la víctima: son el **apoyo necesario** de estas prácticas. Los motivos de estas conductas pasivas: **no ser ellos también objeto de agresión, no poner en peligro su puesto de trabajo, envidia o resentimiento** hacia su compañero, etc.
+- **La autoexclusión es el objetivo final del acoso:** que la víctima **abandone el puesto de trabajo**, tras haber sido **arrinconada y desmoralizada**.
+
+## Personalidades de la víctima y del acosador — [p. 93–94]
+
+- **No existe un patrón único de conducta** que determine los comportamientos de ambos actores. Según los autores de un estudio del **Instituto de Salud Laboral del Gobierno de Navarra (España)**, existe una serie de **características de personalidad presentes en la mayoría de los casos**.
+- **Víctimas:** la mayor parte de las personas acosadas suelen tener un **elevado nivel de ética**, son **honrados, rectos, autónomos, con iniciativa, de alta capacitación profesional y populares entre sus compañeros**.
+- **Acosador:** **alteración del sentido de la norma moral**, **no tiene sentido de culpabilidad**, es **agresivo, cobarde, mentiroso, compulsivo** y tiene **gran capacidad de improvisación**; es **bastante mediocre profesionalmente** y suele tener **complejo de inferioridad**.
+
+### El acoso como abuso de autoridad — [p. 94]
+
+- El acoso psicológico es **siempre un abuso de autoridad**. La persona que lo lleva a cabo **busca mantener su poder** y, por algún motivo, la víctima le resulta una **"amenaza"**.
+- Un **liderazgo mal ejercido** puede convertir **cualquier situación laboral en fuente de riesgo**, por lo que **todos en algún momento podemos estar afectados**, directa o indirectamente, por el acoso psicológico en el trabajo.
+
+## Formas de expresión del acoso en el trabajo — [p. 94–95]
+
+Hay un **verdadero repertorio de ataques** a las víctimas. El libro los expone siguiendo la **clasificación del estudio navarrense** ya citado, en **cinco grupos**:
+
+### 1. Con medidas organizacionales — [p. 94]
+
+- **Restringir** a la persona las **posibilidades de hablar**.
+- **Obligar** a alguien a ejecutar tareas **en contra de su conciencia**.
+- **Juzgar el desempeño** de una persona de **manera ofensiva**.
+- **No asignar tareas** a una persona, o asignarle tareas **sin sentido, degradantes, o muy por debajo de sus capacidades**.
+- Asignar tareas con **datos iniciales erróneos**.
+
+### 2. Ataques a la pertenencia social al grupo — [p. 94]
+
+- **Cambiar la ubicación** de una persona **separándola de sus compañeros** y, correlativamente, **prohibir a éstos que hablen** con esa persona.
+- **Rehusar la comunicación** con una persona a través de **miradas y gestos**.
+- **No dirigir la palabra** a una persona, o tratarla **como si no existiera**, ignorándola aun en su presencia.
+
+### 3. Ataques a la vida privada de la víctima — [p. 94]
+
+- **Hacer parecer estúpida** a una persona, o dar a entender que tiene **problemas psicológicos**.
+- **Mofarse de las discapacidades** de una persona, incluso **imitando sus defectos, gestos, voces**, etc.
+- **Difundir rumores** acerca de su **vida privada**.
+
+### 4. Discriminaciones — [p. 94]
+
+- Por el **género** o por las **elecciones sexuales** de una persona.
+- Por sus **ideas políticas** o por sus **creencias y actitudes religiosas**.
+- Por la **nacionalidad o la raza** de la víctima, incluyendo a veces **mofas más o menos virulentas**.
+
+### 5. Agresiones verbales y/o físicas — [p. 94–95]
+
+- **Permanente desprestigio, delante de terceros**, de la labor de una persona.
+- **Permanentes requerimientos sexuales** contra la voluntad de la víctima, **violencia sexual efectiva**.
+- **Gritos, insultos, amenazas verbales** de acciones perjudiciales para la víctima.
+- **Amenazas de violencia física**, a veces con **uso real de violencia física menor**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2018-06-13 (P1): formas de expresión del acoso psicológico en el trabajo</summary>
+
+Mencione formas de expresión del acoso psicológico en el trabajo.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+Formas de expresión del acoso en el trabajo:
+
+- **Con medidas organizacionales:**
+  - Restringir a la persona las posibilidades de hablar.
+  - Obligar a alguien a ejecutar tareas en contra de su conciencia.
+  - Juzgar el desempeño de una persona de manera ofensiva.
+  - No asignar tareas a una persona, o asignarle tareas sin sentido, degradantes, o muy por debajo de sus capacidades.
+  - Asignar tareas con datos iniciales erróneos.
+- **Ataques a la pertenencia social al grupo:**
+  - Cambiar la ubicación de una persona separándola de sus compañeros y, correlativamente, prohibir a éstos que hablen con esa persona.
+  - Rehusar la comunicación con una persona a través de miradas y gestos.
+  - No dirigir la palabra a una persona, o tratarla como si no existiera, ignorándola aún en su presencia.
+- **Ataques a la vida privada de la persona:**
+  - Hacer parecer estúpida a una persona, o dar a entender que una persona tiene problemas psicológicos.
+  - Mofarse de las discapacidades de una persona, incluso imitando sus defectos, gestos, voces, etc.
+  - Difundir rumores acerca de su vida privada.
+- **Discriminaciones:**
+  - Por el género o por las elecciones sexuales de una persona.
+  - Por sus ideas políticas o por sus creencias y actitudes religiosas.
+  - Por la nacionalidad o la raza de la víctima, incluyendo a veces mofas más o menos virulentas.
+- **Agresiones verbales y/o físicas:**
+  - Permanente desprestigio, delante de terceros, de la labor de una persona.
+  - Permanentes requerimientos sexuales contra la voluntad de la víctima, violencia sexual efectiva.
+  - Gritos, insultos, amenazas verbales de acciones perjudiciales para la víctima.
+  - Amenazas de violencia física, a veces con uso real de violencia física menor.
+
+</details>
+
+**Ojo (libro, p. 94–95):** la respuesta coincide con el libro y está completa: es la transcripción textual de los **cinco grupos** de la clasificación del estudio navarrense (Instituto de Salud Laboral del Gobierno de Navarra), con todos sus ítems. Para redondear conviene abrir diciendo que hay "un verdadero repertorio de ataques" y que el libro sigue la clasificación de ese estudio, y cerrar recordando que el acoso es **siempre un abuso de autoridad** (p. 94): el acosador busca mantener su poder frente a una víctima que percibe como "amenaza".
+
+**Dónde está en el libro:** p. 94–95 (sección "Formas de expresión del acoso en el trabajo": los cinco grupos), p. 93–94 (sección "Personalidades de la víctima y del acosador" y el acoso como abuso de autoridad, para contextualizar).
+
+</details>
+
+## Consecuencias del acoso laboral — [p. 95]
+
+Las consecuencias **psicológicas y físicas** del acoso psicológico en el trabajo sobre las personas afectadas son **devastadoras**.
+
+- **Desde lo psicológico:** son comunes el **estrés, la ansiedad y la depresión**.
+- **Dolencias físicas:** al **bajar las defensas**, aparecen males a los que la víctima ya estaba **predispuesta**, como problemas **dermatológicos, cardíacos, gastrointestinales o alérgicos**.
+- El psicólogo alemán **Heinz Leymann** asegura que "el lugar de trabajo es el **único campo de batalla que queda donde las personas se pueden matar unas a otras sin correr el riesgo de ser enjuiciadas**" (en su libro *"Mobbing. La persecución en el trabajo"*, 1996). Esta observación, que puede parecer exagerada, se revela **ajustada a las estadísticas**:
+  - En **Suecia**, de un **10 a un 15 % de los suicidios** está provocado por situaciones de acoso psicológico en el trabajo.
+  - Según la **"Tercera Encuesta Europea sobre Condiciones de Trabajo en la Unión Europea"** (publicada por la **OIT** en el año **2000**), un **9 % de los trabajadores europeos** han sido víctimas de mobbing (**13 millones de personas**).
+  - En **España** el porcentaje se sitúa en torno al **5 %**, lo que cuesta a la sociedad **más de 90 millones de euros** (15.000 millones de pesetas) por **bajas o invalidez profesional**.
+  - Un estudio de la **Universidad de Alcalá (Barómetro Cisneros II)** revela que el **12 % de la población asalariada** puede estar sufriendo acoso psicológico en el trabajo.
+  - En **nuestro país no existen estadísticas** del acoso psicológico y de los riesgos laborales (situación en el año 2005, según el psicólogo y consultor **Jorge Mercado**). Sin embargo, se sabe que estas situaciones están **fuertemente potenciadas por la amenaza del desempleo**.
+- **Conclusión:** la **repetición continuada** de estas conductas de acoso psicológico puede ser el **origen de una serie de alteraciones en la salud** de los miembros de la organización (nota al pie: según la **OMS**, la salud es el **bienestar físico, psíquico y social**, y no meramente ausencia de enfermedad).
+
+## Prevención del acoso laboral — [p. 95–96]
+
+### Punto de partida: evaluación de riesgos psicosociales — [p. 95]
+
+- "El abordaje del problema del acoso psicológico en el trabajo debe iniciarse desde la **identificación y evaluación de los riesgos de origen psicosocial**, para disponer posteriormente las **medidas preventivas oportunas**" (enunciado del Instituto Navarro de Salud Laboral).
+- Una **política preventiva eficaz** incluirá la **evaluación de los riesgos psicosociales al mismo nivel que la de los riesgos de seguridad e higiene**.
+
+### Por qué beneficia a toda la organización — [p. 95–96]
+
+- La **detección y control** del acoso psicológico beneficia a **toda la organización**: las consecuencias negativas no sólo las padecen las personas afectadas sino también las **empresas**, pues incide negativamente en la **rentabilidad** a través de diversos factores:
+  - el **costo del ausentismo** —a veces prolongado— de empleados que enferman;
+  - la **reducción de la productividad** de las personas afectadas y aun de otras, a causa del **mal clima laboral y la desmotivación**;
+  - el **pago de indemnizaciones** a los trabajadores despedidos, entre otros.
+- Es necesario también ir "desarrollando **acciones coordinadas entre los ámbitos público y privado**. Sus objetivos serán **quebrar la indiferencia social** y priorizar la definición de **nuevos espacios: legales, periciales y de gestión**, a fin de **deslindar la simulación** y mejorar la obtención de **pruebas y testimonios** para la administración de una justicia ecuánime" (Jorge Mercado).
+
+### Contenido de la gestión de prevención — [p. 96]
+
+- La gestión de prevención debe dirigirse a la **mejora de la calidad de vida laboral**, a la vez que se **garantiza y defiende la dignidad de las personas** en este entorno.
+- Se tratará de **mejorar las relaciones interpersonales** de la empresa, basándolas en el **respeto y la tolerancia mutuos**.
+- Se facilitarán **cauces para expresar las quejas** de las diversas formas de violencia, arbitrando medidas para **investigar su veracidad**, y asegurando a los empleados que aquéllas **serán escuchadas y analizadas**, y que los **procedimientos de toma de decisiones serán justos**.
+
+### La visión del libro: depende de la cultura y del uso del poder — [p. 96]
+
+- Tales programas preventivos pueden dar **resultados muy fructíferos para la salud de la organización**, en dependencia del **tipo de cultura predominante**, particularmente en los **niveles altos de la estructura** (nota al pie: también se prestará atención al posible **"mobbing horizontal"**, entre personas del **mismo nivel jerárquico**).
+- En este marco, las **concepciones y conductas reales en cuanto al uso del poder** serán un **factor fundamental de éxito o fracaso**.
+
+---
+
+*Generado el 2026-11-09 a partir de `fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf` (cap. XIII, págs. 89–96) y `examenes/2012-2018_compilado-preguntas-respuestas.docx` (preguntas de parcial con respuestas de alumnos).*
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+
+</script>
+</body>
+</html>

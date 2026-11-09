@@ -1,0 +1,331 @@
+# Ética, moral y responsabilidad social empresaria en las organizaciones
+
+> Fuente: fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf, págs. 81–88 (cap. XII) + examenes/2012-2018_compilado-preguntas-respuestas.docx (preguntas de parcial con respuestas de alumnos)
+
+---
+
+## Índice
+
+- [p. 81] — Moral: concepto (etimología, definición, "deber ser", carácter imperativo, autoridad externa)
+- [p. 81] — Orígenes de las normas morales: usos y costumbres, tradición, ley
+- [p. 81] — Lo moral excede lo legal (relación entre lo moral y lo legal)
+- 📝 Pregunta de parcial — 2012-06-25 (Tema A) (P4): concepto básico de moral
+- 📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P5): defina ampliamente moral; fuentes y ejemplos
+- 📝 Pregunta de parcial — sin fecha (foto) (P2): moral, orígenes y relación con lo legal
+- [p. 81–82] — La moral de la organización: moral y cultura, reglamentos vs. costumbres, estilo de dirección, mosaico de valores
+- [p. 82–83] — Ética: concepto (etimología, definición preliminar, características a–d)
+- [p. 83] — La ética se juega en el obrar: imperativo pero no coacción; Morin y Kliksberg
+- 📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P2): por qué la ética nada tiene que ver con "seguir órdenes"
+- 📝 Pregunta de parcial — sin fecha (juego A) (P3): definición de ética y moral, diferencia entre ambas
+- [p. 83–84] — Ética, economía y educación: el "vacío ético", Noruega, el papel de la universidad
+- [p. 84–85] — La ética en la toma de decisiones: beneficio como fin vs. fin social, subordinación de los fines, liderazgo ético, conclusión
+- 📝 Pregunta de parcial — 2012-06-25 (Tema B) (P4): concepto básico de ética
+- [p. 86] — Responsabilidad Social Empresaria: origen del concepto, stakeholders
+- [p. 86] — Qué es la RSE: definición, más allá de la ley, equilibrio económico / social / ambiental, definición de la OIT
+- 📝 Pregunta de parcial — 2015-11-05 (Tema 1) (P3): qué es RSE
+- [p. 86–87] — Por qué avanza la RSE: demandas sociales, universidades, Europa, mercados, competitividad, América Latina
+- [p. 88] — La RSE en el mundo: ejemplos de Kliksberg y el atraso de América Latina / Argentina
+
+---
+
+## Moral: concepto — [p. 81]
+
+- **Etimología:** la palabra *moral* proviene del latín **_mores_**, que significa **costumbre**.
+- **Definición (a partir de la etimología):** la moral es el **catálogo de las costumbres que una sociedad considera apropiadas, convirtiéndolas por ello en normas de conducta**.
+- **Segunda formulación:** es el **conjunto de juicios y reglas congruentes que guían los comportamientos en el marco de un determinado orden social**. Indica **qué es lo bueno y qué es lo malo**; se refiere al **"deber ser" (obligación)**.
+- Cita del libro: *"La moral ofrece normas de conducta y conceptos para responder a la pregunta: ¿qué debo hacer para actuar correctamente y ser reconocido como integrante de un orden social más amplio?"*.
+- **Carácter social y cultural:** la moral busca **trascender las conciencias individuales**, darle a lo bueno y lo malo un **contenido cultural**, de modo que su existencia e interpretación **no dependa de la voluntad de los actores**.
+- **Carácter imperativo:** por eso las proposiciones morales son **imperativas**: sobre ellas **no se discute su verdad**, ni **pueden ser modificadas unilateralmente**. Los principios morales son **mandatos incondicionados (no relativos)**, son **principios _a priori_**.
+- **Autoridad externa:** en la apreciación moral está presente la imagen de una **autoridad externa reconocida como fuente de justicia**. Puede tratarse del reconocimiento hacia la autoridad del **grupo**, la **organización**, la **sociedad**, el **ser supremo**, la **divinidad**.
+- **El criterio para juzgar las acciones es externo al ejecutor:** como el actor es quien está siendo juzgado dentro de la situación, en esa instancia **él no puede crear las reglas que hacen a su enjuiciamiento**.
+
+## Orígenes de las normas morales — [p. 81]
+
+Entre los **orígenes de las normas morales** el libro enumera tres:
+
+- **Los usos y costumbres.**
+- **La tradición.**
+- **La ley.**
+
+Respecto de este último punto (la ley), el libro hace algunas aclaraciones que se desarrollan en la sección siguiente.
+
+## Lo moral excede lo legal — [p. 81]
+
+- El tema de lo moral **no se limita simplemente al marco jurídico**. **Lo moral excede lo legal.**
+- Existen **innumerables actos humanos, sobre todo los privados**, que están **exentos de pena jurídica** pero que están **moralmente cuestionados**.
+- Las dos consecuencias que saca el libro:
+  - **Que algo sea legal no es condición suficiente para que sea moral.**
+  - **No todo acto inmoral es ilegal.**
+
+<details>
+<summary>📝 Pregunta de parcial — 2012-06-25 (Tema A) (P4): concepto básico de moral</summary>
+
+Desarrolle el concepto básico de Moral.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**MORAL:** es el **conjunto de las costumbres que una sociedad considera apropiadas, convirtiéndolas por ello en normas de conducta**, es decir, **viene impuesta**, e indica **qué es lo bueno y qué es lo malo**.
+
+El **origen de las normas morales** es:
+
+- Los usos y costumbres.
+- La tradición.
+- La ley.
+
+</details>
+
+**Ojo (libro, p. 81):** la respuesta coincide con el libro (definición desde *mores* = costumbre y los tres orígenes). Para que sea un "desarrollo" y no una línea, conviene sumar lo que el compilado omite: que la moral es el conjunto de **juicios y reglas congruentes que guían los comportamientos en un orden social** y se refiere al **"deber ser" (obligación)**; que busca **trascender las conciencias individuales** dándole a lo bueno y lo malo un **contenido cultural** que no depende de la voluntad de los actores; que por eso sus proposiciones son **imperativas**, **no se discute su verdad**, **no se modifican unilateralmente** y son **mandatos incondicionados, principios _a priori_**; que supone una **autoridad externa** reconocida como fuente de justicia (grupo, organización, sociedad, ser supremo, divinidad) y que **el criterio para juzgar es externo al ejecutor**. Y la aclaración sobre la ley: **lo moral excede lo legal**.
+
+**Dónde está en el libro:** p. 81 (secciones "Concepto de moral", lista de orígenes y la aclaración "lo moral excede lo legal").
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P5): defina ampliamente moral; fuentes y ejemplos</summary>
+
+Defina ampliamente moral. Fuentes y ejemplos.
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+- **Definición (p. 81):** *moral* viene del latín **_mores_**, "costumbre". Es el **catálogo de las costumbres que una sociedad considera apropiadas, convirtiéndolas por ello en normas de conducta**; dicho de otro modo, el **conjunto de juicios y reglas congruentes que guían los comportamientos en el marco de un determinado orden social**. Indica **qué es lo bueno y qué es lo malo** y se refiere al **"deber ser" (obligación)**: responde a la pregunta "¿qué debo hacer para actuar correctamente y ser reconocido como integrante de un orden social más amplio?".
+- **Caracteres (p. 81):** la moral busca **trascender las conciencias individuales**, dándole a lo bueno y lo malo un **contenido cultural** que **no depende de la voluntad de los actores**. Por eso sus proposiciones son **imperativas**: no se discute su verdad ni pueden modificarse unilateralmente; son **mandatos incondicionados (no relativos), principios _a priori_**. Siempre está presente la imagen de una **autoridad externa reconocida como fuente de justicia** (el grupo, la organización, la sociedad, el ser supremo, la divinidad): **el criterio para juzgar las acciones es externo al ejecutor**, que no puede crear las reglas con las que se lo juzga.
+- **Fuentes / orígenes de las normas morales (p. 81):**
+  - **Usos y costumbres:** las prácticas que la sociedad repite y considera apropiadas se vuelven norma. *Ejemplo propio, no está en el libro:* saludar y ceder el asiento a una persona mayor no lo exige ninguna ley, pero no hacerlo está "mal visto".
+  - **Tradición:** lo que se transmite de generación en generación como lo correcto. *Ejemplo propio, no está en el libro:* las fiestas y ritos familiares o religiosos que "siempre" se respetaron.
+  - **La ley:** el marco jurídico también es fuente de moral, con la aclaración de que **lo moral excede lo legal**: hay innumerables actos, sobre todo privados, **exentos de pena jurídica pero moralmente cuestionados**; que algo sea legal no es condición suficiente para que sea moral, y no todo acto inmoral es ilegal. *Ejemplo propio, no está en el libro:* mentirle a un amigo no es delito, pero es moralmente reprobable.
+- **Ejemplo que sí da el libro, en el plano organizacional (p. 81–82):** la moral vigente en una organización es parte de su **cultura** y la refleja. A veces las normas morales están **consagradas en los reglamentos internos** (fuerza formal, se castiga su transgresión); muchas otras veces son **costumbres aceptadas y actitudes bien vistas**, o rechazadas y pasibles de **sanciones morales**. El libro menciona como ejemplo los **sistemas de creencias que exageran la racionalidad y la eficiencia económica**, que son la base de **códigos morales generalmente no escritos** que posponen y no respetan a los miembros en tanto seres humanos, aunque proclamen lo contrario.
+
+</details>
+
+**Dónde está en el libro:** p. 81 (concepto, orígenes y "lo moral excede lo legal"), p. 81–82 (sección "La moral de la organización": reglamentos internos vs. costumbres, códigos no escritos).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (foto) (P2): moral, orígenes y relación con lo legal</summary>
+
+Defina el concepto de Moral. ¿Cuáles son sus orígenes? ¿Qué relación existe entre lo moral y lo legal?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+- **Concepto (p. 81):** la palabra *moral* viene del latín **_mores_** (costumbre). La moral es el **catálogo de las costumbres que una sociedad considera apropiadas, convirtiéndolas por ello en normas de conducta**: el **conjunto de juicios y reglas congruentes que guían los comportamientos dentro de un orden social determinado**. Indica **qué es lo bueno y qué es lo malo** y se refiere al **"deber ser" (obligación)**. Busca **trascender las conciencias individuales** y darle a lo bueno y lo malo un **contenido cultural** que no depende de la voluntad de los actores; por eso sus proposiciones son **imperativas** (no se discute su verdad, no se modifican unilateralmente), **mandatos incondicionados, principios _a priori_**. Supone una **autoridad externa reconocida como fuente de justicia** (grupo, organización, sociedad, ser supremo, divinidad): **el criterio para juzgar es externo al ejecutor**.
+- **Orígenes de las normas morales (p. 81):** el libro enumera tres: **los usos y costumbres**, **la tradición** y **la ley**.
+- **Relación entre lo moral y lo legal (p. 81):** la ley es **una** de las fuentes de la moral, pero **lo moral no se limita al marco jurídico: lo moral excede lo legal**. Existen **innumerables actos humanos, sobre todo los privados, que están exentos de pena jurídica pero están moralmente cuestionados**. De ahí las dos afirmaciones del libro:
+  - **que algo sea legal no es condición suficiente para que sea moral** (lo legal no alcanza para que sea moral), y
+  - **no todo acto inmoral es ilegal** (hay actos inmorales que la ley no castiga).
+  En otras palabras, el conjunto de lo moral es **más amplio** que el de lo legal: lo legal es un piso, no el límite. Esto se conecta con lo que el libro dice de la organización: las normas morales **a veces** se consagran en **reglamentos internos** (adquieren fuerza formal y se castiga su transgresión), pero **muchas otras veces** son **costumbres aceptadas** cuya violación recibe **sanciones morales**, no jurídicas (p. 82). *Ejemplo propio, no está en el libro:* un empleado que, sin violar ningún reglamento, se atribuye el mérito del trabajo de un compañero no comete una falta "legal" pero sí una falta moral que el grupo reprueba.
+
+</details>
+
+**Dónde está en el libro:** p. 81 ("Concepto de moral", lista de orígenes, aclaración sobre la ley: "lo moral excede lo legal"), p. 82 (reglamentos internos con fuerza formal vs. costumbres con sanción moral).
+
+</details>
+
+## La moral de la organización — [p. 81–82]
+
+- La moral vigente en una organización tiene **estrecha relación con su cultura**. Hay una **mutua interacción**:
+  - la **moral vigente es parte de la cultura y la refleja**;
+  - a la vez, el **conjunto de valores y creencias** que constituyen la base de la cultura organizacional **determina las normas morales** que regirán en ella: **qué se considerará "bueno" o "aceptable"** y, por contraposición, **cuáles conductas serán socialmente reprobadas** en el ámbito interno.
+- **Dónde se plasman las normas morales** [p. 82]:
+  - a veces están **consagradas en los reglamentos internos**: adquieren **fuerza formal** y **se castiga su transgresión**;
+  - muchas otras veces son **costumbres aceptadas, actitudes bien vistas** e, inversamente, las que son **rechazadas y pasibles de sanciones morales**.
+- Generalmente los valores que constituyen la moral **no están sujetos a circunstancias del momento** y son **válidos en lapsos prolongados**. Igual que la cultura, reciben la **influencia del entorno**: los cambios sociales e ideológicos pesan sobre los valores y creencias internas.
+- **Estilo de dirección y cultura corporativa:** para indagar por qué cada organización trabaja como lo hace debe estudiarse la relación entre **estilo de dirección** y **cultura corporativa**. La **posición de poder del líder formal** le otorga ventajas para desarrollar un sistema de valores y códigos de comportamiento. La **cultura de la alta gerencia es un factor decisivo** en la de la organización, **pero no el único**: hay quienes **influyen informalmente** en los códigos morales, porque en las organizaciones existen **diferentes sistemas de valores (según el grupo de pertenencia)** que configuran **un mosaico más que una cultura corporativa uniforme**.
+- Cita de **Gareth Morgan**: *"Los directivos pueden influir en la evolución de la cultura siendo conscientes de las consecuencias simbólicas de sus acciones e intentando fomentar los valores deseados, pero nunca pueden controlar totalmente la cultura"*.
+- La cultura es **mucho más profunda que los eslóganes, símbolos, rituales, anécdotas o modelos de comportamiento**: todos ellos son **indicios de significados más profundos**. Entender a la organización como cultura es comprender **cómo este sistema de valores se crea y se sostiene**. **La moral (lo aceptado por el ambiente social interno) es una consecuencia de estos valores.**
+- **Ejemplo del libro:** los sistemas de creencias que **exageran la importancia de la racionalidad y de la eficiencia económica** son la base de **códigos morales (generalmente no escritos)** que **posponen y no respetan a sus miembros en tanto seres humanos**, aunque muchas veces proclaman lo contrario. Es un **mal muy difundido** que el libro desarrolla en el capítulo "Doble moral, acoso y desmoralización en el trabajo" (cap. XIII).
+
+## Ética: concepto — [p. 82–83]
+
+- **Etimología:** *ética* proviene del griego **_ethos_**, cuya significación podría traducirse por **"habitación"**, pero no cualquiera, sino **la exclusiva e intransferible de una persona: su morada interior**, donde a solas consigo misma practica su **examen de conciencia**, donde **impera el juicio severo de la razón**.
+- **Definición preliminar (textual del libro):**
+
+> *"La ética es una **REFLEXIÓN** que realiza el **INDIVIDUO** acerca de los **VALORES** que él cree que deben ser respetados y llevados a la práctica."*
+
+- **Conceptos que caracterizan a la ética** según esa definición:
+  - **a) Eje en el individuo:** se refiere a **cada persona como ser singular**.
+  - **b) Es una reflexión:** una **valoración acerca de los principios que creemos, individualmente, que deben regir nuestros comportamientos** (pensar acerca de lo que está bien o mal hacer).
+  - **c) Se refiere a los valores** [p. 83]: entendidos como aquellos **principios básicos que conforman la moral imperante en una sociedad** en un determinado contexto histórico-cultural.
+  - **d) Adherimos a valores de la moral imperante, de forma consciente** [p. 83]: lo que hacemos es **adherir a tal o cual valor de aquellos propuestos desde la moral imperante**. **Aceptamos algunos, rechazamos otros, pero siempre en forma consciente y meditada.** **No podemos hablar de un actuar ético al dejarnos guiar por las órdenes, los caprichos o las costumbres**, porque las acciones que provienen de esos comportamientos tienen un común denominador que las distingue de la ética: **implican un comportamiento irreflexivo**, en el sentido de que **no hay un deliberar interno en la intimidad del hombre acerca de la bondad o maldad** que nuestras acciones pueden ocasionar.
+
+## La ética se juega en el obrar — [p. 83]
+
+- Cita: *"ser ético requiere encontrarse con la situación y las repercusiones reales, para una persona real y enfrentarse a ellas"*.
+- La **finalidad de la reflexión** acerca de los valores que consideramos correctos o incorrectos **es el obrar**. La ética **se juega en el momento de relacionarse con otros individuos**: ahí reflexiono acerca de la bondad o maldad de mi obrar y de las **consecuencias que tienen mis actos en las demás personas**.
+- Por lo tanto, la ética tiene que ver con las **elecciones que hacemos al obrar**: puedo decidir hacer esto o aquello, decir sí o decir no. **Está en mí la decisión**, porque lo ético es un **"imperativo" pero no una coacción**. Supone una **voluntad de los actores de hacer el bien en libertad**.
+- **Edgar Morin:** plantea la importancia de que en las universidades se eduque en la **comprensión humana**, ya que una base del comportamiento ético es **comprender al otro**: la **ética de la comprensión**.
+- **Bernardo Kliksberg:** afirma que hay una **"sed de ética" en América Latina**. La opinión pública reclama en las encuestas y por todos los canales comportamientos éticos en los líderes de todas las áreas, y que temas cruciales como el **diseño de las políticas económicas y sociales** y la **asignación de recursos** sean orientados por criterios éticos.
+
+<details>
+<summary>📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P2): por qué la ética nada tiene que ver con "seguir órdenes"</summary>
+
+¿Por qué se dice que la ética nada tiene que ver con "seguir órdenes"?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+Habla de qué tan ético es tomar decisiones por la economía y no tomar en cuenta la ética de esas decisiones.
+
+</details>
+
+<details>
+<summary>Ver respuesta (ampliada desde el libro)</summary>
+
+La ética es, por definición, **"una reflexión que realiza el individuo acerca de los valores que él cree que deben ser respetados y llevados a la práctica"** (p. 82). Sus dos primeras características son que tiene su **eje en el individuo**, como ser singular, y que es una **reflexión**, una valoración personal acerca de los principios que deben regir nuestros comportamientos (p. 82). Frente a la moral imperante, lo que hace el sujeto ético es **adherir conscientemente** a algunos valores y rechazar otros, **"siempre en forma consciente y meditada"** (p. 83). Por eso el libro afirma textualmente que **"no podemos hablar de un actuar ético al dejarnos guiar por las órdenes, los caprichos o las costumbres"**: las acciones que provienen de esos tres comportamientos comparten un común denominador que las distingue de la ética, **implican un comportamiento irreflexivo**, es decir, **no hay un deliberar interno en la intimidad del hombre acerca de la bondad o maldad que sus acciones pueden ocasionar** (p. 83). Quien se limita a seguir una orden traslada la decisión a otro y renuncia justamente a ese examen de conciencia que la etimología de *ethos* describe como la "morada interior" donde impera el juicio severo de la razón (p. 82). Además, el libro remarca que la ética se juega en el **obrar** y en las **elecciones** que hacemos al relacionarnos con otros: **"está en mí la decisión, porque lo ético es un 'imperativo' pero no una coacción"**, supone **"una voluntad de los actores de hacer el bien en libertad"** (p. 83). Una orden es precisamente una coacción externa; la ética, en cambio, exige libertad y deliberación propia sobre las consecuencias de mis actos en los demás. En el plano empresarial, esto se traduce en que el directivo no puede escudarse en el mandato de maximizar beneficios para omitir las consecuencias éticas de sus decisiones: hace falta **"la convicción sincera y profunda del reclamo ético"** y actuar en consecuencia (p. 85), no una obediencia mecánica.
+
+</details>
+
+**Ojo (libro, p. 82–83):** la respuesta del compilado apunta a otra sección (la ética en la toma de decisiones, p. 84–85) y no responde la pregunta. El núcleo de la respuesta está en el inciso **d)** de las características de la ética (p. 83): órdenes, caprichos y costumbres implican un **comportamiento irreflexivo**, sin **deliberación interna**, y la ética es justamente **reflexión individual, consciente y meditada**; a eso se suma que lo ético es **imperativo pero no coacción**, una decisión **en libertad** (p. 83).
+
+**Dónde está en el libro:** p. 82 (etimología de *ethos*, definición, características a–b), p. 83 (características c–d, "no podemos hablar de un actuar ético al dejarnos guiar por las órdenes…", "imperativo pero no coacción"), p. 85 (convicción sincera del reclamo ético).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego A) (P3): definición de ética y moral, diferencia entre ambas</summary>
+
+Definición de ética y moral: ¿qué diferencia existe entre ambas?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+- **Moral (p. 81):** del latín **_mores_**, costumbre. Es el **catálogo de las costumbres que una sociedad considera apropiadas, convirtiéndolas por ello en normas de conducta**; el conjunto de juicios y reglas que guían los comportamientos en un **orden social** determinado, indica **qué es lo bueno y qué es lo malo** y se refiere al **"deber ser" (obligación)**. Sus **orígenes** son los usos y costumbres, la tradición y la ley.
+- **Ética (p. 82):** del griego **_ethos_**, la "morada interior" de la persona donde practica su examen de conciencia. Es **"una reflexión que realiza el individuo acerca de los valores que él cree que deben ser respetados y llevados a la práctica"**. Tiene su eje en el **individuo**, es una **reflexión** sobre los principios que deben regir nuestros comportamientos, y se refiere a los **valores** de la moral imperante, a los que **adherimos o rechazamos de forma consciente y meditada** (p. 83).
+- **Diferencias entre ambas:**
+  - **Sujeto:** la moral es **social**: busca **trascender las conciencias individuales** y darle a lo bueno y lo malo un **contenido cultural** que **no depende de la voluntad de los actores** (p. 81). La ética es **individual**: se refiere a **cada persona como ser singular** (p. 82).
+  - **Origen del criterio:** en la moral el criterio para juzgar es **externo al ejecutor**: hay una **autoridad externa** (grupo, organización, sociedad, divinidad) reconocida como fuente de justicia, y el actor **no puede crear las reglas** con las que se lo juzga (p. 81). En la ética la valoración es **interna**: un **deliberar en la intimidad del hombre** acerca de la bondad o maldad de sus acciones (p. 83).
+  - **Modo de operar:** la moral **viene dada e impuesta**: sus proposiciones son **imperativas**, no se discute su verdad, no se modifican unilateralmente, son **mandatos incondicionados, principios _a priori_** (p. 81). La ética es **reflexión** y **elección**: aceptamos algunos valores y rechazamos otros **conscientemente**; dejarse guiar por **órdenes, caprichos o costumbres** es irreflexivo y **no es actuar ético** (p. 83).
+  - **Obligación vs. libertad:** la moral es **"deber ser", obligación** (p. 81); lo ético es **"un imperativo pero no una coacción"**: **está en mí la decisión**, supone la **voluntad de hacer el bien en libertad** (p. 83).
+  - **Relación entre ambas:** no son independientes: la ética **reflexiona sobre los valores que conforman la moral imperante** en una sociedad y contexto histórico-cultural (p. 83). La moral provee el catálogo de valores; la ética es el examen individual que decide a cuáles adherir y cómo obrar.
+  - *Ejemplo propio, no está en el libro:* la moral de una empresa puede considerar "normal" exagerar las bondades de un producto porque "todos lo hacen" (costumbre aceptada); el vendedor que se pregunta si eso daña al cliente y decide no hacerlo está actuando éticamente, aun contra la costumbre.
+
+</details>
+
+**Dónde está en el libro:** p. 81 (definición de moral, carácter imperativo, autoridad externa, criterio externo al ejecutor), p. 82 (etimología de *ethos*, definición de ética, características a–b), p. 83 (características c–d, "imperativo pero no coacción", libertad).
+
+</details>
+
+## Ética, economía y educación — [p. 83–84]
+
+- **La dicotomía ética / economía:** en abierta oposición a la "sed de ética", las **visiones económicas predominantes en la región tienden a desvincular ética y economía**. Sugieren que son **dos mundos diferentes con sus propias leyes**, y que la ética es un tema "para el reino del espíritu".
+- Esa concepción que **margina los valores morales** parece haber sido una de las **causas centrales del "vacío ético"** en el que se precipitaron diversas sociedades latinoamericanas. La idea de que los valores **no importan** en la vía económica práctica **facilitó la instalación de prácticas corruptas** que causaron enormes daños.
+- **Juan Pablo II** encabezó el cuestionamiento de esa supuesta dicotomía: es imprescindible volver a analizar la relación entre ambas, y **la ética no solo no es ajena a la economía, sino que debería orientarla y regularla**.
+- **La ética incide todos los días en la economía.** Lo que una sociedad hace respecto de los valores éticos puede tener **importancia decisiva en su economía, tanto en contra como a favor**. Si una sociedad **cultiva sistemáticamente sus valores éticos**, es muy probable que **coseche resultados positivos**.
+- **Ejemplo del libro: Noruega** [p. 83–84]: economía potente, altísimo desarrollo social y **sin corrupción**. Mantiene estándares éticos muy altos: analiza de manera permanente y autocrítica sus responsabilidades como país desarrollado hacia las regiones sumergidas en la pobreza, y el gobierno impulsa la discusión en las **escuelas** sobre los desafíos éticos de la sociedad. Los valores **anticorrupción y pro-igualdad, solidaridad y cooperación** son esenciales en sus logros económico-sociales, y se cultivan en el **sistema educativo en todos sus niveles** y a través del **ejemplo de los líderes**.
+- **América Latina** [p. 84]: agobiada por pobreza y desigualdad, es imperioso **recuperar la relación entre valores éticos y comportamientos económicos**. Eso significa poner en el centro de la agenda pública: la **coherencia de las políticas económicas con los valores éticos**, la **responsabilidad social de la empresa privada** y el **desarrollo de la solidaridad** en general. Todos los actores sociales deberían colaborar para que la ética se imponga, tanto para **erradicar la corrupción** como para **motivar actitudes positivas**.
+- **Papel de la educación y la universidad:** las nuevas generaciones de profesionales deben estar **preparadas a fondo en sus responsabilidades éticas**. Es crucial en profesiones decisivas para el desarrollo (**contadores, economistas, médicos** y afines), tanto en el ejercicio disciplinario como en el **desempeño de funciones gerenciales**, y para toda persona cuyo peso en la organización pueda **influir seriamente en las decisiones**.
+- **"La ética importa"** [p. 84]: eludir la relación ética-economía, como sucedió en la América Latina de las últimas décadas, crea el terreno para que ese vacío favorezca el despliegue **sin sanción social** de los valores anti-éticos que **encabeza la corrupción** y continúan el **egoísmo exacerbado, la insolidaridad y la insensibilidad** frente al sufrimiento. **El corrupto no solo daña por lo que roba sino por el mensaje que transmite:** "todo para mí, no me importan los demás, no tengo problemas de conciencia, lo único importante es enriquecerse". Los valores fueron **degradados, marginados, excluidos**; es hora de recuperarlos para la **toma cotidiana de decisiones**: son los únicos que garantizan un **progreso integral (material y humano)**. La educación en general y la universidad en particular pueden jugar un papel esencial. "La urgencia es máxima."
+
+## La ética en la toma de decisiones — [p. 84–85]
+
+- Toda actividad empresarial tiene como objetivo la **obtención de beneficios o excedentes**. En la dirección de empresas cabe distinguir **dos fines fundamentales**:
+  - la que orienta a la empresa hacia la **búsqueda del beneficio como un fin en sí mismo** (si solamente se busca el beneficio como tal, **se llega a la deshumanización**), y
+  - la que lo busca **añadiendo un fin social**.
+- La pregunta es cómo orientar las decisiones empresariales hacia **otros fines, además de los puramente económicos**, no menos importantes para el ser humano. Cita de **María Nieves Aleixandre Benavent**: *"La respuesta es la Ética"*. Esa respuesta puede ser acogida con **escepticismo** por mentalidades que solo buscan soluciones pragmáticas, rápidas y de resultados seguros; saber que la solución debe darse en el plano de la ética **implica renunciar a soluciones falaces, aunque económicamente sean más rentables** para la empresa (el libro anticipa que retoma esto con la RSE).
+- Si la ética debe impregnar las acciones humanas, **todas las actividades que afectan a la empresa la condicionan en todos sus niveles de actuación** [p. 85]. Al analizar cualquier acción orientada a fines concretos (por ejemplo la obtención de beneficios) existe la **gran tentación de omitir las consecuencias éticas**.
+- **La pregunta clave:** ¿se puede limitar la toma de decisiones a la obtención de los máximos beneficios económicos, **prescindiendo de sus consecuencias en otros órdenes**? De proceder así, el hombre sería **tan inútil y peligroso como el médico que se limitase a aliviar síntomas prescindiendo de si el tratamiento es o no perjudicial para el paciente**.
+- **La evaluación de decisiones desde el punto de vista ético es lo más importante en la dirección empresarial**, en tanto garantiza decisiones correctas que ponen de relieve la **subordinación de los fines**.
+- **¿Qué hace que una decisión sea buena o mala?** La respuesta inmediata ("una decisión es mejor cuanto más contribuye al logro de los objetivos de la empresa") **carece de valor práctico**: nada dice sobre si cumple además con los **fines sociales** que toda empresa debería tener. Esa respuesta nos remite a la **misión de la organización**.
+- Si las decisiones buscan **solo incrementar los resultados económicos**, los mecanismos que derivan de ellas **tienden a destruir tanto a los individuos como a la organización**. Conocer este proceso **no implica** que los directivos vayan a decidir correctamente, **subordinando los valores económicos a los sociológicos y ambos a los éticos**: la obtención de beneficios es tan atractiva antes del razonamiento como después. Para compatibilizar el beneficio con los otros fines hace falta **más que una predisposición: la convicción sincera y profunda del reclamo ético**, y actuar en consecuencia.
+- La tentación es **mayor en las empresas de lucro** que en las sin fines de lucro: si bien todas deben atender a la eficacia, las lucrativas tienden a **valorar solamente la eficiencia en términos económicos**.
+- La **especial dificultad** para respetar la ética en una empresa: su justificación se basa en la obtención de beneficios, y son **precisamente estos los que hay que sacrificar parcialmente y a corto plazo** para conseguir una **mayor consolidación empresarial**.
+- **Nivel ético del directivo** (Aleixandre Benavent): *"Todo ello resalta la necesidad de un elevado nivel ético en el directivo de empresas"*. **Sin convicciones morales**, todas las técnicas instrumentales que maneje para obtener beneficios **no serán más que instrumentos al servicio de la astucia**. Esas convicciones nacen de una **base sólida de valores y principios** que el directivo debe **inculcar en la cultura de la organización**. Quien dirige tiene la responsabilidad de **educar y potenciar las capacidades** de los que están a su cargo: es necesario un **liderazgo connotado éticamente**.
+- **Conclusión: la propuesta ética** [p. 85]:
+  - **a mayores comportamientos éticos → mejores utilidades humanas y, a la corta o a la larga, mayores utilidades materiales**;
+  - **a mayor corrupción y actos no éticos → pérdida o déficit en la dignidad de nuestro ser** y, con el tiempo, **destrucción de los valores que permiten obtener utilidades sustentables**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2012-06-25 (Tema B) (P4): concepto básico de ética</summary>
+
+Desarrolle el concepto básico de "Ética".
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**ÉTICA:** es una **REFLEXIÓN** que realiza el **INDIVIDUO** acerca de los **VALORES** que él cree que deben ser respetados y llevados a la práctica.
+
+**Atributos de la ética:**
+
+- La ética **incide en la economía a diario**. Valores como la anticorrupción y la pro-igualdad llevan a países desarrollados a querer ayudar a países poco desarrollados. Esto se cultiva con el sistema educativo.
+- La ética **influye en la toma de decisiones empresarial**, tratando de desviar los objetivos a cosas que no sean meramente económicas, como proteger al medio ambiente. No se deben omitir las consecuencias éticas de las decisiones.
+- La ética, al fin y al cabo, termina por **alentar las utilidades humanas** y, por consiguiente, las utilidades materiales.
+
+</details>
+
+**Ojo (libro, p. 82–85):** la definición es textual del libro y los tres "atributos" resumen bien las secciones "Ética, economía y educación" (p. 83–84), "La ética en la toma de decisiones" (p. 84–85) y la conclusión (p. 85). Lo que el compilado omite y conviene sumar: la **etimología** (*ethos* = morada interior, examen de conciencia, p. 82); las **cuatro características** de la definición: **a)** eje en el individuo, **b)** es una reflexión sobre los principios que deben regir el comportamiento, **c)** se refiere a los valores de la moral imperante, **d)** adherimos a ellos de forma **consciente y meditada**, por lo que **no es ético dejarse guiar por órdenes, caprichos o costumbres** (comportamiento irreflexivo) (p. 82–83); que la ética **se juega en el obrar**, en las elecciones, y es **"imperativo pero no coacción"** (p. 83). El ejemplo de "proteger el medio ambiente" no está en esa sección del libro (habla de "fines sociales" y de la misión); y el ejemplo de Noruega es sobre analizar sus responsabilidades hacia regiones pobres y educar en valores, no exactamente "ayudar a países".
+
+**Dónde está en el libro:** p. 82–83 (concepto y características), p. 83 (obrar, Morin, Kliksberg), p. 83–84 (ética y economía), p. 84–85 (toma de decisiones y conclusión).
+
+</details>
+
+## Responsabilidad Social Empresaria: origen del concepto — [p. 86]
+
+- Como ser social, desde sus inicios como especie el hombre ha llevado adelante **emprendimientos de diverso tipo**: desde la estructura más sencilla (dos personas que se proponen hacer algo en conjunto) hasta logros como las **Pirámides de Egipto** o la **llegada del hombre a la Luna**, los seres humanos **se han organizado** en busca de objetivos comunes.
+- A partir de **hechos de resonancia mundial referidos a la ética y a la transparencia de las empresas y de los empresarios**, en las últimas décadas fue tomando cuerpo en todo el mundo una tendencia hacia un conjunto de temas relativos a la **responsabilidad que les cabe a las empresas hacia**:
+  - el **medio ambiente**,
+  - sus **empleados y colaboradores**, y
+  - la **sociedad toda** en la que desarrollan sus actividades.
+- Nace así el concepto de **RESPONSABILIDAD SOCIAL EMPRESARIA**.
+
+## Qué es la Responsabilidad Social Empresaria — [p. 86]
+
+- **Stakeholders (participantes interesados):** término acuñado en este contexto para englobar a **todas las personas y organizaciones que de uno u otro modo están relacionadas con las empresas**: gobiernos nacionales, provinciales y comunales, accionistas, clientes, proveedores, empleados, sus familias, habitantes cercanos a las instalaciones, ciudadanos en general, etc.
+- **Definición de RSE:** *la **contribución activa y voluntaria** de las empresas al **mejoramiento social, económico y ambiental** con el objetivo de **mejorar su situación competitiva y su valor añadido**.*
+- Por lo tanto, la RSE plantea el **compromiso de las empresas de contribuir al desarrollo económico sostenible**, trabajando con los **empleados, sus familias, la comunidad local y la sociedad en general**, para **mejorar su calidad de vida**.
+- **Va más allá del cumplimiento de las leyes y las normas**, dando por supuesto su respeto y estricto cumplimiento. Cumplir la ley **no es RSE**, sino las **obligaciones que cualquier empresa debe cumplir simplemente por realizar su actividad**. Sería difícilmente comprensible que una empresa alegara actividades de RSE si no cumple con la legislación de referencia. En este sentido, la **legislación laboral** y las **normativas medioambientales** son el **punto de partida**.
+- Bajo este concepto de administración y de management se engloba un conjunto de **prácticas, estrategias y sistemas de gestión** que persiguen un **nuevo equilibrio entre las dimensiones económica, social y ambiental**.
+- La RSE pretende buscar la **excelencia en el seno de la empresa**, atendiendo con especial atención a las **personas y sus condiciones de trabajo**, así como a la **calidad de sus procesos productivos**.
+- **Definición de la OIT (Organización Internacional del Trabajo):** la RSE es el **conjunto de acciones que toman en consideración las empresas para que sus actividades tengan repercusiones positivas sobre la sociedad** y que **afirman los principios y valores por los que se rigen**, tanto en sus propios **métodos y procesos internos** como en su **relación con los demás actores**. **La RSE es una iniciativa de carácter voluntario.**
+
+<details>
+<summary>📝 Pregunta de parcial — 2015-11-05 (Tema 1) (P3): qué es RSE</summary>
+
+¿Qué es RSE?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**RESPONSABILIDAD SOCIAL DE LA EMPRESA (RSE):** contribución activa y voluntaria de las empresas al mejoramiento social, económico y ambiental con el objetivo de mejorar su situación competitiva y su valor añadido (esto no es obligatorio en Argentina, pero sí en otros países).
+
+</details>
+
+**Ojo (libro, p. 86):** la definición coincide textualmente con el libro. El agregado "no es obligatorio en Argentina, pero sí en otros países" no está así en el libro: el libro dice que la RSE **es una iniciativa de carácter voluntario** (OIT) y, aparte, que varios países europeos **dictaron leyes relacionadas con RSE** (p. 87–88: etiqueta social en Bélgica, informe social y medioambiental obligatorio en Francia, etc.). Para desarrollar la respuesta conviene sumar: el **origen** del concepto (hechos mundiales de ética y transparencia; responsabilidad hacia medio ambiente, empleados y sociedad) y los **stakeholders**; que plantea el **compromiso con el desarrollo económico sostenible** trabajando con empleados, familias, comunidad y sociedad para mejorar su calidad de vida; que **va más allá del cumplimiento de la ley** (la legislación laboral y ambiental es el punto de partida, no RSE); que busca un **nuevo equilibrio entre las dimensiones económica, social y ambiental** y la **excelencia** en la empresa atendiendo a las personas, sus condiciones de trabajo y la calidad de los procesos; y la **definición de la OIT**.
+
+**Dónde está en el libro:** p. 86 (origen del concepto, stakeholders, definición, más allá de la ley, equilibrio de dimensiones, OIT), p. 86–87 (por qué avanza y competitividad), p. 88 (RSE en el mundo).
+
+</details>
+
+## Por qué avanza la RSE — [p. 86–87]
+
+- La idea de RSE **avanza mundialmente**. Cita de **Kliksberg**: *"¿Se trata de una moda pasajera? Todo indica que no, que responde a vigorosas demandas sociales."* Sociedades cada vez más participativas presionan por **estándares éticos públicos y corporativos más exigentes**: plantean que la empresa privada es un **actor económico decisivo** y le piden **juego limpio con los consumidores, buen trato a su personal, cuidado del medio ambiente y compromiso con causas de interés público** [p. 87].
+- **El nivel ético de la empresa es hoy un factor clave para la competitividad** (Kliksberg). Ante el reclamo social por más transparencia y compromiso, grandes universidades estadounidenses (**Harvard, Universidad de California, Universidad de Pittsburg**, entre otras) crean **cátedras especiales sobre ética en los negocios**. Hay consenso en que la formación gerencial debe **reforzar la débil preparación ética actual**, evidenciada en episodios de **corrupción corporativa**.
+- **Demandas en Europa:** sociedades civiles activas exigen a las empresas **respeto estricto de las leyes laborales, erradicación de discriminaciones, eliminación del trabajo infantil, cuidado del medio ambiente, precios justos y compromisos en proyectos de interés colectivo**. **Bélgica, Dinamarca, Francia, Países Bajos, Finlandia, Suiza y Reino Unido**, entre otros, dictaron leyes relacionadas con RSE.
+- **También los mercados lo exigen:** según *The New York Times*, en EE. UU. hay un **nuevo consumidor** que *"pretende que la fabricación de los productos que compra no ocasione daños al sistema ecológico ni abuse del trabajo infantil ni de la mano de obra barata"*. Es ya **un tercio de la población**. Crecen los **Fondos de Inversión dedicados a empresas socialmente responsables**.
+- **"La RSE es también clave para la competitividad"** (Kliksberg): según estudios, permite **atraer personal más capaz**, genera **mayor compromiso laboral**, incide favorablemente en la **moral del trabajador** y contribuiría a **mejorar los retornos anuales** de la empresa.
+- **Beneficios para el empresario como persona:** estudios de las Universidades **Hebrea de Jerusalén, Harvard y Michigan** muestran que la **solidaridad tiene altísimas retribuciones en términos de salud personal**. El 60 % de una muestra de personas de 50 años o más en EE. UU. dice que quisiera dedicarse en su próxima etapa a mejorar la calidad de vida de sus comunidades; con la RSE el empresario **no tiene por qué esperar hasta su retiro: puede hacerlo ya**.
+- **América Latina:** plena en riquezas potenciales pero con agudos problemas de **pobreza e inequidad**, tiene una ciudadanía que cada vez más **exige ética a los gobiernos y a los actores sociales**. Se requieren **políticas públicas de primera calidad, bien gerenciadas y transparentes**, y la acción de **empresas responsables y organizaciones voluntarias** que encaren la erradicación de la pobreza. Si bien hubo avances en RSE, **se está lejos de los progresos mundiales** y de las demandas actuales de la Humanidad.
+
+## La RSE en el mundo — [p. 88]
+
+En opinión de **Bernardo Kliksberg** hay una **explosión de interés mundial** por la RSE. Ejemplos del libro:
+
+- **Bélgica** aprobó la **ley de la etiqueta social**: garantiza a los consumidores que los productos que la llevan fueron elaborados con **respeto por los derechos laborales, sin mano de obra infantil y sin discriminaciones**.
+- En **Europa occidental** hay **240 etiquetas ambientales, ecológicas y de comercio justo** (que aseguran que los precios son razonables).
+- **Francia** obliga por ley a las empresas a publicar un **informe social y medioambiental**.
+- **Inglaterra** exige a los **fondos de pensiones públicas** informar sobre los **criterios éticos, sociales y ambientales** utilizados en las inversiones.
+- En **Italia** hay **guías para elaborar informes sociales para las pymes**, y la región **toscana** da **preferencia en los contratos estatales** a empresas con producción socialmente responsable.
+- En **Noruega**, el **95 % de las pymes** realiza acción social.
+- En **Estados Unidos**, cada vez más empresas suscriben programas para apoyar el **trabajo voluntario de sus empleados**.
+- La **Unión Europea** lanzó un **Libro Verde sobre la RSE**.
+- **Gran Bretaña** creó el **primer ministerio para la RSE**.
+- En **Cambridge** se abrió un **doctorado** para la colaboración entre **gobierno, empresa y sociedad civil**.
+- En **Francia** se estableció la **Academia Europea de Empresa y Sociedad** para educar en estos principios a una nueva generación de gerentes.
+
+**América Latina está claramente retrasada en RSE** respecto de los países mencionados, **y Argentina no es la excepción**. Es fundamental avanzar rápidamente en este camino para mejorar la **integración social, la equidad y la competitividad**.
+
+---
+
+*Generado el 2026-11-09 a partir de `fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf` (cap. XII, págs. 81–88) y `examenes/2012-2018_compilado-preguntas-respuestas.docx` (preguntas de parcial con respuestas de alumnos).*

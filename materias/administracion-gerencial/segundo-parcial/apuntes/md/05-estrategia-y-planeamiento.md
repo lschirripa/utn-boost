@@ -1,0 +1,1080 @@
+# Estrategia y planeamiento
+
+> Fuente: fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf, págs. 97–120 (cap. XIV) + examenes/2012-2018_compilado-preguntas-respuestas.docx (preguntas de parcial con respuestas de alumnos)
+
+---
+
+## Índice
+
+- [p. 97] — Estrategia: significado (origen militar, Sallenave, planificación estratégica, plan de asignación de recursos)
+- [p. 97–98] — Estrategias y cultura: la paradoja estructura ↔ estrategia; la cultura impregna el esquema organizacional; fuerzas micro/macro
+- [p. 98–99] — Estrategia y cambio: compulsivo, imitativo, creador
+- 📝 Pregunta de parcial — sin fecha (juego B) (P4): tipos de cambio y cuál está ligado a la estrategia
+- [p. 99] — El planeamiento estratégico: generalidades (Perel, sistema de decisiones anticipadas, cómo se definen los objetivos, Dinardo)
+- 📝 Pregunta de parcial — sin fecha (foto) (P3): planeamiento estratégico desde sus características; cómo se definen los objetivos
+- [p. 99–100] — Niveles de planeamiento: operativo, táctico, estratégico
+- 📝 Pregunta de parcial — 2014-11-10 (P5): características del planeamiento estratégico
+- 📝 Pregunta de parcial — 2018-06-13 (P3): niveles de planeamiento y sus horizontes
+- 📝 Pregunta de parcial — sin fecha (juego D) (P3): los 3 niveles de planeamiento y sus características
+- [p. 100–101] — Ejecución, control y evaluación de los planes
+- [p. 101] — Análisis del ambiente externo: la competencia (necesidad, deseo, producto, atributos percibidos)
+- [p. 101–102] — El modelo de las 5 fuerzas de Porter: industria, sustitutos cercanos, las cinco fuerzas
+- [p. 102–103] — Amenaza de entrada de nuevos participantes: barreras de entrada y de salida
+- [p. 103] — Amenaza de los sustitutos
+- 📝 Pregunta de parcial — 2014-11-10 (P2): definición técnica de productos sustitutos
+- 📝 Pregunta de parcial — 2016-11-14 (Tema B) (P5): producto competidor vs. producto sustituto y los precios
+- [p. 103] — Poder de negociación de los proveedores
+- 📝 Pregunta de parcial — 2015-11-05 (Tema 1) (P4): ¿qué pasa si aumentan los proveedores?
+- [p. 104] — Poder de negociación de los compradores: palanca negociadora y sensibilidad al precio
+- 📝 Pregunta de parcial — 2015-11-05 (Tema 2) (P4): ¿qué ocurre si aumenta la cantidad de compradores?
+- [p. 104–105] — La intensidad de la rivalidad: los 6 factores
+- 📝 Pregunta de parcial — 2012-06-25 (Tema A) (P3): factores de la intensidad de la rivalidad
+- [p. 105] — Contextos nacional e internacional
+- [p. 106–107] — Análisis del ambiente interno: la cadena de valor de Porter (5 primarias + 4 de apoyo, margen)
+- 📝 Pregunta de parcial — 2014-06-24 (Tema 2) (P3): cadena de valor, ¿interno o externo?
+- 📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P3): cómo funciona la cadena de valor y para qué sirve
+- 📝 Pregunta de parcial — sin fecha (juego A) (P4): para qué sirve la cadena de valor y sus actividades
+- [p. 107–108] — La cultura de la organización: culturas fuertes y débiles, cultura externa
+- [p. 108] — Los recursos de la organización
+- [p. 108–110] — Matriz BCG: participación en el mercado, tasa de crecimiento, los 4 cuadrantes, portafolio y flujos de caja
+- 📝 Pregunta de parcial — 2012-06-25 (Tema B) (P3): matriz BCG completa
+- 📝 Pregunta de parcial — sin fecha (juego A) (P5): diferencia entre producto estrella y vaca lechera
+- [p. 109–110] — Las 4 variantes de razonamiento que toma el parcial
+- 📝 Pregunta de parcial — 2014-11-10 (P1): estrella vs. vaca lechera, ¿la utilidad de cuál invertiría?
+- 📝 Pregunta de parcial — 2016-11-14 (Tema B) (P2): ¿por qué una estrella pasa a incógnita?
+- 📝 Pregunta de parcial — sin fecha (juego B) (P3): demanda que se ameseta, ¿vaca lechera o dilema?
+- 📝 Pregunta de parcial — sin fecha (foto) (P4): estrella vs. vaca lechera, qué medidas tomar y por qué
+- [p. 110–112] — El análisis FODA: la matriz, factores externos e internos, uso de los 4 elementos, las 13 + 13 variables de Levy
+- [p. 112–115] — La técnica de escenarios: apostar fuerte / protegerse / esperar y ver; los 4 grados de incertidumbre; qué es un escenario; los 6 pasos
+- 📝 Pregunta de parcial — 2016-11-14 (Tema B) (P3): los tres primeros pasos de la construcción de escenarios
+- [p. 116] — Formulación de estrategias: ventaja competitiva (externa / interna)
+- [p. 116–117] — Estrategias de supervivencia: refuerzo, redespliegue, acción política
+- 📝 Pregunta de parcial — 2018-06-13 (P5): estrategias de supervivencia
+- [p. 117–118] — Estrategias para el crecimiento: penetración, desarrollo del mercado, desarrollo del producto, diversificación
+- 📝 Pregunta de parcial — 2014-11-06 (P5): estrategias de crecimiento
+- 📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P1): penetración de mercado vs. desarrollo de mercado
+- [p. 118–120] — Polémica sobre la vigencia del planeamiento estratégico: las críticas de Mintzberg y los defensores
+
+---
+
+## Estrategia: significado — [p. 97]
+
+- El vocablo **"estrategia"** se originó en el ámbito **militar**: *"Arte de coordinar todo tipo de acciones para la conducción de una guerra o la defensa de un país"*.
+- Fue adoptado por la **Gestión de Organizaciones** a comienzos del siglo XX como **"un conjunto de decisiones importantes que regulan el comportamiento de una organización"**. Por lo tanto **no se usa para una decisión en particular** (la elección de un objetivo o de una política no es "una estrategia").
+- **Jean Paul Sallenave** (visión más profunda): *"estrategia de empresa es el conjunto de relaciones entre el medio ambiente interno y el medio externo de la empresa"*. El **gerente estratega** está constantemente **sondeando el medio en busca de oportunidades**.
+- **Planificación estratégica:** el proceso por el cual los dirigentes **ordenan sus objetivos y sus acciones en el tiempo**.
+- **Estrategia y planificación están ligados**: ambos indican una **secuencia de acciones ordenadas en el tiempo** para alcanzar los objetivos.
+- **Estrategia empresarial** = un **plan de asignación de recursos** que tienda a **modificar el equilibrio competitivo a favor de la organización**.
+
+## Estrategias y cultura — [p. 97–98]
+
+- Sallenave, al relacionar estrategias, estructuras y cultura, plantea una **paradoja**: por una parte **la estructura sigue a la estrategia**, pero por otra **la estrategia de mañana surge de la estructura de hoy**. La estructura es **causa y efecto** de la estrategia.
+- La estructura es a la vez **freno y motor** de las estrategias: las impulsa, pero su **inercia se opone al cambio**.
+- Hay que establecer una estructura **lo suficientemente flexible** para ajustarse al cambio continuo que implica el proceso estratégico, y **lo suficientemente estable** para asegurar la permanencia de la información, la toma de decisiones, la implementación y el control de la estrategia. Para eso nos apoyamos en el **esquema organizacional**.
+- **Cultura de una organización:** conjunto de **maneras de pensar, de sentir y de actuar**; es como la **identidad** de la organización. La cultura **impregna todos los componentes del esquema organizacional**: las personas, su sistema de motivación, las tareas, la estructura y los sistemas de información y decisión.
+- Conclusión del libro: **la estrategia está influenciada por la cultura, el cambio y la estructura.**
+
+> **Ilustración 16 — "Cultura y Estrategia" (p. 98):** un diagrama en el que **Estrategia** (a la izquierda) lleva, a través del **Esquema organizacional** (centro), al **Desempeño** (derecha). Alrededor del esquema organizacional giran sus cinco componentes: **Personas**, **Tareas**, **Sistemas de motivación**, **Estructura** y **Sistemas de información y decisión**. Todo el conjunto está englobado por la **Cultura** (arriba), que lo impregna.
+
+- **Ejemplo de la influencia de la cultura:** las empresas latinas y anglosajonas estaban fascinadas con la organización y la disciplina de las empresas japonesas, pero ese sentimiento mezcla dos contradictorios: **admiración por los resultados** y **rechazo a un sistema que va contra el individualismo y el sentido crítico** de anglosajones y latinos. Por eso los intentos de implantar sistemas importados de Japón (**Círculos de Calidad, Kaizen**) al principio no fueron muy exitosos. Cuando **Nissan** reclutó personal en EE. UU., seleccionó con tests psicológicos a quienes tenían aptitud para ser **"desculturizados"** y adoptar los esquemas culturales nuevos, inculcados en un largo período de formación en Japón.
+- La estrategia indica el **intercambio entre la organización (a través de sus estructuras) y el ambiente externo**. Ese intercambio está influido por **fuerzas** que pueden ser **micro o macroestructurales** y **micro o macroculturales**. Así hay corrientes que afectan a la estrategia: **positivas** (sinergia organizacional, colaboración del Estado) o **negativas** (restricciones organizacionales, legales o culturales).
+
+## Estrategia y cambio — [p. 98–99]
+
+El libro reconoce **tres clases de cambio**:
+
+- **Cambio compulsivo:** realiza los cambios **por el solo hecho de creer que cambio implica progreso**. No necesita **ningún modelo de cambio ni objetivos**: **el cambio es suficiente en sí mismo**.
+- **Cambio imitativo:** encara los cambios, pero **sin objetivos**. Solo cambia **porque sus competidores lo hicieron**, y cree que si no reacciona en ese sentido no podrá ser competitivo. Lo que tal vez **no sepa el cambiador imitativo** es que los cambios en las estructuras de su competidor **obedecen a un cambio de estrategia comercial y/o financiera, en donde él será la primera víctima**.
+- **Cambio creador:** es **la esencia de la estrategia**. Requiere **un objetivo y un modelo**. Se aplica a la **estrategia, a las estructuras y a las personas**.
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego B) (P4): tipos de cambio y cuál está ligado a la estrategia</summary>
+
+Tipos de cambios por los que pasan las organizaciones, ¿y cuál de ellos es el que está estrechamente ligado a la estrategia?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+El libro (p. 98–99, "Estrategia y cambio") reconoce **tres clases de cambio** en las organizaciones:
+
+- **Compulsivo:** la organización cambia **por el solo hecho de creer que cambio implica progreso**. No necesita **modelo de cambio ni objetivos**: el cambio **es suficiente en sí mismo**. *(Ejemplo propio, no está en el libro: una empresa que reorganiza sus gerencias cada año "para renovar aires", sin saber qué problema quiere resolver ni cómo medirá si mejoró.)*
+- **Imitativo:** encara cambios **sin objetivos propios**: los hace **porque sus competidores los hicieron**, convencida de que si no reacciona igual deja de ser competitiva. El riesgo que marca el libro es que el imitador **no sabe que los cambios de estructura de su competidor responden a un cambio de estrategia comercial y/o financiera** del que **él será la primera víctima**: copia la forma sin entender la estrategia que la motiva. *(Ejemplo propio, no está en el libro: un competidor cierra sucursales y pasa a venta online porque va a bajar precios con esa reducción de costos; el imitador cierra sucursales "porque todos lo hacen" sin tener una estrategia de precios detrás, y queda peor parado.)*
+- **Creador:** es **la esencia de la estrategia**. Requiere **un objetivo y un modelo**, y se aplica **a la estrategia, a las estructuras y a las personas**.
+
+**El cambio ligado a la estrategia es el creador**: es el único de los tres que parte de un **objetivo** (adónde quiero llegar) y de un **modelo** (cómo), que es exactamente lo que define a la estrategia como *"conjunto de decisiones importantes que regulan el comportamiento de una organización"* (p. 97) y a la planificación estratégica como el proceso de *"ordenar objetivos y acciones en el tiempo"* (p. 97). Los otros dos cambian **sin objetivos**: el compulsivo por el cambio mismo y el imitativo por reflejo frente al competidor. Esto se conecta con la paradoja de Sallenave (p. 97): la estructura es **freno y motor** de la estrategia, y el cambio creador es el que la usa como motor de manera deliberada.
+
+</details>
+
+**Dónde está en el libro:** p. 98–99 (sección "Estrategia y cambio"); p. 97 (definiciones de estrategia y planificación estratégica, paradoja estructura ↔ estrategia).
+
+</details>
+
+## El planeamiento estratégico: generalidades — [p. 99]
+
+- Concepto general de **V. L. Perel**: *"El planeamiento es la tarea de tomar decisiones que determinan el curso futuro de la organización, de tal manera que le permita alcanzar sus fines; es un proceso a través del cual, estando previamente fijados sus objetivos, se examinan los posibles cursos de acción alternativos, eligiendo anticipadamente los más adecuados para el logro de tales objetivos"*.
+- Por lo tanto, la **característica distintiva del planeamiento** es que consiste en un **sistema de decisiones tomadas con anticipación**, con **diferentes grados de detalle** y que **abarcan a toda la organización**.
+
+### Cómo se definen los objetivos — [p. 99]
+
+Los objetivos se definen, **cualquiera sea su alcance y desagregación**, por:
+
+- **Atributo:** el **verbo** que orienta al objetivo.
+- **Unidad de medida:** el **criterio por el que se mide**.
+- **Cantidad:** la **magnitud** medida en la unidad definida.
+- **Horizonte:** el **plazo** en el que se intentará cumplir.
+
+Los **objetivos estratégicos** son, por definición:
+
+- **a largo plazo**,
+- **holísticos** (abarcan a toda la organización),
+- **no programables** (decisiones únicas, no repetitivas) y
+- **muy agregados** (no detallados).
+
+Ejemplo del libro: **"Alcanzar, al cabo de dos años, el 25% de participación en el mercado"** (atributo: *alcanzar*; unidad de medida: *participación en el mercado*; cantidad: *25%*; horizonte: *dos años*).
+
+### Definición de Dinardo y compromiso de la gerencia — [p. 99]
+
+- Para **Fernando Dinardo**, *"el planeamiento estratégico es un plan a largo plazo, que implica decisiones de efecto duradero y de difícil reversibilidad, que afecta a todas las áreas de la organización, en donde se toman decisiones no programables o no previsibles (por lo que se requiere de experiencia y creatividad), desarrollado en base a varios escenarios, en forma modular, asociado al entorno y apoyado en el conocimiento de la organización, orientado a generar y explotar las ventajas competitivas de la organización"*.
+- El **proceso** de planeamiento estratégico puede concebirse como *"la cristalización y documentación de un conjunto de elecciones y decisiones que debería derivarse de la definición de la estrategia"*.
+- La **falta de planeamiento** suele justificarse por el deseo de conferir más **agilidad** a la organización, pero son **excusas**: **el gerente que no planea no está comprometido con la organización**.
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (foto) (P3): planeamiento estratégico desde sus características; cómo se definen los objetivos</summary>
+
+Defina Planeamiento Estratégico, no desde la etimología de la frase, sino desde sus características. ¿Cómo se definen los objetivos?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+**Qué es planear.** El planeamiento es un **sistema de decisiones tomadas con anticipación**, con distintos grados de detalle, que abarca a toda la organización: fijados los objetivos, se examinan los cursos de acción alternativos y se elige **anticipadamente** el más adecuado (Perel, p. 99).
+
+**El planeamiento estratégico, definido por sus características** (Dinardo, p. 99, y el nivel estratégico de la p. 100):
+
+- **Temporal:** es un plan a **largo plazo**.
+- **Estructural:** implica decisiones de **efectos duraderos y de difícil reversibilidad**.
+- **Integral / holístico:** afecta a **todas las áreas y funciones** de la organización.
+- **Jerárquico:** lo realizan los **niveles superiores**.
+- **No programable:** se pueden definir modelos generales, pero no son de aplicación automática ni repetibles; son **decisiones únicas**.
+- **No previsible:** los aspectos clave cambian en cada oportunidad, por lo que exige **creatividad y experiencia**.
+- **Múltiple:** se desarrolla para **varios escenarios** previsibles en el tiempo.
+- **Modular:** dividido en **etapas interrelacionadas**.
+- **Asociado al entorno:** fuertemente influido por variables exógenas; requiere analizar el **ambiente competitivo externo** para detectar **oportunidades y amenazas**.
+- **Apoyado en el conocimiento de la organización:** se basa en un análisis del **ambiente interno** para conocer **fortalezas y debilidades**.
+- **Orientado a generar y explotar las ventajas competitivas** de la organización.
+
+Sus objetivos son, por eso, a largo plazo, holísticos, no programables y **muy agregados** (no detallados).
+
+**Cómo se definen los objetivos** (p. 99). Cualquiera sea su alcance y desagregación, un objetivo se define por **cuatro elementos**: el **atributo** (verbo que lo orienta), la **unidad de medida** (criterio con el que se mide), la **cantidad** (magnitud en esa unidad) y el **horizonte** (plazo para cumplirlo). Ejemplo del libro: *"Alcanzar, al cabo de dos años, el 25% de participación en el mercado"* → alcanzar / participación en el mercado / 25% / dos años. En el nivel táctico esos objetivos se bajan a **metas**: subconjuntos operables y cuantificables, formulados con mayor desagregación (p. 100).
+
+</details>
+
+**Dónde está en el libro:** p. 99 (Perel, los cuatro elementos del objetivo, objetivos estratégicos, definición de Dinardo), p. 100 (las características del nivel estratégico y las metas del nivel táctico).
+
+</details>
+
+## Niveles de planeamiento — [p. 99–100]
+
+- El **horizonte de planeamiento** es el **tiempo de anticipación de las decisiones de planeamiento**. En función de él se definen **tres niveles básicos**, que varían en forma proporcional al **estrato de la pirámide** en que nos encontremos: **cuanto mayor es el nivel de planeamiento, más se acercan las decisiones a la cima directiva**.
+
+### Operativo (o programación) — [p. 100]
+
+- Decisiones de **corto alcance temporal**.
+- Afecta a **pocas funciones** (procedimientos).
+- Se centra en los **programas a realizar, su secuencia y su lugar preciso en el tiempo**.
+
+### Táctico (o de gestión) — [p. 100]
+
+- Decisiones de **mediano alcance** y **cierta reversibilidad**.
+- Se ocupa de **períodos intermedios de tiempo (1 año)**.
+- Afecta a una **cantidad media de funciones**.
+- Se apoya en herramientas como **presupuestos, cronogramas, programas**, etc.
+- Se expresa en **metas**: subconjuntos de objetivos **operables y cuantificables**, orientados por los objetivos generales (estratégicos), planeados con noción del todo pero formulados con **mayor desagregación**.
+
+### Estratégico (o estructural) — [p. 100]
+
+- **Temporal:** asociado al **largo plazo**.
+- **Estructural:** decisiones de **efectos duraderos y de difícil reversibilidad**.
+- **Integral:** afecta a un **gran número de funciones y áreas**.
+- **Jerárquico:** lo realizan los **niveles superiores** de la organización.
+- **No programable:** se pueden definir modelos generales, pero **no son de aplicación automática ni repetibles** en forma directa.
+- **No previsible:** los aspectos clave cambian en cada oportunidad, lo que exige **creatividad y experiencia**.
+- **Múltiple:** desarrollado para **varios escenarios** previsibles en el tiempo.
+- **Modular:** dividido en distintas **etapas interrelacionadas**.
+- **Asociado al entorno:** fuertemente influido por **variables exógenas**; requiere un análisis del **ambiente competitivo externo** para detectar **oportunidades y amenazas**.
+- **Apoyado en el conocimiento de la organización:** el plan se apoya en un análisis del **ambiente interno** para conocer **fortalezas y debilidades**.
+- **Orientado a generar y explotar las ventajas competitivas** de la organización.
+
+Resumen comparativo (armado a partir de las viñetas del libro):
+
+| | Operativo (programación) | Táctico (gestión) | Estratégico (estructural) |
+|---|---|---|---|
+| **Horizonte** | Corto alcance temporal | Mediano alcance; períodos intermedios (1 año) | Largo plazo |
+| **Reversibilidad** | — (programas concretos) | Cierta reversibilidad | Efectos duraderos, difícil reversibilidad |
+| **Alcance** | Pocas funciones (procedimientos) | Cantidad media de funciones | Gran número de funciones y áreas (integral) |
+| **Nivel gerencial** | Más lejos de la cima directiva | Intermedio | Niveles superiores (jerárquico) |
+| **Se expresa en** | Programas: secuencia y lugar en el tiempo | Metas; presupuestos, cronogramas, programas | Objetivos estratégicos: no programables, múltiples, modulares |
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-11-10 (P5): características del planeamiento estratégico</summary>
+
+Características del planeamiento estratégico (según la definición de no sé qué autor).
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Planeamiento:** sistema de decisiones tomadas con anticipación, con diferentes grados de detalle y que abarca a toda la organización.
+
+**Niveles de planeamiento** (las características del planeamiento estratégico dependen del nivel de planeamiento):
+
+- **Operativo (o programación):** decisiones de corto alcance temporal, afecta pocas funciones (procedimientos), se centra en programas a realizar, su secuencia y su lugar preciso (programables). Es a nivel de gerencia baja.
+- **Táctico (o de gestión):** decisiones de mediano plazo y cierta reversibilidad. Se ocupa de períodos intermedios de tiempo (1 año). Afecta a una cantidad media de funciones, se expresa en metas, que son subconjuntos de objetivos operables y cuantificables, orientados por los objetivos generales (estratégicos). Ejemplos: presupuestos, cronogramas, programas, etc. Es a nivel de gerencia media.
+- **Estratégico (o estructural):** largo plazo, decisiones duraderas y de difícil reversibilidad (estructural), integral (afecta a un gran número de funciones y áreas de la organización), lo realizan los niveles superiores de la organización, es no programable, no previsible, alcanza a varios escenarios (es múltiple), modular (dividido en distintas etapas interrelacionadas entre sí), asociado al entorno (fuertemente influido por variables exógenas, por lo que requiere un análisis del ambiente competitivo externo para detectar las oportunidades y amenazas que surgen de dicho medio), apoyado en el conocimiento de la organización (ya que el plan se debe apoyar en un análisis del ambiente interno para conocer las fortalezas y las debilidades de la organización) y orientado a generar y explotar las ventajas competitivas de la organización (afecta a toda la organización).
+
+</details>
+
+**Ojo (libro, p. 99–100):** la respuesta coincide con el libro en los tres niveles, pero la pregunta pide las **características del planeamiento estratégico "según un autor"**: ese autor es **Fernando Dinardo** (p. 99), cuya definición es la lista que el compilado recita para el nivel estratégico (largo plazo, difícil reversibilidad, todas las áreas, no programable / no previsible, varios escenarios, modular, asociado al entorno, conocimiento de la organización, ventajas competitivas). Conviene nombrarlo y sumar lo que el compilado omite: la definición de Perel (p. 99), que los **objetivos estratégicos** son a largo plazo, holísticos, no programables y muy agregados, y los **cuatro elementos** de un objetivo (atributo, unidad de medida, cantidad, horizonte). Las etiquetas "gerencia baja / media" no están textuales en el libro; lo que dice es que *"cuanto mayor es el nivel de planeamiento, más se acercarán las decisiones a la cima directiva"* y que el estratégico es **jerárquico** (niveles superiores).
+
+**Dónde está en el libro:** p. 99 (Perel, objetivos, Dinardo), p. 99–100 (horizonte de planeamiento y los tres niveles).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — 2018-06-13 (P3): niveles de planeamiento y sus horizontes</summary>
+
+Niveles de planeamiento: explicar los distintos horizontes del planeamiento.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Planeamiento:** sistema de decisiones tomadas con anticipación, con diferentes grados de detalle y que abarca a toda la organización.
+
+**Niveles de planeamiento:**
+
+- **Operativo (o programación):** decisiones de corto alcance temporal, afecta pocas funciones (procedimientos), se centra en programas a realizar, su secuencia y su lugar preciso (programables). Es a nivel de gerencia baja.
+- **Táctico (o de gestión):** decisiones de mediano plazo y cierta reversibilidad. Se ocupa de períodos intermedios de tiempo (1 año). Afecta a una cantidad media de funciones, se expresa en metas (subconjuntos de objetivos operables y cuantificables, orientados por los objetivos estratégicos). Ejemplos: presupuestos, cronogramas, programas. Es a nivel de gerencia media.
+- **Estratégico (o estructural):** largo plazo, decisiones duraderas y de difícil reversibilidad, integral, lo realizan los niveles superiores, no programable, no previsible, múltiple (varios escenarios), modular, asociado al entorno (oportunidades y amenazas), apoyado en el conocimiento de la organización (fortalezas y debilidades) y orientado a generar y explotar las ventajas competitivas.
+
+</details>
+
+**Ojo (libro, p. 99–100):** la respuesta es la misma del 2014-11-10 y coincide con el libro, pero no define lo que la pregunta pide: el **horizonte de planeamiento** es *"el tiempo de anticipación de las decisiones de planeamiento"* (p. 99), y es la variable que **define los tres niveles**: corto alcance (operativo), períodos intermedios de 1 año (táctico), largo plazo (estratégico). Agregar también que los niveles *"irán variando en forma proporcional de acuerdo con el estrato de la pirámide"*: a mayor nivel, las decisiones se acercan a la cima directiva.
+
+**Dónde está en el libro:** p. 99 (definición de horizonte de planeamiento), p. 100 (los tres niveles).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego D) (P3): los 3 niveles de planeamiento y sus características</summary>
+
+Explicar los 3 niveles de planeamiento y sus características.
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+El planeamiento es un **sistema de decisiones tomadas con anticipación**, con distintos grados de detalle, que abarca a toda la organización (p. 99). Según el **horizonte de planeamiento** (el tiempo de anticipación de las decisiones) se definen **tres niveles**, que suben por la pirámide: cuanto mayor es el nivel, más cerca de la **cima directiva** están las decisiones (p. 99–100).
+
+- **Operativo (o programación):** decisiones de **corto alcance temporal**; afecta a **pocas funciones** (procedimientos); se centra en los **programas a realizar, su secuencia y su lugar preciso en el tiempo**.
+- **Táctico (o de gestión):** decisiones de **mediano alcance** con **cierta reversibilidad**; períodos intermedios (**1 año**); afecta a una **cantidad media de funciones**; se apoya en **presupuestos, cronogramas y programas**; se expresa en **metas**, que son subconjuntos **operables y cuantificables** de los objetivos estratégicos, formulados con mayor desagregación pero con noción del todo.
+- **Estratégico (o estructural):** **temporal** (largo plazo), **estructural** (efectos duraderos, difícil reversibilidad), **integral** (gran número de funciones y áreas), **jerárquico** (niveles superiores), **no programable** (modelos generales no repetibles automáticamente), **no previsible** (exige creatividad y experiencia), **múltiple** (varios escenarios), **modular** (etapas interrelacionadas), **asociado al entorno** (análisis externo: oportunidades y amenazas), **apoyado en el conocimiento de la organización** (análisis interno: fortalezas y debilidades) y **orientado a generar y explotar ventajas competitivas**.
+
+En síntesis, de un nivel a otro cambian cuatro cosas: el **horizonte** (corto → 1 año → largo plazo), la **reversibilidad** (alta → cierta → difícil), el **alcance** (pocas funciones → cantidad media → toda la organización) y el **nivel gerencial** que decide (más abajo → intermedio → cima directiva).
+
+</details>
+
+**Dónde está en el libro:** p. 99 (planeamiento y horizonte de planeamiento), p. 100 (los tres niveles con sus viñetas).
+
+</details>
+
+## Ejecución, control y evaluación de los planes — [p. 100–101]
+
+- El trazado de planes es un **indicio del grado de compromiso de la gerencia** con los objetivos de la organización. Pero **planear no es suficiente** si después no hay un adecuado **proceso de control**.
+- No se refiere únicamente al **control presupuestario** (medición en unidades monetarias del cumplimiento de los planes tácticos y operativos) sino también al control de los **planes estratégicos**.
+- **Robbins y Coulter:** una verdadera **"Administración Estratégica"** no concluye con la formulación de las estrategias, sino que abarca la **verificación de que se ponen en práctica** y de que sus **efectos se corresponden con las expectativas** que sustentaron su adopción; es decir, que **se evalúen sus resultados**.
+- Autores que estudiaron grandes empresas afirman que **una de las grandes fallas del planeamiento es, simplemente, que no se ponen en práctica las cosas que se planean**.
+
+## Análisis del ambiente externo: la competencia — [p. 101]
+
+- El **rasgo más característico del ambiente externo** es la existencia de **competidores**: otras empresas que ofrecen a los potenciales consumidores bienes o servicios dirigidos a **satisfacer las mismas necesidades del mismo segmento del mercado** al que nos dirigimos (o pensamos dirigirnos).
+- Definiciones básicas:
+  - **Necesidad:** sentimiento de **privación** que sufre una persona en relación con una satisfacción general.
+  - **Deseo:** forma que adopta una necesidad de acuerdo con la **cultura y la personalidad** individual. Se convierte en **demanda** cuando está respaldado por **poder adquisitivo**.
+  - **Producto:** cualquier cosa que se ofrece en un mercado capaz de satisfacer una necesidad o un deseo. La gente **no compra productos, compra elementos satisfactores de sus necesidades**. Los productos tienen **atributos diferenciadores** (físicos o simbólicos) y **ciclos de vida**: **lanzamiento, crecimiento, madurez y declinación**.
+- Para ubicar a la empresa en el mapa de la competencia, lo primero es estudiar **"qué es lo que la gente necesita / desea / compra"**. Principio del marketing: el consumidor compra **"atributos percibidos"**, que incluyen mucho más que los elementos físicos del producto y pueden ser **reales o aparentes**.
+
+## El modelo de las 5 fuerzas de Porter — [p. 101–102]
+
+- El enfoque moderno **"mira" qué pasa afuera a nivel del negocio**: un **análisis competitivo de la industria**.
+- **Industria:** conjunto de empresas que producen **artículos sustitutos cercanos** unos de otros. **Técnicamente, dos productos son sustitutos cercanos cuando tienen una elevada elasticidad cruzada de la demanda**: si uno de ellos aumenta el precio, la demanda se vuelca hacia el otro.
+- La empresa hace un **análisis estructural** para evaluar el **atractivo de la industria** a la que desea acceder, o para ver cuál es su situación si ya está en ella. La herramienta más usada: el **Modelo de las Cinco Fuerzas de Michael Porter**.
+- El modelo postula que **cinco fuerzas dominan la estructura de una industria** y **representan y delimitan los precios, los costos y los requerimientos de inversión**. Está enfocado a una **perspectiva de rentabilidad a largo plazo**.
+
+> **Ilustración 17 — "El modelo de las 5 fuerzas de Porter" (p. 102):** en el centro, **Competidores del sector industrial** con la **Intensidad de la rivalidad**. Arriba, **Nuevos ingresos** con la flecha **Amenaza de los nuevos ingresos** hacia el centro. Abajo, **Sustitutos** con la flecha **Amenaza de los sustitutos**. A la izquierda, **Proveedores** con **Poder de negociación de los proveedores**; a la derecha, **Compradores** con **Poder de negociación de los compradores**. (El texto la cita como "ilustración 18", pero el rótulo de la figura dice 17.)
+
+Las **cinco fuerzas** (el libro adecuó el orden a cómo Porter las relaciona en la figura):
+
+1. La **amenaza de entrada de nuevos participantes**.
+2. La **amenaza de los sustitutos**.
+3. El **poder de negociación de los proveedores**.
+4. El **poder de negociación de los compradores**.
+5. La **intensidad de la rivalidad**.
+
+### Amenaza de entrada de nuevos participantes — [p. 102–103]
+
+- Para la empresa que **ya ocupa una posición fuerte**, el tema estratégico no es solo entender a sus competidores actuales y lograr ventaja sobre ellos, sino enfocarse en los **inevitables nuevos participantes**. Preferirá **barreras de entrada altas**.
+- **Barreras de entrada:** los factores que tornan más o menos dificultoso el **acceso al mercado de una industria** para la empresa que todavía no incursionó, y que **protegen a la ya existente**. Ejemplos del libro:
+  - **marcas con fuerte posicionamiento** y público muy leal (gaseosas, automóviles standard, analgésicos de venta libre);
+  - **inversión inicial muy elevada** frente a pronósticos inciertos de la porción de mercado que se le puede arrebatar al líder;
+  - necesidad de **altas escalas de venta y producción** para que el nuevo producto sea rentable.
+- **Barreras de salida** (se analizan en estudios de **evaluación de riesgos**): si se fracasa, qué costos y dificultades habrá para salir del mercado: **instalaciones y equipos de difícil realización**, **pérdida de imagen** (si la empresa es conocida como exitosa en sus sectores tradicionales), **pérdidas irrecuperables en publicidad** si posicionarse exigió altas inversiones, etc.
+- Para la empresa **dominante**: barrera de entrada **alta** → sostiene **rentabilidad elevada**; barreras de salida **bajas** → una **puerta de escape no muy onerosa** si el negocio deja de ser rentable. Si logra ambas: **alta rentabilidad protegida + estabilidad y menores riesgos**.
+- Para la empresa que quiere **entrar como nuevo jugador**, la situación **se invierte**: las barreras de entrada altas son **obstáculos** que deberá esforzarse en superar.
+
+### Amenaza de los sustitutos — [p. 103]
+
+- El atractivo de una industria no solo se ve socavado por las empresas que participan en ella o por los nuevos participantes: también hay que considerar a las empresas que **producen sustitutos**.
+- **Definición técnica:** dos productos son **sustitutos** cuando poseen una **elevada elasticidad cruzada de la demanda** y **representan una alternativa** a nuestros productos.
+- **Qué implican:** su presencia **le pone techo a la rentabilidad de la industria**: **ni bien suban los precios, la demanda se va a transferir hacia los sustitutos**.
+- Tampoco es tan lineal: depende de factores como la **disponibilidad** de los sustitutos, los **costos comparados**, la **propensión al cambio** de los compradores, la **agresividad de los productores** de sustitutos, etc.
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-11-10 (P2): definición técnica de productos sustitutos</summary>
+
+Definición técnica de productos sustitutos. ¿Qué implican en la práctica?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**La amenaza de productos sustitutos:** es necesario tener en cuenta a aquellas empresas que se dedican a la producción de sustitutos, es decir, de productos que satisfacen la misma necesidad que nosotros. Su presencia le pone **techo a la rentabilidad de la industria**: ni bien suban los precios la demanda se va a transferir hacia los sustitutos. Tampoco esto es tan lineal: depende de una serie de factores, tales como la disponibilidad de tales sustitutos, los costos comparados, etc.
+
+</details>
+
+**Ojo (libro, p. 101 y 103):** la respuesta acierta en lo que implican (techo a la rentabilidad) pero **no da la definición técnica**, que es justo lo que pide la pregunta: *"dos productos son sustitutos cuando poseen una elevada elasticidad cruzada de la demanda y representan una alternativa a nuestros productos"* (p. 103; en la p. 101: *"si uno de ellos aumenta el precio, la demanda se volcará hacia el otro"*). "Satisfacen la misma necesidad" es la idea, pero el término técnico es **elasticidad cruzada de la demanda**. Completar los factores que relativizan la amenaza: disponibilidad, costos comparados, **propensión al cambio de los compradores** y **agresividad de los productores de sustitutos**.
+
+**Dónde está en el libro:** p. 101 (definición de industria y de sustitutos cercanos por elasticidad cruzada), p. 103 (sección "Amenaza de los sustitutos").
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — 2016-11-14 (Tema B) (P5): producto competidor vs. producto sustituto y los precios</summary>
+
+¿Cuál es la diferencia entre producto competidor y producto sustituto? ¿Qué pasa en el primer caso cuando intentó elevar «≈ o bajar» en demasía el precio de mis productos? ¿Qué pasa en el segundo cuando el mercado intenta elevar el precio?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+Un **producto competidor** es un producto similar y que satisface la misma necesidad que nuestro producto **de la misma manera** y está dirigido al **mismo sector del mercado** (ej.: Coca y Pepsi). Un **sustituto** es en cambio algo que satisface la misma necesidad **pero no son iguales** (ej.: Coca y jugo Cepita).
+
+Si elevo mucho mis precios, los compradores, de tener otras marcas/empresas (mis competidores) que ofrezcan el mismo producto, migrarán a ellas; de no ser así, migrarán a los sustitutos. Por lo tanto, mis ventas caerán.
+
+</details>
+
+**Ojo (libro, p. 101 y 103):** la idea es correcta pero conviene responder con los términos del libro. **Competidores:** *"otras empresas que ofrecen a los potenciales consumidores bienes o servicios dirigidos a satisfacer las mismas necesidades del mismo segmento del mercado al que nos dirigimos"* (p. 101); forman con nosotros la **industria**. **Sustitutos:** productos con **elevada elasticidad cruzada de la demanda** que **representan una alternativa** a los nuestros (p. 103). Sobre los precios: (1) si **yo** elevo en demasía el precio, la demanda se vuelca a mis **competidores** dentro de la industria (es la elasticidad cruzada que el libro describe en la p. 101: *"si uno de ellos aumenta el precio, la demanda se volcará hacia el otro"*); (2) si **toda la industria** eleva el precio, la demanda se transfiere a los **sustitutos**, que por eso **le ponen techo a la rentabilidad de la industria** (p. 103). Esa es la frase clave que le falta al compilado. Los ejemplos Coca/Pepsi/Cepita son del alumno, no del libro.
+
+**Dónde está en el libro:** p. 101 ("La competencia": definición de competidores; "El modelo de las 5 fuerzas": industria y elasticidad cruzada), p. 103 ("Amenaza de los sustitutos").
+
+</details>
+
+### Poder de negociación de los proveedores — [p. 103]
+
+- En el modelo de Porter, **"poder de negociación"** es una **amenaza impuesta sobre la industria** por parte de los proveedores, a causa del poder de que disponen por:
+  - su **grado de concentración**,
+  - la **especificidad de los insumos** que proveen,
+  - el **impacto de esos insumos en el costo** de la industria, etc.
+- La industria necesita una **estrategia adecuada para neutralizar** esas amenazas; contribuyen otros factores como la **presencia de insumos sustitutos** en el mercado y la **importancia para el proveedor del volumen que factura a la industria** (que puede incluso generar **dependencia**).
+- Opinión del libro: además de las cualidades tecnológicas y las habilidades de negociación, lo determinante es la **"relación de fuerzas"** entre proveedor y empresa: **quien tenga mayor tamaño y mayor fuerza económica y financiera impondrá sus condiciones**.
+- Visión alternativa de autores de países desarrollados: ya no se ve a proveedores y clientes como entes a **maniatar y dominar**, sino como **asociados** que trabajan en conjunto para un óptimo rendimiento. Expresión práctica: el **"just in time"**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2015-11-05 (Tema 1) (P4): ¿qué pasa si aumentan los proveedores?</summary>
+
+Según las fuerzas de Porter, ¿qué pasa si aumentan los proveedores?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**El poder de negociación de los proveedores:** se refiere a una amenaza impuesta sobre la industria por parte de los proveedores, a causa del poder de que éstos disponen ya sea por su **grado de concentración**, por la **especificidad de los insumos** que proveen, por el **impacto de estos insumos en el costo** de la industria, etc. Se necesitará una estrategia adecuada para que la industria pueda neutralizar estas amenazas, y a ese fin contribuyen otros factores, como la **presencia de insumos sustitutos** en el mercado, la **importancia para el proveedor del volumen que factura a la industria** (que puede incluso generar dependencia). Es innegable que lo determinante será la **"relación de fuerzas"** entre el proveedor y la empresa; quien tenga mayor tamaño y mayor fuerza económica y financiera podrá imponer sus condiciones a la otra parte.
+
+</details>
+
+**Ojo (libro, p. 103):** la respuesta transcribe bien la fuerza, pero **no contesta la pregunta** ("¿qué pasa si aumentan?"). Hay que cerrar con la deducción a partir del libro: el poder de los proveedores nace de su **grado de concentración**; si **aumenta la cantidad de proveedores**, la oferta de insumos se **desconcentra**, aparecen alternativas (insumos sustitutos, otros oferentes), la **relación de fuerzas** se inclina hacia la empresa compradora y **el poder de negociación de los proveedores disminuye** → la amenaza sobre la industria es menor (se deduce de los factores del libro; el libro no desarrolla el caso textualmente). Sumar la visión de los proveedores como **asociados** (just in time).
+
+**Dónde está en el libro:** p. 103 (sección "Poder de negociación de los proveedores").
+
+</details>
+
+### Poder de negociación de los compradores — [p. 104]
+
+- Es la **contracara** del poder de negociación de los proveedores. Los **determinantes** del poder del comprador son de **dos tipos**:
+- **Palanca negociadora**, dada por:
+  - la **concentración de compradores** con relación a la concentración de empresas,
+  - los **volúmenes de compra**,
+  - la **negociación para la absorción de costos** por parte del proveedor,
+  - el **acceso del comprador a información estratégica**,
+  - la **capacidad de integración**,
+  - los **productos sustitutos disponibles**,
+  - el **cambio de productos**.
+- **Sensibilidad al precio**, dada por:
+  - la **relación del precio con las compras totales**,
+  - la **relativización de la identidad de la marca** de su proveedor,
+  - el **bajo costo del cambio de producto** sobre la calidad y el desempeño.
+
+<details>
+<summary>📝 Pregunta de parcial — 2015-11-05 (Tema 2) (P4): ¿qué ocurre si aumenta la cantidad de compradores?</summary>
+
+En el modelo de las 5 fuerzas de Porter, ¿qué ocurre si aumenta la cantidad de compradores?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**El poder de negociación de los compradores:** puede verse como la contracara del poder de negociación de los proveedores. Los determinantes del poder del comprador son de dos tipos:
+
+- **Palanca negociadora:** dada por la concentración de compradores con relación a la concentración de empresas, volúmenes de compra, acceso del comprador a información estratégica, productos sustitutos disponibles, cambio de productos.
+- **Sensibilidad al precio:** dada por la relación de éste con las compras totales, el bajo costo del cambio de producto sobre la calidad y desempeño.
+
+</details>
+
+**Ojo (libro, p. 104):** la respuesta coincide con el libro pero le faltan tres determinantes: en la palanca negociadora, la **negociación para la absorción de costos por parte del proveedor** y la **capacidad de integración**; en la sensibilidad al precio, la **relativización de la identidad de la marca** del proveedor. Y, como en la pregunta de proveedores, **no responde "qué ocurre si aumentan"**: según el libro el primer determinante de la palanca es la **concentración de compradores con relación a la concentración de empresas**; si **aumenta la cantidad de compradores**, éstos están **menos concentrados** frente a la industria, cada uno pesa menos en el volumen de compra y **su palanca negociadora disminuye** → menor amenaza sobre la industria (se deduce de los determinantes; el libro no desarrolla el caso textualmente).
+
+**Dónde está en el libro:** p. 104 (sección "Poder de negociación de los compradores").
+
+</details>
+
+### La intensidad de la rivalidad — [p. 104–105]
+
+Esta fuerza, que el gráfico sugiere como **resultante de las demás**, está determinada por varios factores. Los principales:
+
+- **El crecimiento de la industria.** Si la industria crece en forma **dinámica y constante**, existirán **oportunidades para todos** los participantes.
+- **Los costos fijos.** Si una empresa tiene costos fijos elevados, su **punto de equilibrio sube** hasta representar un porcentaje elevado de la capacidad plena. Si no alcanza el nivel de producción que cubra los costos fijos, su **primer reflejo** será **ofrecer condiciones más atractivas** para elevar la demanda, con consecuencias sobre el desempeño general de la industria (**mayor rivalidad, menos rentabilidad**).
+- **Diferenciación de productos.** Cuando **nadie puede decir que su producto es mejor** que el del competidor, la decisión del cliente pasa **únicamente por el precio**; entonces las empresas acuden a **estrategias de diferenciación**, dándole al cliente **"algo distinto" o "algo más"**: servicio posventa, embalaje, entrega a domicilio, envases funcionales, tamaños más económicos, prestaciones adicionales, mejores condiciones de pago y plazos de entrega, una imagen ética, etc. Suele desencadenar una **guerra entre las marcas**. Opinión del libro: este factor tiene **vínculos directos con la amenaza de sustitutos**, como causas o efectos recíprocos.
+- **Concentración o diversidad de competidores.** Es mucho más cómodo competir con **cuatro grandes empresas que acaparan el 85% del mercado**, con filosofía de competidores homogéneos, que con **cientos de competidores** en un mercado igualmente equilibrado (donde no hay homogeneidad y las perspectivas competitivas son muy diferentes). En el primer caso, las acciones de un competidor pueden darle beneficios a corto plazo, pero probablemente produzcan las mismas consecuencias para todos a largo plazo; y es **más fácil ver (y contrarrestar) lo que hacen cuatro o cinco competidores que monitorear a doscientos**.
+- **Identidad de la marca.** Las empresas gastan muchísimo dinero para **mantener sus marcas en el inconsciente colectivo**: posicionar la marca es una fuente de rivalidades que se refleja en verdaderas **"carreras"** por el primer lugar en las preferencias.
+- **Barreras de salida.** Las barreras de salida **altas** contribuyen al **deterioro del atractivo** de una industria: si va a ser muy costoso **"bajar de la calesita"**, la empresa lo piensa dos veces antes de subirse. Se da cuando la industria requiere **gran inversión en tecnología** y los mercados son **maduros o declinantes**: la rentabilidad ya no es la misma y se complica una **declinación ordenada**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2012-06-25 (Tema A) (P3): factores de la intensidad de la rivalidad</summary>
+
+Entre las fuerzas que se analizan en el Modelo de las 5 Fuerzas de Porter se encuentra "La Intensidad de la Rivalidad". Describa qué factores se analizan dentro de esta fuerza en particular.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**La intensidad de la rivalidad:** esta fuerza, resultante de las demás, está determinada por varios factores, de los que se enumeran los principales:
+
+- **El crecimiento de la industria:** si la industria crece en forma dinámica y constante, entonces existirán oportunidades para todos los participantes.
+- **Los costos fijos:** si una empresa no alcanza el nivel de producción tal que cubra los costos fijos, el primer reflejo de esa empresa será ofrecer condiciones más atractivas para tratar de elevar la demanda, lo cual tendrá consecuencias sobre el desempeño general de la industria (mayor rivalidad, menor rentabilidad).
+- **Diferenciación de productos:** cuando en una industria nadie puede decir que su producto es mejor que el de su competidor, por lo que la decisión del cliente pasa únicamente por el precio, las empresas acuden a estrategias de diferenciación de sus productos, tratando de darle al cliente "algo distinto" o "algo más", un valor agregado como puede ser el servicio posventa, el embalaje, la entrega a domicilio, envases funcionales, etc. Esto suele desencadenar una verdadera guerra entre las marcas.
+- **Concentración o diversidad de competidores:** es mucho más cómodo competir con cuatro grandes empresas que acaparan el 85% del mercado, con una filosofía de competidores homogéneos, que con cientos de competidores en un mercado igualmente equilibrado. Es más fácil ver (y contrarrestar) lo que hacen cuatro o cinco competidores que monitorear a doscientos.
+- **Identidad de la marca (posicionamiento):** las empresas gastan muchísimo dinero para mantener sus marcas en el inconsciente colectivo, conscientes de la importancia que tiene posicionar su marca. Esta es una fuente de rivalidades que se suelen reflejar en verdaderas "carreras" para lograr el primer lugar en las preferencias de los consumidores.
+- **Barreras de salida:** contribuyen al deterioro del atractivo de una industria. Y es lógico: si va a ser muy costoso bajar de la "calesita" lo más probable es que antes de subirse una empresa lo piense dos veces. Esto se da cuando la industria requiere una gran inversión en tecnología, y los mercados son maduros o declinantes.
+
+</details>
+
+**Ojo (libro, p. 104–105):** la respuesta coincide con el libro: los **seis factores** están y en el mismo orden. Detalles que se pueden sumar: en costos fijos, que el **punto de equilibrio sube** hasta un porcentaje elevado de la capacidad plena; en diferenciación, la opinión del libro de que este factor tiene **vínculos directos con la amenaza de sustitutos**; en concentración, que las acciones de un competidor dan beneficios a corto plazo pero las mismas consecuencias para todos a largo plazo; en barreras de salida, que **la rentabilidad ya no es la misma y se complica una declinación ordenada**.
+
+**Dónde está en el libro:** p. 104–105 (sección "La intensidad de la rivalidad").
+
+</details>
+
+## Contextos nacional e internacional — [p. 105]
+
+Último punto del análisis del ambiente externo: el libro enumera en una tabla **ejemplos de componentes** del contexto, cuya validez depende de cada época o momento histórico.
+
+| Ambiente | Contexto internacional | Contexto nacional |
+|---|---|---|
+| **Económico** | Globalización; indicadores de la economía mundial; tasas de interés internacional; exigencias de los organismos financieros internacionales | Dinero circulante y reservas; índices de precios; desocupación; déficit fiscal; balanza comercial; evolución del PBI; poder adquisitivo de la población |
+| **Político** | Conflictos internacionales; alianzas político-militares; presiones políticas sobre los Estados; guerras | Funcionamiento de los poderes del Estado; relación Nación / provincias; leyes de protección y fomento; elecciones nacionales |
+| **Legal** | Acuerdo del MERCOSUR | Regulaciones a las empresas concesionarias de servicios |
+| **Social** | Ecología; migraciones; enfrentamientos raciales | Malestar social; exclusión social; delincuencia |
+
+## Análisis del ambiente interno: la cadena de valor de Porter — [p. 106–107]
+
+- El modelo de la **Cadena de Valor** trata de **identificar el conjunto de factores internos que determinan la posición de una firma en el mercado**, para que una vez identificados puedan **explotarse a su máximo exponente** y así lograr la **ventaja competitiva sostenible**.
+- Para Porter, la cadena de valor *"proporciona una manera sistemática de examinar todas las actividades realizadas por una firma y cómo ellas interactúan"*. Distingue **actividades primarias** y **actividades de apoyo**.
+
+### Actividades primarias — [p. 106]
+
+Están **directamente implicadas en el flujo del producto hacia el cliente**:
+
+- **Logística de entrada:** recepción, almacenamiento, manejo de materiales, depósito, control de inventario, programación de vehículos y devolución a proveedores.
+- **Operaciones:** **transformación de insumos en productos finales** (giro de fabricación), montaje, mantenimiento de equipos, control de calidad, manejo de las instalaciones.
+- **Logística de salida:** depósito de productos terminados, distribución, manejo de materiales, operación de vehículos de despacho, procesamiento de pedidos, programación.
+- **Comercialización y ventas:** **inducir y facilitar a los compradores la adquisición del producto** (publicidad, fuerza de ventas, cotizaciones, selección del canal de comercialización, fijación de precios).
+- **Servicio post-venta:** **mantener o mejorar el valor del producto después de la venta** (instalación, reparación, capacitación, venta de repuestos, etc.).
+
+### Actividades de apoyo — [p. 106]
+
+No solo dan soporte a las actividades primarias, sino que **también se dan apoyo entre ellas**:
+
+- **Adquisiciones:** compra de materia prima, suministros, artículos de consumo y bienes.
+- **Desarrollo de la tecnología:** **"know-how"**, procedimientos, insumos tecnológicos necesarios en toda actividad de la cadena de valor.
+- **Gestión de recursos humanos:** selección, promoción y colocación, evaluación, recompensas, desarrollo ejecutivo y relaciones sindicato–empresa.
+- **Infraestructura gerencial:** gestión general, planificación, finanzas, contabilidad, asuntos legales, gubernamentales y gestión de calidad.
+
+### El margen — [p. 106–107]
+
+> **Ilustración 18 — "Cadena de Valor de Porter" (p. 107), tal como la presentó el autor en 1985:** un rectángulo en forma de **flecha apuntando a la derecha**. Arriba, cuatro franjas horizontales con las **actividades de apoyo**: **Infraestructura gerencial de la empresa**, **Gestión de recursos humanos**, **Desarrollo de la tecnología**, **Adquisiciones**, que atraviesan toda la cadena. Abajo, cinco columnas con las **actividades primarias** en orden: **Logística de entrada → Operaciones → Logística de salida → Comercialización y ventas → Servicio de post-venta**. En la punta derecha de la flecha, la palabra **Margen**. (El texto la cita como "Ilustración 19"; el rótulo de la figura dice 18.)
+
+- La palabra **"margen"** a la derecha de la figura indica que los **márgenes de ganancia** (diferencia entre **lo que paga el cliente** y los **costos totales** incurridos para fabricar el bien o producir el servicio) **dependen de la manera como se administre la cadena de valor**.
+- Porter plantea que debe considerarse **la totalidad de la cadena**: se puede ser **el mejor en marketing**, pero eso puede **no constituir una ventaja estratégica si no se equipara con las operaciones**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-06-24 (Tema 2) (P3): cadena de valor, ¿interno o externo?</summary>
+
+Cadena de valor de Porter. ¿Se usa para el análisis del ambiente interno o externo? Explique.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+Es una herramienta de análisis del **ambiente interno**. Proporciona una manera sistémica de examinar todas las actividades realizadas por una firma y cómo interactúan.
+
+**Actividades primarias:** son las que están directamente implicadas en el flujo del producto hacia el cliente; incluyen:
+
+- Logística de entrada: recepción, almacenamiento, manejo de materiales, control de inventario, etc.
+- Operaciones: transformación de insumos en productos finales.
+- Logística de salida: depósito de productos terminados, montaje, mantenimiento.
+- Comercialización y ventas: inducir y facilitar a los compradores la adquisición del producto.
+- Servicio post-venta: mantener o mejorar el producto después de la venta.
+
+**Actividades de apoyo:** son las que apoyan a las actividades primarias y entre sí.
+
+- Adquisiciones: compra de materia prima y suministros.
+- Desarrollo de la tecnología: "know-how", procedimientos.
+- Gestión de recursos humanos: selección, promoción y colocación.
+- Infraestructura gerencial: gestión general, planificación.
+
+</details>
+
+**Ojo (libro, p. 106–107):** la respuesta acierta en lo esencial (**interno**; el libro la ubica bajo el título "Análisis del ambiente interno de la organización" y la contrapone a las 5 fuerzas, que son el análisis externo, p. 114). Dos correcciones: el libro dice manera **sistemática**, no "sistémica"; y **"montaje" y "mantenimiento" son de Operaciones**, no de logística de salida (logística de salida = depósito de productos terminados, distribución, despacho, procesamiento de pedidos, programación). Faltan el **para qué** (identificar los factores internos que determinan la posición de la firma y explotarlos para lograr una **ventaja competitiva sostenible**) y el **margen**: la diferencia entre lo que paga el cliente y los costos totales depende de cómo se administre la cadena.
+
+**Dónde está en el libro:** p. 106 (definición, actividades primarias y de apoyo), p. 106–107 (margen e Ilustración 18), p. 114 (cadena de valor = análisis interno, cinco fuerzas = análisis externo).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P3): cómo funciona la cadena de valor y para qué sirve</summary>
+
+¿Cómo funciona la Cadena de Valor? ¿Para qué sirve?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Generación de valor – Cadena de valor de Porter:** este modelo trata de identificar el conjunto de **factores internos** que determinan la posición de una firma en el mercado, para que una vez identificados puedan ser explotados a su máximo exponente, y de esta manera lograr la tan ansiada **ventaja competitiva sostenible**. Para ello, se analizan todas las actividades realizadas por una firma y cómo ellas interactúan:
+
+**Actividades primarias** (directamente implicadas en el flujo del producto hacia el cliente):
+
+- Logística de entrada: recepción, almacenamiento, manejo de materiales, etc.
+- Operaciones: transformación de insumos en productos finales, mantenimiento de equipos, control de calidad, etc.
+- Logística de salida: procesamiento de pedidos, distribución, etc.
+- Comercialización y ventas: inducir y facilitar a los compradores la adquisición del producto.
+- Servicio post-venta: mantener o mejorar el valor del producto después de la venta (instalación, reparación, capacitación, venta de repuestos, etc.).
+
+**Actividades de apoyo (transversales):** no solo apoyan a las actividades primarias, sino que también se dan apoyo entre ellas.
+
+- Adquisiciones: compra de materia prima, suministros, etc.
+- Desarrollo de la tecnología: "know-how", procedimientos, insumos tecnológicos necesarios en toda actividad de la cadena del valor.
+- Gestión de recursos humanos: selección, promoción y desarrollo de los recursos humanos de la empresa.
+- Infraestructura gerencial: gestión general, planificación, finanzas, etc.
+
+</details>
+
+**Ojo (libro, p. 106–107):** la respuesta coincide con el libro y es completa en el "para qué" (ventaja competitiva sostenible) y en las 9 actividades. Para el "cómo funciona" conviene sumar el **margen**: la ganancia (lo que paga el cliente menos los costos totales) **depende de cómo se administre la cadena**, y Porter insiste en mirar **la totalidad de la cadena** (ser el mejor en marketing no es ventaja estratégica si no se equipara con las operaciones).
+
+**Dónde está en el libro:** p. 106 (definición y actividades), p. 106–107 (margen, Ilustración 18).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego A) (P4): para qué sirve la cadena de valor y sus actividades</summary>
+
+¿Para qué sirve la Cadena de Valor (de Michael Porter)? Describa las actividades que la componen.
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+**Para qué sirve** (p. 106). Es la herramienta de **análisis del ambiente interno**: trata de **identificar el conjunto de factores internos que determinan la posición de una firma en el mercado**, para **explotarlos a su máximo exponente** y lograr una **ventaja competitiva sostenible**. Según Porter, *"proporciona una manera sistemática de examinar todas las actividades realizadas por una firma y cómo ellas interactúan"*. La figura termina en la palabra **margen**: la ganancia (lo que paga el cliente menos los costos totales) **depende de cómo se administre la cadena**, y hay que mirarla **completa**: ser el mejor en marketing no es una ventaja estratégica si no se equipara con las operaciones (p. 106–107).
+
+**Actividades primarias** — las **directamente implicadas en el flujo del producto hacia el cliente** (p. 106):
+
+- **Logística de entrada:** recepción, almacenamiento, manejo de materiales, control de inventario, programación de vehículos, devoluciones a proveedores.
+- **Operaciones:** transformación de insumos en productos finales, montaje, mantenimiento de equipos, control de calidad, manejo de instalaciones.
+- **Logística de salida:** depósito de productos terminados, distribución, despacho, procesamiento de pedidos, programación.
+- **Comercialización y ventas:** inducir y facilitar la compra (publicidad, fuerza de ventas, cotizaciones, canal, precios).
+- **Servicio post-venta:** mantener o mejorar el valor del producto después de la venta (instalación, reparación, capacitación, repuestos).
+
+**Actividades de apoyo** — dan soporte a las primarias **y entre sí** (p. 106):
+
+- **Adquisiciones:** compra de materias primas, suministros, bienes.
+- **Desarrollo de la tecnología:** know-how, procedimientos, insumos tecnológicos de toda la cadena.
+- **Gestión de recursos humanos:** selección, promoción, evaluación, recompensas, desarrollo ejecutivo, relaciones con el sindicato.
+- **Infraestructura gerencial:** gestión general, planificación, finanzas, contabilidad, asuntos legales y gubernamentales, gestión de calidad.
+
+</details>
+
+**Dónde está en el libro:** p. 106 (sección "Generación de valor – Cadena de Valor de Porter"), p. 107 (Ilustración 18 y el margen).
+
+</details>
+
+## La cultura de la organización — [p. 107–108]
+
+- Los **sistemas de conducta** observables en una organización están en función de **variables culturales y sociales**. Toda organización se crea para ciertos **fines**, se estructura conforme a ellos y los realiza a través de las **relaciones personales** que constituyen su estructura.
+- Las personas son **portadoras de valores y conductas** modeladas por sus **grupos de pertenencia** (familia, escuela, amistades, sector social, medio ambiente). Sus pautas de conducta se reflejan en sistemas similares de caracteres, personalidades y creencias.
+- Las organizaciones no pueden estudiarse aisladas de su **medio ambiente cultural**: actúan dentro del sistema cultural, y cada organización **es, o crea, una subcultura**: patrones de conducta propios, ajustados al patrón cultural más amplio de la sociedad.
+- Esos patrones representan lo que dentro de la organización se considera **"bueno" para sus fines**; tácitamente aceptados, pasan a ser el **sistema de valores** al que los miembros ajustan sus normas individuales.
+- La **cultura organizacional** expresa **presunciones compartidas, valores y creencias**, y es **lo que sostiene unida a la organización**. Se manifiesta en **normas, modos de vestirse, lenguajes especiales, mitos, rituales, héroes e historias** (ejemplo del libro: en **IBM** trajes oscuros, camisa blanca y zapatos lustrados; en **Apple** remeras, jeans y zapatillas).
+- **Culturas fuertes:** los estándares y guías son **conocidos y compartidos por todos**, fomentando una **dirección común** de comportamiento.
+- **Culturas débiles:** las normas de **subgrupos** o incluso individuales influyen más que las culturales (hay **subculturas**). No es necesariamente negativo: a veces las subculturas fuertes son deseables porque permiten **diversidad de pensamiento y acción**; pero en culturas débiles el **comportamiento consistente** es difícil, si no imposible.
+- Existe además una **cultura exterior** a la empresa (nacional o regional): valores, percepciones comunes, maneras parecidas de enfocar la realidad. **Ambos niveles (interna y externa) condicionan e influyen** en los comportamientos y decisiones de la organización.
+
+## Los recursos de la organización — [p. 108]
+
+Último punto del ambiente interno. Variables principales que se evalúan:
+
+| Recursos | Ítem de análisis |
+|---|---|
+| **Económicos** | Patrimonio neto; volumen de actividades; ratios económicas |
+| **Financieros** | Endeudamiento; capacidad de acceso al crédito bancario; capacidad de acceso a nuevos capitales |
+| **Activos** | Instalaciones y bienes de uso; capacidad de producción; patentes y marcas; potencial de investigación y desarrollo |
+| **Recursos humanos** | Formación y experiencia del personal; integración y fidelidad a la organización |
+| **Habilidades comerciales** | Comunicación con los diversos niveles de clientes; acceso a los canales de distribución; efectividad de la publicidad y la promoción; nivel de precios |
+
+## Matriz BCG — [p. 108–110]
+
+- Herramienta **sumamente importante por su versatilidad**. Sirve para **determinar la situación actual de los diversos productos de la empresa** en función de su **perspectiva de desarrollo y de éxito en el mercado**, y **fundamentalmente para la decisión de inversión que requiere cada línea de producto**.
+- También llamada **Matriz Competitiva** o **Matriz de Portafolio**; "BCG" por la consultora **Boston Consulting Group**. Presenta **cuatro categorías** en las que se ubica cada uno de los **sectores estratégicos** definidos.
+- Términos previos:
+  - **Participación en el mercado:** la **proporción de la demanda efectiva total satisfecha por la empresa**, medida en **porcentajes**. Ejemplo: el champú para cabellos secos marca X tiene el **55% de las ventas de ese tipo de producto** (no de toda la línea que produce la empresa).
+  - **Tasa de crecimiento:** la **expectativa de aumento de la demanda** de cierto producto específico.
+
+> **Ilustración 19 — "Matriz BCG" (p. 109):** una grilla de 2×2. Eje horizontal: **Participación relativa en el mercado**, **ALTA** (izquierda) / **BAJA** (derecha). Eje vertical: **Crecimiento de la demanda**, **ALTO** (arriba) / **BAJO** (abajo). Cuadrantes: arriba a la izquierda **ESTRELLAS**; arriba a la derecha **DILEMAS** (marcados con un **"?"**); abajo a la izquierda **VACAS LECHERAS** (marcadas con **"$"**); abajo a la derecha **PESOS MUERTOS** (marcados con una **"x"**).
+
+### Los cuatro cuadrantes — [p. 109]
+
+- **Estrellas** (participación **alta**, crecimiento **alto**): sectores en los que la empresa posee **alta participación** y que están en una etapa de **alto crecimiento**. Por eso **no son generadores de flujo de efectivo**: necesitan la **inversión impulsora para seguir manteniendo la porción de mercado**. Perspectiva: cuando ya **no haga falta reinvertir** serán **generadores de efectivo**, con **alto margen, estabilidad y seguridad**, convirtiéndose en **vacas lecheras**.
+- **Vacas lecheras** (participación **alta**, crecimiento **bajo**): **fuente de importantes utilidades** de la empresa. El crecimiento de la demanda es **lento**, pero las **inversiones son mínimas** y el **margen de contribución, elevado**. Qué hacer: **seguir explotándolas mientras generen rentabilidad y no pensar en nuevas inversiones**, porque su **porvenir es dudoso** (por ejemplo, si hubiera un pronóstico de **obsolescencia** a corto o mediano plazo).
+- **Dilemas** (participación **baja**, crecimiento **alto**): sectores que a corto plazo **contribuyen al crecimiento de la empresa pero no a sus utilidades**, porque **requieren más efectivo del que generan**. Seguirán creciendo, pero **exigen altas inversiones para mantener un porcentaje no significativo de mercado**. **La decisión es incierta**: si son exitosos se pueden convertir en **estrellas**; de lo contrario se volverán **"perros" (pesos muertos)**.
+- **Pesos muertos (o "perros")** (participación **baja**, crecimiento **bajo**): los **sectores del pasado**, que **no contribuyen a la utilidad ni tienen perspectivas de crecimiento**. **No conviene hacer ninguna nueva inversión** para mantenerlos vivos.
+
+### Ciclo de vida, portafolio y flujos de caja — [p. 110]
+
+- Cada línea de productos tiene su propio **"ciclo de vida"** y pasa por distintos momentos en cuanto a **tasas de crecimiento, participaciones en el mercado, inversiones y utilidades**.
+- En conjunto constituyen el **"portafolio"**, que es la resultante (o una de las resultantes) del **equilibrio entre los flujos de caja**: **los productos de gran crecimiento necesitan ingresos en efectivo para poder crecer; los de poco crecimiento deberían generar un exceso de efectivo**.
+- En los ejes también se puede ubicar la **tasa de rentabilidad** y compararla con la **de inversión**, obteniendo el diagrama con la **visión financiera** de los sectores estratégicos.
+
+<details>
+<summary>📝 Pregunta de parcial — 2012-06-25 (Tema B) (P3): matriz BCG completa</summary>
+
+Una de las herramientas utilizadas en las organizaciones es la matriz BCG. ¿Para qué sirve esta herramienta? ¿En qué consiste? ¿Cómo se utiliza o qué representa cada caso analizado?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Matriz BCG (Matriz competitiva):** se trata de una herramienta sumamente importante por su versatilidad, que sirve para determinar la situación actual de los diversos productos de la empresa en función de su perspectiva de desarrollo y de éxito en el mercado, y fundamentalmente para la **decisión de inversión** que requiere cada línea de producto. Para su mejor interpretación conviene aclarar previamente el significado de algunos términos:
+
+- **Participación relativa en el mercado:** es la proporción de la demanda efectiva total satisfecha por la empresa, y se mide en porcentajes. Por ejemplo: el shampoo para cabellos secos marca X tiene el 55% de las ventas de ese tipo de producto (no de toda la línea que produce la empresa).
+- **Tasa de crecimiento de la demanda:** expectativa de aumento de la demanda de cierto producto específico.
+
+En esta matriz se presentan las cuatro categorías en que es posible ubicar a cada uno de los sectores estratégicos definidos:
+
+- **Estrellas:** sectores en los que la empresa posee una alta participación en los mercados y están en una etapa de alto crecimiento. Por esta razón no son generadores de flujo de efectivo ya que necesitan de la inversión impulsora para seguir manteniendo la porción de mercado. La perspectiva es que cuando ya no haga falta reinvertir serán generadores de efectivo para la empresa, ofrecerán un alto margen, estabilidad y seguridad, convirtiéndose así en "vacas lecheras".
+- **Vacas lecheras:** fuente de importantes utilidades de la empresa. El crecimiento de la demanda es lento, pero las inversiones en estos sectores son mínimas, y el margen de contribución, elevado. Hay que seguir explotándolo mientras genere rentabilidad y no pensar en nuevas inversiones porque su porvenir es dudoso.
+- **Dilemas:** sectores que a corto plazo contribuyen al crecimiento de la empresa, pero no a sus utilidades, ya que requieren más efectivo que el que generan. Seguirán creciendo, pero exigen altas inversiones para mantener un porcentaje no significativo de mercado. La decisión es incierta. Si son exitosos se pueden convertir en Estrellas; de lo contrario se volverán "perros" (pesos muertos).
+- **Pesos muertos (perros muertos):** son los sectores del pasado, que no contribuyen a la utilidad, ni tienen perspectivas de crecimiento. No conviene hacer ninguna nueva inversión para mantenerlos vivos.
+
+</details>
+
+**Ojo (libro, p. 108–110):** la respuesta coincide con el libro casi palabra por palabra y es completa. Para redondear conviene ubicar cada cuadrante en los **ejes** (estrella = participación alta + crecimiento alto; vaca = alta + bajo; dilema = baja + alto; peso muerto = baja + bajo) y agregar la idea de **portafolio** (p. 110): las líneas tienen ciclo de vida, y el conjunto es el equilibrio de los flujos de caja (los de gran crecimiento necesitan efectivo, los de poco crecimiento deberían generar un exceso). El libro también la llama **Matriz de Portafolio**.
+
+**Dónde está en el libro:** p. 108–109 (para qué sirve, términos, Ilustración 19, los cuatro cuadrantes), p. 110 (ciclo de vida y portafolio).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego A) (P5): diferencia entre producto estrella y vaca lechera</summary>
+
+¿Cuál es la diferencia entre un producto estrella y un producto "vaca lechera"?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+Las dos categorías comparten **alta participación en el mercado** (están en la columna izquierda de la matriz BCG, p. 109); lo que las diferencia es el **eje vertical, el crecimiento de la demanda**, y de ahí se desprende todo lo demás:
+
+- **Estrella:** alta participación en un mercado de **alto crecimiento**. Por eso **no genera flujo de efectivo**: necesita **inversión impulsora** para **mantener la porción de mercado** mientras la demanda crece. Es una apuesta a futuro: cuando ya no haga falta reinvertir, se convertirá en **vaca lechera**, con alto margen, estabilidad y seguridad.
+- **Vaca lechera:** alta participación en un mercado de **crecimiento lento**. Es la **fuente de importantes utilidades**: las **inversiones son mínimas** y el **margen de contribución es elevado**. La decisión es **seguir explotándola mientras genere rentabilidad y no hacer nuevas inversiones**, porque su porvenir es dudoso (por ejemplo, un pronóstico de obsolescencia).
+
+En resumen: la estrella **consume** efectivo hoy para ser la vaca de mañana; la vaca **genera** efectivo hoy y no se reinvierte en ella. En el portafolio (p. 110), *"los productos de gran crecimiento necesitan ingresos en efectivo para poder crecer, los de poco crecimiento deberían generar un exceso de efectivo"*: la vaca financia a la estrella.
+
+</details>
+
+**Dónde está en el libro:** p. 109 (Ilustración 19 y definiciones de estrellas y vacas lecheras), p. 110 (portafolio y equilibrio de flujos de caja).
+
+</details>
+
+### Las 4 variantes de razonamiento que toma el parcial — [p. 109–110]
+
+El parcial casi nunca pide solo definir los cuadrantes: pide **razonar sobre los dos ejes**. Todo lo que sigue sale de la lógica de la matriz según el libro (p. 109–110); lo que no está textual se marca como deducción.
+
+**(1) Estrella vs. vaca lechera: ¿la utilidad de cuál invertir, y por qué?**
+
+- La **vaca lechera** genera **importantes utilidades** con **inversiones mínimas**, y el libro es categórico: **"no pensar en nuevas inversiones porque su porvenir es dudoso"** (p. 109). Su utilidad **no se reinvierte en ella misma**.
+- La **estrella** **no genera flujo de efectivo** porque **necesita inversión impulsora para mantener la porción de mercado** mientras el mercado crece; cuando deje de hacer falta reinvertir, será la vaca lechera del futuro (p. 109).
+- El portafolio es el **equilibrio entre los flujos de caja**: *"los productos de gran crecimiento necesitan ingresos en efectivo para poder crecer, los de poco crecimiento deberían generar un exceso de efectivo"* (p. 110).
+- Conclusión: **el dinero va a la estrella, y sale de la vaca**: se invierte la utilidad de la vaca lechera (y la poca que la estrella pueda generar) en la estrella, para sostener su participación en un mercado que crece y asegurar la vaca lechera de mañana. Invertir en la vaca sería financiar un producto cuyo crecimiento es lento y cuyo porvenir es dudoso (se deduce de los ejes: la vaca ya tiene participación alta y el mercado no crece, así que la inversión no tiene dónde rendir).
+
+**(2) ¿Por qué una estrella pasa a incógnita/dilema?**
+
+- Estrella y dilema están en la **misma fila (crecimiento alto)** y se diferencian **solo por el eje horizontal**: estrella = participación **alta**, dilema = participación **baja** (p. 109).
+- Por lo tanto una estrella pasa a dilema cuando **cae su participación relativa en el mercado manteniéndose alto el crecimiento de la demanda**: la empresa **deja de satisfacer una proporción alta de la demanda efectiva total** (definición de participación, p. 109) aunque esa demanda siga creciendo.
+- Por qué puede caer la participación (deducción a partir de otras partes del capítulo; el libro no lo enumera en la BCG): la estrella **necesita inversión impulsora para mantener la porción de mercado** (p. 109), así que si **no se la reinvierte** pierde terreno; o porque **nuevos participantes** entran al mercado atraídos por el crecimiento (p. 102–103) y los **competidores** captan parte de la demanda (rivalidad, p. 104–105); o porque **sustitutos** se llevan parte de la demanda (p. 103). Una vez dilema, la decisión es incierta: con éxito vuelve a estrella, si no termina en peso muerto (p. 109).
+
+**(3) La demanda se ameseta: ¿vaca lechera o dilema?**
+
+- Que la curva de demanda **se amesete** significa que **cae la tasa de crecimiento** (la "expectativa de aumento de la demanda", p. 109): el producto **baja de la fila ALTO a la fila BAJO** del eje vertical.
+- Un **dilema** está en la fila de **crecimiento ALTO** (p. 109), así que una demanda que se ameseta **no lleva a dilema**: va hacia abajo, no hacia la derecha.
+- Adónde va depende del **otro eje, la participación relativa** (se deduce de los ejes): si la participación es **alta** (era una **estrella**), pasa a **vaca lechera**, que es exactamente lo que el libro anticipa: *"cuando ya no haga falta reinvertir serán generadores de efectivo... convirtiéndose así en vacas lecheras"* (p. 109); si la participación es **baja** (era un **dilema**), pasa a **peso muerto**: *"de lo contrario se volverán 'perros' (pesos muertos)"* (p. 109).
+- Respuesta tipo: "va camino a **vaca lechera** si tenemos participación alta; si la participación es baja, a **peso muerto**. A dilema no, porque dilema exige crecimiento alto."
+
+**(4) Medidas a tomar con la estrella y con la vaca, y por qué**
+
+- **Estrella → invertir (inversión impulsora).** Por qué: en un mercado que crece hay que **invertir para seguir manteniendo la porción de mercado** (p. 109); si no, cae la participación y pasa a dilema (variante 2). El premio es que **cuando ya no haga falta reinvertir** se convierte en **vaca lechera** con alto margen, estabilidad y seguridad (p. 109).
+- **Vaca lechera → ordeñar: seguir explotándola mientras genere rentabilidad, sin nuevas inversiones.** Por qué: el crecimiento es **lento**, las inversiones necesarias son **mínimas**, el margen de contribución es **elevado** y su **porvenir es dudoso** (puede venir una obsolescencia a corto o mediano plazo), así que **no hay que pensar en nuevas inversiones** (p. 109). Su exceso de efectivo **financia a las estrellas y dilemas** del portafolio (p. 110).
+- (Para completar el cuadro: **dilema → decisión incierta**, invertir fuerte solo si puede llegar a estrella; **peso muerto → ninguna nueva inversión**, p. 109.)
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-11-10 (P1): estrella vs. vaca lechera, ¿la utilidad de cuál invertiría?</summary>
+
+Está evaluando una matriz BCG, con una línea de producto "Estrella" y una línea de producto "Vaca Lechera", y viendo sus utilidades. ¿La utilidad de cuál de ellas invertiría? Justifique.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+Depende de cuánto dinero tenga para invertir y qué tan rápido quiero ver las ganancias. Si se invierte en un **producto estrella**, se debe invertir mucho capital ya que es un producto nuevo que está en proceso de crecimiento, por lo que necesita **inversión impulsora**. Las ganancias del mismo se verán en el futuro.
+
+En cambio, los productos **vaca lechera** no necesitan tanta inversión pero, al ser un producto que está ya establecido en el mercado, aunque su posición en el mercado crece lento, da un **margen de contribución elevado**.
+
+</details>
+
+**Ojo (libro, p. 109–110):** el "depende" del compilado no es lo que dice el libro, que es **categórico**: con la vaca lechera **"no pensar en nuevas inversiones porque su porvenir es dudoso"**; con la estrella, **inversión impulsora para mantener la porción de mercado** hasta que se convierta en vaca lechera. La respuesta correcta es **invertir la utilidad de la vaca lechera en la estrella** (y reinvertir en la estrella lo poco que ella genere): el portafolio es el equilibrio de flujos de caja, *"los productos de gran crecimiento necesitan ingresos en efectivo para poder crecer, los de poco crecimiento deberían generar un exceso de efectivo"* (p. 110). Además, el libro **no dice que la estrella sea un "producto nuevo"**: la define por **alta participación + alto crecimiento del mercado**; y la vaca no es la que "crece lento", es el **mercado (la demanda)** el que crece lento. Ver la variante (1) de arriba.
+
+**Dónde está en el libro:** p. 109 (estrellas y vacas lecheras: qué hacer con cada una), p. 110 (portafolio y flujos de caja).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — 2016-11-14 (Tema B) (P2): ¿por qué una estrella pasa a incógnita?</summary>
+
+¿Cuáles son los motivos por los cuales un producto de nuestra cartera pasa de ser una Estrella a Incógnita?
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+Porque **se reduce nuestra participación en ese mercado**. Podría ser que ahora para ese bien haya más proveedores y por lo tanto estos estén tomando una porción de lo que antes eran nuestros clientes.
+
+</details>
+
+**Ojo (libro, p. 109):** el núcleo está bien: estrella y dilema (incógnita) comparten **crecimiento alto** y se diferencian por la **participación relativa**, así que el pasaje ocurre cuando **cae la participación manteniéndose el crecimiento**. Dos correcciones: la palabra correcta es **competidores** (empresas que satisfacen la misma necesidad del mismo segmento, p. 101) o **nuevos participantes** (p. 102), no "proveedores", que en Porter son quienes venden insumos a la industria (p. 103). Y conviene explicitar el motivo que el libro sí da dentro de la BCG: la estrella **necesita inversión impulsora para seguir manteniendo la porción de mercado** (p. 109); si no se reinvierte, pierde participación. Decir también que el **crecimiento de la demanda se mantiene alto** (si bajara, iría a vaca o a peso muerto, no a dilema). Ver la variante (2) de arriba.
+
+**Dónde está en el libro:** p. 109 (ejes de la Ilustración 19, definición de participación en el mercado, estrellas y dilemas); p. 101–105 (competidores, nuevos participantes, sustitutos, como causas posibles de la pérdida de participación).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego B) (P3): demanda que se ameseta, ¿vaca lechera o dilema?</summary>
+
+Si la curva de crecimiento de la demanda de un producto se está amesetando, ¿significa que va camino a convertirse en una "vaca lechera" o en un "dilema"? Justificar.
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+La matriz BCG (p. 109) cruza dos ejes: la **participación relativa en el mercado** (alta / baja, eje horizontal) y el **crecimiento de la demanda** (alto / bajo, eje vertical), entendido como la *"expectativa de aumento de la demanda de cierto producto específico"*.
+
+Que la curva de crecimiento de la demanda **se amesete** quiere decir que **la tasa de crecimiento cae**: el producto **baja de la fila de crecimiento ALTO a la de crecimiento BAJO**. Esto **descarta el dilema**, porque los dilemas están en la fila de **crecimiento alto** (son sectores que *"seguirán creciendo, pero exigen altas inversiones para mantener un porcentaje no significativo de mercado"*). Una demanda que se frena nunca lleva a un dilema.
+
+Hacia dónde va depende del **otro eje**, la participación (se deduce de la lógica de los ejes):
+
+- Si el producto tiene **participación alta** (hoy es una **estrella**), va camino a ser **vaca lechera**. Es exactamente la evolución que describe el libro: *"cuando ya no haga falta reinvertir serán generadores de efectivo para la empresa, ofrecerán un alto margen, estabilidad y seguridad, convirtiéndose así en vacas lecheras"*. Con la demanda amesetada ya no hace falta la inversión impulsora, y la participación alta se traduce en margen de contribución elevado con inversiones mínimas.
+- Si tiene **participación baja** (hoy es un **dilema**), va camino a ser **peso muerto**: *"de lo contrario se volverán 'perros' (pesos muertos)"*, sectores del pasado sin utilidad ni perspectivas de crecimiento.
+
+Respuesta: **vaca lechera**, siempre que la participación relativa sea alta; a dilema no, porque el dilema requiere crecimiento alto. Y la medida que acompaña el pasaje es **dejar de invertir** y empezar a **explotar** el producto mientras dé rentabilidad (p. 109).
+
+</details>
+
+**Dónde está en el libro:** p. 109 (ejes de la Ilustración 19; definiciones de tasa de crecimiento, estrellas, vacas lecheras, dilemas y pesos muertos), p. 110 (ciclo de vida de cada línea y portafolio).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (foto) (P4): estrella vs. vaca lechera, qué medidas tomar y por qué</summary>
+
+Cuando definimos la Matriz de Portafolio, o Matriz BCG, ¿qué diferencia hay entre los productos Estrella y los Vaca Lechera? ¿Qué medidas hay que tomar con cada uno de ellos? ¿Por qué hay que tomar dichas medidas?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+**Diferencia.** La Matriz de Portafolio o BCG (p. 108–109) ubica cada sector estratégico según dos ejes: **participación relativa en el mercado** y **crecimiento de la demanda**. Estrella y vaca lechera comparten la **participación alta**; se diferencian por el **crecimiento**:
+
+- **Estrella:** participación alta en un mercado de **alto crecimiento**. **No genera flujo de efectivo** porque necesita **inversión impulsora para mantener su porción de mercado**.
+- **Vaca lechera:** participación alta en un mercado de **crecimiento lento**. Es **fuente de importantes utilidades**: inversiones **mínimas**, margen de contribución **elevado**.
+
+**Medidas.**
+
+- Con la **estrella**: **invertir** (la inversión impulsora), sosteniendo la participación mientras el mercado crece.
+- Con la **vaca lechera**: **seguir explotándola mientras genere rentabilidad** y **no hacer nuevas inversiones**; usar su excedente de efectivo para financiar el resto del portafolio.
+
+**Por qué.**
+
+- A la estrella hay que invertirle porque, en un mercado que crece, **sin inversión pierde participación** y pasa a **dilema** (la categoría de crecimiento alto con participación baja, p. 109); y porque el premio está a la vista: *"cuando ya no haga falta reinvertir serán generadores de efectivo... convirtiéndose así en vacas lecheras"*, con alto margen, estabilidad y seguridad (p. 109).
+- A la vaca no hay que invertirle porque **su porvenir es dudoso** (el libro da el ejemplo de un pronóstico de **obsolescencia** a corto o mediano plazo), el mercado **ya no crece** y la empresa **ya tiene la participación alta**: la inversión no tendría dónde rendir. En cambio su exceso de efectivo es el que sostiene el **equilibrio de flujos de caja del portafolio**: *"los productos de gran crecimiento necesitan ingresos en efectivo para poder crecer, los de poco crecimiento deberían generar un exceso de efectivo"* (p. 110).
+
+</details>
+
+**Dónde está en el libro:** p. 108–109 (para qué sirve la matriz, ejes, estrellas y vacas lecheras con su medida), p. 110 (portafolio y flujos de caja).
+
+</details>
+
+## El análisis FODA — [p. 110–112]
+
+- Una de las principales herramientas de **diagnóstico**. Se expresa en una **matriz** que orienta a identificar las **fortalezas, debilidades, oportunidades y amenazas** que caracterizan en ese momento a la organización.
+
+> **Ilustración "Matriz FODA" (p. 110; el libro la numera también como Ilustración 19):** tabla de 2×2. Columnas (**ámbito**): **La empresa** / **El ambiente**. Filas (**factores**): **positivos, que contribuyen o posibilitan el desarrollo** → **Fortalezas** (empresa) y **Oportunidades** (ambiente); **negativos, que limitan o hacen peligrar el desarrollo** → **Debilidades** (empresa) y **Amenazas** (ambiente).
+
+- El FODA **no es un proceso aislado**: depende de **quién lo hace y para qué**. Antes de empezar conviene investigar **cuánto cuesta conocer los datos de los competidores** (en el marco de la ética y lo legal) y decidir si es necesario saberlo.
+- Los **datos** que lo nutren surgen, entre otras fuentes, de los **análisis anteriores** (ambiente externo e interno).
+- Todos los factores pueden ser buenos o malos según cómo se evalúen: los **externos** son **oportunidades o amenazas**; los **internos**, **fuerzas o debilidades**, según cuánto se conozcan y su grado de influencia en el negocio.
+- **Factores externos:** elementos del entorno. El empresario **no puede evitar su impacto** (clientes, competidores, proveedores), pero **sí manejarlo** en mayor o menor grado: estar alerta a las nuevas exigencias de los clientes, seguir de cerca a los competidores, evaluar constantemente a los proveedores. Los otros factores externos (**económicos, tecnológicos, políticos, legislativos, socioculturales e internacionales**) afectan a toda una actividad o a todo el país; no se controlan, pero es **obligación vigilarlos**. Según su impacto se convierten en **oportunidades a aprovechar** o **amenazas a resolver**, para garantizar el **crecimiento o la sobrevivencia**.
+- **Factores internos:** referidos a la **forma de gestionar** el negocio; **más controlables** por el empresario: conocimientos, experiencia, habilidades, intuición para proyectarse, recursos para operar. Al examinarlos, el empresario debe **corregirlos y adecuarlos**.
+- Según la rama de actividad y las condiciones, **un mismo factor externo puede ser oportunidad o amenaza**: la máxima expresión de esto es la idea de **"crisis", que es ambas cosas a la vez**.
+- **Proceso:** responder un **cuestionario** sobre todos los factores internos y externos, **calificar** cada uno, volcar las calificaciones en su cuadrante, y luego **observar dónde quedaron los resultados, su impacto y su interrelación**. Pregunta clave: **¿predominan las fortalezas y oportunidades?** Si es así, el negocio parece estar en buenas condiciones; si hay más amenazas y debilidades, puede tener problemas y decaer.
+- Los **4 elementos están interrelacionados** y son la base para la estrategia de soluciones y desarrollo:
+  - **Desarrollar las fortalezas**: consolidar las habilidades distintivas, las diferencias que dan ventaja.
+  - **Disminuir o atenuar las debilidades**: superar las diferencias que ponen en desventaja.
+  - **Aprovechar las oportunidades**: diseñar creativamente nuevas alternativas de negocio.
+  - **Prevenir y conjurar las amenazas**, o al menos reducirlas o soslayarlas.
+
+### Las dos tablas de Alberto Levy — [p. 111–112]
+
+El Dr. **Alberto Levy** ("Cómo hacer un análisis FODA") propone dos tablas de **trece variables** cada una. Por cada ítem se evalúa si es **muy positivo, positivo, neutro, negativo o muy negativo**: positivo = **fortaleza**, negativo = **debilidad**. Además, para cada ítem se define una **iniciativa de innovación**: si es fortaleza, para **CONSOLIDARLA**; si es debilidad, para **SUPERARLA**.
+
+**Medio ambiente interno (13 variables):**
+
+- a) **Gente** (solo la cantidad)
+- b) **Productivos** (planta, procesos, equipos, logística de entrada y salida)
+- c) **Financieros** (capital de trabajo, costo financiero)
+- d) **Infraestructura** (depósitos, soporte informático, administración, flota)
+- e) **Marca** (fuerza de la marca)
+- f) **Mística**
+- g) **Crédito** (credibilidad de bancos, proveedores, sindicatos, empleados)
+- h) **Tiempo** (¿tenemos tiempo sin perder terreno?)
+- i) **Información** (¿contamos con información buena, de todo y a término?)
+- j) **Tecnología** (know-how, no los fierros: es lo que sabemos hacer)
+- k) **Estabilidad** (de los resultados; a mayor variación, mayor riesgo)
+- l) **Organicidad** (capacidad de lograr la visión compartida)
+- m) **Maniobra** (capacidad de innovación: económica, cultural, etc.)
+
+**Medio ambiente externo (13 variables):**
+
+- a) **Impacto externo** (variables económicas, demográficas, tecnológicas, políticas, legales, sociales, culturales, ambientales, de comunicación)
+- b) **Envergadura y tasa de crecimiento** (la tasa actual comparada con la pasada)
+- c) **Nivel de rivalidad** (¿nos conviene competir o dedicarnos a otro segmento?)
+- d) **Presión de sustitutos** (competidores indirectos)
+- e) **Barreras de entrada**
+- f) **Barreras de salida**
+- g) **Poder de negociación de proveedores**
+- h) **Poder de negociación de clientes**
+- i) **Poder de negociación de canal** (cadena de comercialización)
+- j) **Compatibilidad cultural**
+- k) **Compatibilidad tecnológica** (lo requerido vs. lo disponible para fabricar, vender, distribuir, financiar, etc.)
+- l) **Tamaño de la apuesta**
+- m) **Sinergia**
+
+## La técnica de escenarios — [p. 112–115]
+
+### Introducción: apostar fuerte, protegerse o esperar y ver — [p. 112–113]
+
+- Cuando se define el entorno en términos de **FUTURO**, lo que se hace es determinar distintos **ESCENARIOS POSIBLES**, que se trazan con la **Técnica de Escenarios**.
+- Razón: en **tiempos turbulentos** es casi suicida elaborar estrategias como hace 3, 4 o 5 décadas. Variantes:
+  - **Protegerse**, haciendo la empresa **"más flexible"**, más adaptable; pero suele tener un **costo muy elevado**.
+  - **"Esperar y ver"**: le entregamos la **iniciativa al competidor**, lo que puede ser letal.
+  - **"Apostar fuerte"**: empresas como **Kodak y HP** hicieron fuertes inversiones para "descubrir" nuevos nichos; pero no todas tienen la posición firme, los activos ni la aversión al riesgo necesarios.
+- Resumen del libro: **"apostar fuerte", "protegerse" o "esperar y ver"**. En la práctica, al apostar fuerte las empresas **diversifican la inversión en "pequeñas apuestas"** para protegerse (combinación de alternativas): es la naturaleza del hombre controlar la aversión al riesgo, porque no apuestan por sí mismos sino **"en nombre de"** y rinden cuentas a accionistas o a la sociedad.
+- Una alternativa es exponer una visión precisa de **escenarios alternativos**, probar cuán **sensibles** son a cambios de las variables clave y trabajar sobre el de **mayor probabilidad de ocurrencia**. Pero esa simplificación **subestima la incertidumbre**: ejemplos del libro, **Kenneth Olsen** en 1977 ("no hay razón para que una persona quiera tener una PC en su domicilio"), quien pensó que nadie pagaría por ver televisión "cuando se podía ver gratis", o quienes pensaban que el petróleo duraría toda la vida. Por eso hay que trabajar con el **mayor rigor metodológico posible**.
+
+### Los cuatro grados de incertidumbre — [p. 113–114]
+
+> **Figura sin número (p. 113):** cuatro cuadros apilados, de arriba hacia abajo: **Futuro simplemente claro**, **Futuros alternativos**, **Abanico de futuros**, **Auténtica ambigüedad**.
+
+Lo primero es plantearse **qué tipo de incertidumbre manejamos**:
+
+1. **"Tradicional" / futuro simplemente claro:** es la primera que se estudia (no la más frecuente). Simplifica al extremo, perdiendo de vista muchas variables; imagina un **futuro cierto y previsible** y usa las herramientas de análisis estratégico tradicional. Acá el trabajo con escenarios quizá no sea lo ideal por la simpleza del análisis: **siempre evaluar costo-beneficio** antes del primer paso.
+2. **Futuros alternativos:** el futuro es una **opción entre unos cuantos escenarios alternativos**. No se puede establecer el futuro, pero sí **probabilidades de ocurrencia**, y prepararse para todos o para los más probables/importantes. Ejemplo: una **modificación legislativa** en trámite: se le asigna probabilidad de aprobación y se definen caminos para cada caso; gerentes y directivos hacen **acciones políticas** para inclinar la balanza, y si la ley ya se votó se apela a las alternativas legales.
+3. **Abanico de futuros:** sectores **emergentes**, o una empresa que quiere poner sus productos en **otro país/sistema cultural**. La previsión de penetración de mercado es muy amplia y no hay escenarios evidentes que prevalezcan. Una empresa con **30% asegurado** del mercado tendrá estrategias **agresivas**; con **10%**, **conservadoras** (un paso en falso la saca). Suelen buscarse **"aliados estratégicos"** (común entre desarrolladores de sistemas operativos y microprocesadores).
+4. **Auténtica (absoluta) ambigüedad:** entorno **casi imposible de prever**; no se puede acotar un abanico. Casos **muy raros** y de **naturaleza transitoria**: viran rápido hacia alguno de los otros. Ejemplo: la **Rusia poscomunista** (no se sabía qué pasaría con la propiedad privada, las cadenas de suministro, la demanda de productos nuevos). El problema es que se tiende a **desatender el análisis y actuar por intuición**.
+
+- La bibliografía dice que **la mitad de los problemas de estrategia** se sitúan entre la **segunda y tercera** variante, y la mayoría restante en la **primera**. Muchos directivos tienden a pensar todo con la metodología de la **segunda**.
+- Herramientas tradicionales para tomar posición sobre el futuro: investigación de mercado, análisis de costos, **análisis de la Cadena de Valor (análisis interno)**, **análisis de las Cinco Fuerzas de Porter (análisis externo)**, etc., y luego un modelo de **flujo de tesorería descontado** para cada escenario.
+
+### Qué es un escenario — [p. 114–115]
+
+- La técnica se basa en la necesidad de **vigilar y evaluar tendencias y cambios del medio ambiente externo**. **No todas las tendencias son importantes**: ahí radica lo bueno de la técnica.
+- **Un escenario es un cuadro coherente de lo que puede ocurrir en el futuro.** No se trata de **adivinarlo**, sino de **planificar de manera contingente**: **"si ocurre tal cosa, actuamos de tal manera"**.
+- Ejemplo del libro: ¿qué pasa con nuestra empresa si la **negociación paritaria** arranca con un piso del 40%? ¿Qué efecto tiene en el resultado? ¿Puedo trasladarlo al precio? ¿Cómo responderían mis competidores? ¿Podrían trasladarlo? ¿Qué fortalezas tengo para la negociación dentro del sector?
+- No se trata de **pronosticar** el futuro, sino de **reducir la incertidumbre** representando situaciones potenciales en condiciones específicas. Lo difícil es imaginar eventualidades y sorpresas, o caer en errores de observación imposibles de prever: se trata de **aprender a percibir conexiones entre aspectos aparentemente desconectados**.
+
+### Los pasos en la construcción de escenarios — [p. 115]
+
+1. **Identificar un tema interno o "decisión".** Es importante **arrancar de adentro hacia afuera**, porque mejora la calidad de lo que hay que buscar en el entorno.
+2. **Buscar "factores clave" en el ambiente.** Son **hechos concretos**: una lista de factores que tendrían **incidencia en el éxito o el fracaso de mi decisión**.
+3. **"Fuerzas directrices":** son **tendencias**. Hay que buscar las fuerzas que pueden **modificar el curso de mis factores clave**. Algunas pueden ser **predeterminadas** (el crecimiento demográfico); otras **totalmente inciertas** (la opinión pública).
+4. **Armar un ranking de importancia e incertidumbre** de factores clave y fuerzas directrices. Así solo se consideran los escenarios con **peso suficiente** (los más importantes y los de mayor probabilidad de ocurrencia).
+5. Con las fuerzas directrices y factores clave elegidos, **armar todas las posibilidades** y determinar cuál (o cuáles) representan mejor la realidad estudiada: la **"matriz de implicancias"**.
+6. **Darle cuerpo al escenario**: determinar qué cuestiones deben producirse para llegar a la situación deseada. Acá surgen los **indicadores**.
+
+- El **punto 4 tiene real importancia**: ahí se determinan las **variables sobre las que vamos a trabajar**. No tiene sentido trabajar sobre un factor clave de **probabilidad muy baja** y **sin impacto** de real importancia. Pero si la probabilidad es baja y **si sucede corremos riesgos**, no hay que desatenderla: ejemplo del libro, la probabilidad de un **tsunami** es baja, pero si nos deja fuera de combate (y estamos en zona de riesgo) hay que contemplarlo.
+
+> **Figura sin número (p. 115):** una grilla con dos ejes: **Importancia** (de `- -` a `+ +`) e **Incertidumbre** (de `+ +` a `- -`). En cada porción se ubican los factores clave y las fuerzas directrices según su **probabilidad de ocurrencia** y su **importancia relativa para la decisión**. Una vez ubicadas, el foco va a la **franja amarilla** y especialmente al **cuadrante rojo**: las variables que ahí caen se siguen particularmente, intentando **anticiparse** y teniendo un **plan de acción para cada caso**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2016-11-14 (Tema B) (P3): los tres primeros pasos de la construcción de escenarios</summary>
+
+Los primeros pasos en la construcción de los escenarios son críticos. ¿En qué consisten estos tres primeros pasos? Describa resumidamente cada uno de los componentes de los mismos.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Técnica de construcción de escenarios:**
+
+1. **Identificar un tema interno o "decisión".** Es importante arrancar de adentro hacia afuera, porque mejora la calidad de lo que tenemos que buscar en el entorno.
+2. **Buscar "factores clave" en el ambiente.** Son hechos concretos, es decir, una lista de factores que tendrían incidencia en el éxito o el fracaso de mi decisión.
+3. **"Fuerzas directrices":** son tendencias. Hay que buscar las fuerzas que pueden modificar el curso de mis factores clave. Algunas pueden ser predeterminadas, como el crecimiento de la demografía. Otras totalmente inciertas, como la opinión pública.
+4. Armar un **ranking de importancia e incertidumbre** de factores clave y fuerzas directrices. De esta manera solo tomaremos en cuenta aquellos escenarios que tengan un peso suficiente. Este punto es de vital importancia ya que aquí determinamos las variables con las que vamos a trabajar.
+5. Con aquellas FD y FC que elegimos en el punto anterior, armamos todas las posibilidades y determinamos cuál (o cuáles) representan mejor a la realidad estudiada. A esta se le llama **"matriz de implicancias"**.
+6. Se determinan cuáles son las cuestiones que deben producirse para llegar a la situación deseada. En este punto van a surgir los **indicadores**.
+
+</details>
+
+**Ojo (libro, p. 115):** la respuesta coincide con el libro y además lista los seis pasos (la pregunta pedía solo los tres primeros; nombrar los otros suma). Para enmarcar, conviene abrir con la definición: *"un escenario es un cuadro coherente de lo que puede ocurrir en el futuro; no se trata de adivinarlo, sino de planificar de manera contingente: 'si ocurre tal cosa, actuamos de tal manera'"* (p. 114), y cerrar con el gráfico **importancia × incertidumbre** del paso 4 (se siguen especialmente las variables del cuadrante rojo, con un plan de acción para cada caso) y el ejemplo del tsunami: baja probabilidad pero alto riesgo también se contempla (p. 115).
+
+**Dónde está en el libro:** p. 114 (qué es un escenario), p. 115 (los seis pasos, importancia del punto 4, gráfico importancia / incertidumbre).
+
+</details>
+
+## Formulación de estrategias — [p. 116]
+
+- Los elementos de juicio **técnicos** de todos los análisis anteriores son **solamente una base**: **ningún análisis define por sí una estrategia**. La Dirección los evalúa como datos para decisiones que **no son técnicas sino políticas, libres, no programadas**, y selecciona una o varias estrategias según los conocimientos y la creatividad de sus miembros.
+- La formulación de estrategias se propone al solo efecto de lograr una **"ventaja competitiva"**, cuya principal característica debe ser que sea **"sostenible en el tiempo"** (si no, el esfuerzo es en vano).
+- **Ventaja competitiva:** todas las **características de un producto o servicio que otorgan cierta superioridad** sobre las de sus competidores. Pueden referirse al **producto/servicio en sí**, a los **servicios añadidos** que lo acompañan, o a las **modalidades de producción, distribución o venta**.
+- **Ventajas competitivas externas:** se apoyan en una **cualidad distintiva del producto/servicio que constituye un valor para el comprador** (ej.: un aumento en el rendimiento siendo el producto el mismo). Asociadas a las estrategias de **diferenciación**.
+- **Ventajas competitivas internas:** se apoyan en la **superioridad de la empresa en el dominio de los costos** de fabricación, de gestión, de administración; aportan **valor para el productor** con una mejor relación costo unitario / costo total: **liderazgo en costos**.
+- La correcta formulación de estrategias es determinante de la **competitividad**: **integración, diversificación, liderazgo en costos** son algunas de ellas.
+- Los autores tipifican las estrategias en **"de supervivencia"** y **"de crecimiento"**; en la realidad las decisiones estratégicas suelen **combinar ambos tipos**.
+
+## Estrategias de supervivencia — [p. 116–117]
+
+- **Acción de refuerzo:** la empresa cuya **supervivencia está en peligro** trata de **atenuar las causas de sus debilidades**. Puede haber caído la venta de sus productos y/o su rentabilidad por una **crisis de la economía del país**, del **sector** industrial o comercial, o (lo más grave) una **crisis específica de la empresa**. Medidas correctivas: **mejora de los productos, ampliación de las líneas, análisis de valor, recuperación del atraso tecnológico, mejora y mayor control de los canales de distribución, campañas publicitarias adecuadas, inyección de capital**, etc. Sallenave: *"Las estrategias de refuerzo son tanto más eficaces cuanto más específica es la crisis"*.
+- **Acción de redespliegue:** ante una **crisis estructural** de la empresa, el refuerzo es solo un **paliativo momentáneo**. Se busca **"salir" del encierro** de productos obsoletos o insuficientes, de un mercado dominado por competidores más poderosos, **desplegándose en nuevos sectores más acordes con sus recursos**. Políticas: **"diferenciación de productos"** (creando algunos más específicos), **"segmentación de mercados"** (búsqueda de nichos donde competir mejor), **"especialización"** (combinación de las dos anteriores), **"diversificación"** (nuevos productos para nuevos mercados). Conclusión: **el marketing es la función clave del redespliegue**.
+- **Acción política:** por medio de **peticiones (y también presiones de todo género)** sobre organismos estatales, profesionales, proveedores, público, etc., la empresa logra **concesiones para prolongar su supervivencia por un tiempo**. Sallenave: es *"un paso desesperado para atrasar la hora de la verdad, pero combinada con las medidas de refuerzo y redespliegue, permite ganar tiempo… hasta que los efectos de aquéllas se hagan sentir"*.
+- Con frecuencia la **recuperación total** de una empresa en crisis se apoya en los **tres pilares**: **refuerzo + redespliegue + acción política**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2018-06-13 (P5): estrategias de supervivencia</summary>
+
+Explique las distintas estrategias de supervivencia.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Estrategias de supervivencia:**
+
+- **Acción de refuerzo:** la empresa cuya supervivencia está en peligro trata de atenuar las causas de sus debilidades. Algunas medidas correctivas son: la mejora de los productos, el análisis de valor, la mejora de los canales de distribución, etc. "Las estrategias de refuerzo son tanto más eficaces cuanto más específica es la crisis" (Sallenave).
+- **Acción de redespliegue:** en el caso de una crisis estructural de la empresa, la acción de refuerzo es sólo un paliativo momentáneo. Busca entonces "salir" del encierro de productos tal vez obsoletos o insuficientes, de un mercado que dominan competidores más poderosos, para lo cual busca desplegarse en nuevos sectores más acordes con sus recursos. Suelen emplearse políticas como la "diferenciación de productos", "segmentación de mercados", o búsqueda de nichos donde competir mejor. En conclusión, "marketing" es la función clave del redespliegue.
+- **Acción política:** por medio de peticiones (y también presiones de todo tipo) sobre los organismos estatales, profesionales, proveedores, público, etc., la empresa puede lograr concesiones para prolongar su supervivencia por un tiempo. Es "un paso desesperado para atrasar la hora de la verdad, pero combinada con las medidas de refuerzo y redespliegue, permite ganar tiempo hasta que los efectos de aquéllas se hagan sentir" (Sallenave).
+
+</details>
+
+**Ojo (libro, p. 116–117):** la respuesta coincide con el libro. Se puede completar: en el refuerzo, el **origen de la crisis** (del país, del sector o específica de la empresa) y más medidas (ampliación de líneas, recuperación del atraso tecnológico, campañas publicitarias, **inyección de capital**); en el redespliegue, las políticas de **"especialización"** (diferenciación + segmentación) y **"diversificación"** (nuevos productos para nuevos mercados); y el cierre del libro: la recuperación total se apoya en los **tres pilares, refuerzo + redespliegue + acción política**.
+
+**Dónde está en el libro:** p. 116–117 (sección "Estrategias de supervivencia").
+
+</details>
+
+## Estrategias para el crecimiento — [p. 117–118]
+
+El crecimiento de una empresa puede deberse a **cuatro políticas distintas** (cuatro alternativas para un crecimiento continuo):
+
+- **Penetración del mercado:** la empresa trata de **elevar sus ventas mediante una mayor explotación del mercado**, **sin apartarse de la estrategia original de productos y mercados**. Puede mejorar sus **canales de distribución**; ofrecer **incentivos**: premios por sorteo, envases con **"yapa"** (gaseosas, quesos blancos), **descuentos por cantidad** a mayoristas (el "13x12" en perfumería), **obsequios por compras reiteradas** (radiotaxis, lavaderos); **intensificar la publicidad**, etc.
+- **Desarrollo del mercado:** la empresa intenta **adaptar sus productos actuales para que cumplan nuevas finalidades** en su relación con los consumidores. Cada producto tiene una **misión** que cumplir; generalmente introduciendo **pequeñas modificaciones** en las características del producto (**"diferenciaciones" no sustanciales**), procura establecer **nuevas finalidades para sus productos actuales**. Ejemplos: pastas dentífricas y analgésicos **para niños**, tarjetas de crédito **para jóvenes y para productores agropecuarios**. Recibe también el nombre de **"segmentación del mercado"**, porque se abre camino en **sectores específicos del mercado con productos muy similares** a los existentes.
+- **Desarrollo del producto:** se **conservan las finalidades** de los productos existentes y se intenta **desarrollar productos con características nuevas y diferentes** que mejoren el desempeño en el cumplimiento de esas finalidades. Sin cambiar los productos existentes, se desarrollan **otros que los superan**. Ejemplos: naftas con mayor octanaje, yerba mate "especial" (mayor selección o procesado), sistemas de alarma con mayores prestaciones (vínculo a central, patrullaje, rastreo), automóviles con accesorios opcionales.
+- **Diversificación:** **apartamiento simultáneo** respecto de la **presente línea de productos** y de la **actual estructura del mercado**; requiere **nuevos talentos o capacidades, nuevas técnicas y facilidades**. Producir **artículos o servicios nuevos para la empresa, destinados a mercados también nuevos**. Para el libro es **iniciar un emprendimiento nuevo dentro de una empresa existente**, aprovechando su prestigio, estructuras de administración, cadenas de comercialización y fondos disponibles (porque sus productos habituales entraron en **madurez, saturación y menor rendimiento**). Requiere reclutar talentos, invertir en instalaciones y equipos, adiestrar al personal. Es **la estrategia más riesgosa**: exige **resguardar cuidadosamente el negocio original** para que no sea arrastrado si fracasa el nuevo emprendimiento. Ejemplo: **Bunge y Born**, que arrancó en el negocio cerealero e incursionó en molienda, alimentos, pinturas, envases de hojalata, productos químicos, etc., y hace pocos años se desprendió de todos esos ramos para **volver a su actividad original**.
+
+> **Figura sin número (p. 118) — matriz productos × mercados:** filas = **Productos** (P0 actual; P1, P2, P3 nuevos), columnas = **Mercados** (M0 actual; M1, M2 nuevos). Producto actual en mercado actual (P0 × M0) = **Penetración del mercado**; producto actual en mercados nuevos (P0 × M1, M2) = **Desarrollo del mercado**; productos nuevos en el mercado actual (P1–P3 × M0) = **Desarrollo del producto**; productos nuevos en mercados nuevos (P1–P3 × M1, M2) = **Diversificación**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-11-06 (P5): estrategias de crecimiento</summary>
+
+Estrategias de crecimiento.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Estrategias para el crecimiento:**
+
+- **Penetración del mercado:** mediante esta política, la empresa trata de elevar sus ventas mediante una mayor explotación del mercado sin necesidad de apartarse de la estrategia original de productos y mercados. Pueden mejorar sus canales de distribución; ofrecer distintos incentivos: premios por sorteo, envases con "yapa" (gaseosas, quesos blancos), descuentos por cantidad a mayoristas (el "13x12" en perfumería), obsequios por compras reiteradas (empresas de radio-taxi); intensificar la publicidad, etc.
+- **Desarrollo del mercado:** la empresa intenta adaptar sus productos actuales para que cumplan con nuevas finalidades en su relación con los consumidores. Mediante esta política la empresa, generalmente introduciendo pequeñas modificaciones en las características del producto ("diferenciaciones" no sustanciales), procura establecer nuevas finalidades para sus productos actuales. Por ejemplo: pastas dentífricas y analgésicos para niños, tarjetas de crédito para jóvenes y para productores agropecuarios, etc., lo cual recibe también el nombre de "segmentación del mercado", porque se abre camino en sectores específicos del mercado con productos muy similares a los existentes.
+- **Desarrollo del producto:** mediante esta estrategia se intenta desarrollar productos con características nuevas y diferentes que mejorarán los desempeños en el cumplimiento de sus finalidades. Sin cambiar los productos existentes, se desarrollan otros con características que superan a aquéllos. Por ejemplo, nuevas naftas con mayor octanaje, yerba mate "especial", producto de una mayor selección o procesado, etc.
+- **Diversificación:** se trata de producir artículos o servicios nuevos para la empresa, destinados a mercados también nuevos, aprovechando su prestigio, estructuras de administración, cadenas de comercialización, fondos disponibles para inversión, etc. Obviamente es la estrategia más riesgosa, que si se pone en práctica exige resguardar cuidadosamente el negocio original de la firma, para que no sea arrastrado en caso de fracaso del nuevo emprendimiento.
+
+</details>
+
+**Ojo (libro, p. 117–118):** la respuesta coincide con el libro y es completa. Para redondear: en desarrollo del producto, que **se conservan las finalidades** de los productos existentes; en diversificación, que es un **apartamiento simultáneo de la línea de productos y de la estructura del mercado** que exige **nuevos talentos, técnicas y facilidades**, con el ejemplo de **Bunge y Born**; y la **matriz productos × mercados** (p. 118) que ordena las cuatro: producto actual/mercado actual = penetración; producto actual/mercado nuevo = desarrollo del mercado; producto nuevo/mercado actual = desarrollo del producto; nuevo/nuevo = diversificación.
+
+**Dónde está en el libro:** p. 117–118 (sección "Estrategias para el crecimiento" y la matriz productos × mercados).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — 2015-11-09 (Tema 2) (P1): penetración de mercado vs. desarrollo de mercado</summary>
+
+Dentro de las estrategias de crecimiento, decir la diferencia entre Penetración de Mercado y Desarrollo de Mercado.
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+Son dos de las **cuatro estrategias de crecimiento** (p. 117–118) y se distinguen por **qué dimensión se mueve** en la matriz productos × mercados (p. 118): ambas trabajan con el **producto actual (P0)**, pero la penetración se queda en el **mercado actual (M0)** y el desarrollo de mercado va a **mercados nuevos (M1, M2)**.
+
+- **Penetración del mercado:** la empresa busca **elevar sus ventas explotando más el mismo mercado**, **sin apartarse de la estrategia original de productos y mercados**. El producto y el cliente son los mismos; lo que cambia es la **intensidad comercial**: mejorar los **canales de distribución**, ofrecer **incentivos** (premios por sorteo, envases con "yapa" como en gaseosas y quesos blancos, descuentos por cantidad a mayoristas como el "13x12" en perfumería, obsequios por compras reiteradas en radiotaxis y lavaderos) e **intensificar la publicidad**.
+- **Desarrollo del mercado:** la empresa **adapta sus productos actuales para que cumplan nuevas finalidades** con los consumidores. Cada producto tiene una misión; con **pequeñas modificaciones, "diferenciaciones" no sustanciales**, se le dan **nuevas finalidades** y se llega a **sectores específicos del mercado** a los que antes no se llegaba: pastas dentífricas y analgésicos **para niños**, tarjetas de crédito **para jóvenes** o **para productores agropecuarios**. Por eso también se la llama **"segmentación del mercado"**: se abre camino en segmentos nuevos con productos muy similares a los existentes.
+
+En una línea: **penetración = más ventas del mismo producto a los mismos clientes; desarrollo de mercado = el mismo producto (apenas retocado) a clientes nuevos.**
+
+</details>
+
+**Dónde está en el libro:** p. 117 (penetración del mercado y desarrollo del mercado), p. 118 (matriz productos × mercados).
+
+</details>
+
+## Polémica sobre la vigencia del planeamiento estratégico — [p. 118–120]
+
+- La **planeación estratégica** surgió a mediados de los **'60** con gran fuerza, propiciada por el libro de **Igor Ansoff, "Estrategias Corporativas" (1965)**. Cuatro décadas después sigue la **controversia** sobre su verdadero provecho. El libro expone las ideas de **Henry Mintzberg**, su principal detractor, publicadas en **1994**.
+
+### Las críticas de Henry Mintzberg — [p. 118–120]
+
+- **a)** *"Aunque el concepto de Planeamiento Estratégico no está muerto del todo, ha caído de su pedestal."* Peligros, errores y falacias:
+  - Al directivo lo **absorben los problemas emergentes** y dedica poco a la planeación a largo plazo (en otro trabajo Mintzberg afirma que los gerentes no suelen ser planificadores reflexivos y sistemáticos: sus actividades se caracterizan por **brevedad, variedad y discontinuidad**).
+  - Se inyecta **demasiada formalidad** al sistema, lo que le quita flexibilidad, fluidez y simplicidad y **restringe la creatividad**.
+  - La alta dirección **no revisa con los gerentes y jefes medios** los planes a largo plazo.
+  - Poca propensión de la alta dirección a usar mecanismos formales para decisiones creativas, que considera **intuitivas** (Steiner, teórico del PE: *"Si una organización es administrada por un genio intuitivo, no hay necesidad de llevar a cabo una planeación estratégica formal"*).
+- **b)** Los planificadores culpan de los problemas a la **falta de apoyo de la alta dirección** y a **climas organizacionales no propicios**. Pero, ¿un clima que favorece la planeación estratégica es necesariamente propicio para el **pensamiento y la acción estratégicos**?
+- **c)** La planeación es **formalización**: descomponer un proceso en pasos claros y articulados; está asociada a un **"análisis racional"** (¿o a un "procedimiento racional"?). **No es lo mismo pensar estratégicamente que pensar acerca de estrategias en forma racionalizada, descompuesta, articulada** (Ansoff, 1964: "una serie de pasos diferenciados y reducidos"). Además, la jerarquía corporativa usa la planeación para **ejercer control sobre los niveles medios y bajos**.
+- **d)** El proceso de planeación tiende a producir **resistencia al cambio verdadero**, por su necesidad de descomponer en categorías (niveles de estrategia corporativa / de negocios / funcional; "unidades estratégicas de negocios"; divisiones, departamentos). Promueve un cambio **transaccional en vez de creativo**, porque el proceso es **analítico** mientras la creatividad requiere **síntesis**. El cambio estratégico real redetermina categorías y desborda a la planeación. Resultado: estrategias **extrapoladas del pasado o copiadas de otros**.
+- **e)** Se **separa la formulación de la puesta en práctica**, el pensamiento de la acción: los administradores y planificadores piensan mientras los demás hacen. Para Mintzberg la verdadera falacia es esa **separación entre formulación e instrumentación**.
+- **f)** ¿Puede la planeación estratégica **"recrear" el proceso del "genio empresarial"**? Porter está "a favor de una serie de técnicas analíticas para desarrollar estrategias", pero ¿puede el análisis suministrar una síntesis? La elaboración de estrategias es un proceso **sumamente complejo**, que involucra lo más sofisticado, sutil y a veces **subconsciente** de los procesos cognoscitivos y sociales; requiere información en gran parte **no cuantificable**, accesible solo a estrategas **vinculados, no aislados**. Esto desmiente la suposición reduccionista de que puede reducirse a una serie de pasos.
+- **La gran falacia de la planeación estratégica:** **dado que el análisis no es síntesis, la planeación estratégica nunca ha sido una elaboración de estrategias.** El análisis puede **preceder y apoyar** la síntesis (definiendo las partes a combinar) y puede **seguirla** (descomponiendo y formalizando sus consecuencias), pero **no puede sustituirla**. Ningún procedimiento formal puede **prever discontinuidades**, informar a administradores aislados ni **crear nuevas estrategias**: la planeación no provee estrategias, **no puede proceder sin su existencia previa**.
+- Conclusión de Mintzberg: la "planeación estratégica" fue **mal llamada**; debió llamarse **"programación estratégica"** y promoverse como un proceso para **formalizar, cuando fuere necesario, las consecuencias de las estrategias diseñadas de antemano**.
+
+### Los defensores del planeamiento estratégico — [p. 120]
+
+- El libro aclara que todo el capítulo es una síntesis apretada de la defensa del PE por numerosos especialistas, y agrega opiniones recogidas en una **nota periodística**: cuando la gestión estratégica irrumpió en la Argentina, términos como **"misión", "visión" y "escenarios"** se incorporaron a la jerga ejecutiva; la nota se pregunta qué quedó de eso tras la crisis, si vuelve el estilo de los '80 (horizontes limitados a la supervivencia cotidiana) y si la visión estratégica no fue más que una **moda** de consultores y escuelas de negocios.
+- **Armando Bertagnini** (Universidad de San Andrés): el ambiente empresario argentino ha sido **muy sensible a las modas**, pero la Argentina se convirtió en uno de los principales productores de ideas sobre management en habla hispana. A comienzos de los 2000 los directivos se concentraban en **sobrevivir** (natural y saludable); el enfoque requería **leer las señales, por débiles que parezcan**, diseñar escenarios (mucho más que proyectar datos) y **equilibrar flexibilidad con disciplina**. Cita: *"hay que separar las funciones de supervivencia de las que se orientan a la búsqueda de una estrategia para la nueva etapa. Tiene que haber en la organización alguien que pueda reflexionar y reconsiderar si la empresa va a ser competitiva en su actual sector de actividad"*.
+- **José Luis Roces** (ITBA): la estrategia que dio **absoluta prioridad a la rentabilidad de corto plazo** es responsable de buena parte de los desastres empresarios: *"llegó a confundirse estrategia con cuadro de resultados"*; las reingenierías **sacrificaron calidad para reducir costos**. *"Las organizaciones que perduran tienen valores permanentes… no tiene por qué haber una relación antagónica entre la incertidumbre y el pensamiento estratégico. En toda estrategia hay elementos de incertidumbre. De otro modo, no habría emprendedores, y todos seguiríamos el mismo camino."*
+
+---
+
+*Generado el 2026-11-09 a partir de `fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf` (cap. XIV, págs. 97–120) y `examenes/2012-2018_compilado-preguntas-respuestas.docx` (preguntas de parcial con respuestas de alumnos).*

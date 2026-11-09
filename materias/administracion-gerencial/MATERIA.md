@@ -98,6 +98,13 @@ que ya no existen); la numeración que vale es la del PDF 2026.
   real de parcial de ese capítulo en `<details>` con la respuesta de alumnos del compilado y
   la página del libro donde está. `07-comunicacion-y-negociacion.md` quedó como estaba
   (caps. 6 y 9, fuera del programa 2026).
+- **Apuntes del 2P:** `segundo-parcial/apuntes/md/01…07` generados el 2026-11-09 desde los
+  capítulos X–XVI del libro (uno por capítulo: poder, delegación, ética/moral/RSE, doble
+  moral y mobbing, estrategia y planeamiento, tablero de control, crisis), con la teoría
+  completa del capítulo y la página del PDF 2026, y cada una de las 59 preguntas del
+  `segundo-parcial/examenes/INDICE.md` intercalada en `<details>` con la respuesta del
+  compilado (corregida contra el libro en un bloque "Ojo") o, si no la hay, una respuesta
+  armada desde el libro. Los ejemplos que no están en el libro van marcados como propios.
 - **Documentos:** `fuentes/respuestas-finales-por-unidad.docx` — respuestas de alumnos a
   preguntas de finales, ordenadas por unidad de una edición vieja del libro (18 unidades).
   Sirvió para los primeros apuntes; ahora es material secundario.
@@ -173,5 +180,5 @@ referente / experto) `#FormasExpresionPoder` (descendente / ascendente / lateral
 |---|---|---|---|---|---|---|---|---|---|
 | **Primer parcial (2026-09-28)** | ✅ 6 desde el libro (caps. 2,3,4,5,7,8) + 07 fuera de programa; html + pdf | ✅ 12 hojas / 9 instancias | ✅ | — (los apuntes ya son solo lo que cae) | ✅ (2026-09-23, 5 días) | ✅ (vacío) | — | — | — |
 | TP cuatrimestral (entregado 2026-11-08) | — | — | — | — | — | — | — | — | — |
-| **Segundo parcial (2026-11-16)** | — (pendiente: caps. X–XVI del libro) | ✅ 15 hojas / 12 instancias (2026-11-09) | ✅ (2026-11-09) | — | ✅ (2026-11-09, 7 días) | ✅ (vacío) | — | — | — |
+| **Segundo parcial (2026-11-16)** | ✅ 7 desde el libro (caps. X–XVI, uno por capítulo, 2026-11-09) con las 59 preguntas reales adentro; html + pdf | ✅ 15 hojas / 12 instancias (2026-11-09) | ✅ (2026-11-09) | — | ✅ (2026-11-09, 7 días) | ✅ (vacío) | — | — | — |
 | Final | — | — | — | — | — | ✅ (vacío) | — | — | — |

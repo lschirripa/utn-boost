@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delegación y participación</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light dark; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body { color: #e6e6e6; background: #16181c; }
+  a { color: #6cb6ff; }
+  details { background: #1f2228; border-color: #30343c; }
+  summary { background: #232730; }
+  blockquote { color: #aab; border-color: #30343c; }
+  code { background: #232730; }
+  th { background: #232730; }
+  th, td { border-color: #30343c; }
+  tbody tr:nth-child(even) { background: #1c1f24; }
+}
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Delegación y participación
+
+> Fuente: fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf, págs. 75–80 (cap. XI) + examenes/2012-2018_compilado-preguntas-respuestas.docx (preguntas de parcial con respuestas de alumnos)
+
+---
+
+## Índice
+
+- [p. 75] — Centralización vs. descentralización: definiciones y razones para descentralizar (Mintzberg)
+- 📝 Pregunta de parcial — 2014-06-24 (Tema 2) (P1): organización centralizada
+- [p. 75] — Tipos de descentralización: vertical y horizontal
+- 📝 Pregunta de parcial — sin fecha (juego B) (P2): tipos de descentralización
+- 📝 Pregunta de parcial — sin fecha (juego D) (P2): organización centralizada + tipos de descentralización
+- [p. 75–76] — Ventajas y desventajas que suelen atribuirse a la descentralización
+- 📝 Pregunta de parcial — 2012-06-25 (Tema A) (P2): tipos básicos de descentralización + ventajas
+- [p. 76] — Delegación: definición, qué se delega y qué no ("la responsabilidad no se delega"), delegación vs. participación
+- [p. 76–77] — ¿La delegación es una abdicación?
+- 📝 Pregunta de parcial — sin fecha (juego A) (P2): qué es delegar y diferencia con la participación
+- 📝 Pregunta de parcial — sin fecha (juego D) (P4): concepto de delegación, qué se delega
+- [p. 77] — Factores de contingencia en la delegación (5)
+- 📝 Pregunta de parcial — 2012-06-25 (Tema B) (P2): factores de contingencia en la delegación
+- 📝 Pregunta de parcial — 2014-11-10 (P4): factores contingentes de la delegación
+- [p. 77–78] — Requisitos para delegar o mejorar la delegación existente (8)
+- 📝 Pregunta de parcial — 2014-11-06 (P3): recomendaciones para mejorar la delegación
+- [p. 78] — Autoexamen del jefe: ¿delego lo suficiente? Consecuencias de la delegación en la estructura
+- [p. 79] — Ilustración 14 "Delegación y Autoridad"
+- [p. 79–80] — Administración participativa: principio de subsidiariedad, satisfacción por nivel (Herzberg, Porter)
+- [p. 80] — La descentralización como "tercera variante"; la prueba de Kline y Martin; qué es la participación
+
+---
+
+## Centralización vs. descentralización — [p. 75]
+
+El capítulo arranca con el análisis de la centralización y la descentralización "como forma de introducirnos al tema principal" (la delegación).
+
+- **Estructura centralizada:** cuando **todo el poder de toma de decisiones descansa en un solo punto de la organización**, vale decir en **una sola persona** (o en un **grupo muy reducido de personas de nivel directivo**).
+- **Estructura descentralizada:** en la medida en que el **poder está dispersado entre mucha gente**.
+- **Ojo:** tanto la centralización como la descentralización **no deben ser tomadas como absolutas** (son grados, no extremos puros).
+
+### Razones para descentralizar según Mintzberg — [p. 75]
+
+Según **Mintzberg**, las razones que llevan a las organizaciones a descentralizar su estructura son tres:
+
+- En una organización que **adquiere cierto crecimiento**, **todas las decisiones no pueden ser entendidas o manejadas por una sola persona**.
+- La descentralización permite **responder rápidamente a las condiciones de cada entorno local**.
+- La descentralización **estimula la motivación**, que es un **factor clave del trabajo gerencial**.
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-06-24 (Tema 2) (P1): organización centralizada</summary>
+
+Explique en qué consiste una organización centralizada.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Centralización:** cuando todo el poder de toma de decisiones descansa en un solo punto de la organización, vale decir en una sola persona (o en un grupo muy reducido de personas de nivel directivo).
+
+</details>
+
+<details>
+<summary>Ver respuesta (ampliada desde el libro)</summary>
+
+- Una organización es **centralizada** cuando **todo el poder de toma de decisiones descansa en un solo punto** de la organización: **una sola persona** o un **grupo muy reducido de personas de nivel directivo** (p. 75).
+- Se define **por contraste** con la estructura **descentralizada**, en la que el poder está **dispersado entre mucha gente** (p. 75). Centralización y descentralización **no son absolutas**: toda organización está en algún punto intermedio entre los dos extremos (p. 75).
+- La centralización concentra las decisiones arriba; por eso, según **Mintzberg**, las organizaciones tienden a **abandonarla a medida que crecen**: cuando la organización adquiere cierto tamaño, **todas las decisiones no pueden ser entendidas o manejadas por una sola persona**; además, descentralizar permite **responder rápido a las condiciones de cada entorno local** y **estimula la motivación**, factor clave del trabajo gerencial (p. 75).
+- Leído desde las ventajas y desventajas de la descentralización (p. 75–76), una organización centralizada **facilita una política uniforme, simplifica la coordinación y conserva el control en los niveles altos**, pero a cambio **sobrecarga a la Alta Dirección** con decisiones, **da menos libertad e independencia a los administradores**, **no fomenta el desarrollo de gerentes de todo nivel**, **se adapta peor a un ambiente rápidamente cambiante** y alarga la red de comunicaciones al conservar niveles.
+- En el límite, la centralización se sostiene porque el superior **no delega**: el libro describe al jefe que cree que "se conserva la autoridad estando en todo, haciendo que deban preguntarle todo", lo que es una **manifestación de inseguridad y de temor a perder poder** (p. 78).
+
+</details>
+
+**Ojo (libro, p. 75):** la respuesta del compilado es la definición textual y está bien, pero es **una sola línea**; conviene completarla con el contraste con la descentralización, aclarar que **no son absolutas** y sumar las **razones de Mintzberg** para descentralizar (que explican por qué una organización deja de ser centralizada).
+
+**Dónde está en el libro:** p. 75 (sección "Centralización vs. Descentralización" y razones según Mintzberg); p. 75–76 (ventajas y desventajas de la descentralización, para leerlas "en espejo"); p. 78 (el jefe que no delega).
+
+</details>
+
+## Tipos de descentralización — [p. 75]
+
+Hay **dos tipos básicos** de descentralización:
+
+- **Descentralización vertical:** consiste en la **delegación del poder de toma de decisión que desciende por la cadena de autoridad**, desde la **cumbre estratégica** a la **línea media**. El enfoque aquí es sobre el **poder formal**.
+- **Descentralización horizontal:** se refiere al **desplazamiento del poder fuera de la estructura de línea**. Normalmente, el **poder formal** recae en los **funcionarios de línea** (gerentes, jefes, etc.). Sin embargo, los **analistas y asesores que constituyen el "staff"**, a pesar de **no ser investidos formalmente de poder** (recordar el llamado **principio de línea y staff**), en la realidad **suelen pesar en la toma de decisiones** en virtud de:
+  - la **influencia que tienen sus sistemas de normalización**, y
+  - su **conocimiento especializado**, que les dota frecuentemente de **prestigio** (**poder del experto**).
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego B) (P2): tipos de descentralización</summary>
+
+Tipos de descentralización.
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+- Primero el marco: una estructura es **centralizada** cuando todo el poder de decisión descansa en un solo punto (una persona o un grupo muy reducido de nivel directivo) y **descentralizada** en la medida en que el poder está **dispersado entre mucha gente**; ninguna de las dos es absoluta (p. 75).
+- Hay **dos tipos básicos** de descentralización (p. 75):
+  - **Vertical:** es la **delegación del poder de toma de decisión que desciende por la cadena de autoridad**, desde la **cumbre estratégica** hacia la **línea media**. El enfoque está puesto en el **poder formal**: el poder baja por la jerarquía, de jefes a subordinados que siguen siendo gente "de línea".
+  - **Horizontal:** es el **desplazamiento del poder fuera de la estructura de línea**. Normalmente el poder formal lo tienen los **funcionarios de línea** (gerentes, jefes); pero los **analistas y asesores del "staff"**, aunque **no estén investidos formalmente de poder** (principio de línea y staff), **en la realidad pesan en las decisiones** por la **influencia de sus sistemas de normalización** y por su **conocimiento especializado**, que les da **prestigio** (**poder del experto**).
+- La diferencia clave: en la vertical el poder se mueve **hacia abajo dentro de la línea** (sigue siendo poder formal); en la horizontal se mueve **hacia los costados, hacia el staff** (poder informal, basado en el conocimiento y las normas que el staff diseña).
+- Según Mintzberg, las organizaciones descentralizan porque al crecer **una sola persona no puede manejar todas las decisiones**, para **responder rápido a cada entorno local** y porque **estimula la motivación** (p. 75).
+- Ejemplo propio, no está en el libro: que el gerente general deje en manos de cada gerente de sucursal la decisión de precios locales es descentralización **vertical**; que el área de Calidad (staff) defina los procedimientos que todas las sucursales deben seguir, sin tener mando sobre ellas, es descentralización **horizontal**.
+
+</details>
+
+**Dónde está en el libro:** p. 75 (secciones "Centralización vs. Descentralización" y "Tipos de Descentralización").
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego D) (P2): organización centralizada + tipos de descentralización</summary>
+
+Definición de organización centralizada. Mencionar los tipos de descentralización.
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+- **Organización centralizada:** aquella en la que **todo el poder de toma de decisiones descansa en un solo punto de la organización**, es decir en **una sola persona** o en **un grupo muy reducido de personas de nivel directivo** (p. 75).
+- Su opuesto es la **organización descentralizada**, en la que el poder está **dispersado entre mucha gente**. El libro aclara que **ni la centralización ni la descentralización deben tomarse como absolutas**: son grados (p. 75).
+- Las organizaciones descentralizan (Mintzberg) porque al **crecer** una sola persona no puede entender ni manejar todas las decisiones, porque así **responden rápido a las condiciones de cada entorno local** y porque la descentralización **estimula la motivación**, factor clave del trabajo gerencial (p. 75).
+- **Tipos básicos de descentralización** (p. 75):
+  - **Vertical:** delegación del **poder de toma de decisión que desciende por la cadena de autoridad**, desde la **cumbre estratégica** a la **línea media**; el enfoque es sobre el **poder formal**.
+  - **Horizontal:** **desplazamiento del poder fuera de la estructura de línea**, hacia los **analistas y asesores del staff**, que aunque **no tienen poder formal** (principio de línea y staff) **pesan en las decisiones** por la influencia de sus **sistemas de normalización** y por su **conocimiento especializado**, que les da prestigio (**poder del experto**).
+- Cierre: la descentralización presupone delegación ("no hay verdadera descentralización sin delegación", p. 76) y **la única estimación válida de la descentralización es el grado en que la decisión se delega** en las unidades subordinadas y en los individuos que las forman (p. 80).
+
+</details>
+
+**Dónde está en el libro:** p. 75 (definiciones de centralizada / descentralizada, razones de Mintzberg, tipos vertical y horizontal); p. 76 (no hay descentralización sin delegación); p. 80 (cómo se mide la descentralización).
+
+</details>
+
+## Ventajas y desventajas que suelen atribuirse a la descentralización — [p. 75–76]
+
+### Ventajas (9) — [p. 75–76]
+
+1. **Libera a la Alta Dirección** de parte de la carga en la toma de decisiones y **obliga a los administradores de los niveles superiores a delegar**.
+2. **Estimula la toma de decisiones** y la **aceptación de autoridad y responsabilidad**.
+3. Da a los administradores **más libertad e independencia** para tomar decisiones.
+4. Fomenta el establecimiento y el uso de **controles amplios** que pueden **aumentar la motivación**.
+5. Hace posible las **comparaciones de desempeño** de diferentes unidades organizacionales.
+6. Fomenta el **desarrollo de gerentes de todo nivel**.
+7. Ayuda en la **adaptación a un ambiente rápidamente cambiante**.
+8. **Agiliza la red de comunicaciones** para la gestión inmediata, **al eliminar niveles**.
+9. Favorece un **clima organizacional más dinámico y ameno**.
+
+### Desventajas (9) — [p. 76]
+
+1. Hace **más difícil la aplicación de una política uniforme**.
+2. **Aumenta la complejidad de la coordinación** de unidades organizacionales descentralizadas.
+3. Puede dar como resultado la **pérdida de cierto control** por parte de los administradores de los niveles más altos.
+4. Puede quedar **limitada por técnicas de control inadecuadas**.
+5. Puede estar **restringida por sistemas inadecuados de planeación y control**.
+6. Puede estar **limitada por la disponibilidad de administradores calificados**.
+7. **Incremento de costos** por la tendencia de las unidades descentralizadas a **formar sus propios equipos de especialistas**.
+8. **Problemas en los procesos de comunicación** que provocan **distorsiones e ineficiencia**.
+9. Riesgo de **exagerar la importancia de metas secundarias**, priorizándolas sobre las **metas principales** de la organización.
+
+<details>
+<summary>📝 Pregunta de parcial — 2012-06-25 (Tema A) (P2): tipos básicos de descentralización + ventajas</summary>
+
+¿Cuáles son los tipos básicos de Descentralización vistos en clase? Describa las ventajas que suelen atribuirse a la Descentralización.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Descentralización:** en la medida en que el poder está dispersado entre mucha gente.
+
+**Tipos de descentralización:**
+
+- **Descentralización vertical:** consiste en la delegación del poder de toma de decisión que desciende por la cadena de autoridad, desde la cumbre estratégica a la línea media. El enfoque aquí es sobre el poder formal.
+- **Descentralización horizontal:** se refiere al desplazamiento del poder fuera de la estructura de línea. Normalmente, el poder formal recae en los funcionarios de línea (gerentes, jefes, etc.). Sin embargo, los analistas y asesores que constituyen el "staff", a pesar de no ser investidos formalmente de poder, suelen pesar en la toma de decisiones ya que poseen conocimiento especializado (poder del experto).
+
+**Ventajas de la descentralización:**
+
+- Libera a la Alta Dirección de parte de la carga en la toma de decisiones y obliga a los administradores de los niveles superiores a delegar y liberar carga.
+- Estimula la toma de decisiones y la aceptación de autoridad y responsabilidad.
+- Da a los administradores más libertad e independencia para tomar decisiones.
+- Fomenta el establecimiento y el uso de controles amplios que pueden aumentar la motivación.
+- Hace posible las comparaciones de desempeño de diferentes unidades organizacionales.
+- Fomenta el desarrollo de gerentes de todo nivel.
+- Ayuda en la adaptación a un ambiente rápidamente cambiante.
+- Agiliza la red de comunicaciones para la gestión inmediata, al eliminar niveles.
+- Favorece un clima organizacional más dinámico y ameno.
+
+</details>
+
+**Ojo (libro, p. 75–76):** la respuesta coincide con el libro: los dos tipos y las 9 ventajas están completos y casi textuales. Lo que omite: en la descentralización **horizontal** el staff pesa en las decisiones por **dos** vías, la **influencia de sus sistemas de normalización** y su **conocimiento especializado** (la respuesta solo nombra la segunda), y el libro remite al **principio de línea y staff**. Suma puntos arrancar con la definición de **centralizada** (todo el poder en un solo punto) y aclarar que **ninguna de las dos es absoluta**; si sobra tiempo, cerrar con las **razones de Mintzberg** para descentralizar.
+
+**Dónde está en el libro:** p. 75 (definiciones, razones de Mintzberg, tipos vertical / horizontal, primeras dos ventajas); p. 76 (resto de las ventajas y las 9 desventajas).
+
+</details>
+
+## Delegación — [p. 76]
+
+Comprendido el contenido de la descentralización, el libro define la delegación.
+
+### Definición — [p. 76]
+
+- La **DELEGACIÓN** consiste en **otorgar a quienes se han asignado determinadas tareas, cierto grado de autoridad para tomar decisiones –previamente acotadas– que fuesen necesarias para poder realizarlas, junto con la responsabilidad por su ejecución y resultados**.
+- Es un **proceso** en el cual **quien delega sigue siendo responsable ante su superior** por el cumplimiento de la tarea o función que ha delegado. Es decir que **siempre se mantiene vigente el principio de que "la responsabilidad no se delega"**.
+
+### Qué se delega y qué no — [p. 76]
+
+Leyendo la definición en partes:
+
+- **Se delegan tareas o funciones:** "quienes se han asignado determinadas tareas". La definición de **Kent y Zamora** que cita el libro va en la misma línea: delegación es "la **efectiva asignación de tareas o funciones de una persona a otra u otras**, que implica una **modificación de las competencias y realizaciones materiales** de las mismas".
+- **Se delega autoridad, pero acotada:** "cierto grado de autoridad para tomar decisiones –previamente acotadas–" necesarias para realizar la tarea. (Más adelante, en los requisitos, p. 77: "conceder la autoridad necesaria: decisiones que puede adoptar sin recurrir al nivel superior".)
+- **Se delega la responsabilidad por la ejecución y los resultados** de esa tarea: el colaborador responde ante quien le delegó.
+- **NO se delega la responsabilidad final:** el que delega **sigue siendo responsable ante su propio superior** por lo que delegó. Por eso "la responsabilidad no se delega". El libro lo repite en los requisitos (p. 77–78): "el superior **no delega toda la autoridad ni renuncia a la responsabilidad**" y "**ningún administrador puede renunciar a la responsabilidad**".
+
+### No hay descentralización sin delegación — [p. 76]
+
+- Conviene advertir que **no hay verdadera descentralización sin delegación**, si entendemos esta última como la **efectiva asignación de tareas o funciones de una persona a otra u otras, que implica una modificación de las competencias y realizaciones materiales de las mismas** (**Kent y Zamora**).
+
+### Delegación vs. participación — [p. 76]
+
+- La delegación **no debe confundirse con la participación**.
+- En la **toma de decisiones participativa**, la **autoridad se comparte** (el superior decide junto con sus colaboradores).
+- En cambio, con la **delegación**, **los colaboradores toman las decisiones ellos mismos** (dentro del grado de autoridad acotada que se les otorgó).
+- El libro vuelve sobre la participación al final del capítulo (p. 80): la participación, **como la delegación y la descentralización, se inspira en el principio de subsidiariedad**; **utiliza los recursos individuales en el proceso de decisión** e **implica al individuo en las actividades de decisión** de la organización.
+
+## ¿La delegación es una abdicación? — [p. 76–77]
+
+- Cuando la delegación se hace **de manera adecuada, no es abdicación**.
+- Como es sabido, **el tiempo de los gerentes es escaso**, por lo tanto **no es posible que ellos lo hagan todo**. Necesitan **aprender a delegar para poder ser efectivos** en su trabajo.
+- Es por ello que, al delegar, los gerentes deben **esperar y aceptar algunos errores de sus colaboradores**. **Los errores son parte de la delegación**, siempre y cuando **sus costos no sean excesivos**.
+- Para asegurarse de que los **costos de los errores no exceden el valor del aprendizaje**, quien delega debe **colocar controles adecuados**.
+- **Una delegación sin controles de retroalimentación** que le permitan saber al gerente cuándo existen problemas serios **es abdicación**.
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego A) (P2): qué es delegar y diferencia con la participación</summary>
+
+¿Qué es delegar? ¿En qué se diferencia de la "participación"?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+**Qué es delegar (p. 76):**
+
+- **Delegar** es **otorgar a quienes se han asignado determinadas tareas cierto grado de autoridad para tomar las decisiones –previamente acotadas– necesarias para realizarlas, junto con la responsabilidad por su ejecución y resultados**. En palabras de **Kent y Zamora**: la **efectiva asignación de tareas o funciones de una persona a otra u otras**, que implica una **modificación de las competencias y realizaciones materiales** de las mismas.
+- Es un **proceso**: quien delega **sigue siendo responsable ante su superior** por la tarea delegada; rige siempre el principio de que **"la responsabilidad no se delega"**. Se delegan **tareas** y **autoridad acotada** (decisiones que el colaborador puede adoptar sin recurrir al nivel superior, p. 77) y el colaborador asume la responsabilidad por la ejecución; la **responsabilidad final** queda en el que delega.
+- **No hay verdadera descentralización sin delegación** (p. 76): la delegación es el mecanismo concreto por el que el poder de decisión baja por la cadena de autoridad (descentralización vertical, p. 75). "La delegación efectiva impulsa la autoridad verticalmente hacia abajo a través de los rangos de una organización" (p. 78).
+- Bien hecha **no es abdicación**: el gerente, cuyo tiempo es escaso, necesita delegar para ser efectivo; debe **aceptar algunos errores** (son parte de la delegación mientras su costo no sea excesivo) y poner **controles de retroalimentación**. Una delegación **sin controles** sí es abdicación (p. 76–77).
+
+**En qué se diferencia de la participación (p. 76 y 80):**
+
+- El libro advierte que **la delegación no debe confundirse con la participación**. La diferencia está en **quién decide**:
+  - En la **toma de decisiones participativa** la **autoridad se comparte**: el superior conserva la decisión pero la toma **junto con** sus colaboradores, que aportan al proceso.
+  - En la **delegación**, **los colaboradores toman las decisiones ellos mismos**, dentro de la autoridad acotada que recibieron, sin necesidad de recurrir al superior.
+- Las dos se inspiran en el mismo principio, el de **subsidiariedad** (que los niveles superiores dejen a los inferiores las atribuciones que éstos pueden ejercer mejor, p. 79): la **participación** "utiliza los recursos individuales en el proceso de decisión" e **implica al individuo en las actividades de decisión** de la organización; en su sentido más amplio eleva el grado de **autodeterminación** de los miembros y es una **reacción ante un liderazgo autocrático represivo** (p. 80). La **delegación**, en cambio, **transfiere** la decisión (acotada) al colaborador.
+- Ejemplo propio, no está en el libro: si un gerente reúne a su equipo para definir entre todos el cronograma de un proyecto y luego él firma la decisión, hay **participación** (autoridad compartida); si le asigna a un colaborador la coordinación del proyecto y le da autoridad para fijar el cronograma y reasignar tareas sin consultarlo, hay **delegación** (el colaborador decide); en ambos casos el gerente sigue siendo responsable ante su director por el resultado.
+
+</details>
+
+**Dónde está en el libro:** p. 76 (sección "Delegación": definición, "la responsabilidad no se delega", Kent y Zamora, delegación vs. participación); p. 76–77 ("¿La delegación es una abdicación?"); p. 78 ("la delegación efectiva impulsa la autoridad verticalmente hacia abajo"); p. 79–80 (sección "Administración Participativa": subsidiariedad y qué es la participación).
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — sin fecha (juego D) (P4): concepto de delegación, qué se delega</summary>
+
+Explicar el concepto de delegación. ¿Qué se delega?
+
+<details>
+<summary>Ver respuesta (armada desde el libro)</summary>
+
+**Concepto (p. 76):**
+
+- La **delegación** consiste en **otorgar a quienes se han asignado determinadas tareas cierto grado de autoridad para tomar decisiones –previamente acotadas– que fuesen necesarias para poder realizarlas, junto con la responsabilidad por su ejecución y resultados**.
+- Es un **proceso** en el cual **quien delega sigue siendo responsable ante su superior** por el cumplimiento de la tarea o función delegada: siempre se mantiene vigente el principio de que **"la responsabilidad no se delega"**.
+- Según **Kent y Zamora**, es la **efectiva asignación de tareas o funciones de una persona a otra u otras**, que implica una **modificación de las competencias y realizaciones materiales** de las mismas. Sin delegación **no hay verdadera descentralización**.
+- Bien hecha **no es abdicación**: el gerente tiene tiempo escaso, necesita delegar para ser efectivo, debe aceptar algunos errores (mientras su costo no sea excesivo) y poner **controles de retroalimentación**; sin controles, es abdicación (p. 76–77). No debe confundirse con la **participación**, donde la autoridad se **comparte**; al delegar, **los colaboradores deciden ellos mismos** (p. 76).
+
+**Qué se delega:**
+
+- **Tareas o funciones**: se asignan efectivamente a otra persona, que pasa a realizarlas (p. 76). Según los requisitos (p. 77), conviene delegar **lo repetitivo, lo de detalle y lo que el colaborador puede hacer por su capacidad**; y según el autoexamen del jefe (p. 78), **las tareas y decisiones de menor importancia o riesgo**.
+- **Autoridad, pero acotada**: "cierto grado de autoridad" para tomar **decisiones previamente acotadas**, las necesarias para realizar la tarea: las **decisiones que el colaborador puede adoptar sin recurrir al nivel superior** (p. 77). El superior **no delega toda la autoridad** (p. 77).
+- **La responsabilidad por la ejecución y los resultados** de la tarea delegada: el colaborador responde ante quien le delegó (p. 76).
+
+**Qué NO se delega:**
+
+- **La responsabilidad final** (ante el propio superior): el que delega **sigue siendo responsable** por lo que delegó; "la responsabilidad no se delega" (p. 76). El libro lo refuerza en los requisitos: el superior **"no renuncia a la responsabilidad"** y **"ningún administrador puede renunciar a la responsabilidad"**, por eso la delegación debe ir acompañada de **monitoreo y controles** (p. 77–78).
+- Tampoco se delega **toda** la autoridad ni se abandona al colaborador: debe existir un **flujo libre de comunicación** y un **nivel de ayuda** (p. 77–78).
+
+</details>
+
+**Dónde está en el libro:** p. 76 (definición, "la responsabilidad no se delega", Kent y Zamora, vs. participación); p. 76–77 (abdicación y controles); p. 77 (requisitos: qué se va a delegar, conceder la autoridad necesaria, el superior no delega toda la autoridad ni renuncia a la responsabilidad); p. 78 (monitorear: ningún administrador puede renunciar a la responsabilidad; transferir tareas de menor importancia o riesgo).
+
+</details>
+
+## Factores de contingencia en la delegación — [p. 77]
+
+Son los factores que **condicionan o promueven** la delegación (cuándo y cuánto conviene delegar). El libro lista **cinco**:
+
+1. **El tamaño de la organización.** Mientras **más grande** sea la organización, **mayor es el número de decisiones** que hay que tomar. Es por ello que los gerentes de las organizaciones grandes **recurren más a la delegación**.
+2. **La importancia del deber o de la decisión.** Mientras **más importante** sea un deber o una decisión (expresado en términos de **costo e impacto en el futuro de la organización**), **menos probable es que se delegue**.
+3. **Complejidad de la tarea.** Mientras **más compleja** sea la tarea, **más difícil será que la alta gerencia tenga suficiente información técnica actualizada** para tomar decisiones efectivas. Las tareas complejas requieren **mayor experiencia** y las decisiones acerca de ellas **deben delegarse a las personas que tengan el conocimiento técnico necesario**.
+4. **Cultura organizacional.** Si la gerencia **tiene confianza en sus colaboradores**, la cultura apoyará un **mayor grado de delegación**. Si la alta gerencia **no tiene confianza** en las capacidades de los gerentes de menor nivel, **delegará la autoridad sólo cuando sea absolutamente necesario**; en tales casos, se delegará **la menor cantidad de autoridad que sea posible**.
+5. **Cualidades de los colaboradores.** La delegación requiere colaboradores con **habilidades, capacidades y motivación** para **aceptar la autoridad y ejercerla**. Si esto falta, la alta gerencia **será renuente a delegar** autoridad.
+
+<details>
+<summary>📝 Pregunta de parcial — 2012-06-25 (Tema B) (P2): factores de contingencia en la delegación</summary>
+
+En toda organización existen una serie de factores que condicionan o promueven la delegación. A estos se los denomina "Factores de contingencia en la Delegación". Mencione y describa los mismos.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Factores de contingencia en la delegación (¿cuándo conviene delegar?):**
+
+- **El tamaño de la organización:** mientras más grande sea la organización, mayor es el número de decisiones que hay que tomar. Es por ello que los gerentes de las organizaciones grandes recurren más a la delegación.
+- **La importancia del deber o de la decisión:** mientras más importante sea un deber, o una decisión, menos probable es que se delegue.
+- **Complejidad de la tarea:** mientras más compleja sea la tarea, más difícil será que la alta gerencia tenga suficiente información técnica actualizada para tomar decisiones efectivas. Las tareas complejas requieren mayor experiencia y las decisiones acerca de ellas deben delegarse a las personas que tengan el conocimiento técnico necesario.
+- **Cultura organizacional:** si la gerencia tiene confianza en sus subordinados, la cultura apoyará un mayor grado de delegación. Sin embargo, si la alta gerencia no tiene confianza en las capacidades de los gerentes de menor nivel, delegar la autoridad sólo cuando sea absolutamente necesario.
+- **Cualidades de los subordinados:** la delegación requiere subordinados con habilidades, capacidades y motivación para aceptar la autoridad y ejercerla. Si esto falta, la alta gerencia no estará dispuesta a delegar autoridad.
+
+</details>
+
+**Ojo (libro, p. 77):** la respuesta coincide con el libro: los 5 factores, en el mismo orden y casi textuales. Pequeños faltantes: en **importancia de la decisión** el libro aclara que se mide en **costo e impacto en el futuro de la organización**; en **cultura**, agrega que cuando no hay confianza se delega **la menor cantidad de autoridad posible**. El libro 2026 dice **"colaboradores"** donde la respuesta dice "subordinados" (mismo concepto).
+
+**Dónde está en el libro:** p. 77 (sección "Factores de contingencia en la delegación").
+
+</details>
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-11-10 (P4): factores contingentes de la delegación</summary>
+
+Factores contingentes de la delegación.
+
+**[RECICLADO]** — es la misma pregunta (y la misma respuesta del compilado, palabra por palabra, con el agregado "¿cuándo o a quién conviene delegar?" en el título) que la **P2 del 2012-06-25 (Tema B)**, de arriba. Se responde igual: los **5 factores** (tamaño de la organización, importancia del deber o de la decisión, complejidad de la tarea, cultura organizacional, cualidades de los colaboradores), cada uno con su regla ("mientras más…, más/menos se delega").
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Factores de contingencia en la delegación (¿cuándo o a quién conviene delegar?):**
+
+- **El tamaño de la organización:** mientras más grande sea la organización, mayor es el número de decisiones que hay que tomar. Es por ello que los gerentes de las organizaciones grandes recurren más a la delegación.
+- **La importancia del deber o de la decisión:** mientras más importante sea un deber, o una decisión, menos probable es que se delegue.
+- **Complejidad de la tarea:** mientras más compleja sea la tarea, más difícil será que la alta gerencia tenga suficiente información técnica actualizada para tomar decisiones efectivas. Las tareas complejas requieren mayor experiencia y las decisiones acerca de ellas deben delegarse a las personas que tengan el conocimiento técnico necesario.
+- **Cultura organizacional:** si la gerencia tiene confianza en sus subordinados, la cultura apoyará un mayor grado de delegación. Sin embargo, si la alta gerencia no tiene confianza en las capacidades de los gerentes de menor nivel, delegar la autoridad sólo cuando sea absolutamente necesario.
+- **Cualidades de los subordinados:** la delegación requiere subordinados con habilidades, capacidades y motivación para aceptar la autoridad y ejercerla. Si esto falta, la alta gerencia no estará dispuesta a delegar autoridad.
+
+</details>
+
+**Ojo (libro, p. 77):** idem a la P2 del 2012-06-25 (Tema B): coincide con el libro; sumar "costo e impacto en el futuro" para la importancia de la decisión y "la menor cantidad de autoridad posible" cuando falta confianza.
+
+**Dónde está en el libro:** p. 77 (sección "Factores de contingencia en la delegación").
+
+</details>
+
+## Requisitos para delegar o mejorar la delegación existente — [p. 77–78]
+
+El libro da **ocho** requisitos (el compilado los llama "recomendaciones para mejorar la delegación"):
+
+1. **Tener predisposición:** tolerancia al error, asumir el riesgo de éste, dar confianza, receptividad a nuevas ideas, establecer controles amplios. *(p. 77)*
+2. **Determinar qué se va a delegar:** lo **repetitivo**, lo **de detalle**, lo que el colaborador **puede hacer por su capacidad**. *(p. 77)*
+3. **Elegir la persona adecuada:** conocimientos, experiencia, predisposición para aceptar las responsabilidades y el riesgo de fracasos. *(p. 77)*
+4. **Comunicar las responsabilidades:** objetivos, estándares de rendimiento. *(p. 77)*
+5. **Conceder la autoridad necesaria:** decisiones que puede adoptar **sin recurrir al nivel superior**. *(p. 77)*
+6. **Proveer un nivel de ayuda:** debido a que el superior **no delega toda la autoridad ni renuncia a la responsabilidad**, la descentralización **no debe conducir al aislamiento**. Debe existir un **flujo libre de comunicación** entre el superior y el colaborador, proporcionándole a éste la **información necesaria** para tomar decisiones y para **interpretar adecuadamente la autoridad delegada**. *(p. 77–78)*
+7. **Monitorear la actividad delegada:** como **ningún administrador puede renunciar a la responsabilidad**, la delegación debe ir acompañada de **técnicas que aseguren que la autoridad se use en forma apropiada**. El establecimiento de **controles para vigilar el avance** del colaborador incrementa la posibilidad de que se **identifiquen tempranamente problemas importantes** y que la tarea sea **terminada a tiempo y según las especificaciones deseadas**. El control por parte del superior se puede realizar mediante **entrevistas, preguntas, reportes**, etc. *(p. 78)*
+8. **Evaluar la delegación:** los administradores siempre deben estar atentos para **recompensar tanto la delegación como la aceptación eficaz de la autoridad**. Estas recompensas pueden ser **monetarias** o bien otorgar al colaborador **mayor discrecionalidad y prestigio**, lo cual permitirá el **crecimiento del delegado**. *(p. 78)*
+
+<details>
+<summary>📝 Pregunta de parcial — 2014-11-06 (P3): recomendaciones para mejorar la delegación</summary>
+
+Recomendaciones para mejorar la delegación.
+
+<details>
+<summary>Ver respuesta (del compilado)</summary>
+
+**Para mejorar la delegación existente:**
+
+- **Tener predisposición:** tolerancia al error, asumir el riesgo de éste, dar confianza, receptividad a nuevas ideas, establecer controles amplios.
+- **Determinar qué se va a delegar:** ¿lo repetitivo?, ¿lo de detalle?, es decir, aquello que el subordinado puede hacer por su capacidad.
+- **Elegir la persona adecuada:** conocimientos, experiencia, predisposición para aceptar las responsabilidades y el riesgo de fracasos.
+- **Comunicar las responsabilidades:** objetivos, estándares de rendimiento, es decir, lo que se espera.
+- **Conceder la autoridad necesaria:** decisiones que puede adoptar sin recurrir al nivel superior.
+- **Proveer un nivel de ayuda:** debido a que el superior no delega toda la autoridad ni renuncia a la responsabilidad, la descentralización no debe conducir al aislamiento. Debe existir un flujo libre de comunicación entre el superior y el subordinado, proporcionándole a éste la información necesaria para tomar decisiones y para interpretar adecuadamente la autoridad delegada.
+- **Monitorear la actividad delegada:** el establecimiento de controles para vigilar el avance del subordinado incrementa la posibilidad de que se identifiquen tempranamente problemas importantes y que la tarea sea terminada a tiempo y según las especificaciones deseadas.
+- **Evaluar la delegación:** los administradores siempre deben estar atentos para recompensar tanto la delegación como la aceptación eficaz de la autoridad. Estas recompensas pueden ser monetarias o bien otorgar al subordinado mayor discrecionalidad y prestigio, lo cual permitirá el crecimiento del delegado.
+
+</details>
+
+**Ojo (libro, p. 77–78):** la respuesta coincide con el libro: los 8 requisitos completos y casi textuales. El libro los titula **"Requisitos para delegar o mejorar la delegación existente"** y dice "colaborador" donde el compilado dice "subordinado". En **monitorear** falta el fundamento ("como **ningún administrador puede renunciar a la responsabilidad**, la delegación debe ir acompañada de técnicas que aseguren que la autoridad se use en forma apropiada") y los medios de control (**entrevistas, preguntas, reportes**). Si sobra tiempo, cerrar con las **preguntas de autoexamen** del jefe (p. 78) y con la idea de que una delegación **sin controles de retroalimentación es abdicación** (p. 77).
+
+**Dónde está en el libro:** p. 77 (requisitos 1 a 6); p. 78 (requisitos 6 a 8, autoexamen del jefe).
+
+</details>
+
+## Autoexamen del jefe y consecuencias de la delegación — [p. 78]
+
+### ¿Delego lo suficiente? — [p. 78]
+
+Una manera de que un gerente o jefe examine su propia labor respecto de la delegación es formularse alguna de las preguntas siguientes:
+
+- ¿Tengo **tanto trabajo como para quedarme frecuentemente después de hora**?
+- ¿Mi departamento o sector **depende mucho de mí**?
+- ¿**Dedico mucho tiempo a tareas de detalle**?
+
+Cualquiera de estos indicios lleva a analizar la posibilidad de **transferir las tareas y decisiones de menor importancia o riesgo a algunos colaboradores**, con lo que de paso **se asegura el funcionamiento del sector aun en ausencia de su responsable principal**. Esa decisión lleva a una nueva pregunta:
+
+- **"¿Alguien está preparado para ocupar mi puesto?"**
+
+Puede ocurrir que realmente **no se disponga del personal suficiente**; pero si el personal existe y se considera que **no está capacitado**, la cuestión pasará entonces por **brindar esa capacitación**. A menos que, como suele ocurrir, el superior halle una **excusa fácil para su deseo de no delegar**, afirmando que "no hay nadie potencialmente apto" o que "no tengo tiempo para capacitar". Estas son **manifestaciones de inseguridad y de temor a perder poder**, creyendo que **se conserva la autoridad estando en todo, haciendo que deban preguntarle todo**.
+
+- **La delegación efectiva impulsa la autoridad verticalmente hacia abajo** a través de los rangos de una organización.
+
+### Consecuencias de la delegación en la estructura — [p. 78]
+
+Como consecuencia de la delegación en la estructura:
+
+- Los **puestos de trabajo se verán enriquecidos** por la **diversidad de tareas** que los colaboradores realizarán.
+- Los agentes pasarán de **ser controlados por el supervisor** a **estar autorizados para realizar tareas y tomar decisiones**.
+- Los gerentes **dedicarán menos tiempo a controlar** a los colaboradores **que a capacitarlos y entrenarlos**.
+
+## Ilustración 14 "Delegación y Autoridad" — [p. 79]
+
+> **Ilustración 14 — "Delegación y Autoridad" (p. 79):** figura que cierra la sección de delegación, antes de "Administración Participativa". En el volcado del PDF solo aparece el título; el contenido gráfico no tiene capa de texto `[poco claro en el PDF]`. Por el contexto (p. 78: "la delegación efectiva impulsa la autoridad verticalmente hacia abajo a través de los rangos de una organización"), ilustra cómo la autoridad delegada baja por los niveles jerárquicos.
+
+## Administración participativa — [p. 79–80]
+
+### El principio de subsidiariedad — [p. 79]
+
+- Muchos han señalado que las organizaciones **se desempeñarían más eficazmente si los grupos superiores dejaran a los inferiores del mismo sistema las atribuciones y las funciones que éstos pueden ejercer mejor**.
+- Aparte de que las organizaciones **realizarían mejor sus metas**, la **dignidad y la función de sus miembros** alcanzarían niveles más elevados y la **satisfacción humana** se acentuaría en concomitancia con todo el resto.
+- Ese es el **principio de subsidiariedad**, idéntico por su espíritu a la filosofía de la **administración participativa** y la **descentralización**.
+- Como observa **Golembiewski**, promueve **"un sentido de asociación y responsabilidad"** en los asuntos de la organización. En resumen, permite la **autodeterminación** en lugar de un **cerrado conformismo ante los caprichos de una autoridad central**.
+- Por lo tanto, el principio de subsidiariedad debe ser una **doctrina fundamental del humanismo industrial** y la **piedra miliar de la organización modificada**. Es **el camino hacia la democracia en el campo de la administración**. Su principal forma de expresión en la literatura especializada es la **participación** y la **descentralización**.
+
+### Satisfacción en el trabajo y nivel organizacional (Herzberg, Porter) — [p. 79–80]
+
+- Conclusión de **Herzberg** sobre la relación entre satisfacción en el trabajo y nivel organizacional: **"cuanto más alto sea el nivel de ocupación, más alto el espíritu de trabajo"**.
+- Los estudios de **Porter** indicaron que **los niveles más altos acusaban mayor satisfacción**: a cada nivel sucesivo en orden ascendente correspondía un **mayor grado de satisfacción** (de necesidades de **estimación** y **autonomía**). Empero, la satisfacción de las necesidades **sociales y de seguridad** era **más o menos igual en todos los niveles**.
+- Por lo tanto, puede afirmarse con cierto grado de seguridad que la literatura sobre satisfacción en el oficio muestra que **la satisfacción aumenta a medida que se asciende de nivel**. Esto vale tanto para las comparaciones entre **puestos administrativos y no administrativos**, como para las comparaciones **dentro de las diferentes partes administrativas de las jerarquías**.
+
+### Cómo se mide la descentralización y qué produce — [p. 80]
+
+- **La única estimación válida de la descentralización es el grado en que la decisión se delega** en las **unidades subordinadas de mando** y, a su vez, en los **individuos que forman estas unidades**.
+- Los **resultados cualitativos** de la descentralización son: **organizaciones más planas**, una **supervisión más general** y **alcances más amplios del control**.
+
+### La descentralización como "tercera variante" — [p. 80]
+
+- Desde el punto de vista del comportamiento, **la descentralización no es un compromiso entre la centralización y el caos**. Es una **tercera variante** en la administración de las personas, e importante sobremanera para la **organización modificada**.
+- **Combina la flexibilidad con los requerimientos formales de la disciplina**, de modo que la gente **perciba que se ha maximizado su libertad**, puesto que **conoce los límites de su responsabilidad dentro de la jurisdicción de su autoridad**.
+- Además, la descentralización es un modo de **reconciliar las exigencias de la autodeterminación humana y el control administrativo**, porque concuerda con las **necesidades y expectativas individuales** en un ambiente orientado hacia el trabajo.
+- Finalmente, **la descentralización es el principio de subsidiariedad en acción**.
+
+### La prueba de Kline y Martin — [p. 80]
+
+- Como señalan **Kline y Martin**: *"La prueba real acerca del predominio de la libertad es ésta: ¿El superior apoyará al colaborador que quiere ejecutar la tarea de un modo distinto del que él mismo habría empleado?"*.
+- Si el colaborador **tiene libertad para actuar**, porque **sabe que goza de la libertad de su superior**, puede afirmarse que **se ha delegado la autoridad hasta el punto en que una auténtica pauta de descentralización tiene carácter operacional** en la organización.
+
+### Qué es la participación — [p. 80]
+
+- La **participación**, como la **delegación** y la **descentralización**, **se inspira en el principio de subsidiariedad**.
+- **Utiliza los recursos individuales en el proceso de decisión.** Consciente y sistemáticamente, y **en la medida de su capacidad**, **implica al individuo en las actividades de decisión** de la organización.
+- En su sentido más amplio, la participación **realiza los propósitos de la administración democrática** elevando el **grado de autodeterminación** de los miembros de las organizaciones.
+- Es una **reacción ante un liderazgo autocrático represivo**. Esta reacción se expresa en muy diferentes tipos de organización, al margen de que sus propósitos sean **educacionales, religiosos, gubernamentales o económicos**.
+
+---
+
+*Generado el 2026-11-09 a partir de `fuentes/ADMINISTRACION GERENCIAL COMPLETO - V1.1.8 - 2026.pdf` (cap. XI, págs. 75–80) y `examenes/2012-2018_compilado-preguntas-respuestas.docx` (preguntas de parcial con respuestas de alumnos).*
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+
+</script>
+</body>
+</html>

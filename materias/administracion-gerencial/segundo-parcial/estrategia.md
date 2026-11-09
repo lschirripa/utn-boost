@@ -119,11 +119,53 @@ traen respuesta; las de foro y la foto no).
 | **Poder** (cap. X, págs. 67–74) | 10 de 15 | ✅ compilado 2012-06-25 A P1 y B P1 (5 fuentes, 3 formas), 2014-06-24 T3 P1 (influencia), 2016-11-14 P1 (poder vs. autoridad), 2014-11-10 P3, 2015-11-09 P4 | Faltan en el compilado: **poder vs. autoridad con ejemplos** (sin-fecha D P1) y los **modelos de organización** racional burocrático / colectivo de consenso / plural-político y si pueden coexistir (foto P1, libro pág. 71–72). Leer el capítulo entero: 8 páginas. |
 | **Delegación / descentralización** (cap. XI, 75–80) | 8 de 15 | ✅ compilado 2012-06-25 A P2 (tipos + ventajas), B P2 (factores contingentes), 2014-06-24 T2 P1 (centralizada), 2014-11-06 P3 (requisitos para mejorar) | Faltan **qué es delegar, qué se delega (autoridad, no responsabilidad) y en qué se diferencia de la participación** (sin-fecha A P2, D P4): libro pág. 75–76. |
 | **BCG** (cap. XIV, 108–109) | 6 de 15 | ✅ compilado 2012-06-25 B P3 (los 4 cuadrantes), 2014-11-10 P1, 2016-11-14 P2 | Preparar las **4 variantes de razonamiento**: en cuál invertir, por qué una estrella pasa a dilema (cae la participación relativa), demanda que se ameseta (cae el crecimiento → vaca si la participación es alta, peso muerto si es baja), medidas para estrella vs. vaca. Ya visto para el TP: repasar. |
-| **Planeamiento** (cap. XIV, 97–100) | 5 de 15 | ✅ compilado 2014-11-10 P5 y 2018-06-13 P3 (3 niveles) | Faltan **tipos de cambio** (compulsivo / imitativo / creador, pág. 98–99) y **cómo se definen los objetivos** (atributo, escala, umbral, horizonte; pág. 99). |
+| **Planeamiento** (cap. XIV, 97–100) | 5 de 15 | ✅ compilado 2014-11-10 P5 y 2018-06-13 P3 (3 niveles) | Faltan **tipos de cambio** (compulsivo / imitativo / creador, pág. 98–99) y **cómo se definen los objetivos** (atributo, unidad de medida, cantidad, horizonte; pág. 99). |
 | **Moral / ética / RSE** (cap. XII, 81–88) | 6 de 15 | ✅ compilado 2012-06-25 A P4 (moral: definición + 3 orígenes), B P4 (ética), 2015-11-05 T1 P3 (RSE); la de "seguir órdenes" (2015-11-09 P2) tiene respuesta de una línea | Armar la **diferencia ética vs. moral** (moral = normas impuestas por la sociedad; ética = reflexión individual sobre los valores), la **relación moral ↔ legal** (foto P2) y un párrafo decente sobre "ética ≠ seguir órdenes". Libro 81–88. |
 | **Crisis** (cap. XVI, 132–136) | 6 de 15 | ✅ compilado 2014-06-24 T2 P5 (anomia), T3 P3 (6 tipos de Suárez), 2014-11-06 P4 (4 comportamientos) | Faltan **definición de crisis + qué afecta** (foto P5) y **"la noción de tiempo como factor central"** (sin-fecha D P5): libro 132–134 (dos variables: tiempo y percepción de la amenaza; tiempo de anticipación y tiempo disponible). |
 | **5 fuerzas de Porter** (cap. XIV, 101–105) | 5 de 15 | ✅ compilado 2012-06-25 A P3 (rivalidad: 6 factores), 2014-11-10 P2 y 2016-11-14 P5 (sustitutos), 2015-11-05 (proveedores, compradores) | Completo en el compilado; verificar contra el libro. Ya visto para el TP. |
 | Cadena de valor (106–107) | 3 de 15 | ✅ compilado 2014-06-24 T2 P3, 2015-11-09 P3 | Completo (5 primarias + 4 de apoyo; es análisis **interno**). Ya armada para el TP. |
+
+> **Actualización 2026-11-09:** se generaron los 7 apuntes del 2P (`apuntes/md/01…07`, uno
+> por capítulo X–XVI, con html y pdf) con la teoría completa de cada capítulo y las 59
+> preguntas del `INDICE.md` intercaladas en `<details>`: respuesta del compilado corregida
+> contra el libro (bloque "Ojo") o respuesta armada desde el libro cuando no la hay. Estado
+> de las brechas de la tabla:
+>
+> - **Poder** → ✅ RESUELTA en `01-poder-y-autoridad.md`: poder vs. autoridad con ejemplos
+>   (sin-fecha D P1, con los casos a–h de Schermerhorn p. 68 y las bases de Weber p. 69) y
+>   modelos de organización + coexistencia (foto P1: sí coexisten, "lo más probable es que
+>   uno sea el predominante", p. 71). También el V/F de 2016-11-14 justificado desde el libro.
+> - **Delegación** → ✅ RESUELTA en `02-delegacion-y-participacion.md`: qué es delegar, qué se
+>   delega (tareas + autoridad acotada) y qué no (la responsabilidad: "la responsabilidad no se
+>   delega", p. 76), delegación vs. participación (p. 76 y 80). Ojo: las 9 ventajas (y 9
+>   desventajas) de la descentralización están en las **págs. 75–76** del PDF 2026, no en
+>   79–80 (79–80 es "Administración participativa"); corregido abajo en §3.3 y §6.
+> - **BCG** → ✅ RESUELTA en `05-estrategia-y-planeamiento.md`, subsección "Las 4 variantes de
+>   razonamiento que toma el parcial" (p. 109–110): en cuál invertir (la utilidad de la vaca
+>   va a la estrella), estrella → dilema (cae la participación relativa), demanda amesetada
+>   (vaca si la participación es alta, peso muerto si es baja; dilema nunca, porque exige
+>   crecimiento alto) y medidas para estrella (invertir) vs. vaca (ordeñar sin invertir).
+> - **Planeamiento** → ✅ RESUELTA en `05-estrategia-y-planeamiento.md`: tipos de cambio
+>   (compulsivo / imitativo / creador, p. 98–99; el creador es el ligado a la estrategia) y
+>   definición de objetivos. Ojo: el libro 2026 (p. 99) define los objetivos por **atributo,
+>   unidad de medida, cantidad y horizonte**, no "atributo, escala, umbral, horizonte" como
+>   decía esta tabla; corregido.
+> - **Moral / ética / RSE** → ✅ RESUELTA en `03-etica-moral-y-rse.md`: ética vs. moral
+>   (sin-fecha A P3, contraste en 5 ejes con página), moral ↔ legal (foto P2: la ley como
+>   origen + "lo moral excede lo legal", p. 82–83) y "ética ≠ seguir órdenes" ampliada desde
+>   el libro (p. 82, 83 y 85).
+> - **Crisis** → ✅ RESUELTA en `07-crisis-y-cambio.md`: definición + qué afecta
+>   (gobernabilidad, integridad, fines y medios, p. 132) con los 6 tipos de Suárez (foto P5)
+>   y "la noción de tiempo como factor central" (sin-fecha D P5, p. 132–134, con el cubo de
+>   Hermann verificado contra la figura del PDF).
+> - **5 fuerzas** y **cadena de valor** → ✅ verificadas contra el libro en
+>   `05-estrategia-y-planeamiento.md`; el apunte marca en "Ojo" lo que el compilado tiene
+>   incompleto (sustitutos sin la definición técnica por elasticidad cruzada; proveedores y
+>   compradores sin contestar el "¿qué pasa si aumentan?"; "montaje y mantenimiento" mal
+>   ubicados en logística de salida).
+>
+> Con los apuntes hechos, `apuntes/md/` deja de ser brecha: el plan de §4 pasa de "leer el
+> capítulo" a "leer el apunte y escribir de memoria las preguntas intercaladas".
 
 ### 3.2 Sobrecarga innecesaria 🟡
 
@@ -146,7 +188,7 @@ memoria el cap. X completo** y a las **4 variantes de razonamiento de la BCG**.
 | 5 fuentes de poder | libro 70; compilado 2012-06-25 A P1 | 4 de 15 | **Dominar** (las 5 con una línea c/u; comparar de a pares) |
 | 3 formas de expresión del poder | libro 71; compilado 2012-06-25 B P1 | 2 de 15 | **Dominar** |
 | Modelos de organización (3) | libro 71–72 | 1 de 15 (la foto, la más reciente) | Saber + "¿pueden coexistir?" (sí, uno predomina) |
-| Centralización; descentralización vertical / horizontal + ventajas | libro 75–76, 79–80; compilado 2012-06-25 A P2, 2014-06-24 T2 P1 | 5 de 15 | **Dominar** |
+| Centralización; descentralización vertical / horizontal + ventajas | libro 75–76; compilado 2012-06-25 A P2, 2014-06-24 T2 P1 | 5 de 15 | **Dominar** |
 | Qué es delegar, qué se delega, vs. participación | libro 75–76 | 2 de 15 | **Dominar** (sin apunte: armar del libro) |
 | Factores contingentes de la delegación (5) | libro 77; compilado 2012-06-25 B P2 | 2 de 15 | **Dominar** (lista memorizada) |
 | Requisitos para delegar / mejorar la delegación (8) | libro 77–78; compilado 2014-11-06 P3 | 1 de 15 | Saber la lista |
@@ -220,7 +262,7 @@ página del libro 2026 y, si hay, la respuesta del compilado (fecha).
 
 **Delegación y participación (cap. XI, 75–80)**
 - [ ] Organización centralizada (todo el poder de decisión en un punto) vs. descentralización; vertical (baja por la cadena de autoridad: poder formal) y horizontal (sale de la línea hacia el staff). *(75; 2012-06-25 A P2, 2014-06-24 T2 P1)*
-- [ ] Ventajas de la descentralización (lista de 9). *(79–80; 2012-06-25 A P2)*
+- [ ] Ventajas de la descentralización (lista de 9; también 9 desventajas). *(75–76; 2012-06-25 A P2)*
 - [ ] Qué es delegar; qué se delega (autoridad y tareas) y qué no (la responsabilidad); diferencia con participación. *(75–76; sin-fecha A P2, D P4)*
 - [ ] 5 factores de contingencia: tamaño, importancia de la decisión, complejidad de la tarea, cultura, cualidades de los subordinados. *(77; 2012-06-25 B P2)*
 - [ ] 8 requisitos para delegar / mejorar: predisposición, qué delegar, persona adecuada, comunicar responsabilidades, conceder autoridad, ayuda, monitorear, evaluar. *(77–78; 2014-11-06 P3)*
@@ -275,6 +317,7 @@ página del libro 2026 y, si hay, la respuesta del compilado (fecha).
 ---
 
 *Generado el 2026-11-09 a partir de `examenes/INDICE.md` (15 hojas / 12 instancias) y de
-`apuntes/md/` (vacía); material de respaldo: respuestas del compilado del 2P y el libro de
-cátedra 2026 (caps. X–XVI, págs. 67–136). Próximos pasos: `/apunte-doc` sobre los caps.
-X–XVI, después `/plan` (ya corrido el 2026-11-09) y `/flashcards` el domingo 15.*
+`apuntes/md/` (vacía al generar; los 7 apuntes de los caps. X–XVI se agregaron el mismo
+2026-11-09, ver la actualización de §3.1); material de respaldo: respuestas del compilado del
+2P y el libro de cátedra 2026 (caps. X–XVI, págs. 67–136). Próximos pasos: `/plan` (ya
+corrido el 2026-11-09) y `/flashcards` el domingo 15.*
