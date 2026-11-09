@@ -507,5 +507,10 @@ if __name__ == "__main__":
     here = os.path.dirname(os.path.abspath(__file__))
     out = a.out or os.path.join(here, "exports", f"00_TP Cuatrimestral_G{a.grupo}.pptx")
     os.makedirs(os.path.dirname(out), exist_ok=True)
-    build(a.grupo).save(out)
+    prs = build(a.grupo)
+    # metadatos del archivo: que el autor sea el alumno y no el default de python-pptx
+    prs.core_properties.author = "Luciano Schirripa"
+    prs.core_properties.last_modified_by = "Luciano Schirripa"
+    prs.core_properties.title = f"00_TP Cuatrimestral_G{a.grupo}"
+    prs.save(out)
     print(out)
