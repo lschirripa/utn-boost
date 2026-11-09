@@ -10,13 +10,15 @@
 | Evaluación | Carpeta | Fecha | Estado |
 |---|---|---|---|
 | Primer parcial | `primer-parcial/` | 2026-09-28 | rendido |
-| TP cuatrimestral | `tp-cuatrimestral/` | **2026-11-08** (entrega) | **próximo** |
-| Segundo parcial | `segundo-parcial/` | _(a definir)_ | pendiente |
+| TP cuatrimestral | `tp-cuatrimestral/` | 2026-11-08 (entrega) | entregado |
+| Segundo parcial | `segundo-parcial/` | **2026-11-16** | **próximo** |
 | Final | `final/` | _(a definir)_ | pendiente |
 
-> Ojo con el calendario: `analisis-matematico-2` (final el 2026-09-29) y `analisis-numerico`
-> (1P el 2026-10-06) también figuran `cursando`. Las skills van a preguntar qué materia usar
-> cuando no se dé la ruta explícita. El 1P de AG cae **6 días después del final de AM2**.
+> Ojo con el calendario: `analisis-numerico` (2P el **2026-11-24**) y `analisis-matematico-2`
+> (final en la mesa del **2026-12-01 al 04**) también figuran `cursando`, y hay otro examen
+> el **2026-12-01** (anotado por Lucho el 2026-11-09, materia a confirmar). Las skills van a
+> preguntar qué materia usar cuando no se dé la ruta explícita. El 2P de AG cae **8 días
+> antes del 2P de AN**: la semana del 9 al 16 de noviembre es toda de AG.
 
 ## Estructura del examen
 
@@ -30,11 +32,15 @@
   por bloque temático en `primer-parcial/estrategia.md`: hay una pregunta de **liderazgo**
   en casi todas las hojas, y una de **gerente (Sallenave o Mintzberg)** y otra de
   **cultura** en dos de cada tres.
-- **Segundo parcial:** mismo formato (5 preguntas teóricas; en 2016 hubo un ítem V/F).
-  Temas: poder y autoridad, delegación y descentralización, ética/moral/RSE, mobbing,
-  planeamiento estratégico, 5 fuerzas y cadena de valor de Porter, matriz BCG, escenarios,
-  estrategias de crecimiento y supervivencia, tablero de control, crisis y cambio.
-  _(sin indexar todavía: 3 archivos en `segundo-parcial/examenes/`)_
+- **Segundo parcial:** mismo formato (5 preguntas teóricas a desarrollar, numeradas 1–5; en
+  2016 la P1 fue un V/F con justificación, único caso). También se toma con varios temas por
+  fecha. Patrón sobre **15 hojas / 12 instancias (2012 → 2018 + 3 juegos de foro + 1 foto)**
+  indexadas en `segundo-parcial/examenes/INDICE.md`: hay una pregunta de **poder** en 10 de
+  15 hojas, de **delegación/descentralización** en 8, de **matriz BCG** en 6 (siempre con
+  razonamiento: ¿en cuál invertir?, ¿estrella → incógnita?, ¿vaca o dilema?), de **crisis**
+  en 6, de **5 fuerzas de Porter** en 5; después moral (4), planeamiento (4), ética (3),
+  cadena de valor (3). Tablero de control solo lo tomó Paccor (2015); escenarios, RSE,
+  supervivencia y anomia aparecen una vez cada uno.
 - **TP cuatrimestral:** trabajo grupal (6 integrantes, un rol gerencial cada uno) de
   simulación gerencial sobre una empresa tecnológica real o ficticia. Entrega única en
   **Google Slides** (`00_TP Cuatrimestral_Gx`, en el GDrive del grupo) con plantilla
@@ -100,8 +106,12 @@ que ya no existen); la numeración que vale es la del PDF 2026.
   `2013-2019_compilado-preguntas-respuestas.docx` (7 hojas fechadas, **con respuestas**),
   `sin-fecha_compilado-preguntas.md` (5 juegos de preguntas, 3 de ellos son los temas del
   2014-05-06) y `sin-fecha_Parcial.jpg` (foto de un parcial reciente, WhatsApp
-  2024-10-27). Segundo parcial: `2012-2018_compilado-preguntas-respuestas.docx`,
-  `sin-fecha_compilado-preguntas.md` y una foto, **sin indexar**.
+  2024-10-27). Segundo parcial: **15 hojas de 12 instancias (2012 → 2018)** en
+  `segundo-parcial/examenes/`, indexadas en `INDICE.md`:
+  `2012-2018_compilado-preguntas-respuestas.docx` (11 hojas fechadas, **con respuestas**,
+  solo una completa), `sin-fecha_compilado-preguntas.md` (5 juegos; C y E son versiones
+  completas de dos hojas del docx; A, B y D son los aportes de foro) y
+  `sin-fecha_Parcial.jpg` (foto de hoja tipeada, 5 preguntas).
 
 ## Leyenda de tags (para `examenes/INDICE.md`)
 
@@ -129,10 +139,39 @@ tipos elementales) `#ContinuoAutocraticoDemocratico` `#TeoriaRasgos` `#TeoriasCo
 **Comunicación (unidad IX):** `#FormasComunicacion` (oral / escrita / no verbal /
 electrónica) `#ClasificacionComunicacion` (formal / informal) `#EscuchaActiva` (Farinstein)
 
+### Tags del segundo parcial (caps. X–XVI del PDF 2026)
+
+**Poder y autoridad (cap. X):** `#Poder` (paraguas: va en toda pregunta del bloque)
+`#Influencia` `#PoderVsAutoridad` `#FuentesPoder` (recompensa / coerción / legítimo /
+referente / experto) `#FormasExpresionPoder` (descendente / ascendente / lateral)
+`#ModelosOrganizacion` (racional burocrático / colectivo de consenso)
+
+**Delegación y descentralización (cap. XI):** `#Delegacion` (paraguas) `#ConceptoDelegacion`
+(qué es delegar, qué se delega, vs. participación) `#FactoresContingentesDelegacion`
+`#MejorarDelegacion` (recomendaciones / requisitos) `#Centralizacion`
+`#TiposDescentralizacion` (vertical / horizontal + ventajas)
+
+**Ética, moral y RSE (cap. XII):** `#Etica` `#Moral` `#EticaVsMoral` `#RSE`
+
+**Mobbing (cap. XIII):** `#Mobbing` (características, formas de expresión del acoso)
+
+**Estrategia y planeamiento (cap. XIV):** `#Planeamiento` (paraguas) `#NivelesPlaneamiento`
+(operativo / táctico / estratégico) `#PlaneamientoEstrategico` (características, objetivos)
+`#CincoFuerzas` (paraguas Porter) `#Rivalidad` `#Sustitutos` `#Proveedores` `#Compradores`
+`#CadenaValor` `#BCG` `#Escenarios` `#EstrategiasCrecimiento` `#EstrategiasSupervivencia`
+`#TiposCambio` (compulsivo / imitativo / creador; "estrategia y cambio", págs. 98–99)
+
+**Tablero de control (cap. XV):** `#TableroControl` (paraguas) `#PerspectivasTablero`
+`#TiposTablero`
+
+**Crisis (cap. XVI):** `#Crisis` (paraguas) `#TiposCrisis` `#Anomia`
+`#ComportamientosCrisis` `#TiempoEnCrisis`
+
 ## Estado del material
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
 | **Primer parcial (2026-09-28)** | ✅ 6 desde el libro (caps. 2,3,4,5,7,8) + 07 fuera de programa; html + pdf | ✅ 12 hojas / 9 instancias | ✅ | — (los apuntes ya son solo lo que cae) | ✅ (2026-09-23, 5 días) | ✅ (vacío) | — | — | — |
-| Segundo parcial | — | pendiente (3 archivos sin indexar) | — | — | — | ✅ (vacío) | — | — | — |
+| TP cuatrimestral (entregado 2026-11-08) | — | — | — | — | — | — | — | — | — |
+| **Segundo parcial (2026-11-16)** | — (pendiente: caps. X–XVI del libro) | ✅ 15 hojas / 12 instancias (2026-11-09) | ✅ (2026-11-09) | — | ✅ (2026-11-09, 7 días) | ✅ (vacío) | — | — | — |
 | Final | — | — | — | — | — | ✅ (vacío) | — | — | — |
