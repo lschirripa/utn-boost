@@ -149,6 +149,12 @@ el usuario no la da:
   En el PDF (A4) las fórmulas, tablas y figuras que no entran en el ancho se achican solas
   (zoom medido con las fuentes de KaTeX ya cargadas), así que nunca salen cortadas.
 - `transcribe_local.py <video.mp4>` — transcribe un video/audio LOCAL (SharePoint, Zoom, mp4 descargado) con Whisper en la Mac (`mlx-whisper`, large-v3-turbo; ~30× tiempo real) y emite el mismo JSON que `dump_transcript.py`, con marcadores `[mm:ss|Ns]` sin links. `--out <ruta.json> --title … --prompt "vocabulario de la materia"`. Los mp4 no se versionan (`.gitignore`).
+- `ajuste_mc.py <datos.csv>` — ajuste por mínimos cuadrados con desarrollo paso a paso
+  (cambio de variables, tabla de sumatorias, sistema de ecuaciones normales, solución,
+  función aproximante, residuos y error cuadrático) para recta, parábola, cúbica,
+  exponencial, potencial, logarítmico, recíproco, hiperbólico y saturación. `--modelos`,
+  `--x0` (valor a estimar), `--out-dir`. Genera `reporte.md` (LaTeX), `resultados.json` y
+  gráficos PNG (matplotlib). Pensado para el TP de Análisis Numérico.
 - `fetch_transcripts.py` — descarga masiva de transcripciones desde IP residencial
   cuando YouTube bloquea (editar su lista `REMAINING`).
 - `extract_notes.py` — LEGACY: el pipeline original con Gemini. Ya no se usa (Claude

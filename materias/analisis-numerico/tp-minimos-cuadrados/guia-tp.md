@@ -1,0 +1,252 @@
+# Guía para hacer el TP de mínimos cuadrados
+
+> Fuente: enunciado.md (consigna oficial 2C 2026) + segundo-parcial/apuntes/md/01–02 (clases teórica y práctica de ajuste) + tools/ajuste_mc.py
+
+---
+
+> **Qué es este documento.** Es la hoja de ruta para hacer el TP **sin ver los videos**:
+> resume lo que hay que entender, traduce cada punto de la consigna a pasos concretos, dice
+> qué espera ver la cátedra y cómo usar la calculadora del repo para que las cuentas (el
+> **50 %** de la nota del PDF) salgan exactas. Lo que dijo el profe en clase está citado
+> con su apunte y timestamp; lo demás son recomendaciones para el TP.
+>
+> Si querés el detalle teórico: `../segundo-parcial/apuntes/md/01-video-teorica-ajuste-minimos-cuadrados.md`.
+> Si querés ver ejercicios resueltos con números: `../segundo-parcial/apuntes/md/02-practica-ajuste-minimos-cuadrados.md`.
+
+## 1. La idea en 5 minutos
+
+Tenés una tabla de puntos $(x_i, y_i)$ medidos de algo real. Querés una **función simple**
+que pase **lo más cerca posible de todos a la vez**, para estimar $y$ en un $x$ que no
+tenés.
+
+"Lo más cerca posible" se mide con el **error cuadrático**: la suma de las distancias
+verticales al cuadrado (al cuadrado para que los errores por arriba y por abajo no se
+cancelen y para poder derivar):
+
+$$
+E = \sum_{i=1}^{n} \big(y_i - \hat y_i\big)^2, \qquad \hat y_i = f(x_i)
+$$
+
+Minimizar $E$ (derivadas parciales igualadas a cero) lleva siempre a un **sistema de
+ecuaciones normales**. Para la recta $y = a_0 + a_1 x$:
+
+$$
+\left\{\begin{aligned}
+a_0\, n + a_1 \sum x &= \sum y \\
+a_0 \sum x + a_1 \sum x^2 &= \sum x\,y
+\end{aligned}\right.
+$$
+
+**Todo el resto del tema es esta misma recta disfrazada.** Para un modelo no polinómico
+(exponencial, potencial…) se hace un **cambio de variables** que lo convierte en una recta
+$Y = A_0 + A_1 X$ ("forma aparentemente lineal"), se usa el mismo sistema con $X$ e $Y$ en
+lugar de $x$ e $y$, y al final se "vuelve" a los coeficientes originales.
+
+Para la parábola $y = a_0 + a_1 x + a_2 x^2$ el sistema es 3×3 y sigue la regla
+"el exponente sube de a uno hacia la derecha y hacia abajo":
+
+$$
+\left\{\begin{aligned}
+a_0\, n + a_1 \sum x + a_2 \sum x^2 &= \sum y \\
+a_0 \sum x + a_1 \sum x^2 + a_2 \sum x^3 &= \sum x\,y \\
+a_0 \sum x^2 + a_1 \sum x^3 + a_2 \sum x^4 &= \sum x^2\,y
+\end{aligned}\right.
+$$
+
+## 2. Los modelos de la cátedra (tabla de linealización)
+
+| Modelo | Forma | Cambio de variables | Incógnitas del sistema | Vuelta |
+|---|---|---|---|---|
+| Recta | $y = a_0 + a_1 x$ | ninguno | $a_0, a_1$ | — |
+| Parábola | $y = a_0 + a_1 x + a_2 x^2$ | ninguno (sistema 3×3) | $a_0, a_1, a_2$ | — |
+| Exponencial | $y = a_0\,e^{a_1 x}$ | $Y = \ln y$, $X = x$ | $A_0 = \ln a_0$, $a_1$ | $a_0 = e^{A_0}$ |
+| Potencial | $y = a_0\,x^{a_1}$ | $Y = \ln y$, $X = \ln x$ | $A_0 = \ln a_0$, $a_1$ | $a_0 = e^{A_0}$ |
+| Logarítmico | $y = a_0 + a_1 \ln x$ | $X = \ln x$ | $a_0, a_1$ | — |
+| Recíproco (ej. 29c) | $y = a_0 + a_1 \frac{1}{x}$ | $X = \frac1x$ | $a_0, a_1$ | — |
+| Hiperbólico | $y = \dfrac{a_1}{a_0 + x}$ | $Y = \frac1y$, $X = x$ | $A_0 = \frac{a_0}{a_1}$, $A_1 = \frac{1}{a_1}$ | $a_1 = \frac{1}{A_1}$, $a_0 = A_0 a_1$ |
+| Saturación | $y = \dfrac{a\,x}{b + x}$ | $Y = \frac1y$, $X = \frac1x$ | $A_0 = \frac1a$, $A_1 = \frac{b}{a}$ | $a = \frac{1}{A_0}$, $b = A_1 a$ |
+
+Cuidados que marcó el profe:
+
+- En el potencial es $\sum[\ln x]^2$, **no** $\sum \ln(x^2)$ (práctica, 40:46).
+- En los modelos con logaritmo hacen falta **todos los $x > 0$** (potencial, logarítmico) y
+  **todos los $y > 0$** (exponencial, potencial).
+- Linealizar **no da la mejor exponencial/potencial posible** (se minimiza el error de
+  $\ln y$, no el de $y$), pero es lo que se pide y lo que usa Excel (teórica, 34:40).
+- Con $n$ puntos, el polinomio de grado $n-1$ es el **interpolante**: error cero y no sirve
+  para predecir. No lo uses como "el mejor modelo" (teórica, 1:01:34; práctica, 30:45).
+
+## 3. El TP punto por punto
+
+### a) Describir el problema
+
+- Contexto real (qué se mide, de dónde salen los datos, **fuente citada**), la tabla de
+  datos y **qué valor querés estimar y para qué**.
+- Elegí desde el principio el $x_0$ a estimar: todo el TP gira alrededor de él.
+- Justificá **por qué esperás cierta forma** (p. ej., "un enfriamiento sigue una
+  exponencial", "un algoritmo cuadrático crece como $n^2$"). El profe insiste: si conocés el
+  comportamiento del fenómeno, ese modelo es el que debería ganar (teórica, 22:23).
+
+### b) Nube de puntos
+
+- Gráfico de dispersión con **ejes rotulados y unidades**, título y fuente. Es el 20 % de la
+  nota ("formato de los gráficos y correspondencia con los datos").
+
+### c) Tres modelos (al menos uno no polinómico)
+
+Para **cada** modelo, en este orden (es exactamente lo que pide la consigna y lo que el
+profe quiere ver):
+
+1. **Forma del modelo** y, si hace falta, el **cambio de variables paso a paso** (aplicar
+   $\ln$ o invertir, renombrar $Y$, $X$, $A_0$, $A_1$).
+2. **Sistema de ecuaciones normales** en forma general.
+3. **Tabla de sumatorias** con las columnas que pide ese sistema.
+4. **Sistema con los números** reemplazados.
+5. **Solución** del sistema. El profe: "resolví y me dio tanto" alcanza; **no le interesa
+   el desarrollo de la resolución** del sistema (práctica, 13:30). Sí tiene que verse la
+   tabla y el sistema.
+6. **Vuelta** a los coeficientes originales (si hubo cambio).
+7. **Función aproximante** final.
+8. **Gráfico** de la función junto a la nube de puntos.
+
+Elección recomendada de los 3 (o más) modelos: **recta** (la referencia, "queda bien
+parada" casi siempre) + **el modelo no polinómico que sugiere el fenómeno** + **parábola** o
+un segundo no polinómico. Podés presentar 4 si querés mostrar que descartaste uno.
+
+### d) Comparar, elegir y estimar
+
+- **Criterio de la cátedra:** el **error cuadrático** $\sum (y_i - \hat y_i)^2$ calculado
+  con cada función final **en las variables originales** (es lo que hace el profe en las
+  dos clases para decir cuál "ajusta mejor"). Mostrá la tabla de residuos de cada modelo y
+  una tabla comparativa.
+- Complemento útil: $R^2 = 1 - \frac{\sum (y_i-\hat y_i)^2}{\sum (y_i - \bar y)^2}$ (no se
+  vio en clase; si lo usás, definilo).
+- No elijas solo por el número: si dos modelos empatan, gana el que **tiene sentido físico**
+  para el fenómeno y el que no hace cosas raras en $x_0$.
+- **Estimá $\hat y(x_0)$** con el modelo elegido (y mostralo con los otros también: si los
+  modelos coinciden en $x_0$, la estimación es más robusta).
+
+**¿Es confiable?** Argumentos que suman puntos:
+
+- **¿$x_0$ está dentro o fuera del rango de los datos?** Adentro (interpolar) es mucho más
+  confiable. Afuera (extrapolar) depende de que el fenómeno siga comportándose igual; cuanto
+  más lejos, menos confiable. El profe: para predecir **fuera** del rango se usa ajuste, no
+  interpolación (práctica, 1:13:15).
+- Tamaño de la muestra (con 5 puntos se puede, pero es poca evidencia).
+- Patrón de los residuos: si los residuos tienen forma (todos positivos en los extremos y
+  negativos en el medio, por ejemplo), el modelo no captura bien la curva.
+- Error relativo esperado: compará $\sqrt{E/n}$ (error típico) contra el valor estimado.
+- Si tenés el valor real de $x_0$ (o podés conseguirlo después), compararlo es el mejor
+  cierre posible (como Kepler → Júpiter en la práctica, 1:19:31).
+
+## 4. Elegir el caso (10 % creatividad, pero condiciona todo lo demás)
+
+Condiciones para que el TP salga bien:
+
+- **Datos reales** con fuente citable (o medidos por el grupo, documentando cómo).
+- **Entre 6 y 15 puntos**: suficientes para que el ajuste sea creíble y pocos para que las
+  tablas entren en el PDF.
+- Relación **claramente curva**, para que el modelo no polinómico tenga sentido y gane.
+- $x > 0$ e $y > 0$ (así podés usar exponencial y potencial sin problemas).
+- Un $x_0$ que **realmente te interese** y que no esté en la tabla.
+
+Ideas (con el modelo que "debería" ganar):
+
+| Idea | Datos | Modelo esperado | Pregunta |
+|---|---|---|---|
+| **Tiempo de un algoritmo de ordenamiento vs. tamaño de entrada** (lo miden ustedes en Python/Java) | $n$ = 1000…20000, tiempo en ms | **Potencial**, con exponente $\approx 2$ (burbuja) o recta en $n \ln n$ | ¿Cuánto tarda con $n = 100\,000$? ¿El exponente confirma $O(n^2)$? |
+| **Ley de Moore** (transistores por chip vs. año) | Wikipedia/Our World in Data, un procesador por año | **Exponencial** | ¿Cuántos transistores en 2027? ¿Cada cuántos años se duplica? |
+| **Enfriamiento de una taza de café** (lo miden con un termómetro de cocina) | minutos vs. $T - T_\text{ambiente}$ | **Exponencial** decreciente | ¿Cuándo llega a temperatura "tomable"? |
+| **Precio de un auto usado vs. antigüedad** (mismo modelo, MercadoLibre) | años vs. precio | **Exponencial** decreciente | ¿Cuánto valdrá el auto en 3 años? |
+| **Período orbital de las lunas de Júpiter vs. distancia** | NASA | **Potencial**, exponente $\approx 1{,}5$ (Kepler) | Período de una luna no incluida |
+
+La primera es la más creativa para Ingeniería en Sistemas (datos propios, el exponente del
+ajuste potencial se interpreta como la **complejidad del algoritmo**) y se presta mucho para
+el video. La de Kepler es la más segura pero el profe ya la mostró en clase.
+
+## 5. Las cuentas: `tools/ajuste_mc.py`
+
+La calculadora del repo hace el punto c) y d) completos y deja todo listo para copiar al PDF.
+Está verificada contra los ejercicios 29 y 30 de la práctica (da los mismos resultados que
+el OneNote del profe).
+
+**Paso 1:** guardar los datos en un CSV de dos columnas con encabezado (los nombres se usan
+como rótulos de los ejes), por ejemplo `datos.csv`:
+
+```
+Tamaño n,Tiempo (ms)
+1000,12.1
+2000,47.9
+...
+```
+
+**Paso 2:** correr (desde la raíz del repo):
+
+```bash
+venv/bin/python tools/ajuste_mc.py materias/analisis-numerico/tp-minimos-cuadrados/datos.csv --modelos recta,parabola,exponencial,potencial --x0 100000 --out-dir materias/analisis-numerico/tp-minimos-cuadrados/resultados
+```
+
+Modelos disponibles: `recta`, `parabola`, `cubica`, `exponencial`, `potencial`,
+`logaritmico`, `reciproco`, `hiperbolico`, `saturacion`. `--decimales` (default 4; el profe
+recomienda 4 o 5).
+
+**Paso 3:** qué genera en `resultados/`:
+
+- `reporte.md`: por cada modelo, los 7 pasos de §3.c (cambio de variables, sistema general,
+  tabla de sumatorias con $\Sigma$, sistema con números, solución, vuelta, función final) +
+  tabla de residuos + error cuadrático; al final, la tabla comparativa ordenada de mejor a
+  peor con $\hat y(x_0)$. Se exporta con `venv/bin/python tools/md_to_html.py resultados/reporte.md --pdf`.
+- `nube.png`, `modelo-<nombre>.png` (curva + nube + estrella en $x_0$), `comparacion.png`.
+- `resultados.json`: todos los números con precisión completa.
+
+Si la función hallada tiene una asíntota dentro del rango de los datos (pasa con el
+hiperbólico o el de saturación si los datos no tienen esa forma), lo avisa.
+
+**Recomendación:** igual armen **una** tabla a mano o en Excel/Sheets para entender de dónde
+sale cada número y para el video, y controlen con la línea de tendencia de Excel (lineal,
+exponencial, potencial y polinómica dan exactamente lo mismo que el método; el profe lo
+muestra en las dos clases).
+
+## 6. Armado del PDF
+
+1. **Carátula:** UTN FRBA · Análisis Numérico · TP 2C 2026 · curso · docente · integrantes
+   con legajo · fecha.
+2. **a) Problema:** contexto, fuente de los datos, tabla, valor a estimar.
+3. **b) Nube de puntos.**
+4. **c) Un apartado por modelo** con los 8 pasos de §3.c.
+5. **d) Comparación:** tabla de errores, gráfico comparativo, elección justificada,
+   $\hat y(x_0)$ y análisis de confiabilidad.
+6. **Conclusiones** (3–5 líneas).
+7. **Link al video** (YouTube o Drive), **al final del PDF** como pide la consigna.
+
+## 7. El video (4–6 min, todos en cámara)
+
+La grilla del video pesa: duración 20 %, explicaciones 50 %, imagen/audio 20 %, dinamismo
+10 %. Guion tentativo para 5 minutos y 4–6 personas:
+
+| Tiempo | Quién | Qué |
+|---|---|---|
+| 0:00–0:45 | Integrante 1 | Presentación del grupo y **por qué elegimos este problema** |
+| 0:45–1:30 | Integrante 2 | Descripción: datos, fuente, nube de puntos, qué queremos estimar |
+| 1:30–3:15 | Integrantes 3–4 | Los modelos: cambio de variables del no polinómico, sistema, resultado (mostrar la tabla y el gráfico, no leer números) |
+| 3:15–4:15 | Integrante 5 | Comparación de errores y elección |
+| 4:15–5:00 | Integrante 6 | Estimación de $x_0$, ¿es confiable?, cierre |
+
+Cronometrar antes de subir: **menos de 4 o más de 6 minutos pierde puntos seguros**.
+
+## 8. Checklist contra la grilla
+
+- [ ] Carátula completa, ortografía revisada (10 %)
+- [ ] Tema real y con algo de originalidad (10 %)
+- [ ] Cada modelo explicado paso a paso, incluido el cambio de variables (10 %)
+- [ ] Tablas de sumatorias, sistemas, soluciones y funciones **exactas** (50 %)
+- [ ] Nube + un gráfico por modelo + comparativo, con ejes, unidades y fuente (20 %)
+- [ ] Al menos 3 modelos, al menos uno no polinómico
+- [ ] Criterio de elección explícito + estimación de $x_0$ + análisis de confiabilidad
+- [ ] Video de 4 a 6 min, todos en cámara, audio claro, link al final del PDF
+- [ ] Entrega del PDF en la TAREA "TRABAJO PRACTICO" del Aula Virtual, antes de la fecha del docente
+
+---
+
+_Generado el 2026-11-10 a partir de la consigna oficial y de las clases teórica y práctica
+de ajuste (apuntes 01–02 de `segundo-parcial/`)._

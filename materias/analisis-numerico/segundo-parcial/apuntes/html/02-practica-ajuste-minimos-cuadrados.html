@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ajuste por mínimos cuadrados — práctica (ejercicios 29, 30 y 32)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light dark; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  body { color: #e6e6e6; background: #16181c; }
+  a { color: #6cb6ff; }
+  details { background: #1f2228; border-color: #30343c; }
+  summary { background: #232730; }
+  blockquote { color: #aab; border-color: #30343c; }
+  code { background: #232730; }
+  th { background: #232730; }
+  th, td { border-color: #30343c; }
+  tbody tr:nth-child(even) { background: #1c1f24; }
+}
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Ajuste por mínimos cuadrados — práctica (ejercicios 29, 30 y 32)
+
+> Fuente: fuentes/clases/Ajuste-Aproximacion/Ajuste-Practica.mp4 (transcripción local con Whisper) + fuentes/clases/Ajuste-Aproximacion/Ajuste.pdf (OneNote de la práctica, resolución manuscrita)
+
+---
+
+> **Cómo usar este apunte.** Es la clase práctica grabada (1 h 24 min) cruzada con el
+> OneNote del profe, que tiene los resultados escritos. La teoría está en
+> `01-video-teorica-ajuste-minimos-cuadrados.md`. Timestamps `[mm:ss]` del video local; lo
+> que sale solo del OneNote se marca **(OneNote)**.
+>
+> **Para el TP:** los ejercicios 29 y 30 son exactamente lo que pide el punto c) de la
+> consigna, y la §2 dice **qué espera ver el profe en una resolución escrita**. Los
+> resultados de los ejercicios 29 y 30 están verificados con `tools/ajuste_mc.py`.
+
+## Índice
+
+- [00:00] — Plan de la clase
+- [00:32] — 📝 Ejercicio 29a: recta de mínimos cuadrados
+- [11:19] — Error cuadrático de la recta
+- [13:30] — Qué se espera ver escrito en una resolución
+- [15:06] — Consulta: ¿el polinomio interpolante no es el mejor ajuste?
+- [19:01] — 📝 Ejercicio 29b: modelo exponencial
+- [26:29] — 📝 Ejercicio 29c: expresión aproximante $y = a + b/x$
+- [30:45] — 📝 Ejercicio 29d: parábola de mínimos cuadrados (= polinomio interpolante)
+- [35:30] — 📝 Ejercicio 30a: crecimiento con saturación
+- [40:46] — 📝 Ejercicio 30b: modelo potencial
+- [43:28] — Ajuste continuo: sumatorias → integrales
+- [44:29] — 📝 Ejercicio 32A: recta continua para $e^x$ en $[1,2]$
+- [48:50] — 📝 Ejercicio 32E: intervalo simétrico y Legendre ($x^2 e^x$ en $[-1,1]$)
+- [50:25] — Consulta: ¿para qué sirve el ajuste continuo?
+- [59:48] — Ventajas y desventajas de Legendre
+- [1:04:28] — 📝 Ejercicio 32F: Legendre con cambio de intervalo ($8x^3$ en $[0,1]$)
+- [1:13:15] — Ajuste vs. interpolación: cuándo usar cada uno
+- [1:19:31] — 📝 Ejemplo final: tercera ley de Kepler por ajuste
+
+## 1. El sistema base (la recta) — [00:32]
+
+El profe vuelve a insistir: **la recta es la piedra fundamental**; todos los demás modelos
+se linealizan y se resuelven con su mismo sistema.
+
+$$
+y = a_0 + a_1\,x
+\qquad\qquad
+\left\{\begin{aligned}
+a_0\, n + a_1 \sum x &= \sum y \\
+a_0 \sum x + a_1 \sum x^2 &= \sum x\,y
+\end{aligned}\right.
+$$
+
+($n = \sum x^0$ = cantidad de observaciones.) Reglas para armarlo: el grado de $x$ sube de
+izquierda a derecha; cada ecuación arranca un grado más arriba que la anterior; en el
+segundo miembro, $y$ a la 1 por $x^0, x^1, \dots$ de arriba hacia abajo.
+
+<details>
+<summary>📝 Ejercicio 29a — 00:32: recta de mínimos cuadrados</summary>
+
+Dada la tabla, ajustar por mínimos cuadrados a una recta.
+
+| $x_i$ | 1 | 2 | 3 | 4 |
+|---|:---:|:---:|:---:|:---:|
+| $y_i$ | 10 | 5 | 2 | 1 |
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** tabla con las columnas que pide el sistema y sus sumatorias:
+
+| $x$ | $y$ | $x^2$ | $x\,y$ |
+|:---:|:---:|:---:|:---:|
+| 1 | 10 | 1 | 10 |
+| 2 | 5 | 4 | 10 |
+| 3 | 2 | 9 | 6 |
+| 4 | 1 | 16 | 4 |
+| $\Sigma = 10$ | $\Sigma = 18$ | $\Sigma = 30$ | $\Sigma = 30$ |
+
+**Paso 2:** sistema con $n = 4$:
+
+$$
+\left\{\begin{aligned}
+4\,a_0 + 10\,a_1 &= 18 \\
+10\,a_0 + 30\,a_1 &= 30
+\end{aligned}\right.
+$$
+
+**Paso 3:** resolver (en Excel, en forma matricial: $X = A^{-1}B$ con `MINVERSA` y
+`MMULT`; en la hoja, con calculadora o el método que quieran):
+
+$$
+a_0 = 12, \qquad a_1 = -3 \qquad\Rightarrow\qquad y = 12 - 3x
+$$
+
+**Paso 4 (control):** Excel → gráfico de dispersión → línea de tendencia lineal → mostrar
+ecuación: $y = -3x + 12$. La recta no pasa por ningún punto, pero pasa lo más cerca posible
+de todos a la vez.
+
+</details>
+
+</details>
+
+### Error cuadrático — [11:19]
+
+Se evalúa la función hallada en cada $x$ ($\hat y$), se resta del $y$ dato y se eleva al
+cuadrado (el orden de la resta no importa por el cuadrado). En el 29a:
+
+| $x$ | $y$ | $\hat y = 12 - 3x$ | $(y - \hat y)^2$ |
+|:---:|:---:|:---:|:---:|
+| 1 | 10 | 9 | 1 |
+| 2 | 5 | 6 | 1 |
+| 3 | 2 | 3 | 1 |
+| 4 | 1 | 0 | 1 |
+| | | | $\Sigma = 4$ |
+
+(Que todas las diferencias den 1 es casualidad.) **No existe otra recta con error
+cuadrático menor que 4**: el método sale justamente de minimizar eso.
+
+## 2. Qué se espera ver escrito — [13:30]
+
+Pregunta de un alumno: ¿qué hay que mostrar en el resuelto? Respuesta del profe:
+
+- La **tabla con los datos usados** (las columnas y sus sumatorias).
+- El **sistema de ecuaciones planteado** con esos valores.
+- Después alcanza con "**resolví y me dio tanto**": **no le interesa el desarrollo de la
+  resolución del sistema** (se puede usar calculadora).
+- Usar la función de mínimos cuadrados de la calculadora directamente "sería un
+  despropósito": tiene que verse la tabla y el sistema.
+
+## 3. ¿El interpolante no es el mejor ajuste? — [15:06]
+
+- Cualquier función interpolante tiene **error cero** (por definición pasa por los
+  puntos), así que en ese sentido es "la que mejor ajusta".
+- Pero el ajuste **no busca** el interpolante: se usa para **predecir valores e
+  interpretar tendencias**.
+- Interpolar para estimar valores es malo si se usan muchos puntos (polinomios de grado
+  alto, con muchos puntos críticos que suben y bajan sin control). Newton-Gregory "pelado"
+  con 10 puntos para estimar un valor en el medio: "cero recomendable". Con 2 o 3 puntos,
+  más o menos controlado, sí se puede (ver §8).
+
+<details>
+<summary>📝 Ejercicio 29b — 19:01: modelo exponencial</summary>
+
+Misma tabla del 29 ($x$: 1, 2, 3, 4; $y$: 10, 5, 2, 1). Ajustar $y = a_0 e^{a_1 x}$.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** el desarrollo "puro" con derivadas parciales es un lío para resolver con lápiz y
+papel, así que se lleva a forma **aparentemente lineal** aplicando logaritmo:
+
+$$
+\ln y = \ln a_0 + a_1 x \qquad\Rightarrow\qquad \underbrace{\ln y}_{Y} = \underbrace{\ln a_0}_{A_0} + a_1\,x
+$$
+
+**Paso 2:** comparar con la recta: cambió $y \to \ln y$ y $a_0 \to A_0$; **no cambian** $x$
+ni $a_1$. El sistema queda:
+
+$$
+\left\{\begin{aligned}
+A_0\, n + a_1 \sum x &= \sum \ln y \\
+A_0 \sum x + a_1 \sum x^2 &= \sum x \ln y
+\end{aligned}\right.
+$$
+
+**Paso 3:** se agregan las columnas $\ln y$ y $x \ln y$; solo cambia la matriz de términos
+independientes ($n = 4$, $\sum x = 10$, $\sum x^2 = 30$ se reutilizan).
+
+**Paso 4:** el sistema da $A_0$ y $a_1$. $A_0$ **no** es el final: como
+$A_0 = \ln a_0$,
+
+$$
+a_0 = e^{A_0}
+$$
+
+**Paso 5:** resultado (coincide con la línea de tendencia exponencial de Excel,
+$22{,}361$ y $-0{,}782$):
+
+$$
+y = 22{,}3607\, e^{-0{,}7824\,x}
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Ejercicio 29c — 26:29: expresión aproximante y = a + b/x</summary>
+
+Misma tabla del 29. Ajustar $y = a_0 + a_1 \dfrac{1}{x}$ (en la guía, $y = a + b\,\frac{1}{x}$).
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** ya está en forma lineal; lo único distinto es que en vez de $x$ aparece
+$X = \frac{1}{x}$. Los coeficientes no cambian (siguen siendo minúscula).
+
+**Paso 2:** en el sistema de la recta, cada $\sum x$ pasa a $\sum \frac1x$, $\sum x^2$ a
+$\sum \frac{1}{x^2}$ y $\sum x y$ a $\sum \frac{y}{x}$; $n$ sigue igual ($\sum (1/x)^0 = n$):
+
+$$
+\left\{\begin{aligned}
+4\,a_0 + a_1 \sum \tfrac{1}{x} &= \sum y \\
+a_0 \sum \tfrac{1}{x} + a_1 \sum \big(\tfrac{1}{x}\big)^2 &= \sum \tfrac{y}{x}
+\end{aligned}\right.
+$$
+
+**Paso 3:** columnas $\frac1x$, $\frac{1}{x^2}$, $\frac{y}{x}$; $\sum y = 18$ como antes.
+
+**Paso 4:** como no hubo cambio en los coeficientes, la solución va directo:
+
+$$
+y = -1{,}7179 + 11{,}9384\,\frac{1}{x}
+$$
+
+(Es una hipérbola; se grafica en GeoGebra porque Excel no tiene este modelo.)
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Ejercicio 29d — 30:45: parábola de mínimos cuadrados (= polinomio interpolante)</summary>
+
+Misma tabla del 29. Ajustar a una parábola de mínimos cuadrados.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** $y = a_0 + a_1 x + a_2 x^2$: una incógnita más → una ecuación más. Regla: filas
+que arrancan en grado 0, 1, 2 y suben de a uno; segundo miembro $y$, $xy$, $x^2 y$:
+
+$$
+\left\{\begin{aligned}
+a_0\, n + a_1 \sum x + a_2 \sum x^2 &= \sum y \\
+a_0 \sum x + a_1 \sum x^2 + a_2 \sum x^3 &= \sum x\,y \\
+a_0 \sum x^2 + a_1 \sum x^3 + a_2 \sum x^4 &= \sum x^2\,y
+\end{aligned}\right.
+$$
+
+"Más que una parábola de grado 2 no les vamos a pedir."
+
+**Paso 2:** agregar columnas $x^3$, $x^4$, $x^2 y$; armar el 3×3 y resolver:
+
+$$
+y = x^2 - 8x + 17
+$$
+
+**Paso 3:** al graficarla, **pasa exactamente por los cuatro puntos**: es también el
+**polinomio interpolante** (error cero). Con 4 puntos, el interpolante de grado $\le 3$
+existe y es único, así que en algún grado (1, 2 o 3) tenía que aparecer; acá aparece en el
+2. Y está bien que mínimos cuadrados lo devuelva: si entre las infinitas parábolas hay una
+con error cero, ese es el mínimo absoluto.
+
+**(OneNote):** "Parábola de mínimos cuadrados es también el polinomio interpolante de menor
+grado".
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Ejercicio 30a — 35:30: crecimiento con saturación</summary>
+
+Dada la tabla, aproximar mediante el modelo $y = \dfrac{a\,x}{b + x}$ (promedio de
+crecimiento de saturación).
+
+| $x_i$ | 1 | 2 | 2,5 | 4 | 6 | 8 | 8,5 |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| $y_i$ | 0,4 | 0,7 | 0,8 | 1,0 | 1,2 | 1,3 | 1,4 |
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** acá logaritmos no tienen sentido: se **invierten ambos miembros** y se
+distribuye:
+
+$$
+\frac{1}{y} = \frac{b}{a}\cdot\frac{1}{x} + \frac{1}{a}
+\qquad\Rightarrow\qquad
+\underbrace{\frac{1}{y}}_{Y} = \underbrace{\frac{1}{a}}_{A_0} + \underbrace{\frac{b}{a}}_{A_1}\,\underbrace{\frac{1}{x}}_{X}
+$$
+
+**Paso 2:** es "el más molesto": **cambia todo** respecto de la recta (las dos incógnitas
+pasan a mayúscula, $x \to \frac1x$, $y \to \frac1y$):
+
+$$
+\left\{\begin{aligned}
+A_0\, n + A_1 \sum \tfrac{1}{x} &= \sum \tfrac{1}{y} \\
+A_0 \sum \tfrac{1}{x} + A_1 \sum \big(\tfrac{1}{x}\big)^2 &= \sum \tfrac{1}{x\,y}
+\end{aligned}\right.
+$$
+
+**Paso 3:** resolver con $n = 7$: $A_0 = 0{,}489$ y $A_1 = 1{,}98$.
+
+**Paso 4:** volver, **primero $a$ y después $b$** (porque $A_1$ depende de los dos):
+
+$$
+a = \frac{1}{A_0} = \frac{1}{0{,}489} = 2{,}044
+\qquad
+A_1 = \frac{b}{a} \;\Rightarrow\; b = A_1 \cdot a = 4{,}05
+$$
+
+**Paso 5:**
+
+$$
+y = \frac{2{,}044\,x}{4{,}0529 + x}
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Ejercicio 30b — 40:46: modelo potencial</summary>
+
+Misma tabla del 30. Aproximar mediante el modelo potencial $y = a_0 x^{a_1}$.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** incógnita en el exponente → logaritmo:
+
+$$
+\underbrace{\ln y}_{Y} = \underbrace{\ln a_0}_{A_0} + a_1\,\underbrace{\ln x}_{X}
+$$
+
+**Paso 2:** solo $a_1$ queda igual que en la recta; todo lo demás cambia:
+
+$$
+\left\{\begin{aligned}
+A_0\, n + a_1 \sum \ln x &= \sum \ln y \\
+A_0 \sum \ln x + a_1 \sum \big[\ln x\big]^2 &= \sum \ln x \cdot \ln y
+\end{aligned}\right.
+$$
+
+**(OneNote):** "¡Cuidado! No es lo mismo que $\sum \ln x^2$". El profe recomienda calculadora
+porque hay muchos decimales y se acumulan errores de redondeo.
+
+**Paso 3:** $a_1$ sale directo del sistema; $a_0 = e^{A_0}$:
+
+$$
+y = 0{,}44664\, x^{0{,}54704}
+$$
+
+</details>
+
+</details>
+
+## 4. Ajuste continuo — [43:28]
+
+Mismo objetivo (minimizar el error cuadrático), pero contra un **pedazo de curva** $f(x)$
+en $[a,b]$ (infinitos puntos) en vez de una tabla. Dos cambios sobre el sistema de la
+recta:
+
+- Las **sumatorias pasan a integrales** en $[a,b]$: $\sum x^k \to \int_a^b x^k\,dx$.
+- **$y$ pasa a $f(x)$**: $\sum x^k y \to \int_a^b x^k f(x)\,dx$.
+
+**(OneNote):** "Se reemplazan: sumatorias por integrales en el intervalo dado; las $y$ por la
+$f(x)$". Las integrales del primer miembro son fáciles (de $x^0, x^1, x^2, x^3$); las del
+segundo dependen de $f$ (en los ejercicios, salen con la tabla de integrales).
+
+<details>
+<summary>📝 Ejercicio 32A — 44:29: recta continua para e^x en [1,2]</summary>
+
+Ajustar $f(x) = e^x$ en $[1, 2]$ usando una recta.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:**
+
+$$
+\left\{\begin{aligned}
+a_0 \int_1^2 x^0\,dx + a_1 \int_1^2 x^1\,dx &= \int_1^2 e^x\,dx \\
+a_0 \int_1^2 x\,dx + a_1 \int_1^2 x^2\,dx &= \int_1^2 x\,e^x\,dx
+\end{aligned}\right.
+$$
+
+**Paso 2 (OneNote):** con las integrales resueltas:
+
+$$
+\left\{\begin{aligned}
+1\cdot a_0 + \tfrac{3}{2}\,a_1 &= e^2 - e \\
+\tfrac{3}{2}\,a_0 + \tfrac{7}{3}\,a_1 &= e^2
+\end{aligned}\right.
+$$
+
+**Paso 3:** resolver:
+
+$$
+a_0 = -2{,}22133, \qquad a_1 = 4{,}594736 \qquad\Rightarrow\qquad y = -2{,}22133 + 4{,}594736\,x
+$$
+
+Gráficamente, la recta pasa por el medio de la curva: a veces por arriba, a veces por
+abajo.
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Ejercicio 32E — 48:50: intervalo simétrico y Legendre (x²eˣ en [-1,1])</summary>
+
+Ajustar $f(x) = x^2 e^x$ en $[-1, 1]$ con una recta.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1 (por sistema):** el intervalo es **simétrico**, así que las integrales de
+funciones **impares** dan cero sin calcularlas (como en Fourier):
+
+$$
+\left\{\begin{aligned}
+a_0 \int_{-1}^{1} dx + a_1 \cancel{\int_{-1}^{1} x\,dx} &= \int_{-1}^{1} x^2 e^x\,dx \\
+a_0 \cancel{\int_{-1}^{1} x\,dx} + a_1 \int_{-1}^{1} x^2\,dx &= \int_{-1}^{1} x^3 e^x\,dx
+\end{aligned}\right.
+$$
+
+**Paso 2 (por Legendre):** $y = a_0\varphi_0(x) + a_1\varphi_1(x)$ con $\varphi_0 = 1$,
+$\varphi_1 = x$, $\varphi_2 = \frac12(3x^2-1)$ y $\frac{1}{\lVert \varphi_k \rVert} = \frac12, \frac32, \frac52, \dots$ Cada coeficiente sale por su cuenta:
+
+$$
+a_k = \frac{1}{\lVert \varphi_k \rVert}\int_{-1}^{1}\varphi_k(x)\,f(x)\,dx
+$$
+
+$$
+a_0 = \frac12\int_{-1}^{1} 1\cdot x^2 e^x\,dx = 0{,}43944
+\qquad
+a_1 = \frac32\int_{-1}^{1} x\cdot x^2 e^x\,dx = 0{,}67426
+$$
+
+**Paso 3:**
+
+$$
+y = 0{,}43944 + 0{,}67426\,x
+$$
+
+En su momento **la respuesta de la guía estaba mal** (graficada, daba una recta lejísimos de
+la función); esta es la correcta.
+
+**Paso 4 (agregar grado):** para la parábola, $a_0$ y $a_1$ quedan; solo se calcula
+$a_2 = \frac52\int_{-1}^{1}\frac12(3x^2-1)\,x^2 e^x\,dx$ y se suma $a_2\varphi_2(x)$.
+
+</details>
+
+</details>
+
+> **Consulta [50:25]: ¿para qué sirve el ajuste continuo?** El profe reconoce que es muy
+> teórico y que nunca lo vio aplicado. Si ya tenés la función, predecí con ella. El único
+> uso que se le ocurre: reemplazar una función "choclo" por una más fácil (una recta) que
+> se comporte parecido en el intervalo. Distinto es el discreto, donde hay muestras y no
+> hay función original.
+
+## 5. Legendre: ventajas y desventajas — [59:48]
+
+**(OneNote, coincide con lo que dice en el video):**
+
+| Ventajas | Desventajas |
+|---|---|
+| Se evita el sistema de ecuaciones (que con muchas incógnitas se complica): cada integral y cada coeficiente es independiente | Hay que resolver integrales, que pueden complicarse ("si están en la tabla, buenísimo, si no, agarrate") |
+| Se llega a la **misma** función de ajuste que por el sistema | Hay que recordar los polinomios ortogonales de Legendre |
+| Fácil ir sumando grados: los $a_0$, $a_1$ de la recta sirven para la parábola | Exige trabajar en $[-1, 1]$ (si no, cambio de variable) |
+
+Se usa hasta la parábola ($\varphi_2$); "todo, discreto o continuo, hasta tres ecuaciones".
+
+<details>
+<summary>📝 Ejercicio 32F — 1:04:28: Legendre con cambio de intervalo (8x³ en [0,1])</summary>
+
+Ajustar $f(x) = 8x^3$ en $[0, 1]$ con una recta y una parábola, por Legendre.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1 (cambio de variable):** hay que pasar $x \in [0,1]$ a $t \in [-1,1]$. Fórmula
+(el profe no la usa):
+
+$$
+x = \frac{a+b}{2} + \frac{b-a}{2}\,t
+$$
+
+Método gráfico del profe: $t$ en el eje horizontal entre $-1$ y $1$, $x$ en el vertical
+entre $0$ y $1$; recta de la esquina inferior izquierda a la superior derecha. Ordenada al
+origen $\frac12$ (el promedio), pendiente $\frac12$ (contando cuadraditos):
+
+$$
+x = \frac{t+1}{2}, \qquad t = -1 + 2x
+$$
+
+**Paso 2:** la función que entra en las integrales es la de $t$:
+
+$$
+f(t) = 8\left(\frac{t+1}{2}\right)^3 \quad \text{en } [-1, 1]
+$$
+
+**Paso 3:** coeficientes:
+
+$$
+a_0 = \frac12\int_{-1}^{1} 8\left(\tfrac{t+1}{2}\right)^3 dt = 2
+\qquad
+a_1 = \frac32\int_{-1}^{1} 8\left(\tfrac{t+1}{2}\right)^3 t\,dt = 3{,}6
+\qquad
+a_2 = \frac52\int_{-1}^{1} 8\left(\tfrac{t+1}{2}\right)^3 \tfrac12\big(3t^2-1\big)\,dt = 2
+$$
+
+**Paso 4 (recta):** $y(t) = 2\cdot 1 + 3{,}6\,t$; volver a $x$ con $t = -1 + 2x$:
+
+$$
+y(x) = 2 + 3{,}6(-1 + 2x) = -1{,}6 + 7{,}2\,x
+$$
+
+**Paso 5 (parábola):** se le suma $a_2\varphi_2(t)$ y se reemplaza $t$ (aparece un cuadrado
+de binomio):
+
+$$
+y(t) = 2 + 3{,}6\,t + 2\cdot\tfrac12\big(3t^2 - 1\big)
+\;\Rightarrow\;
+y(x) = 2 + 3{,}6(-1+2x) + 3(-1+2x)^2 - 1 = 0{,}4 - 4{,}8\,x + 12\,x^2
+$$
+
+Opinión del profe: para él es menos esfuerzo ir por el sistema de ecuaciones, pero "gustos
+son gustos": por los dos caminos se llega a lo mismo.
+
+</details>
+
+</details>
+
+## 6. Ajuste vs. interpolación — [1:13:15]
+
+Conclusiones de la unidad (interpolación la primera semana, ajuste la segunda):
+
+- **Interpolación** sirve para aproximar valores **dentro del intervalo de trabajo**, pero
+  **con cuidado con la cantidad de puntos**: muchos puntos → polinomio de grado alto →
+  muchos puntos críticos (máximos y mínimos impredecibles) → la estimación de un punto
+  intermedio "se va para cualquier lado". Con 2 o 3 puntos cercanos la estimación es mucho
+  mejor (en la vida profesional hay métodos más suaves, como curvas de Bézier).
+- Para **predecir valores fuera del rango** de los datos, o ver la **tendencia** de una
+  muestra, hay que usar **ajuste o regresión**:
+  - si **se conoce el comportamiento** de los puntos (p. ej. logística para contagios), usar
+    una función de ese tipo;
+  - si no, **la recta de regresión lineal suele funcionar bastante bien**.
+
+<details>
+<summary>📝 Ejemplo final — 1:19:31: tercera ley de Kepler por ajuste</summary>
+
+Datos de Mercurio, Venus, Tierra y Marte: distancia al Sol $x$ (millones de km; la Tierra a
+150) y período orbital $T$ (días; la Tierra 365). La ley es $T = C\,x^{3/2}$ con $C$
+constante. Estimar $C$ por ajuste y usarlo para predecir el período de Júpiter.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** se plantea como uno de los modelos con exponente (el profe dice "exponencial",
+pero la ley $T = C\,x^{3/2}$ es de la forma potencial $y = a_0 x^{a_1}$) [poco claro en la
+transcripción], con la particularidad de que **$a_1 = \frac32$ ya es conocido**: es como
+resolver el sistema sabiendo una de las incógnitas.
+
+**Paso 2:** linealizar con logaritmo; la constante queda como $C = e^{B}$ (otra letra para
+$A_0$, "cosa de nomenclatura"). Resolver → aproximación de $C$, la constante que Kepler
+averiguó en su momento.
+
+**Paso 3:** con la distancia de Júpiter (que no estaba en la muestra), la función da
+$\approx 4097$ días ≈ 11 años y pico. El período real de Júpiter es 11 años, 315 días y una
+hora: con solo 4 muestras, **estima bastante bien**.
+
+**Moraleja del profe:** el ajuste sirve para aproximar el valor de constantes reales
+(físicas o lo que sea) a partir de observar muestras.
+
+</details>
+
+</details>
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+
+</script>
+</body>
+</html>
