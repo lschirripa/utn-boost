@@ -1,0 +1,1329 @@
+# Ajuste por mínimos cuadrados, explicado paso a paso
+
+> Fuente: apuntes 01-video-teorica-ajuste-minimos-cuadrados.md y 02-practica-ajuste-minimos-cuadrados.md (clases grabadas Ajuste-teoria.mp4 y Ajuste-Practica.mp4 + OneNote Ajuste.pdf)
+
+---
+
+> **Qué es este apunte y en qué se diferencia de los otros dos.** Los apuntes 01 y 02
+> siguen las clases tal cual, con los saltos que tienen las clases. Este apunte cuenta la
+> **misma materia en otro orden**: una sola historia que arranca con una pregunta y va
+> agregando una idea por vez, siempre explicando **por qué** hace falta la siguiente.
+>
+> - Los métodos, fórmulas, ejemplos y resultados salen de las clases (apuntes 01 y 02).
+> - Lo que agrega este apunte son **explicaciones de intuición** (por qué se eleva al
+>   cuadrado, por qué el logaritmo "endereza", por qué la parábola pasa por los cuatro
+>   puntos), las cuentas intermedias que en clase quedaron en el Excel o en el pizarrón,
+>   y los gráficos. Los números nuevos se verificaron con `tools/ajuste_mc.py`.
+> - Usa **una sola tabla** de punta a punta (la del ejercicio 29), para que veas cómo
+>   cambia el resultado al cambiar de modelo sin tener que cambiar de datos.
+>
+> **Cómo leerlo:** en orden, con lápiz. Los ejemplos están en bloques desplegables:
+> intentá hacerlos antes de abrir la resolución. Al final hay preguntas de autoevaluación.
+
+## Índice
+
+- §0 — El mapa: toda la unidad es una sola idea con cuatro variaciones
+- §1 — El problema: tengo puntos y quiero una función
+- §2 — ¿Qué quiere decir "pasar lo más cerca posible"?
+- §3 — Cómo se encuentra la mejor recta (el sistema de la recta)
+- §4 — Mirar el resultado con ojo crítico: ¿una recta tiene sentido acá?
+- §5 — El truco central: disfrazar una curva de recta (exponencial)
+- §6 — El mismo truco en los dos ejes (potencial)
+- §7 — Cuando no hay exponentes: invertir (recíproco, saturación, hiperbólico)
+- §8 — La tabla de todos los disfraces
+- §9 — Otra salida: agregarle términos a la recta (parábola)
+- §10 — Entonces, ¿cuál es el mejor modelo?
+- §11 — De puntos a una función entera: ajuste continuo
+- §12 — Legendre: el mismo ajuste continuo sin sistema de ecuaciones
+- §13 — Resumen en una página
+- §14 — Errores típicos
+- §15 — Autoevaluación
+
+## 0. El mapa: toda la unidad es una sola idea
+
+Si las clases te parecieron una sucesión de temas sueltos (recta, exponencial,
+saturación, integrales, Legendre…), es porque se presentan uno atrás del otro sin decir
+qué tienen en común. Lo que tienen en común es esto:
+
+1. **Una sola pregunta:** de todas las funciones de cierto tipo, ¿cuál pasa más cerca de
+   mis datos?
+2. **Una sola forma de medir "cerca":** el **error cuadrático**, la suma de las
+   distancias al cuadrado (§2).
+3. **Una sola herramienta de cálculo:** el **sistema de ecuaciones de la recta** (§3). El
+   profe lo dice en las dos clases: la recta es "la piedra fundamental".
+
+Todo lo demás son **variaciones** de esa herramienta, cada una para resolver un problema
+concreto:
+
+| Variación | Problema que resuelve | Idea | Sección | ¿TP? | ¿2P? |
+|---|---|---|:---:|:---:|:---:|
+| **A. Disfrazar de recta** | Los datos siguen una curva (exponencial, potencia…) y el sistema "directo" es imposible de resolver a mano | Transformar las variables (logaritmo o inversa) para que la curva se vea como recta, y usar el sistema de la recta | §5–§8 | ✅ | ✅ |
+| **B. Agregar términos** | Una recta es demasiado rígida | Sumarle $x^2$ (parábola): una incógnita más, una ecuación más | §9 | ✅ | ✅ |
+| **C. Ajuste continuo** | No me dan puntos sino una función entera $f(x)$ | Las sumatorias pasan a integrales | §11 | ❌ | ✅ |
+| **D. Legendre** | En el ajuste continuo, cada vez que subo el grado hay que rehacer el sistema | Una fórmula directa para cada coeficiente, sin sistema | §12 | ❌ | ✅ |
+
+Con este mapa en la cabeza, cada tema nuevo deja de ser "otra cosa" y pasa a ser "la
+recta, con un ajuste para tal problema".
+
+## 1. El problema: tengo puntos y quiero una función
+
+Esta es la tabla que vamos a usar en todo el apunte (ejercicio 29 de la guía):
+
+| $x$ | 1 | 2 | 3 | 4 |
+|---|:---:|:---:|:---:|:---:|
+| $y$ | 10 | 5 | 2 | 1 |
+
+Quiero una función $y = f(x)$ que "represente" estos datos, por ejemplo para estimar
+cuánto vale $y$ en $x = 5$, donde no tengo medición.
+
+**Ya conocés una forma de hacerlo: interpolar** (la primera mitad de la unidad, Lagrange y
+Newton-Gregory). Interpolar es buscar una función que pase **exactamente por todos** los
+puntos. ¿Por qué no alcanza con eso? Según las clases:
+
+- Con muchos puntos, el polinomio interpolante es de grado alto y tiene muchos máximos y
+  mínimos que "suben y bajan sin control": estimar con él "se va para cualquier lado".
+- Y sobre todo: la interpolación sirve para estimar **dentro** del rango de los datos.
+  Para **predecir fuera** del rango (como $x = 5$) o para ver **la tendencia** de los
+  datos, hace falta **ajuste** (también llamado regresión).
+
+**Ajustar** es otra pregunta: no exijo que la función pase por los puntos; exijo que pase
+**lo más cerca posible de todos a la vez**. A cambio, puedo elegir una función simple (una
+recta, una exponencial) que capture la tendencia.
+
+> **Dato de color (teórica):** el método es de Gauss, que lo usó para predecir dónde iba a
+> reaparecer el planeta enano Ceres a partir de unas pocas observaciones.
+
+## 2. ¿Qué quiere decir "pasar lo más cerca posible"?
+
+Supongamos que alguien nos propone la recta $y = 12 - 3x$ (en §3 vamos a ver de dónde
+sale). Para cada punto miramos la **distancia vertical** entre el dato y la recta. Se
+llama **residuo**:
+
+$$
+r_i = y_i - \hat y_i
+$$
+
+donde $\hat y_i$ ("y sombrero", o **$y$ ajustado**) es el valor que da la recta en $x_i$.
+
+| $x$ | $y$ (dato) | $\hat y = 12 - 3x$ | residuo $y - \hat y$ |
+|:---:|:---:|:---:|:---:|
+| 1 | 10 | 9 | $+1$ |
+| 2 | 5 | 6 | $-1$ |
+| 3 | 2 | 3 | $-1$ |
+| 4 | 1 | 0 | $+1$ |
+
+![Residuos de la recta 12 − 3x sobre los datos del ejercicio 29](../img/00-fig1-residuos.png)
+
+Ahora necesito **un solo número** que diga "qué tan lejos queda la recta de los datos".
+Probemos las opciones obvias:
+
+**Opción 1: sumar los residuos.** $(+1) + (-1) + (-1) + (+1) = 0$. ¡Da cero, y la recta no
+pasa por ningún punto! Los residuos positivos (punto por arriba) y negativos (punto por
+abajo) **se compensan**. Esta medida no sirve.
+
+**Opción 2: sumar los valores absolutos.** $|{+1}| + |{-1}| + |{-1}| + |{+1}| = 4$. Esta
+medida es válida. El problema es que para encontrar el mínimo vamos a tener que
+**derivar**, y el valor absoluto no es derivable donde vale cero (tiene un "pico").
+
+**Opción 3: sumar los cuadrados.** El cuadrado también es siempre positivo (no hay
+compensación) y se deriva sin problemas. Esta es la que se usa, y de ahí el nombre del
+método:
+
+$$
+E = \sum_{i=1}^{n} \big(y_i - \hat y_i\big)^2 \qquad \text{(error cuadrático)}
+$$
+
+Para la recta $12 - 3x$: $E = 1^2 + 1^2 + 1^2 + 1^2 = 4$.
+
+### El cambio de cabeza importante
+
+Acá está la clave de todo el método. **Los datos no cambian**: $x_i$ e $y_i$ son números
+fijos. Lo que cambia es **qué recta pruebo**. Cada recta $y = a_0 + a_1 x$ tiene su propio
+error. Por ejemplo, si subo la recta medio punto, a $y = 12{,}5 - 3x$:
+
+| $x$ | $y$ | $\hat y = 12{,}5 - 3x$ | residuo | residuo² |
+|:---:|:---:|:---:|:---:|:---:|
+| 1 | 10 | 9,5 | $+0{,}5$ | 0,25 |
+| 2 | 5 | 6,5 | $-1{,}5$ | 2,25 |
+| 3 | 2 | 3,5 | $-1{,}5$ | 2,25 |
+| 4 | 1 | 0,5 | $+0{,}5$ | 0,25 |
+| | | | | $E = 5$ |
+
+Empeoró: 5 en vez de 4. Entonces el error es una **función de los coeficientes**:
+
+$$
+E(a_0, a_1) = \sum_{i=1}^{n} \big(y_i - a_0 - a_1 x_i\big)^2
+$$
+
+Las **incógnitas son $a_0$ y $a_1$** (no $x$ ni $y$). El problema de "encontrar la recta
+que mejor ajusta" se convierte en un problema que ya sabés hacer en Análisis 2:
+**encontrar el mínimo de una función de dos variables**.
+
+## 3. Cómo se encuentra la mejor recta
+
+### La idea: el fondo de un pozo
+
+$E(a_0, a_1)$ es una suma de cuadrados, así que tiene forma de **pozo** (un paraboloide):
+para cada par $(a_0, a_1)$ hay una altura $E$, y hay un único punto más bajo. En el fondo
+del pozo el piso es **plano en todas las direcciones**, es decir, las dos derivadas
+parciales valen cero:
+
+$$
+\frac{\partial E}{\partial a_0} = 0 \qquad\qquad \frac{\partial E}{\partial a_1} = 0
+$$
+
+Dos ecuaciones, dos incógnitas. Eso es todo el método.
+
+### La cuenta (para entenderla; el profe no la pide)
+
+El profe aclara que la derivación "no me calienta mucho que la sepan": lo que hay que
+saber armar es el sistema final. Pero verla una vez evita que el sistema parezca magia.
+
+**Derivada respecto de $a_0$.** Por regla de la cadena, baja el 2 y se multiplica por la
+derivada de lo de adentro respecto de $a_0$, que es $-1$:
+
+$$
+\frac{\partial E}{\partial a_0} = \sum 2\big(y_i - a_0 - a_1 x_i\big)\cdot(-1) = 0
+$$
+
+Divido por $-2$ (se puede, porque está igualado a cero) y separo la suma en tres:
+
+$$
+\sum y_i - \sum a_0 - \sum a_1 x_i = 0
+$$
+
+$a_0$ es la misma en todos los términos, así que $\sum a_0 = a_0 + a_0 + \cdots = n\,a_0$
+(**$n$ = cantidad de puntos**). $a_1$ sale afuera de la suma. Paso $\sum y_i$ al otro lado:
+
+$$
+a_0\, n + a_1 \sum x_i = \sum y_i
+$$
+
+**Derivada respecto de $a_1$.** Lo mismo, pero ahora la derivada de lo de adentro es
+$-x_i$:
+
+$$
+\frac{\partial E}{\partial a_1} = \sum 2\big(y_i - a_0 - a_1 x_i\big)\cdot(-x_i) = 0
+\quad\Rightarrow\quad
+\sum x_i y_i - a_0 \sum x_i - a_1 \sum x_i^2 = 0
+$$
+
+$$
+a_0 \sum x_i + a_1 \sum x_i^2 = \sum x_i y_i
+$$
+
+### El resultado: el sistema de ecuaciones normales de la recta
+
+$$
+\boxed{\;
+\left\{\begin{aligned}
+a_0\, n + a_1 \sum x &= \sum y \\
+a_0 \sum x + a_1 \sum x^2 &= \sum x\,y
+\end{aligned}\right.
+\;}
+$$
+
+Fijate que es un sistema **lineal** común de 2×2: los $\sum$ son **números** que se
+calculan con la tabla. Para armarlo, a la tabla de datos se le **agregan columnas**:
+
+| Necesito | Columna que agrego | Para qué |
+|---|---|---|
+| $n$ | (contar los puntos) | coeficiente de $a_0$ en la ecuación 1 |
+| $\sum x$ | la de $x$ ya está | aparece dos veces ("cruzado") |
+| $\sum x^2$ | $x^2$ | coeficiente de $a_1$ en la ecuación 2 |
+| $\sum y$ | la de $y$ ya está | lado derecho de la ecuación 1 |
+| $\sum x\,y$ | $x \cdot y$ | lado derecho de la ecuación 2 |
+
+### Regla para armarlo sin memorizar
+
+Pensá $n$ como $\sum x^0$ (porque $x^0 = 1$ y sumar 1 $n$ veces da $n$) y $\sum y$ como
+$\sum x^0 y$:
+
+$$
+\left\{\begin{aligned}
+a_0 \sum x^{\color{red}0} + a_1 \sum x^{\color{red}1} &= \sum x^{\color{red}0}\, y \\
+a_0 \sum x^{\color{red}1} + a_1 \sum x^{\color{red}2} &= \sum x^{\color{red}1}\, y
+\end{aligned}\right.
+$$
+
+- **Hacia la derecha**, el exponente de $x$ sube de a 1.
+- **Cada renglón** arranca un exponente más arriba que el anterior.
+- **Del lado derecho**, siempre $y$ (a la 1) multiplicada por $x^0$, $x^1$, … de arriba
+  hacia abajo.
+
+Esta regla es la que después te arma la parábola (§9) sin pensar.
+
+<details>
+<summary>📝 Ejemplo guiado 1 — la mejor recta para la tabla del ejercicio 29 (29a)</summary>
+
+Con la tabla $x$: 1, 2, 3, 4; $y$: 10, 5, 2, 1, hallar la recta de mínimos cuadrados y
+su error cuadrático.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** tabla con las columnas que pide el sistema y la fila de sumatorias:
+
+| $x$ | $y$ | $x^2$ | $x\,y$ |
+|:---:|:---:|:---:|:---:|
+| 1 | 10 | 1 | 10 |
+| 2 | 5 | 4 | 10 |
+| 3 | 2 | 9 | 6 |
+| 4 | 1 | 16 | 4 |
+| $\Sigma = 10$ | $\Sigma = 18$ | $\Sigma = 30$ | $\Sigma = 30$ |
+
+**Paso 2:** reemplazar en el sistema, con $n = 4$:
+
+$$
+\left\{\begin{aligned}
+4\,a_0 + 10\,a_1 &= 18 \\
+10\,a_0 + 30\,a_1 &= 30
+\end{aligned}\right.
+$$
+
+**Paso 3:** resolver (en el examen alcanza con la calculadora y escribir el resultado; acá
+lo hago a mano para que no sea una caja negra). Multiplico la primera por $2{,}5$ para
+igualar el coeficiente de $a_0$:
+
+$$
+10\,a_0 + 25\,a_1 = 45
+$$
+
+Le resto esto a la segunda: $5\,a_1 = 30 - 45 = -15$, así que $a_1 = -3$. Vuelvo a la
+primera: $4\,a_0 = 18 - 10\cdot(-3) = 48$, así que $a_0 = 12$.
+
+**Paso 4:** la recta:
+
+$$
+y = 12 - 3x
+$$
+
+**Paso 5:** error cuadrático: es la tabla de §2, $E = 4$. Como esta recta sale de
+minimizar $E$, **ninguna otra recta da menos de 4** (la de §2 corrida medio punto daba 5).
+
+</details>
+
+</details>
+
+### Qué tiene que quedar escrito (lo dijo el profe en la práctica)
+
+- La **tabla** con las columnas usadas y sus sumatorias.
+- El **sistema** planteado con esos números.
+- Después alcanza con "**resolví y me dio tanto**": no le interesa el desarrollo de cómo
+  se resuelve el sistema, y se puede usar calculadora.
+- Lo que no vale es usar directo la función de regresión de la calculadora sin mostrar
+  tabla y sistema.
+
+## 4. Mirar el resultado con ojo crítico
+
+Tenemos $y = 12 - 3x$, con error 4. Antes de seguir, mirá los datos de nuevo:
+
+- De $x = 1$ a $x = 2$, $y$ baja **5**. De 2 a 3 baja **3**. De 3 a 4 baja **1**.
+- Los datos bajan **cada vez menos**: forman una curva que se va aplanando.
+- Una recta, en cambio, baja **siempre lo mismo** (3 por cada unidad de $x$). No puede
+  copiar esa forma: por eso pasa por arriba en el medio y por abajo en las puntas.
+- Y si la uso para predecir, en $x = 5$ da $12 - 15 = -3$. Si $y$ fuera algo que no puede
+  ser negativo, la predicción es absurda.
+
+Esto es exactamente lo que dice el profe en la teórica: **si sabés qué tipo de función
+sigue el fenómeno, usá ese tipo** (su ejemplo: los contagios de un virus siguen una
+logística, una curva en forma de S). Si no tenés idea, la recta "suele quedar bien
+parada".
+
+Acá los datos parecen decrecer como una **exponencial** (bajan rápido y después se van
+aplanando sin llegar a cero). Entonces la pregunta que motiva toda la parte siguiente es:
+
+> **¿Cómo ajusto una curva que no es una recta, si la única herramienta que tengo es el
+> sistema de la recta?**
+
+## 5. El truco central: disfrazar una curva de recta
+
+### Por qué no se puede hacer "lo mismo" directamente
+
+Quiero ajustar $y = a_0\, e^{a_1 x}$. Podría repetir §3: escribir
+$E = \sum (y_i - a_0 e^{a_1 x_i})^2$, derivar respecto de $a_0$ y de $a_1$, e igualar a
+cero. El problema es que $a_1$ está **en el exponente**: las ecuaciones que salen no son
+lineales, y "no tenemos las herramientas" para resolverlas a mano (palabras del profe).
+
+En la recta funcionaba porque las incógnitas aparecían **multiplicando** cosas conocidas
+($a_0 \cdot 1 + a_1 \cdot x$). Esa es la forma que necesito recuperar.
+
+### La idea: cambiar los anteojos
+
+Si aplico **logaritmo natural** a los dos lados de $y = a_0 e^{a_1 x}$:
+
+$$
+\ln y = \ln\!\big(a_0\, e^{a_1 x}\big) = \ln a_0 + \ln e^{a_1 x} = \ln a_0 + a_1\, x
+$$
+
+Mirá la forma que quedó: **(algo) = (constante) + (constante)·x**. Es una recta, pero en
+la que en lugar de $y$ aparece $\ln y$. El profe la llama **forma aparentemente lineal**.
+Le pongo nombres nuevos a lo que cambió:
+
+$$
+\underbrace{\ln y}_{Y} = \underbrace{\ln a_0}_{A_0} + a_1\, x
+$$
+
+Dicho en criollo: si en vez de graficar $y$ grafico **$\ln y$**, los puntos de una
+exponencial **quedan alineados**. Con nuestros datos se ve:
+
+![Los mismos datos mirados como y y como ln y](../img/00-fig2-anteojos.png)
+
+Mirando $y$, las bajadas eran 5, 3, 1 (muy desparejas: curva). Mirando $\ln y$, son
+0,69; 0,92; 0,69 (casi parejas: casi recta). Y a una nube **casi recta** ya le sé ajustar
+una recta.
+
+### La receta (vale para TODOS los modelos que siguen)
+
+1. **Linealizar:** llevar la función a la forma $Y = A_0 + A_1 X$ (logaritmo o inversa).
+2. **Comparar con la recta** y anotar qué cambió: quién hace de $X$, quién de $Y$, y qué
+   coeficientes quedaron "disfrazados" (con mayúscula).
+3. **Armar el sistema de la recta** reemplazando lo que cambió y dejando igual lo que no.
+   En la tabla se agregan las columnas nuevas ($\ln y$, $x \ln y$, …).
+4. **Resolver** el sistema: da los coeficientes disfrazados.
+5. **Volver** a los coeficientes originales (deshacer el disfraz).
+6. **Escribir la función final** y, si piden comparar, calcular el error cuadrático
+   **con los $y$ originales** (no con los $\ln y$).
+
+Para la exponencial: cambió $y \to \ln y$ y $a_0 \to A_0 = \ln a_0$; **no cambiaron** $x$
+ni $a_1$. El sistema es:
+
+$$
+\left\{\begin{aligned}
+A_0\, n + a_1 \sum x &= \sum \ln y \\
+A_0 \sum x + a_1 \sum x^2 &= \sum x \ln y
+\end{aligned}\right.
+$$
+
+Observá que **el lado izquierdo es idéntico al de la recta** ($n$, $\sum x$, $\sum x^2$):
+solo cambia el lado derecho. Y la vuelta es: como $A_0 = \ln a_0$, entonces
+$a_0 = e^{A_0}$.
+
+<details>
+<summary>📝 Ejemplo guiado 2 — exponencial para la tabla del ejercicio 29 (29b)</summary>
+
+Misma tabla. Ajustar $y = a_0\, e^{a_1 x}$ y comparar su error con el de la recta.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** linealizar: $\ln y = \ln a_0 + a_1 x$, es decir $Y = A_0 + a_1 x$ con
+$Y = \ln y$ y $A_0 = \ln a_0$.
+
+**Paso 2:** tabla. Las columnas $x$ y $x^2$ (y por lo tanto $n = 4$, $\sum x = 10$,
+$\sum x^2 = 30$) **se reutilizan** de la recta. Se agregan $\ln y$ y $x \ln y$:
+
+| $x$ | $y$ | $\ln y$ | $x \ln y$ |
+|:---:|:---:|:---:|:---:|
+| 1 | 10 | 2,30259 | 2,30259 |
+| 2 | 5 | 1,60944 | 3,21888 |
+| 3 | 2 | 0,69315 | 2,07944 |
+| 4 | 1 | 0 | 0 |
+| $\Sigma = 10$ | | $\Sigma = 4{,}60517$ | $\Sigma = 7{,}60090$ |
+
+**Paso 3:** sistema:
+
+$$
+\left\{\begin{aligned}
+4\,A_0 + 10\,a_1 &= 4{,}60517 \\
+10\,A_0 + 30\,a_1 &= 7{,}60090
+\end{aligned}\right.
+$$
+
+**Paso 4:** resolver: $A_0 = 3{,}10730$ y $a_1 = -0{,}78240$.
+
+**Paso 5:** volver: $a_0 = e^{A_0} = e^{3{,}10730} = 22{,}3607$. ($a_1$ no estaba
+disfrazada: va directo.)
+
+**Paso 6:** función:
+
+$$
+y = 22{,}3607\, e^{-0{,}7824\,x}
+$$
+
+Coincide con la línea de tendencia exponencial de Excel que muestra el profe.
+
+**Paso 7:** error cuadrático en las variables originales ($\hat y$ con la exponencial,
+contra los $y$ de la tabla): $E \approx 0{,}175$. Contra el 4 de la recta, **la exponencial
+ajusta muchísimo mejor**, como sospechábamos en §4.
+
+</details>
+
+</details>
+
+### Letra chica: el disfraz no da la "mejor exponencial de todas"
+
+Al linealizar, el método minimiza el error de los **$\ln y$**, no el de los $y$. Por eso
+la exponencial que se obtiene es muy buena pero no exactamente la mejor posible. En la
+teórica el profe lo muestra: resolviendo el sistema "difícil" con Wolfram sale otra
+exponencial con error 0,59, contra 0,67 de la linealizada. Igual, **siempre se pide la
+versión linealizada**: es la que se puede hacer a mano, y es la que usa Excel.
+
+## 6. El mismo truco en los dos ejes: modelo potencial
+
+$$
+y = a_0\, x^{a_1}
+$$
+
+Mismo problema que antes (incógnita en el exponente), mismo remedio (logaritmo):
+
+$$
+\ln y = \ln a_0 + a_1 \ln x
+\qquad\Rightarrow\qquad
+\underbrace{\ln y}_{Y} = \underbrace{\ln a_0}_{A_0} + a_1\, \underbrace{\ln x}_{X}
+$$
+
+La diferencia con la exponencial: ahora **también la $x$ cambia** ($X = \ln x$). O sea,
+los anteojos se ponen en los dos ejes. Solo quedan intactos $n$ y $a_1$:
+
+$$
+\left\{\begin{aligned}
+A_0\, n + a_1 \sum \ln x &= \sum \ln y \\
+A_0 \sum \ln x + a_1 \sum \big[\ln x\big]^2 &= \sum \ln x \cdot \ln y
+\end{aligned}\right.
+$$
+
+Y la vuelta es la misma: $a_0 = e^{A_0}$.
+
+> ⚠️ **Trampa clásica (está en el OneNote):** $\sum [\ln x]^2$ es "el logaritmo, y
+> después al cuadrado". **No** es $\sum \ln(x^2)$. El profe usa corchetes para no
+> confundirse. Columna de la tabla: primero calculás $\ln x$ y después elevás.
+
+### ¿Cómo distingo exponencial de potencial?
+
+- **Exponencial** ($x$ en el exponente): cuando $x$ **avanza** un paso fijo, $y$ se
+  **multiplica** siempre por el mismo factor.
+- **Potencial** ($x$ en la base): cuando $x$ **se multiplica** (por ejemplo, se duplica),
+  $y$ se multiplica siempre por el mismo factor.
+
+En el potencial el exponente $a_1$ suele tener **significado físico**. El ejemplo de
+cierre de la práctica es la tercera ley de Kepler: el período de un planeta es
+$T = C\,x^{3/2}$ ($x$ = distancia al Sol). Con los datos de cuatro planetas, el ajuste
+estima $C$ y con eso predice el período de Júpiter en unos 4097 días, alrededor de 11
+años; el real es 11 años y 315 días. "El ajuste sirve para aproximar el valor de
+constantes reales a partir de observar muestras".
+
+<details>
+<summary>📝 Ejemplo guiado 3 — potencial para la tabla del ejercicio 30 (30b)</summary>
+
+| $x$ | 1 | 2 | 2,5 | 4 | 6 | 8 | 8,5 |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| $y$ | 0,4 | 0,7 | 0,8 | 1,0 | 1,2 | 1,3 | 1,4 |
+
+Ajustar $y = a_0\, x^{a_1}$.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** linealizar: $Y = A_0 + a_1 X$ con $X = \ln x$, $Y = \ln y$, $A_0 = \ln a_0$.
+
+**Paso 2:** columnas $\ln x$, $[\ln x]^2$, $\ln y$, $\ln x \cdot \ln y$. Sumatorias (con
+$n = 7$):
+
+$$
+\sum \ln x = 9{,}0070 \qquad \sum [\ln x]^2 = 15{,}3562 \qquad \sum \ln y = -0{,}7150 \qquad \sum \ln x \ln y = 1{,}1406
+$$
+
+(Hay valores negativos porque $\ln y < 0$ cuando $y < 1$.)
+
+**Paso 3:** sistema:
+
+$$
+\left\{\begin{aligned}
+7\,A_0 + 9{,}0070\,a_1 &= -0{,}7150 \\
+9{,}0070\,A_0 + 15{,}3562\,a_1 &= 1{,}1406
+\end{aligned}\right.
+$$
+
+**Paso 4:** resolver: $A_0 = -0{,}8060$, $a_1 = 0{,}5470$.
+
+**Paso 5:** volver: $a_0 = e^{-0{,}8060} = 0{,}4466$.
+
+$$
+y = 0{,}4466\, x^{0{,}5470}
+$$
+
+Coincide con el OneNote ($0{,}44664\,x^{0{,}54704}$). El profe recomienda trabajar con
+calculadora y varios decimales, porque con los logaritmos los redondeos se acumulan.
+
+</details>
+
+</details>
+
+## 7. Cuando no hay exponentes: invertir
+
+El logaritmo sirve para sacar incógnitas de un exponente. Pero hay modelos donde el
+problema es otro: la incógnita está **en un denominador**. Para esos, el truco es
+**invertir los dos miembros** ($y \to 1/y$). Son tres modelos, de más fácil a más
+molesto.
+
+### 7.1 Recíproco: $y = a_0 + a_1 \dfrac{1}{x}$ (el más fácil)
+
+**Ya es** una recta: solo que en lugar de $x$ aparece $\frac{1}{x}$. No hay que hacer
+ninguna cuenta para linealizarlo: $X = \frac{1}{x}$, y $y$, $a_0$, $a_1$ quedan iguales.
+En el sistema, cada $x$ se reemplaza por $\frac1x$:
+
+$$
+\left\{\begin{aligned}
+a_0\, n + a_1 \sum \tfrac{1}{x} &= \sum y \\
+a_0 \sum \tfrac{1}{x} + a_1 \sum \tfrac{1}{x^2} &= \sum \tfrac{y}{x}
+\end{aligned}\right.
+$$
+
+Como los coeficientes no se disfrazaron, **no hay vuelta**: salen directo.
+
+<details>
+<summary>📝 Ejemplo guiado 4 — recíproco para la tabla del ejercicio 29 (29c)</summary>
+
+Tabla del 29. Ajustar $y = a_0 + a_1 \frac{1}{x}$.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** columnas $\frac1x$, $\frac{1}{x^2}$, $\frac{y}{x}$:
+
+| $x$ | $y$ | $1/x$ | $1/x^2$ | $y/x$ |
+|:---:|:---:|:---:|:---:|:---:|
+| 1 | 10 | 1 | 1 | 10 |
+| 2 | 5 | 0,5 | 0,25 | 2,5 |
+| 3 | 2 | 0,33333 | 0,11111 | 0,66667 |
+| 4 | 1 | 0,25 | 0,0625 | 0,25 |
+| | $\Sigma = 18$ | $\Sigma = 2{,}08333$ | $\Sigma = 1{,}42361$ | $\Sigma = 13{,}41667$ |
+
+**Paso 2:** sistema:
+
+$$
+\left\{\begin{aligned}
+4\,a_0 + 2{,}08333\,a_1 &= 18 \\
+2{,}08333\,a_0 + 1{,}42361\,a_1 &= 13{,}41667
+\end{aligned}\right.
+$$
+
+**Paso 3:** resolver:
+
+$$
+y = -1{,}7179 + 11{,}9385\,\frac{1}{x}
+$$
+
+**Paso 4:** error cuadrático: $E \approx 0{,}749$. Mejor que la recta (4), peor que la
+exponencial (0,175).
+
+</details>
+
+</details>
+
+### 7.2 Crecimiento con saturación: $y = \dfrac{a\,x}{b + x}$ (el más molesto)
+
+Este modelo crece y se va "frenando" hasta acercarse a un techo (el valor $a$). La teórica
+lo asocia, por ejemplo, con cierto crecimiento de bacterias.
+
+Hagamos la linealización despacio. Invierto los dos miembros:
+
+$$
+\frac{1}{y} = \frac{b + x}{a\,x}
+$$
+
+Separo la fracción en dos, porque el numerador es una suma:
+
+$$
+\frac{1}{y} = \frac{b}{a\,x} + \frac{x}{a\,x} = \frac{b}{a}\cdot\frac{1}{x} + \frac{1}{a}
+$$
+
+Ordeno con la forma de la recta y pongo nombres:
+
+$$
+\underbrace{\frac{1}{y}}_{Y} = \underbrace{\frac{1}{a}}_{A_0} + \underbrace{\frac{b}{a}}_{A_1}\,\underbrace{\frac{1}{x}}_{X}
+$$
+
+Por qué es "el más molesto": **cambia todo** respecto de la recta. Cambian $x$, $y$ y los
+dos coeficientes. Lo único que queda firme es $n$:
+
+$$
+\left\{\begin{aligned}
+A_0\, n + A_1 \sum \tfrac{1}{x} &= \sum \tfrac{1}{y} \\
+A_0 \sum \tfrac{1}{x} + A_1 \sum \tfrac{1}{x^2} &= \sum \tfrac{1}{x\,y}
+\end{aligned}\right.
+$$
+
+**La vuelta, en orden.** $A_0 = \frac1a$ depende solo de $a$, pero $A_1 = \frac{b}{a}$
+depende de los dos. Entonces **primero $a$, después $b$**:
+
+$$
+a = \frac{1}{A_0} \qquad\qquad b = A_1 \cdot a
+$$
+
+<details>
+<summary>📝 Ejemplo guiado 5 — saturación para la tabla del ejercicio 30 (30a)</summary>
+
+Tabla del ejercicio 30 (la del ejemplo guiado 3). Ajustar $y = \dfrac{a\,x}{b + x}$.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** linealizar: $Y = A_0 + A_1 X$ con $X = \frac1x$, $Y = \frac1y$,
+$A_0 = \frac1a$, $A_1 = \frac ba$.
+
+**Paso 2:** columnas $\frac1x$, $\frac{1}{x^2}$, $\frac1y$, $\frac{1}{xy}$. Sumatorias (con
+$n = 7$):
+
+$$
+\sum \tfrac{1}{x} = 2{,}5593 \qquad \sum \tfrac{1}{x^2} = 1{,}5297 \qquad \sum \tfrac{1}{y} = 8{,}4954 \qquad \sum \tfrac{1}{x\,y} = 4{,}2834
+$$
+
+**Paso 3:** sistema:
+
+$$
+\left\{\begin{aligned}
+7\,A_0 + 2{,}5593\,A_1 &= 8{,}4954 \\
+2{,}5593\,A_0 + 1{,}5297\,A_1 &= 4{,}2834
+\end{aligned}\right.
+$$
+
+**Paso 4:** resolver: $A_0 = 0{,}489$, $A_1 = 1{,}98$.
+
+**Paso 5:** volver, primero $a$ y después $b$:
+
+$$
+a = \frac{1}{0{,}489} = 2{,}045 \qquad\qquad b = 1{,}98 \cdot 2{,}045 = 4{,}05
+$$
+
+**Paso 6:**
+
+$$
+y = \frac{2{,}045\,x}{4{,}053 + x}
+$$
+
+Igual que en el OneNote. Su error cuadrático ($\approx 0{,}005$) es menor que el del
+potencial con los mismos datos ($\approx 0{,}021$): para esta tabla, la saturación
+ajusta mejor.
+
+</details>
+
+</details>
+
+### 7.3 Hiperbólico: $y = \dfrac{a_1}{a_0 + x}$
+
+Mismo procedimiento. Invierto y separo:
+
+$$
+\frac{1}{y} = \frac{a_0 + x}{a_1} = \underbrace{\frac{a_0}{a_1}}_{A_0} + \underbrace{\frac{1}{a_1}}_{A_1}\, x
+$$
+
+Acá **la $x$ queda igual** (cambian $y \to \frac1y$ y los dos coeficientes), así que el
+lado izquierdo del sistema es el de la recta y solo cambia el derecho: $\sum \frac1y$ y
+$\sum \frac{x}{y}$. Vuelta, primero el que depende de uno solo:
+
+$$
+a_1 = \frac{1}{A_1} \qquad\qquad a_0 = A_0 \cdot a_1
+$$
+
+> ⚠️ Ojo con el nombre: la teórica llama "hiperbólico" a este modelo, $\frac{a_1}{a_0 + x}$.
+> El del ejercicio 29c, $a_0 + \frac{a_1}{x}$, también es una hipérbola, pero se resuelve
+> distinto (§7.1). Fijate siempre en la fórmula, no en el nombre.
+
+## 8. La tabla de todos los disfraces
+
+Todos los modelos se resuelven con **el mismo sistema**:
+
+$$
+\left\{\begin{aligned}
+A_0\, n + A_1 \sum X &= \sum Y \\
+A_0 \sum X + A_1 \sum X^2 &= \sum X\,Y
+\end{aligned}\right.
+$$
+
+Lo único que cambia de un modelo a otro es **qué ponés en $X$ y en $Y$**, y **cómo volvés**:
+
+| Modelo | Se linealiza con | $X$ | $Y$ | $A_0$ | $A_1$ | Vuelta |
+|---|---|:---:|:---:|:---:|:---:|---|
+| Recta $a_0 + a_1 x$ | (nada) | $x$ | $y$ | $a_0$ | $a_1$ | directa |
+| Exponencial $a_0 e^{a_1 x}$ | $\ln$ | $x$ | $\ln y$ | $\ln a_0$ | $a_1$ | $a_0 = e^{A_0}$ |
+| Potencial $a_0 x^{a_1}$ | $\ln$ | $\ln x$ | $\ln y$ | $\ln a_0$ | $a_1$ | $a_0 = e^{A_0}$ |
+| Recíproco $a_0 + \frac{a_1}{x}$ | (nada) | $\frac1x$ | $y$ | $a_0$ | $a_1$ | directa |
+| Hiperbólico $\frac{a_1}{a_0 + x}$ | invertir | $x$ | $\frac1y$ | $\frac{a_0}{a_1}$ | $\frac{1}{a_1}$ | $a_1 = \frac{1}{A_1}$, después $a_0 = A_0\,a_1$ |
+| Saturación $\frac{a\,x}{b + x}$ | invertir | $\frac1x$ | $\frac1y$ | $\frac1a$ | $\frac ba$ | $a = \frac{1}{A_0}$, después $b = A_1\,a$ |
+
+**Atajo para ahorrar cuentas:** si $X = x$ (exponencial, hiperbólico), el lado izquierdo
+del sistema es **el mismo que el de la recta**; solo calculás columnas nuevas para el lado
+derecho. Es lo que hace el profe al reutilizar $n$, $\sum x$ y $\sum x^2$.
+
+**Restricciones que salen solas de la tabla:** con $\ln$ hace falta que los valores sean
+positivos ($y > 0$; en el potencial, también $x > 0$); con $\frac1x$ o $\frac1y$, que no
+haya ceros.
+
+## 9. Otra salida: agregarle términos a la recta (parábola)
+
+Disfrazar no es la única forma de conseguir una curva. La otra es darle a la recta **más
+flexibilidad**: sumarle un término con $x^2$.
+
+$$
+y = a_0 + a_1\,x + a_2\,x^2
+$$
+
+Fijate que aunque la función es curva, las incógnitas siguen apareciendo **multiplicando**
+cosas conocidas ($1$, $x$, $x^2$). Por eso **no hace falta disfrazar nada**: se repite
+§3 tal cual. Hay tres incógnitas, entonces tres derivadas parciales iguales a cero, y por lo
+tanto **tres ecuaciones**. La regla de los exponentes de §3 arma el sistema sola:
+
+$$
+\left\{\begin{aligned}
+a_0 \sum x^0 + a_1 \sum x^1 + a_2 \sum x^2 &= \sum x^0\, y \\
+a_0 \sum x^1 + a_1 \sum x^2 + a_2 \sum x^3 &= \sum x^1\, y \\
+a_0 \sum x^2 + a_1 \sum x^3 + a_2 \sum x^4 &= \sum x^2\, y
+\end{aligned}\right.
+$$
+
+(con $\sum x^0 = n$). Cada renglón arranca un exponente más arriba; a la derecha, $y$ por
+$x^0$, $x^1$, $x^2$. Columnas nuevas respecto de la recta: $x^3$, $x^4$ y $x^2 y$.
+
+La teórica muestra que esto sigue para cualquier grado (grado $n$: sistema de $n+1$
+ecuaciones), pero en la práctica el profe avisa: "más que una parábola de grado 2 no les
+vamos a pedir".
+
+<details>
+<summary>📝 Ejemplo guiado 6 — parábola para la tabla del ejercicio 29 (29d)</summary>
+
+Tabla del 29. Ajustar $y = a_0 + a_1 x + a_2 x^2$.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** tabla (las columnas $x$, $y$, $x^2$, $xy$ ya estaban de la recta):
+
+| $x$ | $y$ | $x^2$ | $x^3$ | $x^4$ | $x\,y$ | $x^2 y$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1 | 10 | 1 | 1 | 1 | 10 | 10 |
+| 2 | 5 | 4 | 8 | 16 | 10 | 20 |
+| 3 | 2 | 9 | 27 | 81 | 6 | 18 |
+| 4 | 1 | 16 | 64 | 256 | 4 | 16 |
+| $\Sigma = 10$ | $\Sigma = 18$ | $\Sigma = 30$ | $\Sigma = 100$ | $\Sigma = 354$ | $\Sigma = 30$ | $\Sigma = 64$ |
+
+**Paso 2:** sistema 3×3:
+
+$$
+\left\{\begin{aligned}
+4\,a_0 + 10\,a_1 + 30\,a_2 &= 18 \\
+10\,a_0 + 30\,a_1 + 100\,a_2 &= 30 \\
+30\,a_0 + 100\,a_1 + 354\,a_2 &= 64
+\end{aligned}\right.
+$$
+
+**Paso 3:** resolver: $a_0 = 17$, $a_1 = -8$, $a_2 = 1$ (verificalo reemplazando en las
+tres ecuaciones). No hubo disfraz, así que van directo:
+
+$$
+y = x^2 - 8x + 17
+$$
+
+**Paso 4:** error cuadrático: evaluá en los cuatro puntos. En $x = 1$ da 10, en $x = 2$
+da 5, en $x = 3$ da 2 y en $x = 4$ da 1. **¡Pasa exactamente por los cuatro puntos!** El
+error es **cero**.
+
+</details>
+
+</details>
+
+### ¿Por qué la parábola pasó por todos los puntos?
+
+Porque, en este caso, **existe** una parábola que pasa por los cuatro puntos, y como el
+método busca el menor error posible, y no hay nada menor que cero, la encuentra. Esa
+parábola es, al mismo tiempo, el **polinomio interpolante** (en el OneNote: "la parábola
+de mínimos cuadrados es también el polinomio interpolante de menor grado").
+
+Esto se conecta con la interpolación: con 4 puntos siempre existe un polinomio de grado
+$\le 3$ que pasa por todos (y es único). Así que si probás grado 1, 2, 3, **en algún
+momento** te aparece el interpolante (acá, ya en el 2). En la teórica pasa lo mismo con 5
+puntos: en Excel, al llegar a grado 4, la curva pasa por todos.
+
+## 10. Entonces, ¿cuál es el mejor modelo?
+
+Con la tabla del 29 ajustamos varios modelos. Pongámoslos juntos, agregando qué predice
+cada uno en $x = 5$ (fuera de los datos):
+
+| Modelo | Función | Error cuadrático $E$ | Predicción en $x = 5$ |
+|---|---|:---:|:---:|
+| Parábola | $x^2 - 8x + 17$ | 0 | 2 |
+| Exponencial | $22{,}3607\,e^{-0{,}7824x}$ | 0,175 | 0,45 |
+| Recíproco | $-1{,}7179 + \frac{11{,}9385}{x}$ | 0,749 | 0,67 |
+| Recta | $12 - 3x$ | 4 | $-3$ |
+
+![Los cuatro modelos sobre los datos del ejercicio 29, extendidos hasta x = 6](../img/00-fig3-comparacion.png)
+
+**Regla de la cátedra para comparar:** el que tiene **menor error cuadrático** es el que
+mejor ajusta los datos. Según eso, gana la parábola.
+
+**Pero mirá el gráfico.** La parábola tiene su vértice justo en $x = 4$ y después **vuelve
+a subir**: en $x = 5$ predice 2, en $x = 6$ predice 5. Los datos venían bajando, así que
+esa predicción no tiene sentido. La recta predice un valor negativo. La exponencial y el
+recíproco predicen que sigue bajando y se aplana, que es coherente con los datos.
+
+Esto no contradice al profe, es lo que él mismo explica en la práctica:
+
+- "Cualquier interpolante tiene error cero", pero **el ajuste no busca el interpolante**:
+  se usa para **predecir e interpretar tendencias**.
+- Si sabés cómo se comporta el fenómeno, usá ese tipo de función.
+
+O sea, en la práctica son **dos preguntas distintas**:
+
+1. **¿Qué tan bien ajusta a los datos que tengo?** → se mide con el error cuadrático. Es
+   lo que piden los ejercicios ("compare los modelos").
+2. **¿Me puedo fiar de él para predecir afuera?** → además del error, mirá si el modelo
+   tiene sentido para el fenómeno (¿puede dar negativo?, ¿puede volver a subir?) y qué tan
+   lejos de los datos estás estimando.
+
+> **Para el TP:** esta sección es el punto d) de la consigna (comparar modelos y discutir
+> la confiabilidad de la estimación). Ver `tp-minimos-cuadrados/guia-tp.md`.
+
+## 11. De puntos a una función entera: ajuste continuo
+
+Hasta acá siempre tuvimos una **tabla** de puntos. La pregunta nueva es:
+
+> ¿Y si en lugar de puntos me dan **la función entera** $f(x)$ en un intervalo $[a, b]$, y
+> quiero una recta (o parábola) que se le parezca?
+
+¿Para qué querría eso, si ya tengo la función? El profe es honesto: lo considera muy
+teórico. El uso que menciona es **reemplazar una función complicada ("choclo") por una más
+simple** (una recta, una parábola) que se comporte parecido en ese intervalo.
+
+### La idea: infinitos puntos
+
+Pensalo como una tabla con **infinitos** puntos, uno por cada $x$ de $[a, b]$. Sumar algo
+sobre infinitos puntos de un intervalo es **integrar**. Entonces el error pasa a ser:
+
+$$
+E = \int_a^b \big(f(x) - P(x)\big)^2\, dx
+$$
+
+(el área "entre" la función y la recta, medida al cuadrado). Y el sistema es **el mismo**
+de antes, con dos reemplazos (están así en el OneNote):
+
+| Discreto (tabla) | Continuo (función en $[a,b]$) |
+|---|---|
+| $\sum x^k$ | $\int_a^b x^k\, dx$ |
+| $n = \sum x^0$ (cantidad de puntos) | $\int_a^b dx = b - a$ (largo del intervalo) |
+| $y$ | $f(x)$ |
+| $\sum x^k\, y$ | $\int_a^b x^k f(x)\, dx$ |
+
+Para la recta:
+
+$$
+\left\{\begin{aligned}
+a_0 \int_a^b dx + a_1 \int_a^b x\,dx &= \int_a^b f(x)\,dx \\
+a_0 \int_a^b x\,dx + a_1 \int_a^b x^2\,dx &= \int_a^b x\,f(x)\,dx
+\end{aligned}\right.
+$$
+
+Las integrales de la izquierda son siempre de potencias de $x$ (fáciles). Las de la
+derecha dependen de $f$ (en los ejercicios salen con la tabla de integrales).
+
+![Recta continua para e^x en [1, 2]](../img/00-fig4-continuo.png)
+
+<details>
+<summary>📝 Ejemplo guiado 7 — recta continua para e^x en [1, 2] (32A)</summary>
+
+Hallar la recta de mínimos cuadrados para $f(x) = e^x$ en $[1, 2]$.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** las cinco integrales:
+
+$$
+\int_1^2 dx = 1 \qquad \int_1^2 x\,dx = \tfrac{3}{2} \qquad \int_1^2 x^2\,dx = \tfrac{7}{3}
+$$
+
+$$
+\int_1^2 e^x\,dx = e^2 - e \qquad \int_1^2 x\,e^x\,dx = \Big[(x-1)\,e^x\Big]_1^2 = e^2
+$$
+
+(La última es por partes, o de tabla.)
+
+**Paso 2:** sistema:
+
+$$
+\left\{\begin{aligned}
+a_0 + \tfrac{3}{2}\,a_1 &= e^2 - e \\
+\tfrac{3}{2}\,a_0 + \tfrac{7}{3}\,a_1 &= e^2
+\end{aligned}\right.
+$$
+
+**Paso 3:** resolver:
+
+$$
+y = -2{,}22133 + 4{,}594736\,x
+$$
+
+La recta pasa "por el medio" de la curva: en las puntas queda por debajo y en el centro
+por arriba.
+
+</details>
+
+</details>
+
+**Atajo del intervalo simétrico (ejercicio 32E):** si el intervalo es $[-1, 1]$ (o
+cualquier $[-c, c]$), las integrales de funciones **impares** dan cero sin hacer cuentas,
+como en Fourier. Por ejemplo, $\int_{-1}^{1} x\,dx = 0$, y el sistema se simplifica.
+
+## 12. Legendre: el mismo ajuste continuo, sin sistema
+
+### El problema que resuelve
+
+Con el sistema, si ya calculé la recta y después me piden la **parábola**, tengo que
+armar un 3×3 nuevo y resolverlo de cero: los $a_0$, $a_1$ de la recta no me sirven. Con
+grados más altos, los sistemas se vuelven inmanejables.
+
+Legendre es **otro método para el mismo ajuste continuo**. Como también minimiza el error
+cuadrático, **llega a la misma función** (igual que Lagrange y Newton-Gregory llegan al
+mismo interpolante). La ventaja es que cada coeficiente sale **por su cuenta**, con una
+fórmula, **sin sistema**.
+
+### La intuición: direcciones perpendiculares
+
+Pensá en un vector en el plano. Si los ejes son perpendiculares, la coordenada $x$ se
+calcula proyectando sobre el eje $x$, sin importar la coordenada $y$: cada una sale
+**independiente**. Si los ejes fueran oblicuos, las coordenadas se "mezclarían" y habría
+que resolver un sistema.
+
+Con funciones pasa lo mismo. Escribo el polinomio de ajuste como combinación de funciones
+"base" $\varphi_0, \varphi_1, \varphi_2, \ldots$:
+
+$$
+P(x) = a_0\,\varphi_0(x) + a_1\,\varphi_1(x) + a_2\,\varphi_2(x) + \cdots
+$$
+
+Si elijo funciones base **"perpendiculares" entre sí** (ortogonales), cada $a_k$ se
+calcula solo. Para funciones, "perpendiculares" se define con el **producto interno**, que
+es una integral:
+
+$$
+\langle \varphi_i, \varphi_j \rangle = \int_a^b \varphi_i(x)\,\varphi_j(x)\,dx = 0 \qquad \text{si } i \ne j
+$$
+
+Si $i = j$ la integral no da cero; ese valor se llama **norma**:
+$\lVert \varphi_k \rVert = \int_a^b \varphi_k^2\, dx$.
+
+Ya lo viste en el 1P con **Fourier**: los senos y cosenos son ortogonales, y por eso cada
+coeficiente de Fourier sale con su propia integral. Legendre es la misma idea con
+polinomios.
+
+### La fórmula de cada coeficiente
+
+Al derivar el error respecto de cada $a_k$, todos los productos entre funciones distintas
+se anulan por la ortogonalidad, y queda:
+
+$$
+a_k = \frac{1}{\lVert \varphi_k \rVert}\int_a^b f(x)\,\varphi_k(x)\,dx
+$$
+
+### Los polinomios de Legendre
+
+Son ortogonales **solo en $[-1, 1]$**. Se usan los tres primeros (se memorizan, no se
+deducen):
+
+$$
+\varphi_0(x) = 1 \qquad \varphi_1(x) = x \qquad \varphi_2(x) = \tfrac{1}{2}\big(3x^2 - 1\big)
+$$
+
+La constante que va adelante de cada integral es $\frac{1}{\lVert \varphi_k \rVert} = \frac{2k+1}{2}$,
+o sea: $\frac12$, $\frac32$, $\frac52$, … (arranca en un medio y sube de a uno).
+
+<details>
+<summary>📝 Ejemplo guiado 8 — recta de Legendre para e^x en [-1, 1] (teórica)</summary>
+
+Hallar la recta de mínimos cuadrados para $f(x) = e^x$ en $[-1, 1]$ con Legendre.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** $P_1(x) = a_0\,\varphi_0 + a_1\,\varphi_1 = a_0 + a_1 x$.
+
+**Paso 2:** $a_0$, con la constante $\frac12$ y $\varphi_0 = 1$:
+
+$$
+a_0 = \frac{1}{2}\int_{-1}^{1} e^x\,dx = \frac{e - e^{-1}}{2} \approx 1{,}1752
+$$
+
+**Paso 3:** $a_1$, con la constante $\frac32$ y $\varphi_1 = x$ (sin usar $a_0$):
+
+$$
+a_1 = \frac{3}{2}\int_{-1}^{1} x\,e^x\,dx = \frac{3}{e} \approx 1{,}1036
+$$
+
+**Paso 4:**
+
+$$
+P_1(x) = 1{,}1752 + 1{,}1036\,x
+$$
+
+**Paso 5 (si piden la parábola):** $a_0$ y $a_1$ **quedan como están**. Solo se calcula
+
+$$
+a_2 = \frac{5}{2}\int_{-1}^{1} e^x \cdot \tfrac{1}{2}\big(3x^2 - 1\big)\,dx
+$$
+
+y se suma $a_2\,\varphi_2(x)$. Esa es la gran ventaja frente al sistema.
+
+</details>
+
+</details>
+
+### Si el intervalo no es $[-1, 1]$: cambio de variable
+
+Como Legendre solo funciona en $[-1, 1]$, si el intervalo es otro $[a, b]$ hay que
+"estirarlo" con una variable nueva $t$ que recorra $[-1, 1]$ cuando $x$ recorre $[a, b]$.
+Es una recta que lleva $t = -1$ a $x = a$ y $t = 1$ a $x = b$:
+
+$$
+x = \frac{a+b}{2} + \frac{b-a}{2}\,t
+$$
+
+(ordenada = el punto medio del intervalo; pendiente = la mitad de su largo). El profe no
+memoriza la fórmula: dibuja $t$ en el eje horizontal de $-1$ a $1$, $x$ en el vertical
+de $a$ a $b$, y saca la recta que une las esquinas.
+
+El procedimiento:
+
+1. Reemplazar $x$ en $f$ para tener $f$ en función de $t$.
+2. Calcular los $a_k$ con las fórmulas de Legendre, integrando en $t$ entre $-1$ y $1$.
+3. Armar $P(t)$ y **volver a $x$** reemplazando $t$ por su expresión en $x$.
+
+<details>
+<summary>📝 Ejemplo guiado 9 — Legendre con cambio de intervalo: 8x³ en [0, 1] (32F)</summary>
+
+Ajustar $f(x) = 8x^3$ en $[0, 1]$ con una recta, por Legendre.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** cambio de variable con $a = 0$, $b = 1$:
+
+$$
+x = \frac{1}{2} + \frac{1}{2}\,t = \frac{t+1}{2} \qquad\Longleftrightarrow\qquad t = 2x - 1
+$$
+
+**Paso 2:** $f$ en función de $t$:
+
+$$
+f(t) = 8\left(\frac{t+1}{2}\right)^3 = (t+1)^3 \qquad \text{en } [-1, 1]
+$$
+
+**Paso 3:** coeficientes:
+
+$$
+a_0 = \frac12\int_{-1}^{1} (t+1)^3\,dt = 2 \qquad\qquad a_1 = \frac32\int_{-1}^{1} (t+1)^3\,t\,dt = 3{,}6
+$$
+
+**Paso 4:** $P(t) = 2 + 3{,}6\,t$. Vuelvo a $x$ con $t = 2x - 1$:
+
+$$
+y = 2 + 3{,}6\,(2x - 1) = -1{,}6 + 7{,}2\,x
+$$
+
+**Paso 5 (verificación por el otro camino):** por el sistema en $[0, 1]$, las integrales
+son $\int_0^1 dx = 1$, $\int_0^1 x\,dx = \frac12$, $\int_0^1 x^2 dx = \frac13$,
+$\int_0^1 8x^3 dx = 2$ y $\int_0^1 8x^4 dx = \frac85$:
+
+$$
+\left\{\begin{aligned}
+a_0 + \tfrac12\,a_1 &= 2 \\
+\tfrac12\,a_0 + \tfrac13\,a_1 &= \tfrac85
+\end{aligned}\right.
+\quad\Rightarrow\quad a_0 = -1{,}6,\quad a_1 = 7{,}2
+$$
+
+**La misma recta**: los dos métodos llegan a lo mismo. (La parábola del 32F, sumando
+$a_2 = 2$, da $0{,}4 - 4{,}8\,x + 12\,x^2$; ver apunte 02.)
+
+</details>
+
+</details>
+
+### ¿Sistema o Legendre?
+
+| Ventajas de Legendre | Desventajas de Legendre |
+|---|---|
+| No hay sistema: cada coeficiente es una integral independiente | Las integrales pueden complicarse ("si están en la tabla, buenísimo; si no, agarrate") |
+| Subir de grado no obliga a rehacer lo anterior | Hay que recordar los polinomios y las constantes |
+| Llega a la misma función que el sistema | Exige $[-1, 1]$: si no, cambio de variable y volver a $x$ |
+
+El profe, personalmente, prefiere el sistema ("gustos son gustos"). Y avisa que en todo
+(discreto o continuo) se trabaja hasta tres ecuaciones, es decir, hasta la parábola.
+
+## 13. Resumen en una página
+
+**La idea:** de todas las funciones de un tipo, elegir la que minimiza
+$E = \sum (y - \hat y)^2$. Se iguala a cero la derivada de $E$ respecto de cada
+coeficiente, y sale un sistema lineal.
+
+**¿Qué me dan y qué hago?**
+
+1. **Me dan una tabla de puntos (discreto):**
+   - ¿El modelo es recta o polinomio? → sistema directo con la regla de los exponentes
+     (2×2 la recta, 3×3 la parábola). Sin vuelta.
+   - ¿Es otro modelo? → linealizar (logaritmo si hay exponentes, invertir si hay
+     denominadores), sistema de la recta con $X$ e $Y$ nuevos, resolver, **volver** (tabla
+     de §8).
+   - ¿Piden comparar? → error cuadrático de cada uno **con los $y$ originales**; gana el
+     menor. Para predecir fuera de los datos, además fijarse si el modelo tiene sentido.
+2. **Me dan una función $f(x)$ en $[a, b]$ (continuo):**
+   - Por **sistema**: el mismo de los polinomios, con $\sum \to \int_a^b$ e $y \to f(x)$.
+   - Por **Legendre**: $a_k = \frac{2k+1}{2}\int_{-1}^{1} f\,\varphi_k$, con
+     $\varphi_0 = 1$, $\varphi_1 = x$, $\varphi_2 = \frac12(3x^2 - 1)$. Si el intervalo no
+     es $[-1,1]$: cambio de variable y volver.
+
+**Qué escribir en el examen:** tabla con sumatorias, sistema planteado, "resolví y me dio",
+vuelta a los coeficientes originales, función final.
+
+## 14. Errores típicos
+
+- **Olvidarse de volver.** En la exponencial y en la potencial, el sistema da
+  $A_0 = \ln a_0$, no $a_0$. Falta $a_0 = e^{A_0}$.
+- **Volver en el orden equivocado** en saturación e hiperbólico: primero el coeficiente
+  que depende de uno solo.
+- **$\sum [\ln x]^2$ no es $\sum \ln(x^2)$.**
+- **Calcular el error con los $\ln y$** en lugar de con los $y$ originales: así no se
+  pueden comparar modelos entre sí.
+- **Redondear temprano:** trabajar con 4 o 5 decimales (consejo del profe), sobre todo
+  con logaritmos.
+- **Confundir los dos "hiperbólicos":** $\frac{a_1}{a_0 + x}$ (se invierte) y
+  $a_0 + \frac{a_1}{x}$ (ya es lineal en $\frac1x$).
+- **En el continuo, poner $n$** en vez de $\int_a^b dx = b - a$.
+- **En Legendre, integrar en $[a, b]$** en vez de $[-1, 1]$, u olvidarse de volver de
+  $t$ a $x$.
+
+## 15. Autoevaluación
+
+<details>
+<summary>📝 Pregunta 1 — ¿Por qué no se minimiza la suma de los residuos, sin elevar al cuadrado?</summary>
+
+Respondé antes de abrir.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** porque los residuos positivos y negativos se compensan. En el ejercicio 29, la
+recta $12 - 3x$ tiene residuos $+1, -1, -1, +1$, que suman 0 aunque la recta no pase por
+ningún punto. El valor absoluto evitaría la compensación pero no es derivable en cero; el
+cuadrado evita la compensación y se deriva fácil.
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Pregunta 2 — ¿Qué son las incógnitas en mínimos cuadrados: x e y, o los coeficientes?</summary>
+
+Respondé antes de abrir.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** los **coeficientes**. Los $x_i$, $y_i$ son datos (números fijos de la
+tabla). El error $E$ es una función de los coeficientes, y lo que se busca es su mínimo.
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Pregunta 3 — Armá de memoria el sistema para el modelo exponencial y = a₀·e^(a₁·x)</summary>
+
+Decí qué hace de $X$, de $Y$, cuál es la vuelta y qué sumatorias se reutilizan de la
+recta.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** $\ln y = \ln a_0 + a_1 x$: $X = x$, $Y = \ln y$, $A_0 = \ln a_0$.
+
+**Paso 2:**
+
+$$
+\left\{\begin{aligned}
+A_0\, n + a_1 \sum x &= \sum \ln y \\
+A_0 \sum x + a_1 \sum x^2 &= \sum x \ln y
+\end{aligned}\right.
+$$
+
+**Paso 3:** se reutilizan $n$, $\sum x$, $\sum x^2$. Vuelta: $a_0 = e^{A_0}$.
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Pregunta 4 — Linealizá y = a x / (b + x) y decí en qué orden se vuelve</summary>
+
+Respondé antes de abrir.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** $\frac1y = \frac1a + \frac ba \cdot \frac1x$, con $X = \frac1x$, $Y = \frac1y$,
+$A_0 = \frac1a$, $A_1 = \frac ba$.
+
+**Paso 2:** primero $a = \frac{1}{A_0}$ (depende de un solo coeficiente), después
+$b = A_1 \cdot a$.
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Pregunta 5 — Si un modelo tiene error cuadrático 0, ¿es el mejor para predecir?</summary>
+
+Pensalo con la parábola del ejercicio 29.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** no necesariamente. Error cero significa que pasa por todos los puntos (es un
+interpolante). La parábola del 29 tiene error 0, pero después de $x = 4$ vuelve a subir y
+en $x = 5$ predice 2 cuando los datos venían bajando. El error cuadrático mide el ajuste a
+los datos que tenés; para predecir afuera, además, el modelo tiene que tener sentido para
+el fenómeno.
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Pregunta 6 — ¿Qué cambia del sistema discreto al continuo?</summary>
+
+Respondé antes de abrir.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** las sumatorias pasan a integrales en $[a, b]$ ($n$ pasa a ser $b - a$), y las
+$y$ pasan a ser $f(x)$. La estructura del sistema (la regla de los exponentes) es la
+misma.
+
+</details>
+
+</details>
+
+<details>
+<summary>📝 Pregunta 7 — ¿Por qué con Legendre no hace falta resolver un sistema?</summary>
+
+Respondé antes de abrir.
+
+<details>
+<summary>Ver resolución</summary>
+
+**Paso 1:** porque los polinomios de Legendre son **ortogonales** en $[-1, 1]$: la
+integral del producto de dos distintos da cero. Al derivar el error, esos términos
+cruzados desaparecen y cada coeficiente queda solo en su ecuación:
+$a_k = \frac{2k+1}{2}\int_{-1}^{1} f\,\varphi_k$. Es la misma idea que los coeficientes de
+Fourier.
+
+</details>
+
+</details>
+
+---
+
+*Generado el 2026-11-10 a partir de los apuntes 01 (teórica) y 02 (práctica) de ajuste por
+mínimos cuadrados y del OneNote `fuentes/clases/Ajuste-Aproximacion/Ajuste.pdf`. Cuentas
+intermedias y comparaciones verificadas con `tools/ajuste_mc.py`; gráficos en
+`apuntes/img/00-*.png`.*

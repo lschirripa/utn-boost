@@ -54,6 +54,7 @@ body {{
   th, td {{ border-color: #30343c; }}
   tbody tr:nth-child(even) {{ background: #1c1f24; }}
 }}
+img {{ max-width: 100%; height: auto; }}
 h1, h2, h3 {{ line-height: 1.25; margin-top: 1.8rem; }}
 h1 {{ border-bottom: 2px solid currentColor; padding-bottom: .3rem; }}
 h2 {{ border-bottom: 1px solid #ddd; padding-bottom: .25rem; }}
@@ -248,8 +249,12 @@ def convert_pdf(md_path: Path, out_path: Path, *, only_statements: bool = False)
     """
     chrome = find_chrome()
     # HTML temporal con los <details> abiertos para que el PDF muestre todo.
+    # Se escribe junto al PDF (no en /tmp) para que las imágenes con ruta relativa
+    # (p. ej. ../img/fig.png desde apuntes/md/) se resuelvan igual que en md/ y html/.
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(
-        "w", suffix=".html", delete=False, encoding="utf-8"
+        "w", suffix=".html", delete=False, encoding="utf-8", dir=out_path.parent,
+        prefix=".tmp-",
     ) as tmp:
         tmp.write(
             build_html(
