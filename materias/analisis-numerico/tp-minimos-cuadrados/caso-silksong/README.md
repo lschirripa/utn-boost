@@ -24,6 +24,7 @@ es antes).
 | `datos/datos-validacion.csv` | Meses 1–11, para ajustar y comparar contra los meses 12–14 reales. |
 | `datos/steamcharts-gta-v.csv` | GTA V en Steam desde abril 2015 (para el gancho del video, no se ajusta). |
 | `ajuste/` | Salida de `tools/ajuste_mc.py` (reporte paso a paso, JSON y gráficos). Regenerable. |
+| `graficos.py` → `ajuste/comparacion-cola.png` | Los 6 modelos con zoom en los meses 3–15 (en `comparacion.png` el mes 1 aplasta la cola). Correr después de `ajuste_mc.py`. |
 
 Regenerar el ajuste:
 
