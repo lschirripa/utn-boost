@@ -4,7 +4,7 @@
 > hoy a la noche, 4 tardes/noches de semana y el fin de semana entero; el domingo 15 es
 > simulacros + repaso).
 > Restricciones declaradas: ninguna sobre horarios. Calendario que viene después: **2P de
-> Análisis Numérico el 2026-11-24**, un examen el **2026-12-01** (materia a confirmar) y el
+> Análisis Numérico el 2026-11-24**, el **1er recuperatorio de AN el 2026-12-01** y el
 > **final de AM2 en la mesa del 2026-12-01 al 04**. Por eso esta semana es 100 % AG y a
 > partir del martes 17 el foco pasa a AN sin volver a AG.
 

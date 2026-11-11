@@ -15,8 +15,8 @@
 | Final | `final/` | _(a definir)_ | pendiente |
 
 > Ojo con el calendario: `analisis-numerico` (2P el **2026-11-24**) y `analisis-matematico-2`
-> (final en la mesa del **2026-12-01 al 04**) también figuran `cursando`, y hay otro examen
-> el **2026-12-01** (anotado por Lucho el 2026-11-09, materia a confirmar). Las skills van a
+> (final en la mesa del **2026-12-01 al 04**) también figuran `cursando`, y el **2026-12-01**
+> Lucho rinde el **1er recuperatorio de AN** (confirmado el 2026-11-10). Las skills van a
 > preguntar qué materia usar cuando no se dé la ruta explícita. El 2P de AG cae **8 días
 > antes del 2P de AN**: la semana del 9 al 16 de noviembre es toda de AG.
 

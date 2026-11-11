@@ -1,8 +1,8 @@
 # Estrategia Segundo Parcial — Administración Gerencial
 
 > **Examen:** 2026-11-16 (lunes) · **quedan 7 días** desde hoy (2026-11-09, lunes).
-> Después vienen el **2P de Análisis Numérico (2026-11-24)**, un examen el **2026-12-01**
-> (materia a confirmar) y el **final de AM2 (mesa del 2026-12-01 al 04)**: esta semana es
+> Después vienen el **2P de Análisis Numérico (2026-11-24)**, el **1er recuperatorio de AN
+> (2026-12-01)** y el **final de AM2 (mesa del 2026-12-01 al 04)**: esta semana es
 > la única ventana para AG, y a partir del 17 AG no vuelve a tocarse hasta el final.
 > **Punto de partida declarado:** ninguno (TP cuatrimestral entregado el 2026-11-08; no hay
 > apuntes del 2P; se vio liderazgo, Porter y BCG para el TP).
