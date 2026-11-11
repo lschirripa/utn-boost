@@ -83,7 +83,21 @@ def _poly_names(g: int) -> list[str]:
 
 
 def _fmt(v: float, d: int) -> str:
-    """Número con d decimales, coma decimal (convención rioplatense), sin -0."""
+    """Número con coma decimal (convención rioplatense), sin -0.
+
+    - Enteros exactos (datos, sumatorias de enteros): sin decimales.
+    - |v| < 1: al menos 6 cifras significativas, para que valores chicos como 1/y con
+      y ~ 10⁵ (≈ 0,0000052) no queden en 0,0000.
+    - Resto: d decimales.
+    """
+    if not math.isfinite(v):
+        return str(v)
+    if abs(v) < 1e-12:  # ruido de punto flotante (p. ej. SSE de un interpolante)
+        return "0"
+    if round(v) != 0 and abs(v - round(v)) < 1e-9 * max(1.0, abs(v)):
+        return f"{round(v):d}"
+    if abs(v) < 1:
+        d = max(d, -math.floor(math.log10(abs(v))) + 5)
     if abs(v) < 0.5 * 10 ** (-d):
         v = 0.0
     s = f"{v:.{d}f}"

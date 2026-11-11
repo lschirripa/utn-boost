@@ -24,12 +24,18 @@ es antes).
 | `datos/datos-validacion.csv` | Meses 1–11, para ajustar y comparar contra los meses 12–14 reales. |
 | `datos/steamcharts-gta-v.csv` | GTA V en Steam desde abril 2015 (para el gancho del video, no se ajusta). |
 | `ajuste/` | Salida de `tools/ajuste_mc.py` (reporte paso a paso, JSON y gráficos). Regenerable. |
-| `graficos.py` → `ajuste/comparacion-cola.png` | Los 6 modelos con zoom en los meses 3–15 (en `comparacion.png` el mes 1 aplasta la cola). Correr después de `ajuste_mc.py`. |
+| `graficos.py` → `ajuste/comparacion-cola.png`, `ajuste/silksong-vs-gta-v.png` | Los 6 modelos con zoom en los meses 3–15 (en `comparacion.png` el mes 1 aplasta la cola). Correr después de `ajuste_mc.py`. |
+| `validacion/` | `ajuste_mc.py` sobre los meses 1–11 (para la prueba contra los meses 12–14). |
+| `borrador-d.md` | Texto del punto d) (comparación, elección del potencial, estimación y confiabilidad). |
+| `tp-fuente.md` | Texto del TP (carátula, a, b, aplicaciones/GTA, conclusiones, fuentes) con marcadores para c) y d). |
+| `armar_tp.py` → `exports/tp-silksong.{md,html,pdf}` | Arma el TP completo (fuente + `ajuste/reporte.md` + `borrador-d.md`) y lo exporta. **El entregable sale de acá; no editar `exports/` a mano.** |
 
-Regenerar el ajuste:
+Regenerar todo (ajuste → gráficos → TP):
 
 ```bash
 venv/bin/python tools/ajuste_mc.py materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/datos/datos.csv --modelos recta,parabola,exponencial,potencial,reciproco,hiperbolico --x0 15 --out-dir materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/ajuste
+venv/bin/python materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/graficos.py
+venv/bin/python materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/armar_tp.py
 ```
 
 ## Resultados (meses 1–14, predicción para x = 15)

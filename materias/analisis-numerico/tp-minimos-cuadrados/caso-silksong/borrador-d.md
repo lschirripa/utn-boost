@@ -6,8 +6,7 @@
 
 > **Notas para el grupo (no van al PDF).** El texto de abajo está escrito para pegar en el
 > TP. Lo marcado `[a completar]` depende de algo que todavía no sabemos. Los números salen
-> de `ajuste_mc.py` y se pueden verificar en `ajuste/reporte.md`. Tabla sugerida para el
-> PDF: la del punto d.1. Gráfico sugerido: `ajuste/comparacion-cola.png`.
+> de `ajuste_mc.py` y se pueden verificar en `ajuste/reporte.md`.
 
 ## d.1 Comparación de los seis modelos
 
@@ -26,6 +25,8 @@ $$
 | Recta | $y = 80070{,}53 - 7089{,}50\,x$ | $2{,}00 \times 10^{10}$ | $-26.272$ |
 | Exponencial | $y = 57750{,}06\,e^{-0{,}19324\,x}$ | $2{,}13 \times 10^{10}$ | $3.182$ |
 | Hiperbólico | $y = \dfrac{88855{,}72}{1{,}15366 + x}$ | $2{,}34 \times 10^{10}$ | $5.501$ |
+
+![Los seis modelos en la zona de la predicción (meses 3 a 15)](ajuste/comparacion-cola.png)
 
 ## d.2 Criterio de elección
 

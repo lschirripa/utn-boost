@@ -4,12 +4,15 @@ Lee ajuste/resultados.json (salida de ajuste_mc.py) y genera:
 
 - ajuste/comparacion-cola.png: los 6 modelos con zoom en los meses 3–15, donde está la
   predicción (en el gráfico completo el mes 1 aplasta todo).
+- ajuste/silksong-vs-gta-v.png: Silksong y GTA V (Steam, desde abril 2015) en % del primer
+  mes, para el gancho de GTA VI (datos/steamcharts-gta-v.csv).
 
 Uso: venv/bin/python materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/graficos.py
 """
 
 from __future__ import annotations
 
+import csv
 import json
 from pathlib import Path
 
@@ -103,6 +106,42 @@ def comparacion_cola() -> None:
     plt.close(fig)
 
 
+def silksong_vs_gta_v(meses: int = 15) -> None:
+    with open(AQUI / "datos" / "steamcharts-gta-v.csv", encoding="utf-8") as f:
+        gta = [float(r["jugadores_promedio"]) for r in csv.DictReader(f)][:meses]
+    silk = RES["y"]
+    fig, ax = plt.subplots(figsize=(9, 4.8), dpi=150)
+    for nombre, ys, color in (("Hollow Knight: Silksong (sep 2025 – oct 2026)", silk, "#2a78d6"),
+                              ("GTA V en Steam (abr 2015 – jun 2016)", gta, "#eb6834")):
+        xs = np.arange(1, len(ys) + 1)
+        pct = 100 * np.array(ys) / ys[0]
+        ax.plot(xs, pct, color=color, lw=2, marker="o", ms=6, mec="white", mew=1.5, label=nombre)
+    ax.annotate("GTA V vuelve a subir\n(oct 2015 – ene 2016)", xy=(10, 100 * gta[9] / gta[0]),
+                xytext=(10.6, 48), fontsize=9, color=TINTA,
+                arrowprops=dict(arrowstyle="-", color="#eb6834", lw=1))
+    ax.set_xticks(range(1, meses + 1))
+    ax.set_ylim(0, 105)
+    ax.set_xlabel("Mes desde el lanzamiento en Steam", color=TINTA)
+    ax.set_ylabel("Jugadores promedio (% del primer mes)", color=TINTA)
+    ax.set_title("Los dos caen fuerte al principio; después GTA V se reactiva y Silksong no",
+                 fontsize=11, color=TINTA, loc="left")
+    ax.grid(color=GRILLA, lw=0.8)
+    for sp in ("top", "right"):
+        ax.spines[sp].set_visible(False)
+    for sp in ("left", "bottom"):
+        ax.spines[sp].set_color(TINTA_2)
+    ax.tick_params(colors=TINTA_2)
+    ax.legend(loc="upper right", fontsize=9, frameon=False)
+    fig.text(0.01, 0.01, "Fuente: SteamCharts (apps 1030300 y 271590). Primer mes = 100 %: "
+             "Silksong 191.124 y GTA V 192.714 jugadores simultáneos promedio.",
+             fontsize=7.5, color=TINTA_2)
+    fig.tight_layout(rect=(0, 0.03, 1, 1))
+    fig.savefig(AQUI / "ajuste" / "silksong-vs-gta-v.png")
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     comparacion_cola()
     print("✓ ajuste/comparacion-cola.png")
+    silksong_vs_gta_v()
+    print("✓ ajuste/silksong-vs-gta-v.png")
