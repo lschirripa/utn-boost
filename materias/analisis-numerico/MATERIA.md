@@ -11,7 +11,7 @@
 |---|---|---|---|
 | Primer parcial | `primer-parcial/` | **2026-10-06** | **próximo** |
 | Segundo parcial | `segundo-parcial/` | 2026-11-24 | pendiente |
-| 1er recuperatorio (1P y 2P) | carpeta del parcial | _(a definir, semana de finales de diciembre 2026)_ | pendiente |
+| 1er recuperatorio (1P y 2P) | carpeta del parcial | **2026-12-01** (confirmado por Lucho el 2026-11-10: lo tiene que rendir) | pendiente |
 | 2do recuperatorio (1P y 2P) | carpeta del parcial | _(a definir, finales de febrero 2027)_ | pendiente |
 | Final | `final/` | _(a definir)_ | pendiente |
 
