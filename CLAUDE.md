@@ -177,4 +177,27 @@ el usuario no la da:
    mano salvo pedido puntual; regenerar con la skill correspondiente.
 4. Ante un examen nuevo que el usuario traiga: primero `/indexar-examenes`, después
    regenerar estrategia/plan si cambia el patrón.
-5. Commitear con mensajes en español describiendo el material agregado.
+5. Commitear con mensajes en español describiendo el material agregado (ver "Git").
+
+## Git: se trabaja directo sobre `main`
+
+Regla acordada con Lucho el 2026-11-10, después de perder de vista el 2P de AG por
+tenerlo en otra rama mientras se trabajaba en la de AN.
+
+- **Todo va a `main`.** No crear una rama por materia, evaluación o TP: cada materia
+  vive en su carpeta y no se pisan, así que las ramas solo agregan cambios de rama,
+  trabajo "invisible" y commits duplicados. Si al arrancar la sesión el repo está en
+  otra rama, avisar a Lucho antes de commitear ahí.
+- **Mensaje con prefijo de materia y evaluación:** `AG 2P: …`, `AN TP mínimos
+  cuadrados: …`, `AM2 final: …`, `Carrera: …`. Con eso el historial se filtra por
+  materia (`git log --oneline -- materias/<slug>`), sin ramas.
+- **Commitear solo los archivos de la tarea** (`git add materias/<slug>/…` o rutas
+  puntuales, nunca `git add -A`/`git commit -a` a ciegas): puede haber otra sesión de
+  Claude trabajando en otra materia sobre el mismo checkout, y sus cambios sin
+  commitear no son tuyos.
+- **Pushear al terminar** cada tarea (`git push origin main`): GitHub es el backup y
+  así el repo está al día en cualquier compu.
+- **Excepciones (rama + merge a `main` al terminar):** cambios en herramientas
+  compartidas que pueden romper los exports o el plan de todas las materias
+  (`tools/md_to_html.py`, `tools/planificador/`, `plantillas/`, skills de `.claude/`),
+  o algo experimental que capaz se tira. Al terminar: mergear, pushear y borrar la rama.
