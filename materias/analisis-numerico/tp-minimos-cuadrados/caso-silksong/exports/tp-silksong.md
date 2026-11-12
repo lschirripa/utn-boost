@@ -1,4 +1,6 @@
-<!-- GENERADO por armar_tp.py el 2026-11-11 — no editar a mano. Fuentes: tp-fuente.md, ajuste/reporte.md, borrador-d.md. -->
+<!-- GENERADO por armar_tp.py el 2026-11-12 — no editar a mano. Fuentes: tp-fuente.md, ajuste/reporte.md, borrador-d.md. -->
+
+<style>@media print { table { break-inside: avoid; } }</style>
 
 # ¿Cuántos jugadores le quedan a Hollow Knight: Silksong?
 
@@ -81,187 +83,29 @@ Lo que se ve:
 - **Después se frena:** del mes 7 en adelante los valores quedan entre 6.000 y 9.000
   jugadores, con una cola que baja muy despacio.
 - **Un salto en julio de 2026** (mes 11), que sube de 7.111 a 8.619 sin que la tendencia lo
-  explique. [a completar: causa]
+  explique. Coincide con la oferta de verano de Steam (del 25 de junio al 9 de julio de
+  2026), en la que Silksong bajó de USD 19,99 a USD 14,99; ese mes no hubo una actualización
+  importante del juego. No podemos probar que sea la causa, pero es la explicación más
+  probable.
 
 La forma (decreciente, cada vez más lenta y siempre positiva) sugiere que una recta no va a
 alcanzar y que conviene probar modelos no lineales.
 
 ## c) Ajuste de los modelos
 
-Ajustamos **seis modelos** a los mismos 14 puntos: dos polinómicos (recta y parábola) y
-cuatro no polinómicos (exponencial, potencial, recíproco e hiperbólico). Para los no
-polinómicos primero llevamos el modelo a una **forma aparentemente lineal** con un cambio
-de variables, resolvemos el sistema de ecuaciones normales de esa recta y después volvemos a
-los parámetros originales.
+Ajustamos **tres modelos no polinómicos** a los mismos 14 puntos: **exponencial,
+potencial y recíproco**. Los elegimos porque los tres describen caídas que se van frenando,
+que es la forma de la nube. En los tres, primero llevamos el modelo a una **forma
+aparentemente lineal** con un cambio de variables, armamos el sistema de ecuaciones
+normales de esa recta, lo resolvemos y después volvemos a los parámetros originales.
 
-En cada modelo seguimos los mismos pasos: cambio de variables (si hace falta), sistema de
-ecuaciones normales, tabla de sumatorias, sistema con los valores, solución, función
-aproximante con su gráfico y tabla de residuos con el error cuadrático en las variables
-originales.
+En cada modelo seguimos los mismos pasos: cambio de variables, sistema de ecuaciones
+normales, tabla de sumatorias, sistema con los valores, solución (los sistemas se
+resolvieron con calculadora), función aproximante con su gráfico y tabla de residuos con el
+error cuadrático en las variables originales. Todos los cálculos se hicieron sin redondear;
+en las tablas los valores se muestran redondeados.
 
-### c.1 Modelo recta: $y = a_0 + a_1\,x$
-
-**¿Por qué lo probamos?** Es la referencia más simple. Cuando no se conoce el comportamiento del fenómeno, la recta muchas veces es una primera aproximación razonable.
-
-**Paso 1 — cambio de variables.** No hace falta: el modelo ya es lineal en sus parámetros.
-
-**Paso 2 — sistema de ecuaciones normales** (forma general, $m$ = cantidad de puntos):
-
-$$
-\left\{\begin{aligned}
-m\;a_0 + \sum x\;a_1 &= \sum y \\
-\sum x\;a_0 + \sum x^2\;a_1 &= \sum x\,y
-\end{aligned}\right.
-$$
-
-**Paso 3 — tabla de sumatorias:**
-
-| $i$ | $x$ | $y$ | $x^2$ | $x\,y$ |
-|:---:|:---:|:---:|:---:|:---:|
-| 1 | $1$ | $191124$ | $1$ | $191124$ |
-| 2 | $2$ | $58328$ | $4$ | $116656$ |
-| 3 | $3$ | $23721$ | $9$ | $71163$ |
-| 4 | $4$ | $17001$ | $16$ | $68004$ |
-| 5 | $5$ | $16126$ | $25$ | $80630$ |
-| 6 | $6$ | $10613$ | $36$ | $63678$ |
-| 7 | $7$ | $8269$ | $49$ | $57883$ |
-| 8 | $8$ | $7515$ | $64$ | $60120$ |
-| 9 | $9$ | $6967$ | $81$ | $62703$ |
-| 10 | $10$ | $7111$ | $100$ | $71110$ |
-| 11 | $11$ | $8619$ | $121$ | $94809$ |
-| 12 | $12$ | $7972$ | $144$ | $95664$ |
-| 13 | $13$ | $7116$ | $169$ | $92508$ |
-| 14 | $14$ | $6108$ | $196$ | $85512$ |
-| $\Sigma$ | $\mathbf{105}$ | $\mathbf{376590}$ | $\mathbf{1015}$ | $\mathbf{1211564}$ |
-
-**Paso 4 — sistema con los valores** ($m = 14$):
-
-$$
-\left\{\begin{aligned}
-14\;a_0 + 105\;a_1 &= 376590 \\
-105\;a_0 + 1015\;a_1 &= 1211564
-\end{aligned}\right.
-$$
-
-**Paso 5 — solución del sistema:**
-
-$$
-a_0 = 80070{,}5275,\qquad a_1 = -7089{,}4989
-$$
-
-**Paso 6 — función aproximante:**
-
-$$
-y = 80070{,}5275 - 7089{,}4989\,x
-$$
-
-![Recta junto a la nube de puntos](../ajuste/modelo-recta.png)
-
-**Paso 7 — residuos en las variables originales:**
-
-| $i$ | $x_i$ | $y_i$ | $\hat y_i$ | $y_i - \hat y_i$ | $(y_i - \hat y_i)^2$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | $1$ | $191124$ | $72981{,}0286$ | $118142{,}9714$ | $13957761698$ |
-| 2 | $2$ | $58328$ | $65891{,}5297$ | $-7563{,}5297$ | $57206981{,}0740$ |
-| 3 | $3$ | $23721$ | $58802{,}0308$ | $-35081{,}0308$ | $1230678720$ |
-| 4 | $4$ | $17001$ | $51712{,}5319$ | $-34711{,}5319$ | $1204890445$ |
-| 5 | $5$ | $16126$ | $44623{,}0330$ | $-28497{,}0330$ | $812080888$ |
-| 6 | $6$ | $10613$ | $37533{,}5341$ | $-26920{,}5341$ | $724715154$ |
-| 7 | $7$ | $8269$ | $30444{,}0352$ | $-22175{,}0352$ | $491732185$ |
-| 8 | $8$ | $7515$ | $23354{,}5363$ | $-15839{,}5363$ | $250890909$ |
-| 9 | $9$ | $6967$ | $16265{,}0374$ | $-9298{,}0374$ | $86453498{,}7970$ |
-| 10 | $10$ | $7111$ | $9175{,}5385$ | $-2064{,}5385$ | $4262319{,}0592$ |
-| 11 | $11$ | $8619$ | $2086{,}0396$ | $6532{,}9604$ | $42679572{,}1049$ |
-| 12 | $12$ | $7972$ | $-5003{,}4593$ | $12975{,}4593$ | $168362545$ |
-| 13 | $13$ | $7116$ | $-12092{,}9582$ | $19208{,}9582$ | $368984077$ |
-| 14 | $14$ | $6108$ | $-19182{,}4571$ | $25290{,}4571$ | $639607222$ |
-| $\Sigma$ | | | | | $\mathbf{20040306214}$ |
-
-Error cuadrático (suma de residuos al cuadrado): $\sum (y_i - \hat y_i)^2 = 20040306214$.
-
-### c.2 Modelo parábola: $y = a_0 + a_1\,x + a_2\,x^2$
-
-**¿Por qué lo probamos?** Agrega curvatura sin dejar de ser un polinomio: puede bajar rápido al principio y frenarse después, como la nube.
-
-**Paso 1 — cambio de variables.** No hace falta: el modelo ya es lineal en sus parámetros.
-
-**Paso 2 — sistema de ecuaciones normales** (forma general, $m$ = cantidad de puntos):
-
-$$
-\left\{\begin{aligned}
-m\;a_0 + \sum x\;a_1 + \sum x^2\;a_2 &= \sum y \\
-\sum x\;a_0 + \sum x^2\;a_1 + \sum x^3\;a_2 &= \sum x\,y \\
-\sum x^2\;a_0 + \sum x^3\;a_1 + \sum x^4\;a_2 &= \sum x^2\,y
-\end{aligned}\right.
-$$
-
-**Paso 3 — tabla de sumatorias:**
-
-| $i$ | $x$ | $y$ | $x^2$ | $x^3$ | $x^4$ | $x\,y$ | $x^2\,y$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | $1$ | $191124$ | $1$ | $1$ | $1$ | $191124$ | $191124$ |
-| 2 | $2$ | $58328$ | $4$ | $8$ | $16$ | $116656$ | $233312$ |
-| 3 | $3$ | $23721$ | $9$ | $27$ | $81$ | $71163$ | $213489$ |
-| 4 | $4$ | $17001$ | $16$ | $64$ | $256$ | $68004$ | $272016$ |
-| 5 | $5$ | $16126$ | $25$ | $125$ | $625$ | $80630$ | $403150$ |
-| 6 | $6$ | $10613$ | $36$ | $216$ | $1296$ | $63678$ | $382068$ |
-| 7 | $7$ | $8269$ | $49$ | $343$ | $2401$ | $57883$ | $405181$ |
-| 8 | $8$ | $7515$ | $64$ | $512$ | $4096$ | $60120$ | $480960$ |
-| 9 | $9$ | $6967$ | $81$ | $729$ | $6561$ | $62703$ | $564327$ |
-| 10 | $10$ | $7111$ | $100$ | $1000$ | $10000$ | $71110$ | $711100$ |
-| 11 | $11$ | $8619$ | $121$ | $1331$ | $14641$ | $94809$ | $1042899$ |
-| 12 | $12$ | $7972$ | $144$ | $1728$ | $20736$ | $95664$ | $1147968$ |
-| 13 | $13$ | $7116$ | $169$ | $2197$ | $28561$ | $92508$ | $1202604$ |
-| 14 | $14$ | $6108$ | $196$ | $2744$ | $38416$ | $85512$ | $1197168$ |
-| $\Sigma$ | $\mathbf{105}$ | $\mathbf{376590}$ | $\mathbf{1015}$ | $\mathbf{11025}$ | $\mathbf{127687}$ | $\mathbf{1211564}$ | $\mathbf{8447366}$ |
-
-**Paso 4 — sistema con los valores** ($m = 14$):
-
-$$
-\left\{\begin{aligned}
-14\;a_0 + 105\;a_1 + 1015\;a_2 &= 376590 \\
-105\;a_0 + 1015\;a_1 + 11025\;a_2 &= 1211564 \\
-1015\;a_0 + 11025\;a_1 + 127687\;a_2 &= 8447366
-\end{aligned}\right.
-$$
-
-**Paso 5 — solución del sistema:**
-
-$$
-a_0 = 153387{,}9176,\qquad a_1 = -34583{,}5202,\qquad a_2 = 1832{,}9348
-$$
-
-**Paso 6 — función aproximante:**
-
-$$
-y = 153387{,}9176 - 34583{,}5202\,x + 1832{,}9348\,x^2
-$$
-
-![Parábola junto a la nube de puntos](../ajuste/modelo-parabola.png)
-
-**Paso 7 — residuos en las variables originales:**
-
-| $i$ | $x_i$ | $y_i$ | $\hat y_i$ | $y_i - \hat y_i$ | $(y_i - \hat y_i)^2$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | $1$ | $191124$ | $120637{,}3321$ | $70486{,}6679$ | $4968370346$ |
-| 2 | $2$ | $58328$ | $91552{,}6162$ | $-33224{,}6162$ | $1103875122$ |
-| 3 | $3$ | $23721$ | $66133{,}7698$ | $-42412{,}7698$ | $1798843040$ |
-| 4 | $4$ | $17001$ | $44380{,}7929$ | $-27379{,}7929$ | $749653057$ |
-| 5 | $5$ | $16126$ | $26293{,}6854$ | $-10167{,}6854$ | $103381827{,}1979$ |
-| 6 | $6$ | $10613$ | $11872{,}4475$ | $-1259{,}4475$ | $1586208{,}0745$ |
-| 7 | $7$ | $8269$ | $1117{,}0791$ | $7151{,}9209$ | $51149972{,}2612$ |
-| 8 | $8$ | $7515$ | $-5972{,}4198$ | $13487{,}4198$ | $181910492{,}3279$ |
-| 9 | $9$ | $6967$ | $-9396{,}0492$ | $16363{,}0492$ | $267749378{,}3304$ |
-| 10 | $10$ | $7111$ | $-9153{,}8091$ | $16264{,}8091$ | $264544014$ |
-| 11 | $11$ | $8619$ | $-5245{,}6995$ | $13864{,}6995$ | $192229891$ |
-| 12 | $12$ | $7972$ | $2328{,}2797$ | $5643{,}7203$ | $31851579{,}1595$ |
-| 13 | $13$ | $7116$ | $13568{,}1283$ | $-6452{,}1283$ | $41629959{,}5571$ |
-| 14 | $14$ | $6108$ | $28473{,}8464$ | $-22365{,}8464$ | $500231086$ |
-| $\Sigma$ | | | | | $\mathbf{10257005973}$ |
-
-Error cuadrático (suma de residuos al cuadrado): $\sum (y_i - \hat y_i)^2 = 10257005973$.
-
-### c.3 Modelo exponencial: $y = a_0\,e^{a_1 x}$
+### c.1 Modelo exponencial: $y = a_0\,e^{a_1 x}$
 
 **¿Por qué lo probamos?** Es el modelo típico de las caídas en las que **cada mes se pierde el mismo porcentaje** de jugadores.
 
@@ -319,7 +163,7 @@ $$
 \end{aligned}\right.
 $$
 
-**Paso 5 — solución del sistema:**
+**Paso 5 — solución del sistema** (resuelto con calculadora):
 
 $$
 A_0 = 10{,}9639,\qquad a_1 = -0{,}193243
@@ -341,7 +185,7 @@ $$
 y = 57750{,}0602\,e^{-0{,}193243\,x}
 $$
 
-![Exponencial junto a la nube de puntos](../ajuste/modelo-exponencial.png)
+![Exponencial junto a la nube de puntos](../ajuste/modelo-exponencial-doble.png)
 
 **Paso 7 — residuos en las variables originales:**
 
@@ -365,7 +209,7 @@ $$
 
 Error cuadrático (suma de residuos al cuadrado): $\sum (y_i - \hat y_i)^2 = 21319215360$.
 
-### c.4 Modelo potencial: $y = a_0\,x^{a_1}$
+### c.2 Modelo potencial: $y = a_0\,x^{a_1}$
 
 **¿Por qué lo probamos?** Modela caídas en las que el porcentaje que se pierde **es cada vez menor**: muy fuerte al principio y con una cola que baja despacio.
 
@@ -423,7 +267,7 @@ $$
 \end{aligned}\right.
 $$
 
-**Paso 5 — solución del sistema:**
+**Paso 5 — solución del sistema** (resuelto con calculadora):
 
 $$
 A_0 = 11{,}7129,\qquad a_1 = -1{,}2217
@@ -445,7 +289,7 @@ $$
 y = 122134{,}8678\,x^{-1{,}2217}
 $$
 
-![Potencial junto a la nube de puntos](../ajuste/modelo-potencial.png)
+![Potencial junto a la nube de puntos](../ajuste/modelo-potencial-doble.png)
 
 **Paso 7 — residuos en las variables originales:**
 
@@ -469,7 +313,7 @@ $$
 
 Error cuadrático (suma de residuos al cuadrado): $\sum (y_i - \hat y_i)^2 = 4931569586$.
 
-### c.5 Modelo recíproco: $y = a_0 + a_1\,\frac{1}{x}$
+### c.3 Modelo recíproco: $y = a_0 + a_1\,\frac{1}{x}$
 
 **¿Por qué lo probamos?** Baja como $1/x$ y se acerca a un piso $a_0$: podría representar a los jugadores "fieles" que siguen jugando.
 
@@ -519,7 +363,7 @@ $$
 \end{aligned}\right.
 $$
 
-**Paso 5 — solución del sistema:**
+**Paso 5 — solución del sistema** (resuelto con calculadora):
 
 $$
 a_0 = -17245{,}7145,\qquad a_1 = 190071{,}7073
@@ -531,7 +375,7 @@ $$
 y = -17245{,}7145 + 190071{,}7073\,\frac{1}{x}
 $$
 
-![Recíproco junto a la nube de puntos](../ajuste/modelo-reciproco.png)
+![Recíproco junto a la nube de puntos](../ajuste/modelo-reciproco-doble.png)
 
 **Paso 7 — residuos en las variables originales:**
 
@@ -555,113 +399,9 @@ $$
 
 Error cuadrático (suma de residuos al cuadrado): $\sum (y_i - \hat y_i)^2 = 1821215261$.
 
-### c.6 Modelo hiperbólico: $y = \frac{a_1}{a_0 + x}$
-
-**¿Por qué lo probamos?** También baja como $1/x$, pero corrido en $a_0$ y acercándose a cero; es el modelo hiperbólico visto en la teórica.
-
-**Paso 1 — cambio de variables.** El modelo no es lineal en sus parámetros; lo llevamos a una forma aparentemente lineal:
-
-$$
-y = \frac{a_1}{a_0 + x}
-$$
-
-$$
-\frac{1}{y} = \frac{a_0 + x}{a_1} = \frac{a_0}{a_1} + \frac{1}{a_1}\,x
-$$
-
-$$
-\underbrace{\frac{1}{y}}_{Y} = \underbrace{\frac{a_0}{a_1}}_{A_0} + \underbrace{\frac{1}{a_1}}_{A_1}\,x
-$$
-
-Queda una recta $Y = A_0 + A_1\,X$ en las variables $X = x$, $Y = \tfrac{1}{y}$.
-
-**Paso 2 — sistema de ecuaciones normales** (forma general, $m$ = cantidad de puntos):
-
-$$
-\left\{\begin{aligned}
-m\;A_0 + \sum x\;A_1 &= \sum Y \\
-\sum x\;A_0 + \sum x^2\;A_1 &= \sum x\,Y
-\end{aligned}\right.
-$$
-
-**Paso 3 — tabla de sumatorias:**
-
-| $i$ | $x$ | $y$ | $Y = \tfrac{1}{y}$ | $x^2$ | $x\,Y$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | $1$ | $191124$ | $0{,}00000523221$ | $1$ | $0{,}00000523221$ |
-| 2 | $2$ | $58328$ | $0{,}0000171444$ | $4$ | $0{,}0000342888$ |
-| 3 | $3$ | $23721$ | $0{,}0000421567$ | $9$ | $0{,}000126470$ |
-| 4 | $4$ | $17001$ | $0{,}0000588201$ | $16$ | $0{,}000235280$ |
-| 5 | $5$ | $16126$ | $0{,}0000620117$ | $25$ | $0{,}000310058$ |
-| 6 | $6$ | $10613$ | $0{,}0000942241$ | $36$ | $0{,}000565344$ |
-| 7 | $7$ | $8269$ | $0{,}000120934$ | $49$ | $0{,}000846535$ |
-| 8 | $8$ | $7515$ | $0{,}000133067$ | $64$ | $0{,}00106454$ |
-| 9 | $9$ | $6967$ | $0{,}000143534$ | $81$ | $0{,}00129180$ |
-| 10 | $10$ | $7111$ | $0{,}000140627$ | $100$ | $0{,}00140627$ |
-| 11 | $11$ | $8619$ | $0{,}000116023$ | $121$ | $0{,}00127625$ |
-| 12 | $12$ | $7972$ | $0{,}000125439$ | $144$ | $0{,}00150527$ |
-| 13 | $13$ | $7116$ | $0{,}000140528$ | $169$ | $0{,}00182687$ |
-| 14 | $14$ | $6108$ | $0{,}000163720$ | $196$ | $0{,}00229208$ |
-| $\Sigma$ | $\mathbf{105}$ | $\mathbf{376590}$ | $\mathbf{0{,}00136346}$ | $\mathbf{1015}$ | $\mathbf{0{,}0127863}$ |
-
-**Paso 4 — sistema con los valores** ($m = 14$):
-
-$$
-\left\{\begin{aligned}
-14\;A_0 + 105\;A_1 &= 0{,}00136346 \\
-105\;A_0 + 1015\;A_1 &= 0{,}0127863
-\end{aligned}\right.
-$$
-
-**Paso 5 — solución del sistema:**
-
-$$
-A_0 = 0{,}0000129836,\qquad A_1 = 0{,}0000112542
-$$
-
-Volvemos a los parámetros del modelo original:
-
-$$
-a_1 = \frac{1}{A_1},\qquad a_0 = A_0 \cdot a_1
-$$
-
-$$
-a_0 = 1{,}1537,\qquad a_1 = 88855{,}7153
-$$
-
-**Paso 6 — función aproximante:**
-
-$$
-y = \frac{88855{,}7153}{1{,}1537 + x}
-$$
-
-![Hiperbólico junto a la nube de puntos](../ajuste/modelo-hiperbolico.png)
-
-**Paso 7 — residuos en las variables originales:**
-
-| $i$ | $x_i$ | $y_i$ | $\hat y_i$ | $y_i - \hat y_i$ | $(y_i - \hat y_i)^2$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | $1$ | $191124$ | $41257{,}9388$ | $149866{,}0612$ | $22459836292$ |
-| 2 | $2$ | $58328$ | $28175{,}3955$ | $30152{,}6045$ | $909179558$ |
-| 3 | $3$ | $23721$ | $21392{,}1316$ | $2328{,}8684$ | $5423628{,}1058$ |
-| 4 | $4$ | $17001$ | $17241{,}2723$ | $-240{,}2723$ | $57730{,}7996$ |
-| 5 | $5$ | $16126$ | $14439{,}4824$ | $1686{,}5176$ | $2844341{,}5819$ |
-| 6 | $6$ | $10613$ | $12421{,}0086$ | $-1808{,}0086$ | $3268895{,}0617$ |
-| 7 | $7$ | $8269$ | $10897{,}6432$ | $-2628{,}6432$ | $6909765{,}1550$ |
-| 8 | $8$ | $7515$ | $9707{,}1206$ | $-2192{,}1206$ | $4805392{,}7965$ |
-| 9 | $9$ | $6967$ | $8751{,}0991$ | $-1784{,}0991$ | $3183009{,}6411$ |
-| 10 | $10$ | $7111$ | $7966{,}5050$ | $-855{,}5050$ | $731888{,}7383$ |
-| 11 | $11$ | $8619$ | $7311{,}0232$ | $1307{,}9768$ | $1710803{,}3596$ |
-| 12 | $12$ | $7972$ | $6755{,}2067$ | $1216{,}7933$ | $1480585{,}9806$ |
-| 13 | $13$ | $7116$ | $6277{,}9305$ | $838{,}0695$ | $702360{,}5146$ |
-| 14 | $14$ | $6108$ | $5863{,}6458$ | $244{,}3542$ | $59708{,}9691$ |
-| $\Sigma$ | | | | | $\mathbf{23400193960}$ |
-
-Error cuadrático (suma de residuos al cuadrado): $\sum (y_i - \hat y_i)^2 = 23400193960$.
-
 ## d) Comparación, elección y estimación
 
-### d.1 Comparación de los seis modelos
+### d.1 Comparación de los tres modelos
 
 Para comparar usamos el **error cuadrático** de cada función final, calculado en las
 variables originales (jugadores, no logaritmos ni inversas):
@@ -674,12 +414,9 @@ $$
 |---|---|---:|---:|
 | Recíproco | $y = -17245{,}71 + \dfrac{190071{,}71}{x}$ | $1{,}82 \times 10^{9}$ | $-4.574$ |
 | Potencial | $y = 122134{,}87\,x^{-1{,}22172}$ | $4{,}93 \times 10^{9}$ | $4.467$ |
-| Parábola | $y = 153387{,}92 - 34583{,}52\,x + 1832{,}93\,x^2$ | $1{,}03 \times 10^{10}$ | $47.045$ |
-| Recta | $y = 80070{,}53 - 7089{,}50\,x$ | $2{,}00 \times 10^{10}$ | $-26.272$ |
-| Exponencial | $y = 57750{,}06\,e^{-0{,}19324\,x}$ | $2{,}13 \times 10^{10}$ | $3.182$ |
-| Hiperbólico | $y = \dfrac{88855{,}72}{1{,}15366 + x}$ | $2{,}34 \times 10^{10}$ | $5.501$ |
+| Exponencial | $y = 57750{,}06\,e^{-0{,}193243\,x}$ | $2{,}13 \times 10^{10}$ | $3.182$ |
 
-![Los seis modelos en la zona de la predicción (meses 3 a 15)](../ajuste/comparacion-cola.png)
+![Los tres modelos en la zona de la predicción (meses 3 a 15)](../ajuste/comparacion-cola.png)
 
 ### d.2 Criterio de elección
 
@@ -692,40 +429,31 @@ tipo.
 Elegimos en dos pasos:
 
 1. **Descartar los modelos que contradicen el fenómeno.** La cantidad de jugadores no puede
-   ser negativa, y un juego no recupera jugadores "solo", sin una actualización, una
-   oferta o un evento que lo explique.
+   ser negativa.
 2. **Entre los que quedan, elegir el de menor error cuadrático.**
 
-### d.3 Modelos descartados
+### d.3 Modelo descartado: el recíproco
 
-- **Recíproco** (menor error): la curva corta el eje en $x \approx 11{,}02$. Desde el mes
-  12 predice jugadores negativos, cuando el dato real del mes 12 es de 7.972 jugadores.
-  Para noviembre da $-4.574$. Su error es bajo porque copia muy bien el pico del
-  lanzamiento, pero describe mal justo la zona que queremos predecir.
-- **Recta:** predice $-26.272$ jugadores. Además, una caída a ritmo constante no
-  representa un fenómeno que cae rápido al principio y cada vez más lento.
-- **Parábola:** tiene su mínimo en $x \approx 9{,}43$ con valores negativos y después
-  sube, hasta $47.045$ jugadores en noviembre, como si el juego recuperara solo el público
-  del segundo mes. Es el mismo problema de usar polinomios para estimar fuera de los
-  datos.
+El recíproco tiene el menor error, pero su curva corta el eje en $x \approx 11{,}02$: desde
+el mes 12 predice jugadores **negativos**, cuando el dato real del mes 12 es de 7.972
+jugadores. Para noviembre da $-4.574$. Su error es bajo porque copia muy bien el pico del
+lanzamiento, pero describe mal justo la zona que queremos predecir.
 
 ### d.4 Elección: el modelo potencial
 
-Quedan tres modelos que tienen sentido (siempre positivos, siempre decrecientes y cada vez
-más lentos): exponencial, potencial e hiperbólico. Entre ellos, el **potencial** tiene el
-menor error, unas cuatro veces menor que los otros dos:
+Quedan dos modelos que tienen sentido (siempre positivos y siempre decrecientes):
+exponencial y potencial. El **potencial** tiene un error unas **cuatro veces menor**:
 
 | Modelo | $E$ |
 |---|---:|
 | **Potencial** | $\mathbf{4{,}93 \times 10^{9}}$ |
 | Exponencial | $2{,}13 \times 10^{10}$ |
-| Hiperbólico | $2{,}34 \times 10^{10}$ |
 
-La forma también acompaña. El exponencial supone que cada mes se pierde **el mismo
-porcentaje** de jugadores (con $e^{-0{,}19324} \approx 0{,}82$, un 18 % por mes), así que se
-acerca rápido a cero. El potencial supone que el porcentaje que se pierde es **cada vez
-menor**, que es lo que muestra la nube: del mes 1 al 2 se fue el 69 % de los jugadores, del
-3 al 4 el 28 %, y del 8 al 9 solo el 7 %.
+La forma también acompaña. Los datos muestran que el porcentaje de jugadores que se pierde
+cada mes es **cada vez menor**: del mes 1 al 2 se fue el 69 %, del 3 al 4 el 28 % y del 8
+al 9 solo el 7 %. Eso es justo lo que supone el potencial. El exponencial, en cambio,
+supone que cada mes se pierde **el mismo porcentaje** (con $e^{-0{,}193243} \approx 0{,}82$,
+un 18 % por mes), así que se acerca a cero demasiado rápido.
 
 ### d.5 Estimación para noviembre de 2026
 
@@ -743,25 +471,30 @@ $$
 
 - **Extrapolamos un solo mes.** Predecimos fuera del rango de los datos, pero muy cerca
   del último mes (14). Cuanto más lejos, menos confiable sería.
-- **Los modelos razonables coinciden en el orden de magnitud.** Exponencial, potencial e
-  hiperbólico dan entre 3.182 y 5.501 jugadores. Ninguno da 500 ni 50.000.
+- **Los dos modelos razonables coinciden en el orden de magnitud.** El exponencial da 3.182
+  y el potencial 4.467: ninguno da 500 ni 50.000.
 
 **En contra (por qué esperamos que el valor real sea mayor):**
 
 - **Los residuos tienen un patrón.** En los meses 3 a 10 el modelo queda **por encima** de
-  los datos, y en los meses 11 a 14 queda **por debajo**: los datos reales superaron al
-  modelo entre un 20 % y un 26 %.
+  los datos, y en los meses 11 a 14 queda **por debajo**:
 
-  | Mes | Real | Potencial | Diferencia |
+  | Mes | Real $y$ | Potencial $\hat y$ | $\dfrac{y - \hat y}{y}$ |
   |---:|---:|---:|---:|
-  | 11 | 8.619 | 6.525 | +24 % |
-  | 12 | 7.972 | 5.867 | +26 % |
-  | 13 | 7.116 | 5.320 | +25 % |
-  | 14 | 6.108 | 4.860 | +20 % |
+  | 11 | 8.619 | 6.525 | 24 % |
+  | 12 | 7.972 | 5.867 | 26 % |
+  | 13 | 7.116 | 5.320 | 25 % |
+  | 14 | 6.108 | 4.860 | 20 % |
 
-  Si ese patrón sigue, noviembre estaría más cerca de **5.600–6.000** jugadores que de
-  4.467. El modelo **subestima la cola**: la comunidad que se queda jugando es más grande
-  de lo que la curva supone.
+  Si el patrón sigue y en noviembre el modelo vuelve a quedar entre un 20 % y un 26 % por
+  debajo, el valor real sería
+
+  $$
+  \frac{4.467}{1 - 0{,}20} \approx 5.583 \qquad \text{a} \qquad \frac{4.467}{1 - 0{,}26} \approx 6.036
+  $$
+
+  es decir, entre unos **5.600 y 6.000 jugadores**. El modelo **subestima la cola**: la
+  comunidad que se queda jugando es más grande de lo que la curva supone.
 - **Lo comprobamos con datos que ya conocíamos.** Ajustamos el potencial solo con los meses
   1 a 11 y predijimos los meses 12 a 14:
 
@@ -778,39 +511,50 @@ $$
   demás juntos, por eso el ajuste "prioriza" el lanzamiento sobre la cola. Por eso el
   recíproco tiene el menor error y aun así predice mal.
 - **El modelo supone que no pasa nada nuevo.** En julio de 2026 (mes 11) los jugadores
-  subieron de 7.111 a 8.619 sin que la curva lo explique: `[a completar: causa de la
-  subida de julio]`. Team Cherry anunció para 2026 la expansión gratuita *Sea of Sorrow*,
-  sin fecha confirmada al 2026-11-11. Si sale en noviembre, la predicción deja de valer.
+  subieron de 7.111 a 8.619 sin que la curva lo explique. Coincide con la oferta de verano
+  de Steam (del 25 de junio al 9 de julio de 2026), en la que Silksong bajó de USD 19,99 a
+  USD 14,99, y en ese período no hubo una actualización importante del juego (Team Cherry
+  había presentado en marzo el último parche grande). No podemos probar que esa sea la
+  causa, pero es la explicación más probable. Además, Team Cherry anunció para 2026 la
+  expansión gratuita *Sea of Sorrow*: al día de hoy no tiene fecha confirmada, y el manual
+  de la edición física la anuncia solo como "próximamente". Si saliera en noviembre, la
+  predicción dejaría de valer.
 - **Vale solo para este juego.** Otro juego, con otra reputación, precio y comunidad,
   tendría otros coeficientes. Lo que sí suele repetirse es la forma de la curva.
 
-### d.7 Conclusión
+### d.7 Conclusión del punto d)
 
 El modelo potencial estima **4.467 jugadores simultáneos promedio** para noviembre de 2026.
 Lo tomamos como un **piso** más que como un valor exacto: por el patrón de los residuos y
 por la prueba con los meses 12 a 14, esperamos que el valor real sea mayor, del orden de
-5.600–6.000 jugadores, siempre que no salga la expansión ni haya un evento que reactive el
+5.600 a 6.000 jugadores, siempre que no salga la expansión ni haya un evento que reactive el
 juego.
 
-`[a completar cuando cierre noviembre: dato real de SteamCharts y error de la predicción.
-Si se entrega antes, usar como referencia el promedio de "Last 30 Days" de la fecha de
-entrega (al 2026-11-11 era 5.702, del 12/10 al 11/11), aclarando que no es exactamente
-noviembre.]`
+Como contraste con un dato real parcial: al 11 de noviembre de 2026, SteamCharts informaba
+un promedio de **5.702 jugadores en los últimos 30 días** (del 12 de octubre al 11 de
+noviembre). No es exactamente el mes de noviembre, pero sirve de referencia: el modelo
+quedó por debajo y el valor cae dentro del rango que anticipamos a partir de los residuos.
+
+`[a completar si se entrega después del 2026-11-30: promedio real de noviembre en
+SteamCharts y error de la predicción.]`
 
 ## Aplicaciones: ¿qué le espera a GTA VI?
 
-El 19 de noviembre de 2026 sale *Grand Theft Auto VI* (por ahora solo en PlayStation 5 y
-Xbox Series, sin fecha confirmada para PC). Su antecesor, *GTA V*, salió en Steam en abril
-de 2015, y sus datos públicos muestran lo que nuestro modelo **no** puede prever:
+El 19 de noviembre de 2026 sale *Grand Theft Auto VI*, por ahora solo en PlayStation 5 y
+Xbox Series: como no sale en PC, no va a tener datos en Steam. Pero su antecesor, *GTA V*,
+salió en Steam en abril de 2015, y sus datos públicos muestran lo que nuestro modelo **no**
+puede prever:
 
 ![Silksong y GTA V en Steam, en porcentaje del primer mes](../ajuste/silksong-vs-gta-v.png)
 
 - Los primeros meses, GTA V cayó igual que Silksong: de 192.714 jugadores promedio en abril
   de 2015 a 25.388 en septiembre (−87 %).
-- **Desde octubre de 2015 volvió a subir**, hasta 46.993 en enero de 2016.
-  [a completar: causa, ¿actualizaciones del modo online, ofertas de fin de año?]
-- Un ajuste hecho con sus primeros seis meses habría predicho que seguía bajando, y se
-  habría equivocado.
+- **Desde octubre de 2015 volvió a subir**, hasta 46.993 en enero de 2016. En ese período
+  Rockstar lanzó actualizaciones gratuitas del modo online, como *Lowriders* (20 de octubre
+  de 2015) y *Executives and Other Criminals* (15 de diciembre de 2015).
+- Cualquiera de nuestros modelos, ajustado con los primeros seis meses de GTA V, habría
+  predicho que seguía bajando (las tres funciones son siempre decrecientes), y se habría
+  equivocado.
 
 **Lo que esto enseña:** el ajuste predice qué pasa **si nada cambia**. Por eso le sirve al
 estudio: le muestra la tendencia "natural" del juego para decidir cuándo intervenir. Si
@@ -819,12 +563,17 @@ caída; si Team Cherry lanza *Sea of Sorrow*, tampoco la de Silksong.
 
 ## Conclusiones
 
-[a completar por el grupo: 3 a 5 líneas. Sugerencia: (1) el método de mínimos cuadrados
-permitió estimar unos 4.467 jugadores para noviembre de 2026 con el modelo potencial; (2)
-el modelo de menor error no siempre es el mejor para predecir: hay que mirar si tiene
-sentido con el fenómeno; (3) la estimación es un piso: los residuos y la prueba con los
-meses 12 a 14 indican que el valor real probablemente sea mayor; (4) el modelo solo vale si
-no pasa nada nuevo, como muestra GTA V.]
+El método de mínimos cuadrados nos permitió estimar que Silksong tendrá unos **4.467
+jugadores simultáneos promedio** en noviembre de 2026, usando el modelo potencial. El
+trabajo también mostró que **el modelo de menor error no siempre es el mejor para
+predecir**: el recíproco tenía el menor error pero daba jugadores negativos, así que antes
+de elegir hay que mirar si el modelo tiene sentido con el fenómeno.
+
+El valor estimado debe tomarse como un **piso** más que como un valor exacto: por el patrón
+de los residuos y por la prueba con los meses 12 a 14, esperamos que el valor real sea
+mayor, del orden de 5.600 a 6.000 jugadores. El dato parcial de SteamCharts (5.702
+jugadores en los 30 días previos al 11 de noviembre) cae dentro de ese rango. Y, como
+muestra GTA V, el modelo solo vale mientras no pase nada nuevo.
 
 ## Video
 
@@ -838,8 +587,18 @@ no pasa nada nuevo, como muestra GTA V.]
   <https://steamcharts.com/app/271590> (consultado el 2026-11-11).
 - Gematsu, "Hollow Knight: Silksong sales top seven million; free expansion Sea of Sorrow
   announced" (diciembre 2025).
-- Fecha de lanzamiento de GTA VI (19/11/2026, PS5 y Xbox Series): [a completar con la fuente
-  oficial de Rockstar Games].
+- KeenGamer, "10 best indie game deals in the Steam Summer Sale 2026" (junio 2026): fechas
+  de la oferta y precio de Silksong.
+  <https://www.keengamer.com/articles/guides/10-best-indie-game-deals-in-the-steam-summer-sale-2026/>
+- GamesRadar, "Hollow Knight: Silksong patch 5 is here, and Team Cherry says it's 'the last
+  significant update' before the Sea of Sorrow DLC drops" (18/03/2026).
+  <https://www.gamesradar.com/games/action/hollow-knight-silksong-patch-5-is-here-and-team-cherry-says-its-the-last-significant-update-before-the-sea-of-sorrow-dlc-drops/>
+- GameLuster, "Silksong physical edition booklet teases more free DLC beyond Sea of Sorrow"
+  (09/11/2026). <https://gameluster.com/?p=169500>
+- Gematsu, "Grand Theft Auto VI delayed to November 19, 2026" (noviembre 2025), sobre el
+  anuncio oficial de Rockstar Games.
+  <https://www.gematsu.com/2025/11/grand-theft-auto-vi-delayed-to-november-19-2026>
+- GTA Wiki, "2015" (cronología de actualizaciones de GTA Online). <https://gta.wiki/w/2015>
 - Cátedra de Análisis Numérico, clases teórica y práctica de aproximación discreta por
   mínimos cuadrados (2.º cuatrimestre 2026).
 

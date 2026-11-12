@@ -2,7 +2,9 @@
 
 Lee ajuste/resultados.json (salida de ajuste_mc.py) y genera:
 
-- ajuste/comparacion-cola.png: los 6 modelos con zoom en los meses 3–15, donde está la
+- ajuste/modelo-<nombre>-doble.png: cada modelo con la nube, en dos paneles (rango completo y
+  zoom en la cola, con la estimación en x = 15).
+- ajuste/comparacion-cola.png: todos los modelos con zoom en los meses 3–15, donde está la
   predicción (en el gráfico completo el mes 1 aplasta todo).
 - ajuste/silksong-vs-gta-v.png: Silksong y GTA V (Steam, desde abril 2015) en % del primer
   mes, para el gancho de GTA VI (datos/steamcharts-gta-v.csv).
@@ -35,6 +37,8 @@ MODELOS = [
     ("reciproco", "Recíproco", "#e87ba4", lambda p, x: p["a_0"] + p["a_1"] / x),
     ("hiperbolico", "Hiperbólico", "#008300", lambda p, x: p["a_1"] / (p["a_0"] + x)),
 ]
+# Solo los modelos que se ajustaron (los colores siguen al modelo, no a su posición).
+MODELOS = [m for m in MODELOS if m[0] in {r["modelo"] for r in RES["modelos"]}]
 TINTA = "#262624"
 TINTA_2 = "#6b6a63"
 GRILLA = "#e6e5df"
@@ -72,12 +76,12 @@ def comparacion_cola() -> None:
 
     # Etiquetas directas a la derecha, separadas para que no se pisen.
     etiquetas.sort()
-    ymin, ymax = -32000, 52000
+    ymin, ymax = -10000, 50000
     pos = []
     for y0, *_ in etiquetas:
         yy = min(max(y0, ymin + 2500), ymax - 2500)
-        if pos and yy - pos[-1] < 4200:
-            yy = pos[-1] + 4200
+        if pos and yy - pos[-1] < 3000:
+            yy = pos[-1] + 3000
         pos.append(yy)
     for (y0, texto, color), yy in zip(etiquetas, pos):
         ax.annotate(texto, xy=(x0, min(max(y0, ymin), ymax)), xytext=(x0 + 0.55, yy),
@@ -90,7 +94,7 @@ def comparacion_cola() -> None:
     ax.yaxis.set_major_formatter(miles)
     ax.set_xlabel("Mes desde el lanzamiento (15 = noviembre 2026)", color=TINTA)
     ax.set_ylabel("Jugadores simultáneos promedio", color=TINTA)
-    ax.set_title("Hollow Knight: Silksong — los 6 modelos en la zona de la predicción (meses 3 a 15)",
+    ax.set_title(f"Hollow Knight: Silksong — los {len(MODELOS)} modelos en la zona de la predicción (meses 3 a 15)",
                  fontsize=11, color=TINTA, loc="left")
     ax.grid(color=GRILLA, lw=0.8)
     for s in ("top", "right"):
@@ -104,6 +108,53 @@ def comparacion_cola() -> None:
     fig.tight_layout(rect=(0, 0.03, 1, 1))
     fig.savefig(AQUI / "ajuste" / "comparacion-cola.png")
     plt.close(fig)
+
+
+def _estilo(ax) -> None:
+    ax.grid(color=GRILLA, lw=0.8)
+    for sp in ("top", "right"):
+        ax.spines[sp].set_visible(False)
+    for sp in ("left", "bottom"):
+        ax.spines[sp].set_color(TINTA_2)
+    ax.tick_params(colors=TINTA_2, labelsize=8)
+    ax.yaxis.set_major_formatter(miles)
+
+
+def modelos_dobles() -> None:
+    x = np.array(RES["x"])
+    y = np.array(RES["y"])
+    x0 = RES["x0"]
+    params = {m["modelo"]: m for m in RES["modelos"]}
+    for clave, nombre, color, f in MODELOS:
+        p = params[clave]["parametros"]
+        y0 = f(p, x0)
+        fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 4), dpi=150)
+        for ax, (xa, xb), titulo in ((a1, (0.85, 15.4), "Rango completo"),
+                                     (a2, (2.6, 15.4), "Zoom: meses 3 a 15 (zona de la predicción)")):
+            xs = np.linspace(xa, xb, 400)
+            ys = f(p, xs)
+            ax.plot(xs, ys, color=color, lw=2, zorder=2)
+            mask = x >= xa
+            ax.scatter(x[mask], y[mask], s=28, color=TINTA, zorder=4)
+            ax.plot([x0], [y0], "*", ms=13, color=color, mec=TINTA, mew=0.6, zorder=5)
+            ax.axhline(0, color=TINTA_2, lw=0.8, zorder=1)
+            if ax is a2:
+                vals = np.concatenate([y[mask], [y0, 0]])
+                lo, hi = vals.min(), vals.max()
+                ax.set_ylim(lo - 0.15 * (hi - lo), hi + 0.6 * (hi - lo))
+                ax.set_xticks(range(3, 16))
+            else:
+                ax.set_xticks(range(1, 16, 2))
+            ax.set_xlim(xa - 0.2, xb)
+            ax.set_title(titulo, fontsize=9.5, color=TINTA, loc="left")
+            ax.set_xlabel("Mes desde el lanzamiento", fontsize=8.5, color=TINTA)
+            _estilo(ax)
+        a1.set_ylabel("Jugadores simultáneos promedio", fontsize=8.5, color=TINTA)
+        fig.suptitle(f"Modelo {nombre.lower()} — estimación para noviembre 2026 (★): "
+                     f"ŷ(15) = {y0:,.0f}".replace(",", "."), fontsize=11, color=TINTA, x=0.01, ha="left")
+        fig.tight_layout()
+        fig.savefig(AQUI / "ajuste" / f"modelo-{clave}-doble.png")
+        plt.close(fig)
 
 
 def silksong_vs_gta_v(meses: int = 15) -> None:
@@ -141,6 +192,8 @@ def silksong_vs_gta_v(meses: int = 15) -> None:
 
 
 if __name__ == "__main__":
+    modelos_dobles()
+    print("✓ ajuste/modelo-*-doble.png")
     comparacion_cola()
     print("✓ ajuste/comparacion-cola.png")
     silksong_vs_gta_v()

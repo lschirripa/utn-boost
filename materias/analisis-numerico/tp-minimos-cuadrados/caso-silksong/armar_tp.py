@@ -9,7 +9,7 @@ Salida (regenerable, no editar a mano): exports/tp-silksong.md, .html y .pdf.
 
 Orden para regenerar todo desde los datos:
     venv/bin/python tools/ajuste_mc.py <caso>/datos/datos.csv \
-        --modelos recta,parabola,exponencial,potencial,reciproco,hiperbolico --x0 15 \
+        --modelos exponencial,potencial,reciproco --x0 15 \
         --out-dir <caso>/ajuste
     venv/bin/python <caso>/graficos.py
     venv/bin/python <caso>/armar_tp.py
@@ -60,7 +60,12 @@ def punto_c() -> str:
         return f"### c.{n} Modelo {nombre}{resto}\n\n**¿Por qué lo probamos?** {POR_QUE[clave]}"
 
     txt = re.sub(r"^## (\d+)\. Modelo (\S+)(:.*)$", titulo, txt, flags=re.M)
-    txt = re.sub(r"\]\(((?:modelo-|nube|comparacion)[^)]*\.png)\)", r"](ajuste/\1)", txt)
+    # Gráfico de cada modelo: la versión de dos paneles de graficos.py (completo + zoom).
+    txt = re.sub(r"\]\(modelo-(\w+)\.png\)", r"](ajuste/modelo-\1-doble.png)", txt)
+    txt = re.sub(r"\]\(((?:nube|comparacion)[^)]*\.png)\)", r"](ajuste/\1)", txt)
+    # La cátedra no pide el desarrollo de la resolución del sistema: alcanza con el resultado.
+    txt = txt.replace("**Paso 5 — solución del sistema:**",
+                      "**Paso 5 — solución del sistema** (resuelto con calculadora):")
     return txt
 
 
@@ -80,7 +85,9 @@ def main() -> None:
     # El md queda en exports/: las imágenes se referencian desde ahí.
     tp = tp.replace("](ajuste/", "](../ajuste/")
     cabecera = (f"<!-- GENERADO por armar_tp.py el {date.today().isoformat()} — no editar a mano. "
-                "Fuentes: tp-fuente.md, ajuste/reporte.md, borrador-d.md. -->\n\n")
+                "Fuentes: tp-fuente.md, ajuste/reporte.md, borrador-d.md. -->\n\n"
+                # Que las tablas (≤ 16 filas) no se partan entre páginas del PDF.
+                "<style>@media print { table { break-inside: avoid; } }</style>\n\n")
     OUT.mkdir(exist_ok=True)
     md = OUT / "tp-silksong.md"
     md.write_text(cabecera + tp + "\n", encoding="utf-8")

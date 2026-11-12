@@ -33,12 +33,21 @@ es antes).
 Regenerar todo (ajuste → gráficos → TP):
 
 ```bash
-venv/bin/python tools/ajuste_mc.py materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/datos/datos.csv --modelos recta,parabola,exponencial,potencial,reciproco,hiperbolico --x0 15 --out-dir materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/ajuste
+venv/bin/python tools/ajuste_mc.py materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/datos/datos.csv --modelos exponencial,potencial,reciproco --x0 15 --out-dir materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/ajuste
 venv/bin/python materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/graficos.py
 venv/bin/python materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/armar_tp.py
 ```
 
-## Resultados (meses 1–14, predicción para x = 15)
+## Decisión 2026-11-12: el TP usa 3 modelos
+
+El grupo decidió presentar **exponencial, potencial y recíproco** (la consigna pide "por lo
+menos 3", con al menos uno no polinómico) para que entre en el video de 6 minutos. El
+recíproco se queda porque es la lección central del d): menor error y predicción negativa.
+`ajuste/` y `validacion/` se regeneraron con esos 3. Tampoco se muestra el desarrollo de la
+resolución de los sistemas (Cramer/Gauss): en la práctica el profe dijo que no le interesa,
+alcanza con la tabla, el sistema planteado y el resultado.
+
+## Resultados con los 6 modelos (exploración inicial, meses 1–14, predicción para x = 15)
 
 | Modelo | Función | E (SSE) | ŷ(15) | ¿Tiene sentido? |
 |---|---|---:|---:|---|
