@@ -44,9 +44,10 @@ venv/bin/python materias/analisis-numerico/tp-minimos-cuadrados/caso-silksong/ar
 El grupo decidió presentar **exponencial, potencial y recíproco** (la consigna pide "por lo
 menos 3", con al menos uno no polinómico) para que entre en el video de 6 minutos. El
 recíproco se queda porque es la lección central del d): menor error y predicción negativa.
-`ajuste/` y `validacion/` se regeneraron con esos 3. Tampoco se muestra el desarrollo de la
-resolución de los sistemas (Cramer/Gauss): en la práctica el profe dijo que no le interesa,
-alcanza con la tabla, el sistema planteado y el resultado.
+`ajuste/` y `validacion/` se regeneraron con esos 3. El Paso 5 resuelve cada sistema 2×2
+con **Cramer en versión corta** (lo arma `armar_tp.py` desde `resultados.json`): la consigna
+dice "resolverlo" y Cramer se nombró en la teórica. Gauss no hace falta (no hay sistemas
+3×3). En el video se dice "lo resolvimos" y no se muestra el desarrollo.
 
 ## Resultados con los 6 modelos (exploración inicial, meses 1–14, predicción para x = 15)
 

@@ -169,10 +169,10 @@ aparentemente lineal** con un cambio de variables, armamos el sistema de ecuacio
 normales de esa recta, lo resolvemos y después volvemos a los parámetros originales.
 
 En cada modelo seguimos los mismos pasos: cambio de variables, sistema de ecuaciones
-normales, tabla de sumatorias, sistema con los valores, solución (los sistemas se
-resolvieron con calculadora), función aproximante con su gráfico y tabla de residuos con el
-error cuadrático en las variables originales. Todos los cálculos se hicieron sin redondear;
-en las tablas los valores se muestran redondeados.
+normales, tabla de sumatorias, sistema con los valores, resolución del sistema (regla de
+Cramer), función aproximante con su gráfico y tabla de residuos con el error cuadrático en
+las variables originales. Todos los cálculos se hicieron con las sumatorias sin redondear;
+en las tablas y en las cuentas los valores se muestran redondeados.
 
 ### c.1 Modelo exponencial: $y = a_0\,e^{a_1 x}$
 
@@ -232,10 +232,22 @@ $$
 \end{aligned}\right.
 $$
 
-**Paso 5 — solución del sistema** (resuelto con calculadora):
+**Paso 5 — resolución del sistema** (regla de Cramer):
 
 $$
-A_0 = 10{,}9639,\qquad a_1 = -0{,}193243
+\Delta = \begin{vmatrix} 14 & 105 \\ 105 & 1015 \end{vmatrix} = 14 \cdot 1015 - 105 \cdot 105 = 3185
+$$
+
+$$
+\Delta_{A_0} = \begin{vmatrix} 133{,}20381586 & 105 \\ 955{,}06586999 & 1015 \end{vmatrix} = 133{,}20381586 \cdot 1015 - 105 \cdot 955{,}06586999 = 34919{,}9567
+$$
+
+$$
+\Delta_{a_1} = \begin{vmatrix} 14 & 133{,}20381586 \\ 105 & 955{,}06586999 \end{vmatrix} = 14 \cdot 955{,}06586999 - 133{,}20381586 \cdot 105 = -615{,}478485
+$$
+
+$$
+A_0 = \frac{\Delta_{A_0}}{\Delta} = 10{,}9639,\qquad a_1 = \frac{\Delta_{a_1}}{\Delta} = -0{,}193243
 $$
 
 Volvemos a los parámetros del modelo original:
@@ -336,10 +348,22 @@ $$
 \end{aligned}\right.
 $$
 
-**Paso 5 — solución del sistema** (resuelto con calculadora):
+**Paso 5 — resolución del sistema** (regla de Cramer):
 
 $$
-A_0 = 11{,}7129,\qquad a_1 = -1{,}2217
+\Delta = \begin{vmatrix} 14 & 25{,}19122118 \\ 25{,}19122118 & 53{,}11849540 \end{vmatrix} = 14 \cdot 53{,}11849540 - 25{,}19122118 \cdot 25{,}19122118 = 109{,}061311
+$$
+
+$$
+\Delta_{A_0} = \begin{vmatrix} 133{,}20381586 & 25{,}19122118 \\ 230{,}16605908 & 53{,}11849540 \end{vmatrix} = 133{,}20381586 \cdot 53{,}11849540 - 25{,}19122118 \cdot 230{,}16605908 = 1277{,}4222
+$$
+
+$$
+\Delta_{a_1} = \begin{vmatrix} 14 & 133{,}20381586 \\ 25{,}19122118 & 230{,}16605908 \end{vmatrix} = 14 \cdot 230{,}16605908 - 133{,}20381586 \cdot 25{,}19122118 = -133{,}241961
+$$
+
+$$
+A_0 = \frac{\Delta_{A_0}}{\Delta} = 11{,}7129,\qquad a_1 = \frac{\Delta_{a_1}}{\Delta} = -1{,}2217
 $$
 
 Volvemos a los parámetros del modelo original:
@@ -432,10 +456,22 @@ $$
 \end{aligned}\right.
 $$
 
-**Paso 5 — solución del sistema** (resuelto con calculadora):
+**Paso 5 — resolución del sistema** (regla de Cramer):
 
 $$
-a_0 = -17245{,}7145,\qquad a_1 = 190071{,}7073
+\Delta = \begin{vmatrix} 14 & 3{,}25156233 \\ 3{,}25156233 & 1{,}57599584 \end{vmatrix} = 14 \cdot 1{,}57599584 - 3{,}25156233 \cdot 3{,}25156233 = 11{,}491284
+$$
+
+$$
+\Delta_{a_0} = \begin{vmatrix} 376590 & 3{,}25156233 \\ 243476{,}70427628 & 1{,}57599584 \end{vmatrix} = 376590 \cdot 1{,}57599584 - 3{,}25156233 \cdot 243476{,}70427628 = -198175{,}4060
+$$
+
+$$
+\Delta_{a_1} = \begin{vmatrix} 14 & 376590 \\ 3{,}25156233 & 243476{,}70427628 \end{vmatrix} = 14 \cdot 243476{,}70427628 - 376590 \cdot 3{,}25156233 = 2184168{,}0033
+$$
+
+$$
+a_0 = \frac{\Delta_{a_0}}{\Delta} = -17245{,}7145,\qquad a_1 = \frac{\Delta_{a_1}}{\Delta} = 190071{,}7073
 $$
 
 **Paso 6 — función aproximante:**

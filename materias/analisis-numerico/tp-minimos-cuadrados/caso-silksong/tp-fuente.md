@@ -103,10 +103,10 @@ aparentemente lineal** con un cambio de variables, armamos el sistema de ecuacio
 normales de esa recta, lo resolvemos y después volvemos a los parámetros originales.
 
 En cada modelo seguimos los mismos pasos: cambio de variables, sistema de ecuaciones
-normales, tabla de sumatorias, sistema con los valores, solución (los sistemas se
-resolvieron con calculadora), función aproximante con su gráfico y tabla de residuos con el
-error cuadrático en las variables originales. Todos los cálculos se hicieron sin redondear;
-en las tablas los valores se muestran redondeados.
+normales, tabla de sumatorias, sistema con los valores, resolución del sistema (regla de
+Cramer), función aproximante con su gráfico y tabla de residuos con el error cuadrático en
+las variables originales. Todos los cálculos se hicieron con las sumatorias sin redondear;
+en las tablas y en las cuentas los valores se muestran redondeados.
 
 {{MODELOS}}
 

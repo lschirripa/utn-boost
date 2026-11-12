@@ -17,6 +17,7 @@ Orden para regenerar todo desde los datos:
 
 from __future__ import annotations
 
+import json
 import re
 import subprocess
 import sys
@@ -25,6 +26,7 @@ from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
 REPO = AQUI.parents[3]
+sys.path.insert(0, str(REPO / "tools"))
 OUT = AQUI / "exports"
 
 # Por qué probamos cada modelo (va debajo del título de cada uno en el punto c).
@@ -42,6 +44,53 @@ POR_QUE = {
     "hiperbolico": "También baja como $1/x$, pero corrido en $a_0$ y acercándose a cero; "
                    "es el modelo hiperbólico visto en la teórica.",
 }
+
+
+def _num(v: float, d: int = 4, paren: bool = False) -> str:
+    from ajuste_mc import _fmt  # mismo formato que el reporte (coma decimal)
+    t = _fmt(v, d)
+    return f"({t})" if paren and v < 0 else t
+
+
+def cramer(m: dict) -> str:
+    """Paso 5 con la regla de Cramer (sistema 2×2), a partir de resultados.json.
+
+    Los factores van con 8 decimales y los determinantes con 4, para que las cuentas
+    cierren a mano con lo que se ve; las incógnitas, con 4 (como el resto del reporte).
+    """
+    (a, b), (c, d) = m["matriz_normal"]
+    e, f = m["termino_independiente"]
+    n0, n1 = list(m["solucion_sistema"])
+    v0, v1 = m["solucion_sistema"].values()
+    det = a * d - b * c
+    d0 = e * d - b * f
+    d1 = a * f - e * c
+    F = lambda v: _num(v, 8, paren=True)
+    D = lambda v: _num(v, 6 if abs(v) < 1000 else 4)
+    N = _num
+    mat = lambda p, q, r, s_: rf"\begin{{vmatrix}} {F(p)} & {F(q)} \\ {F(r)} & {F(s_)} \end{{vmatrix}}"
+    return "\n".join([
+        "**Paso 5 — resolución del sistema** (regla de Cramer):",
+        "",
+        "$$",
+        rf"\Delta = {mat(a, b, c, d)} = {F(a)} \cdot {F(d)} - {F(b)} \cdot {F(c)} = {D(det)}",
+        "$$",
+        "",
+        "$$",
+        rf"\Delta_{{{n0}}} = {mat(e, b, f, d)} = {F(e)} \cdot {F(d)} - {F(b)} \cdot {F(f)} = {D(d0)}",
+        "$$",
+        "",
+        "$$",
+        rf"\Delta_{{{n1}}} = {mat(a, e, c, f)} = {F(a)} \cdot {F(f)} - {F(e)} \cdot {F(c)} = {D(d1)}",
+        "$$",
+        "",
+        "$$",
+        rf"{n0} = \frac{{\Delta_{{{n0}}}}}{{\Delta}} = {N(v0)},\qquad "
+        rf"{n1} = \frac{{\Delta_{{{n1}}}}}{{\Delta}} = {N(v1)}",
+        "$$",
+    ])
+
+
 CLAVES = {"recta": "recta", "parábola": "parabola", "exponencial": "exponencial",
           "potencial": "potencial", "recíproco": "reciproco", "hiperbólico": "hiperbolico"}
 
@@ -63,9 +112,20 @@ def punto_c() -> str:
     # Gráfico de cada modelo: la versión de dos paneles de graficos.py (completo + zoom).
     txt = re.sub(r"\]\(modelo-(\w+)\.png\)", r"](ajuste/modelo-\1-doble.png)", txt)
     txt = re.sub(r"\]\(((?:nube|comparacion)[^)]*\.png)\)", r"](ajuste/\1)", txt)
-    # La cátedra no pide el desarrollo de la resolución del sistema: alcanza con el resultado.
-    txt = txt.replace("**Paso 5 — solución del sistema:**",
-                      "**Paso 5 — solución del sistema** (resuelto con calculadora):")
+    # Paso 5 con Cramer (nombrado en la teórica; la consigna pide "resolverlo").
+    res = {m["modelo"]: m for m in json.loads(
+        (AQUI / "ajuste" / "resultados.json").read_text(encoding="utf-8"))["modelos"]}
+    partes = re.split(r"(?=^### c\.\d+ Modelo )", txt, flags=re.M)
+    for i, parte in enumerate(partes):
+        mt = re.match(r"### c\.\d+ Modelo (\S+):", parte)
+        if not mt:
+            continue
+        clave = CLAVES[mt.group(1).lower()]
+        parte, n = re.subn(r"\*\*Paso 5 — solución del sistema:\*\*\n\n\$\$\n.*?\n\$\$",
+                           lambda _m: cramer(res[clave]), parte, count=1, flags=re.S)
+        assert n == 1, f"no encontré el Paso 5 de {clave}"
+        partes[i] = parte
+    txt = "".join(partes)
     return txt
 
 
