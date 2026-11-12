@@ -16,7 +16,7 @@ Marcadores: {{MODELOS}} y {{PUNTO_D}}. Lo marcado [a completar] lo completa el g
 <tr><td><strong>Profesor</strong></td><td>Ing. Luciano Garofalo</td></tr>
 <tr><td><strong>Ayudante</strong></td><td>Ing. Juan Francisco Paoli</td></tr>
 <tr><td><strong>Integrantes</strong></td><td>Marotti, Juan Cruz<br>Iglesias Basso, Bautista<br>Juliano, Tomás Rubén<br>Gallegos, Agustin<br>Schirripa, Luciano</td></tr>
-<tr><td><strong>Fecha de entrega</strong></td><td>17 de noviembre de 2026</td></tr>
+<tr><td><strong>Fecha de entrega</strong></td><td>Noviembre de 2026</td></tr>
 </table>
 
 ---
@@ -149,8 +149,8 @@ El valor estimado debe tomarse como un **piso** más que como un valor exacto: p
 de los residuos y por la prueba con los meses 12 a 14, esperamos que el valor real sea
 mayor, del orden de 5.600 a 6.000 jugadores. El dato parcial de SteamCharts (5.702
 jugadores en los 30 días previos al 11 de noviembre) cae dentro de ese rango, y el valor
-real de noviembre se va a poder comparar con nuestra estimación cuando SteamCharts cierre
-el mes. Y, como
+real de noviembre se va a poder comparar con nuestra estimación a partir del 1 de diciembre
+de 2026. Y, como
 muestra GTA V, el modelo solo vale mientras no pase nada nuevo.
 
 ## Video

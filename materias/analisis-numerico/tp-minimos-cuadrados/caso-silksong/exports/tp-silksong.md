@@ -14,7 +14,7 @@
 <tr><td><strong>Profesor</strong></td><td>Ing. Luciano Garofalo</td></tr>
 <tr><td><strong>Ayudante</strong></td><td>Ing. Juan Francisco Paoli</td></tr>
 <tr><td><strong>Integrantes</strong></td><td>Marotti, Juan Cruz<br>Iglesias Basso, Bautista<br>Juliano, Tomás Rubén<br>Gallegos, Agustin<br>Schirripa, Luciano</td></tr>
-<tr><td><strong>Fecha de entrega</strong></td><td>17 de noviembre de 2026</td></tr>
+<tr><td><strong>Fecha de entrega</strong></td><td>Noviembre de 2026</td></tr>
 </table>
 
 ---
@@ -536,11 +536,8 @@ un promedio de **5.702 jugadores en los últimos 30 días** (del 12 de octubre a
 noviembre). No es exactamente el mes de noviembre, pero sirve de referencia: el modelo
 quedó por debajo y el valor cae dentro del rango que anticipamos a partir de los residuos.
 
-El día de la entrega, el 17 de noviembre de 2026, volvimos a consultarlo: el promedio de
-los últimos 30 días (del 18 de octubre al 17 de noviembre) era de `[a completar el 17/11]`
-jugadores. Ese período ya tiene más días de noviembre que de octubre, así que es el
-contraste más cercano que podemos hacer antes de que termine el mes; el promedio real de
-noviembre recién va a estar disponible el 1 de diciembre.
+El promedio real de noviembre va a estar disponible en SteamCharts a partir del **1 de
+diciembre de 2026**: ese día se podrá comparar con nuestra estimación.
 
 ## Aplicaciones: ¿qué le espera a GTA VI?
 
@@ -577,8 +574,8 @@ El valor estimado debe tomarse como un **piso** más que como un valor exacto: p
 de los residuos y por la prueba con los meses 12 a 14, esperamos que el valor real sea
 mayor, del orden de 5.600 a 6.000 jugadores. El dato parcial de SteamCharts (5.702
 jugadores en los 30 días previos al 11 de noviembre) cae dentro de ese rango, y el valor
-real de noviembre se va a poder comparar con nuestra estimación cuando SteamCharts cierre
-el mes. Y, como
+real de noviembre se va a poder comparar con nuestra estimación a partir del 1 de diciembre
+de 2026. Y, como
 muestra GTA V, el modelo solo vale mientras no pase nada nuevo.
 
 ## Video

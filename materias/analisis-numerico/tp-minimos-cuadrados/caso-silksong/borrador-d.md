@@ -142,11 +142,8 @@ un promedio de **5.702 jugadores en los últimos 30 días** (del 12 de octubre a
 noviembre). No es exactamente el mes de noviembre, pero sirve de referencia: el modelo
 quedó por debajo y el valor cae dentro del rango que anticipamos a partir de los residuos.
 
-El día de la entrega, el 17 de noviembre de 2026, volvimos a consultarlo: el promedio de
-los últimos 30 días (del 18 de octubre al 17 de noviembre) era de `[a completar el 17/11]`
-jugadores. Ese período ya tiene más días de noviembre que de octubre, así que es el
-contraste más cercano que podemos hacer antes de que termine el mes; el promedio real de
-noviembre recién va a estar disponible el 1 de diciembre.
+El promedio real de noviembre va a estar disponible en SteamCharts a partir del **1 de
+diciembre de 2026**: ese día se podrá comparar con nuestra estimación.
 
 ---
 
