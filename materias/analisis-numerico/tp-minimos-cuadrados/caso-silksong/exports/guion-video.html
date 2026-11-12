@@ -74,12 +74,13 @@ tbody tr:nth-child(even) { background: #f8f9fa; }
 
 ## Lo que pide la consigna (y cómo lo cubrimos)
 
-- **Duración: 4 a 6 minutos** (vale el 20 % del video). Apuntamos a **unos 5:10**, con margen
+- **Duración: 4 a 6 minutos** (vale el 20 % del video). Apuntamos a **unos 5:20**, con margen
   para pausas y cambios de pantalla: pasarse de 6:00 resta.
 - **Contenido:** cómo y por qué elegimos el problema, breve descripción, los cálculos y las
   conclusiones.
-- **Todos los integrantes en cámara**, al menos en una parte. Lo cubrimos dos veces: todos
-  juntos en la apertura y el cierre, y cada uno con su cara en un recuadro mientras habla.
+- **Todos los integrantes en cámara**, al menos en una parte. Lo cubrimos con la cara de
+  cada uno en un recuadro **durante todo su bloque** (sin saludo grupal: el video arranca
+  directo con la introducción).
 - **"Explicaciones concisas y claras" vale el 50 %.** Por eso no se leen tablas ni se
   resuelven sistemas en cámara: se muestran en pantalla y se dice qué significan.
 
@@ -87,52 +88,43 @@ tbody tr:nth-child(even) { background: #f8f9fa; }
 
 | Explicar bien (es lo que se evalúa) | Pasar rápido o solo mostrar |
 |---|---|
-| Por qué elegimos el caso y qué es $y$ (jugadores **simultáneos**, no totales) | La tabla de los 14 meses: se muestra, no se lee |
+| Cómo elegimos el caso (empezamos por GTA y por qué lo cambiamos) y qué es $y$ (jugadores **simultáneos**, no totales) | La tabla de los 14 meses: se muestra, no se lee |
 | El "disfraz" del potencial: tomar logaritmo y llegar a una recta | Las tablas de sumatorias y los números del sistema: se muestran 3 segundos |
-| Volver de $A_0$ a $a_0$ (el error típico de la unidad) | La resolución del sistema: "lo resolvimos con calculadora" |
+| Volver de $A_0$ a $a_0$ (el error típico de la unidad) | La resolución del sistema: en el PDF está con Cramer; en el video, solo "lo resolvemos" |
 | **El recíproco tiene el menor error y predice jugadores negativos** (la idea central) | El desarrollo del exponencial y del recíproco: solo el cambio de variable y el resultado |
 | Por qué elegimos el potencial y la estimación de 4.467 | Las tablas de residuos completas |
 | La confiabilidad: el modelo se queda corto y el rango 5.600–6.000 | Las fuentes, las fechas de la oferta de Steam, el mes de julio |
-| La conclusión: el menor error no alcanza, el modelo tiene que tener sentido | GTA V: 15 segundos, como cierre |
+| La conclusión: el menor error no alcanza, el modelo tiene que tener sentido | La vuelta a GTA V al final: 15 segundos |
 
 ## Reparto y tiempos
 
 | Bloque | Quién | Tiempo | Tema | En pantalla |
 |---|---|---|---|---|
-| 0 | Todos | 0:00–0:12 | Saludo | Los 5 en cámara |
-| 1 | Persona 1 | 0:12–1:15 | El problema, los datos y la nube | Tabla de datos, `nube.png` |
-| 2 | Persona 2 | 1:15–2:20 | El método con el potencial, paso a paso | Paso 1 del potencial, tabla de sumatorias, `modelo-potencial-doble.png` |
-| 3 | Persona 3 | 2:20–3:05 | Exponencial y recíproco | `modelo-exponencial-doble.png`, `modelo-reciproco-doble.png` |
-| 4 | Persona 4 | 3:05–4:05 | Comparación, elección y estimación | Tabla d.1, `comparacion-cola.png`, fórmula de $\hat y(15)$ |
-| 5 | Persona 5 | 4:05–5:05 | Confiabilidad, GTA V y conclusión | Tabla de residuos, tabla de validación, `silksong-vs-gta-v.png` |
-| 6 | Todos | 5:05–5:10 | Cierre | Los 5 en cámara |
+| 1 | Persona 1 | 0:00–1:25 | Cómo elegimos el caso (de GTA a Silksong), los datos y la nube | `silksong-vs-gta-v.png` (solo la línea de GTA V, o el gráfico entero), tabla de datos, `nube.png` |
+| 2 | Persona 2 | 1:25–2:30 | El método con el potencial, paso a paso | Paso 1 del potencial, tabla de sumatorias, `modelo-potencial-doble.png` |
+| 3 | Persona 3 | 2:30–3:20 | Exponencial y recíproco | `modelo-exponencial-doble.png`, `modelo-reciproco-doble.png` |
+| 4 | Persona 4 | 3:20–4:20 | Comparación, elección y estimación | Tabla d.1, `comparacion-cola.png`, fórmula de $\hat y(15)$ |
+| 5 | Persona 5 | 4:20–5:25 | Confiabilidad, GTA V y conclusión | Tabla de residuos, tabla de validación, `silksong-vs-gta-v.png` |
 
 Los tiempos están calculados a unas 150 palabras por minuto (ritmo de charla tranquila). Si
 en el ensayo alguien se pasa, recortar lo marcado como **[recortable]**.
 
 ---
 
-## Bloque 0 — Apertura (todos, ~12 s)
+## Bloque 1 — Cómo elegimos el caso, los datos y la nube (Persona 1, ~85 s)
 
-> *Los cinco en cámara (grilla de la videollamada o juntos).*
+> *En pantalla: primero la cara; mientras habla de GTA V, el gráfico de Silksong contra
+> GTA V; después la tabla de datos y la nube de puntos.*
 
-**Cada uno dice su nombre, en orden:** "Juan Cruz", "Bautista", "Tomás", "Agustin",
-"Luciano".
+La idea de este trabajo empezó con **GTA VI**, que sale el 19 de noviembre y es uno de los
+juegos más esperados de la historia. Queríamos ver si, ajustando los datos de GTA V en
+Steam, podíamos anticipar algo de GTA VI. Pero cuando nos metimos en los datos aparecieron
+dos problemas: GTA VI sale solo en consolas, así que no va a tener datos en Steam para
+comparar, y la curva de GTA V no es una caída: cada actualización de su modo online la
+vuelve a subir. Ningún modelo de caída le servía.
 
-**Persona 1:** Somos del curso K3572 y este es nuestro trabajo de aproximación por mínimos
-cuadrados.
-
-## Bloque 1 — El problema y los datos (Persona 1, ~65 s)
-
-> *En pantalla: primero la cara; después la tabla de datos y la nube de puntos.*
-
-El 19 de noviembre sale GTA VI, uno de los juegos más esperados de todos los tiempos. Y con
-los lanzamientos grandes pasa siempre lo mismo: el primer mes explotan de jugadores y después
-la gente los va dejando. Nos preguntamos si se puede predecir cuántos jugadores le quedan a
-un juego.
-
-Como GTA VI todavía no salió, y no sale en PC, elegimos otro lanzamiento enorme y reciente:
-**Hollow Knight: Silksong**, de septiembre de 2025.
+Así que buscamos otro lanzamiento grande y reciente, pero sin modo online: **Hollow Knight:
+Silksong**, de septiembre de 2025.
 
 Los datos son de **SteamCharts**, una página pública que registra cuánta gente juega cada
 juego en Steam. Para cada mes tomamos el **promedio de jugadores simultáneos**: no cuántos lo
@@ -158,12 +150,12 @@ mayúscula", logaritmo de x pasa a ser "X mayúscula", y logaritmo de a-cero, "A
 una recta: "Y igual a A-cero más a-uno X".
 
 Desde ahí es mínimos cuadrados de una recta común: la tabla con las sumatorias de los 14
-meses, el sistema de ecuaciones normales, y lo resolvemos con calculadora.
+meses, el sistema de ecuaciones normales, y lo resolvemos.
 
 Pero ojo con el último paso: **A-cero no es a-cero**. Hay que volver: a-cero es "e a la
 A-cero", que da 122.134. La función queda "y igual a 122.134 por x a la menos 1,22".
 
-## Bloque 3 — Exponencial y recíproco (Persona 3, ~45 s)
+## Bloque 3 — Exponencial y recíproco (Persona 3, ~50 s)
 
 > *En pantalla: el gráfico del exponencial y después el del recíproco, con su función.*
 
@@ -199,7 +191,7 @@ de jugadores.
 
 Reemplazando x igual a 15: **unos 4.467 jugadores para noviembre**.
 
-## Bloque 5 — Confiabilidad, GTA V y conclusión (Persona 5, ~60 s)
+## Bloque 5 — Confiabilidad, GTA V y conclusión (Persona 5, ~65 s)
 
 > *En pantalla: la tabla de residuos de los meses 11 a 14, la tabla de validación y al final
 > el gráfico de Silksong contra GTA V.*
@@ -212,18 +204,12 @@ ya conocíamos, también se quedó corto.
 Si el patrón sigue, noviembre debería estar **entre 5.600 y 6.000 jugadores**, y SteamCharts
 da 5.702 en los últimos 30 días: justo en el rango. El dato completo sale el 1 de diciembre.
 
-Además, el modelo supone que no pasa nada nuevo. GTA V en Steam cayó igual que Silksong al
-principio, pero las actualizaciones del modo online lo hicieron subir de nuevo. Por eso le
-sirve a un estudio: le muestra qué pasa si no hace nada, para decidir cuándo sacar una
+Además, el modelo supone que no pasa nada nuevo, y eso nos devuelve al principio: GTA V
+cayó igual que Silksong los primeros meses, pero las actualizaciones del modo online lo
+hicieron subir de nuevo. Por eso esto le sirve a un estudio: le muestra qué pasa si no hace nada, para decidir cuándo sacar una
 oferta o una expansión.
 
-En resumen: **el menor error no alcanza; el modelo tiene que tener sentido**.
-
-## Bloque 6 — Cierre (todos, ~5 s)
-
-> *Los cinco en cámara.*
-
-**Todos:** ¡Gracias!
+En resumen: **el menor error no alcanza; el modelo tiene que tener sentido**. Gracias.
 
 ---
 
@@ -247,7 +233,7 @@ En resumen: **el menor error no alcanza; el modelo tiene que tener sentido**.
 
 ---
 
-_Generado el 2026-11-12. Fuentes: `../enunciado.md` (consigna y grilla del video),
+_Generado el 2026-11-12 (actualizado: sin saludo grupal, introducción con la historia de GTA). Fuentes: `../enunciado.md` (consigna y grilla del video),
 `exports/tp-silksong.pdf` (resultados), `ajuste/` (gráficos)._
 
 </script>

@@ -2,7 +2,7 @@
 
 <style>@media print { table { break-inside: avoid; } }</style>
 
-# ¿Cuántos jugadores le quedan a Hollow Knight: Silksong?
+# Predicción de jugadores en Steam: el caso *Hollow Knight: Silksong*
 
 ## Aproximación discreta por mínimos cuadrados
 
@@ -20,6 +20,22 @@
 ---
 
 ## a) El problema
+
+### Cómo elegimos el caso
+
+La idea original fue otra. El 19 de noviembre de 2026 sale *Grand Theft Auto VI*, uno de los
+lanzamientos más esperados de la historia de los videojuegos, y quisimos ver si, ajustando
+los datos de su antecesor, *GTA V*, podíamos anticipar algo de cómo se iba a comportar
+GTA VI. Cuando nos metimos en los datos aparecieron dos problemas:
+
+- **GTA VI sale solo en PlayStation 5 y Xbox Series:** no va a tener datos en Steam con los
+  que comparar una predicción.
+- **La curva de GTA V en Steam no es una caída:** después de los primeros meses vuelve a
+  subir con cada actualización de su modo online (lo mostramos al final del trabajo), así
+  que ningún modelo de caída la describe bien.
+
+Por eso buscamos otro lanzamiento grande y reciente, pero sin un modo online que lo
+reactive todo el tiempo: *Hollow Knight: Silksong*.
 
 ### Contexto
 
@@ -575,12 +591,10 @@ quedó por debajo y el valor cae dentro del rango que anticipamos a partir de lo
 El promedio real de noviembre va a estar disponible en SteamCharts a partir del **1 de
 diciembre de 2026**: ese día se podrá comparar con nuestra estimación.
 
-## Aplicaciones: ¿qué le espera a GTA VI?
+## Aplicaciones: volviendo a GTA
 
-El 19 de noviembre de 2026 sale *Grand Theft Auto VI*, por ahora solo en PlayStation 5 y
-Xbox Series: como no sale en PC, no va a tener datos en Steam. Pero su antecesor, *GTA V*,
-salió en Steam en abril de 2015, y sus datos públicos muestran lo que nuestro modelo **no**
-puede prever:
+Volvemos a la idea con la que arrancamos. *GTA V* salió en Steam en abril de 2015, y sus
+datos públicos muestran justo lo que nuestro modelo **no** puede prever:
 
 ![Silksong y GTA V en Steam, en porcentaje del primer mes](../ajuste/silksong-vs-gta-v.png)
 
