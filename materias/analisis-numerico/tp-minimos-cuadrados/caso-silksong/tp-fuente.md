@@ -8,15 +8,16 @@ Marcadores: {{MODELOS}} y {{PUNTO_D}}. Lo marcado [a completar] lo completa el g
 
 ## Aproximación discreta por mínimos cuadrados
 
-| | |
-|---|---|
-| **Universidad** | Universidad Tecnológica Nacional — Facultad Regional Buenos Aires |
-| **Materia** | Análisis Numérico |
-| **Trabajo** | Trabajo Práctico — 2.º cuatrimestre 2026 |
-| **Curso** | [a completar] |
-| **Docente** | [a completar] |
-| **Integrantes** | [a completar: nombre y legajo de cada integrante] |
-| **Fecha de entrega** | [a completar] |
+<table>
+<tr><td><strong>Universidad</strong></td><td>Universidad Tecnológica Nacional — Facultad Regional Buenos Aires</td></tr>
+<tr><td><strong>Materia</strong></td><td>Análisis Numérico</td></tr>
+<tr><td><strong>Trabajo</strong></td><td>Trabajo Práctico — 2.º cuatrimestre 2026</td></tr>
+<tr><td><strong>Curso</strong></td><td>K3572</td></tr>
+<tr><td><strong>Profesor</strong></td><td>Ing. Luciano Garofalo</td></tr>
+<tr><td><strong>Ayudante</strong></td><td>Ing. Juan Francisco Paoli</td></tr>
+<tr><td><strong>Integrantes</strong></td><td>Marotti, Juan Cruz<br>Iglesias Basso, Bautista<br>Juliano, Tomás Rubén<br>Gallegos, Agustin<br>Schirripa, Luciano</td></tr>
+<tr><td><strong>Fecha de entrega</strong></td><td>17 de noviembre de 2026</td></tr>
+</table>
 
 ---
 
@@ -147,7 +148,9 @@ de elegir hay que mirar si el modelo tiene sentido con el fenómeno.
 El valor estimado debe tomarse como un **piso** más que como un valor exacto: por el patrón
 de los residuos y por la prueba con los meses 12 a 14, esperamos que el valor real sea
 mayor, del orden de 5.600 a 6.000 jugadores. El dato parcial de SteamCharts (5.702
-jugadores en los 30 días previos al 11 de noviembre) cae dentro de ese rango. Y, como
+jugadores en los 30 días previos al 11 de noviembre) cae dentro de ese rango, y el valor
+real de noviembre se va a poder comparar con nuestra estimación cuando SteamCharts cierre
+el mes. Y, como
 muestra GTA V, el modelo solo vale mientras no pase nada nuevo.
 
 ## Video
