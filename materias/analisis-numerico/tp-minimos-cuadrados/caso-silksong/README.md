@@ -25,6 +25,7 @@ es antes).
 | `datos/steamcharts-gta-v.csv` | GTA V en Steam desde abril 2015 (para el gancho del video, no se ajusta). |
 | `ajuste/` | Salida de `tools/ajuste_mc.py` (reporte paso a paso, JSON y gráficos). Regenerable. |
 | `graficos.py` → `ajuste/comparacion-cola.png`, `ajuste/silksong-vs-gta-v.png` | Los 6 modelos con zoom en los meses 3–15 (en `comparacion.png` el mes 1 aplasta la cola). Correr después de `ajuste_mc.py`. |
+| `guion-video.md` → `exports/guion-video.pdf` | Guion del video (5 personas, ~5:10): reparto, tiempos, qué mostrar en pantalla y qué explicar a fondo. |
 | `validacion/` | `ajuste_mc.py` sobre los meses 1–11 (para la prueba contra los meses 12–14). |
 | `borrador-d.md` | Texto del punto d) (comparación, elección del potencial, estimación y confiabilidad). |
 | `tp-fuente.md` | Texto del TP (carátula, a, b, aplicaciones/GTA, conclusiones, fuentes) con marcadores para c) y d). |
