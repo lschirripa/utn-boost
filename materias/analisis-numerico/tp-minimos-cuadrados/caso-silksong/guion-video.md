@@ -145,25 +145,47 @@ En resumen: **el menor error no alcanza; el modelo tiene que tener sentido**. Gr
 
 ---
 
-## Producción
+## Producción: cada uno graba su parte y se edita
 
-- **Cómo grabar:** lo más simple es una videollamada (Meet o Zoom) grabada, con la pantalla
-  compartida mostrando los gráficos y la cámara del que habla visible en un recuadro. Así
-  cada uno aparece en cámara en su bloque, que es lo que pide la consigna.
-- **Grabar por bloques** y unirlos después es más fácil que hacerlo de una: si alguien se
-  traba, se repite solo su parte.
-- **Audio** (vale el 20 % junto con la imagen): cada uno en un lugar silencioso, con
-  auriculares con micrófono. Probar el audio antes.
-- **Pantalla:** los gráficos están en `caso-silksong/ajuste/` y las tablas se pueden
-  capturar del PDF. Conviene armar unas pocas diapositivas con eso, una por momento del
-  guion, en vez de scrollear el PDF en vivo.
-- **Ensayar con cronómetro.** Si da más de 5:45, sacar lo marcado como **[recortable]** (unos 15 s).
-  Si da menos de 4:30, hablar más despacio: también hay mínimo.
-- **Subirlo** a YouTube como "no listado" o a Google Drive con acceso para "cualquier persona
-  con el enlace". Probar el link en una ventana de incógnito antes de pegarlo al final del
-  PDF.
+**Cada uno graba solo su cara hablando; el que edita pone las diapositivas.** Nadie
+comparte pantalla. En la edición, la diapositiva va de fondo y la cara del que habla en un
+recuadro en una esquina, así cada uno queda en cámara durante todo su bloque, que es lo que
+pide la consigna. Así todos los bloques se ven iguales, aunque cada uno grabe con otra
+compu, y los cambios de pantalla siguen el guion (las indicaciones *En pantalla* de cada
+bloque son para el que edita).
+
+**Lo que tiene que respetar cada uno al grabar** (si no, los cortes se notan):
+
+1. **Horizontal**, con la cámara a la altura de los ojos, la cara centrada y luz de frente
+   (una ventana o una lámpara delante, nunca detrás). La compu o el celu sirven.
+2. **Lugar silencioso y auriculares con micrófono.** El audio vale el 20 % junto con la
+   imagen, y un audio malo entre cuatro buenos se nota mucho. Escuchar la grabación antes
+   de mandarla.
+3. **Dos segundos callado** antes de empezar y al terminar: el que edita corta ahí.
+4. **Respetar el tiempo del bloque** (tabla de reparto), con cronómetro. Pasarse 10 s está
+   bien; 30 s, no: el total no puede pasar de 6:00.
+5. **Decir el texto con palabras propias**, sin leerlo de la pantalla con la vista
+   corrida. Se puede grabar en partes (un párrafo por toma) y el que edita las une.
+6. **Mandar el archivo** como `bloque-N-apellido.mp4` a la carpeta compartida, con una
+   fecha límite que dé al menos dos días para editar.
+
+**El que edita:**
+
+- Arma las diapositivas antes de que lleguen los videos (los gráficos están en
+  `caso-silksong/ajuste/` y las tablas se capturan del PDF), una por cada indicación
+  *En pantalla* del guion.
+- Une los cinco bloques sin transiciones vistosas (un corte directo o un fundido corto),
+  iguala el volumen entre bloques y revisa que el total quede entre 4:30 y 6:00. Si se pasa,
+  primero saca lo marcado como **[recortable]** (unos 15 s).
+- Antes de subirlo, el grupo mira el video completo una vez para chequear números y
+  nombres contra el PDF.
+
+**Subirlo** a YouTube como "no listado" o a Google Drive con acceso para "cualquier persona
+con el enlace". Probar el link en una ventana de incógnito antes de pegarlo al final del
+PDF.
 
 ---
 
-_Generado el 2026-11-12 (actualizado: sin saludo grupal, introducción con la historia de GTA). Fuentes: `../enunciado.md` (consigna y grilla del video),
+_Generado el 2026-11-12 (actualizado: sin saludo grupal, introducción con la historia de GTA;
+2026-11-13: cada uno graba su parte por separado y se edita). Fuentes: `../enunciado.md` (consigna y grilla del video),
 `exports/tp-silksong.pdf` (resultados), `ajuste/` (gráficos)._
