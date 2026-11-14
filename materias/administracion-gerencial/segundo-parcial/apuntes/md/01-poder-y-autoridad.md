@@ -70,7 +70,7 @@ Describir el proceso de influencia en la organización.
 - Como **proceso**, incluye **tres elementos** (p. 67): el **agente que influye (O)**, el **método de influencia (→)** y el **agente sometido a la influencia (P)**. La fórmula que lo describe es **O → P**.
 - Como pueden intervenir uno o más individuos, se dan **cuatro tipos de relaciones** (p. 67): **uno sobre uno**, **el grupo sobre uno**, **un grupo sobre otro grupo** y **uno sobre el grupo**.
 - **Dentro de la estructura organizativa**, el proceso de influencia **se expresa en los fenómenos de poder y de autoridad** (p. 67): el **poder** es una **categoría particular de la influencia** que, al ejercerse, convierte la influencia potencial en real; y la **autoridad** es el ejercicio de un poder **legitimado, aceptado** por quienes son objeto de él (p. 68).
-- No toda influencia es poder: según la **tipología de Schermerhorn** (p. 68) existen formas de influencia que **no implican poder**, porque **no se usan deliberadamente** para que otros hagan lo que deseamos (por ejemplo, la **popularidad** de un ídolo deportivo o la **idealización** de una persona admirada sin correspondencia).
+- No toda influencia es poder: según la **tipología de Schermerhorn** (p. 68) existen formas de influencia que **no implican poder**, porque **no se usan deliberadamente** para que otros hagan lo que deseamos (por ejemplo, la **popularidad** de un ídolo deportivo, el **afecto o la amistad mutua** y las **relaciones casuales**, que en la figura quedan sin sombrear; la **idealización**, en cambio, cae dentro del campo del poder).
 
 </details>
 

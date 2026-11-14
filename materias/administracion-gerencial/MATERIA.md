@@ -87,6 +87,10 @@ que ya no existen); la numeración que vale es la del PDF 2026.
   planeamiento (objetivos, niveles de planeamiento, 5 fuerzas y cadena de valor de
   Porter, matriz BCG, escenarios, estrategias de supervivencia y crecimiento); XV
   informática gerencial y tablero de control; XVI crisis y cambio (tipos de crisis, anomia, comportamientos).
+  **Alcance oficial según el profesor (2026-11-13, `fuentes/AG - 2do parcial.pdf`): entran
+  solo los capítulos X, XI, XII, XIV y XVI.** Quedan afuera el XIII (doble moral y mobbing)
+  y el XV (tablero de control), aunque en parciales viejos cayeron mobbing (2 de 15 hojas)
+  y tablero (2 de 15, solo Paccor).
 
 ## Fuentes
 
@@ -105,6 +109,13 @@ que ya no existen); la numeración que vale es la del PDF 2026.
   `segundo-parcial/examenes/INDICE.md` intercalada en `<details>` con la respuesta del
   compilado (corregida contra el libro en un bloque "Ojo") o, si no la hay, una respuesta
   armada desde el libro. Los ejemplos que no están en el libro van marcados como propios.
+  Con el alcance oficial del 2026-11-13 se estudian el **01, 02, 03, 05 y 07**; el 04
+  (mobbing) y el 06 (tablero) quedaron fuera de programa.
+- **PDF del profesor para el 2P:** `fuentes/AG - 2do parcial.pdf` (51 págs., recibido el
+  2026-11-13). Son los capítulos X, XI, XII, XIV y XVI del libro 2026 con el texto idéntico
+  (solo cambia la numeración de las notas al pie): define qué entra, no agrega material.
+  Equivalencia de páginas con el libro: caps. X, XI y XII = página del PDF + 66; cap. XIV =
+  + 74; cap. XVI = + 85.
 - **Documentos:** `fuentes/respuestas-finales-por-unidad.docx` — respuestas de alumnos a
   preguntas de finales, ordenadas por unidad de una edición vieja del libro (18 unidades).
   Sirvió para los primeros apuntes; ahora es material secundario.
@@ -180,5 +191,5 @@ referente / experto) `#FormasExpresionPoder` (descendente / ascendente / lateral
 |---|---|---|---|---|---|---|---|---|---|
 | **Primer parcial (2026-09-28)** | ✅ 6 desde el libro (caps. 2,3,4,5,7,8) + 07 fuera de programa; html + pdf | ✅ 12 hojas / 9 instancias | ✅ | — (los apuntes ya son solo lo que cae) | ✅ (2026-09-23, 5 días) | ✅ (vacío) | — | — | — |
 | TP cuatrimestral (entregado 2026-11-08) | — | — | — | — | — | — | — | — | — |
-| **Segundo parcial (2026-11-16)** | ✅ 7 desde el libro (caps. X–XVI, uno por capítulo, 2026-11-09) con las 59 preguntas reales adentro; html + pdf | ✅ 15 hojas / 12 instancias (2026-11-09) | ✅ (2026-11-09) | — | ✅ (2026-11-09, 7 días) | ✅ (vacío) | — | — | — |
+| **Segundo parcial (2026-11-16)** | ✅ 7 desde el libro (caps. X–XVI, uno por capítulo, 2026-11-09) con las 59 preguntas reales adentro; html + pdf. Entran 01, 02, 03, 05 y 07; el 04 y el 06 quedaron fuera de programa (2026-11-13) | ✅ 15 hojas / 12 instancias (2026-11-09) | ✅ (2026-11-09; alcance oficial anotado el 2026-11-13) | — | ✅ (2026-11-13, 3 días) | ✅ (vacío) | ✅ 84 cartas (2026-11-13; md + tsv + html) | — | — |
 | Final | — | — | — | — | — | ✅ (vacío) | — | — | — |

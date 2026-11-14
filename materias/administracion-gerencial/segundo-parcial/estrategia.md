@@ -12,6 +12,15 @@
 > y las respuestas escritas dentro del compilado docx (28 de las 59 preguntas indexadas
 > tienen respuesta, con la página del libro viejo).
 
+> **Actualización 2026-11-13 (alcance oficial):** el profesor mandó el PDF con lo que entra
+> (`fuentes/AG - 2do parcial.pdf`): son los capítulos **X, XI, XII, XIV y XVI** del libro 2026,
+> con el texto idéntico. **Quedan afuera el cap. XIII (doble moral y mobbing) y el cap. XV
+> (tablero de control)**: las filas de `#Mobbing` y `#TableroControl` de §2, §3.2, §3.3, §5 y
+> §6 pasan a "fuera de programa" y los apuntes 04 y 06 no se estudian. El resto del análisis
+> no cambia: las dos hojas reservadas a ciegas (sin-fecha A y foto) solo tienen preguntas de
+> los capítulos que entran. El plan vivo (`plan.md`, recalculado el 2026-11-13 a 3 días) y
+> las flashcards (`repaso/flashcards.md`) ya reflejan el recorte.
+
 ## 0. Cómo leer este documento
 
 1. Estructura del examen · 2. Frecuencia por tema (con recicladas) · 3. Contraste con
