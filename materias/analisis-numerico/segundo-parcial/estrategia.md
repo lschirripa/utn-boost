@@ -1,0 +1,376 @@
+# Estrategia segundo parcial — Análisis Numérico
+
+> **Examen:** martes **2026-11-24** · faltan **5 días de estudio** (hoy jueves 2026-11-19;
+> del 19 al 23, el 24 solo repaso liviano).
+> **Punto de partida declarado:** arrancás estos temas **casi desde cero**. Se aprueba con
+> **6/10** (3 ejercicios bien de 5) y se promociona con **8** (4 de 5).
+> **Alcance 2026 (dicho por Lucho el 2026-11-18):** un ejercicio por tema: raíces, sistemas
+> de ecuaciones lineales, interpolación, diferenciación/integración numérica y ecuaciones
+> diferenciales. **Ajuste por mínimos cuadrados NO entra** (se evaluó con el TP).
+> **Fuentes analizadas:** **4 hojas de examen** de **3 instancias** (todas 2025-1C, K3052)
+> sobre 5 archivos (`examenes/INDICE.md`), sus respuestas oficiales
+> (`examenes/resueltos/RESOLUCIONES-2025.md`), los **15 ejercicios del repaso 2026**
+> (`apuntes/md/08`), las notas **"En clase"** de las guías y **9 apuntes** en `apuntes/md/`
+> (5 guías "desde cero" `03–07`, el repaso `08` y `00–02` de ajuste, fuera de alcance).
+
+---
+
+## 0. Cómo leer este documento
+
+1. [Estructura del examen](#1-estructura-del-examen): qué cae en cada posición.
+2. [Patrón real](#2-patrón-real-frecuencia-por-tema-4-hojas-distintas): frecuencia por tema e ítem, con tres fuentes de evidencia.
+3. [Contraste con tus apuntes](#3-contraste-con-tus-apuntes): brechas, sobrecarga y mapa tema → guía.
+4. [Plan de 5 días](#4-plan-inicial-de-5-días-2026-11-19--2026-11-23): la foto inicial (el plan vivo es `plan.md`).
+5. [Banco de problemas tipo](#5-banco-de-problemas-tipo): dónde practicar cada ítem.
+6. [Checklist teórico](#6-checklist-teórico): lo que hay que poder escribir de memoria.
+
+> **Diagnóstico en una línea:** el examen es **muy predecible en la forma** (5 ejercicios
+> fijos, uno por tema, 2 puntos cada uno) y los apuntes cubren los 5 temas con una guía cada
+> uno, así que **no hay brecha de material**: la brecha sos vos, que arrancás de cero con 5
+> días. Los tres ejercicios más mecánicos y repetidos, **Ej4 (elegir `h` para Trapecios,
+> 4/4 idéntico), Ej5 (Lipschitz + Euler, fórmulas en el ayudamemoria) y Ej3a/b (valores
+> tapados por diferencias divididas, 4/4)**, son los 6 puntos "seguros". La sobrecarga es
+> **ajuste** (apuntes `00–02` y ejercicios 5 y 14 del repaso): cayó en las 4 hojas 2025 pero
+> **este año no entra**.
+
+> **⚠ El dataset es chico.** Son 4 hojas de un solo cuatrimestre y un solo curso. Con N = 4
+> cada hoja mueve 25 puntos porcentuales: "2/4" puede ser casualidad. Por eso cada
+> prioridad se apoya en **tres** fuentes, y cuando difieren mandan las más recientes:
+> (a) las 4 hojas 2025, (b) lo que el profesor eligió resolver en el **repaso 2026** (13
+> ejercicios que entran + 2 de ajuste), y (c) lo que dijo **en clase** sobre qué se toma y
+> qué no (citas con minuto en las guías).
+
+---
+
+## 1. Estructura del examen
+
+5 ejercicios de **2 puntos**, orden fijo, uno por tema. Solo se permite el **ayudamemoria
+oficial (pág. 4)** y calculadora.
+
+| Posición | Qué cae casi siempre (4 hojas 2025) | Qué suma el repaso 2026 | En el ayudamemoria |
+|---|---|---|---|
+| **Ej1 Raíces** | (a) separar raíces en `[a; a+1]` (4/4) + un ítem de iterar (Newton-Raphson 3/4, punto fijo 1/4) + un ítem de justificar (iteraciones de bisección 2/4, condiciones de punto fijo 2/4) | multiple choice con Regula Falsi (qué extremo fijar) | **nada**: todo de memoria |
+| **Ej2 Sistemas lineales** | decidir sin resolver si converge Jacobi/Gauss-Seidel (3/4: radio espectral en el parcial, diagonal dominante con `k` en el 1er recuperatorio); número de condición + una iteración de Gauss-Seidel (2do recuperatorio) | reordenar filas + `T` de Jacobi + `‖T‖∞ < 1`; número de condición | autovalores, `T` y `C` de Jacobi y Gauss-Seidel (con la convención `A = D − L − U`) |
+| **Ej3 Interpolación** | (a) hallar los valores tapados de una tabla de 6 puntos por diferencias divididas (4/4) + (b) cuántos polinomios de grado n hay / de qué grado es (3/4). ~~Ajuste~~ (4/4 en 2025, **no entra en 2026**) | grado + polinomio de Newton-Gregory "sin distribuir"; **derivada segunda central** desde la tabla; multiple choice interpolar/aproximar | solo diferencias finitas |
+| **Ej4 Diferenciación / integración** | mayor `h` racional no periódico para Trapecios acotando `│f''│` (4/4); ¿se puede Simpson? + calcular (2do recuperatorio) | ¿cuándo Simpson da exacto?; ¿Trapecios da de más o de menos?; `h` para Simpson | las dos fórmulas del **error** (no las de Trapecios/Simpson ni las diferencias centrales) |
+| **Ej5 Ecuaciones diferenciales** | parcial: Lipschitz + Euler con `h = 0,1` hasta `y(0,3)` (2/2 temas); recuperatorios: Heun, Runge-Kutta 4, clasificar una fórmula multipaso | Lipschitz de dos formas; clasificar una fórmula | **Euler, Heun y RK4 completos**; Lipschitz y la clasificación van de memoria |
+
+**Cómo cambia el Ej3 sin ajuste:** en el 1er recuperatorio 2025 el ajuste valía 1 de los 2
+puntos. En 2026 esos puntos se reparten entre ítems de interpolación, y el repaso 2026
+muestra con qué se rellena: hallar el polinomio y **derivar numéricamente desde la tabla**
+(ejercicios 4c, 7b y 8). Por eso la diferenciación numérica sube aunque en 2025 dio 0/4.
+
+---
+
+## 2. Patrón real: frecuencia por tema (4 hojas distintas)
+
+> N = **4 hojas** (parcial Tema 1 y Tema 2 del 2025-06-30, 1er recuperatorio del 2025-07-07,
+> 2do recuperatorio del 2025-07-11; ver Anexo A). T1/T2/R1/R2 las abrevian. Todo número de
+> la columna "2025" sale de grepear `examenes/INDICE.md`. La columna "Repaso 2026" cuenta
+> ejercicios de `apuntes/md/08`. La prioridad "2025" aplica la escala fija sobre N = 4
+> (🔴 4/4 · 🟠 2/4–3/4 · 🟡 1/4 · ⚪ 0/4); la **prioridad final** la corrige con el repaso y
+> las notas "En clase", y es la que usa el plan.
+
+### 2.1 Por ejercicio (lo que vale 2 puntos)
+
+| # | Tema | 2025 | Repaso 2026 (13 que entran) | Prioridad |
+|---|---|---|---|---|
+| 1 | Raíces (Ej1) | 4/4 · 100 % | 2 ej. (1, 2) | 🔴 MÁXIMA |
+| 2 | Sistemas lineales (Ej2) | 4/4 · 100 % | 2 ej. (6, 15) | 🔴 MÁXIMA |
+| 3 | Interpolación (Ej3) | 4/4 · 100 % | **4 ej.** (3, 4, 7, 8) | 🔴 MÁXIMA |
+| 4 | Diferenciación / integración (Ej4) | 4/4 · 100 % | 3 ej. (9, 10, 11) + derivadas en 4c, 7b, 8 | 🔴 MÁXIMA |
+| 5 | Ecuaciones diferenciales (Ej5) | 4/4 · 100 % | 2 ej. (12, 13) | 🔴 MÁXIMA |
+| — | Ajuste por mínimos cuadrados (dentro del Ej3) | 4/4 · 100 % | 2 ej. (5, 14) | ⚪ **NO ENTRA en 2026** (TP) |
+
+Los 5 temas valen lo mismo y caen siempre: no hay tema para descartar. Lo que se prioriza
+es **qué ítem dentro de cada tema**.
+
+### 2.2 Por tipo de ítem
+
+| Tema | Ítem (tag) | 2025 | % | Prior. 2025 | Repaso 2026 | En clase | **Prioridad final** |
+|---|---|---|---|---|---|---|---|
+| Raíces | Separar raíces `#SepararRaices` | 4/4 (T1, T2, R1, R2) | 100 | 🔴 | ej. 2 | "hay muchísimos ejercicios que arrancan así" (`03` §3) | 🔴 |
+| Raíces | Newton-Raphson `#NewtonRaphson` | 3/4 (T1, T2, R2) | 75 | 🟠 | ej. 2 (opción e) | iteraciones "pensadas para hacer tres, cuatro, dos" (`03` §0) | 🔴 |
+| Raíces | Iteraciones de bisección `#Biseccion` `#CotaIteraciones` | 2/4 (T1, R2), reciclado | 50 | 🟠 | ej. 1 (misma cuenta que T1) | "siempre, siempre, siempre […] ¿son suficientes o necesarias?" (`03` §5.3) | 🔴 |
+| Raíces | Punto fijo: condiciones / elegir `g` `#PuntoFijo` | 2/4 (T2, R1) | 50 | 🟠 | ej. 2 (opción d) | "a veces chequear condiciones, a veces iterar, a veces las dos" | 🟠 |
+| Raíces | Punto fijo: iterar | 1/4 (R1) | 25 | 🟡 | — | — | 🟡 |
+| Raíces | Regula Falsi: qué extremo fijar | 0/4 | 0 | ⚪ | ej. 2 (opción b) | "nunca vi […] aproximar con regula falsi; ¿qué se toma? cuál es el punto que hay que fijar" (`03` §6) | 🟡 (solo la regla) |
+| Raíces | Orden / radio de convergencia, raíces múltiples | 0/4 | 0 | ⚪ | — | "nadie te va a pedir calcular un radio de convergencia nunca" (`03` §9) | ⚪ |
+| Sistemas | ¿Converge? sin resolver `#ConvergenciaIterativos` `#Jacobi` | 3/4 (T1, T2, R1) | 75 | 🟠 | ej. 6 | radio espectral: "la única [condición] suficiente y necesaria de toda la materia" (`04` §7.1) | 🔴 |
+| Sistemas | Por radio espectral `#RadioEspectral` | 2/4 (T1, T2: **mismo sistema**) | 50 | 🟠 | — | es el "caso de estudio" de la teórica (`04` §0) | 🟠 |
+| Sistemas | Diagonal dominante: hallar `k` / reordenar `#DiagonalDominante` | 2/4 (R1, R2) | 50 | 🟠 | ej. 6 | "en el parcial que me tomaron a mí […] acomode el sistema para que los métodos converjan" (`04` §7.3) | 🔴 |
+| Sistemas | Una iteración de Gauss-Seidel `#GaussSeidel` | 2/4 (R1 convergencia, R2 iterar) | 50 | 🟠 | — | "nadie les va a pedir 10 iteraciones […] sí dos o tres"; "el doble de rápido: pregunta teórica de examen" | 🟠 |
+| Sistemas | Número de condición `#NumeroCondicion` | 1/4 (R2) | 25 | 🟡 | ej. 15 (**misma matriz** que R2) | "siempre les van a dar la matriz inversa hecha" (`04` §8.2) | 🟠 |
+| Sistemas | Convergencia por `‖T‖∞ < 1` | 0/4 | 0 | ⚪ | ej. 6 | "en general la infinito o la 1, porque son las más fáciles" | 🟡 |
+| Sistemas | Iterar Jacobi/Gauss-Seidel hasta un error (tablas largas) | 0/4 | 0 | ⚪ | — | — | ⚪ |
+| Interpolación | Valores tapados para un grado dado `#GradoPolinomio` `#DiferenciasDivididas` | 4/4 (siempre el ítem a) | 100 | 🔴 | ej. 3, 4, 7 | "siempre hay un ejercicio de Newton-Gregory"; "siempre voy a trabajar con el general" (`05` §6) | 🔴 |
+| Interpolación | Contar polinomios / decir el grado `#CantidadPolinomios` | 2/4 contar (T1, R1) + 1/4 grado (R2) = 3/4 | 75 | 🟠 | ej. 3b, 4b | agregar un punto: "acá vienen el 80 % de las preguntas del examen" (`05` §0) | 🔴 |
+| Interpolación | Escribir el polinomio de Newton | 1/4 explícito (T2), 4/4 como paso | 25 | 🟡 | ej. 4, 7 ("no es necesario distribuir") | "en general no se pide tanto cuál es el polinomio" (`05` §6.3) | 🟠 |
+| Interpolación | Derivada segunda central desde la tabla | 0/4 | 0 | ⚪ | ej. 4c, 7b, 8 ii | — | 🟠 |
+| Interpolación | ¿Interpolar o aproximar? (conceptual) | 0/4 | 0 | ⚪ | ej. 8 i | — | 🟡 |
+| Interpolación | Lagrange | 0/4 | 0 | ⚪ | — | "van a hallar siempre el mismo polinomio" (se usa Newton) | ⚪ |
+| Interpolación | Newton-Gregory equiespaciado (diferencias finitas) | 0/4 | 0 | ⚪ | — | "prefiero ir directamente al general" (`05` §9.2) | ⚪ |
+| Interpolación | Ajuste (recta, exponencial, potencial, error) `#Ajuste…` | 4/4 | 100 | 🔴 | ej. 5, 14 | — | ⚪ **NO ENTRA** |
+| Integración | Elegir `h` o `N` para Trapecios `#Trapecios` `#EleccionH` | 4/4 (todo el Ej4) | 100 | 🔴 | ej. 11 | con `N ≥ 23`: "hay que tomar 24; si me ponen 25 también va bien" (`06` §6.2) | 🔴 |
+| Integración | ¿Se puede usar Simpson? (`N` par) `#Simpson` | 1/4 (R2 b) | 25 | 🟡 | ej. 10 b | "tienen que enfocarse automáticamente en la cantidad par de subintervalos" (`06` §4.2) | 🟠 |
+| Integración | Calcular con tabla (Trapecios / Simpson) | 1/4 (R2 c) | 25 | 🟡 | — | "la dificultad no viene por la aplicación de los métodos" | 🟡 |
+| Integración | Conceptuales del error: exactitud, defecto/exceso | 0/4 | 0 | ⚪ | ej. 9, 10 a | "de acá van a venir muchas preguntas de examen"; "esto es algo que gusta tomar" (`06` §5) | 🟠 |
+| Integración | `h` para Simpson (`f⁗`, `h⁴`) | 0/4 | 0 | ⚪ | extra del ej. 11 | — | 🟡 |
+| Integración | Derivadas "mejoradas" | 0/4 | 0 | ⚪ | — | "no se las toman nunca" (`06` §8.2) | ⚪ |
+| EDO | Lipschitz `#Lipschitz` | 2/4 (T1, T2: las 2 hojas del **parcial**) | 50 | 🟠 | ej. 13 | "¿cómo sé si un problema está bien planteado? Que es una pregunta de examen" (`07` §3.1) | 🔴 |
+| EDO | Euler `#Euler` | 2/4 (T1, T2: las 2 hojas del **parcial**) | 50 | 🟠 | — | "es el más fácil de los tres" | 🔴 |
+| EDO | Heun `#Heun` | 1/4 (R1) | 25 | 🟡 | — | "en los parciales se suele tomar […] Euler, Heun y Runge-Kutta" (`07` §0) | 🟠 |
+| EDO | Runge-Kutta 4 `#RungeKutta4` | 1/4 (R2) | 25 | 🟡 | — | "no se les pide más de una o dos iteraciones"; "esto es copiarlo y hacerlo" | 🟠 |
+| EDO | Clasificar fórmula multipaso `#Multipaso` | 1/4 (R2) | 25 | 🟡 | ej. 12 | — | 🟠 |
+| EDO | V/F de teoría (órdenes, errores) | 0/4 | 0 | ⚪ | — | "capaz aparecen como parte A o parte B […] son muy cortitos" | 🟡 |
+| EDO | RK de orden 2, sistemas de EDO | 0/4 | 0 | ⚪ | — | no se toma (`07` §9) | ⚪ |
+
+### 2.3 Lectura del patrón
+
+- **Núcleo duro (los ítems 4/4):** separar raíces (Ej1a), valores tapados por diferencias
+  divididas (Ej3a) y elegir `h` para Trapecios (Ej4 entero). Solos ya son ≈ 3,5 puntos y
+  siempre con la misma receta.
+- **Tema rey: el Ej4.** Es el único ejercicio que en las 4 hojas fue **exactamente la misma
+  consigna con otra función** (3 de 4 "exponencial por polinomio", los 4 intervalos de
+  longitud 2), y el repaso 2026 lo repitió (ej. 11). Es el que no se puede fallar.
+- **El Ej5 del parcial es fijo:** en la instancia "parcial" (la tuya) las dos hojas tomaron
+  Lipschitz + Euler; Heun, RK4 y la fórmula multipaso aparecieron en los recuperatorios.
+  Como Euler, Heun y RK4 están en el ayudamemoria, preparar los tres cuesta poco.
+- **Comodines (rotan en una misma posición):** en el Ej1, el ítem de justificar alterna
+  entre iteraciones de bisección y condiciones de punto fijo; en el **Ej2 rota todo**
+  (radio espectral / diagonal dominante con `k` / número de condición + Gauss-Seidel /
+  reordenar + norma): es el ejercicio **menos predecible** de los cinco.
+- **Lo que el repaso 2026 agrega al patrón 2025:** derivada segunda central (3 apariciones),
+  preguntas conceptuales del error de integración (2), Regula Falsi como opción de multiple
+  choice (1) y convergencia por norma (1). Formato nuevo: **multiple choice y verdadero/falso
+  justificados** (ej. 2, 8, 9, 10), que en las hojas 2025 no había.
+
+### 2.4 Problemas reciclados (el mayor retorno por minuto)
+
+- **Elegir `h` para Trapecios** → 2025-06-30 T1 Ej4 (`h = 0,2`), 2025-06-30 T2 Ej4
+  (`h = 0,08`), 2025-07-07 R1 Ej4 (`h = 0,2`), 2025-07-11 R2 Ej4a (`N = 8`) + repaso ej. 11.
+  **Si dominás este, tenés el Ej4 (2 puntos) casi asegurado.**
+- **Tabla de 6 puntos con valores tapados** → 2025-06-30 T1 Ej3a y T2 Ej3a, 2025-07-07 R1
+  Ej3a, 2025-07-11 R2 Ej3a + repaso ej. 3 y 4. T1 y R1 usan las mismas abscisas
+  `x = 1, 2, 4, 5, 6, 8`.
+- **¿Converge Jacobi? Sistema `7x+5y+4z=10`, `3x+4y+2z=3`, `x+y+4z=−8`** → 2025-06-30 T1 Ej2
+  y T2 Ej2 (textual; `ρ = 1` ⇒ no converge). Es el caso de estudio de la teórica.
+- **Iteraciones de bisección en `[a−1; a+1]`, ¿suficientes o necesarias?** → 2025-06-30 T1
+  Ej1c (`10⁻⁷` → 25), 2025-07-11 R2 Ej1c (`10⁻⁵` → 18) + repaso ej. 1 (misma cuenta que T1).
+- **Lipschitz + Euler con `h = 0,1` hasta `y(0,3)`** → 2025-06-30 T1 Ej5 y T2 Ej5.
+- **Número de condición con la inversa dada** → 2025-07-11 R2 Ej2a y repaso ej. 15 (la misma
+  matriz con las filas 1 y 2 intercambiadas).
+- **Newton-Raphson en una ecuación trascendente** → 2025-06-30 T1 Ej1b y T2 Ej1c, 2025-07-11
+  R2 Ej1b.
+- **Clasificar una fórmula multipaso** → 2025-07-11 R2 Ej5b + repaso ej. 12.
+
+---
+
+## 3. Contraste con tus apuntes
+
+### 3.1 Brechas críticas 🔴
+
+**No hay brecha de material.** Los 5 temas tienen su guía "desde cero" (`03–07`, del
+2026-11-18), cada una con todos los ítems de parcial 2025 y del repaso como "tu turno" y un
+checkpoint. Verificado por secciones:
+
+| Ítem 🔴/🟠 | Dónde está | Estado |
+|---|---|---|
+| Separar raíces, bisección, punto fijo, Newton-Raphson, Regula Falsi | `03` §3, §5, §7, §8, §6 | ✅ cubierto |
+| Convergencia (3 teoremas, `k`, reordenar, radio espectral), Gauss-Seidel, número de condición | `04` §7, §6, §8 | ✅ cubierto |
+| Valores tapados, conteo de polinomios, polinomio de Newton, derivada segunda central | `05` §7, §8, §6, §11 | ✅ cubierto |
+| Elegir `h`, Simpson y `N` par, conceptuales del error, derivadas desde tabla | `06` §6, §4, §5, §8 | ✅ cubierto |
+| Lipschitz, Euler, Heun, RK4, clasificar fórmulas | `07` §3, §4, §5, §6, §7 | ✅ cubierto |
+
+Las brechas reales son otras tres:
+
+1. **Tiempo contra punto de partida.** Las 5 guías completas suman ≈ 24 h (6 + 5 + 5 + 4 + 4
+   según su propio encabezado). No entran completas en 4 días con margen: hay que hacer
+   **solo el núcleo** de cada una (ver 3.3 y `plan.md`).
+2. **Memoria.** Raíces, sistemas (salvo `T`/`C`) e interpolación (salvo diferencias finitas)
+   **no están en el ayudamemoria**. Sin machete propio permitido, las recetas de esos tres
+   temas hay que poder escribirlas de memoria (checklist de la sección 6).
+3. **Ej5 sin práctica en el repaso.** El repaso 2026 no tiene ningún Euler / Heun / RK4:
+   esas tablas se practican solo con `07` y las hojas 2025.
+
+Tampoco hay todavía simulacros, flashcards ni machete para esta evaluación.
+
+### 3.2 Sobrecarga innecesaria 🟡
+
+| Apunte / sección | Frecuencia | Recomendación |
+|---|---|---|
+| `00`, `01`, `02` (ajuste por mínimos cuadrados) | 4/4 en 2025, **no entra en 2026** | **No abrir.** |
+| `08` ej. 5 y 14 (ajuste continuo y discreto) | no entra | Saltear en el repaso cronometrado. |
+| `05` §5 (Lagrange) y §9 (equiespaciado) | 0/4, 0 en el repaso | Leer la idea 5 min, sin "tu turno". |
+| `05` §10 (interpolar/extrapolar, interpolación inversa) | 0/4 | Saltear. |
+| `03` §9 (velocidad, variantes, raíces múltiples) | 0/4 | Leer una vez el recuadro de órdenes. |
+| `04` tablas largas de Jacobi/Gauss-Seidel (tu turno 4.A–4.C, 6.B–6.E) | 0/4 (nunca más de una iteración) | Una sola de cada método para entender la mecánica. |
+| `06` §7 (`h` para Simpson) y derivadas mejoradas | 0/4; extra del repaso | Solo el ejemplo guiado 5. |
+| `07` §9 (RK2, sistemas de EDO) | 0/4, "no se toma" | Saltear. |
+
+> **Traducción práctica:** cada hora que no gastes en Lagrange, tablas largas o ajuste pasala
+> a **repetir la receta del Ej4** (derivar bien `f''` y `f'''` de un `eˣ·polinomio` es donde
+> se pierden los 2 puntos) y a **diferencias divididas con valores tapados**.
+
+### 3.3 Mapa tema → apunte → frecuencia → qué hacer
+
+| Tema (ejercicio) | Guía | Núcleo (secciones) | Frecuencia | Qué hacer |
+|---|---|---|---|---|
+| Raíces (Ej1) | `03-raices-desde-cero.md` | §3 separar · §5 bisección · §7 punto fijo · §8 Newton-Raphson (+ §6.2 regla de Regula Falsi) | 4/4, 3/4, 2/4, 2/4 | **Dominar**: todo de memoria |
+| Sistemas lineales (Ej2) | `04-sistemas-lineales-desde-cero.md` | §3 herramientas · §7 convergencia (7.2–7.5) · §6 una iteración de Gauss-Seidel · §8 número de condición | 3/4, 2/4, 1/4 | **Dominar §7**; §6 y §8 saber la receta y un ejemplo |
+| Interpolación (Ej3) | `05-interpolacion-desde-cero.md` | §3 teorema · §6 tabla de diferencias divididas · §7 valores tapados · §8 conteo · §11.1 derivada segunda | 4/4, 3/4, repaso ×3 | **Dominar** §6–§8; §11 fórmula y un ejemplo |
+| Diferenciación / integración (Ej4) | `06-integracion-desde-cero.md` | §6 elegir `h` · §4 Simpson y `N` par · §5 conceptuales · §8 derivadas (8.2–8.3) | 4/4, 1/4 + repaso | **Dominar §6** (el tema rey); el resto, receta y un ejemplo |
+| Ecuaciones diferenciales (Ej5) | `07-ecuaciones-diferenciales-desde-cero.md` | §3 Lipschitz · §4 Euler · §5 Heun · §6 RK4 · §7 clasificar | 2/4, 2/4, 1/4, 1/4, 1/4 | **Dominar** §3–§4; §5–§7 una tabla de cada uno |
+| Repaso del profesor | `08-practica-repaso-segundo-parcial.md` | 13 ejercicios (sin el 5 ni el 14) | — | **Examen cronometrado** del último día |
+| Ajuste | `00`, `01`, `02` | — | no entra | **Mínimo: nada** |
+
+---
+
+## 4. Plan inicial de 5 días (2026-11-19 → 2026-11-23)
+
+> Foto de hoy. **Supuesto de disponibilidad:** el mismo del primer parcial
+> (`../primer-parcial/plan.md`): días enteros, ≈ 8 h útiles por día, sin días bloqueados. Orden por peso y dificultad (los temas que van de
+> memoria primero, para que tengan más días de repaso). El plan vivo, con secciones y "tu
+> turno" por bloque, es `plan.md` (`/plan`), que se recalcula con `registro.md`.
+
+| Día | Foco | Entregable del día |
+|---|---|---|
+| **D1 · jue 2026-11-19** | 🔴 **Raíces** (`03` §3, §5, §7, §8 + regla de §6) | Ej1 de 2025-06-30 T1 y T2 y de 2025-07-11 R2 resueltos (tu turno 3.A–3.D, 5.A–5.B, 7.A–7.C, 8.A–8.B) + checkpoint de `03` |
+| **D2 · vie 2026-11-20** | 🔴 **Sistemas lineales** (`04` §3, §6, §7, §8) + arranque de **integración** (`06` §6) | Ej2 de las 4 hojas (tu turno 7.A, 7.B, 6.A, 8.A) + checkpoint de `04`; Ej4 de 2025-06-30 T1 (6.A) |
+| **D3 · sáb 2026-11-21** | 🔴 **Integración** (`06` §6, §4, §5, §8) + **ecuaciones diferenciales** (`07` §3–§7) | Ej4 de 2025-06-30 T2, 2025-07-07 R1 y 2025-07-11 R2 + checkpoint de `06`; Ej5 de las 4 hojas (3.1, 3.2, 4.1, 4.2, 5.1, 6.1, 7.1) + checkpoint de `07` |
+| **D4 · dom 2026-11-22** | 🔴 **Interpolación** (`05` §3, §6, §7, §8, §11.1) + repaso de errores | Ej3a/b de las 4 hojas (7.A–7.C, 8.A–8.C; el ejemplo guiado 7 es el T2) + checkpoint de `05`; hoja de memoria de los 3 temas sin ayudamemoria |
+| **D5 · lun 2026-11-23** | 🔴 **Repaso `08` cronometrado** + **simulacro** (`/simulacro`) | 13 ejercicios del repaso contra reloj (≈ 2 h 35) + simulacro completo corregido + lista de errores (`/registrar`) |
+| **Mar 2026-11-24** | Liviano: releer los 5 "Resumen en una página" y la hoja de memoria. Nada nuevo. | Examen |
+
+**Los "seguros" para el 6:** Ej4 (receta única, 4/4) + Ej5 (Lipschitz + Euler, con las
+fórmulas en el ayudamemoria) + Ej3a/b (diferencias divididas + regla de conteo). El **Ej1**
+es el colchón (tres ítems independientes: separar, bisección y Newton-Raphson suman aunque
+falle uno) y con él se llega al 8. El **Ej2** es el más variable: se prepara, pero no se
+cuenta con él.
+
+---
+
+## 5. Banco de "problemas tipo"
+
+Los enunciados están en `examenes/INDICE.md`, las respuestas oficiales en
+`examenes/resueltos/RESOLUCIONES-2025.md`, y cada ítem está además como "tu turno" con
+corrección en la guía (entre paréntesis).
+
+**Ej1 Raíces**
+- Separar raíces → 2025-06-30 T1 Ej1a (`03` 3.A), 2025-06-30 T2 Ej1a (3.B), 2025-07-07 R1 Ej1a (3.C), 2025-07-11 R2 Ej1a (3.D).
+- Iteraciones de bisección → 2025-06-30 T1 Ej1c (5.A), 2025-07-11 R2 Ej1c (5.B), repaso ej. 1 (5.E).
+- Punto fijo → 2025-06-30 T2 Ej1b (7.A, condiciones), 2025-07-07 R1 Ej1b y c (7.B elegir `g`, 7.C iterar), repaso ej. 2d (7.G).
+- Newton-Raphson → 2025-06-30 T1 Ej1b (ejemplo guiado 10 de `03`), 2025-06-30 T2 Ej1c (8.A), 2025-07-11 R2 Ej1b (8.B).
+- Regula Falsi (qué extremo fijar) → repaso ej. 2b (6.D); guía ej. 11 (6.A).
+
+**Ej2 Sistemas lineales**
+- ¿Converge Jacobi? por radio espectral → 2025-06-30 T1 = T2 Ej2 (`04` 7.A).
+- Valores de `k` para diagonal dominante → 2025-07-07 R1 Ej2 (7.B).
+- Reordenar + `T_J` + `‖T‖∞` → repaso ej. 6 (7.C).
+- Reordenar + una iteración de Gauss-Seidel → 2025-07-11 R2 Ej2b (6.A).
+- Número de condición → 2025-07-11 R2 Ej2a (8.A), repaso ej. 15 (8.B).
+
+**Ej3 Interpolación**
+- Valores tapados → 2025-06-30 T1 Ej3a (`05` 7.A), 2025-06-30 T2 Ej3a (ejemplo guiado 7), 2025-07-07 R1 Ej3a (7.B), 2025-07-11 R2 Ej3a (7.C), repaso ej. 3a (7.D) y 4a (7.E).
+- Contar polinomios / grado → 2025-06-30 T1 Ej3b (ejemplo guiado 9), 2025-07-07 R1 Ej3b y c (8.A, 8.B), 2025-07-11 R2 Ej3b (8.C), repaso ej. 3b (8.D) y 4b (8.E).
+- Grado + polinomio de Newton-Gregory → repaso ej. 7a (6.B).
+- Derivada segunda central → repaso ej. 4c y 7b (`06` 8.C; `05` §11.1).
+
+**Ej4 Diferenciación / integración**
+- Elegir `h` para Trapecios → 2025-06-30 T1 Ej4 (`06` 6.A), 2025-06-30 T2 Ej4 (6.B), 2025-07-07 R1 Ej4 (6.C), 2025-07-11 R2 Ej4a (6.D), repaso ej. 11 (6.E).
+- ¿Se puede Simpson? + calcular → 2025-07-11 R2 Ej4b y c (4.A), repaso ej. 10b (4.E).
+- Conceptuales del error → repaso ej. 9 (5.A) y 10a (5.B).
+- `h` para Simpson → extra del repaso ej. 11 (7.B).
+
+**Ej5 Ecuaciones diferenciales**
+- Lipschitz → 2025-06-30 T1 Ej5a (`07` 3.1), 2025-06-30 T2 Ej5a (3.2), repaso ej. 13 (3.5).
+- Euler → 2025-06-30 T1 Ej5b (4.1), 2025-06-30 T2 Ej5b (4.2).
+- Heun → 2025-07-07 R1 Ej5 (5.1).
+- Runge-Kutta 4 → 2025-07-11 R2 Ej5a (6.1).
+- Clasificar una fórmula → 2025-07-11 R2 Ej5b (7.1), repaso ej. 12 (7.2).
+
+> **Simulacros "a ciegas": no se reserva ninguna hoja 2025.** Con solo 4 hojas, guardar una
+> es perder el 25 % de la práctica real, y las guías ya usan las 4 como "tu turno". El examen
+> a ciegas se arma con lo que **todavía no viste**:
+> 1. **`apuntes/md/08` (repaso 2026)**: no lo abras hasta el lunes 2026-11-23. Por eso, en
+>    las guías, los "tu turno" marcados **"repaso 2026"** se dejan sin hacer (son los mismos
+>    ejercicios): `03` 5.E, 6.D, 7.G · `04` 7.C, 8.B · `05` 6.B, 7.D, 7.E, 8.D, 8.E · `06`
+>    5.A, 5.B, 6.E, 7.B, 8.C · `07` 3.5, 7.2.
+> 2. **Los 5 checkpoints** de las guías (ejercicios nuevos, 25 min cada uno).
+> 3. **Un simulacro de `/simulacro`** con variantes nuevas. `/simulacro` no tiene hojas que
+>    "quemar"; lo que **no** debe reciclar textual son los ejercicios de `08`.
+
+---
+
+## 6. Checklist teórico
+
+No hay "enunciar y demostrar": la teoría entra como **justificación obligatoria** de un ítem
+("justifique", "¿suficientes o necesarias?", verdadero/falso). Tenés que poder **escribirlo**,
+no solo reconocerlo. 🧠 = no está en el ayudamemoria.
+
+**Raíces** (🧠 todo; *`03` §2 y "Resumen en una página"*)
+- [ ] Bolzano: continuidad + cambio de signo ⇒ al menos una raíz. *`03` §3*
+- [ ] Cota de bisección `(b−a)/2ⁱ < ε` y la frase "son **suficientes**, no necesarias". *`03` §5.3*
+- [ ] Las dos condiciones de punto fijo (`g(x) ∈ [a;b]` y `│g'(x)│ < 1` en todo el intervalo) y que son suficientes, no necesarias. *`03` §7.2–7.3*
+- [ ] Fórmula de Newton-Raphson, criterio para elegir `x₀` (derivada grande, cociente chico) y criterio de parada. *`03` §8.2–8.3, §4*
+- [ ] Regula Falsi: signos de `f'` y `f''` iguales ⇒ se fija `b`; distintos ⇒ se fija `a`. *`03` §6.2*
+- [ ] Órdenes: bisección, Regula Falsi y punto fijo lineales; Newton-Raphson cuadrático. *`03` §9*
+
+**Sistemas lineales** (📄 autovalores, `T` y `C`; 🧠 el resto; *`04` §2*)
+- [ ] Los tres teoremas: `ρ(T) < 1` ⟺ converge (necesaria y suficiente); `‖T‖ < 1` ⇒ converge; diagonal dominante ⇒ convergen Jacobi y Gauss-Seidel (suficientes). *`04` §7.1*
+- [ ] Diagonal dominante estricta, radio espectral, norma infinito (filas) y norma 1 (columnas). *`04` §3*
+- [ ] Armar `T_J` despejando (diagonal en cero) y la trampa de signos de `T_J = D⁻¹(L+U)`. *`04` §4.2–4.3*
+- [ ] Gauss-Seidel usa los valores nuevos y es "el doble de rápido". *`04` §6.2*
+- [ ] `K(A) = ‖A‖·‖A⁻¹‖ ≥ 1` y el criterio bien / mal condicionado. *`04` §8.2*
+
+**Interpolación** (📄 solo diferencias finitas; 🧠 el resto; *`05` §2*)
+- [ ] Teorema de existencia y unicidad: por `n+1` puntos pasa un único polinomio de grado `≤ n`. *`05` §3.1*
+- [ ] Agregar un punto: o no cambia el grado o salta al máximo. *`05` §3.4*
+- [ ] Regla del conteo: 1 del grado del interpolante, 0 de los demás hasta `m−1`, infinitos de grado `≥ m`. *`05` §8.1*
+- [ ] Tabla de diferencias divididas, polinomio de Newton y "el grado es la última columna no nula". *`05` §6*
+- [ ] Derivada segunda central `(f_{i+1} − 2f_i + f_{i−1})/h²` y que necesita `h` fijo. *`05` §11.1, `06` §8*
+
+**Diferenciación / integración** (📄 errores `E_T`, `E_S` y diferencias finitas; 🧠 el resto; *`06` §2*)
+- [ ] Trapecios `h/2·(E + 2M)` y Simpson `h/3·(E + 4I + 2P)`; `N` entero / entero y **par**. *`06` §3–§4*
+- [ ] El error como cota: máximo de `│f''│` comparando extremos contra puntos críticos (`f''' = 0`); elegir un `h` "lindo". *`06` §6.2*
+- [ ] Exactitud: Trapecios hasta grado 1, Simpson hasta grado 3; impar en intervalo simétrico; "el recíproco es falso". *`06` §5.1–5.2*
+- [ ] Concavidad: `f'' > 0` ⇒ Trapecios da de más; `f'' < 0` ⇒ da de menos. *`06` §5.3*
+- [ ] Las fórmulas de derivada progresiva, regresiva y central y cuál se puede usar. *`06` §8.2–8.3*
+
+**Ecuaciones diferenciales** (📄 Euler, Heun, RK4; 🧠 el resto; *`07` §2*)
+- [ ] Lipschitz por la derivada parcial `L = máx│∂f/∂y│` en el rectángulo, y cuándo no se puede. *`07` §3.2, §3.4*
+- [ ] Problema bien planteado = `f` continua + Lipschitz ⇒ solución única. *`07` §3.1*
+- [ ] Explícita / implícita y cantidad de pasos de una fórmula. *`07` §7*
+- [ ] Heun = Euler modificado, implícito, corrector con Euler de predictor. *`07` §5.1*
+- [ ] Órdenes: Euler 1, Heun 2, RK4 4, y qué pasa con el error al bajar `h` a la mitad. *`07` §8*
+
+---
+
+## Anexo A — Equivalencias entre exámenes
+
+- **N = 4 hojas distintas** sobre 5 archivos originales, 3 instancias, todas 2025-1C (K3052):
+  `2025-1C_Parcial.pdf` trae Tema 1 y Tema 2 (2025-06-30), `2025-1C_Recuperatorio.pdf` es el
+  1er recuperatorio (2025-07-07) y el 2do recuperatorio (2025-07-11) solo existe dentro de
+  `resueltos/2025-1C_Recuperatorio-2_respuestas.pdf`.
+- El **Ej2 de T1 y T2 es el mismo problema**: como ejercicio para practicar cuenta una vez
+  (en las frecuencias cuenta en las dos hojas, como en el INDICE).
+- `duplicados/2025-1C_Recuperatorio_respuestas_copia.pdf` ≡
+  `resueltos/2025-1C_Recuperatorio_respuestas.pdf` (mismo MD5): no cuenta.
+- El ej. 15 del repaso 2026 usa la misma matriz que 2025-07-11 R2 Ej2a (filas 1 y 2
+  intercambiadas) y el ej. 1 hace la misma cuenta que 2025-06-30 T1 Ej1c.
+
+## Anexo B — Fuera del dataset
+
+- `examenes/resueltos/RESOLUCIONES-2025.md`: transcripción de las respuestas oficiales de las
+  4 hojas. No es un examen; es la corrección de referencia.
+- `apuntes/md/08-practica-repaso-segundo-parcial.md`: los 15 ejercicios del repaso 2026. No es
+  un examen real (no entra en N), pero es la evidencia más reciente de qué elige el profesor.
+- `apuntes/md/00–02` y los ítems de ajuste de las 4 hojas (T1 Ej3c, T2 Ej3b, R1 Ej3d, R2
+  Ej3c): fuera de alcance en 2026.
+
+---
+
+*Estrategia generada el 2026-11-19 a partir de `examenes/INDICE.md` (4 hojas 2025-1C),
+`examenes/resueltos/RESOLUCIONES-2025.md`, los títulos, secciones 0 y notas "En clase" de
+`apuntes/md/03–08`, y `../MATERIA.md`. No se leyeron los PDFs de `examenes/`. Siguiente paso
+del flujo: `/plan` (y `/que-saltear` si querés la poda sección por sección).*

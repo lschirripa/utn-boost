@@ -9,8 +9,8 @@
 
 | Evaluación | Carpeta | Fecha | Estado |
 |---|---|---|---|
-| Primer parcial | `primer-parcial/` | **2026-10-06** | **próximo** |
-| Segundo parcial | `segundo-parcial/` | 2026-11-24 | pendiente |
+| Primer parcial | `primer-parcial/` | 2026-10-06 | rendido |
+| Segundo parcial | `segundo-parcial/` | **2026-11-24** | **próximo** |
 | 1er recuperatorio (1P y 2P) | carpeta del parcial | **2026-12-01** (confirmado por Lucho el 2026-11-10: lo tiene que rendir) | pendiente |
 | 2do recuperatorio (1P y 2P) | carpeta del parcial | _(a definir, finales de febrero 2027)_ | pendiente |
 | Final | `final/` | _(a definir)_ | pendiente |
@@ -180,5 +180,5 @@ número de subintervalos, que garantiza la cota de error) `#Simpson`
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
-| **Primer parcial (2026-10-06)** | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (3 días, recalculado 2026-10-03 alrededor de las guías lineales `guia/01–04`) | ✅ (vacío) | — | ✅ (`primer-parcial/repaso/machete.md` + `exports/machete.pdf`, 2026-10-05; complemento del ayudamemoria) | — |
-| Segundo parcial (2026-11-24) | 🟡 3 (00 explicación paso a paso para estudiar —leer primero—, 01 teórica y 02 práctica de **ajuste por mínimos cuadrados**, Whisper local + OneNote `Ajuste.pdf`; faltan raíces, sistemas, interpolación, integración, EDO) | ✅ 4 hojas / 3 instancias (2025-1C) + 3 hojas de respuestas transcriptas en `resueltos/RESOLUCIONES-2025.md` | — | — | — | ✅ (vacío) | — | — | — |
+| Primer parcial (2026-10-06, rendido) | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (3 días, recalculado 2026-10-03 alrededor de las guías lineales `guia/01–04`) | ✅ (vacío) | — | ✅ (`primer-parcial/repaso/machete.md` + `exports/machete.pdf`, 2026-10-05; complemento del ayudamemoria) | — |
+| **Segundo parcial (2026-11-24)** | ✅ 9 (03–07 guías "desde cero" de raíces, sistemas lineales, interpolación, diferenciación/integración y ecuaciones diferenciales, con todos los ítems de parcial 2025 y del repaso como "tu turno" + checkpoint; 08 práctica del repaso 2026, 15 ejercicios; 00–02 de **ajuste por mínimos cuadrados**, fuera de alcance en 2026) | ✅ 4 hojas / 3 instancias (2025-1C) + 3 hojas de respuestas transcriptas en `resueltos/RESOLUCIONES-2025.md` | ✅ (2026-11-19; dataset chico, complementado con el repaso 2026 y las notas "En clase") | — | ✅ (5 días, 2026-11-19; núcleo de cada guía por día, `08` a ciegas + simulacro el 2026-11-23) | ✅ (vacío) | — | — | — |
