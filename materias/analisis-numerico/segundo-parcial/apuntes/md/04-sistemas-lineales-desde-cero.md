@@ -1,0 +1,1774 @@
+# Sistemas de ecuaciones lineales desde cero
+
+> Fuentes: `fuentes/clases/Sistemas de Ecuaciones Lineales/Clase - Sistemas de ecuaciones lineales.pdf` (PDF de clase, 18 p.), `fuentes/clases/Sistemas de Ecuaciones Lineales/Teorico catedra 2.3 - Sistemas lineales.pdf` (teórico de cátedra, 27 p.), `fuentes/clases/Sistemas de Ecuaciones Lineales/OneNote - Sistemas de Ecuaciones Lineales.pdf` (práctica manuscrita del profesor, 19 p.), transcript `12-video-teorica-sistemas-lineales.json` (teórica, 1 h 30), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de las 4 hojas 2025), apunte `08-practica-repaso-segundo-parcial.md` (ej. 6 y 15), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (ej. 1 a 12 de sistemas lineales, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python. Generado 2026-11-18.
+>
+> **Cómo usarla:** leé de arriba abajo, sin saltear. Los **Ejemplos guiados** están resueltos a la vista: leelos con lápiz y calculadora y rehacé cada cuenta. Los **Tu turno** se hacen en papel y **sin mirar**; la corrección está plegada (el enunciado va en texto plano en el título desplegable, porque ahí no se renderizan fórmulas; cuando hay matrices se repite en limpio adentro). Las notas **En clase** son lo que dijo el profesor en el video de la teórica, con el minuto real del transcript (`teórica [mm:ss]` = video 12). El video de la práctica no se pudo bajar: la práctica sale del OneNote del profesor. Tiempo total: ≈ 5 h con pausas.
+>
+> **Qué es de la cátedra y qué es mío:** métodos, fórmulas, criterios y ejemplos salen de las fuentes. Son agregados míos (para que se entienda) las explicaciones "en criollo", las cuentas intermedias que las fuentes hacen "en Excel", los gráficos, el truco de multiplicar el polinomio característico por el denominador común, la observación de que $\lVert T_J\rVert_\infty<1$ es lo mismo que "diagonal dominante estricta" y los radios espectrales que aparecen como "dato extra". El **Checkpoint** es un ejercicio con formato de parcial armado con un sistema del teórico de cátedra (pág. 81).
+
+---
+
+## 0. Qué te toman: el Ej2 vale 2 puntos
+
+El Ej2 del 2do parcial es **siempre** sistemas de ecuaciones lineales, y casi nunca te hacen "resolver" el sistema: te hacen **decidir si un método iterativo converge** y, como mucho, hacer **una** iteración. En el 1er recuperatorio 2025 el ejercicio entero (un solo ítem) valió 2 puntos.
+
+| Ítem | Qué te piden | Hojas 2025 | Frecuencia | Sección |
+|---|---|---|---|---|
+| **¿Converge Jacobi? (sin resolver)** | Armar $T_J$, calcular autovalores y radio espectral. En el parcial dio $\rho=1$ ⇒ **no** converge | T1, T2 (mismo sistema, reciclado) | **2/4** | §7.5 |
+| **Valores de $k$ para que converjan Jacobi o Gauss-Seidel** | Pedir diagonal dominante fila por fila: tres inecuaciones con módulo y la intersección | R1 | 1/4 | §7.4 |
+| **Reordenar filas + una iteración de Gauss-Seidel** | Dejar la matriz diagonal dominante y hacer $X_0\to X_1$ | R2 b | 1/4 | §7.3 y §6 |
+| **¿Bien condicionado?** | $K(A)=\lVert A\rVert\cdot\lVert A^{-1}\rVert$ con norma infinito (te dan $A^{-1}$) | R2 a | 1/4 | §8 |
+| Reordenar + $T_J$ + verificar con $\lVert T\rVert_\infty<1$ | Parcial viejo que el profesor resolvió en el repaso | Repaso 2026 (ej. 6) | 0/4 en 2025, 1 vez en el repaso | §7.3 |
+| Número de condición "pelado" | Hallar $K(A)$ con la inversa dada | Repaso 2026 (ej. 15) | 0/4 en 2025, 1 vez en el repaso | §8 |
+
+T1/T2 = parcial Tema 1/2 · R1/R2 = 1er/2do recuperatorio.
+
+**Lectura rápida:** 3 de 4 hojas preguntan **convergencia sin resolver** (por radio espectral o por diagonal dominante) y la cuarta pregunta **número de condición + una iteración de Gauss-Seidel**. Nunca pidieron más de una iteración. Si dominás §7 (convergencia), §6 (una iteración de Gauss-Seidel) y §8 (número de condición), el Ej2 es tuyo.
+
+> **En clase:** "obviamente nadie les va a pedir que hagan 10 iteraciones, porque es un montón para hacer tanto cuenterío, pero sí puede ser que le pidamos hacer dos o tres" (teórica [40:44]).
+>
+> **En clase:** el sistema del parcial 2025 (T1/T2) es el **"caso de estudio"** que el profesor muestra en la teórica: "converge con Gauss-Seidel pero no con Jacobi" (teórica [1:14:35]). Está resuelto entero en §7.5.
+
+## 1. La idea en criollo
+
+Un sistema de ecuaciones lineales se escribe $AX=B$:
+
+$$
+\begin{cases}
+7x+5y+4z=10\\
+3x+4y+2z=3\\
+x+y+4z=-8
+\end{cases}
+\qquad
+A=\begin{pmatrix}7&5&4\\3&4&2\\1&1&4\end{pmatrix}\quad
+X=\begin{pmatrix}x\\y\\z\end{pmatrix}\quad
+B=\begin{pmatrix}10\\3\\-8\end{pmatrix}
+$$
+
+$A$ es la **matriz de coeficientes** (siempre cuadrada), $X$ la de **incógnitas** y $B$ la de **términos independientes**. Trabajamos siempre con sistemas **compatibles determinados** (solución única), o sea con $\det(A)\neq0$.
+
+Hay dos familias de métodos:
+
+- **Directos** (Gauss, Gauss-Jordan, Cramer, despejar y sustituir): llegan a la solución exacta en una cantidad finita de cuentas. Son los de Álgebra.
+- **Iterativos** (**Jacobi** y **Gauss-Seidel**, los únicos dos de la materia): les das un vector inicial $X^{(0)}$ y fabrican una lista de vectores que se va pegando a la solución:
+
+$$
+X^{(0)},\ X^{(1)},\ X^{(2)},\ \dots\ \longrightarrow\ X
+$$
+
+Es la misma idea que en raíces (una lista de números que se acerca a la raíz), pero ahora cada elemento de la lista es un **vector**. Y aparecen las mismas tres preguntas: cómo se fabrica el vector siguiente (§4 y §6), cuándo se para (§5) y **si la lista converge o no** (§7, que es lo que más se toma).
+
+Los dos métodos tienen la misma forma:
+
+$$
+X^{(k)}=T\,X^{(k-1)}+C
+$$
+
+"Agarro el vector anterior, lo multiplico por una matriz $T$ y le sumo un vector $C$". Cada método tiene **su** $T$ y **su** $C$. La matriz $T$ es la protagonista del tema: de ella depende que el método converja.
+
+> **En clase:** de las cuatro condiciones equivalentes para que el sistema sea compatible determinado (determinante no nulo, rango $n$, filas y columnas linealmente independientes, $AX=0\Rightarrow X=0$) "les recomiendo en general quedarse con la del determinante de A" (teórica [04:44]).
+>
+> **En clase:** igual que en raíces, "es muy difícil, prácticamente imposible, que los métodos estos lleguen a la solución exacta": si la solución es $(1;1;1)$ vas a ver $0{,}9999\ldots$ y concluir que tiende a 1 (teórica [06:21]).
+>
+> **En clase:** "la implementación de los métodos […] me parece que es lo más fácil de la materia" (teórica [17:57]); "este tema capaz tiene muchos conceptitos pero en general son todos sencillos" (teórica [1:12:59]).
+
+## 2. Qué tenés en el ayudamemoria y qué va de memoria
+
+En la pág. 4 del ayudamemoria oficial hay **tres renglones** de este tema:
+
+- 📄 **Cálculo de autovalores:** $\lvert A-\lambda I\rvert=0$.
+- 📄 **Matrices T y C de Jacobi:** $T_{Jacobi}=D^{-1}(L+U)$, $C_{Jacobi}=D^{-1}B$.
+- 📄 **Matrices T y C de Gauss-Seidel:** $T_{GS}=(D-L)^{-1}U$, $C_{GS}=(D-L)^{-1}B$.
+
+Ojo: esas fórmulas usan la convención $A=D-L-U$ (con $L$ y $U$ **con los signos cambiados**, §4.3). Si no te acordás de eso, la fórmula del ayudamemoria te hace errar todos los signos de $T$. A mano conviene armar $T_J$ **despejando** (§4.1).
+
+Todo lo demás va de memoria:
+
+- 🧠 **Diagonal dominante:** en cada fila, $\lvert a_{ii}\rvert$ mayor (o igual) que la suma de los módulos de los otros elementos de la fila. **Estricta** = con $>$ en todas las filas.
+- 🧠 **Radio espectral:** $\rho(A)=\max\lvert\lambda_i\rvert$ (el autovalor de mayor módulo, en positivo).
+- 🧠 **Norma infinito** de una matriz = mayor suma de módulos **por fila**. **Norma 1** = mayor suma de módulos **por columna**. Norma infinito de un vector = mayor componente en módulo.
+- 🧠 **Jacobi:** despejar la incógnita $i$ de la ecuación $i$ y reemplazar **todo** con el vector anterior. **Gauss-Seidel:** lo mismo, pero usando los valores nuevos apenas los tenés. Gauss-Seidel es **el doble de rápido**.
+- 🧠 **Parar** cuando $\lVert X^{(k)}-X^{(k-1)}\rVert_\infty<\varepsilon$ (error absoluto) o dividiendo por $\lVert X^{(k)}\rVert_\infty$ (error relativo).
+- 🧠 **Los tres teoremas de convergencia:** (1) $\rho(T)<1$ ⟺ converge (**necesaria y suficiente**); (2) $\lVert T\rVert<1$ ⇒ converge; (3) $A$ diagonal dominante ⇒ convergen Jacobi y Gauss-Seidel. (2) y (3) son **suficientes, no necesarias**.
+- 🧠 **Número de condición:** $K(A)=\lVert A\rVert\cdot\lVert A^{-1}\rVert\ge1$. Chico (unidades) = bien condicionado; miles = mal condicionado.
+
+---
+
+## 3. Tres herramientas de matrices que se usan todo el tiempo
+
+### 3.1 Matriz diagonal dominante
+
+**La idea:** en cada fila, el número de la diagonal principal "le gana" a todos los demás de su fila juntos. Todo en módulo: "no existen los negativos para esto".
+
+$$
+\lvert a_{ii}\rvert\ \ge\ \sum_{j\ne i}\lvert a_{ij}\rvert\qquad\text{para todas las filas } i=1,\dots,n
+$$
+
+Si en **todas** las filas vale con $>$, la matriz es **estrictamente** diagonal dominante.
+
+**Receta:** una línea por fila. Escribís el módulo del elemento de la diagonal, la suma de los módulos de los otros, y el signo que corresponde ($>$, $=$ o $<$). Si alguna fila da $<$, no es diagonal dominante. Si todas dan $>$, es estricta. Si alguna da $=$ y ninguna $<$, es diagonal dominante no estricta.
+
+**Ejemplo (PDF de clase):**
+
+$$
+\begin{pmatrix}-10&-2&1&3\\1&8&5&0\\-2&4&11&-5\\1&-1&3&9\end{pmatrix}
+\qquad
+\begin{array}{l}
+\lvert-10\rvert=10>2+1+3=6\\
+\lvert 8\rvert=8>1+5+0=6\\
+\lvert 11\rvert=11=2+4+5=11\\
+\lvert 9\rvert=9>1+1+3=5
+\end{array}
+$$
+
+Es diagonal dominante, pero **no estricta** (la tercera fila necesitó el igual).
+
+> **En clase:** "si quieren no miren demasiado la parte formal […] lo que tienen que hacer es pensar todos los coeficientes en módulo, o sea no existen los negativos para esto" (teórica [09:35]). "Este concepto es súper importante para esta unidad" (teórica [09:02]).
+>
+> **En clase:** sobre el $\ge$ contra el $>$: "para lo que nos concierne a nosotros, vamos a estar bien con el concepto más laxo, con el mayor o igual vamos a estar bien" (teórica [11:40]). Ojo que el PDF de clase, al enunciar el teorema de convergencia, pide la versión estricta: está discutido en §7.2.
+
+### 3.2 Autovalores y radio espectral
+
+**La idea:** el **radio espectral** $\rho(A)$ es el autovalor más grande en módulo. Qué "es" un autovalor no importa acá ("eso se lo dejamos a álgebra"): importa **calcularlos**.
+
+**Receta:**
+
+1. A la matriz le **restás $\lambda$ en la diagonal principal** (eso es $A-\lambda I$).
+2. Calculás el determinante y lo igualás a cero: $\lvert A-\lambda I\rvert=0$. Queda un polinomio en $\lambda$ (el polinomio característico), de grado 2 o 3.
+3. Sus raíces son los autovalores $\lambda_1,\lambda_2,\dots$
+4. $\rho(A)=\max\lvert\lambda_i\rvert$. Siempre da positivo.
+
+Para el determinante de $3\times3$ conviene desarrollar por la fila o columna que tenga más ceros.
+
+**Ejemplo (PDF de clase y apéndice del teórico):**
+
+$$
+A=\begin{pmatrix}-1&2&0\\-4&5&0\\-4&2&4\end{pmatrix}
+\qquad
+\lvert A-\lambda I\rvert=\begin{vmatrix}-1-\lambda&2&0\\-4&5-\lambda&0\\-4&2&4-\lambda\end{vmatrix}=0
+$$
+
+La tercera columna tiene dos ceros: desarrollo por ahí.
+
+$$
+(4-\lambda)\big[(-1-\lambda)(5-\lambda)-2\cdot(-4)\big]=0
+$$
+
+$$
+(4-\lambda)\big[-5+\lambda-5\lambda+\lambda^2+8\big]=(4-\lambda)(\lambda^2-4\lambda+3)=(4-\lambda)(\lambda-3)(\lambda-1)=0
+$$
+
+Autovalores: $\lambda_1=4$, $\lambda_2=3$, $\lambda_3=1$. Radio espectral: $\rho(A)=4$.
+
+> **En clase:** los autovalores "van a ser 2 o 3 a lo sumo" (teórica [12:42]). Si en lugar de $4$ hubiera sido $-4$, "el radio espectral también va a ser 4 […] los radios espectrales siempre son positivos" (teórica [16:20]). "La única complicación que puede haber acá es que este polinomio característico igual a 0 sea complicado hallarle las raíces" (teórica [16:53]).
+
+### 3.3 Normas: el "tamaño" de un vector y de una matriz
+
+**Norma infinito de un vector:** la componente más grande en módulo.
+
+$$
+\lVert \vec x\rVert_\infty=\max\lvert x_i\rvert\qquad\text{ej.: }\ \lVert(3{,}25;\ -4{,}13;\ 0{,}67)\rVert_\infty=4{,}13
+$$
+
+Sirve para medir la **distancia entre dos vectores**: $d(\vec x,\vec y)=\lVert\vec x-\vec y\rVert$. La vas a usar para decidir cuándo parar (§5). (La norma 2 del mismo vector es Pitágoras: $\sqrt{3{,}25^2+4{,}13^2+0{,}67^2}=5{,}298$; no la usamos.)
+
+**Norma infinito de una matriz:** sumás los módulos **por fila** y te quedás con la suma más grande.
+
+**Norma 1 de una matriz:** sumás los módulos **por columna** y te quedás con la suma más grande.
+
+**Ejemplo (PDF de clase):**
+
+$$
+A=\begin{pmatrix}1&0&-7\\0&2&2\\-1&-1&0\end{pmatrix}
+\qquad
+\begin{array}{l}
+\text{filas: } 1+0+7=8,\quad 0+2+2=4,\quad 1+1+0=2\ \Rightarrow\ \lVert A\rVert_\infty=8\\
+\text{columnas: } 1+0+1=2,\quad 0+2+1=3,\quad 7+2+0=9\ \Rightarrow\ \lVert A\rVert_1=9
+\end{array}
+$$
+
+La **norma 2** de una matriz es $\sqrt{\rho(A^{t}A)}$: hay que multiplicar matrices y sacar autovalores. No se usa.
+
+> **En clase:** regla mnemotécnica: "el 1 es un número paradito, vertical, y el infinito está acostado": la norma 1 se suma por **columnas** y la norma infinito por **filas** (teórica [26:51]–[27:22]).
+>
+> **En clase:** la norma 2 "es molesta y no la vamos a estar utilizando […] queda más que nada como un concepto teórico" (teórica [30:04]). En el OneNote, al lado del ítem "c) las normas 2" del ej. 2 de la guía, el profesor anotó "No".
+
+### Tu turno 3
+
+<details>
+<summary><strong>3.A (guía, ej. 1)</strong> — Dadas A = (−2 1; 1 −3), B = (7 2 0; 3 5 −1; 0 5 −6) y C = (2 −1 0; −1 4 2; 0 2 2) (filas separadas por ";"), analizar si cada una es: a) simétrica, b) singular, c) dominante diagonalmente (y si lo es en sentido estricto).</summary>
+
+$$
+A=\begin{pmatrix}-2&1\\1&-3\end{pmatrix}\qquad
+B=\begin{pmatrix}7&2&0\\3&5&-1\\0&5&-6\end{pmatrix}\qquad
+C=\begin{pmatrix}2&-1&0\\-1&4&2\\0&2&2\end{pmatrix}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a) Simétrica** (los elementos espejados respecto de la diagonal coinciden): $A$ sí ($1$ y $1$). $B$ no ($2\ne3$). $C$ sí ($-1$ y $-1$, $0$ y $0$, $2$ y $2$).
+
+**b) Singular** (determinante igual a cero):
+
+$$
+\det(A)=(-2)(-3)-1\cdot1=5\ne0
+$$
+
+$$
+\det(B)=7\,(5\cdot(-6)-(-1)\cdot5)-2\,(3\cdot(-6)-(-1)\cdot0)+0=7\cdot(-25)-2\cdot(-18)=-139\ne0
+$$
+
+$$
+\det(C)=2\,(4\cdot2-2\cdot2)-(-1)\,((-1)\cdot2-2\cdot0)+0=2\cdot4-2=6\ne0
+$$
+
+Ninguna es singular.
+
+**c) Diagonal dominante:**
+
+- $A$: $2>1$ y $3>1$. **Estricta.**
+- $B$: $7>2+0$, $5>3+1=4$, $6>0+5=5$. **Estricta.**
+- $C$: $2>1+0$, $4>1+2=3$, $2=0+2$. Diagonal dominante **no estricta** (la última fila da igual).
+
+Coincide con el OneNote y con las respuestas de la guía.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>3.B (guía, ej. 2)</strong> — Dadas A = (2 −1; −1 2) y B = (2 1 0; 1 2 0; 0 0 −5), calcular los autovalores y el radio espectral de cada una.</summary>
+
+$$
+A=\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\qquad
+B=\begin{pmatrix}2&1&0\\1&2&0\\0&0&-5\end{pmatrix}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Matriz $A$:**
+
+$$
+\begin{vmatrix}2-\lambda&-1\\-1&2-\lambda\end{vmatrix}=(2-\lambda)^2-1=\lambda^2-4\lambda+3=0
+$$
+
+$$
+\lambda_{1,2}=\frac{4\pm\sqrt{16-4\cdot1\cdot3}}{2}=\frac{4\pm2}{2}\ \Rightarrow\ \lambda_1=3,\ \lambda_2=1
+$$
+
+$\rho(A)=3$.
+
+**Matriz $B$:** desarrollo por la tercera fila (o columna), que tiene dos ceros.
+
+$$
+\begin{vmatrix}2-\lambda&1&0\\1&2-\lambda&0\\0&0&-5-\lambda\end{vmatrix}=(-5-\lambda)\big[(2-\lambda)^2-1\big]=0
+$$
+
+Del primer factor $\lambda_1=-5$; del corchete (el mismo de recién) $\lambda_2=3$ y $\lambda_3=1$.
+
+$\rho(B)=\lvert-5\rvert=5$. Ojo: el radio espectral es $5$, no $-5$ ni $3$.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>3.C (guía, ej. 3)</strong> — Dada A = (5 −5 −7; −4 2 −4; 7 −4 5), hallar la norma 1 y la norma infinito.</summary>
+
+$$
+A=\begin{pmatrix}5&-5&-7\\-4&2&-4\\7&-4&5\end{pmatrix}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Norma infinito (por filas, "acostada"):** $5+5+7=17$; $4+2+4=10$; $7+4+5=16$. La mayor:
+
+$$
+\lVert A\rVert_\infty=17
+$$
+
+**Norma 1 (por columnas, "paradita"):** $5+4+7=16$; $5+2+4=11$; $7+4+5=16$. La mayor:
+
+$$
+\lVert A\rVert_1=16
+$$
+
+</details>
+
+</details>
+
+---
+
+## 4. Jacobi: despejar y reemplazar
+
+### 4.1 Receta
+
+1. **Despejá** la incógnita 1 de la ecuación 1, la incógnita 2 de la ecuación 2, y así. (Pasás restando todo lo demás y dividís por el coeficiente de la diagonal.)
+2. Elegí el vector inicial $X^{(0)}$. Si el enunciado no dice nada, el **vector nulo**.
+3. Reemplazá **todas** las incógnitas del lado derecho por los valores de $X^{(k-1)}$. Lo que da es $X^{(k)}$.
+4. Repetí el paso 3 hasta cumplir el criterio de parada (§5) o la cantidad de iteraciones pedida.
+
+La clave de Jacobi: para calcular **todas** las componentes del vector nuevo se usa **solo** el vector viejo.
+
+### 4.2 De los despejes salen $T_J$ y $C_J$
+
+Los despejes, escritos en forma matricial, son $X=T\,X+C$:
+
+- $T_J$ = los **coeficientes** que quedaron del lado derecho, ordenados por incógnita. **Siempre tiene ceros en la diagonal** (porque la incógnita que despejaste no queda del lado derecho).
+- $C_J$ = los **términos independientes** que quedaron del lado derecho.
+
+### Ejemplo guiado 1: el sistema $4\times4$ de la clase, por Jacobi
+
+$$
+\begin{cases}
+10x_1-x_2+2x_3=6\\
+-x_1+11x_2-x_3+3x_4=25\\
+2x_1-x_2+10x_3-x_4=-11\\
+3x_2-x_3+8x_4=15
+\end{cases}
+$$
+
+**Paso 1 — despejar.** De la primera: $10x_1=x_2-2x_3+6$, y paso el 10 dividiendo. Igual con las demás:
+
+$$
+\begin{cases}
+x_1=\dfrac{1}{10}x_2-\dfrac{1}{5}x_3+\dfrac{3}{5}\\[2mm]
+x_2=\dfrac{1}{11}x_1+\dfrac{1}{11}x_3-\dfrac{3}{11}x_4+\dfrac{25}{11}\\[2mm]
+x_3=-\dfrac{1}{5}x_1+\dfrac{1}{10}x_2+\dfrac{1}{10}x_4-\dfrac{11}{10}\\[2mm]
+x_4=-\dfrac{3}{8}x_2+\dfrac{1}{8}x_3+\dfrac{15}{8}
+\end{cases}
+$$
+
+**Paso 2 — leer $T_J$ y $C_J$:**
+
+$$
+T_J=\begin{pmatrix}0&\frac{1}{10}&-\frac15&0\\[1mm]\frac{1}{11}&0&\frac{1}{11}&-\frac{3}{11}\\[1mm]-\frac15&\frac{1}{10}&0&\frac{1}{10}\\[1mm]0&-\frac38&\frac18&0\end{pmatrix}
+\qquad
+C_J=\begin{pmatrix}\frac35\\[1mm]\frac{25}{11}\\[1mm]-\frac{11}{10}\\[1mm]\frac{15}{8}\end{pmatrix}
+$$
+
+**Paso 3 — primera iteración desde $X^{(0)}=(0;0;0;0)$.** Todo lo que multiplica a una incógnita se anula y queda solo el término independiente:
+
+$$
+X^{(1)}=\left(\tfrac35;\ \tfrac{25}{11};\ -\tfrac{11}{10};\ \tfrac{15}{8}\right)=(0{,}6;\ 2{,}2727;\ -1{,}1;\ 1{,}875)
+$$
+
+Partiendo del vector nulo, **la primera iteración de Jacobi siempre es $C_J$**.
+
+**Paso 4 — segunda iteración.** Reemplazo en los cuatro despejes los valores de $X^{(1)}$:
+
+$$
+x_1=\tfrac{1}{10}(2{,}2727)-\tfrac15(-1{,}1)+0{,}6=0{,}2273+0{,}22+0{,}6=1{,}0473
+$$
+
+$$
+x_2=\tfrac{1}{11}(0{,}6)+\tfrac{1}{11}(-1{,}1)-\tfrac{3}{11}(1{,}875)+\tfrac{25}{11}=\frac{0{,}6-1{,}1-5{,}625+25}{11}=1{,}7159
+$$
+
+$$
+x_3=-\tfrac15(0{,}6)+\tfrac{1}{10}(2{,}2727)+\tfrac{1}{10}(1{,}875)-1{,}1=-0{,}12+0{,}2273+0{,}1875-1{,}1=-0{,}8052
+$$
+
+$$
+x_4=-\tfrac38(2{,}2727)+\tfrac18(-1{,}1)+1{,}875=-0{,}8523-0{,}1375+1{,}875=0{,}8852
+$$
+
+**Tabla completa** (la última columna es la distancia al vector anterior, §5):
+
+| $k$ | $x_1$ | $x_2$ | $x_3$ | $x_4$ | $\lVert X^{(k)}-X^{(k-1)}\rVert_\infty$ |
+|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 | — |
+| 1 | 0,6000 | 2,2727 | −1,1000 | 1,8750 | 2,2727 |
+| 2 | 1,0473 | 1,7159 | −0,8052 | 0,8852 | 0,9898 |
+| 3 | 0,9326 | 2,0533 | −1,0493 | 1,1309 | 0,3374 |
+| 4 | 1,0152 | 1,9537 | −0,9681 | 0,9738 | 0,1570 |
+| 5 | 0,9890 | 2,0114 | −1,0103 | 1,0214 | 0,0577 |
+| 6 | 1,0032 | 1,9922 | −0,9945 | 0,9944 | 0,0269 |
+| 7 | 0,9981 | 2,0023 | −1,0020 | 1,0036 | 0,0101 |
+| 8 | 1,0006 | 1,9987 | −0,9990 | 0,9989 | 0,0047 |
+| 9 | 0,9997 | 2,0004 | −1,0004 | 1,0006 | 0,0018 |
+| 10 | 1,0001 | 1,9998 | −0,9998 | 0,9998 | 0,0008 |
+
+Tiende a $(1;\ 2;\ -1;\ 1)$, que es la solución exacta. El PDF de clase muestra solo $X^{(1)}$, $X^{(9)}$ y $X^{(10)}$; coinciden.
+
+> **En clase:** "por cómo están hechos estos despejes, [la diagonal principal de $T$] siempre va a ser cero" (teórica [35:01]).
+>
+> **En clase:** "en general siempre arrancamos del vector nulo", porque acá no hay un gráfico que te diga por dónde anda la solución, como pasaba en raíces (teórica [37:05]–[37:36]). Y "la primera iteración siempre va a ser igual, cuando parto del vector nulo al menos, a la matriz de términos independientes" [de los despejes, o sea $C$] (teórica [39:08]). El PDF de clase agrega que el vector inicial "comúnmente es el vector nulo, o aún mejor el vector C".
+>
+> **En clase:** se puede hacer multiplicando matrices ($T$ por el vector, más $C$), "pero lo más fácil es resolverlo a partir de" los despejes (teórica [38:07]).
+>
+> **En clase:** si en alguna ecuación el coeficiente de la diagonal es $0$ no se puede dividir: "lo que tengo que hacer es empezar a permutar filas o columnas hasta que pueda salvar ese problema" (teórica [48:41]).
+
+### 4.3 La fórmula del ayudamemoria: $T_J=D^{-1}(L+U)$
+
+La fórmula matricial existe para programarlo (Excel, MATLAB), donde no podés decir "despejá". Se escribe $A=D-L-U$:
+
+- $D$ = la diagonal de $A$ (el resto ceros).
+- $L$ = lo que está **debajo** de la diagonal, **con los signos cambiados**.
+- $U$ = lo que está **arriba** de la diagonal, **con los signos cambiados**.
+
+Ejemplo del profesor:
+
+$$
+\begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}
+=\underbrace{\begin{pmatrix}1&0&0\\0&5&0\\0&0&9\end{pmatrix}}_{D}
+-\underbrace{\begin{pmatrix}0&0&0\\-4&0&0\\-7&-8&0\end{pmatrix}}_{L}
+-\underbrace{\begin{pmatrix}0&-2&-3\\0&0&-6\\0&0&0\end{pmatrix}}_{U}
+$$
+
+Entonces $AX=B$ es $(D-L-U)X=B$, o sea $DX=(L+U)X+B$, y multiplicando por $D^{-1}$:
+
+$$
+X=\underbrace{D^{-1}(L+U)}_{T_J}\,X+\underbrace{D^{-1}B}_{C_J}
+$$
+
+**En criollo:** $D^{-1}(L+U)$ quiere decir "a cada fila de $A$ sacale el elemento de la diagonal, **cambiale el signo** a los demás y **dividila por el elemento de la diagonal**". Es exactamente lo que hace el despeje. Si usás la fórmula y te olvidás de que $L$ y $U$ ya traen el signo cambiado, te quedan todos los signos de $T_J$ al revés.
+
+> **En clase:** la descomposición "muy por arriba porque no me parece demasiado importante" (teórica [50:15]); sirve cuando "estás en un software que trabaja de forma matricial y no le podés decir, che, despejá" (teórica [54:41]–[55:11]). "Igual van a llegar al mismo resultado que vimos antes de despejar."
+
+## 5. Cuándo parar: la distancia entre dos iteraciones
+
+Se mide qué tan lejos quedó el vector nuevo del anterior, con la **norma infinito vectorial**:
+
+$$
+\text{error absoluto: }\ \lVert X^{(k)}-X^{(k-1)}\rVert_\infty<\varepsilon
+\qquad\qquad
+\text{error relativo: }\ \frac{\lVert X^{(k)}-X^{(k-1)}\rVert_\infty}{\lVert X^{(k)}\rVert_\infty}<\varepsilon
+$$
+
+**Receta:** restás componente a componente **con sus signos**, después tomás el módulo de cada resta, y te quedás con la más grande. Es la última columna de las tablas de esta guía.
+
+**Ejemplo (PDF de clase), entre $X^{(10)}$ y $X^{(9)}$ del Ejemplo guiado 1:**
+
+$$
+X^{(10)}-X^{(9)}=(1{,}0001-0{,}9997;\ 1{,}9998-2{,}0004;\ -0{,}9998-(-1{,}0004);\ 0{,}9998-1{,}0006)=(0{,}0004;\ -0{,}0006;\ 0{,}0006;\ -0{,}0008)
+$$
+
+$$
+\lVert X^{(10)}-X^{(9)}\rVert_\infty=8\cdot10^{-4}
+\qquad
+\frac{8\cdot10^{-4}}{\lVert X^{(10)}\rVert_\infty}=\frac{8\cdot10^{-4}}{1{,}9998}=4\cdot10^{-4}
+$$
+
+(El PDF de clase escribe ese cociente como "$=10^{-3}$"; la cuenta da $4\cdot10^{-4}$, que es menor que $10^{-3}$.)
+
+El criterio es **el mismo para Jacobi y para Gauss-Seidel**.
+
+> **En clase:** con el cociente "es un error relativo; si es solo la norma de la resta sin el denominador será el error absoluto […] depende qué se les pide" (teórica [45:33]).
+>
+> **En clase:** "cuando hacen la resta es la resta de los números como están": con dos negativos es $-0{,}99\ldots-(-1{,}00\ldots)$, "y a ese resultado después lo miro con módulo, pero los números de adentro de la norma no los toquemos" (teórica [47:07]–[47:38]).
+>
+> **En clase:** a la pregunta del chat sobre el criterio de Gauss-Seidel: "siempre se usa alguna norma con la resta de iteraciones sucesivas, tanto para Jacobi como para Gauss-Seidel, eso es exactamente igual" (teórica [1:03:35]).
+
+### Tu turno 4–5 (Jacobi)
+
+<details>
+<summary><strong>4.A (guía, ej. 5; resuelto en el OneNote)</strong> — Aplicar Jacobi al sistema 7x − y + 4z = 8; 3x − 8y + 2z = −4; 4x + y − 6z = 3, con tres decimales redondeados, desde (0; 0; 0), iterando hasta que la norma infinito de la diferencia entre dos iteraciones sea menor que 0,03. Escribir también T de Jacobi.</summary>
+
+$$
+\begin{cases}
+7x-y+4z=8\\
+3x-8y+2z=-4\\
+4x+y-6z=3
+\end{cases}
+\qquad
+\lVert X^{(r+1)}-X^{(r)}\rVert_\infty<0{,}03
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — despejar** (cuidado con los signos al dividir por $-8$ y por $-6$):
+
+$$
+\begin{cases}
+x=\dfrac{y}{7}-\dfrac{4z}{7}+\dfrac{8}{7}\\[2mm]
+y=\dfrac{3}{8}x+\dfrac{1}{4}z+\dfrac{1}{2}\\[2mm]
+z=\dfrac{2}{3}x+\dfrac{1}{6}y-\dfrac{1}{2}
+\end{cases}
+$$
+
+**Paso 2 — $T_J$ y $C_J$:**
+
+$$
+T_J=\begin{pmatrix}0&\frac17&-\frac47\\[1mm]\frac38&0&\frac14\\[1mm]\frac23&\frac16&0\end{pmatrix}
+\qquad
+C_J=\begin{pmatrix}\frac87\\[1mm]\frac12\\[1mm]-\frac12\end{pmatrix}
+$$
+
+**Paso 3 — iterar.** $X^{(1)}=C_J=\left(\frac87;\frac12;-\frac12\right)$. Para $X^{(2)}$:
+
+$$
+x=\frac{0{,}5}{7}-\frac{4(-0{,}5)}{7}+\frac87=\frac{0{,}5+2+8}{7}=1{,}5
+\qquad
+y=\frac38(1{,}143)+\frac14(-0{,}5)+0{,}5=0{,}804
+\qquad
+z=\frac23(1{,}143)+\frac16(0{,}5)-0{,}5=0{,}345
+$$
+
+(El OneNote los deja en fracción: $X_2=\left(\frac32;\frac{45}{56};\frac{29}{84}\right)$, y sigue "en Excel".)
+
+| $k$ | $x$ | $y$ | $z$ | $\lVert X^{(k)}-X^{(k-1)}\rVert_\infty$ |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | — |
+| 1 | 1,143 | 0,500 | −0,500 | 1,143 |
+| 2 | 1,500 | 0,804 | 0,345 | 0,845 |
+| 3 | 1,061 | 1,149 | 0,634 | 0,439 |
+| 4 | 0,945 | 1,056 | 0,399 | 0,235 |
+| 5 | 1,066 | 0,954 | 0,306 | 0,121 |
+| 6 | 1,104 | 0,976 | 0,370 | 0,064 |
+| 7 | 1,071 | 1,006 | 0,399 | 0,033 |
+| 8 | 1,059 | 1,001 | 0,382 | 0,017 |
+
+En la iteración 7 la diferencia es $0{,}033>0{,}03$: sigo. En la 8 es $0{,}017<0{,}03$: paro.
+
+**Respuesta:** $X\approx(1{,}059;\ 1{,}001;\ 0{,}382)$ en 8 iteraciones. Coincide con la tabla de respuestas de la guía (que llega hasta la fila 8). La solución exacta es $\left(\frac{233}{218};\frac{217}{218};\frac{165}{436}\right)=(1{,}0688;\ 0{,}9954;\ 0{,}3784)$.
+
+**Para corregirte:** el error de diferencia ($0{,}017$) no es el error real contra la solución exacta ($\approx0{,}01$): es solo el criterio para cortar.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>4.B (guía, ej. 8 b)</strong> — Sistema AX = B con A = (2 1; 3 6) y B = (8; 21). Resolver por Jacobi partiendo de X⁰ = (1; 4) y haciendo seis iteraciones. La solución exacta es (3; 2).</summary>
+
+$$
+\begin{cases}2x+y=8\\3x+6y=21\end{cases}
+\qquad X^{(0)}=(1;\ 4)
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Despejes:**
+
+$$
+x=4-\frac{y}{2}\qquad y=\frac{7}{2}-\frac{x}{2}
+$$
+
+**Iteraciones** (siempre con los dos valores de la fila anterior):
+
+$$
+X^{(1)}:\ x=4-\tfrac42=2,\quad y=3{,}5-\tfrac12=3
+$$
+
+| $k$ | $x$ | $y$ |
+|---|---|---|
+| 0 | 1 | 4 |
+| 1 | 2 | 3 |
+| 2 | 2,5 | 2,5 |
+| 3 | 2,75 | 2,25 |
+| 4 | 2,875 | 2,125 |
+| 5 | 2,9375 | 2,0625 |
+| 6 | 2,96875 | 2,03125 |
+
+Coincide con las respuestas de la guía. Cada iteración achica el error a la mitad: $\rho(T_J)=0{,}5$ (dato extra). Guardá esta tabla: en el Tu turno 6.C la comparás con Gauss-Seidel.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>4.C (teórico de cátedra, pág. 77, con solución en el apéndice)</strong> — Resolver por Jacobi el sistema 5x − y + 3z = 3; x + 6y − 4z = 7; x − 2y + 4z = −1 partiendo de X⁰ = (1; 1; 1). Hacer tres iteraciones y escribir las matrices T y C de Jacobi.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Despejes** (así los escribe el apéndice del teórico):
+
+$$
+x=\frac{3+y-3z}{5}\qquad y=\frac{7-x+4z}{6}\qquad z=\frac{-1-x+2y}{4}
+$$
+
+**Primera iteración**, con $x_0=y_0=z_0=1$:
+
+$$
+x_1=\frac{3+1-3\cdot1}{5}=0{,}2\qquad y_1=\frac{7-1+4\cdot1}{6}=1{,}6667\qquad z_1=\frac{-1-1+2\cdot1}{4}=0
+$$
+
+Fijate que para $y_1$ y $z_1$ se usó $x_0=1$, **no** el $x_1=0{,}2$ recién calculado: eso es Jacobi.
+
+| $i$ | $x_i$ | $y_i$ | $z_i$ |
+|---|---|---|---|
+| 0 | 1 | 1 | 1 |
+| 1 | 0,2 | 1,6667 | 0 |
+| 2 | 0,9333 | 1,1333 | 0,5333 |
+| 3 | 0,5067 | 1,3667 | 0,0833 |
+
+Coincide con la tabla del apéndice del teórico.
+
+**Matrices:**
+
+$$
+T_J=\begin{pmatrix}0&\frac15&-\frac35\\[1mm]-\frac16&0&\frac23\\[1mm]-\frac14&\frac12&0\end{pmatrix}
+\qquad
+C_J=\begin{pmatrix}\frac35\\[1mm]\frac76\\[1mm]-\frac14\end{pmatrix}
+$$
+
+Dato extra: la solución exacta es $(0{,}75;\ 1{,}125;\ 0{,}125)$; converge despacio ($\rho(T_J)=0{,}689$).
+
+</details>
+
+</details>
+
+---
+
+## 6. Gauss-Seidel: lo mismo, pero usando lo nuevo apenas lo tenés
+
+### 6.1 La idea y la receta
+
+Los despejes son **los mismos** que en Jacobi. Lo único que cambia es **con qué valores reemplazás**: si ya calculaste el $x_1$ nuevo, ¿para qué seguir usando el viejo? Gauss-Seidel usa cada valor nuevo en cuanto lo tiene, **dentro de la misma iteración**.
+
+1. Despejá igual que en Jacobi.
+2. Calculá $x_1$ nuevo con los valores viejos de las demás.
+3. Calculá $x_2$ nuevo con el **$x_1$ nuevo** y los viejos de las que siguen.
+4. Calculá $x_3$ nuevo con **$x_1$ y $x_2$ nuevos** y los viejos de las que siguen. Y así.
+
+**Truco para no confundirte (agregado mío):** escribí el vector en lápiz y andá **pisando** cada componente cuando la calculás. Lo que esté escrito en ese momento es lo que se usa.
+
+### Ejemplo guiado 2: el mismo sistema $4\times4$, por Gauss-Seidel
+
+Mismos despejes que en el Ejemplo guiado 1, desde $X^{(0)}=(0;0;0;0)$.
+
+**$x_1$** — con $(0;0;0;0)$:
+
+$$
+x_1=\tfrac{1}{10}(0)-\tfrac15(0)+\tfrac35=0{,}6
+$$
+
+**$x_2$** — con $(\mathbf{0{,}6};0;0;0)$:
+
+$$
+x_2=\tfrac{1}{11}(0{,}6)+\tfrac{1}{11}(0)-\tfrac{3}{11}(0)+\tfrac{25}{11}=\frac{25{,}6}{11}=2{,}3273
+$$
+
+**$x_3$** — con $(\mathbf{0{,}6};\mathbf{2{,}3273};0;0)$:
+
+$$
+x_3=-\tfrac15(0{,}6)+\tfrac{1}{10}(2{,}3273)+\tfrac{1}{10}(0)-\tfrac{11}{10}=-0{,}12+0{,}2327-1{,}1=-0{,}9873
+$$
+
+**$x_4$** — con $(\mathbf{0{,}6};\mathbf{2{,}3273};\mathbf{-0{,}9873};0)$:
+
+$$
+x_4=-\tfrac38(2{,}3273)+\tfrac18(-0{,}9873)+\tfrac{15}{8}=-0{,}8727-0{,}1234+1{,}875=0{,}8789
+$$
+
+| $k$ | $x_1$ | $x_2$ | $x_3$ | $x_4$ | $\lVert X^{(k)}-X^{(k-1)}\rVert_\infty$ |
+|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 | — |
+| 1 | 0,6000 | 2,3273 | −0,9873 | 0,8789 | 2,3273 |
+| 2 | 1,0302 | 2,0369 | −1,0145 | 0,9843 | 0,4302 |
+| 3 | 1,0066 | 2,0036 | −1,0025 | 0,9984 | 0,0334 |
+| 4 | 1,0009 | 2,0003 | −1,0003 | 0,9998 | 0,0057 |
+| 5 | 1,0001 | 2,0000 | −1,0000 | 1,0000 | 0,0008 |
+
+En **5** iteraciones llega a la precisión que Jacobi consiguió en **10**.
+
+*(Erratas del PDF de clase y del teórico: imprimen $x^{(1)}=(0{,}6;\ 2{,}3272;\ -0{,}9873;\ -0{,}8789)$. El segundo valor es $2{,}3273$ redondeado y el cuarto es **positivo**, $0{,}8789$; con signo negativo no tendería a $1$.)*
+
+![Distancia a la solución exacta en cada iteración: Gauss-Seidel baja el doble de rápido que Jacobi](../img/04-fig1-jacobi-vs-gauss-seidel.png)
+
+### 6.2 "El doble de rápido" (pregunta teórica de examen)
+
+Gauss-Seidel llega a la misma precisión que Jacobi en **la mitad de iteraciones**. Es la respuesta que hay que escribir si te preguntan cuál conviene o qué diferencia hay.
+
+> **En clase:** "esa diferencia hace que Gauss-Seidel sea el doble de rápido que Jacobi, esa [es] pregunta teórica de examen: básicamente en la mitad de iteraciones llega a la misma precisión que Jacobi" (teórica [59:25]–[59:57]).
+>
+> **En clase:** la diferencia en una frase: "ir reutilizando las aproximaciones que yo voy encontrando dentro de la misma iteración, […] no en la iteración completa anterior" (teórica [59:25]).
+
+### 6.3 La matriz $T_{GS}$ (no te la van a pedir a mano)
+
+Los despejes dan la $T$ de **Jacobi**, no la de Gauss-Seidel. La de Gauss-Seidel es otra matriz (si fuera la misma, los dos métodos darían lo mismo) y sale de la fórmula del ayudamemoria, con las mismas $D$, $L$, $U$ de §4.3:
+
+$$
+T_{GS}=(D-L)^{-1}U\qquad C_{GS}=(D-L)^{-1}B
+$$
+
+Hay que invertir una matriz triangular: a mano es largo. Dos cosas para saber:
+
+- $T_J$ tiene ceros en la **diagonal**; $T_{GS}$ tiene ceros en la **primera columna**.
+- Para iterar a mano **no hace falta** $T_{GS}$: se itera con los despejes, como en el Ejemplo guiado 2.
+
+Para el ej. 5 de la guía (Tu turno 4.A), la guía da como respuesta:
+
+$$
+T_{GS}=(D-L)^{-1}U=\begin{pmatrix}0&\frac17&-\frac47\\[1mm]0&\frac{3}{56}&\frac{1}{28}\\[1mm]0&\frac{35}{336}&-\frac38\end{pmatrix}
+$$
+
+(verificado; $\frac{35}{336}=\frac{5}{48}$).
+
+> **En clase:** "la T de Gauss-Seidel no es fácil y la verdad que nadie les va a pedir una T de Gauss-Seidel; a lo sumo podría haber un ejercicio que le diga, che, considere que la T de Gauss-Seidel es tanto […] la de Jacobi sí, porque es fácil" (teórica [1:08:49]–[1:09:20]).
+>
+> **En clase:** "así como la matriz T de Jacobi tenía ceros en la diagonal principal, la matriz T de Gauss-Seidel tiene ceros en la primera columna" (teórica [1:04:36]).
+
+### Tu turno 6
+
+<details>
+<summary><strong>6.A (2do recuperatorio 2025, ítem b)</strong> — Dado AX = B con A = (4 7 1; −5 −1 2; −1 2 9) y B = (6; 4; −3): reordenando si es necesario, realizar una iteración de Gauss-Seidel comenzando con x₀ = (1; 0; 1).</summary>
+
+$$
+A=\begin{pmatrix}4&7&1\\-5&-1&2\\-1&2&9\end{pmatrix}\qquad B=\begin{pmatrix}6\\4\\-3\end{pmatrix}\qquad X_0=(1;\ 0;\ 1)
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — ¿hay que reordenar?** Miro la diagonal dominante de $A$ tal como viene:
+
+- Fila 1: $\lvert4\rvert=4<7+1=8$. No cumple.
+- Fila 2: $\lvert-1\rvert=1<5+2=7$. No cumple.
+- Fila 3: $\lvert9\rvert=9>1+2=3$. Cumple.
+
+Así como está no puedo asegurar que converja. Busco, en cada fila, dónde está el número "gordo": en la fila $(4;7;1)$ el gordo es el $7$ (segunda columna) y en la fila $(-5;-1;2)$ es el $-5$ (primera columna). **Intercambio las dos primeras filas** (ecuaciones enteras, con su término independiente):
+
+$$
+\begin{cases}
+-5x-y+2z=4\\
+4x+7y+z=6\\
+-x+2y+9z=-3
+\end{cases}
+\qquad
+\begin{array}{l}
+5>1+2=3\\
+7>4+1=5\\
+9>1+2=3
+\end{array}
+$$
+
+Ahora es **estrictamente diagonal dominante** ⇒ Gauss-Seidel converge (§7).
+
+**Paso 2 — despejar:**
+
+$$
+\begin{cases}
+x=-\dfrac15y+\dfrac25z-\dfrac45\\[2mm]
+y=-\dfrac47x-\dfrac17z+\dfrac67\\[2mm]
+z=\dfrac19x-\dfrac29y-\dfrac13
+\end{cases}
+$$
+
+**Paso 3 — una iteración desde $(1;0;1)$**, pisando valores:
+
+$x$ — con $(1;\ 0;\ 1)$:
+
+$$
+x=-\tfrac15(0)+\tfrac25(1)-\tfrac45=-0{,}4
+$$
+
+$y$ — con $(\mathbf{-0{,}4};\ 0;\ 1)$:
+
+$$
+y=-\tfrac47(-0{,}4)-\tfrac17(1)+\tfrac67=\frac{1{,}6-1+6}{7}=\frac{6{,}6}{7}=0{,}94286
+$$
+
+$z$ — con $(\mathbf{-0{,}4};\ \mathbf{0{,}94286};\ 1)$:
+
+$$
+z=\tfrac19(-0{,}4)-\tfrac29(0{,}94286)-\tfrac13=-0{,}04444-0{,}20952-0{,}33333=-0{,}58730
+$$
+
+**Respuesta (coincide con la oficial):** $X_1=(-0{,}4;\ 0{,}94286;\ -0{,}5873)$.
+
+**Para corregirte:** si te dio $y=0{,}14286$ y $z=-0{,}22222$, hiciste **Jacobi** (usaste $x=1$ e $y=0$ viejos). Y si no reordenaste, el método diverge: $X_1=(1{,}25;\ -8{,}25;\ 1{,}64)$ y cada vez peor (dato extra: $\rho(T_{GS})=7{,}95$ sin reordenar contra $0{,}254$ reordenado; la solución exacta es $(-1{,}542;\ 1{,}870;\ -0{,}920)$).
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>6.B (guía, ej. 6; arranque en el OneNote)</strong> — Resolver por Gauss-Seidel el sistema del ej. 5 (7x − y + 4z = 8; 3x − 8y + 2z = −4; 4x + y − 6z = 3) desde (0; 0; 0), con tres decimales, hasta que la norma infinito de la diferencia sea menor que 0,03.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Despejes** (los mismos del Tu turno 4.A):
+
+$$
+x=\frac{y}{7}-\frac{4z}{7}+\frac{8}{7}\qquad y=\frac38x+\frac14z+\frac12\qquad z=\frac23x+\frac16y-\frac12
+$$
+
+**Primera iteración:**
+
+$x$ — con $(0;0;0)$: $x=\frac87=1{,}143$.
+
+$y$ — "para $y$, usar $(\frac87;0;0)$" (OneNote):
+
+$$
+y=\frac38\cdot\frac87+0+\frac12=\frac37+\frac12=\frac{13}{14}=0{,}929
+$$
+
+$z$ — "para $z$, usar $(\frac87;\frac{13}{14};0)$" (OneNote):
+
+$$
+z=\frac23\cdot\frac87+\frac16\cdot\frac{13}{14}-\frac12=\frac{16}{21}+\frac{13}{84}-\frac12=\frac{64+13-42}{84}=\frac{35}{84}=\frac{5}{12}=0{,}417
+$$
+
+$X_1=\left(\frac87;\frac{13}{14};\frac{5}{12}\right)$, igual que el OneNote.
+
+| $k$ | $x$ | $y$ | $z$ | $\lVert X^{(k)}-X^{(k-1)}\rVert_\infty$ |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | — |
+| 1 | 1,143 | 0,929 | 0,417 | 1,143 |
+| 2 | 1,037 | 0,993 | 0,357 | 0,106 |
+| 3 | 1,081 | 0,995 | 0,386 | 0,044 |
+| 4 | 1,064 | 0,996 | 0,375 | 0,017 |
+
+**Respuesta:** $X\approx(1{,}064;\ 0{,}996;\ 0{,}375)$ en **4** iteraciones (Jacobi necesitó **8** con el mismo criterio: la mitad, como dice la teoría). Coincide con la tabla de la guía.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>6.C (guía, ej. 8 c y d)</strong> — Con A = (2 1; 3 6), B = (8; 21) y X⁰ = (1; 4), hacer seis iteraciones de Gauss-Seidel y comparar la velocidad de convergencia con Jacobi (Tu turno 4.B), sabiendo que la solución exacta es (3; 2).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Despejes:** $x=4-\dfrac{y}{2}$, $\ y=\dfrac72-\dfrac{x}{2}$.
+
+**Primera iteración:** $x=4-\frac42=2$; y con ese $x$ nuevo, $y=3{,}5-\frac22=2{,}5$.
+
+| $k$ | $x$ | $y$ |
+|---|---|---|
+| 0 | 1 | 4 |
+| 1 | 2 | 2,5 |
+| 2 | 2,75 | 2,125 |
+| 3 | 2,9375 | 2,03125 |
+| 4 | 2,984375 | 2,0078125 |
+| 5 | 2,99609375 | 2,001953125 |
+| 6 | 2,999023438 | 2,000488281 |
+
+**d) Comparación:** Gauss-Seidel en la iteración 3 ya tiene $(2{,}9375;\ 2{,}03125)$, lo que a Jacobi le llevó hasta la iteración 5–6. Como anota el profesor en el OneNote: "G-S converge más rápido que Jacobi. Se calcula que es aproximadamente el doble de rápido. Ejemplo: Jacobi tardaría aproximadamente 8 iteraciones en lograr la misma precisión que G-S obtiene con solo 4".
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>6.D (guía, ej. 7 b y c)</strong> — Sistema 4x − y = 1; x + 3y = 2. Hacer cinco iteraciones de Gauss-Seidel con 4 decimales partiendo de (0; 0), y después partiendo de (9; 5). Comparar.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Despejes:** $x=\dfrac{1+y}{4}$, $\ y=\dfrac{2-x}{3}$.
+
+| $k$ | desde $(0;0)$ | desde $(9;5)$ |
+|---|---|---|
+| 1 | (0,2500; 0,5833) | (1,5000; 0,1667) |
+| 2 | (0,3958; 0,5347) | (0,2917; 0,5694) |
+| 3 | (0,3837; 0,5388) | (0,3924; 0,5359) |
+| 4 | (0,3847; 0,5384) | (0,3840; 0,5387) |
+| 5 | (0,3846; 0,5385) | (0,3847; 0,5384) |
+
+Primera fila de la segunda columna: $x=\frac{1+5}{4}=1{,}5$ y, con ese $x$, $y=\frac{2-1{,}5}{3}=0{,}1667$.
+
+**Comparación:** converge igual a $\left(\frac{5}{13};\frac{7}{13}\right)=(0{,}3846;\ 0{,}5385)$ aunque arranques lejísimos; "solamente una iteración más" (respuesta de la guía). Es lo que dice el teorema: si se cumple la condición, converge **para cualquier $X_0$**.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>6.E (teórico de cátedra, pág. 80)</strong> — Sistema 7x − 2y + 4z = 1; x + 5y − 3z = 8; 2x − 2y + 6z = 2. Hallar la solución por Gauss-Seidel partiendo de X₀ = (0; 2; 1), con error menor que 0,01 tomando norma infinito vectorial.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Chequeo previo:** $7>2+4=6$; $5>1+3=4$; $6>2+2=4$. Estrictamente diagonal dominante: converge.
+
+**Despejes:**
+
+$$
+x=\frac{1+2y-4z}{7}\qquad y=\frac{8-x+3z}{5}\qquad z=\frac{2-2x+2y}{6}
+$$
+
+**Primera iteración** desde $(0;2;1)$:
+
+$$
+x=\frac{1+4-4}{7}=0{,}1429\qquad y=\frac{8-0{,}1429+3}{5}=2{,}1714\qquad z=\frac{2-0{,}2857+4{,}3429}{6}=1{,}0095
+$$
+
+| $k$ | $x$ | $y$ | $z$ | $\lVert X^{(k)}-X^{(k-1)}\rVert_\infty$ |
+|---|---|---|---|---|
+| 0 | 0 | 2 | 1 | — |
+| 1 | 0,1429 | 2,1714 | 1,0095 | 0,1714 |
+| 2 | 0,1864 | 2,1684 | 0,9940 | 0,0435 |
+| 3 | 0,1944 | 2,1575 | 0,9877 | 0,0109 |
+| 4 | 0,1949 | 2,1536 | 0,9863 | 0,0039 |
+
+En la iteración 3 la diferencia es $0{,}0109>0{,}01$ (por poco): sigo. En la 4 es $0{,}0039<0{,}01$: paro.
+
+**Respuesta:** $X\approx(0{,}1949;\ 2{,}1536;\ 0{,}9863)$. (Solución exacta, dato extra: $(0{,}1944;\ 2{,}1528;\ 0{,}9861)$. El teórico no trae la respuesta de este ejercicio.)
+
+</details>
+
+</details>
+
+---
+
+## 7. ¿Converge o no converge? (lo que más se toma)
+
+### 7.1 Los tres teoremas
+
+| | Qué se mira | Qué dice | Tipo de condición | Costo |
+|---|---|---|---|---|
+| **Teorema 1** | El **radio espectral** de la matriz $T$ del método | $\rho(T)<1$ ⟺ el método converge para cualquier $X^{(0)}$ | **Necesaria y suficiente** ("si y solo si") | Caro: autovalores de $T$ |
+| **Teorema 2** | Una **norma** de la matriz $T$ del método | $\lVert T\rVert<1$ ⇒ converge para cualquier $X^{(0)}$ | Solo **suficiente** | Medio: armar $T$ y sumar filas |
+| **Teorema 3** | La **matriz de coeficientes $A$** | $A$ diagonal dominante ⇒ Jacobi y Gauss-Seidel convergen para cualquier $X^{(0)}$ | Solo **suficiente** | Barato: mirar $A$ |
+
+Qué significa cada tipo de condición:
+
+- **Necesaria y suficiente** (Teorema 1): si $\rho(T)<1$ converge; si $\rho(T)\ge1$ **no** converge. Tiene la última palabra. Es la **única** que te deja afirmar "no converge".
+- **Suficiente, no necesaria** (Teoremas 2 y 3): si se cumple, converge seguro. Si **no** se cumple, **no podés decir nada**: puede converger igual. Hay que ir al Teorema 1.
+
+Dos detalles que distinguen un ítem completo de uno a medias:
+
+- El Teorema 1 y el 2 hablan de $T$, y **$T_J\ne T_{GS}$**: puede converger un método y el otro no. El Teorema 3 habla de $A$ y vale para **los dos** métodos a la vez.
+- En el Teorema 2 vale **cualquier** norma matricial: alcanza con que **una** (la infinito o la 1) dé menor que 1.
+
+> **En clase:** "acá tenemos una condición suficiente y necesaria, que creo que es la única que hay en toda la materia […] si se me cumple la condición los métodos van a converger y si no se me cumple no va a converger. Así de fácil" (teórica [1:05:07]–[1:05:38]). En raíces no pasaba: Newton-Raphson y punto fijo solo tenían condiciones suficientes (teórica [1:06:09]).
+>
+> **En clase:** "las matrices T de Jacobi y de Gauss-Seidel son distintas, por lo tanto les puede pasar […] que un método converja y que el otro no; en general […] si va a converger uno solo va a ser Gauss-Seidel, y Jacobi va a diverger" (teórica [1:06:42]–[1:07:14]).
+>
+> **En clase:** las condiciones 2 y 3 "son suficientes pero no necesarias, o sea si se cumplen converge el método; si no se cumplen capaz converge también. No son tan definitivas como la primera. Pero son más fáciles" (teórica [1:07:45]). Para la norma: "en general vamos a usar la infinito o la 1 porque son las dos más fáciles […] salvo que se aclare" (teórica [1:08:15]).
+>
+> **En clase:** "las condiciones dos y tres se cumplen juntas, si se cumple una se cumple la otra […] obviamente si se me cumplen la 2 y la 3 también se me cumple la 1; lo que digo es que capaz se me cumple la 1 y no se me cumple la 2 y la 3" (teórica [1:13:32]).
+
+**Por qué la 2 y la 3 "van juntas" (agregado mío):** la fila $i$ de $T_J$ es la fila $i$ de $A$ sin el elemento de la diagonal y dividida por él. Entonces la suma de módulos de esa fila de $T_J$ es $\dfrac{\sum_{j\ne i}\lvert a_{ij}\rvert}{\lvert a_{ii}\rvert}$, y que eso sea menor que 1 en todas las filas es **exactamente** decir que $A$ es estrictamente diagonal dominante. O sea: $\lVert T_J\rVert_\infty<1$ ⟺ $A$ estrictamente diagonal dominante. Por eso en el repaso (Tu turno 7.C) las dos verificaciones dan lo mismo.
+
+### 7.2 Receta para decidir
+
+1. **Mirá $A$.** ¿Es diagonal dominante? Escribí una desigualdad por fila. Si sí ⇒ "convergen Jacobi y Gauss-Seidel para cualquier $X_0$ (Teorema 3, condición suficiente)". Fin.
+2. Si no lo es, **probá reordenar las filas** (§7.3). Si reordenada queda diagonal dominante ⇒ convergen **con el sistema reordenado**.
+3. Si no se puede (o el enunciado dice "sin reordenar" o pregunta por un método en particular), **armá $T_J$** despejando y calculá $\lVert T_J\rVert_\infty$ (y si querés $\lVert T_J\rVert_1$). Si alguna da $<1$ ⇒ converge (Teorema 2).
+4. Si tampoco, **radio espectral**: $\lvert T_J-\lambda I\rvert=0$, autovalores, $\rho$. Si $\rho<1$ converge; si $\rho\ge1$ **no converge** (Teorema 1). Acá sí o sí hay respuesta.
+
+**¿Diagonal dominante con $\ge$ o con $>$?** Hay una diferencia entre las fuentes y conviene que la conozcas:
+
+- El PDF de clase aclara, debajo del Teorema 3: "debemos tomar la versión **estricta** de la condición", y da este sistema, diagonal dominante pero no estricta, en el que Jacobi y Gauss-Seidel **no** convergen:
+
+$$
+\begin{cases}x+y=3\\-x+y=1\end{cases}
+\qquad\text{solución exacta } (1;\ 2)
+$$
+
+- La resolución **oficial** del 1er recuperatorio 2025 plantea las tres condiciones con $\ge$ y da la respuesta con intervalos cerrados (Tu turno 7.B). Y en la teórica el profesor dice que "con el mayor o igual vamos a estar bien" [11:40].
+
+**Qué hacer en el examen:** planteá con $\ge$ como la resolución oficial y agregá una línea: "en sentido estricto (que es lo que garantiza el teorema), los extremos se excluyen". Con eso quedás cubierto por los dos lados.
+
+<details>
+<summary><strong>Verificación del contraejemplo del PDF de clase</strong> (queda "como tarea" en el PDF)</summary>
+
+Despejes: $x=3-y$, $\ y=1+x$.
+
+$$
+T_J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+\qquad
+\lvert T_J-\lambda I\rvert=\lambda^2+1=0\ \Rightarrow\ \lambda=\pm i,\quad \lvert\lambda\rvert=1
+$$
+
+$\rho(T_J)=1$, no es menor que 1 ⇒ Jacobi no converge. Desde $(0;0)$ da $(3;1)\to(2;4)\to(-1;3)\to(0;0)\to\dots$: gira en redondo para siempre.
+
+Gauss-Seidel desde $(0;0)$: $x=3$, $y=1+3=4$; después $x=3-4=-1$, $y=1-1=0$; después $x=3$, $y=4$… Salta entre $(3;4)$ y $(-1;0)$ para siempre. (Su matriz es $T_{GS}=\begin{pmatrix}0&-1\\0&-1\end{pmatrix}$, con autovalores $0$ y $-1$: $\rho=1$.)
+
+</details>
+
+### 7.3 Reordenar filas para conseguir diagonal dominante
+
+**La idea:** cambiar el orden de las ecuaciones no cambia la solución del sistema, pero **sí cambia** qué coeficiente queda en la diagonal, y por lo tanto cambia $T$.
+
+**Receta:**
+
+1. En cada ecuación buscá el coeficiente **más grande en módulo** y fijate en qué columna está (de qué incógnita es).
+2. Esa ecuación va en la fila de esa incógnita: si el más grande es el de $x$, va primera; si es el de $y$, segunda; si es el de $z$, tercera.
+3. Si dos ecuaciones "piden" la misma fila, no se puede conseguir diagonal dominante por filas.
+4. Movés la ecuación **entera**, con su término independiente.
+5. **Justificá** escribiendo las desigualdades de las tres filas de la matriz reordenada.
+
+**Ejemplo guiado 3 (el $2\times2$ que improvisa el profesor en la teórica):**
+
+$$
+\begin{pmatrix}1&4\\-3&2\end{pmatrix}\ \text{no es diagonal dominante: } 1<4 \text{ y } 2<3
+\qquad\xrightarrow{\ \text{intercambio filas}\ }\qquad
+\begin{pmatrix}-3&2\\1&4\end{pmatrix}:\ 3>2,\quad 4>1
+$$
+
+> **En clase:** "en el parcial que me tomaron a mí cuando yo cursé esta materia me daban un sistema que estaba desordenado; entonces te decía: acomode el sistema para que los métodos converjan. Básicamente eso era mover un par de filas —o pueden ser columnas, pero en general se hacen filas— para dejarlo de forma tal que sea diagonal dominante" (teórica [1:11:25]–[1:11:57]). "Lo único que tuve que hacer es reordenar, hacer un par de cambios de fila, y con eso ya te ganás un punto en el parcial" (teórica [1:12:28]).
+>
+> **En clase:** si $A$ no es diagonal dominante "no puedo asegurar que converjan los métodos iterativos; a lo sumo capaz podría empezar a permutar filas o columnas […] o podemos ir por la condición del radio espectral y ver si realmente va a converger o no" (teórica [1:09:52]–[1:10:23]).
+
+### 7.4 Hallar $k$ para que converja: tres inecuaciones con módulo
+
+Cuando la matriz tiene un parámetro, "que converja" se traduce a "que sea diagonal dominante" (Teorema 3), y eso es **una inecuación por fila**. La respuesta es la **intersección** de las tres (tienen que cumplirse todas a la vez).
+
+Herramienta de ingreso que hay que tener afilada:
+
+$$
+\lvert u\rvert\ge c\ \ (c>0)\quad\Longleftrightarrow\quad u\ge c\ \ \vee\ \ u\le-c
+$$
+
+**Ejemplo guiado 4 (guía ej. 4, matriz $A$; resuelto en el OneNote):**
+
+$$
+A=\begin{pmatrix}2k-3&4&1\\2&5&2\\2&4&10-k\end{pmatrix}
+$$
+
+**Paso 1 — una condición por fila:**
+
+$$
+\lvert 2k-3\rvert\ge4+1=5\qquad\wedge\qquad\lvert5\rvert\ge2+2=4\ \checkmark\qquad\wedge\qquad\lvert10-k\rvert\ge2+4=6
+$$
+
+La segunda no tiene $k$ y se cumple siempre.
+
+**Paso 2 — primera fila:**
+
+$$
+2k-3\ge5\ \vee\ 2k-3\le-5\quad\Rightarrow\quad k\ge4\ \vee\ k\le-1
+$$
+
+**Paso 3 — tercera fila** (ojo: al pasar el $-k$ se da vuelta la desigualdad):
+
+$$
+10-k\ge6\ \vee\ 10-k\le-6\quad\Rightarrow\quad k\le4\ \vee\ k\ge16
+$$
+
+**Paso 4 — intersección.** En la recta numérica: la primera condición pinta $(-\infty;-1]\cup[4;+\infty)$ y la tercera pinta $(-\infty;4]\cup[16;+\infty)$. Se superponen en:
+
+$$
+S=(-\infty;\ -1]\ \cup\ \{4\}\ \cup\ [16;\ +\infty)
+$$
+
+El $4$ suelto aparece porque es el único punto donde se tocan $[4;+\infty)$ y $(-\infty;4]$.
+
+**Estrictamente diagonal dominante** (todo con $>$; el $4$ desaparece porque ahí hay igualdad):
+
+$$
+S=(-\infty;\ -1)\ \cup\ (16;\ +\infty)
+$$
+
+Coincide con el OneNote y con las respuestas de la guía.
+
+### 7.5 Por radio espectral: cuando nada de lo fácil alcanza
+
+**Ejemplo guiado 5 (guía ej. 12, resuelto en el OneNote): un sistema que no es diagonal dominante y converge igual.**
+
+$$
+A=\begin{pmatrix}5&7\\13&20\end{pmatrix}\qquad B=\begin{pmatrix}29\\79\end{pmatrix}\qquad\text{solución exacta } (3;\ 2)
+$$
+
+**a) ¿Es diagonal dominante? ¿Puede asegurarse que se resuelva por Gauss-Seidel?** Fila 1: $5<7$. No es diagonal dominante (y cambiando las filas tampoco: quedaría $13<20$). Como anota el profesor: "si nos basamos en esa condición, no podemos asegurar la convergencia del método de Gauss-Seidel".
+
+**b) 100 iteraciones de Gauss-Seidel desde $(1;4)$.** Despejes: $x=\dfrac{29-7y}{5}$, $\ y=\dfrac{79-13x}{20}$. En el OneNote: "Excel". Las primeras: $X_1=(0{,}2;\ 3{,}82)$, $X_2=(0{,}452;\ 3{,}6562)$, $X_3=(0{,}6813;\ 3{,}5071)$… y $X_{100}=(2{,}99975;\ 2{,}00016)$. **Converge** a $(3;2)$, muy despacio.
+
+**c) ¿Contradice al teorema?** No: "como hablamos solamente de condiciones suficientes, pero no necesarias, entonces no hay contradicción con el teorema" (OneNote). Que $A$ no sea diagonal dominante no dice nada.
+
+**¿Por qué converge?** (lo agrega el profesor en el OneNote). La matriz de Gauss-Seidel es
+
+$$
+T_{GS}=\begin{pmatrix}0&-1{,}4\\0&0{,}91\end{pmatrix}
+$$
+
+(Sale de la fórmula, o metiendo el $x$ nuevo adentro del despeje de $y$: $x=-1{,}4y+5{,}8$ y entonces $y=-0{,}65(-1{,}4y+5{,}8)+3{,}95=0{,}91y+0{,}18$. Esa sustitución es un agregado mío.)
+
+- Teorema 2: $\lVert T_{GS}\rVert_\infty=1{,}4>1$ ✗ y $\lVert T_{GS}\rVert_1=1{,}4+0{,}91=2{,}31>1$ ✗. No dice nada.
+- Teorema 1:
+
+$$
+\begin{vmatrix}-\lambda&-1{,}4\\0&0{,}91-\lambda\end{vmatrix}=-\lambda(0{,}91-\lambda)=0\ \Rightarrow\ \lambda_1=0,\ \lambda_2=0{,}91
+$$
+
+$\rho(T_{GS})=0{,}91<1$ ✓ ⇒ converge. Y como $0{,}91$ está cerca de 1, converge lento: por eso hicieron falta 100 iteraciones.
+
+Conclusión que el profesor deja escrita al pie: "Si el radio espectral de la matriz T (que depende del método que estemos usando) es menor a 1, entonces el sistema va a converger utilizando ese método. Es condición suficiente y necesaria".
+
+### Tu turno 7
+
+<details>
+<summary><strong>7.A (parcial 2025, Tema 1 y Tema 2, Ej2 completo — RECICLADO)</strong> — Dado el sistema 7x + 5y + 4z = 10; 3x + 4y + 2z = 3; x + y + 4z = −8: defina, sin resolver el sistema, si el método de Jacobi converge o no converge a la solución.</summary>
+
+$$
+\begin{cases}
+7x+5y+4z=10\\
+3x+4y+2z=3\\
+x+y+4z=-8
+\end{cases}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 0 — lo barato primero** (dos líneas; la oficial va directo al Paso 1, pero esto muestra por qué hace falta el radio espectral). Fila 1: $7<5+4=9$: $A$ no es diagonal dominante, el Teorema 3 no dice nada. Y no se arregla reordenando: la ecuación $7x+5y+4z$ no tiene ningún coeficiente que le gane a la suma de los otros dos.
+
+**Paso 1 — despejar cada incógnita:**
+
+$$
+\begin{cases}
+x=-\dfrac57y-\dfrac47z+\dfrac{10}{7}\\[2mm]
+y=-\dfrac34x-\dfrac12z+\dfrac34\\[2mm]
+z=-\dfrac14x-\dfrac14y-2
+\end{cases}
+$$
+
+**Paso 2 — matriz de Jacobi:**
+
+$$
+T_J=\begin{pmatrix}0&-\frac57&-\frac47\\[1mm]-\frac34&0&-\frac12\\[1mm]-\frac14&-\frac14&0\end{pmatrix}
+$$
+
+(Norma infinito: fila 1 da $\frac57+\frac47=\frac97>1$. El Teorema 2 tampoco dice nada. Hay que ir al Teorema 1.)
+
+**Paso 3 — autovalores.** Resto $\lambda$ en la diagonal y desarrollo el determinante por la primera fila:
+
+$$
+\begin{vmatrix}-\lambda&-\frac57&-\frac47\\[1mm]-\frac34&-\lambda&-\frac12\\[1mm]-\frac14&-\frac14&-\lambda\end{vmatrix}=0
+$$
+
+$$
+-\lambda\left(\lambda^2-\frac18\right)+\frac57\left(\frac34\lambda-\frac18\right)-\frac47\left(\frac{3}{16}-\frac14\lambda\right)=0
+$$
+
+De dónde sale cada paréntesis (menor de $2\times2$ tapando fila y columna):
+
+- Para $-\lambda$: $(-\lambda)(-\lambda)-\left(-\frac12\right)\left(-\frac14\right)=\lambda^2-\frac18$.
+- Para $-\frac57$ (lleva signo cambiado por la posición, por eso queda $+\frac57$): $\left(-\frac34\right)(-\lambda)-\left(-\frac12\right)\left(-\frac14\right)=\frac34\lambda-\frac18$.
+- Para $-\frac47$: $\left(-\frac34\right)\left(-\frac14\right)-(-\lambda)\left(-\frac14\right)=\frac{3}{16}-\frac14\lambda$.
+
+Distribuyo:
+
+$$
+-\lambda^3+\frac18\lambda+\frac{15}{28}\lambda-\frac{5}{56}-\frac{3}{28}+\frac17\lambda=0
+$$
+
+Junto las $\lambda$ con denominador 56: $\frac{7}{56}+\frac{30}{56}+\frac{8}{56}=\frac{45}{56}$. Junto los números: $-\frac{5}{56}-\frac{6}{56}=-\frac{11}{56}$.
+
+$$
+-\lambda^3+\frac{45}{56}\lambda-\frac{11}{56}=0
+$$
+
+**Paso 4 — buscar una raíz "a ojo".** Truco (agregado mío): multiplicá por $-56$ para sacarte las fracciones, $56\lambda^3-45\lambda+11=0$, y probá $\lambda=1$ y $\lambda=-1$, que son justo los valores que deciden:
+
+$$
+\lambda=1:\ 56-45+11=22\ne0\qquad\qquad\lambda=-1:\ -56+45+11=0\ \checkmark
+$$
+
+$\lambda_1=-1$ es autovalor, y $\lvert\lambda_1\rvert=1$.
+
+**Acá ya se puede contestar.** Nota de la hoja oficial: "Ya sabiendo que hay al menos un $\lvert\lambda\rvert\ge1$ alcanza". El radio espectral es el **mayor** módulo, así que $\rho\ge1$ seguro.
+
+**Paso 5 (para completar) — los otros dos, por Ruffini con $-1$.** Coeficientes de $-\lambda^3+0\lambda^2+\frac{45}{56}\lambda-\frac{11}{56}$:
+
+| | $-1$ | $0$ | $\frac{45}{56}$ | $-\frac{11}{56}$ |
+|---|---|---|---|---|
+| $-1$ | | $1$ | $-1$ | $\frac{11}{56}$ |
+| | $-1$ | $1$ | $-\frac{11}{56}$ | $0$ |
+
+$$
+P(\lambda)=(\lambda+1)\left(-\lambda^2+\lambda-\frac{11}{56}\right)
+\qquad
+\lambda_{2,3}=\frac{-1\pm\sqrt{1-4\cdot\frac{11}{56}}}{-2}=\frac{1\mp0{,}46291}{2}
+$$
+
+$$
+\lambda_1=-1\qquad\lambda_2\approx0{,}26854\qquad\lambda_3\approx0{,}73146
+$$
+
+**Respuesta (coincide con la oficial):** $\rho(T_J)=\max\{1;\ 0{,}269;\ 0{,}731\}=1$. Como $\rho(T_J)$ **no es menor que 1** y la condición del radio espectral es necesaria y suficiente, **puedo asegurar que el método de Jacobi NO converge**. (Tema 2: "Ídem Tema 1".)
+
+**Lo que tiene que estar escrito para que el ítem esté completo:** los despejes, $T_J$, el determinante planteado, el polinomio, al menos el autovalor $-1$ verificado, "$\rho=1$, no es menor que 1" y la frase "condición necesaria y suficiente ⇒ no converge".
+
+**Qué se ve si iterás (es el "caso de estudio" de la teórica):** Jacobi se acerca a la solución $\left(\frac{35}{11};-\frac{3}{11};-\frac{30}{11}\right)=(3{,}1818;\ -0{,}2727;\ -2{,}7273)$ pero se queda yendo y viniendo sin decidirse; Gauss-Seidel sí converge.
+
+![En el sistema del parcial, Jacobi queda oscilando alrededor de la solución y Gauss-Seidel converge](../img/04-fig2-parcial-jacobi-no-converge.png)
+
+> **En clase:** con Jacobi "en una iteración tengo 3,19 si redondeo y después 3,17. Y 3,19 y 3,17 […] como que no se decide, no termina de converger. […] De hecho, con mil iteraciones esto sigue pasando" (teórica [1:15:36]–[1:16:08]). "Le calculé los autovalores y el radio espectral, que tenía que ser menor a 1, y este no es menor a 1, es igual a 1. Como no cumple la condición del sí y solo sí, entonces el método diverge" (teórica [1:16:08]).
+>
+> **En clase:** con Gauss-Seidel el radio espectral "me da 0,527, o sea menor a 1, cumple; por lo tanto el método de Gauss-Seidel sí tiene que converger" (teórica [1:17:14]). Y eso que su $T$ tampoco cumple el Teorema 2: la norma da $1{,}28$ (teórica [1:17:46]–[1:18:20]). "El radio espectral es el que tiene la última palabra."
+
+Dato extra verificado: $T_{GS}=\begin{pmatrix}0&-\frac57&-\frac47\\[1mm]0&\frac{15}{28}&-\frac{1}{14}\\[1mm]0&\frac{5}{112}&\frac{9}{56}\end{pmatrix}$, $\lVert T_{GS}\rVert_\infty=\frac97=1{,}286$, $\rho(T_{GS})=0{,}527$.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>7.B (1er recuperatorio 2025, Ej2 completo, 2 puntos)</strong> — Dada la matriz A = (3k−3 4 −1; 2 5+k² −2; 7 4 10−k), indique los valores de k ∈ ℝ para los que el sistema AX = B converge a la solución utilizando el método de Jacobi o de Gauss-Seidel.</summary>
+
+$$
+A=\begin{pmatrix}3k-3&4&-1\\2&5+k^2&-2\\7&4&10-k\end{pmatrix}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+"Busco diagonal dominante" (así arranca la oficial): es el Teorema 3, el único que asegura la convergencia de **los dos** métodos mirando solo $A$.
+
+**Paso 1 — una condición por fila** (los otros en módulo: $4+1=5$; $2+2=4$; $7+4=11$):
+
+$$
+\lvert3k-3\rvert\ge5\qquad\wedge\qquad\lvert5+k^2\rvert\ge4\qquad\wedge\qquad\lvert10-k\rvert\ge11
+$$
+
+**Paso 2 — primera:**
+
+$$
+3k-3\ge5\ \vee\ 3k-3\le-5\quad\Rightarrow\quad k\ge\frac83\ \vee\ k\le-\frac23
+$$
+
+**Paso 3 — segunda:**
+
+$$
+5+k^2\ge4\ \vee\ 5+k^2\le-4\quad\Rightarrow\quad k^2\ge-1\ \vee\ k^2\le-9\quad\Rightarrow\quad\forall k\in\mathbb R\ \vee\ \nexists k
+$$
+
+Se cumple para todo $k$ (un cuadrado siempre es $\ge-1$): no restringe nada.
+
+**Paso 4 — tercera:**
+
+$$
+10-k\ge11\ \vee\ 10-k\le-11\quad\Rightarrow\quad k\le-1\ \vee\ k\ge21
+$$
+
+**Paso 5 — intersección.** La primera deja $\left(-\infty;-\frac23\right]\cup\left[\frac83;+\infty\right)$; la tercera deja $(-\infty;-1]\cup[21;+\infty)$. Como $-1<-\frac23$ y $21>\frac83$, la tercera es la más exigente y queda adentro de la primera:
+
+$$
+S=(-\infty;\ -1]\ \cup\ [21;\ +\infty)
+$$
+
+**Respuesta (coincide con la oficial, y con la respuesta de la guía para la matriz $B$ del ej. 4):** $k\in(-\infty;-1]\cup[21;+\infty)$.
+
+**Línea extra recomendada:** "En sentido estricto, $k\in(-\infty;-1)\cup(21;+\infty)$" (es la respuesta del ítem b del ej. 4 de la guía, y la versión del teorema que pide el PDF de clase).
+
+**Para pensar (agregado mío, no hace falta escribirlo):** diagonal dominante es condición **suficiente**. Para otros $k$ los métodos pueden converger igual (por ejemplo con $k=5$ da $\rho(T_J)=0{,}43$), pero eso no se puede asegurar sin calcular el radio espectral para cada $k$. Lo que el ejercicio espera es el conjunto donde la convergencia está **garantizada**.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>7.C (repaso 2026, ej. 6; "Ejercicio 3" de un parcial viejo, 1 punto por ítem)</strong> — Sistema 2x − 3y + 6z = 9; 10x + y + z = 3; 0,5x + y = 1. a) Ordene las ecuaciones para que se pueda resolver por método iterativo. Justifique. b) Hallar la T de Jacobi y verificar usando la norma infinito que el sistema converge a la solución.</summary>
+
+$$
+\begin{cases}
+2x-3y+6z=9\\
+10x+y+z=3\\
+0{,}5x+y=1
+\end{cases}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** Busco el coeficiente más grande de cada ecuación: en la primera es el $6$ (de $z$ → va tercera); en la segunda el $10$ (de $x$ → va primera); en la tercera el $1$ (de $y$ → va segunda).
+
+$$
+\begin{cases}
+10x+y+z=3\\
+\frac12x+y=1\\
+2x-3y+6z=9
+\end{cases}
+\qquad
+A=\begin{pmatrix}10&1&1\\\frac12&1&0\\2&-3&6\end{pmatrix}
+\qquad
+\begin{array}{l}
+10>1+1=2\\
+1>\frac12+0\\
+6>2+3=5
+\end{array}
+$$
+
+**Justificación:** la matriz reordenada es estrictamente diagonal dominante ⇒ los métodos iterativos (Jacobi y Gauss-Seidel) convergen.
+
+**b)** Despejo:
+
+$$
+\begin{cases}
+x=-\dfrac{y}{10}-\dfrac{z}{10}+\dfrac{3}{10}\\[2mm]
+y=-\dfrac12x+1\\[2mm]
+z=-\dfrac13x+\dfrac12y+\dfrac32
+\end{cases}
+\qquad
+T_J=\begin{pmatrix}0&-\frac{1}{10}&-\frac{1}{10}\\[1mm]-\frac12&0&0\\[1mm]-\frac13&\frac12&0\end{pmatrix}
+$$
+
+Norma infinito (sumas por fila): $\frac{1}{10}+\frac{1}{10}=\frac{2}{10}$; $\ \frac12$; $\ \frac13+\frac12=\frac56$.
+
+$$
+\lVert T_J\rVert_\infty=\frac56<1\ \Rightarrow\ \text{Jacobi converge}
+$$
+
+Fijate que las tres sumas ($\frac{2}{10}$, $\frac{1}{2}$, $\frac{5}{6}$) son las mismas cuentas del ítem a) divididas por la diagonal: es lo de §7.1.
+
+En el repaso el profesor anotó los tres criterios posibles: "1. $A$ diagonal dominante · 2. $\lVert T\rVert<1$ · 3. $\rho(T)<1$". Dato extra: $\rho(T_J)=0{,}385$ y la solución exacta es $(0;\ 1;\ 2)$.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>7.D (guía, ej. 7 a y 8 a)</strong> — ¿Convergen los métodos iterativos? Justificar. Sistema 1: 4x − y = 1; x + 3y = 2. Sistema 2: A = (2 1; 3 6), B = (8; 21).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Sistema 1:** $A=\begin{pmatrix}4&-1\\1&3\end{pmatrix}$: $4>1$ y $3>1$. Estrictamente diagonal dominante ⇒ Jacobi y Gauss-Seidel convergen (Teorema 3).
+
+**Sistema 2:** $2>1$ y $6>3$. Estrictamente diagonal dominante ⇒ convergen.
+
+Es la respuesta del OneNote ("✓ Diagonal dominante ✓ Los métodos iterativos convergen") y de la guía. "Justifique" = escribir las desigualdades, no solo la palabra.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>7.E (guía, ej. 10)</strong> — Aplicar Jacobi al sistema x₁ + 2x₂ = 3; 3x₁ + x₂ = 4 comenzando con la aproximación inicial (1,01; 1,01). Hallar T de Jacobi. (Pista: mirá la diagonal antes de despejar.)</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Así como viene no sirve:** $A=\begin{pmatrix}1&2\\3&1\end{pmatrix}$, $1<2$ y $1<3$. La respuesta de la guía arranca diciendo: "Primero se intercambian las filas para que sea convergente".
+
+$$
+\begin{cases}3x_1+x_2=4\\x_1+2x_2=3\end{cases}
+\qquad 3>1,\quad 2>1\ \checkmark
+$$
+
+**Despejes y $T_J$:**
+
+$$
+x_1=\frac{4-x_2}{3}\qquad x_2=\frac{3-x_1}{2}
+\qquad
+T_J=D^{-1}(L+U)=\begin{pmatrix}0&-\frac13\\[1mm]-\frac12&0\end{pmatrix}
+$$
+
+**Iteraciones:**
+
+| $k$ | $x_1$ | $x_2$ |
+|---|---|---|
+| 0 | 1,01 | 1,01 |
+| 1 | 0,99667 | 0,99500 |
+| 2 | 1,00167 | 1,00167 |
+| 3 | 0,99944 | 0,99917 |
+| 4 | 1,00028 | 1,00028 |
+
+Tiende a $(1;1)$, como en la tabla de la guía.
+
+**Qué pasa si no intercambiás (dato extra):** con $x_1=3-2x_2$, $x_2=4-3x_1$ sale $(0{,}98;\ 0{,}97)\to(1{,}06;\ 1{,}06)\to(0{,}88;\ 0{,}82)\to(1{,}36;\ 1{,}36)$: arrancaste a un centésimo de la solución y se **aleja**. Ahí $\rho(T_J)=\sqrt6=2{,}45>1$.
+
+</details>
+
+</details>
+
+---
+
+## 8. Número de condición: ¿bien o mal condicionado?
+
+### 8.1 La idea
+
+Los coeficientes de un sistema casi nunca son exactos: vienen de mediciones o de cuentas anteriores con redondeo. La pregunta es: **si los datos tienen un error chiquito, ¿la solución cambia poquito o cambia muchísimo?**
+
+**Ejemplo 1 del PDF de clase:**
+
+$$
+\begin{pmatrix}1&1\\1&1{,}0001\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}2\\2\end{pmatrix}\ \Rightarrow\ \begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}2\\0\end{pmatrix}
+\qquad\qquad
+\begin{pmatrix}1&1\\1&1{,}0001\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}2\\2{,}0001\end{pmatrix}\ \Rightarrow\ \begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix}
+$$
+
+Cambié un término independiente en $0{,}0001$ y la solución saltó de $(2;0)$ a $(1;1)$. Ese sistema está **mal condicionado**. (Cuenta: restando las ecuaciones, $0{,}0001y=0$ en el primero y $0{,}0001y=0{,}0001$ en el segundo.)
+
+Geométricamente (agregado mío): cada ecuación es una recta, y estas dos son casi paralelas. Un empujoncito a una y el cruce se va lejos.
+
+![Bien condicionado: las rectas se cruzan francamente. Mal condicionado: son casi paralelas (esquema con las pendientes exageradas)](../img/04-fig3-condicionamiento.png)
+
+> **En clase:** "no es que te dicen, che, resolvé [un sistema] que nace de un repollo […] ponele que vos llegaste a ese sistema de ecuaciones lineales a partir de otro proceso": venís arrastrando errores de redondeo y "la pregunta que hay que hacerse es qué tanto me afectan esos errores" (teórica [1:19:26]–[1:19:58]). "Uno hubiera esperado que te dé, qué sé yo, el 2,001 y el −0,001 […] no el 1,1" (teórica [1:22:01]).
+
+### 8.2 La fórmula y el criterio
+
+Se demuestra (está en el teórico) que
+
+$$
+\frac{\lVert\Delta X\rVert}{\lVert X\rVert}\ \le\ \lVert A\rVert\,\lVert A^{-1}\rVert\ \frac{\lVert\Delta B\rVert}{\lVert B\rVert}
+$$
+
+El error relativo de la solución es, como mucho, el error relativo de los datos multiplicado por un factor. Ese factor es el **número de condición**:
+
+$$
+K(A)=\lVert A\rVert\cdot\lVert A^{-1}\rVert
+$$
+
+**En criollo:** $K(A)$ dice **cuántas veces se puede amplificar** el error de los datos al pasar a la solución. Si $K=10$, un error del $0{,}1\,\%$ en $B$ puede ser un $1\,\%$ en $X$. Si $K=60\,000$, la solución no sirve.
+
+**Receta:**
+
+1. $\lVert A\rVert_\infty$: suma de módulos por fila, la mayor.
+2. $A^{-1}$: **te la dan**. (Si es $2\times2$ puede tocarte calcularla: $\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1}=\dfrac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$.)
+3. $\lVert A^{-1}\rVert_\infty$: suma de módulos por fila, la mayor. Si es de $3\times3$ con denominador común, sumá los numeradores.
+4. Multiplicá: $K(A)$.
+5. **Concluí con una frase:** "$K(A)=\ldots$ es un número chico (del orden de las unidades), los errores casi no se amplifican ⇒ **bien condicionado**", o "$K(A)$ es del orden de los miles ⇒ **mal condicionado**, no se puede confiar en la solución".
+
+**El criterio de la cátedra para "bien / mal":**
+
+- $K(A)\ge1$ **siempre**. $K=1$ es el ideal (el error pasa tal cual). Si te da menos de 1, hay un error de cuentas.
+- No hay un umbral exacto: es "a ojo". **Chico** (3; 4,7; 10) = bien condicionado. **Miles** (4488; 16 000; 60 002) = mal condicionado.
+- Zona gris (del orden de 50): decidí y **justificá por escrito**.
+- **Norma:** infinito. Vale también la norma 1, pero **la misma** en $A$ y en $A^{-1}$.
+
+> **En clase:** "si les llego a tomar […] un ejercicio de matriz bien o mal condicionada, siempre les van a dar la matriz inversa hecha, porque calcular matrices inversas es un parto […] salvo que sea una matriz de 2×2, que sería fácil" (teórica [1:26:06]–[1:26:37]).
+>
+> **En clase:** "este tema de mal o bien condicionado es un poco a ojo […] no hay un límite donde digo a partir de acá está bien condicionado, a partir de acá está mal condicionado" (teórica [1:28:14]). "Este número de condición no puede ser más chico que 1 nunca […] si fuera 1 sería lo ideal" (teórica [1:28:45]). "Si te da 10, digamos es un número chiquito. Cuando está mal condicionado estamos hablando de números de miles" (teórica [1:29:17]).
+>
+> **En clase:** "ponele que te da 50, entonces alguno me puede decir para mí es mucho, para mí es poco; bueno, justifíquenlo […] si ustedes llegan a tener dudas hagan la aclaración escrita y listo; lo importante es que entiendan el concepto" (teórica [1:29:17]–[1:29:47]).
+>
+> **En clase:** el número de condición vale "para cualquier norma matricial […] para la que elijan, me refiero, norma infinito o norma 1" (teórica [1:25:36]). En la hoja oficial del 2do recuperatorio: "Puede usarse Norma-1 también".
+
+### Ejemplo guiado 6: el ejercicio resuelto del PDF de clase
+
+$$
+\begin{pmatrix}1&2\\1{,}0001&2\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}3\\3{,}0001\end{pmatrix}
+$$
+
+**Paso 1.** Filas de $A$: $1+2=3$ y $1{,}0001+2=3{,}0001$. $\lVert A\rVert_\infty=3{,}0001$.
+
+**Paso 2.** $\det(A)=1\cdot2-2\cdot1{,}0001=-0{,}0002$.
+
+$$
+A^{-1}=\frac{1}{-0{,}0002}\begin{pmatrix}2&-2\\-1{,}0001&1\end{pmatrix}=\begin{pmatrix}-10000&10000\\5000{,}5&-5000\end{pmatrix}
+$$
+
+**Paso 3.** Filas de $A^{-1}$: $10000+10000=20000$ y $5000{,}5+5000=10000{,}5$. $\lVert A^{-1}\rVert_\infty=20000$.
+
+**Paso 4.** $K(A)=3{,}0001\cdot20000=60\,002$.
+
+**Paso 5.** "Es un valor de condición muy grande, no se podría confiar en la solución aproximada del sistema": **mal condicionado**. Un error en los datos puede amplificarse 60 000 veces.
+
+### Ejemplo guiado 7: verdadero o falso (OneNote de la práctica)
+
+"Indique Verdadero o Falso, y justifique: $A$ está bien condicionada".
+
+$$
+A=\begin{pmatrix}-2&8&1\\2&3&10\\-6&-1&4\end{pmatrix}
+$$
+
+Acá el profesor **calcula** la inversa (en el parcial viene dada), con $A^{-1}=\dfrac{1}{\det(A)}\operatorname{Adj}(A)$ y $\operatorname{Adj}(A)=\operatorname{Cof}(A)^{T}$:
+
+$$
+\operatorname{Cof}(A)=\begin{pmatrix}22&-68&16\\-33&-2&-50\\77&22&-22\end{pmatrix}
+\qquad
+\det(A)=-2\cdot22-8\cdot68+1\cdot16=-572
+$$
+
+$$
+A^{-1}=\frac{1}{-572}\begin{pmatrix}22&-33&77\\-68&-2&22\\16&-50&-22\end{pmatrix}
+=\begin{pmatrix}-\frac{1}{26}&\frac{3}{52}&-\frac{7}{52}\\[1mm]\frac{17}{143}&\frac{1}{286}&-\frac{1}{26}\\[1mm]-\frac{4}{143}&\frac{25}{286}&\frac{1}{26}\end{pmatrix}
+$$
+
+**Norma infinito de $A$:** $2+8+1=11$; $2+3+10=15$; $6+1+4=11$. $\lVert A\rVert_\infty=15$.
+
+**Norma infinito de $A^{-1}$** (más fácil con los numeradores sobre 572): $\frac{22+33+77}{572}=\frac{132}{572}$; $\frac{68+2+22}{572}=\frac{92}{572}$; $\frac{16+50+22}{572}=\frac{88}{572}$. La mayor: $\frac{132}{572}=\frac{3}{13}$.
+
+$$
+K(A)=15\cdot\frac{3}{13}=\frac{45}{13}\approx3{,}46
+$$
+
+**Respuesta:** **Verdadero**, está bien condicionada: $K(A)\approx3{,}46$ es un número chico. El profesor anota al costado qué es $K$: "cuántas veces se amplifica el error relativo introducido en los términos independientes, en la solución. Queremos un número que no sea gigante".
+
+### Tu turno 8
+
+<details>
+<summary><strong>8.A (2do recuperatorio 2025, ítem a)</strong> — Dado AX = B con A = (4 7 1; −5 −1 2; −1 2 9), sabiendo que A⁻¹ = (1/238)·(−13 −61 15; 43 37 −13; −11 −15 31): indicar si el sistema está bien condicionado o no.</summary>
+
+$$
+A=\begin{pmatrix}4&7&1\\-5&-1&2\\-1&2&9\end{pmatrix}
+\qquad
+A^{-1}=\begin{pmatrix}-\frac{13}{238}&-\frac{61}{238}&\frac{15}{238}\\[1mm]\frac{43}{238}&\frac{37}{238}&-\frac{13}{238}\\[1mm]-\frac{11}{238}&-\frac{15}{238}&\frac{31}{238}\end{pmatrix}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — $\lVert A\rVert_\infty$:** $4+7+1=12$; $5+1+2=8$; $1+2+9=12$.
+
+$$
+\lVert A\rVert_\infty=12
+$$
+
+**Paso 2 — $\lVert A^{-1}\rVert_\infty$** (sumo numeradores en módulo): $13+61+15=89$; $43+37+13=93$; $11+15+31=57$.
+
+$$
+\lVert A^{-1}\rVert_\infty=\frac{93}{238}=0{,}39076
+$$
+
+**Paso 3:**
+
+$$
+K(A)=12\cdot\frac{93}{238}=\frac{1116}{238}=4{,}6891
+$$
+
+**Respuesta (coincide con la oficial):** $K(A)\approx4{,}69$, número chico (cercano a 1) ⇒ el sistema está **bien condicionado**: los errores en los datos se amplifican, como mucho, unas 4,7 veces.
+
+La hoja oficial aclara: "Puede usarse Norma-1 también". Con norma 1 (por columnas): $\lVert A\rVert_1=\max\{10;10;12\}=12$, $\lVert A^{-1}\rVert_1=\max\left\{\frac{67}{238};\frac{113}{238};\frac{59}{238}\right\}=\frac{113}{238}$, $K=5{,}70$. Misma conclusión.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>8.B (repaso 2026, ej. 15)</strong> — Hallar el número de condición de A = (−5 −1 2; 4 7 1; −1 2 9), con A⁻¹ = (1/238)·(−61 −13 15; 37 43 −13; −15 −11 31).</summary>
+
+$$
+A=\begin{pmatrix}-5&-1&2\\4&7&1\\-1&2&9\end{pmatrix}
+\qquad
+A^{-1}=\begin{pmatrix}-\frac{61}{238}&-\frac{13}{238}&\frac{15}{238}\\[1mm]\frac{37}{238}&\frac{43}{238}&-\frac{13}{238}\\[1mm]-\frac{15}{238}&-\frac{11}{238}&\frac{31}{238}\end{pmatrix}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+$\lVert A\rVert_\infty$: $5+1+2=8$; $4+7+1=12$; $1+2+9=12$ ⇒ $12$.
+
+$\lVert A^{-1}\rVert_\infty$: $\frac{61+13+15}{238}=\frac{89}{238}$; $\frac{37+43+13}{238}=\frac{93}{238}$; $\frac{15+11+31}{238}=\frac{57}{238}$ ⇒ $\frac{93}{238}=0{,}3907$.
+
+$$
+K(A)=12\cdot0{,}3907=4{,}69\ \Rightarrow\ \text{bien condicionada}
+$$
+
+**¿Te suena?** Es la matriz del 8.A con las dos primeras filas intercambiadas (o sea, la matriz ya reordenada del Tu turno 6.A). Al intercambiar filas de $A$ se intercambian las columnas de $A^{-1}$, y las sumas por fila no cambian: el número de condición es el mismo. El profesor recicló el 2do recuperatorio 2025 en el repaso.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>8.C (PDF de clase y teórico, Ejemplo 1)</strong> — Calcular el número de condición, con norma infinito, de A = (1 1; 1 1,0001) (la matriz del sistema que saltaba de (2; 0) a (1; 1)). Acá la inversa la calculás vos: es de 2×2.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+$\det(A)=1\cdot1{,}0001-1\cdot1=0{,}0001$.
+
+$$
+A^{-1}=\frac{1}{0{,}0001}\begin{pmatrix}1{,}0001&-1\\-1&1\end{pmatrix}=\begin{pmatrix}10001&-10000\\-10000&10000\end{pmatrix}
+$$
+
+$\lVert A\rVert_\infty=\max\{2;\ 2{,}0001\}=2{,}0001$. $\ \lVert A^{-1}\rVert_\infty=\max\{20001;\ 20000\}=20001$.
+
+$$
+K(A)=2{,}0001\cdot20001\approx40\,004
+$$
+
+**Mal condicionado** (decenas de miles), que es lo que ya se veía en el ejemplo. Las fuentes no calculan este $K$; la cuenta es mía, con la misma receta del ejercicio resuelto.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>8.D (teórico de cátedra, Ejemplo 3, pág. 83–85)</strong> — Sea A = (10 7 8 7; 7 5 6 5; 8 6 10 9; 7 5 9 10), cuya inversa es A⁻¹ = (25 −41 10 −6; −41 68 −17 10; 10 −17 5 −3; −6 10 −3 2). Calcular K(A) con norma infinito y decir si está bien condicionada.</summary>
+
+$$
+A=\begin{pmatrix}10&7&8&7\\7&5&6&5\\8&6&10&9\\7&5&9&10\end{pmatrix}
+\qquad
+A^{-1}=\begin{pmatrix}25&-41&10&-6\\-41&68&-17&10\\10&-17&5&-3\\-6&10&-3&2\end{pmatrix}
+$$
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+$\lVert A\rVert_\infty$: $32$; $23$; $33$; $31$ ⇒ $33$.
+
+$\lVert A^{-1}\rVert_\infty$: $25+41+10+6=82$; $41+68+17+10=136$; $10+17+5+3=35$; $6+10+3+2=21$ ⇒ $136$.
+
+$$
+K(A)=33\cdot136=4488
+$$
+
+**Mal condicionada** (miles). Coincide con el teórico: "si tomamos norma infinito $K(A)=33\cdot136=4488$". El teórico lo muestra con números: cambiando $B=(32;23;33;31)$ por $(32{,}01;\ 22{,}99;\ 33{,}01;\ 30{,}99)$ (error relativo $3{,}03\cdot10^{-4}$), la solución pasa de $(1;1;1;1)$ a $(1{,}82;\ -0{,}36;\ 1{,}35;\ 0{,}79)$ (error relativo $1{,}36$): "se ha amplificado más de 4000 veces".
+
+(El teórico da las dos normas pero no imprime la inversa; la de arriba la calculé con Python y da exactamente esas normas.)
+
+</details>
+
+</details>
+
+---
+
+## Resumen en una página
+
+**Jacobi (una iteración):**
+
+1. Despejar la incógnita $i$ de la ecuación $i$.
+2. Reemplazar **todo** con el vector **anterior**.
+3. $T_J$ = coeficientes de los despejes (diagonal en cero). $C_J$ = términos independientes de los despejes. Desde el vector nulo, $X^{(1)}=C_J$.
+
+**Gauss-Seidel (una iteración):** mismos despejes, pero cada valor nuevo se usa **enseguida** (pisar el vector). Es **el doble de rápido** que Jacobi. $T_{GS}=(D-L)^{-1}U$ tiene ceros en la primera columna y no se pide a mano.
+
+**Ayudamemoria:** $\lvert A-\lambda I\rvert=0$; $T_J=D^{-1}(L+U)$, $C_J=D^{-1}B$; $T_{GS}=(D-L)^{-1}U$, $C_{GS}=(D-L)^{-1}B$, con $A=D-L-U$ ($L$ y $U$ con signos cambiados).
+
+**Parar:**
+
+$$
+\lVert X^{(k)}-X^{(k-1)}\rVert_\infty<\varepsilon\quad\text{(absoluto)}\qquad\frac{\lVert X^{(k)}-X^{(k-1)}\rVert_\infty}{\lVert X^{(k)}\rVert_\infty}<\varepsilon\quad\text{(relativo)}
+$$
+
+**Convergencia, de lo barato a lo caro:**
+
+| Paso | Chequeo | Si se cumple | Si no se cumple |
+|---|---|---|---|
+| 1 | $A$ diagonal dominante: $\lvert a_{ii}\rvert\ge\sum_{j\ne i}\lvert a_{ij}\rvert$ en todas las filas (estricta con $>$) | Convergen Jacobi y Gauss-Seidel | Nada: probar reordenar filas |
+| 2 | $\lVert T\rVert_\infty<1$ o $\lVert T\rVert_1<1$ | Ese método converge | Nada: seguir |
+| 3 | $\rho(T)<1$ | Ese método converge | **No converge** |
+
+1 y 2 son **suficientes**; 3 es **necesaria y suficiente**.
+
+**Normas:** infinito = por **filas** (acostado); 1 = por **columnas** (paradito); siempre en módulo y la mayor suma.
+
+**Radio espectral:** restar $\lambda$ en la diagonal, determinante $=0$, raíces, el mayor módulo. Con fracciones: multiplicar por el denominador común y probar $\lambda=\pm1$.
+
+**Parámetro $k$:** una inecuación $\lvert\text{diagonal}\rvert\ge\text{suma de los otros}$ por fila; $\lvert u\rvert\ge c\Leftrightarrow u\ge c\ \vee\ u\le-c$; **intersección** de todas.
+
+**Número de condición:**
+
+$$
+K(A)=\lVert A\rVert_\infty\cdot\lVert A^{-1}\rVert_\infty\ \ge\ 1
+$$
+
+Unidades ⇒ bien condicionado. Miles ⇒ mal condicionado. Zona gris ⇒ justificar por escrito.
+
+## Errores típicos
+
+1. **Hacer Jacobi cuando piden Gauss-Seidel** (o al revés). En Gauss-Seidel el $y$ nuevo usa el $x$ **nuevo**. Autocontrol: en la primera componente los dos métodos dan lo mismo; a partir de la segunda, no.
+2. **No reordenar antes de iterar.** Si el enunciado dice "reordenando si es necesario", es necesario. Y al reordenar se mueve la ecuación **con su término independiente**.
+3. **Signos de $T_J$.** Al despejar, los coeficientes cambian de signo y se dividen por el de la diagonal (que puede ser negativo: $-8y=\ldots$). Si usás $D^{-1}(L+U)$, $L$ y $U$ ya traen el signo cambiado.
+4. **Poner algo distinto de cero en la diagonal de $T_J$.**
+5. **Diagonal dominante sin módulos**, o comparando con el elemento más grande de la fila en vez de con la **suma** de los otros.
+6. **Mirar la diagonal dominante en $T$** (se mira en $A$) o **la norma en $A$** (se mira en $T$).
+7. **Concluir "no converge" porque no es diagonal dominante** o porque $\lVert T\rVert\ge1$. Esas condiciones son solo suficientes: no cumplirlas no dice nada. El único que permite decir "no converge" es $\rho(T)\ge1$.
+8. **Olvidarse de la frase final** ("condición necesaria y suficiente ⇒ no converge" / "condición suficiente ⇒ converge"). Es la mitad del ítem.
+9. **Radio espectral negativo** ($\rho=-5$) o tomar el autovalor más grande con signo en vez del de mayor **módulo**.
+10. **Norma 1 y norma infinito cruzadas** (filas ↔ columnas), o usar una norma para $A$ y otra para $A^{-1}$.
+11. **En la norma de $A^{-1}$, sumar con signos** en vez de con módulos. Si $K(A)$ te da menor que 1, es esto.
+12. **En las inecuaciones con $k$:** no dar vuelta la desigualdad al multiplicar por $-1$ ($10-k\ge11\Rightarrow k\le-1$), y hacer unión donde va intersección.
+13. **En el criterio de parada:** tomar módulo de cada número antes de restar. Primero se resta con signo, después el módulo.
+14. **No contestar "bien / mal condicionado"** después de calcular $K$. El número solo no responde la pregunta.
+
+## Checkpoint (≈ 25 min, con reloj)
+
+Ejercicio con formato de parcial, armado con el sistema del ejemplo de la pág. 81 del teórico de cátedra y los tipos de ítem del repaso 2026 y del 2do recuperatorio 2025. Solo ayudamemoria y calculadora.
+
+<details>
+<summary><strong>Ej2 (2 puntos)</strong> — Dado el sistema 2x + 5y + z = 12; 2x − 3y + 6z = 3; 7x + y − 3z = 7: a) Ordene las ecuaciones para poder asegurar la convergencia de los métodos iterativos. Justifique. b) Halle la T de Jacobi del sistema ordenado y verifique la convergencia usando la norma infinito. ¿Esa condición es necesaria o suficiente? c) Realice dos iteraciones de Gauss-Seidel partiendo de X₀ = (0; 0; 0) e indique el error absoluto entre ambas con norma infinito.</summary>
+
+$$
+\begin{cases}
+2x+5y+z=12\\
+2x-3y+6z=3\\
+7x+y-3z=7
+\end{cases}
+$$
+
+<details>
+<summary><strong>Resolución y puntaje</strong></summary>
+
+**a) (0,5 puntos)** Como viene: fila 1, $2<5+1$. No es diagonal dominante. El coeficiente más grande de cada ecuación: $5$ (de $y$ → segunda), $6$ (de $z$ → tercera), $7$ (de $x$ → primera).
+
+$$
+\begin{cases}
+7x+y-3z=7\\
+2x+5y+z=12\\
+2x-3y+6z=3
+\end{cases}
+\qquad
+\begin{array}{l}
+7>1+3=4\\
+5>2+1=3\\
+6>2+3=5
+\end{array}
+$$
+
+Estrictamente diagonal dominante ⇒ Jacobi y Gauss-Seidel convergen para cualquier $X_0$ (Teorema 3).
+
+*Puntaje: 0,25 el reordenamiento correcto · 0,25 las tres desigualdades y la conclusión.*
+
+**b) (0,75 puntos)** Despejo:
+
+$$
+\begin{cases}
+x=-\dfrac17y+\dfrac37z+1\\[2mm]
+y=-\dfrac25x-\dfrac15z+\dfrac{12}{5}\\[2mm]
+z=-\dfrac13x+\dfrac12y+\dfrac12
+\end{cases}
+\qquad
+T_J=\begin{pmatrix}0&-\frac17&\frac37\\[1mm]-\frac25&0&-\frac15\\[1mm]-\frac13&\frac12&0\end{pmatrix}
+$$
+
+Sumas por fila: $\frac17+\frac37=\frac47=0{,}571$; $\ \frac25+\frac15=\frac35=0{,}6$; $\ \frac13+\frac12=\frac56=0{,}833$.
+
+$$
+\lVert T_J\rVert_\infty=\frac56<1\ \Rightarrow\ \text{Jacobi converge}
+$$
+
+Es una condición **suficiente, no necesaria** (Teorema 2): si no se cumpliera no podría afirmar nada y tendría que calcular el radio espectral, que es la única condición necesaria y suficiente.
+
+*Puntaje: 0,25 despejes y $T_J$ con signos y diagonal nula · 0,25 la norma bien calculada (por filas, en módulo) y comparada con 1 · 0,25 "suficiente, no necesaria".*
+
+**c) (0,75 puntos)** Iteración 1, pisando valores desde $(0;0;0)$:
+
+$$
+x=-\tfrac17(0)+\tfrac37(0)+1=1
+$$
+
+$$
+y=-\tfrac25(1)-\tfrac15(0)+\tfrac{12}{5}=2
+$$
+
+$$
+z=-\tfrac13(1)+\tfrac12(2)+\tfrac12=\tfrac76=1{,}16667
+$$
+
+Iteración 2, desde $(1;\ 2;\ 1{,}16667)$:
+
+$$
+x=-\tfrac17(2)+\tfrac37(1{,}16667)+1=-0{,}28571+0{,}5+1=1{,}21429
+$$
+
+$$
+y=-\tfrac25(1{,}21429)-\tfrac15(1{,}16667)+2{,}4=-0{,}48571-0{,}23333+2{,}4=1{,}68095
+$$
+
+$$
+z=-\tfrac13(1{,}21429)+\tfrac12(1{,}68095)+0{,}5=-0{,}40476+0{,}84048+0{,}5=0{,}93571
+$$
+
+| $k$ | $x$ | $y$ | $z$ |
+|---|---|---|---|
+| 0 | 0 | 0 | 0 |
+| 1 | 1 | 2 | 1,16667 |
+| 2 | 1,21429 | 1,68095 | 0,93571 |
+
+Error absoluto:
+
+$$
+X_2-X_1=(0{,}21429;\ -0{,}31905;\ -0{,}23095)\qquad\lVert X_2-X_1\rVert_\infty=0{,}319
+$$
+
+*Puntaje: 0,25 cada iteración bien hecha (con los valores nuevos) · 0,25 el error con norma infinito. Si iteraste con Jacobi ($X_1=(1;\ 2{,}4;\ 0{,}5)$), el ítem vale 0.*
+
+Dato extra: la solución exacta es $(1{,}1710;\ 1{,}7361;\ 0{,}9777)$ y $\rho(T_J)=0{,}54$.
+
+**Cómo leer tu nota:** 2 puntos = listo para el Ej2. Si perdiste el "suficiente, no necesaria", releé §7.1. Si erraste signos en $T_J$, rehacé el Tu turno 4.A. Si iteraste con valores viejos, rehacé el 6.A. Después, sin mirar, rehacé el 7.A (el del parcial) contra reloj: 15 minutos.
+
+</details>
+
+</details>
+
+---
+
+*Generado el 2026-11-18. Fuentes: PDF de clase "Sistemas de ecuaciones lineales" (18 p.), teórico de cátedra 2.3 (27 p.), OneNote de la práctica (19 p.), transcript de la teórica (`12-video-teorica-sistemas-lineales.json`, 1 h 30), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de T1, T2, R1 y R2 2025), apunte `08-practica-repaso-segundo-parcial.md` (ej. 6 y 15), guía de ejercicios parte 2 (ej. 1 a 8, 10 y 12 de sistemas lineales, con respuestas) y ayudamemoria oficial (pág. 4). No se incluyeron los ej. 9 y 11 de la guía (más iteraciones del mismo tipo, sin respuesta en la guía). Figuras: `apuntes/img/04-figuras.py`. Todos los números verificados con Python (numpy/sympy).*
