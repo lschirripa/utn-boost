@@ -78,6 +78,7 @@ materias/
 | `/apunte` | Video de YouTube → apunte md (+html/pdf). |
 | `/apuntes-batch` | Muchos videos → un apunte por video, un subagente por video. |
 | `/apunte-doc` | PDF / diapositivas / capítulo de libro / fotos → apunte md. |
+| `/guia` | Guía "desde cero" de un tema: explicación paso a paso + ítems reales de parcial, desde las fuentes que la materia declara en la tabla "Fuentes del aula por tema" de `MATERIA.md`. |
 | `/indexar-examenes` | Exámenes nuevos (PDF/foto) → entradas en `examenes/INDICE.md` con tags. |
 | `/estrategia` | Genera/actualiza `estrategia.md` (frecuencias, brechas, banco, checklist). |
 | `/que-saltear` | Genera/actualiza `que-saltear.md` (poda 🗑️/📖/✅ por apunte). |
@@ -89,7 +90,7 @@ materias/
 | `/carrera` | Planificador de carrera: finales por mesa, prioridades, cursada futura, graduación, objetivos, promociones e intentos. Regenera `carrera/plan-carrera.md` + exports (incluido el tablero arrastrable). |
 
 **Flujo típico de una evaluación nueva:** `/apuntes-batch` (o `/apunte-doc`) →
-`/indexar-examenes` → `/estrategia` → `/que-saltear` → `/plan` → estudiar +
+`/indexar-examenes` → `/guia` por tema (si se estudia desde cero) → `/estrategia` → `/que-saltear` → `/plan` → estudiar +
 `/registrar` → `/flashcards` para la teoría → `/machete` + `/simulacro` en los últimos
 días → `/plan` de nuevo cuando cambia el panorama.
 

@@ -46,6 +46,16 @@
 - **Documentos:** _(completar: PDFs de cátedra, libros, fotos en `fuentes/`; o "no hay")_
 - **Exámenes reales:** _(completar: cuántos archivos, qué años, en qué carpeta `<eval>/examenes/`)_
 
+### Fuentes del aula por tema
+
+<!-- La usa /guia: por cada tema de la evaluación, qué archivos del aula (o de fuentes/) se
+     usan y cuáles se descartan. Se cura UNA vez por materia, con el visto bueno del usuario.
+     Borrar la sección si la materia no tiene material por tema. -->
+
+| Tema | Carpeta en `fuentes/` | Material de clase | Teórico / libro | Práctica resuelta | Videos → transcript |
+|---|---|---|---|---|---|
+| _(completar)_ | | | | | |
+
 ## Leyenda de tags (para `examenes/INDICE.md`)
 
 <!-- Esta leyenda la construye y la mantiene /indexar-examenes a medida que indexa
