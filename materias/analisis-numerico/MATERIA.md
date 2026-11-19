@@ -36,8 +36,17 @@
   sigue siendo el mismo. Detalle por posición en `primer-parcial/estrategia.md`.
 - **Segundo parcial (2025):** 5 ejercicios de 2 puntos: Ej1 Raíces · Ej2 Sistemas de
   ecuaciones lineales (Jacobi/Gauss-Seidel) · Ej3 Interpolación y ajuste · Ej4
-  Integración numérica · Ej5 Ecuaciones diferenciales (Euler, Lipschitz). _(sin indexar
-  todavía: 4 archivos en `segundo-parcial/examenes/`)_
+  Integración numérica · Ej5 Ecuaciones diferenciales. Tipos de ítem por posición (4 hojas
+  de 2025-1C, ver `segundo-parcial/examenes/INDICE.md`): **Ej1** separar raíces en
+  intervalos `[a; a+1]` + Newton-Raphson o punto fijo (condiciones de convergencia / elegir
+  `g`) + cantidad de iteraciones de bisección; **Ej2** decidir sin resolver si converge
+  Jacobi/Gauss-Seidel (radio espectral, diagonal dominante con parámetro `k`), y en el 2do
+  recuperatorio número de condición + una iteración de Gauss-Seidel; **Ej3** hallar los
+  valores faltantes de una tabla para que el interpolante tenga cierto grado (diferencias
+  divididas) + cuántos polinomios de grado n existen + un ajuste por mínimos cuadrados
+  (recta, exponencial o potencial); **Ej4** mayor `h` racional no periódico para Trapecios
+  acotando `|f''|` (Simpson solo en el 2do recuperatorio); **Ej5** Lipschitz + Euler en el
+  parcial, Heun / RK4 / clasificar una fórmula multipaso en los recuperatorios.
 - **Final:** _(completar cuando haya finales)_
 
 ## Temario por evaluación
@@ -87,10 +96,38 @@
   2015 → 2025)** en `primer-parcial/examenes/`, indexadas en `INDICE.md`. 4 archivos son
   enunciados puros (2024-2C y 2025-1C, parcial + 1er recuperatorio), 14 están en
   `resueltos/` (8 resueltos a mano por alumnos con corrección del docente, 3 resueltos por
-  la cátedra, 4 hojas de respuestas oficiales). Segundo parcial: 4 archivos de 2025-1C
-  (parcial + recuperatorio, con respuestas) en `segundo-parcial/examenes/`, sin indexar.
+  la cátedra, 4 hojas de respuestas oficiales). Segundo parcial: **4 hojas de examen
+  distintas (3 instancias, todas 2025-1C, K3052)** en `segundo-parcial/examenes/`,
+  indexadas en `INDICE.md` el 2026-11-18: parcial Tema 1 y Tema 2 (2025-06-30), 1er
+  recuperatorio (2025-07-07) y 2do recuperatorio (2025-07-11, cuyo enunciado solo existe
+  dentro de su hoja de respuestas). Las 3 hojas de respuestas oficiales están en
+  `resueltos/` y transcriptas en `resueltos/RESOLUCIONES-2025.md`.
+
+### Fuentes del aula por tema (segundo parcial)
+
+Tabla curada el 2026-11-18 desde el Aula Virtual (curso K3572) y `fuentes/clases-virtuales-links.pdf`.
+Es la lista que usan las guías "desde cero" del 2P: **solo** estos archivos, en `fuentes/clases/<carpeta>/`.
+Descartado del aula por no aportar al parcial: número áureo, planillas Excel de Jacobi/Gauss-Seidel,
+Colabs de Python, videos externos de YouTube. **Ajuste por mínimos cuadrados no entra en el 2P 2026**
+(se evaluó con el TP); sus apuntes `00–02` quedan como están.
+
+| Tema (ejercicio) | Carpeta | PDF de clase ("PARA DAR CLASES") | Teórico de cátedra | OneNote práctica | Videos → transcript |
+|---|---|---|---|---|---|
+| Raíces (Ej1) | `Raices/` | `Clase - Raices de ecuaciones no lineales.pdf` | `Teorico catedra 2.2 …` | `OneNote - Raices.pdf` (14 p.) | `T_Raices.mp4` → `10`, `P_Raices.mp4` → `11` |
+| Sistemas lineales (Ej2) | `Sistemas de Ecuaciones Lineales/` | `Clase - Sistemas de ecuaciones lineales.pdf` | `Teorico catedra 2.3 …` | `OneNote - Sistemas de Ecuaciones Lineales.pdf` (19 p.) | `T_SEL.mp4` → `12`; práctica en Drive, **descarga bloqueada** |
+| Interpolación (Ej3) | `Interpolacion/` | `Clase - Interpolacion general.pdf`, `Clase - Metodo de Lagrange.pdf`, `Clase - Metodo de Newton-Gregory.pdf` | `Teorico catedra 2.4 …` | `OneNote - Interpolacion.pdf` (13 p.) | `T_Interpolacion.mp4` → `13`; práctica en Drive, **descarga bloqueada** |
+| Diferenciación e integración (Ej4) | `Integracion Numerica/` | `Clase - Diferenciacion e integracion numerica.pdf`, `Clase - Exactitud del metodo de Simpson.pdf` | `Teorico catedra 2.5 …` | `OneNote - Derivacion e Integracion Numerica.pdf` | `T_Dif-Int.mp4` → `14`, `P_Dif-Int.mp4` → `15` |
+| Ecuaciones diferenciales (Ej5) | `Ecuaciones Diferenciales/` | `Clase - Metodos numericos para ecuaciones diferenciales.pdf` | `Teorico catedra 2.6 …` | `OneNote - Ecuaciones Diferenciales.pdf` (8 p.) | `T_ED.mp4` → `16`, `P_ED.mp4` → `17` |
+| Repaso 2P | `repaso segundo parcial/` | — | — | `OneNote - Repaso Segundo Parcial.pdf` (15 p.) | video en Drive, **descarga bloqueada** |
+
+Transversales: `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (guía de ejercicios de la cátedra, 45 p.)
+y la pág. 4 de `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (lo único permitido en el examen). Los transcripts van a
+`segundo-parcial/apuntes/transcripts/NN-….json`. Los videos de SharePoint se bajan desde Chrome con la cuenta
+`@frba` (botón Descargar de Stream); los de Drive no tienen descarga ni transcripción habilitada.
 
 ## Leyenda de tags (para `examenes/INDICE.md`)
+
+### Primer parcial
 
 **Series de Fourier:** `#SerieTrigonometrica` `#SerieExponencial` `#CompletarFuncion`
 (extender la función dada en medio período para forzar paridad / SMO / coeficientes
@@ -116,9 +153,32 @@ integro-diferenciales) `#SistemaEDO`
 
 **Forma de la consigna (no tema):** `#MultipleChoice` `#VoF` `#Demostracion`
 
+### Segundo parcial
+
+**Raíces de ecuaciones:** `#SepararRaices` (hallar un intervalo `[a; a+1]` para cada raíz,
+gráficamente) `#Biseccion` `#CotaIteraciones` (cuántas iteraciones garantizan un error dado;
+¿suficientes o necesarias?) `#PuntoFijo` (verificar las condiciones de convergencia de una
+`g(x)`, elegir entre dos `g`, iterar) `#NewtonRaphson`
+
+**Sistemas de ecuaciones lineales:** `#Jacobi` `#GaussSeidel` `#ConvergenciaIterativos`
+(decidir, sin resolver, si el método converge) `#RadioEspectral` `#DiagonalDominante`
+`#NumeroCondicion` (bien / mal condicionado con `‖A‖·‖A⁻¹‖`)
+
+**Interpolación y ajuste:** `#GradoPolinomio` (condiciones sobre los parámetros de la tabla
+para que el interpolante tenga cierto grado; hallar los valores faltantes)
+`#CantidadPolinomios` (¿cuántos polinomios de grado n pasan por los puntos?)
+`#DiferenciasDivididas` (armar el polinomio de Newton) `#AjusteRecta` `#AjusteExponencial`
+`#AjustePotencial` `#ErrorAjuste`
+
+**Integración numérica:** `#Trapecios` `#EleccionH` (mayor `h` racional no periódico, o
+número de subintervalos, que garantiza la cota de error) `#Simpson`
+
+**Ecuaciones diferenciales:** `#Lipschitz` `#Euler` `#Heun` `#RungeKutta4` `#Multipaso`
+(clasificar una fórmula: explícita/implícita, cantidad de pasos)
+
 ## Estado del material
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
 | **Primer parcial (2026-10-06)** | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (3 días, recalculado 2026-10-03 alrededor de las guías lineales `guia/01–04`) | ✅ (vacío) | — | ✅ (`primer-parcial/repaso/machete.md` + `exports/machete.pdf`, 2026-10-05; complemento del ayudamemoria) | — |
-| Segundo parcial (2026-11-24) | 🟡 3 (00 explicación paso a paso para estudiar —leer primero—, 01 teórica y 02 práctica de **ajuste por mínimos cuadrados**, Whisper local + OneNote `Ajuste.pdf`; faltan raíces, sistemas, interpolación, integración, EDO) | pendiente (4 archivos sin indexar) | — | — | — | ✅ (vacío) | — | — | — |
+| Segundo parcial (2026-11-24) | 🟡 3 (00 explicación paso a paso para estudiar —leer primero—, 01 teórica y 02 práctica de **ajuste por mínimos cuadrados**, Whisper local + OneNote `Ajuste.pdf`; faltan raíces, sistemas, interpolación, integración, EDO) | ✅ 4 hojas / 3 instancias (2025-1C) + 3 hojas de respuestas transcriptas en `resueltos/RESOLUCIONES-2025.md` | — | — | — | ✅ (vacío) | — | — | — |
