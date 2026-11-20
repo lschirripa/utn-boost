@@ -1,6 +1,6 @@
 # Guía para hacer el TP de mínimos cuadrados
 
-> Fuente: enunciado.md (consigna oficial 2C 2026) + segundo-parcial/apuntes/md/01–02 (clases teórica y práctica de ajuste) + tools/ajuste_mc.py
+> Fuente: enunciado.md (consigna oficial 2C 2026) + segundo-parcial/ajuste/md/01–02 (clases teórica y práctica de ajuste) + tools/ajuste_mc.py
 
 ---
 
@@ -10,8 +10,8 @@
 > **50 %** de la nota del PDF) salgan exactas. Lo que dijo el profe en clase está citado
 > con su apunte y timestamp; lo demás son recomendaciones para el TP.
 >
-> Si querés el detalle teórico: `../segundo-parcial/apuntes/md/01-video-teorica-ajuste-minimos-cuadrados.md`.
-> Si querés ver ejercicios resueltos con números: `../segundo-parcial/apuntes/md/02-practica-ajuste-minimos-cuadrados.md`.
+> Si querés el detalle teórico: `../segundo-parcial/ajuste/md/01-video-teorica-ajuste-minimos-cuadrados.md`.
+> Si querés ver ejercicios resueltos con números: `../segundo-parcial/ajuste/md/02-practica-ajuste-minimos-cuadrados.md`.
 
 ## 1. La idea en 5 minutos
 

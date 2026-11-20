@@ -1,12 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interpolación desde cero</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
 # Interpolación desde cero
 
-> Fuentes: `fuentes/clases/Interpolacion/Clase - Interpolacion general.pdf` (PDF de clase, 2 p.), `Clase - Metodo de Lagrange.pdf` (3 p.) y `Clase - Metodo de Newton-Gregory.pdf` (5 p.), `fuentes/clases/Interpolacion/Teorico catedra 2.4 - Interpolacion y aproximacion.pdf` (solo la parte de interpolación, págs. 89 a 103 del teórico), `fuentes/clases/Interpolacion/OneNote - Interpolacion.pdf` (práctica manuscrita del profesor, 13 p.; el video de la práctica no se pudo bajar), transcript `13-video-teorica-interpolacion.json` (teórica, 1 h 32), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej3 de las 4 hojas 2025), apunte `08-practica-repaso-segundo-parcial.md` (ej. 3, 4, 7 y 8), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (interpolación, ej. 1 a 21, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python (sympy). Generado 2026-11-19.
+> Fuentes: `fuentes/clases/Interpolacion/Clase - Interpolacion general.pdf` (PDF de clase, 2 p.), `Clase - Metodo de Lagrange.pdf` (3 p.) y `Clase - Metodo de Newton-Gregory.pdf` (5 p.), `fuentes/clases/Interpolacion/Teorico catedra 2.4 - Interpolacion y aproximacion.pdf` (solo la parte de interpolación, págs. 89 a 103 del teórico), `fuentes/clases/Interpolacion/OneNote - Interpolacion.pdf` (práctica manuscrita del profesor, 13 p.; el video de la práctica no se pudo bajar), transcript `13-video-teorica-interpolacion.json` (teórica, 1 h 32), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej3 de las 4 hojas 2025), apunte `06-practica-repaso-segundo-parcial.md` (ej. 3, 4, 7 y 8), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (interpolación, ej. 1 a 21, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python (sympy). Generado 2026-11-19.
 >
 > **Cómo usarla:** leé de arriba abajo, sin saltear. Los **Ejemplos guiados** están resueltos a la vista: leelos con lápiz y calculadora y rehacé cada cuenta. Los **Tu turno** se hacen en papel y **sin mirar**; la corrección está plegada (el enunciado va en texto plano en el título desplegable, porque ahí no se renderizan fórmulas, y se repite en limpio adentro). Las notas **En clase** son lo que dijo el profesor en el video de la teórica, con el minuto real del transcript `[mm:ss]`. Tiempo total: ≈ 5 h con pausas.
 >
 > **Qué es de la cátedra y qué es mío:** métodos, fórmulas, criterios y ejemplos salen de las fuentes. Son agregados míos (para que se entienda) las explicaciones "en criollo", las cuentas intermedias que las resoluciones oficiales no escriben, los gráficos, la tabla "regla del conteo" (que resume lo que el profesor explica con ejemplos) y la justificación con el polinomio $c\,(x-x_0)\cdots(x-x_n)$ de por qué hay infinitos. El **Checkpoint** es un ejercicio con formato de parcial armado con los datos del ej. 6 de la guía.
 >
-> **Alcance 2026:** en 2025 el Ej3 mezclaba interpolación con un ítem de **ajuste por mínimos cuadrados**. En 2026 ajuste **no entra**: acá esos ítems figuran como ⚪ y no se desarrollan (si los querés ver igual: `00-ajuste-explicado-paso-a-paso.md`). La derivación numérica propiamente dicha está en la guía 06; acá solo lo que se deduce de la tabla.
+> **Alcance 2026:** en 2025 el Ej3 mezclaba interpolación con un ítem de **ajuste por mínimos cuadrados**. En 2026 ajuste **no entra**: acá esos ítems figuran como ⚪ y no se desarrollan (si los querés ver igual: `../../ajuste/md/00-ajuste-explicado-paso-a-paso.md`). La derivación numérica propiamente dicha está en la guía 04; acá solo lo que se deduce de la tabla.
 
 ---
 
@@ -20,7 +77,7 @@ El Ej3 del 2do parcial es **siempre** una tabla de **6 puntos** con uno, dos o t
 | **Escribir el polinomio** | "Hallar dicho polinomio". Se deja en forma de Newton, **sin distribuir** | T2 a (explícito); en las otras 3 es un paso obligado del ítem a | 1/4 explícito, 4/4 como paso | §6 |
 | **¿Cuántos polinomios de grado $n$ pasan?** | Ninguno, uno o infinitos, para 2 o 3 grados distintos. "Justifique" | T1 b, R1 b, R1 c | **2/4** hojas (3 ítems) | §8 |
 | **¿De qué grado es el interpolante?** | Cambian un valor y preguntan el grado. "Justifique" | R2 b | 1/4 | §8 |
-| ⚪ Ajuste por mínimos cuadrados | Recta (T1 c), exponencial (T2 b, R2 c + error del ajuste), potencial (R1 d) | T1, T2, R1, R2 | 4/4 en 2025 · **no entra en 2026** | `00-ajuste-explicado-paso-a-paso.md` |
+| ⚪ Ajuste por mínimos cuadrados | Recta (T1 c), exponencial (T2 b, R2 c + error del ajuste), potencial (R1 d) | T1, T2, R1, R2 | 4/4 en 2025 · **no entra en 2026** | `../../ajuste/md/00-ajuste-explicado-paso-a-paso.md` |
 
 T1/T2 = parcial Tema 1/2 · R1/R2 = 1er/2do recuperatorio.
 
@@ -42,7 +99,7 @@ Te dan una **tabla** de puntos $(x_i;\ y_i)$ y tenés que encontrar una función
 
 El problema es que hay **infinitas** funciones que pasan por los mismos puntos. El PDF de clase lo muestra con la tabla $(0;0)$, $(1;1)$, $(2;2)$, $(3;3)$: las cuatro funciones de abajo valen lo mismo que la tabla en $x=0,1,2,3$.
 
-![Cuatro funciones que interpolan los mismos cuatro puntos](../img/05-fig1-infinitas-interpolantes.png)
+![Cuatro funciones que interpolan los mismos cuatro puntos](../img/03-fig1-infinitas-interpolantes.png)
 
 Para no ahogarse entre infinitas opciones, la cátedra trabaja **solo con polinomios** y, entre todos los polinomios, con **el de menor grado** (en el ejemplo, $p_1(x)=x$, de grado 1). Ese polinomio tiene una propiedad que es el corazón del tema: **existe y es único** (§3).
 
@@ -100,7 +157,7 @@ El profesor lo piensa con casos chicos [07:53] y después generaliza:
 - **2 puntos** ($n=1$): pasa un único polinomio de grado $\le 1$. Si están a la misma altura es la constante (grado 0); si no, la recta inclinada (grado 1).
 - **3 puntos** ($n=2$): un único polinomio de grado $\le 2$. Si están alineados horizontalmente, grado 0; si están alineados sobre una recta inclinada, grado 1; si no, una parábola (grado 2).
 
-![Con 1, 2 y 3 puntos: un único polinomio de grado bajo, infinitos del grado siguiente](../img/05-fig2-teorema-unicidad.png)
+![Con 1, 2 y 3 puntos: un único polinomio de grado bajo, infinitos del grado siguiente](../img/03-fig2-teorema-unicidad.png)
 
 ### 3.3 Primera consecuencia: de grado igual a la cantidad de puntos (o más) hay infinitos
 
@@ -128,7 +185,7 @@ Tenés puntos por los que pasa un interpolante $P$ de cierto grado y agregás un
 1. **El punto nuevo sigue el patrón**, o sea $P(x^{*})=y^{*}$. El interpolante es **el mismo** y el grado **no cambia**.
 2. **El punto nuevo no sigue el patrón**, $P(x^{*})\neq y^{*}$. El grado **salta directo al máximo** para la nueva cantidad de puntos (cantidad de puntos menos 1), **salteando todos los grados intermedios**.
 
-![Agregar un punto: o queda el mismo polinomio o salta al grado máximo](../img/05-fig3-agregar-punto.png)
+![Agregar un punto: o queda el mismo polinomio o salta al grado máximo](../img/03-fig3-agregar-punto.png)
 
 **Por qué salta y no sube de a uno** (la explicación del profesor, [17:20] y OneNote): $P_1$ y $P_2$ están a la misma altura, así que por ellos pasa el polinomio de grado 0. El teorema dice que por esos dos puntos pasa **un único** polinomio de grado $\le 1$: ya es la constante, entonces **ninguna recta inclinada** pasa por $P_1$ y $P_2$. Si agrego un $P_3$ que no está a esa altura, la constante ya no sirve, y la recta "ya estaba descartada de antes" [17:50], agregues lo que agregues. Si existiera un interpolante de grado 1 para los tres, por $P_1$ y $P_2$ pasarían un polinomio de grado 0 **y** otro de grado 1: "sería una contradicción al teorema". Lo único que queda es el grado 2.
 
@@ -162,7 +219,7 @@ $$
 
 Lo que anota el profesor: "Si agrego el punto $(6;81)$, el P.I. se mantiene igual. Si agrego el punto $(6;80)$, el P.I. salta al grado máximo para 6 puntos, que es grado 5". Y la respuesta de la guía: "es de grado 5, ya que no existe ninguno de grado menor o igual a 4 que pase por todos ellos".
 
-![El punto (6;81) deja la cúbica; el punto (6;80) obliga a un polinomio de grado 5](../img/05-fig4-salto-de-grado.png)
+![El punto (6;81) deja la cúbica; el punto (6;80) obliga a un polinomio de grado 5](../img/03-fig4-salto-de-grado.png)
 
 Una diferencia de 1 en un solo dato cambió el grado de 3 a 5. No existe el término medio.
 
@@ -837,7 +894,7 @@ La clave está en §3.4: los puntos **conocidos** ya determinan un polinomio $P$
 
 Entonces "hallar la letra para que el grado sea bajo" es, siempre, **armar $P$ con los puntos conocidos y evaluarlo en la $x$ tapada**.
 
-![Parcial 2025 Tema 1: la cúbica por los puntos conocidos fija dónde tienen que caer a y b](../img/05-fig5-parcial-tema1.png)
+![Parcial 2025 Tema 1: la cúbica por los puntos conocidos fija dónde tienen que caer a y b](../img/03-fig5-parcial-tema1.png)
 
 La regla de oro del profesor, anotada al margen en el OneNote:
 
@@ -1966,7 +2023,7 @@ Dio bien porque $1{,}32$ está apenas afuera. Compará con el Ejemplo guiado 5 (
 
 ### 11.1 Derivada segunda con la fórmula central (repaso 2026)
 
-La derivación numérica está desarrollada en la guía 06. Acá solo el ítem que el repaso pegó a los ejercicios de interpolación: la **derivada segunda en un punto de la tabla**.
+La derivación numérica está desarrollada en la guía 04. Acá solo el ítem que el repaso pegó a los ejercicios de interpolación: la **derivada segunda en un punto de la tabla**.
 
 $$
 f''(x_i)\approx\frac{f(x_i-h)-2f(x_i)+f(x_i+h)}{h^2}
@@ -2011,7 +2068,7 @@ La guía y el teórico insisten con esta comparación. Las dos ideas (teórico, 
 
 El problema de interpolar con muchos puntos: el grado sube y el polinomio **oscila**. El teórico lo muestra con 6 puntos cuya nube "se asemeja a una cuadrática": el interpolante es de grado 5 y hace subidas y bajadas que los datos no sugieren, mientras que la parábola de ajuste sigue la tendencia.
 
-![Interpolante de grado 5 que oscila contra la parábola de ajuste](../img/05-fig6-interpolar-vs-aproximar.png)
+![Interpolante de grado 5 que oscila contra la parábola de ajuste](../img/03-fig6-interpolar-vs-aproximar.png)
 
 Criterio para contestar un multiple choice:
 
@@ -2169,4 +2226,23 @@ Si te sobra tiempo, rehacé de corrido el Ej3 de una hoja real (solo los ítems 
 
 ---
 
-*Guía generada el 2026-11-19. Fuentes: PDF de clase "Interpolación" (general), "Método de Lagrange" y "Método de Newton-Gregory (general)"; teórico de cátedra 2.4 (parte de interpolación); OneNote de la práctica de interpolación (13 páginas); transcripción de la clase teórica (video 13); Ej3 de las 4 hojas del 2do parcial 2025 con sus resoluciones oficiales; ejercicios 3, 4, 7 y 8 del repaso 2026; guía de ejercicios parte 2 (interpolación, ej. 1 a 21, con respuestas) y ayudamemoria oficial pág. 4. Figuras: `apuntes/img/05-figuras.py`.*
+*Guía generada el 2026-11-19. Fuentes: PDF de clase "Interpolación" (general), "Método de Lagrange" y "Método de Newton-Gregory (general)"; teórico de cátedra 2.4 (parte de interpolación); OneNote de la práctica de interpolación (13 páginas); transcripción de la clase teórica (video 13); Ej3 de las 4 hojas del 2do parcial 2025 con sus resoluciones oficiales; ejercicios 3, 4, 7 y 8 del repaso 2026; guía de ejercicios parte 2 (interpolación, ej. 1 a 21, con respuestas) y ayudamemoria oficial pág. 4. Figuras: `apuntes/img/03-figuras.py`.*
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+
+</script>
+</body>
+</html>

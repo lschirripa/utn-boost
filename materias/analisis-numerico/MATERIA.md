@@ -90,7 +90,7 @@
   `tp-minimos-cuadrados/` (`enunciado.md`, `guia-tp.md` + `exports/`). Las cuentas del punto
   c)/d) salen con `tools/ajuste_mc.py`. Clases de ajuste (teórica + práctica, mp4 sin
   versionar) y OneNote `Ajuste.pdf` en `fuentes/clases/Ajuste-Aproximacion/`, pasadas a
-  `segundo-parcial/apuntes/md/01–02`.
+  `segundo-parcial/ajuste/md/01–02`.
 - **Clases grabadas (descargadas, en `fuentes/clases/<tema>/`, prefijo `T_` teórica / `P_` práctica; los mp4 no se versionan):** teórica STF, teórica SEF + transformada de Fourier, teórica Laplace, teórica aplicaciones de Laplace (`P_TLaplace.mp4`, que en realidad es la 2ª teórica), teórica y práctica de sistemas estables, teórica de Z y repaso del 1P. Transcriptas con `tools/transcribe_local.py` (Whisper large-v3-turbo en la Mac) a `primer-parcial/apuntes/transcripts/10–17`. **Las prácticas de Fourier, Laplace y Z están en Google Drive con descarga bloqueada por el dueño**: se cubren con sus OneNote (apuntes 01–06). El repaso descargado (`Repaso Primer Parcial.mp4`) es la grabación de SharePoint; el repaso 2026 del Ing. Paoli en Zoom está **roto** ("Esta grabación no existe"); en su lugar están las **fotos de la clase de repaso 2026 del curso** en `fuentes/clases/repaso-clase-2026/` (7 páginas), pasadas a `primer-parcial/repaso/practica-repaso-2026.md`.
 - **Exámenes reales:** primer parcial: **16 hojas de examen distintas (11 instancias,
   2015 → 2025)** en `primer-parcial/examenes/`, indexadas en `INDICE.md`. 4 archivos son
@@ -109,7 +109,7 @@ Tabla curada el 2026-11-18 desde el Aula Virtual (curso K3572) y `fuentes/clases
 Es la lista que usan las guías "desde cero" del 2P: **solo** estos archivos, en `fuentes/clases/<carpeta>/`.
 Descartado del aula por no aportar al parcial: número áureo, planillas Excel de Jacobi/Gauss-Seidel,
 Colabs de Python, videos externos de YouTube. **Ajuste por mínimos cuadrados no entra en el 2P 2026**
-(se evaluó con el TP); sus apuntes `00–02` quedan como están.
+(se evaluó con el TP); sus apuntes quedan aparte en `segundo-parcial/ajuste/` (00 explicado paso a paso, 01 teórica, 02 práctica).
 
 | Tema (ejercicio) | Carpeta | PDF de clase ("PARA DAR CLASES") | Teórico de cátedra | OneNote práctica | Videos → transcript |
 |---|---|---|---|---|---|
@@ -181,4 +181,4 @@ número de subintervalos, que garantiza la cota de error) `#Simpson`
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
 | Primer parcial (2026-10-06, rendido) | ✅ 15 (01–07 desde los OneNote de práctica, 10–17 desde las clases grabadas transcriptas con Whisper local) | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (3 días, recalculado 2026-10-03 alrededor de las guías lineales `guia/01–04`) | ✅ (vacío) | — | ✅ (`primer-parcial/repaso/machete.md` + `exports/machete.pdf`, 2026-10-05; complemento del ayudamemoria) | — |
-| **Segundo parcial (2026-11-24)** | ✅ 9 (03–07 guías "desde cero" de raíces, sistemas lineales, interpolación, diferenciación/integración y ecuaciones diferenciales, con todos los ítems de parcial 2025 y del repaso como "tu turno" + checkpoint; 08 práctica del repaso 2026, 15 ejercicios; 00–02 de **ajuste por mínimos cuadrados**, fuera de alcance en 2026) | ✅ 4 hojas / 3 instancias (2025-1C) + 3 hojas de respuestas transcriptas en `resueltos/RESOLUCIONES-2025.md` | ✅ (2026-11-19; dataset chico, complementado con el repaso 2026 y las notas "En clase") | — | ✅ (5 días, 2026-11-19; núcleo de cada guía por día, `08` a ciegas + simulacro el 2026-11-23) | ✅ (vacío) | — | — | — |
+| **Segundo parcial (2026-11-24)** | ✅ 6 (01–05 guías "desde cero" de raíces, sistemas lineales, interpolación, diferenciación/integración y ecuaciones diferenciales, con todos los ítems de parcial 2025 y del repaso como "tu turno" + checkpoint, numeradas igual que el ejercicio del parcial; 06 práctica del repaso 2026, 15 ejercicios; aparte, en `ajuste/`, 00–02 de **ajuste por mínimos cuadrados**, fuera de alcance en 2026) | ✅ 4 hojas / 3 instancias (2025-1C) + 3 hojas de respuestas transcriptas en `resueltos/RESOLUCIONES-2025.md` | ✅ (2026-11-19; dataset chico, complementado con el repaso 2026 y las notas "En clase") | — | ✅ (5 días, 2026-11-19; núcleo de cada guía por día, `08` a ciegas + simulacro el 2026-11-23) | ✅ (vacío) | — | — | — |

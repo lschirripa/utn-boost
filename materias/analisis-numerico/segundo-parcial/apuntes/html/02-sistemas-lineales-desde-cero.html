@@ -1,6 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistemas de ecuaciones lineales desde cero</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
 # Sistemas de ecuaciones lineales desde cero
 
-> Fuentes: `fuentes/clases/Sistemas de Ecuaciones Lineales/Clase - Sistemas de ecuaciones lineales.pdf` (PDF de clase, 18 p.), `fuentes/clases/Sistemas de Ecuaciones Lineales/Teorico catedra 2.3 - Sistemas lineales.pdf` (teórico de cátedra, 27 p.), `fuentes/clases/Sistemas de Ecuaciones Lineales/OneNote - Sistemas de Ecuaciones Lineales.pdf` (práctica manuscrita del profesor, 19 p.), transcript `12-video-teorica-sistemas-lineales.json` (teórica, 1 h 30), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de las 4 hojas 2025), apunte `08-practica-repaso-segundo-parcial.md` (ej. 6 y 15), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (ej. 1 a 12 de sistemas lineales, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python. Generado 2026-11-18.
+> Fuentes: `fuentes/clases/Sistemas de Ecuaciones Lineales/Clase - Sistemas de ecuaciones lineales.pdf` (PDF de clase, 18 p.), `fuentes/clases/Sistemas de Ecuaciones Lineales/Teorico catedra 2.3 - Sistemas lineales.pdf` (teórico de cátedra, 27 p.), `fuentes/clases/Sistemas de Ecuaciones Lineales/OneNote - Sistemas de Ecuaciones Lineales.pdf` (práctica manuscrita del profesor, 19 p.), transcript `12-video-teorica-sistemas-lineales.json` (teórica, 1 h 30), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de las 4 hojas 2025), apunte `06-practica-repaso-segundo-parcial.md` (ej. 6 y 15), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (ej. 1 a 12 de sistemas lineales, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python. Generado 2026-11-18.
 >
 > **Cómo usarla:** leé de arriba abajo, sin saltear. Los **Ejemplos guiados** están resueltos a la vista: leelos con lápiz y calculadora y rehacé cada cuenta. Los **Tu turno** se hacen en papel y **sin mirar**; la corrección está plegada (el enunciado va en texto plano en el título desplegable, porque ahí no se renderizan fórmulas; cuando hay matrices se repite en limpio adentro). Las notas **En clase** son lo que dijo el profesor en el video de la teórica, con el minuto real del transcript (`teórica [mm:ss]` = video 12). El video de la práctica no se pudo bajar: la práctica sale del OneNote del profesor. Tiempo total: ≈ 5 h con pausas.
 >
@@ -671,7 +728,7 @@ En **5** iteraciones llega a la precisión que Jacobi consiguió en **10**.
 
 *(Erratas del PDF de clase y del teórico: imprimen $x^{(1)}=(0{,}6;\ 2{,}3272;\ -0{,}9873;\ -0{,}8789)$. El segundo valor es $2{,}3273$ redondeado y el cuarto es **positivo**, $0{,}8789$; con signo negativo no tendería a $1$.)*
 
-![Distancia a la solución exacta en cada iteración: Gauss-Seidel baja el doble de rápido que Jacobi](../img/04-fig1-jacobi-vs-gauss-seidel.png)
+![Distancia a la solución exacta en cada iteración: Gauss-Seidel baja el doble de rápido que Jacobi](../img/02-fig1-jacobi-vs-gauss-seidel.png)
 
 ### 6.2 "El doble de rápido" (pregunta teórica de examen)
 
@@ -1185,7 +1242,7 @@ $$
 
 **Qué se ve si iterás (es el "caso de estudio" de la teórica):** Jacobi se acerca a la solución $\left(\frac{35}{11};-\frac{3}{11};-\frac{30}{11}\right)=(3{,}1818;\ -0{,}2727;\ -2{,}7273)$ pero se queda yendo y viniendo sin decidirse; Gauss-Seidel sí converge.
 
-![En el sistema del parcial, Jacobi queda oscilando alrededor de la solución y Gauss-Seidel converge](../img/04-fig2-parcial-jacobi-no-converge.png)
+![En el sistema del parcial, Jacobi queda oscilando alrededor de la solución y Gauss-Seidel converge](../img/02-fig2-parcial-jacobi-no-converge.png)
 
 > **En clase:** con Jacobi "en una iteración tengo 3,19 si redondeo y después 3,17. Y 3,19 y 3,17 […] como que no se decide, no termina de converger. […] De hecho, con mil iteraciones esto sigue pasando" (teórica [1:15:36]–[1:16:08]). "Le calculé los autovalores y el radio espectral, que tenía que ser menor a 1, y este no es menor a 1, es igual a 1. Como no cumple la condición del sí y solo sí, entonces el método diverge" (teórica [1:16:08]).
 >
@@ -1386,7 +1443,7 @@ Cambié un término independiente en $0{,}0001$ y la solución saltó de $(2;0)$
 
 Geométricamente (agregado mío): cada ecuación es una recta, y estas dos son casi paralelas. Un empujoncito a una y el cruce se va lejos.
 
-![Bien condicionado: las rectas se cruzan francamente. Mal condicionado: son casi paralelas (esquema con las pendientes exageradas)](../img/04-fig3-condicionamiento.png)
+![Bien condicionado: las rectas se cruzan francamente. Mal condicionado: son casi paralelas (esquema con las pendientes exageradas)](../img/02-fig3-condicionamiento.png)
 
 > **En clase:** "no es que te dicen, che, resolvé [un sistema] que nace de un repollo […] ponele que vos llegaste a ese sistema de ecuaciones lineales a partir de otro proceso": venís arrastrando errores de redondeo y "la pregunta que hay que hacerse es qué tanto me afectan esos errores" (teórica [1:19:26]–[1:19:58]). "Uno hubiera esperado que te dé, qué sé yo, el 2,001 y el −0,001 […] no el 1,1" (teórica [1:22:01]).
 
@@ -1771,4 +1828,23 @@ Dato extra: la solución exacta es $(1{,}1710;\ 1{,}7361;\ 0{,}9777)$ y $\rho(T_
 
 ---
 
-*Generado el 2026-11-18. Fuentes: PDF de clase "Sistemas de ecuaciones lineales" (18 p.), teórico de cátedra 2.3 (27 p.), OneNote de la práctica (19 p.), transcript de la teórica (`12-video-teorica-sistemas-lineales.json`, 1 h 30), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de T1, T2, R1 y R2 2025), apunte `08-practica-repaso-segundo-parcial.md` (ej. 6 y 15), guía de ejercicios parte 2 (ej. 1 a 8, 10 y 12 de sistemas lineales, con respuestas) y ayudamemoria oficial (pág. 4). No se incluyeron los ej. 9 y 11 de la guía (más iteraciones del mismo tipo, sin respuesta en la guía). Figuras: `apuntes/img/04-figuras.py`. Todos los números verificados con Python (numpy/sympy).*
+*Generado el 2026-11-18. Fuentes: PDF de clase "Sistemas de ecuaciones lineales" (18 p.), teórico de cátedra 2.3 (27 p.), OneNote de la práctica (19 p.), transcript de la teórica (`12-video-teorica-sistemas-lineales.json`, 1 h 30), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de T1, T2, R1 y R2 2025), apunte `06-practica-repaso-segundo-parcial.md` (ej. 6 y 15), guía de ejercicios parte 2 (ej. 1 a 8, 10 y 12 de sistemas lineales, con respuestas) y ayudamemoria oficial (pág. 4). No se incluyeron los ej. 9 y 11 de la guía (más iteraciones del mismo tipo, sin respuesta en la guía). Figuras: `apuntes/img/02-figuras.py`. Todos los números verificados con Python (numpy/sympy).*
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+
+</script>
+</body>
+</html>

@@ -1,8 +1,8 @@
-"""Figuras de la guía 03-raices-desde-cero.md.
+"""Figuras de la guía 03-interpolacion-desde-cero.md.
 
 Uso (desde la raíz del repo):
     venv/bin/python materias/analisis-numerico/segundo-parcial/apuntes/img/03-figuras.py
-Genera 03-fig1 … 03-fig6 (PNG) en esta misma carpeta.
+Genera 03-fig1 … 03-fig5 (PNG) en esta misma carpeta.
 """
 from pathlib import Path
 
@@ -29,202 +29,146 @@ def guardar(fig, nombre):
     plt.close(fig)
 
 
-# ---------- fig1: separar raíces graficando dos funciones ----------
+def interpolante(xs, ys):
+    """Coeficientes (potencias decrecientes) del polinomio que pasa por todos los puntos."""
+    return np.polyfit(xs, ys, len(xs) - 1)
+
+
+# ---------- fig1: infinitas funciones interpoladoras (ejemplo del PDF de clase) ----------
 def fig1():
-    x = np.linspace(-1, 2.5, 400)
-    fig, ax = plt.subplots(1, 2, figsize=(10, 3.8))
-    r = 0.5671433
-    ax[0].plot(x, x, color=AZUL, label="$y=x$")
-    ax[0].plot(x, np.exp(-x), color=ROJO, label="$y=e^{-x}$")
-    ax[0].plot([r], [r], "o", color="black")
-    ax[0].axvspan(0, 1, color=VERDE, alpha=0.12)
-    ax[0].set_ylim(-1, 2.5)
-    ax[0].set_title("Lo que dibujás a mano: dos curvas conocidas")
-    ax[0].legend(loc="upper center")
-    ejes(ax[0])
-    ax[1].plot(x, x - np.exp(-x), color=VERDE, label="$f(x)=x-e^{-x}$")
-    ax[1].plot([r], [0], "o", color="black")
-    ax[1].axvspan(0, 1, color=VERDE, alpha=0.12)
-    ax[1].annotate("$f(0)=-1<0$", (0, -1), (-0.95, -1.6), arrowprops={"arrowstyle": "->"})
-    ax[1].annotate("$f(1)=0{,}63>0$", (1, 0.632), (1.2, -0.6), arrowprops={"arrowstyle": "->"})
-    ax[1].set_ylim(-2.5, 2.5)
-    ax[1].set_title("Lo que no sabés dibujar: el cruce es la raíz de $f$")
-    ax[1].legend(loc="upper left")
-    ejes(ax[1])
-    guardar(fig, "03-fig1-separar-raices.png")
-
-
-# ---------- fig2: bisección ----------
-def fig2():
-    f = lambda t: t - np.exp(-t)
-    x = np.linspace(-0.05, 1.05, 300)
-    fig, ax = plt.subplots(figsize=(8.5, 4.2))
-    ax.plot(x, f(x), color=VERDE, lw=2, label="$f(x)=x-e^{-x}$")
+    x = np.linspace(-0.25, 3.25, 600)
+    fig, ax = plt.subplots(figsize=(7.5, 4.2))
+    ax.plot(x, x, color=AZUL, lw=2, label="$p_1(x)=x$  (grado 1: el de menor grado)")
+    ax.plot(x, x + np.sin(2 * np.pi * x), color=NARANJA, label=r"$p_2(x)=x+\mathrm{sen}(2\pi x)$")
+    ax.plot(x, x - x**2 * (1 - np.cos(2 * np.pi * x)), color=VERDE, label=r"$p_3(x)=x-x^2[1-\cos(2\pi x)]$")
+    ax.plot(x, x**4 - 6 * x**3 + 11 * x**2 - 5 * x, color=ROJO, label="$p_4(x)=x^4-6x^3+11x^2-5x$")
+    ax.plot([0, 1, 2, 3], [0, 1, 2, 3], "o", color="black", zorder=5, label="datos")
+    ax.set_ylim(-4, 6)
+    ax.set_title("Cuatro funciones distintas que pasan por los mismos 4 puntos")
+    ax.legend(fontsize=8, loc="upper left")
     ejes(ax)
-    a, b = 0.0, 1.0
-    niveles = [-0.55, -0.68, -0.81, -0.94]
-    for i, y in enumerate(niveles):
-        p = (a + b) / 2
-        ax.plot([a, b], [y, y], color=AZUL, lw=3, solid_capstyle="butt")
-        ax.plot([p], [y], "o", color=ROJO)
-        ax.text(b + 0.015, y, f"paso {i}: $[{a:g};\\ {b:g}]$,  $p={p:g}$,  $f(p)={f(p):+.3f}$", va="center", fontsize=9)
-        if f(p) * f(a) > 0:
-            a = p
-        else:
-            b = p
-    ax.plot([0.5671433], [0], "o", color="black")
-    ax.annotate("raíz $\\alpha\\approx0{,}567$", (0.5671, 0), (0.15, 0.35), arrowprops={"arrowstyle": "->"})
-    ax.set_xlim(-0.05, 1.75)
-    ax.set_ylim(-1.1, 0.75)
-    ax.set_title("Bisección: cada paso se queda con la mitad donde $f$ cambia de signo")
-    ax.legend(loc="upper left")
-    guardar(fig, "03-fig2-biseccion.png")
+    guardar(fig, "03-fig1-infinitas-interpolantes.png")
 
 
-# ---------- fig3: regula falsi ----------
+# ---------- fig2: el teorema con 1 y 2 puntos / infinitos de grado mayor ----------
+def fig2():
+    x = np.linspace(-0.5, 4.5, 300)
+    fig, ax = plt.subplots(1, 3, figsize=(12, 3.6))
+    # un punto: una sola constante, infinitas rectas
+    ax[0].axhline(2, color=ROJO, lw=2, label="grado 0: una sola")
+    for m in (-1.2, -0.5, 0.6, 1.4):
+        ax[0].plot(x, 2 + m * (x - 2), color=GRIS, lw=0.9, alpha=0.7)
+    ax[0].plot([], [], color=GRIS, lw=0.9, label="grado 1: infinitas")
+    ax[0].plot([2], [2], "o", color="black", zorder=5)
+    ax[0].set_title("1 punto")
+    # dos puntos: una recta, infinitas parábolas
+    ax[1].plot(x, 1 + 0.75 * (x - 1), color=ROJO, lw=2, label="grado $\\leq 1$: una sola")
+    for c in (-1.0, -0.4, 0.5, 1.1):
+        ax[1].plot(x, 1 + 0.75 * (x - 1) + c * (x - 1) * (x - 3), color=GRIS, lw=0.9, alpha=0.7)
+    ax[1].plot([], [], color=GRIS, lw=0.9, label="grado 2: infinitas")
+    ax[1].plot([1, 3], [1, 2.5], "o", color="black", zorder=5)
+    ax[1].set_title("2 puntos")
+    # tres puntos: una parábola, infinitas cúbicas
+    c2 = interpolante([0.5, 2, 3.5], [1, 3, 1.5])
+    ax[2].plot(x, np.polyval(c2, x), color=ROJO, lw=2, label="grado $\\leq 2$: una sola")
+    for c in (-0.5, -0.2, 0.25, 0.55):
+        ax[2].plot(x, np.polyval(c2, x) + c * (x - 0.5) * (x - 2) * (x - 3.5), color=GRIS, lw=0.9, alpha=0.7)
+    ax[2].plot([], [], color=GRIS, lw=0.9, label="grado 3: infinitas")
+    ax[2].plot([0.5, 2, 3.5], [1, 3, 1.5], "o", color="black", zorder=5)
+    ax[2].set_title("3 puntos")
+    for a in ax:
+        a.set_ylim(-1, 5)
+        a.legend(fontsize=8, loc="upper left")
+        ejes(a)
+    guardar(fig, "03-fig2-teorema-unicidad.png")
+
+
+# ---------- fig3: agregar un punto: se mantiene el grado o salta al máximo ----------
 def fig3():
-    f = lambda t: t**3 - np.exp(t)
-    x = np.linspace(0.95, 2.05, 300)
-    fig, ax = plt.subplots(figsize=(8, 4.4))
-    ax.plot(x, f(x), color=VERDE, lw=2, label="$f(x)=x^3-e^{x}$")
-    ax.axhline(0, color="black", lw=0.8)
-    ax.grid(alpha=0.25)
-    b, xi = 2.0, 1.0
-    colores = [AZUL, NARANJA, ROJO]
-    for i in range(3):
-        xn = b - f(b) * (b - xi) / (f(b) - f(xi))
-        ax.plot([xi, b], [f(xi), f(b)], color=colores[i], lw=1.3, label=f"cuerda {i + 1}: $x_{i + 1}={xn:.4f}$")
-        ax.plot([xn], [0], "o", color=colores[i], ms=5)
-        ax.plot([xn, xn], [0, f(xn)], ":", color=colores[i])
-        xi = xn
-    ax.plot([2], [f(2)], "s", color="black")
-    ax.annotate("extremo fijo $b=2$", (2, f(2)), (1.55, 0.45), arrowprops={"arrowstyle": "->"})
-    ax.annotate("$x_0=a=1$", (1, f(1)), (1.05, -1.2), arrowprops={"arrowstyle": "->"})
-    ax.set_title("Regula Falsi: cuerdas que pivotean en el extremo fijo ($f'>0$, $f''>0$ ⇒ se fija $b$)")
-    ax.legend(loc="upper left", fontsize=9)
-    guardar(fig, "03-fig3-regula-falsi.png")
+    x = np.linspace(0, 5, 300)
+    fig, ax = plt.subplots(1, 2, figsize=(10, 3.8))
+    for a in ax:
+        a.plot([1, 2.5], [2, 2], "o", color="black", zorder=5)
+        a.annotate("$P_1$", (1, 2), (0.85, 2.25))
+        a.annotate("$P_2$", (2.5, 2), (2.35, 2.25))
+        a.set_ylim(0, 5)
+        ejes(a)
+    ax[0].axhline(2, color=ROJO, lw=2)
+    ax[0].plot([4], [2], "o", color=AZUL, zorder=5)
+    ax[0].annotate("$P_3$ alineado", (4, 2), (3.45, 2.3), color=AZUL)
+    ax[0].set_title("$P_3$ sigue el patrón: el grado no cambia (0)")
+    c = interpolante([1, 2.5, 4], [2, 2, 3.8])
+    ax[1].axhline(2, color=ROJO, lw=1, ls="--", alpha=0.6)
+    ax[1].plot(x, np.polyval(c, x), color=AZUL, lw=2)
+    ax[1].plot([4], [3.8], "o", color=AZUL, zorder=5)
+    ax[1].annotate("$P_3$ fuera del patrón", (4, 3.8), (2.6, 4.3), color=AZUL)
+    ax[1].set_title("$P_3$ no lo sigue: salta de grado 0 a grado 2")
+    guardar(fig, "03-fig3-agregar-punto.png")
 
 
-# ---------- fig4: punto fijo (telaraña) ----------
-def telarana(ax, g, x0, n, lo, hi, titulo, etiqueta):
-    x = np.linspace(lo, hi, 300)
-    ax.plot(x, x, color=GRIS, lw=1, label="$y=x$")
-    ax.plot(x, g(x), color=AZUL, lw=2, label=etiqueta)
-    xi = x0
-    ax.plot([xi, xi], [lo, g(xi)], color=ROJO, lw=1)
-    for _ in range(n):
-        y = g(xi)
-        if not (lo - 5 < y < hi + 5):
-            break
-        ax.plot([xi, y], [y, y], color=ROJO, lw=1)
-        ax.plot([y, y], [y, g(y)], color=ROJO, lw=1)
-        xi = y
-    ax.plot([x0], [lo], "o", color=ROJO, clip_on=False)
-    ax.set_xlim(lo, hi)
-    ax.set_ylim(lo, hi)
-    ax.set_title(titulo, fontsize=10)
-    ax.legend(loc="upper left", fontsize=8)
-    ax.grid(alpha=0.25)
-
-
+# ---------- fig4: ejercicio 11 de la guía: (6;81) mantiene la cúbica, (6;80) salta a grado 5 ----------
 def fig4():
-    fig, ax = plt.subplots(1, 3, figsize=(13, 4.3))
-    telarana(ax[0], lambda t: np.exp(-t), 0.1, 8, 0, 1, "$-1<g'<0$: converge en espiral", "$g(x)=e^{-x}$")
-    telarana(ax[1], lambda t: 0.5 * np.log(t**2 + 3 * t + 2), 0.05, 8, 0, 1, "$0<g'<1$: converge en escalera", "$g(x)=\\frac{1}{2}\\ln(x^2+3x+2)$")
-    telarana(ax[2], lambda t: (t - 1) * np.exp(t), 1.38, 4, 1, 2, "$g'>1$: se escapa de la raíz", "$g_1(x)=(x-1)e^{x}$")
-    guardar(fig, "03-fig4-punto-fijo.png")
+    xs, ys = [1, 3, 4, 5, 7], [1, 3, 13, 37, 151]
+    x = np.linspace(0.6, 7.3, 500)
+    p3 = lambda t: t**3 - 5 * t**2 + 8 * t - 3
+    c5 = interpolante(xs + [6], ys + [80])
+    fig, ax = plt.subplots(1, 2, figsize=(11, 4))
+    ax[0].plot(x, p3(x), color=ROJO, lw=2, label="$P(x)=x^3-5x^2+8x-3$ (grado 3)")
+    ax[0].plot(x, np.polyval(c5, x), color=AZUL, lw=1.6, ls="--", label="interpolante con $(6;80)$ (grado 5)")
+    ax[0].plot(xs, ys, "o", color="black", zorder=5, label="los 5 datos")
+    ax[0].plot([6], [81], "s", color=ROJO, zorder=6)
+    ax[0].plot([6], [80], "s", color=AZUL, zorder=6)
+    ax[0].set_title("A escala completa casi no se distinguen")
+    ax[0].legend(fontsize=8, loc="upper left")
+    ejes(ax[0])
+    ax[1].plot(x, np.polyval(c5, x) - p3(x), color=AZUL, lw=2)
+    ax[1].plot(xs, [0] * 5, "o", color="black", zorder=5)
+    ax[1].plot([6], [-1], "s", color=AZUL, zorder=6)
+    ax[1].annotate("en $x=6$ baja 1:\n$80$ en vez de $81$", (6, -1), (3.6, -1.1), arrowprops={"arrowstyle": "->"})
+    ax[1].set_title("Diferencia (grado 5) − (grado 3): cero en los 5 datos")
+    ejes(ax[1])
+    guardar(fig, "03-fig4-salto-de-grado.png")
 
 
-# ---------- fig5: Newton-Raphson ----------
+# ---------- fig5: parcial 2025 Tema 1: la cúbica por los puntos conocidos fija a y b ----------
 def fig5():
-    fig, ax = plt.subplots(1, 2, figsize=(11.5, 4.2))
-    f = lambda t: t**2 - 3
-    df = lambda t: 2 * t
-    x = np.linspace(1.2, 3.2, 200)
-    ax[0].plot(x, f(x), color=VERDE, lw=2, label="$f(x)=x^2-3$")
-    ax[0].axhline(0, color="black", lw=0.8)
-    ax[0].grid(alpha=0.25)
-    xi = 3.0
-    for i, c in enumerate([AZUL, NARANJA, ROJO]):
-        xn = xi - f(xi) / df(xi)
-        ax[0].plot([xi, xn], [f(xi), 0], color=c, lw=1.3, label=f"tangente en $x_{i}={xi:.4g}$ → $x_{i + 1}={xn:.4f}$")
-        ax[0].plot([xi, xi], [0, f(xi)], ":", color=c)
-        ax[0].plot([xn], [0], "o", color=c, ms=5)
-        xi = xn
-    ax[0].set_title("Newton-Raphson: bajar por la tangente hasta el eje $x$")
-    ax[0].legend(loc="upper left", fontsize=8)
-
-    f2 = lambda t: t**3 - 2 * t**2 - 3 * t + 10
-    df2 = lambda t: 3 * t**2 - 4 * t - 3
-    x = np.linspace(-16, 3.5, 400)
-    ax[1].plot(x, f2(x), color=VERDE, lw=2, label="$f(x)=x^3-2x^2-3x+10$")
-    ax[1].axhline(0, color="black", lw=0.8)
-    ax[1].grid(alpha=0.25)
-    x0 = 1.9
-    x1 = x0 - f2(x0) / df2(x0)
-    ax[1].plot([x0, x1], [f2(x0), 0], color=ROJO, lw=1.3, label=f"tangente en $x_0=1{{,}}9$ ($f'=0{{,}}23$) → $x_1={x1:.1f}$")
-    ax[1].plot([x0], [f2(x0)], "o", color=ROJO)
-    ax[1].plot([x1], [0], "o", color=ROJO)
-    ax[1].plot([-2], [0], "o", color="black")
-    ax[1].annotate("única raíz: $-2$", (-2, 0), (-9, 25), arrowprops={"arrowstyle": "->"})
-    ax[1].set_ylim(-40, 45)
-    ax[1].set_title("Mal $x_0$: cerca de un mínimo la tangente es casi horizontal")
-    ax[1].legend(loc="lower right", fontsize=8)
-    guardar(fig, "03-fig5-newton-raphson.png")
+    p = lambda t: 0.5 * t**3 + 3 * t - 3
+    x = np.linspace(0.5, 8.4, 400)
+    fig, ax = plt.subplots(figsize=(7.5, 4.3))
+    ax.plot(x, p(x), color=ROJO, lw=2, label=r"$P(x)=\frac{1}{2}x^3+3x-3$ (por los 4 datos conocidos)")
+    ax.plot([1, 4, 5, 6], [0.5, 41, 74.5, 123], "o", color="black", zorder=5, label="datos conocidos")
+    ax.plot([2], [7], "s", color=VERDE, zorder=6, label="$a=P(2)=7$: sigue en la cúbica")
+    ax.plot([8], [277], "s", color=VERDE, zorder=6)
+    ax.annotate("$b=P(8)=277$:\ntodo queda en grado 3", (8, 277), (5.3, 265), arrowprops={"arrowstyle": "->"})
+    ax.plot([8, 8], [150, 220], "x", color=AZUL, ms=9, zorder=6, label=r"$b\neq 277$: salta a grado 5")
+    ax.set_title("Parcial 2025, Tema 1: dónde tienen que caer $a$ y $b$")
+    ax.legend(fontsize=8, loc="upper left")
+    ejes(ax)
+    guardar(fig, "03-fig5-parcial-tema1.png")
 
 
-# ---------- fig6: los cuatro ítems a) de parcial ----------
+# ---------- fig6: interpolar vs aproximar (ejemplo "a tener en cuenta" del teórico) ----------
 def fig6():
-    fig, ax = plt.subplots(2, 2, figsize=(12, 8))
-    a = ax[0, 0]
-    x = np.linspace(0.3, 7, 500)
-    a.plot(x, np.log(0.5 * x), color=ROJO, label="$\\ln(0{,}5x)$")
-    a.plot(x, np.sin(2 * x), color=AZUL, label="$\\mathrm{sen}(2x)$")
-    for lo in (1, 3, 4):
-        a.axvspan(lo, lo + 1, color=VERDE, alpha=0.12)
-    a.set_ylim(-1.6, 1.6)
-    a.set_title("Tema 1: $\\ln(0{,}5x)=\\mathrm{sen}(2x)$ → $[1;2]$, $[3;4]$, $[4;5]$")
-    a.legend(loc="lower right", fontsize=8)
-    ejes(a)
-
-    a = ax[0, 1]
-    x = np.linspace(-3.6, 1.3, 500)
-    a.plot(x, np.exp(2 * x), color=ROJO, label="$e^{2x}$")
-    a.plot(x, x**2 + 3 * x + 2, color=AZUL, label="$x^2+3x+2$")
-    for lo in (-3, -1, 0):
-        a.axvspan(lo, lo + 1, color=VERDE, alpha=0.12)
-    a.set_ylim(-1, 7)
-    a.set_title("Tema 2: $e^{2x}=x^2+3x+2$ → $[-3;-2]$, $[-1;0]$, $[0;1]$")
-    a.legend(loc="upper center", fontsize=8)
-    ejes(a)
-
-    a = ax[1, 0]
-    x = np.linspace(-3, 3, 600)
-    a.plot(x, np.exp(x), color=ROJO, label="$e^{x}$")
-    y = x / (x - 1)
-    y[np.abs(x - 1) < 0.03] = np.nan
-    a.plot(x, y, color=AZUL, label="$x/(x-1)$")
-    a.axvline(1, color=GRIS, ls="--", lw=0.8)
-    for lo in (-1, 1):
-        a.axvspan(lo, lo + 1, color=VERDE, alpha=0.12)
-    a.set_ylim(-4, 9)
-    a.set_title("1er recuperatorio: $e^{x}=x/(x-1)$ → $[-1;0]$, $[1;2]$")
-    a.legend(loc="upper left", fontsize=8)
-    ejes(a)
-
-    a = ax[1, 1]
-    x = np.linspace(-0.3, 10, 500)
-    a.plot(x, np.exp(-2 * x), color=ROJO, label="$e^{-2x}$")
-    a.plot(x, np.sin(x), color=AZUL, label="$\\mathrm{sen}(x)$")
-    for lo in (0, 3):
-        a.axvspan(lo, lo + 1, color=VERDE, alpha=0.12)
-    a.set_ylim(-1.3, 1.6)
-    a.set_title("2do recuperatorio: $e^{-2x}=\\mathrm{sen}(x)$ → infinitas; $[0;1]$, $[3;4]$, …")
-    a.legend(loc="upper right", fontsize=8)
-    ejes(a)
-    guardar(fig, "03-fig6-parciales-item-a.png")
+    X = [0.1, 2.5, 4.3, 4.5, 5.3, 7.8]
+    p5 = lambda t: t**5 / 5 - 4 * t**4 + 86 / 3 * t**3 - 88 * t**2 + 105 * t + 10
+    Y = [p5(v) for v in X]
+    x = np.linspace(0, 8, 500)
+    fig, ax = plt.subplots(figsize=(7.5, 4.2))
+    ax.plot(x, p5(x), color=ROJO, lw=1.8, label="interpolante (grado 5): pasa por todos, pero oscila")
+    ax.plot(x, -0.3889 * x**2 + 6.6082 * x + 19.164, color=AZUL, lw=1.8, label="parábola de ajuste: no pasa por ninguno, sigue la tendencia")
+    ax.plot(X, Y, "o", color="black", zorder=5, label="datos")
+    ax.set_ylim(0, 72)
+    ax.set_title("¿Interpolar o aproximar? (ejemplo del teórico de cátedra)")
+    ax.legend(fontsize=8, loc="lower right")
+    ejes(ax)
+    guardar(fig, "03-fig6-interpolar-vs-aproximar.png")
 
 
 if __name__ == "__main__":
-    fig1(); fig2(); fig3(); fig4(); fig5(); fig6()
-    print("ok")
+    fig1()
+    fig2()
+    fig3()
+    fig4()
+    fig5()
+    fig6()
+    print("Figuras generadas en", OUT)

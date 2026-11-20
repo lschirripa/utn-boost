@@ -1,63 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ecuaciones diferenciales desde cero</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<style>
-:root { color-scheme: light; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
-  color: #1a1a1a; background: #fff;
-}
-img { max-width: 100%; height: auto; }
-h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
-h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
-h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
-a { color: #0969da; text-decoration: none; }
-a:hover { text-decoration: underline; }
-blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
-code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
-details {
-  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
-  background: #fafbfc;
-}
-details[open] { padding-bottom: .6rem; }
-summary {
-  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
-  background: #f1f3f5; border-radius: 8px; user-select: none;
-}
-details details { margin-left: .2rem; }
-.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
-.katex-error { color: #d1242f; }
-table { border-collapse: collapse; margin: 1rem 0; }
-th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
-th { background: #f1f3f5; }
-tbody tr:nth-child(even) { background: #f8f9fa; }
-@media print {
-  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
-  summary { background: none; margin: 0; padding: .2rem 0; }
-  details { border-color: #ccc; background: #fff; padding: 0; }
-  a { color: #000; }
-  tr, blockquote, .katex-display { page-break-inside: avoid; }
-  thead { display: table-header-group; }
-  h1, h2, h3 { page-break-after: avoid; }
-  th, td { border-color: #999; }
-  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-}
-
-</style>
-</head>
-<body>
-<div id="content">Renderizando…</div>
-
-<script type="text/markdown" id="md-source">
 # Ecuaciones diferenciales desde cero
 
-> Fuentes: `fuentes/clases/Ecuaciones Diferenciales/Clase - Metodos numericos para ecuaciones diferenciales.pdf` (PDF de clase, 11 p.), `fuentes/clases/Ecuaciones Diferenciales/Teorico catedra 2.6 - Ecuaciones diferenciales.pdf` (teórico de cátedra, 32 p.), `fuentes/clases/Ecuaciones Diferenciales/OneNote - Ecuaciones Diferenciales.pdf` (práctica manuscrita del profesor, 8 p.), transcripts `16-video-teorica-ecuaciones-diferenciales.json` (teórica, 1 h 07) y `17-video-practica-ecuaciones-diferenciales.json` (práctica, 1 h 14), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej5 de las 4 hojas 2025), apunte `08-practica-repaso-segundo-parcial.md` (ej. 12 y 13), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (ecuaciones diferenciales: ej. 1, 2, 4 a 15 y sus respuestas; no usé el 3 ni el 16) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python. Generado 2026-11-19.
+> Fuentes: `fuentes/clases/Ecuaciones Diferenciales/Clase - Metodos numericos para ecuaciones diferenciales.pdf` (PDF de clase, 11 p.), `fuentes/clases/Ecuaciones Diferenciales/Teorico catedra 2.6 - Ecuaciones diferenciales.pdf` (teórico de cátedra, 32 p.), `fuentes/clases/Ecuaciones Diferenciales/OneNote - Ecuaciones Diferenciales.pdf` (práctica manuscrita del profesor, 8 p.), transcripts `16-video-teorica-ecuaciones-diferenciales.json` (teórica, 1 h 07) y `17-video-practica-ecuaciones-diferenciales.json` (práctica, 1 h 14), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej5 de las 4 hojas 2025), apunte `06-practica-repaso-segundo-parcial.md` (ej. 12 y 13), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (ecuaciones diferenciales: ej. 1, 2, 4 a 15 y sus respuestas; no usé el 3 ni el 16) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python. Generado 2026-11-19.
 >
 > **Cómo usarla:** leé de arriba abajo. Los **Ejemplos guiados** están resueltos a la vista: rehacé cada cuenta con la calculadora. Los **Tu turno** se hacen en papel y **sin mirar**; la corrección está plegada (el enunciado va en texto plano en el título desplegable, porque ahí no se renderizan fórmulas). Las notas **En clase** son lo que dijo el profesor en los videos, con el minuto real del transcript (`teórica [mm:ss]` = video 16, `práctica [mm:ss]` = video 17). El repaso del 2P **no trae ningún ejercicio de iterar** Euler, Heun ni Runge-Kutta: la práctica de tablas a mano está toda acá (§4, §5 y §6). Tiempo total: ≈ 4 h con pausas.
 >
@@ -195,7 +138,7 @@ Escribís $\lvert f(t,y_1)-f(t,y_2)\rvert$ (la función dos veces: una con $y_1$
 
 Por eso el "si es posible" de los enunciados: en el T1 2025 la derivada dependía de $y$ y te dieron "$y\in[0;\,0{,}5]$"; en el T2 la derivada dependía solo de $t$ y alcanzó con $t\in[0;2]$.
 
-![Dos derivadas parciales: una acotada (existe L) y otra que se va a infinito (no existe L)](../img/07-fig3-lipschitz-cota.png)
+![Dos derivadas parciales: una acotada (existe L) y otra que se va a infinito (no existe L)](../img/05-fig3-lipschitz-cota.png)
 
 ### Ejemplo guiado 1: $f(t,y)=e^{-2t}-2y$ en $0\le t\le3$, $0\le y\le5$ (PDF de clase, ejemplo a)
 
@@ -383,7 +326,7 @@ $$
 \left\lvert\frac{2}{\sqrt t}\right\rvert\cdot\lvert y_1^2+y_1y_2+y_2^2\rvert\cdot\lvert y_1-y_2\rvert\le\frac{2}{\sqrt1}\cdot(16+16+16)\cdot\lvert y_1-y_2\rvert=96\,\lvert y_1-y_2\rvert
 $$
 
-**Resultado: $L=96$** por las dos formas. La resolución completa del profesor está en el apunte 08 (ej. 13).
+**Resultado: $L=96$** por las dos formas. La resolución completa del profesor está en el apunte 06 (ej. 13).
 
 **Error típico:** tomar $y=3$ porque "es el más grande" ⇒ $6\cdot9=54$. Lo que importa es el módulo.
 
@@ -431,7 +374,7 @@ $$
 
 Sale de cortar la serie de Taylor de $y(t)$ en la derivada primera (por eso también se llama "Taylor de orden 1"; PDF de clase, pág. 4). Como $y$ en realidad se va curvando, cada salto mete un error, y los errores se acumulan.
 
-![Poligonal de Euler contra la solución exacta para dos tamaños de paso](../img/07-fig1-euler-poligonal.png)
+![Poligonal de Euler contra la solución exacta para dos tamaños de paso](../img/05-fig1-euler-poligonal.png)
 
 ### 4.2 La fórmula (está en el ayudamemoria)
 
@@ -717,7 +660,7 @@ Problema: para calcular $w_{i+1}$ necesitás $w_{i+1}$ (está de los dos lados).
 1. **Predecir** un $w^*_{i+1}$ provisorio con Euler común (fórmula **predictora**, explícita).
 2. **Corregir**: meter ese $w^*_{i+1}$ en la fórmula de Heun (fórmula **correctora**, implícita).
 
-![Un paso de Heun: predicción con Euler y corrección con el promedio de pendientes](../img/07-fig2-heun-prediccion-correccion.png)
+![Un paso de Heun: predicción con Euler y corrección con el promedio de pendientes](../img/05-fig2-heun-prediccion-correccion.png)
 
 > **En clase:** "le vas a pasar una aproximación no tan buena, quizás, y el método te va a decir 'bueno, yo te la mejoro y te la devuelvo'" (teórica [46:05]). "Cuando hay fórmulas implícitas, como es el método de Heun, se usan como etapa correctora y necesitamos siempre una fórmula explícita que va a actuar como predictora. Siempre van así, de a pares. Cosa que se pregunta muchísimo en final" (teórica [46:37]).
 
@@ -959,7 +902,7 @@ Con una fila más llegás a $y(0{,}2)$:
 
 **Resultado:** $y(0{,}1)\approx1{,}0048375$ (exacto $1{,}0048374$) e $y(0{,}2)\approx1{,}0187309$ (exacto $1{,}0187308$). El error es del orden de $10^{-7}$: "seis decimales exactos, un montón" (teórica [1:02:42]).
 
-![Error de Euler, Heun y Runge-Kutta 4 en el ejemplo de la clase](../img/07-fig4-comparacion-errores.png)
+![Error de Euler, Heun y Runge-Kutta 4 en el ejemplo de la clase](../img/05-fig4-comparacion-errores.png)
 
 ### Tu turno 6
 
@@ -1209,7 +1152,7 @@ $$
 - Aparece $f(t_{i+1};w_{i+1})$ a la derecha ⇒ **implícita** (solo sirve como etapa correctora).
 - El más viejo es $w_{i-3}$ ⇒ $w_i,\ w_{i-1},\ w_{i-2},\ w_{i-3}$ ⇒ **4 pasos**, aunque $w_{i-2}$ no esté escrito.
 
-**Respuesta: implícita, de 4 pasos.** Así está impresa en el repaso, con subíndice $i-3$ en el último término (ver apunte 08, ej. 12).
+**Respuesta: implícita, de 4 pasos.** Así está impresa en el repaso, con subíndice $i-3$ en el último término (ver apunte 06, ej. 12).
 
 </details>
 
@@ -1496,23 +1439,4 @@ Si a) y b) te salieron en menos de 15 minutos y sin errores de cuenta, el Ej5 de
 
 ---
 
-*Generado el 2026-11-19. Fuentes: PDF de clase "Métodos numéricos para resolver ecuaciones diferenciales" (11 p.), teórico de cátedra 2.6 "Ecuaciones diferenciales" (págs. 157–188), OneNote de la práctica (8 p.), transcripts 16 (teórica) y 17 (práctica), Ej5 de las 4 hojas 2025 (`examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md`), ej. 12 y 13 del repaso (`08-practica-repaso-segundo-parcial.md`), guía de ejercicios parte 2 (ecuaciones diferenciales, ej. 1, 2, 4–15 y respuestas) y ayudamemoria oficial (pág. 4). Tablas y resultados recalculados con Python; figuras generadas con `../img/07-figuras.py`.*
-
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
-<script>
-  const source = document.getElementById("md-source").textContent;
-  const md = window.markdownit({ html: true, linkify: true })
-    .use(window.texmath, {
-      engine: window.katex,
-      delimiters: "dollars",
-      katexOptions: { throwOnError: false },
-    });
-  document.getElementById("content").innerHTML = md.render(source);
-
-</script>
-</body>
-</html>
+*Generado el 2026-11-19. Fuentes: PDF de clase "Métodos numéricos para resolver ecuaciones diferenciales" (11 p.), teórico de cátedra 2.6 "Ecuaciones diferenciales" (págs. 157–188), OneNote de la práctica (8 p.), transcripts 16 (teórica) y 17 (práctica), Ej5 de las 4 hojas 2025 (`examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md`), ej. 12 y 13 del repaso (`06-practica-repaso-segundo-parcial.md`), guía de ejercicios parte 2 (ecuaciones diferenciales, ej. 1, 2, 4–15 y respuestas) y ayudamemoria oficial (pág. 4). Tablas y resultados recalculados con Python; figuras generadas con `../img/05-figuras.py`.*

@@ -57,7 +57,7 @@ tbody tr:nth-child(even) { background: #f8f9fa; }
 <script type="text/markdown" id="md-source">
 # Diferenciación e integración numérica desde cero
 
-> Fuentes: `fuentes/clases/Integracion Numerica/Clase - Diferenciacion e integracion numerica.pdf` (PDF de clase, 21 p.), `Clase - Exactitud del metodo de Simpson.pdf` (3 p.), `Teorico catedra 2.5 - Integracion.pdf` (teórico de cátedra, 33 p., con su apéndice de acotación), `OneNote - Derivacion e Integracion Numerica.pdf` (práctica manuscrita del profesor, 15 p.), transcripts `14-video-teorica-diferenciacion-integracion.json` (teórica, 1 h 33) y `15-video-practica-diferenciacion-integracion.json` (práctica, 1 h 36), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej4 de las 4 hojas 2025), apunte `08-practica-repaso-segundo-parcial.md` (ej. 7b, 8, 9, 10 y 11), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (ej. 1 a 32 de diferenciación e integración, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python. Generado 2026-11-18.
+> Fuentes: `fuentes/clases/Integracion Numerica/Clase - Diferenciacion e integracion numerica.pdf` (PDF de clase, 21 p.), `Clase - Exactitud del metodo de Simpson.pdf` (3 p.), `Teorico catedra 2.5 - Integracion.pdf` (teórico de cátedra, 33 p., con su apéndice de acotación), `OneNote - Derivacion e Integracion Numerica.pdf` (práctica manuscrita del profesor, 15 p.), transcripts `14-video-teorica-diferenciacion-integracion.json` (teórica, 1 h 33) y `15-video-practica-diferenciacion-integracion.json` (práctica, 1 h 36), `examenes/INDICE.md` y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej4 de las 4 hojas 2025), apunte `06-practica-repaso-segundo-parcial.md` (ej. 7b, 8, 9, 10 y 11), `fuentes/Guia-ejercicios-parte-2-calculo-numerico.pdf` (ej. 1 a 32 de diferenciación e integración, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 4). Todos los números verificados con Python. Generado 2026-11-18.
 >
 > **Cómo usarla:** leé de arriba abajo. Si estás muy corto de tiempo, el orden de prioridad es **§6 (elegir h para Trapecios: cayó en las 4 hojas)** → §4 (Simpson y "N par") → §5 (preguntas conceptuales del error) → §3 → §7 → §8. Los **Ejemplos guiados** están resueltos a la vista: rehacé cada cuenta con la calculadora. Los **Tu turno** se hacen en papel y **sin mirar**; la corrección está plegada (el enunciado va en texto plano en el título desplegable porque ahí no se renderizan fórmulas; si tiene integrales se repite en LaTeX adentro). Las notas **En clase** son lo que dijo el profesor en los videos, con el minuto real del transcript (`teórica [mm:ss]` = video 14, `práctica [mm:ss]` = video 15). Tiempo total: ≈ 4 h con pausas.
 >
@@ -107,7 +107,7 @@ $$
 
 $N$ y $h$ "son hermanitos, si sé uno sé el otro" (práctica [1:08:46]). $N$ **tiene que ser entero** (no existe 1,5 subintervalo).
 
-![Trapecios une de a dos puntos con rectas; Simpson une de a tres puntos con parábolas, por eso necesita N par](../img/06-fig1-trapecios-vs-simpson.png)
+![Trapecios une de a dos puntos con rectas; Simpson une de a tres puntos con parábolas, por eso necesita N par](../img/04-fig1-trapecios-vs-simpson.png)
 
 Dos ideas que se repiten en todo el tema:
 
@@ -437,7 +437,7 @@ Que dé exacto **no** implica que $f''=0$ (ni que sea un polinomio de grado $\le
 
 **Contraejemplo de la cátedra:** $f(x)=\operatorname{sen}(x)$ en $[-\pi;\pi]$ (o cualquier **función impar en un intervalo simétrico** $[-a;a]$). El área exacta es $0$ porque la panza de arriba cancela la de abajo; a los trapecios (o a las parábolas) les pasa lo mismo: no calcan la curva, pero se cancelan entre sí. $A_T=0=$ exacto, y $f''(x)=-\operatorname{sen}(x)\ne0$.
 
-![Izquierda: sen(x) en un intervalo simétrico, Trapecios da 0 que es el valor exacto. Derecha: |x| con h = 1, Trapecios da exacto y Simpson no](../img/06-fig5-contraejemplos.png)
+![Izquierda: sen(x) en un intervalo simétrico, Trapecios da 0 que es el valor exacto. Derecha: |x| con h = 1, Trapecios da exacto y Simpson no](../img/04-fig5-contraejemplos.png)
 
 > **En clase:** "a mí me gusta pensar que en esta materia los recíprocos nunca se cumplen" (práctica [45:38]). "Esto es algo que gusta tomar" (práctica [48:47]).
 >
@@ -449,7 +449,7 @@ Para reconocer paridad: par × impar = impar; impar × impar = par; suma de impa
 
 ### 5.3 Trapecios: ¿da de más o de menos? Concavidad
 
-![Con concavidad hacia arriba la recta queda por encima de la curva y Trapecios da de más; con concavidad hacia abajo da de menos](../img/06-fig2-concavidad-defecto-exceso.png)
+![Con concavidad hacia arriba la recta queda por encima de la curva y Trapecios da de más; con concavidad hacia abajo da de menos](../img/04-fig2-concavidad-defecto-exceso.png)
 
 - $f''>0$ en todo $[a,b]$ (cóncava hacia **arriba**) ⇒ $A_T>$ área exacta (error por **exceso**).
 - $f''<0$ en todo $[a,b]$ (cóncava hacia **abajo**) ⇒ $A_T<$ área exacta (error por **defecto**).
@@ -591,7 +591,7 @@ Ahí la única incógnita es $h$. "$n$ cifras decimales correctas" significa $\v
 
 ### 6.3 Dónde estuvo el máximo en los 4 parciales
 
-![Módulo de la derivada segunda en los cuatro parciales 2025, con los extremos y los puntos críticos marcados](../img/06-fig3-maximo-f-segunda-parciales.png)
+![Módulo de la derivada segunda en los cuatro parciales 2025, con los extremos y los puntos críticos marcados](../img/04-fig3-maximo-f-segunda-parciales.png)
 
 En tres hojas el máximo estuvo en el **punto crítico**; en el 1er recuperatorio, en el **extremo izquierdo** (y ahí además manda el módulo: $f''(1)=-1$). Moraleja: se evalúan **siempre los tres** (o cuatro) candidatos y se compara en módulo.
 
@@ -1033,7 +1033,7 @@ $N>\dfrac{2}{0{,}6223}=3{,}21$ ⇒ $N=4$ (par ✓) ⇒ $h=0{,}5$. Contra $N=64$ 
 
 La derivada es el límite del cociente incremental. Si solo tenés una tabla **equiespaciada** (paso $h$ fijo), no podés tomar el límite: usás el cociente con el $h$ que hay. Geométricamente, cambiás la tangente por una **secante**.
 
-![Las tres diferencias para la derivada primera: progresiva usa el punto siguiente, regresiva el anterior, central los dos vecinos](../img/06-fig4-diferencias-progresiva-regresiva-central.png)
+![Las tres diferencias para la derivada primera: progresiva usa el punto siguiente, regresiva el anterior, central los dos vecinos](../img/04-fig4-diferencias-progresiva-regresiva-central.png)
 
 ### 8.2 Las seis fórmulas
 
@@ -1337,7 +1337,7 @@ Si te sobra tiempo, rehacé de corrido las hojas reales sin mirar: **Tema 1** = 
 
 ---
 
-*Guía generada el 2026-11-18. Fuentes: PDF de clase "Diferenciación e integración numérica" y "Exactitud del método de Simpson", teórico de cátedra 2.5 (con su apéndice de acotación de funciones), OneNote de la práctica de derivación e integración, transcripciones de la clase teórica y de la práctica (videos 14 y 15), Ej4 de las 4 hojas del 2do parcial 2025 con sus resoluciones oficiales, ejercicios 7b, 8, 9, 10 y 11 del repaso 2026, guía de ejercicios parte 2 (diferenciación e integración, ej. 1 a 32) y ayudamemoria oficial pág. 4. Figuras: `apuntes/img/06-figuras.py`.*
+*Guía generada el 2026-11-18. Fuentes: PDF de clase "Diferenciación e integración numérica" y "Exactitud del método de Simpson", teórico de cátedra 2.5 (con su apéndice de acotación de funciones), OneNote de la práctica de derivación e integración, transcripciones de la clase teórica y de la práctica (videos 14 y 15), Ej4 de las 4 hojas del 2do parcial 2025 con sus resoluciones oficiales, ejercicios 7b, 8, 9, 10 y 11 del repaso 2026, guía de ejercicios parte 2 (diferenciación e integración, ej. 1 a 32) y ayudamemoria oficial pág. 4. Figuras: `apuntes/img/04-figuras.py`.*
 
 </script>
 
