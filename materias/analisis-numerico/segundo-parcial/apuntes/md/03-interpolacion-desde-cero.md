@@ -10,6 +10,16 @@
 
 ---
 
+> **🧭 Ruta corta (si vas contra reloj)** — núcleo ≈ 3 h 40 · en `plan.md`: domingo 2026-11-22 (3 h 20) + 7.C en frío el lunes 2026-11-23
+>
+> - **Leyenda de los "tu turno":** 🔴 parcial 2025 (obligatorio) · 🟠 repaso 2026 (no lo hagas acá: va a ciegas el martes con la guía `06`) · ⚪ extra (opcional). Lo plegado como **"⚪ Se toma poco"** se puede saltear.
+> - **Leé, en este orden:** §0–§2 (10 min) → **§3** el teorema y qué pasa al agregar un punto (ejemplo guiado 1) → **§6.1–§6.3** la tabla de diferencias divididas (ejemplo guiado 4, armando la tabla a mano) → **§7** valores tapados (ejemplo guiado 6 leído; ejemplo guiado 7 rehecho sin mirar) → **§8** contar polinomios (ejemplos guiados 8 y 9) → **§11.1** derivada segunda central → "Resumen en una página".
+> - **Salteá:** §4, §5 (plegada), §6.4 (regresivo) y el ejemplo guiado 5, §9 y §10 (plegadas), el Checkpoint. §11.2 y §11.3: una leída.
+> - **"Tu turno" obligatorios (🔴):** 7.A, 7.B, 7.C · 8.A, 8.B, 8.C.
+> - **Reservados para el martes (🟠):** 6.B, 7.D, 7.E, 8.D, 8.E.
+> - **Para el 6 alcanza con…** armar la tabla de diferencias divididas sin errores (§6.2), pedir que la columna que corresponde se anule para despejar los valores tapados (§7.2) y saber la regla del conteo de §8.1 (uno, ninguno o infinitos).
+> - En el ayudamemoria solo están las diferencias finitas: la tabla, el teorema y la regla del conteo van de memoria.
+
 ## 0. Qué te toman: el Ej3 vale 2 puntos
 
 El Ej3 del 2do parcial es **siempre** una tabla de **6 puntos** con uno, dos o tres valores de $y$ tapados con letras ($a$, $b$, $c$, $k$). En el 1er recuperatorio 2025 el puntaje fue **a) 0,5 · b) 0,25 · c) 0,25 · d) 1** (el d era el ajuste; sin ajuste, en 2026 los 2 puntos se reparten entre los ítems de interpolación).
@@ -169,7 +179,7 @@ Una diferencia de 1 en un solo dato cambió el grado de 3 a 5. No existe el tér
 ### Tu turno 3
 
 <details>
-<summary><strong>3.A</strong> (guía ej. 18) — El polinomio interpolante de menor grado que pasa por (1;5), (2;7) y (x;y) es: a) siempre una parábola de 2do grado · b) siempre una recta · c) siempre una cúbica · d) depende de (x;y).</summary>
+<summary>⚪ <strong>3.A</strong> (guía ej. 18) — El polinomio interpolante de menor grado que pasa por (1;5), (2;7) y (x;y) es: a) siempre una parábola de 2do grado · b) siempre una recta · c) siempre una cúbica · d) depende de (x;y).</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -185,7 +195,7 @@ Del OneNote: "Si $(x,y)$ pertenece a la recta, entonces grado 1. Si no, grado 2"
 </details>
 
 <details>
-<summary><strong>3.B</strong> (guía ej. 14 e y 14 f) — Verdadero o falso, justificando: e) Dada una tabla de n pares de valores (xᵢ; yᵢ), es posible encontrar más de un polinomio de grado n que interpole todos los datos. f) Dado un conjunto de n puntos (xᵢ; yᵢ), existe una única función interpolante tal que f(xᵢ) = yᵢ para todo i.</summary>
+<summary>⚪ <strong>3.B</strong> (guía ej. 14 e y 14 f) — Verdadero o falso, justificando: e) Dada una tabla de n pares de valores (xᵢ; yᵢ), es posible encontrar más de un polinomio de grado n que interpole todos los datos. f) Dado un conjunto de n puntos (xᵢ; yᵢ), existe una única función interpolante tal que f(xᵢ) = yᵢ para todo i.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -199,7 +209,7 @@ Del OneNote: "Si $(x,y)$ pertenece a la recta, entonces grado 1. Si no, grado 2"
 </details>
 
 <details>
-<summary><strong>3.C</strong> (para pensar, sale del video) — Tenés 7 puntos por los que pasa un polinomio de grado 3. Agregás un octavo punto que no pertenece a ese polinomio. a) ¿De qué grado es ahora el interpolante? b) ¿Cuántos polinomios de grado 8 pasan por los 8 puntos?</summary>
+<summary>⚪ <strong>3.C</strong> (para pensar, sale del video) — Tenés 7 puntos por los que pasa un polinomio de grado 3. Agregás un octavo punto que no pertenece a ese polinomio. a) ¿De qué grado es ahora el interpolante? b) ¿Cuántos polinomios de grado 8 pasan por los 8 puntos?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -233,6 +243,9 @@ Dato clave para el examen: **los tres caminos dan el mismo polinomio**, porque e
 > **En clase:** "el método de Lagrange, o el método Newton-Gregory, sea el general, o el equiespaciado, o el regresivo, o el progresivo, van a hallar siempre el mismo polinomio. […] Si existe y es único, cualquier método bien aplicado me va a hallar ese mismo polinomio. Lo que sí quizás me pase es que a primera vista no se vean iguales" [51:35].
 
 ---
+
+<details>
+<summary>⚪ <strong>Se toma poco — abrí solo si te sobra tiempo:</strong> §5. Método de Lagrange (se toma poco, pero hay que saber armarlo)</summary>
 
 ## 5. Método de Lagrange (se toma poco, pero hay que saber armarlo)
 
@@ -377,7 +390,7 @@ En la práctica el profesor "estima el error" de la forma directa: **valor real 
 ### Tu turno 5
 
 <details>
-<summary><strong>5.A</strong> (guía ej. 3, resuelto en el OneNote) — Sean los puntos (0; 0), (1/6; 1/2) y (1/2; 1). a) Verificar que pertenecen a f(x) = sen(πx). b) Hallar el polinomio interpolante de Lagrange. c) Calcular sen(π/3) mediante el polinomio hallado. d) Estimar el error que se comete en c).</summary>
+<summary>⚪ <strong>5.A</strong> (guía ej. 3, resuelto en el OneNote) — Sean los puntos (0; 0), (1/6; 1/2) y (1/2; 1). a) Verificar que pertenecen a f(x) = sen(πx). b) Hallar el polinomio interpolante de Lagrange. c) Calcular sen(π/3) mediante el polinomio hallado. d) Estimar el error que se comete en c).</summary>
 
 **En limpio:** puntos $(0;0)$, $\left(\tfrac16;\tfrac12\right)$, $\left(\tfrac12;1\right)$ y $f(x)=\operatorname{sen}(\pi x)$.
 
@@ -419,7 +432,7 @@ $$
 </details>
 
 <details>
-<summary><strong>5.B</strong> (guía ej. 1) — Tabla: x = 1, 2, 4; y = 1, 8, 64. a) Hallar el valor de y para x = 3 y x = 7 aplicando la fórmula de Lagrange. b) Suponiendo que la función original fuese y = x³, hallar el error relativo de cada estimación.</summary>
+<summary>⚪ <strong>5.B</strong> (guía ej. 1) — Tabla: x = 1, 2, 4; y = 1, 8, 64. a) Hallar el valor de y para x = 3 y x = 7 aplicando la fórmula de Lagrange. b) Suponiendo que la función original fuese y = x³, hallar el error relativo de cada estimación.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -453,7 +466,7 @@ $$
 </details>
 
 <details>
-<summary><strong>5.C</strong> (ejercicio del teórico de cátedra, pág. 93) — Hallar el polinomio interpolante por la fórmula de Lagrange para la tabla x = 0, 1, 2, 4; f(x) = 1, 1, 2, 5. Escribirlo también en forma normalizada.</summary>
+<summary>⚪ <strong>5.C</strong> (ejercicio del teórico de cátedra, pág. 93) — Hallar el polinomio interpolante por la fórmula de Lagrange para la tabla x = 0, 1, 2, 4; f(x) = 1, 1, 2, 5. Escribirlo también en forma normalizada.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -489,6 +502,8 @@ P(x)=-\frac{1}{12}x^3+\frac{3}{4}x^2-\frac{2}{3}x+1
 $$
 
 **Control:** $P(0)=1$ · $P(1)=-\tfrac1{12}+\tfrac34-\tfrac23+1=1$ · $P(2)=-\tfrac23+3-\tfrac43+1=2$ · $P(4)=-\tfrac{16}{3}+12-\tfrac83+1=5$ ✓
+
+</details>
 
 </details>
 
@@ -689,7 +704,7 @@ El profesor anota al lado de $P(2{,}5)$: "salto 'importante'. Fuera del interval
 ### Tu turno 6
 
 <details>
-<summary><strong>6.A</strong> (guía ej. 10) — Dada la función tabulada x = 1, 3, 5, 6, 8; y = 1,2; 2,4; 10; 19,2; 54,4, hallar el polinomio de menor grado que interpola todos los puntos.</summary>
+<summary>⚪ <strong>6.A</strong> (guía ej. 10) — Dada la función tabulada x = 1, 3, 5, 6, 8; y = 1,2; 2,4; 10; 19,2; 54,4, hallar el polinomio de menor grado que interpola todos los puntos.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -721,7 +736,7 @@ Distribuido (respuesta de la guía): $P(x)=0{,}2x^3-x^2+2x$.
 </details>
 
 <details>
-<summary><strong>6.B</strong> (repaso 2026, ej. 7 a; "Ejercicio 4" de un parcial viejo, 1 punto) — Dado el conjunto de puntos x = 1, 3, 4, 5, 7; y = −1,5; −4,5; 0; 12,5; 73,5: indicar el grado del polinomio interpolante que pasa por todos los puntos y hallarlo usando Newton-Gregory (no es necesario distribuir).</summary>
+<summary>🟠 <strong>6.B</strong> (repaso 2026, ej. 7 a; "Ejercicio 4" de un parcial viejo, 1 punto) — Dado el conjunto de puntos x = 1, 3, 4, 5, 7; y = −1,5; −4,5; 0; 12,5; 73,5: indicar el grado del polinomio interpolante que pasa por todos los puntos y hallarlo usando Newton-Gregory (no es necesario distribuir).</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -757,7 +772,7 @@ $$
 </details>
 
 <details>
-<summary><strong>6.C</strong> (guía ej. 6) — Si existe algún polinomio de grado 3 que interpola los siguientes datos, hallarlo: x = −1, 0, 1, 2, 3, 4; f(x) = 0, 5, 4, 3, 8, 25.</summary>
+<summary>⚪ <strong>6.C</strong> (guía ej. 6) — Si existe algún polinomio de grado 3 que interpola los siguientes datos, hallarlo: x = −1, 0, 1, 2, 3, 4; f(x) = 0, 5, 4, 3, 8, 25.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -793,7 +808,7 @@ Distribuido (respuesta de la guía): $P(x)=x^3-3x^2+x+5$.
 </details>
 
 <details>
-<summary><strong>6.D</strong> (guía ej. 2) — Hallar el polinomio interpolante de la función dada por la tabla x = −2, −1, 1, 2; y = −18, −2, 6, 10.</summary>
+<summary>⚪ <strong>6.D</strong> (guía ej. 2) — Hallar el polinomio interpolante de la función dada por la tabla x = −2, −1, 1, 2; y = −18, −2, 6, 10.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -967,7 +982,7 @@ La hoja oficial lo deja así, **en forma de Newton, sin desarrollar**. (Si distr
 ### Tu turno 7
 
 <details>
-<summary><strong>7.A</strong> (parcial 2025, Tema 1, ítem a) — Tabla: x = 1, 2, 4, 5, 6, 8; y = 0,5; a; 41; 74,5; 123; b. ¿Qué condiciones deben cumplir a y b para que el polinomio que interpola a todos los puntos sea de grado 5 pero que por los cinco primeros puntos pase un polinomio de grado 3?</summary>
+<summary>🔴 <strong>7.A</strong> (parcial 2025, Tema 1, ítem a) — Tabla: x = 1, 2, 4, 5, 6, 8; y = 0,5; a; 41; 74,5; 123; b. ¿Qué condiciones deben cumplir a y b para que el polinomio que interpola a todos los puntos sea de grado 5 pero que por los cinco primeros puntos pase un polinomio de grado 3?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1018,7 +1033,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.B</strong> (1er recuperatorio 2025, ítem a; 0,5 puntos) — Tabla: x = 1, 2, 4, 5, 6, 8; y = a; 4; 17; b; 32; c. Encontrar los valores de a, b y c para que por los puntos pase el único polinomio de menor grado posible.</summary>
+<summary>🔴 <strong>7.B</strong> (1er recuperatorio 2025, ítem a; 0,5 puntos) — Tabla: x = 1, 2, 4, 5, 6, 8; y = a; 4; 17; b; 32; c. Encontrar los valores de a, b y c para que por los puntos pase el único polinomio de menor grado posible.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1068,7 +1083,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.C</strong> (2do recuperatorio 2025, ítem a) — Tabla: x = 2, 3, 4, 6, 8, 9; y = a; 4,35; 3,2; b; 13,6; 21,45. Hallar el valor de a y b para que todos los puntos pasen por el único polinomio de menor grado.</summary>
+<summary>🔴 <strong>7.C</strong> (2do recuperatorio 2025, ítem a) — Tabla: x = 2, 3, 4, 6, 8, 9; y = a; 4,35; 3,2; b; 13,6; 21,45. Hallar el valor de a y b para que todos los puntos pasen por el único polinomio de menor grado.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1114,7 +1129,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.D</strong> (repaso 2026, ej. 3 a) — Tabla: x = −2, 1, 3, 4, 6; y = 26, 5, k, 20, 50. Para que por todos los puntos dados pase un polinomio de grado 2, debe ser k = …</summary>
+<summary>🟠 <strong>7.D</strong> (repaso 2026, ej. 3 a) — Tabla: x = −2, 1, 3, 4, 6; y = 26, 5, k, 20, 50. Para que por todos los puntos dados pase un polinomio de grado 2, debe ser k = …</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1156,7 +1171,7 @@ El profesor también lo anota en regresivo desde $x=4$: $P(x)=20+5\,(x-4)+2\,(x-
 </details>
 
 <details>
-<summary><strong>7.E</strong> (repaso 2026, ej. 4 a) — Tabla: x = 1; 1,5; 2; 3; 3,5; 4; y = −4; −4,125; h; 6; 15,375; h + a. Hallar el valor de h y a reales para que el polinomio interpolante que pase por todos los puntos sea de grado 3. Hallar dicho polinomio.</summary>
+<summary>🟠 <strong>7.E</strong> (repaso 2026, ej. 4 a) — Tabla: x = 1; 1,5; 2; 3; 3,5; 4; y = −4; −4,125; h; 6; 15,375; h + a. Hallar el valor de h y a reales para que el polinomio interpolante que pase por todos los puntos sea de grado 3. Hallar dicho polinomio.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1198,7 +1213,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.F</strong> (guía ej. 21, resuelto en el OneNote) — Tabla: x = −2, 0, 2, 4, 6, 8, 10; f(x) = 20, 20, k, 15, 12, 10, 10. a) Hallar, si es posible, el valor de k ∈ ℝ tal que el polinomio de menor grado que interpola todos los puntos sea de grado 3. Justificar. b) Para los demás valores de k, ¿de qué grado es el polinomio?</summary>
+<summary>⚪ <strong>7.F</strong> (guía ej. 21, resuelto en el OneNote) — Tabla: x = −2, 0, 2, 4, 6, 8, 10; f(x) = 20, 20, k, 15, 12, 10, 10. a) Hallar, si es posible, el valor de k ∈ ℝ tal que el polinomio de menor grado que interpola todos los puntos sea de grado 3. Justificar. b) Para los demás valores de k, ¿de qué grado es el polinomio?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1242,7 +1257,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.G</strong> (guía ej. 12) — Hallar k ∈ ℝ para que exista un polinomio de grado 2 que pase por todos los puntos de la tabla x = −1, 0, 2, 3, 5; f(x) = 10, 3, 1, k, 28, y hallar dicho polinomio en forma normalizada.</summary>
+<summary>⚪ <strong>7.G</strong> (guía ej. 12) — Hallar k ∈ ℝ para que exista un polinomio de grado 2 que pase por todos los puntos de la tabla x = −1, 0, 2, 3, 5; f(x) = 10, 3, 1, k, 28, y hallar dicho polinomio en forma normalizada.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1280,7 +1295,7 @@ Acá sí piden normalizar: $P(x)=10-7x-7+2x^2+2x=2x^2-5x+3$.
 </details>
 
 <details>
-<summary><strong>7.H</strong> (guía ej. 19, resuelto en el OneNote) — El polinomio que interpola a los puntos (0; 3), (0,5; 5), (1; 7) y (k; 5k) es: a) de grado 3 para todo k real · b) nunca es de grado 3 · c) existe k tal que sea de grado 1 · d) existe k tal que sea de grado 2.</summary>
+<summary>⚪ <strong>7.H</strong> (guía ej. 19, resuelto en el OneNote) — El polinomio que interpola a los puntos (0; 3), (0,5; 5), (1; 7) y (k; 5k) es: a) de grado 3 para todo k real · b) nunca es de grado 3 · c) existe k tal que sea de grado 1 · d) existe k tal que sea de grado 2.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1313,7 +1328,7 @@ a) ✗ (falla con $k=3$) · b) ✗ (es de grado 3 con $k\neq3$) · **c) ✓** ($
 </details>
 
 <details>
-<summary><strong>7.I</strong> (guía ej. 20, resuelto en el OneNote) — Tabla: x = 1; 1,5; 2; 2,5; 3; y = 1,3; b; 2,2; a; 3. ¿Cuáles son correctas? a) Existen infinitos valores de a y b tal que el conjunto de puntos pertenezca a un P₃(x). b) Existe un único valor de a y b tal que pertenezca a un P₃(x). c) Existen infinitos valores de a y b tal que pertenezca a un P₂(x). d) Existe un único valor de a y b tal que pertenezca a un P₂(x).</summary>
+<summary>⚪ <strong>7.I</strong> (guía ej. 20, resuelto en el OneNote) — Tabla: x = 1; 1,5; 2; 2,5; 3; y = 1,3; b; 2,2; a; 3. ¿Cuáles son correctas? a) Existen infinitos valores de a y b tal que el conjunto de puntos pertenezca a un P₃(x). b) Existe un único valor de a y b tal que pertenezca a un P₃(x). c) Existen infinitos valores de a y b tal que pertenezca a un P₂(x). d) Existe un único valor de a y b tal que pertenezca a un P₂(x).</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1345,7 +1360,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.J</strong> (guía ej. 17) — Tabla: x = 1, 2, 3, 4, 5; f(x) = 0, 7, 24, a, b. Indicar los valores de a y b tal que el polinomio interpolante de los 5 puntos sea de grado 4, pero que por los 4 primeros puntos pase un polinomio de grado 2. ¿a es único? ¿b es único?</summary>
+<summary>⚪ <strong>7.J</strong> (guía ej. 17) — Tabla: x = 1, 2, 3, 4, 5; f(x) = 0, 7, 24, a, b. Indicar los valores de a y b tal que el polinomio interpolante de los 5 puntos sea de grado 4, pero que por los 4 primeros puntos pase un polinomio de grado 2. ¿a es único? ¿b es único?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1372,7 +1387,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.K</strong> (ejercicio del teórico de cátedra, pág. 98) — Tabla: x = 0; 0,5; 1; 1,5; 2; 2,5; f(x) = 0; 8,75; 12; 11,25; k; 3,75. a) Hallar, si es posible, el valor de k tal que el polinomio de menor grado que interpola todos los puntos sea de grado 3. Justificar. b) Para los demás valores de k, ¿de qué grado es el polinomio? Justificar.</summary>
+<summary>⚪ <strong>7.K</strong> (ejercicio del teórico de cátedra, pág. 98) — Tabla: x = 0; 0,5; 1; 1,5; 2; 2,5; f(x) = 0; 8,75; 12; 11,25; k; 3,75. a) Hallar, si es posible, el valor de k tal que el polinomio de menor grado que interpola todos los puntos sea de grado 3. Justificar. b) Para los demás valores de k, ¿de qué grado es el polinomio? Justificar.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1412,7 +1427,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.L</strong> (ejercicio del teórico de cátedra, pág. 101) — Dados los puntos x = 0, 2, 3, 5, 7, 8; y = 1, 3, 10, k, 218, 345, indicar el valor de k real tal que por todos los puntos pase un polinomio de grado 3.</summary>
+<summary>⚪ <strong>7.L</strong> (ejercicio del teórico de cátedra, pág. 101) — Dados los puntos x = 0, 2, 3, 5, 7, 8; y = 1, 3, 10, k, 218, 345, indicar el valor de k real tal que por todos los puntos pase un polinomio de grado 3.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1512,7 +1527,7 @@ Viene de 7.A: $a=7$ y $b\neq277$. **Pregunta:** con esas condiciones, ¿cuántos
 ### Tu turno 8
 
 <details>
-<summary><strong>8.A</strong> (1er recuperatorio 2025, ítem b; 0,25 puntos) — Misma tabla de 7.B: x = 1, 2, 4, 5, 6, 8; y = a; 4; 17; b; 32; c. Con a = 1 y los valores de b y c hallados en el ítem a), ¿cuántos polinomios de grado 3 hay, cuántos de grado 4 y cuántos de grado 5?</summary>
+<summary>🔴 <strong>8.A</strong> (1er recuperatorio 2025, ítem b; 0,25 puntos) — Misma tabla de 7.B: x = 1, 2, 4, 5, 6, 8; y = a; 4; 17; b; 32; c. Con a = 1 y los valores de b y c hallados en el ítem a), ¿cuántos polinomios de grado 3 hay, cuántos de grado 4 y cuántos de grado 5?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1536,7 +1551,7 @@ De 7.B: $P(x)=4+\frac{13}{2}(x-2)+\frac14(x-2)(x-4)$, con $P(1)=-\frac74$, $b=\f
 </details>
 
 <details>
-<summary><strong>8.B</strong> (1er recuperatorio 2025, ítem c; 0,25 puntos) — Misma tabla. Con b = 10 y los valores de a y c hallados en el ítem a), ¿cuántos polinomios de grado 10 hay? Justifique correctamente.</summary>
+<summary>🔴 <strong>8.B</strong> (1er recuperatorio 2025, ítem c; 0,25 puntos) — Misma tabla. Con b = 10 y los valores de a y c hallados en el ítem a), ¿cuántos polinomios de grado 10 hay? Justifique correctamente.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1550,7 +1565,7 @@ De 7.B: $P(x)=4+\frac{13}{2}(x-2)+\frac14(x-2)(x-4)$, con $P(1)=-\frac74$, $b=\f
 </details>
 
 <details>
-<summary><strong>8.C</strong> (2do recuperatorio 2025, ítem b) — Misma tabla de 7.C: x = 2, 3, 4, 6, 8, 9; y = a; 4,35; 3,2; b; 13,6; 21,45. Con el valor de a hallado en el punto anterior y b = 10, ¿de qué grado es el polinomio que interpola a todos los puntos? Justifique.</summary>
+<summary>🔴 <strong>8.C</strong> (2do recuperatorio 2025, ítem b) — Misma tabla de 7.C: x = 2, 3, 4, 6, 8, 9; y = a; 4,35; 3,2; b; 13,6; 21,45. Con el valor de a hallado en el punto anterior y b = 10, ¿de qué grado es el polinomio que interpola a todos los puntos? Justifique.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1572,7 +1587,7 @@ $$
 </details>
 
 <details>
-<summary><strong>8.D</strong> (repaso 2026, ej. 3 b) — Misma tabla de 7.D: x = −2, 1, 3, 4, 6; y = 26, 5, k, 20, 50. Completar: b.1) Existen … valores de k real tal que por todos los puntos dados pase un polinomio de grado 3. b.2) Existen … valores de k real tal que por todos los puntos dados pase un polinomio de grado 4.</summary>
+<summary>🟠 <strong>8.D</strong> (repaso 2026, ej. 3 b) — Misma tabla de 7.D: x = −2, 1, 3, 4, 6; y = 26, 5, k, 20, 50. Completar: b.1) Existen … valores de k real tal que por todos los puntos dados pase un polinomio de grado 3. b.2) Existen … valores de k real tal que por todos los puntos dados pase un polinomio de grado 4.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1591,7 +1606,7 @@ De 7.D: los 4 puntos conocidos están sobre una parábola y $k=11$ deja al quint
 </details>
 
 <details>
-<summary><strong>8.E</strong> (repaso 2026, ej. 4 b) — Misma tabla de 7.E: x = 1; 1,5; 2; 3; 3,5; 4; y = −4; −4,125; h; 6; 15,375; h + a. Con el h obtenido en el ítem anterior y a = 10: indicar cuántos polinomios hay de grado 2, grado 3, grado 4, grado 5 y grado 6. Justifique.</summary>
+<summary>🟠 <strong>8.E</strong> (repaso 2026, ej. 4 b) — Misma tabla de 7.E: x = 1; 1,5; 2; 3; 3,5; 4; y = −4; −4,125; h; 6; 15,375; h + a. Con el h obtenido en el ítem anterior y a = 10: indicar cuántos polinomios hay de grado 2, grado 3, grado 4, grado 5 y grado 6. Justifique.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1611,7 +1626,7 @@ Son 6 puntos; cinco están sobre un polinomio de grado 3 y el sexto no ⇒ el in
 </details>
 
 <details>
-<summary><strong>8.F</strong> (ejercicio del teórico de cátedra, pág. 96, ítem b) — Por los puntos x = −3, −1, 1, 3, 5, 7, 9; f(x) = 39, 19, −21, −57, −65, −21, 99 pasa el polinomio P(x) = 39 − 10(x+3) − 2,5(x+3)(x+1) + 0,5(x+3)(x+1)(x−1), de grado 3 (lo vas a calcular en 9.A). Por todos esos puntos y además el punto (10; 150), ¿cuántos polinomios pasan de grado 3, 6, 7 y 10? Justifique correctamente.</summary>
+<summary>⚪ <strong>8.F</strong> (ejercicio del teórico de cátedra, pág. 96, ítem b) — Por los puntos x = −3, −1, 1, 3, 5, 7, 9; f(x) = 39, 19, −21, −57, −65, −21, 99 pasa el polinomio P(x) = 39 − 10(x+3) − 2,5(x+3)(x+1) + 0,5(x+3)(x+1)(x−1), de grado 3 (lo vas a calcular en 9.A). Por todos esos puntos y además el punto (10; 150), ¿cuántos polinomios pasan de grado 3, 6, 7 y 10? Justifique correctamente.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1640,7 +1655,7 @@ No pertenece.
 </details>
 
 <details>
-<summary><strong>8.G</strong> (guía ej. 14 a, b, d y g) — Verdadero o falso, justificando: a) El polinomio de menor grado que pasa por A(1; 3,5), B(1,5; 5,75), C(2; 9) y D(2,5; 13,25) es de grado 3. b) No existe polinomio de grado 4 que pase por (−1; 2), (−0,5; 2,3), (0; 3,4), (0,5; 4,5) y (1; 5). d) El polinomio que pasa por (−1; −1), (0; 3), (1; 0) y (2; −7) tiene coeficiente lineal nulo. g) El polinomio de menor grado que pasa por (1; 3,5), (1,5; 5), (2; 6,5), (2,5; k) no puede ser de grado 2.</summary>
+<summary>⚪ <strong>8.G</strong> (guía ej. 14 a, b, d y g) — Verdadero o falso, justificando: a) El polinomio de menor grado que pasa por A(1; 3,5), B(1,5; 5,75), C(2; 9) y D(2,5; 13,25) es de grado 3. b) No existe polinomio de grado 4 que pase por (−1; 2), (−0,5; 2,3), (0; 3,4), (0,5; 4,5) y (1; 5). d) El polinomio que pasa por (−1; −1), (0; 3), (1; 0) y (2; −7) tiene coeficiente lineal nulo. g) El polinomio de menor grado que pasa por (1; 3,5), (1,5; 5), (2; 6,5), (2,5; k) no puede ser de grado 2.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1678,6 +1693,9 @@ Acá sí hay que distribuir: $-1+4x+4-3{,}5x^2-3{,}5x+0{,}5x^3-0{,}5x=0{,}5x^3-3
 </details>
 
 ---
+
+<details>
+<summary>⚪ <strong>Se toma poco — abrí solo si te sobra tiempo:</strong> §9. Puntos equiespaciados: diferencias finitas (lo que está en el ayudamemoria)</summary>
 
 ## 9. Puntos equiespaciados: diferencias finitas (lo que está en el ayudamemoria)
 
@@ -1770,7 +1788,7 @@ Puntos equiespaciados ⇒ tabla de diferencias finitas (acá escrita por filas, 
 ### Tu turno 9
 
 <details>
-<summary><strong>9.A</strong> (ejercicio del teórico de cátedra, págs. 96 y 97) — Tabla: x = −3, −1, 1, 3, 5, 7, 9; f(x) = 39, 19, −21, −57, −65, −21, 99. a) Hallar el polinomio interpolante por Newton-Gregory progresivo. b) Hallarlo por Newton-Gregory regresivo. ¿Hace falta construir otra tabla de diferencias finitas?</summary>
+<summary>⚪ <strong>9.A</strong> (ejercicio del teórico de cátedra, págs. 96 y 97) — Tabla: x = −3, −1, 1, 3, 5, 7, 9; f(x) = 39, 19, −21, −57, −65, −21, 99. a) Hallar el polinomio interpolante por Newton-Gregory progresivo. b) Hallarlo por Newton-Gregory regresivo. ¿Hace falta construir otra tabla de diferencias finitas?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1826,7 +1844,7 @@ Los dos distribuidos dan $P(x)=0{,}5x^3-x^2-20{,}5x$. Control del regresivo en $
 </details>
 
 <details>
-<summary><strong>9.B</strong> (guía ej. 5) — Dada la tabla Log 1 = 0,000; Log 2 = 0,301; Log 3 = 0,477; Log 4 = 0,602; Log 5 = 0,699: a) construir la tabla de diferencias finitas. b) Calcular Log 1,7 utilizando un polinomio interpolante con la fórmula de Newton. Justificar por qué se elige el progresivo o el regresivo.</summary>
+<summary>⚪ <strong>9.B</strong> (guía ej. 5) — Dada la tabla Log 1 = 0,000; Log 2 = 0,301; Log 3 = 0,477; Log 4 = 0,602; Log 5 = 0,699: a) construir la tabla de diferencias finitas. b) Calcular Log 1,7 utilizando un polinomio interpolante con la fórmula de Newton. Justificar por qué se elige el progresivo o el regresivo.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1866,7 +1884,7 @@ Coincide con la guía: $p(1{,}7)=0{,}228526$; el valor real es $\log(1{,}7)=0{,}
 </details>
 
 <details>
-<summary><strong>9.C</strong> (guía ej. 14 c y ej. 16) — c) Verdadero o falso: si se dispone de una tabla con 6 valores xᵢ y sus imágenes fᵢ, entonces existe hasta la diferencia finita progresiva de orden 6 de f₀. 16) Dado un conjunto de puntos (xᵢ; yᵢ), ¿cuáles se verifican? a) Δyₖ = ∇yₖ₊₁ · b) Δyₖ₊₁ = ∇yₖ · c) Δ²yₖ = ∇²yₖ₊₂ · d) Δ²yₖ = ∇²yₖ₋₂.</summary>
+<summary>⚪ <strong>9.C</strong> (guía ej. 14 c y ej. 16) — c) Verdadero o falso: si se dispone de una tabla con 6 valores xᵢ y sus imágenes fᵢ, entonces existe hasta la diferencia finita progresiva de orden 6 de f₀. 16) Dado un conjunto de puntos (xᵢ; yᵢ), ¿cuáles se verifican? a) Δyₖ = ∇yₖ₊₁ · b) Δyₖ₊₁ = ∇yₖ · c) Δ²yₖ = ∇²yₖ₊₂ · d) Δ²yₖ = ∇²yₖ₋₂.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1886,7 +1904,12 @@ Coincide con la guía: $p(1{,}7)=0{,}228526$; el valor real es $\log(1{,}7)=0{,}
 
 </details>
 
+</details>
+
 ---
+
+<details>
+<summary>⚪ <strong>Se toma poco — abrí solo si te sobra tiempo:</strong> §10. Usar el polinomio: interpolar, extrapolar e interpolación inversa</summary>
 
 ## 10. Usar el polinomio: interpolar, extrapolar e interpolación inversa
 
@@ -1959,6 +1982,8 @@ P(1{,}32)=1{,}14889\quad(\sqrt{1{,}32}=1{,}148912529)
 $$
 
 Dio bien porque $1{,}32$ está apenas afuera. Compará con el Ejemplo guiado 5 ($P(2{,}5)=-12{,}125$ con datos hasta $x=2$: "salto importante") y con 5.B (error del 26 % en $x=7$ con datos hasta $x=4$).
+
+</details>
 
 ---
 
@@ -2092,7 +2117,7 @@ Solo si lo piden o con 2 o 3 puntos. No muestra el grado (hay que sumar los coef
 Ejercicio con formato de parcial, armado con los datos del ej. 6 de la guía. Solo calculadora y ayudamemoria (que de esto trae nada más que las diferencias finitas). Reparto de puntaje orientativo: en 2025 el ítem a valía 0,5 y cada conteo 0,25, con 1 punto para el ajuste; sin ajuste no se sabe cómo se reparten los 2 puntos.
 
 <details>
-<summary><strong>Ejercicio 3 (2 puntos)</strong> — Tabla: x = −1, 0, 1, 2, 3, 4; y = 0, a, 4, 3, b, 25. a) Hallar los valores de a y b para que por todos los puntos pase el único polinomio de menor grado posible. Escribir dicho polinomio (no es necesario distribuir). b) Con el valor de a hallado y b = 10: ¿cuántos polinomios de grado 3 hay, cuántos de grado 4, cuántos de grado 5 y cuántos de grado 6? Justifique. c) Con los valores de a y b hallados en a): ¿cuántos polinomios de grado 2 hay, cuántos de grado 3, cuántos de grado 5 y cuántos de grado 6? Justifique. Yapa: d) con los valores hallados, calcular f''(2) con la fórmula central.</summary>
+<summary>🔴 <strong>Ejercicio 3 (2 puntos)</strong> — Tabla: x = −1, 0, 1, 2, 3, 4; y = 0, a, 4, 3, b, 25. a) Hallar los valores de a y b para que por todos los puntos pase el único polinomio de menor grado posible. Escribir dicho polinomio (no es necesario distribuir). b) Con el valor de a hallado y b = 10: ¿cuántos polinomios de grado 3 hay, cuántos de grado 4, cuántos de grado 5 y cuántos de grado 6? Justifique. c) Con los valores de a y b hallados en a): ¿cuántos polinomios de grado 2 hay, cuántos de grado 3, cuántos de grado 5 y cuántos de grado 6? Justifique. Yapa: d) con los valores hallados, calcular f''(2) con la fórmula central.</summary>
 
 **Tabla en limpio:**
 

@@ -65,6 +65,16 @@ tbody tr:nth-child(even) { background: #f8f9fa; }
 
 ---
 
+> **🧭 Ruta corta (si vas contra reloj)** — núcleo ≈ 3 h 30 · en `plan.md`: lunes 2026-11-23
+>
+> - **Leyenda de los "tu turno":** 🔴 parcial 2025 (obligatorio) · 🟠 repaso 2026 (no lo hagas acá: va a ciegas el martes con la guía `06`) · ⚪ extra (opcional). Lo plegado como **"⚪ Se toma poco"** se puede saltear.
+> - **Leé, en este orden** (de lo más tomado a lo menos tomado): §0–§2 y §4 (15 min) → **§3** separar raíces (ejemplos guiados 1 y 2) → **§8** Newton-Raphson (§8.3 y el ejemplo guiado 10) → **§5.3** la cuenta de iteraciones de bisección (ejemplo guiado 5) → **§6.2** la regla del extremo fijo → **§7.1–§7.3** punto fijo (ejemplo guiado 7) → "Resumen en una página".
+> - **Salteá:** §5.1–§5.2 (alcanza con leerlas), §6.1 y todo el "Tu turno 6", §9 (plegada) y el Checkpoint.
+> - **"Tu turno" obligatorios (🔴):** 3.A, 3.B, 3.C · 8.A, 8.B · 5.A, 5.B · 7.A, 7.B. Si sobra tiempo: 3.D y 7.C.
+> - **Reservados para el martes (🟠):** 5.E, 6.D, 7.G.
+> - **Para el 6 alcanza con…** separar raíces con Bolzano (§3), una iteración de Newton-Raphson eligiendo bien $x_0$ (§8) y la cuenta de bisección con la frase "son suficientes, no necesarias" (§5.3). Son tres ítems independientes: suman aunque falle uno.
+> - De raíces **no hay nada en el ayudamemoria**: las fórmulas van a la hoja de memoria.
+
 ## 0. Qué te toman: el Ej1 vale 2 puntos
 
 El Ej1 del 2do parcial es **siempre** raíces. Te dan una ecuación $f(x)=0$ que no se puede despejar (mezcla exponenciales, logaritmos o senos con polinomios) y 3 ítems. En el 1er recuperatorio 2025 el puntaje fue **a) 0,5 · b) 0,75 · c) 0,75**.
@@ -199,7 +209,7 @@ Hay cruces que no entran en el dibujito de la hoja. El profesor da dos razones t
 ### Tu turno 3
 
 <details>
-<summary><strong>3.A (parcial 2025, Tema 1, ítem a)</strong> — Dada ln(0,5x) − sen(2x) = 0, encontrar un intervalo [a; a+1] con a ∈ ℤ para cada una de las raíces.</summary>
+<summary>🔴 <strong>3.A (parcial 2025, Tema 1, ítem a)</strong> — Dada ln(0,5x) − sen(2x) = 0, encontrar un intervalo [a; a+1] con a ∈ ℤ para cada una de las raíces.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -225,7 +235,7 @@ Cambia de signo entre 1 y 2, entre 3 y 4, y entre 4 y 5.
 </details>
 
 <details>
-<summary><strong>3.B (parcial 2025, Tema 2, ítem a)</strong> — Dada e²ˣ − x² − 3x − 2 = 0, indicar un intervalo [a; a+1] con a ∈ ℤ para cada una de las raíces.</summary>
+<summary>🔴 <strong>3.B (parcial 2025, Tema 2, ítem a)</strong> — Dada e²ˣ − x² − 3x − 2 = 0, indicar un intervalo [a; a+1] con a ∈ ℤ para cada una de las raíces.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -260,7 +270,7 @@ Vértice en $\left(-\frac32;\ -\frac14\right)$, ramas hacia arriba, ordenada al 
 </details>
 
 <details>
-<summary><strong>3.C (1er recuperatorio 2025, ítem a, 0,5 puntos)</strong> — Dada x/(x − 1) − eˣ = 0, indicar un intervalo [a; a+1] para cada una de las raíces.</summary>
+<summary>🔴 <strong>3.C (1er recuperatorio 2025, ítem a, 0,5 puntos)</strong> — Dada x/(x − 1) − eˣ = 0, indicar un intervalo [a; a+1] para cada una de las raíces.</summary>
 
 **Enunciado en limpio:** $\dfrac{x}{x-1}-e^{x}=0$.
 
@@ -282,7 +292,7 @@ Vértice en $\left(-\frac32;\ -\frac14\right)$, ramas hacia arriba, ordenada al 
 </details>
 
 <details>
-<summary><strong>3.D (2do recuperatorio 2025, ítem a)</strong> — Dada e⁻²ˣ − sen(x) = 0, mostrar gráficamente dónde se encuentran las raíces. ¿Cuántas raíces tiene la ecuación?</summary>
+<summary>🔴 <strong>3.D (2do recuperatorio 2025, ítem a)</strong> — Dada e⁻²ˣ − sen(x) = 0, mostrar gráficamente dónde se encuentran las raíces. ¿Cuántas raíces tiene la ecuación?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -302,7 +312,7 @@ Vértice en $\left(-\frac32;\ -\frac14\right)$, ramas hacia arriba, ordenada al 
 </details>
 
 <details>
-<summary><strong>3.E (guía ej. 1a, 1b y 1m; OneNote y práctica)</strong> — Determinar gráficamente cuántas raíces reales tienen y un intervalo de longitud 1 para cada una: a) eˣ + x − 4 · b) sen(x) − 2x + 1 · m) x⁶ + 20x − 25.</summary>
+<summary>⚪ <strong>3.E (guía ej. 1a, 1b y 1m; OneNote y práctica)</strong> — Determinar gráficamente cuántas raíces reales tienen y un intervalo de longitud 1 para cada una: a) eˣ + x − 4 · b) sen(x) − 2x + 1 · m) x⁶ + 20x − 25.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -429,7 +439,7 @@ Tabla para chequearte (longitud 1; con longitud 2 sumale una iteración):
 ### Tu turno 5
 
 <details>
-<summary><strong>5.A (parcial 2025, Tema 1, ítem c)</strong> — Con un intervalo [a−1, a+1] con a ∈ ℤ, indicar con cuántas iteraciones se puede garantizar un error ε &lt; 10⁻⁷ para hallar alguna raíz usando el método de bisección. ¿Son suficientes o necesarias?</summary>
+<summary>🔴 <strong>5.A (parcial 2025, Tema 1, ítem c)</strong> — Con un intervalo [a−1, a+1] con a ∈ ℤ, indicar con cuántas iteraciones se puede garantizar un error ε &lt; 10⁻⁷ para hallar alguna raíz usando el método de bisección. ¿Son suficientes o necesarias?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -457,7 +467,7 @@ $$
 </details>
 
 <details>
-<summary><strong>5.B (2do recuperatorio 2025, ítem c)</strong> — Dada una ecuación f(x) = 0, indicar la cantidad de iteraciones que hay que hacer para asegurar un error de 10⁻⁵ usando el método de bisección en el intervalo [a−1; a+1] con a ∈ ℤ. ¿Son necesarias o suficientes dichas iteraciones? Justifique.</summary>
+<summary>🔴 <strong>5.B (2do recuperatorio 2025, ítem c)</strong> — Dada una ecuación f(x) = 0, indicar la cantidad de iteraciones que hay que hacer para asegurar un error de 10⁻⁵ usando el método de bisección en el intervalo [a−1; a+1] con a ∈ ℤ. ¿Son necesarias o suficientes dichas iteraciones? Justifique.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -477,7 +487,7 @@ Es la misma cuenta del ej. 6 de la guía (intervalo $(3;5)$, $\varepsilon<10^{-5
 </details>
 
 <details>
-<summary><strong>5.C (guía ej. 4, OneNote y práctica)</strong> — Indicar un intervalo para la raíz positiva de x² − 2x − 2 = 0. Usar bisección para calcular la raíz con dos decimales exactos. Establecer el número máximo de pasos necesarios para aproximar la raíz con una precisión de 10⁻⁶.</summary>
+<summary>⚪ <strong>5.C (guía ej. 4, OneNote y práctica)</strong> — Indicar un intervalo para la raíz positiva de x² − 2x − 2 = 0. Usar bisección para calcular la raíz con dos decimales exactos. Establecer el número máximo de pasos necesarios para aproximar la raíz con una precisión de 10⁻⁶.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -510,7 +520,7 @@ $$
 </details>
 
 <details>
-<summary><strong>5.D (guía ej. 5 y 7, verdadero/falso de bisección)</strong> — a) «Si f(x) tiene pendiente grande, bisección converge más rápido.» b) «Con una raíz en (a; a+1), al cabo de 10 iteraciones de bisección se tiene una precisión de 10⁻¹⁰.» c) f(x) = 1/(3x − 1) cumple sg f(0) ≠ sg f(1): ¿qué localiza bisección en (0; 1)? ¿Es una raíz?</summary>
+<summary>⚪ <strong>5.D (guía ej. 5 y 7, verdadero/falso de bisección)</strong> — a) «Si f(x) tiene pendiente grande, bisección converge más rápido.» b) «Con una raíz en (a; a+1), al cabo de 10 iteraciones de bisección se tiene una precisión de 10⁻¹⁰.» c) f(x) = 1/(3x − 1) cumple sg f(0) ≠ sg f(1): ¿qué localiza bisección en (0; 1)? ¿Es una raíz?</summary>
 
 **Enunciado en limpio (c):** $f(x)=\dfrac{1}{3x-1}$ en $(a,b)=(0,1)$.
 
@@ -530,7 +540,7 @@ La moraleja del profesor para el caso $\cos(10x)$ del mismo ejercicio: en $(0;1)
 </details>
 
 <details>
-<summary><strong>5.E (repaso 2026, ejercicio 1)</strong> — Sea f(x) = x⁴ − 8x³ + 30x² − 25x + 2 − 12e⁻ˣ con una raíz en [a−1, a+1]. Para asegurar un error menor que 10⁻⁷ por bisección: a) son necesarias 23 iteraciones · b) son suficientes 24 · c) depende de f(x) · d) son suficientes 23 · e) depende del valor inicial · f) n.a.</summary>
+<summary>🟠 <strong>5.E (repaso 2026, ejercicio 1)</strong> — Sea f(x) = x⁴ − 8x³ + 30x² − 25x + 2 − 12e⁻ˣ con una raíz en [a−1, a+1]. Para asegurar un error menor que 10⁻⁷ por bisección: a) son necesarias 23 iteraciones · b) son suficientes 24 · c) depende de f(x) · d) son suficientes 23 · e) depende del valor inicial · f) n.a.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -603,7 +613,7 @@ Siguen $x_2=1{,}84710$, $x_3=1{,}85639$, $x_4=1{,}85712$, … hacia la raíz $1{
 ### Tu turno 6
 
 <details>
-<summary><strong>6.A (guía ej. 11, OneNote)</strong> — Verdadero o falso, justificando: a) Sea eˣ + x⁴ − x − 2 = 0 con raíz en (0, 1) ⇒ se puede usar Regula Falsi fijando el 1. b) El método de bisección siempre converge más lentamente que Regula Falsi. c) Dada f(x) = x⁴ − 8x³ + 30x² − 25x + 2 − 12e⁻ˣ, se puede usar Regula Falsi en [1, 2] fijando el 2. d) Si f(x) es creciente en (a, b), en Regula Falsi queda fijo el extremo b.</summary>
+<summary>⚪ <strong>6.A (guía ej. 11, OneNote)</strong> — Verdadero o falso, justificando: a) Sea eˣ + x⁴ − x − 2 = 0 con raíz en (0, 1) ⇒ se puede usar Regula Falsi fijando el 1. b) El método de bisección siempre converge más lentamente que Regula Falsi. c) Dada f(x) = x⁴ − 8x³ + 30x² − 25x + 2 − 12e⁻ˣ, se puede usar Regula Falsi en [1, 2] fijando el 2. d) Si f(x) es creciente en (a, b), en Regula Falsi queda fijo el extremo b.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -623,7 +633,7 @@ Respuestas de la guía: V, F, V, F. Sobre el c) el profesor avisa que el anális
 </details>
 
 <details>
-<summary><strong>6.B (teórico de cátedra, ejercicio pág. 36)</strong> — Verdadero o falso: se puede aplicar Regula Falsi para hallar una raíz de x³ − 3x² − 9x + 20 = 0 en el intervalo (1, 2) dejando siempre fijo el extremo 2.</summary>
+<summary>⚪ <strong>6.B (teórico de cátedra, ejercicio pág. 36)</strong> — Verdadero o falso: se puede aplicar Regula Falsi para hallar una raíz de x³ − 3x² − 9x + 20 = 0 en el intervalo (1, 2) dejando siempre fijo el extremo 2.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -641,7 +651,7 @@ Signos distintos ⇒ hay que fijar $a=1$, no el 2. **Falso.**
 </details>
 
 <details>
-<summary><strong>6.C (guía ej. 9 y 10)</strong> — a) Dada f(x) = x·ln(x) + x, indicar un intervalo y qué extremo fijarías para hallar la raíz no nula por Regula Falsi. b) Dada 2eˣ − x² − 6x − 5 = 0, ¿qué intervalo podrías tomar para calcular la menor raíz real por Regula Falsi sin cambiar de extremo fijo? ¿Cuál sería ese extremo?</summary>
+<summary>⚪ <strong>6.C (guía ej. 9 y 10)</strong> — a) Dada f(x) = x·ln(x) + x, indicar un intervalo y qué extremo fijarías para hallar la raíz no nula por Regula Falsi. b) Dada 2eˣ − x² − 6x − 5 = 0, ¿qué intervalo podrías tomar para calcular la menor raíz real por Regula Falsi sin cambiar de extremo fijo? ¿Cuál sería ese extremo?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -657,7 +667,7 @@ Coinciden con las respuestas de la guía.
 </details>
 
 <details>
-<summary><strong>6.D (repaso 2026, ejercicio 2, opción b)</strong> — Dada sen(4x) + 3x + 3 = 0: «se puede aplicar Regula Falsi en [−2; −0,5] fijando el extremo b = −0,5». ¿Verdadero o falso?</summary>
+<summary>🟠 <strong>6.D (repaso 2026, ejercicio 2, opción b)</strong> — Dada sen(4x) + 3x + 3 = 0: «se puede aplicar Regula Falsi en [−2; −0,5] fijando el extremo b = −0,5». ¿Verdadero o falso?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -781,7 +791,7 @@ Es positiva y creciente en $[-2;-1]$ (cuanto más negativa la $x$, más grande e
 ### Tu turno 7
 
 <details>
-<summary><strong>7.A (parcial 2025, Tema 2, ítem b)</strong> — Para e²ˣ − x² − 3x − 2 = 0, analizar si es posible usar el método del punto fijo con g(x) = ½·ln(x² + 3x + 2) para hallar la raíz positiva usando el intervalo hallado en a), por medio de las condiciones de convergencia.</summary>
+<summary>🔴 <strong>7.A (parcial 2025, Tema 2, ítem b)</strong> — Para e²ˣ − x² − 3x − 2 = 0, analizar si es posible usar el método del punto fijo con g(x) = ½·ln(x² + 3x + 2) para hallar la raíz positiva usando el intervalo hallado en a), por medio de las condiciones de convergencia.</summary>
 
 **Enunciado en limpio:** $e^{2x}-x^{2}-3x-2=0$ con $g(x)=\dfrac12\ln(x^{2}+3x+2)$.
 
@@ -821,7 +831,7 @@ Si iterás desde $x_0=0{,}5$: $0{,}66088;\ 0{,}74300;\ 0{,}78233;\ 0{,}80061;\ \
 </details>
 
 <details>
-<summary><strong>7.B (1er recuperatorio 2025, ítem b, 0,75 puntos)</strong> — Para x/(x − 1) − eˣ = 0, sean g₁(x) = (x − 1)·eˣ y g₂(x) = x/eˣ + 1 dos g(x) posibles para el método del punto fijo. Indicar cuál de las dos es la más adecuada para la mayor raíz.</summary>
+<summary>🔴 <strong>7.B (1er recuperatorio 2025, ítem b, 0,75 puntos)</strong> — Para x/(x − 1) − eˣ = 0, sean g₁(x) = (x − 1)·eˣ y g₂(x) = x/eˣ + 1 dos g(x) posibles para el método del punto fijo. Indicar cuál de las dos es la más adecuada para la mayor raíz.</summary>
 
 **Enunciado en limpio:** $\dfrac{x}{x-1}-e^{x}=0$, con $g_1(x)=(x-1)\,e^{x}$ y $g_2(x)=\dfrac{x}{e^{x}}+1$.
 
@@ -863,7 +873,7 @@ Es el ej. 15 de la guía, resuelto en la práctica [1:08:33]–[1:10:38]. Ahí h
 </details>
 
 <details>
-<summary><strong>7.C (1er recuperatorio 2025, ítem c, 0,75 puntos)</strong> — Hallar una aproximación de esa raíz usando la g(x) elegida en b) con ε ≤ 10⁻².</summary>
+<summary>🔴 <strong>7.C (1er recuperatorio 2025, ítem c, 0,75 puntos)</strong> — Hallar una aproximación de esa raíz usando la g(x) elegida en b) con ε ≤ 10⁻².</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -888,7 +898,7 @@ Mirá la tercera fila: ahí $\lvert g(x_i)-x_i\rvert=0{,}007$ ya era menor que $
 </details>
 
 <details>
-<summary><strong>7.D (guía ej. 13b, OneNote)</strong> — Verdadero o falso: sea eˣ + x⁴ − x − 2 = 0 con raíz en (0, 1) ⇒ se puede usar g(x) = eˣ + x⁴ − 2 para hallar la raíz por punto fijo.</summary>
+<summary>⚪ <strong>7.D (guía ej. 13b, OneNote)</strong> — Verdadero o falso: sea eˣ + x⁴ − x − 2 = 0 con raíz en (0, 1) ⇒ se puede usar g(x) = eˣ + x⁴ − 2 para hallar la raíz por punto fijo.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -902,7 +912,7 @@ Al probar en Excel desde $x_0=0$, $0{,}5$ y $1$, "siempre se me va para cualquie
 </details>
 
 <details>
-<summary><strong>7.E (guía ej. 14, OneNote)</strong> — La ecuación x³ − eˣ + 3 = 0 tiene 2 raíces, una próxima a −1,4 y otra cerca de 4,6. Usando punto fijo con g(x) = ln(x³ + 3) el método converge a: a) la raíz cercana a 4,6 · b) la raíz cercana a −1,4 · c) ninguna · d) no es una g adecuada porque contiene un logaritmo.</summary>
+<summary>⚪ <strong>7.E (guía ej. 14, OneNote)</strong> — La ecuación x³ − eˣ + 3 = 0 tiene 2 raíces, una próxima a −1,4 y otra cerca de 4,6. Usando punto fijo con g(x) = ln(x³ + 3) el método converge a: a) la raíz cercana a 4,6 · b) la raíz cercana a −1,4 · c) ninguna · d) no es una g adecuada porque contiene un logaritmo.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -918,7 +928,7 @@ Al probar en Excel desde $x_0=0$, $0{,}5$ y $1$, "siempre se me va para cualquie
 </details>
 
 <details>
-<summary><strong>7.F (guía ej. 12a)</strong> — Para sen(x) − 2x + 1 = 0, proponer un intervalo de longitud 1 con una raíz y una g(x) que cumpla las condiciones de punto fijo. Hacer tres iteraciones y decir la precisión obtenida.</summary>
+<summary>⚪ <strong>7.F (guía ej. 12a)</strong> — Para sen(x) − 2x + 1 = 0, proponer un intervalo de longitud 1 con una raíz y una g(x) que cumpla las condiciones de punto fijo. Hacer tres iteraciones y decir la precisión obtenida.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -946,7 +956,7 @@ $x_3=0{,}89105$, con $f(x_3)=-0{,}0044$: precisión $\varepsilon<0{,}01$. Coinci
 </details>
 
 <details>
-<summary><strong>7.G (repaso 2026, ejercicio 2, opción d)</strong> — Para sen(4x) + 3x + 3 = 0 (raíz en [−2; −1]): «el método de punto fijo converge con g(x) = sen(4x) + 4x + 3». ¿Verdadero o falso?</summary>
+<summary>🟠 <strong>7.G (repaso 2026, ejercicio 2, opción d)</strong> — Para sen(4x) + 3x + 3 = 0 (raíz en [−2; −1]): «el método de punto fijo converge con g(x) = sen(4x) + 4x + 3». ¿Verdadero o falso?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -958,7 +968,7 @@ $g'(x)=4\cos(4x)+4$. En $[-2;-1]$ su valor mínimo es $g'(-1)=4\cos(-4)+4=1{,}38
 </details>
 
 <details>
-<summary><strong>7.H (guía ej. 30, nota del OneNote)</strong> — Querés aproximar √3 por punto fijo con f(x) = x² − 3. ¿Por qué no sirve g(x) = 3/x? Proponé una que sí.</summary>
+<summary>⚪ <strong>7.H (guía ej. 30, nota del OneNote)</strong> — Querés aproximar √3 por punto fijo con f(x) = x² − 3. ¿Por qué no sirve g(x) = 3/x? Proponé una que sí.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1078,7 +1088,7 @@ $$
 ### Tu turno 8
 
 <details>
-<summary><strong>8.A (parcial 2025, Tema 2, ítem c)</strong> — Para e²ˣ − x² − 3x − 2 = 0, hallar la raíz negativa más cercana a 0 usando Newton-Raphson con ε &lt; 10⁻⁴.</summary>
+<summary>🔴 <strong>8.A (parcial 2025, Tema 2, ítem c)</strong> — Para e²ˣ − x² − 3x − 2 = 0, hallar la raíz negativa más cercana a 0 usando Newton-Raphson con ε &lt; 10⁻⁴.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1109,7 +1119,7 @@ Ojo con el otro extremo: $x_0=0$ da $f(0)=-1$, $f'(0)=-1$, cociente $=1$ (no es 
 </details>
 
 <details>
-<summary><strong>8.B (2do recuperatorio 2025, ítem b)</strong> — Para e⁻²ˣ − sen(x) = 0, hallar la segunda raíz positiva en orden ascendente usando Newton-Raphson con un error menor a 10⁻⁵, eligiendo un punto conveniente para iniciar los cálculos.</summary>
+<summary>🔴 <strong>8.B (2do recuperatorio 2025, ítem b)</strong> — Para e⁻²ˣ − sen(x) = 0, hallar la segunda raíz positiva en orden ascendente usando Newton-Raphson con un error menor a 10⁻⁵, eligiendo un punto conveniente para iniciar los cálculos.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1137,7 +1147,7 @@ Segunda fila: $\lvert f\rvert=1{,}0\cdot10^{-3}>10^{-5}$. Tercera: $4{,}6\cdot10
 </details>
 
 <details>
-<summary><strong>8.C (guía ej. 17, OneNote)</strong> — Dada x⁵ − 2x³ − ln(x) = 0, usar Newton-Raphson con x₀ = 1 e iterar hasta asegurar 5 decimales. ¿Qué ocurre si se parte de x₀ = 1,1? Explicar.</summary>
+<summary>⚪ <strong>8.C (guía ej. 17, OneNote)</strong> — Dada x⁵ − 2x³ − ln(x) = 0, usar Newton-Raphson con x₀ = 1 e iterar hasta asegurar 5 decimales. ¿Qué ocurre si se parte de x₀ = 1,1? Explicar.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1172,7 +1182,7 @@ El OneNote lo resume: "rompe porque […] se da un salto grande, y mi primera ap
 </details>
 
 <details>
-<summary><strong>8.D (guía ej. 26 y 27, OneNote)</strong> — a) Aplicar Newton-Raphson a x³ − 2x² − 3x + 10 = 0 con x₀ = 1,9. ¿Cómo se explica el comportamiento extraño de los valores? b) x⁵ − 8x⁴ + 17x³ − 8x² − 14x + 20 = 0 tiene una raíz en (−2, 1); sin embargo con x₀ = −0,3 Newton-Raphson llega a otra raíz, en 5. ¿Por qué?</summary>
+<summary>⚪ <strong>8.D (guía ej. 26 y 27, OneNote)</strong> — a) Aplicar Newton-Raphson a x³ − 2x² − 3x + 10 = 0 con x₀ = 1,9. ¿Cómo se explica el comportamiento extraño de los valores? b) x⁵ − 8x⁴ + 17x³ − 8x² − 14x + 20 = 0 tiene una raíz en (−2, 1); sin embargo con x₀ = −0,3 Newton-Raphson llega a otra raíz, en 5. ¿Por qué?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1198,7 +1208,7 @@ y de ahí converge a la raíz $5$. **Explicación:** cerca de $-0{,}3$ hay un m�
 </details>
 
 <details>
-<summary><strong>8.E (final 28/9/2023, OneNote; gemelo del ej. 20 de la guía)</strong> — Dada (x − 1)·e⁻²ˣ = 0, con única raíz real en α = 1, el método de Newton-Raphson converge a ella: a) ∀ x₀ ∈ ℝ · b) solo si x₀ &lt; 1 · c) solo si x₀ &lt; 1,5 · d) n.a.</summary>
+<summary>⚪ <strong>8.E (final 28/9/2023, OneNote; gemelo del ej. 20 de la guía)</strong> — Dada (x − 1)·e⁻²ˣ = 0, con única raíz real en α = 1, el método de Newton-Raphson converge a ella: a) ∀ x₀ ∈ ℝ · b) solo si x₀ &lt; 1 · c) solo si x₀ &lt; 1,5 · d) n.a.</summary>
 
 **Enunciado en limpio:** $(x-1)\,e^{-2x}=0$.
 
@@ -1224,7 +1234,7 @@ Se anula en $x=1{,}5$: ahí $f$ tiene un **máximo**. Además $f$ viene desde mu
 </details>
 
 <details>
-<summary><strong>8.F (guía ej. 29 y 30, OneNote)</strong> — Calcular √3 con Newton-Raphson.</summary>
+<summary>⚪ <strong>8.F (guía ej. 29 y 30, OneNote)</strong> — Calcular √3 con Newton-Raphson.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1247,6 +1257,9 @@ $\sqrt3\approx1{,}7320508$. (Ej. 29: con $f=x^2-a$ la fórmula queda $x_{n+1}=x_
 </details>
 
 ---
+
+<details>
+<summary>⚪ <strong>Se toma poco — abrí solo si te sobra tiempo:</strong> §9. Lo que se toma poco: velocidad, variantes y raíces múltiples</summary>
 
 ## 9. Lo que se toma poco: velocidad, variantes y raíces múltiples
 
@@ -1288,7 +1301,7 @@ $$
 > **En clase:** "cuando ustedes vean un ejercicio que les diga: puede ser que Newton-Raphson esté convergiendo de manera muy lenta, ¿por qué será? La única causa que vemos […] de convergencia lenta es por raíces múltiples" (teórica [2:03:25]).
 
 <details>
-<summary><strong>Tu turno 9.A (guía ej. 21, OneNote)</strong> — La ecuación x⁴ − 4x² + 4 = 0 tiene una raíz en x = −√2. Newton-Raphson se acerca a ella con precisión 10⁻⁹ recién luego de 20 iteraciones. La causa es: a) f'' cambia de signo cerca de −√2 · b) se consideró un x₀ con f(x₀)·f''(x₀) &lt; 0 · c) −√2 es raíz con multiplicidad mayor a 1 · d) ninguna.</summary>
+<summary>⚪ <strong>Tu turno 9.A (guía ej. 21, OneNote)</strong> — La ecuación x⁴ − 4x² + 4 = 0 tiene una raíz en x = −√2. Newton-Raphson se acerca a ella con precisión 10⁻⁹ recién luego de 20 iteraciones. La causa es: a) f'' cambia de signo cerca de −√2 · b) se consideró un x₀ con f(x₀)·f''(x₀) &lt; 0 · c) −√2 es raíz con multiplicidad mayor a 1 · d) ninguna.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1308,7 +1321,7 @@ Números (desde $x_0=-1$): con Newton-Raphson común, después de 15 iteraciones
 </details>
 
 <details>
-<summary><strong>Tu turno 9.B (guía ej. 22a y 13a)</strong> — Verdadero o falso: a) Dada f(x) = 0 con raíz p ∈ (a, b), si existe x ∈ (a, b) con f'(x) = 0 entonces Newton-Raphson no converge a p. b) Si 0 &lt; g'(x) &lt; 1 en punto fijo, la convergencia es en forma de espiral o alternada.</summary>
+<summary>⚪ <strong>Tu turno 9.B (guía ej. 22a y 13a)</strong> — Verdadero o falso: a) Dada f(x) = 0 con raíz p ∈ (a, b), si existe x ∈ (a, b) con f'(x) = 0 entonces Newton-Raphson no converge a p. b) Si 0 &lt; g'(x) &lt; 1 en punto fijo, la convergencia es en forma de espiral o alternada.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1316,6 +1329,8 @@ Números (desde $x_0=-1$): con Newton-Raphson común, después de 15 iteraciones
 **a) Falso.** Que no haya puntos críticos es una condición **suficiente**, no necesaria: si no se cumple no se puede asegurar la convergencia, pero tampoco la no convergencia. (En 8.E hay un máximo en $1{,}5$ y con $x_0<1{,}5$ converge igual.)
 
 **b) Falso.** Con $0<g'<1$ ($g$ creciente) converge en forma **escalonada**. La espiral es con $-1<g'<0$ ($g$ decreciente). Mirá los dos primeros gráficos de §7.1.
+
+</details>
 
 </details>
 
@@ -1379,7 +1394,7 @@ $x_0$ = punto medio o extremo del intervalo, con $\lvert f'(x_0)\rvert$ lejos de
 Ejercicio con formato de parcial, armado con la función de los ej. 1g y 12d de la guía. Solo calculadora: de raíces no hay nada en el ayudamemoria.
 
 <details>
-<summary><strong>Ejercicio 1 (2 puntos)</strong> — Dada la ecuación 2e⁻ˣ − x² + 6x − 5 = 0: a) Indicar un intervalo [a; a+1] con a ∈ ℤ para cada una de las raíces. b) Analizar, por medio de las condiciones de convergencia, si es posible usar el método del punto fijo con g(x) = (2e⁻ˣ + 6x − 5)/x para hallar la mayor raíz en el intervalo hallado en a). c) Hallar la raíz positiva más cercana a 0 usando Newton-Raphson con ε &lt; 10⁻⁴. Yapa: d) ¿con cuántas iteraciones de bisección se garantiza ε &lt; 10⁻⁴ en un intervalo [a−1; a+1]? ¿Son suficientes o necesarias?</summary>
+<summary>🔴 <strong>Ejercicio 1 (2 puntos)</strong> — Dada la ecuación 2e⁻ˣ − x² + 6x − 5 = 0: a) Indicar un intervalo [a; a+1] con a ∈ ℤ para cada una de las raíces. b) Analizar, por medio de las condiciones de convergencia, si es posible usar el método del punto fijo con g(x) = (2e⁻ˣ + 6x − 5)/x para hallar la mayor raíz en el intervalo hallado en a). c) Hallar la raíz positiva más cercana a 0 usando Newton-Raphson con ε &lt; 10⁻⁴. Yapa: d) ¿con cuántas iteraciones de bisección se garantiza ε &lt; 10⁻⁴ en un intervalo [a−1; a+1]? ¿Son suficientes o necesarias?</summary>
 
 **Enunciado en limpio:** $2e^{-x}-x^{2}+6x-5=0$, con $g(x)=\dfrac{2e^{-x}+6x-5}{x}$ para el ítem b).
 

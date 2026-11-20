@@ -65,6 +65,16 @@ tbody tr:nth-child(even) { background: #f8f9fa; }
 
 ---
 
+> **🧭 Ruta corta (si vas contra reloj)** — núcleo ≈ 2 h 40 · en `plan.md`: lunes 2026-11-23 (es el ejercicio menos predecible: lo primero que se recorta)
+>
+> - **Leyenda de los "tu turno":** 🔴 parcial 2025 (obligatorio) · 🟠 repaso 2026 (no lo hagas acá: va a ciegas el martes con la guía `06`) · ⚪ extra (opcional). Lo plegado como **"⚪ Se toma poco"** se puede saltear.
+> - **Leé, en este orden:** §0–§2 (10 min) → **§3** las tres herramientas (diagonal dominante, radio espectral, normas) → **§4.2–§4.3** cómo se arman $T$ y $C$ de Jacobi → **§7** completa (§7.1 tres teoremas, §7.2 receta, §7.3 reordenar, §7.4 hallar $k$, §7.5 radio espectral) → **§8.2** número de condición + ejemplo guiado 6 → "Resumen en una página".
+> - **Salteá:** el resto de §4 (ejemplo guiado 1 y las tablas de Jacobi), §5, §6 (Gauss-Seidel), §8.1, el ejemplo guiado 7 y el Checkpoint.
+> - **"Tu turno" obligatorios (🔴):** 7.A, 7.B · 8.A. Si sobra tiempo: §6.1 + 6.A (una iteración de Gauss-Seidel).
+> - **Reservados para el martes (🟠):** 7.C, 8.B.
+> - **Para el 6 alcanza con…** no contar con este ejercicio. Lo mínimo que suma: la receta de §7.2 (¿es diagonal dominante?, si no reordenar; si no, radio espectral de $T_J$) y hacer **7.A**, que es el sistema textual del parcial 2025.
+> - En el ayudamemoria están los autovalores y las fórmulas de $T$ y $C$; los tres teoremas y $K(A)$ van de memoria.
+
 ## 0. Qué te toman: el Ej2 vale 2 puntos
 
 El Ej2 del 2do parcial es **siempre** sistemas de ecuaciones lineales, y casi nunca te hacen "resolver" el sistema: te hacen **decidir si un método iterativo converge** y, como mucho, hacer **una** iteración. En el 1er recuperatorio 2025 el ejercicio entero (un solo ítem) valió 2 puntos.
@@ -253,7 +263,7 @@ La **norma 2** de una matriz es $\sqrt{\rho(A^{t}A)}$: hay que multiplicar matri
 ### Tu turno 3
 
 <details>
-<summary><strong>3.A (guía, ej. 1)</strong> — Dadas A = (−2 1; 1 −3), B = (7 2 0; 3 5 −1; 0 5 −6) y C = (2 −1 0; −1 4 2; 0 2 2) (filas separadas por ";"), analizar si cada una es: a) simétrica, b) singular, c) dominante diagonalmente (y si lo es en sentido estricto).</summary>
+<summary>⚪ <strong>3.A (guía, ej. 1)</strong> — Dadas A = (−2 1; 1 −3), B = (7 2 0; 3 5 −1; 0 5 −6) y C = (2 −1 0; −1 4 2; 0 2 2) (filas separadas por ";"), analizar si cada una es: a) simétrica, b) singular, c) dominante diagonalmente (y si lo es en sentido estricto).</summary>
 
 $$
 A=\begin{pmatrix}-2&1\\1&-3\end{pmatrix}\qquad
@@ -295,7 +305,7 @@ Coincide con el OneNote y con las respuestas de la guía.
 </details>
 
 <details>
-<summary><strong>3.B (guía, ej. 2)</strong> — Dadas A = (2 −1; −1 2) y B = (2 1 0; 1 2 0; 0 0 −5), calcular los autovalores y el radio espectral de cada una.</summary>
+<summary>⚪ <strong>3.B (guía, ej. 2)</strong> — Dadas A = (2 −1; −1 2) y B = (2 1 0; 1 2 0; 0 0 −5), calcular los autovalores y el radio espectral de cada una.</summary>
 
 $$
 A=\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\qquad
@@ -332,7 +342,7 @@ $\rho(B)=\lvert-5\rvert=5$. Ojo: el radio espectral es $5$, no $-5$ ni $3$.
 </details>
 
 <details>
-<summary><strong>3.C (guía, ej. 3)</strong> — Dada A = (5 −5 −7; −4 2 −4; 7 −4 5), hallar la norma 1 y la norma infinito.</summary>
+<summary>⚪ <strong>3.C (guía, ej. 3)</strong> — Dada A = (5 −5 −7; −4 2 −4; 7 −4 5), hallar la norma 1 y la norma infinito.</summary>
 
 $$
 A=\begin{pmatrix}5&-5&-7\\-4&2&-4\\7&-4&5\end{pmatrix}
@@ -523,7 +533,7 @@ El criterio es **el mismo para Jacobi y para Gauss-Seidel**.
 ### Tu turno 4–5 (Jacobi)
 
 <details>
-<summary><strong>4.A (guía, ej. 5; resuelto en el OneNote)</strong> — Aplicar Jacobi al sistema 7x − y + 4z = 8; 3x − 8y + 2z = −4; 4x + y − 6z = 3, con tres decimales redondeados, desde (0; 0; 0), iterando hasta que la norma infinito de la diferencia entre dos iteraciones sea menor que 0,03. Escribir también T de Jacobi.</summary>
+<summary>⚪ <strong>4.A (guía, ej. 5; resuelto en el OneNote)</strong> — Aplicar Jacobi al sistema 7x − y + 4z = 8; 3x − 8y + 2z = −4; 4x + y − 6z = 3, con tres decimales redondeados, desde (0; 0; 0), iterando hasta que la norma infinito de la diferencia entre dos iteraciones sea menor que 0,03. Escribir también T de Jacobi.</summary>
 
 $$
 \begin{cases}
@@ -591,7 +601,7 @@ En la iteración 7 la diferencia es $0{,}033>0{,}03$: sigo. En la 8 es $0{,}017<
 </details>
 
 <details>
-<summary><strong>4.B (guía, ej. 8 b)</strong> — Sistema AX = B con A = (2 1; 3 6) y B = (8; 21). Resolver por Jacobi partiendo de X⁰ = (1; 4) y haciendo seis iteraciones. La solución exacta es (3; 2).</summary>
+<summary>⚪ <strong>4.B (guía, ej. 8 b)</strong> — Sistema AX = B con A = (2 1; 3 6) y B = (8; 21). Resolver por Jacobi partiendo de X⁰ = (1; 4) y haciendo seis iteraciones. La solución exacta es (3; 2).</summary>
 
 $$
 \begin{cases}2x+y=8\\3x+6y=21\end{cases}
@@ -630,7 +640,7 @@ Coincide con las respuestas de la guía. Cada iteración achica el error a la mi
 </details>
 
 <details>
-<summary><strong>4.C (teórico de cátedra, pág. 77, con solución en el apéndice)</strong> — Resolver por Jacobi el sistema 5x − y + 3z = 3; x + 6y − 4z = 7; x − 2y + 4z = −1 partiendo de X⁰ = (1; 1; 1). Hacer tres iteraciones y escribir las matrices T y C de Jacobi.</summary>
+<summary>⚪ <strong>4.C (teórico de cátedra, pág. 77, con solución en el apéndice)</strong> — Resolver por Jacobi el sistema 5x − y + 3z = 3; x + 6y − 4z = 7; x − 2y + 4z = −1 partiendo de X⁰ = (1; 1; 1). Hacer tres iteraciones y escribir las matrices T y C de Jacobi.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -766,7 +776,7 @@ $$
 ### Tu turno 6
 
 <details>
-<summary><strong>6.A (2do recuperatorio 2025, ítem b)</strong> — Dado AX = B con A = (4 7 1; −5 −1 2; −1 2 9) y B = (6; 4; −3): reordenando si es necesario, realizar una iteración de Gauss-Seidel comenzando con x₀ = (1; 0; 1).</summary>
+<summary>🔴 <strong>6.A (2do recuperatorio 2025, ítem b)</strong> — Dado AX = B con A = (4 7 1; −5 −1 2; −1 2 9) y B = (6; 4; −3): reordenando si es necesario, realizar una iteración de Gauss-Seidel comenzando con x₀ = (1; 0; 1).</summary>
 
 $$
 A=\begin{pmatrix}4&7&1\\-5&-1&2\\-1&2&9\end{pmatrix}\qquad B=\begin{pmatrix}6\\4\\-3\end{pmatrix}\qquad X_0=(1;\ 0;\ 1)
@@ -838,7 +848,7 @@ $$
 </details>
 
 <details>
-<summary><strong>6.B (guía, ej. 6; arranque en el OneNote)</strong> — Resolver por Gauss-Seidel el sistema del ej. 5 (7x − y + 4z = 8; 3x − 8y + 2z = −4; 4x + y − 6z = 3) desde (0; 0; 0), con tres decimales, hasta que la norma infinito de la diferencia sea menor que 0,03.</summary>
+<summary>⚪ <strong>6.B (guía, ej. 6; arranque en el OneNote)</strong> — Resolver por Gauss-Seidel el sistema del ej. 5 (7x − y + 4z = 8; 3x − 8y + 2z = −4; 4x + y − 6z = 3) desde (0; 0; 0), con tres decimales, hasta que la norma infinito de la diferencia sea menor que 0,03.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -882,7 +892,7 @@ $X_1=\left(\frac87;\frac{13}{14};\frac{5}{12}\right)$, igual que el OneNote.
 </details>
 
 <details>
-<summary><strong>6.C (guía, ej. 8 c y d)</strong> — Con A = (2 1; 3 6), B = (8; 21) y X⁰ = (1; 4), hacer seis iteraciones de Gauss-Seidel y comparar la velocidad de convergencia con Jacobi (Tu turno 4.B), sabiendo que la solución exacta es (3; 2).</summary>
+<summary>⚪ <strong>6.C (guía, ej. 8 c y d)</strong> — Con A = (2 1; 3 6), B = (8; 21) y X⁰ = (1; 4), hacer seis iteraciones de Gauss-Seidel y comparar la velocidad de convergencia con Jacobi (Tu turno 4.B), sabiendo que la solución exacta es (3; 2).</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -908,7 +918,7 @@ $X_1=\left(\frac87;\frac{13}{14};\frac{5}{12}\right)$, igual que el OneNote.
 </details>
 
 <details>
-<summary><strong>6.D (guía, ej. 7 b y c)</strong> — Sistema 4x − y = 1; x + 3y = 2. Hacer cinco iteraciones de Gauss-Seidel con 4 decimales partiendo de (0; 0), y después partiendo de (9; 5). Comparar.</summary>
+<summary>⚪ <strong>6.D (guía, ej. 7 b y c)</strong> — Sistema 4x − y = 1; x + 3y = 2. Hacer cinco iteraciones de Gauss-Seidel con 4 decimales partiendo de (0; 0), y después partiendo de (9; 5). Comparar.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -932,7 +942,7 @@ Primera fila de la segunda columna: $x=\frac{1+5}{4}=1{,}5$ y, con ese $x$, $y=\
 </details>
 
 <details>
-<summary><strong>6.E (teórico de cátedra, pág. 80)</strong> — Sistema 7x − 2y + 4z = 1; x + 5y − 3z = 8; 2x − 2y + 6z = 2. Hallar la solución por Gauss-Seidel partiendo de X₀ = (0; 2; 1), con error menor que 0,01 tomando norma infinito vectorial.</summary>
+<summary>⚪ <strong>6.E (teórico de cátedra, pág. 80)</strong> — Sistema 7x − 2y + 4z = 1; x + 5y − 3z = 8; 2x − 2y + 6z = 2. Hallar la solución por Gauss-Seidel partiendo de X₀ = (0; 2; 1), con error menor que 0,01 tomando norma infinito vectorial.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1020,7 +1030,7 @@ $$
 **Qué hacer en el examen:** planteá con $\ge$ como la resolución oficial y agregá una línea: "en sentido estricto (que es lo que garantiza el teorema), los extremos se excluyen". Con eso quedás cubierto por los dos lados.
 
 <details>
-<summary><strong>Verificación del contraejemplo del PDF de clase</strong> (queda "como tarea" en el PDF)</summary>
+<summary>⚪ <strong>Verificación del contraejemplo del PDF de clase</strong> (queda "como tarea" en el PDF)</summary>
 
 Despejes: $x=3-y$, $\ y=1+x$.
 
@@ -1148,7 +1158,7 @@ Conclusión que el profesor deja escrita al pie: "Si el radio espectral de la ma
 ### Tu turno 7
 
 <details>
-<summary><strong>7.A (parcial 2025, Tema 1 y Tema 2, Ej2 completo — RECICLADO)</strong> — Dado el sistema 7x + 5y + 4z = 10; 3x + 4y + 2z = 3; x + y + 4z = −8: defina, sin resolver el sistema, si el método de Jacobi converge o no converge a la solución.</summary>
+<summary>🔴 <strong>7.A (parcial 2025, Tema 1 y Tema 2, Ej2 completo — RECICLADO)</strong> — Dado el sistema 7x + 5y + 4z = 10; 3x + 4y + 2z = 3; x + y + 4z = −8: defina, sin resolver el sistema, si el método de Jacobi converge o no converge a la solución.</summary>
 
 $$
 \begin{cases}
@@ -1255,7 +1265,7 @@ Dato extra verificado: $T_{GS}=\begin{pmatrix}0&-\frac57&-\frac47\\[1mm]0&\frac{
 </details>
 
 <details>
-<summary><strong>7.B (1er recuperatorio 2025, Ej2 completo, 2 puntos)</strong> — Dada la matriz A = (3k−3 4 −1; 2 5+k² −2; 7 4 10−k), indique los valores de k ∈ ℝ para los que el sistema AX = B converge a la solución utilizando el método de Jacobi o de Gauss-Seidel.</summary>
+<summary>🔴 <strong>7.B (1er recuperatorio 2025, Ej2 completo, 2 puntos)</strong> — Dada la matriz A = (3k−3 4 −1; 2 5+k² −2; 7 4 10−k), indique los valores de k ∈ ℝ para los que el sistema AX = B converge a la solución utilizando el método de Jacobi o de Gauss-Seidel.</summary>
 
 $$
 A=\begin{pmatrix}3k-3&4&-1\\2&5+k^2&-2\\7&4&10-k\end{pmatrix}
@@ -1309,7 +1319,7 @@ $$
 </details>
 
 <details>
-<summary><strong>7.C (repaso 2026, ej. 6; "Ejercicio 3" de un parcial viejo, 1 punto por ítem)</strong> — Sistema 2x − 3y + 6z = 9; 10x + y + z = 3; 0,5x + y = 1. a) Ordene las ecuaciones para que se pueda resolver por método iterativo. Justifique. b) Hallar la T de Jacobi y verificar usando la norma infinito que el sistema converge a la solución.</summary>
+<summary>🟠 <strong>7.C (repaso 2026, ej. 6; "Ejercicio 3" de un parcial viejo, 1 punto por ítem)</strong> — Sistema 2x − 3y + 6z = 9; 10x + y + z = 3; 0,5x + y = 1. a) Ordene las ecuaciones para que se pueda resolver por método iterativo. Justifique. b) Hallar la T de Jacobi y verificar usando la norma infinito que el sistema converge a la solución.</summary>
 
 $$
 \begin{cases}
@@ -1369,7 +1379,7 @@ En el repaso el profesor anotó los tres criterios posibles: "1. $A$ diagonal do
 </details>
 
 <details>
-<summary><strong>7.D (guía, ej. 7 a y 8 a)</strong> — ¿Convergen los métodos iterativos? Justificar. Sistema 1: 4x − y = 1; x + 3y = 2. Sistema 2: A = (2 1; 3 6), B = (8; 21).</summary>
+<summary>⚪ <strong>7.D (guía, ej. 7 a y 8 a)</strong> — ¿Convergen los métodos iterativos? Justificar. Sistema 1: 4x − y = 1; x + 3y = 2. Sistema 2: A = (2 1; 3 6), B = (8; 21).</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1385,7 +1395,7 @@ Es la respuesta del OneNote ("✓ Diagonal dominante ✓ Los métodos iterativos
 </details>
 
 <details>
-<summary><strong>7.E (guía, ej. 10)</strong> — Aplicar Jacobi al sistema x₁ + 2x₂ = 3; 3x₁ + x₂ = 4 comenzando con la aproximación inicial (1,01; 1,01). Hallar T de Jacobi. (Pista: mirá la diagonal antes de despejar.)</summary>
+<summary>⚪ <strong>7.E (guía, ej. 10)</strong> — Aplicar Jacobi al sistema x₁ + 2x₂ = 3; 3x₁ + x₂ = 4 comenzando con la aproximación inicial (1,01; 1,01). Hallar T de Jacobi. (Pista: mirá la diagonal antes de despejar.)</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1540,7 +1550,7 @@ $$
 ### Tu turno 8
 
 <details>
-<summary><strong>8.A (2do recuperatorio 2025, ítem a)</strong> — Dado AX = B con A = (4 7 1; −5 −1 2; −1 2 9), sabiendo que A⁻¹ = (1/238)·(−13 −61 15; 43 37 −13; −11 −15 31): indicar si el sistema está bien condicionado o no.</summary>
+<summary>🔴 <strong>8.A (2do recuperatorio 2025, ítem a)</strong> — Dado AX = B con A = (4 7 1; −5 −1 2; −1 2 9), sabiendo que A⁻¹ = (1/238)·(−13 −61 15; 43 37 −13; −11 −15 31): indicar si el sistema está bien condicionado o no.</summary>
 
 $$
 A=\begin{pmatrix}4&7&1\\-5&-1&2\\-1&2&9\end{pmatrix}
@@ -1578,7 +1588,7 @@ La hoja oficial aclara: "Puede usarse Norma-1 también". Con norma 1 (por column
 </details>
 
 <details>
-<summary><strong>8.B (repaso 2026, ej. 15)</strong> — Hallar el número de condición de A = (−5 −1 2; 4 7 1; −1 2 9), con A⁻¹ = (1/238)·(−61 −13 15; 37 43 −13; −15 −11 31).</summary>
+<summary>🟠 <strong>8.B (repaso 2026, ej. 15)</strong> — Hallar el número de condición de A = (−5 −1 2; 4 7 1; −1 2 9), con A⁻¹ = (1/238)·(−61 −13 15; 37 43 −13; −15 −11 31).</summary>
 
 $$
 A=\begin{pmatrix}-5&-1&2\\4&7&1\\-1&2&9\end{pmatrix}
@@ -1604,7 +1614,7 @@ $$
 </details>
 
 <details>
-<summary><strong>8.C (PDF de clase y teórico, Ejemplo 1)</strong> — Calcular el número de condición, con norma infinito, de A = (1 1; 1 1,0001) (la matriz del sistema que saltaba de (2; 0) a (1; 1)). Acá la inversa la calculás vos: es de 2×2.</summary>
+<summary>⚪ <strong>8.C (PDF de clase y teórico, Ejemplo 1)</strong> — Calcular el número de condición, con norma infinito, de A = (1 1; 1 1,0001) (la matriz del sistema que saltaba de (2; 0) a (1; 1)). Acá la inversa la calculás vos: es de 2×2.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1628,7 +1638,7 @@ $$
 </details>
 
 <details>
-<summary><strong>8.D (teórico de cátedra, Ejemplo 3, pág. 83–85)</strong> — Sea A = (10 7 8 7; 7 5 6 5; 8 6 10 9; 7 5 9 10), cuya inversa es A⁻¹ = (25 −41 10 −6; −41 68 −17 10; 10 −17 5 −3; −6 10 −3 2). Calcular K(A) con norma infinito y decir si está bien condicionada.</summary>
+<summary>⚪ <strong>8.D (teórico de cátedra, Ejemplo 3, pág. 83–85)</strong> — Sea A = (10 7 8 7; 7 5 6 5; 8 6 10 9; 7 5 9 10), cuya inversa es A⁻¹ = (25 −41 10 −6; −41 68 −17 10; 10 −17 5 −3; −6 10 −3 2). Calcular K(A) con norma infinito y decir si está bien condicionada.</summary>
 
 $$
 A=\begin{pmatrix}10&7&8&7\\7&5&6&5\\8&6&10&9\\7&5&9&10\end{pmatrix}
@@ -1721,7 +1731,7 @@ Unidades ⇒ bien condicionado. Miles ⇒ mal condicionado. Zona gris ⇒ justif
 Ejercicio con formato de parcial, armado con el sistema del ejemplo de la pág. 81 del teórico de cátedra y los tipos de ítem del repaso 2026 y del 2do recuperatorio 2025. Solo ayudamemoria y calculadora.
 
 <details>
-<summary><strong>Ej2 (2 puntos)</strong> — Dado el sistema 2x + 5y + z = 12; 2x − 3y + 6z = 3; 7x + y − 3z = 7: a) Ordene las ecuaciones para poder asegurar la convergencia de los métodos iterativos. Justifique. b) Halle la T de Jacobi del sistema ordenado y verifique la convergencia usando la norma infinito. ¿Esa condición es necesaria o suficiente? c) Realice dos iteraciones de Gauss-Seidel partiendo de X₀ = (0; 0; 0) e indique el error absoluto entre ambas con norma infinito.</summary>
+<summary>⚪ <strong>Ej2 (2 puntos)</strong> — Dado el sistema 2x + 5y + z = 12; 2x − 3y + 6z = 3; 7x + y − 3z = 7: a) Ordene las ecuaciones para poder asegurar la convergencia de los métodos iterativos. Justifique. b) Halle la T de Jacobi del sistema ordenado y verifique la convergencia usando la norma infinito. ¿Esa condición es necesaria o suficiente? c) Realice dos iteraciones de Gauss-Seidel partiendo de X₀ = (0; 0; 0) e indique el error absoluto entre ambas con norma infinito.</summary>
 
 $$
 \begin{cases}

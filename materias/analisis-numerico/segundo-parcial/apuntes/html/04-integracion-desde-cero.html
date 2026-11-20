@@ -65,6 +65,16 @@ tbody tr:nth-child(even) { background: #f8f9fa; }
 
 ---
 
+> **🧭 Ruta corta (si vas contra reloj)** — núcleo ≈ 4 h · en `plan.md`: viernes 2026-11-20 (1 h 45) + sábado 2026-11-21 (2 h 20). Es el ejercicio más seguro: se estudia primero
+>
+> - **Leyenda de los "tu turno":** 🔴 parcial 2025 (obligatorio) · 🟠 repaso 2026 (no lo hagas acá: va a ciegas el martes con la guía `06`) · ⚪ extra (opcional). Lo plegado como **"⚪ Se toma poco"** se puede saltear.
+> - **Leé, en este orden:** §0–§2 (15 min) → **§3** Trapecios con tabla (ejemplo guiado 1) → **§6** elegir $h$: §6.1, §6.2 la receta, §6.3 y los ejemplos guiados 3 y 4 rehechos → **§4** Simpson y "$N$ par" (ejemplo guiado 2) → **§5** las preguntas conceptuales (solo leer) → **§8.2–§8.3** derivadas desde tabla (ejemplo guiado 6 leído) → "Resumen en una página".
+> - **Salteá:** §7 (plegada), §8.1, el ejemplo guiado 7 y el Checkpoint.
+> - **"Tu turno" obligatorios (🔴):** 6.A, 6.B, 6.C, 6.D · 4.A.
+> - **Reservados para el martes (🟠):** 4.E, 5.A, 5.B, 6.E, 7.B, 8.C.
+> - **Para el 6 alcanza con…** la receta de §6.2 hecha cuatro veces (6.A–6.D): derivar bien $f''$ y $f'''$, comparar extremos contra puntos críticos, despejar $h$ y elegir un $h$ "lindo". En 2025 fue el ejercicio entero en las 4 hojas.
+> - En el ayudamemoria están las dos fórmulas del **error**; las de Trapecios, Simpson y las derivadas van de memoria.
+
 ## 0. Qué te toman: el Ej4 vale 2 puntos
 
 El Ej4 del 2do parcial es **siempre** integración numérica, y en las 4 hojas de 2025 fue **el mismo ejercicio con otra función**: te dan una integral y un error tolerado $\varepsilon$, y tenés que decir **qué $h$ (o cuántos subintervalos $N$) usar en Trapecios** para garantizar ese error. No se calcula la integral (salvo en el 2do recuperatorio).
@@ -197,7 +207,7 @@ Error real: $1{,}29584-1{,}28210=0{,}0137$. Con $h=0{,}25$ ($N=8$) el PDF da $A_
 ### Tu turno 3
 
 <details>
-<summary><strong>3.A (guía ej. 6 a y b; OneNote y práctica)</strong> — Dada f(x) = 1 + x³ en [0, 2], calcular la integral: a) en forma analítica; b) por Trapecios con h = 1 y con h = 0,5.</summary>
+<summary>⚪ <strong>3.A (guía ej. 6 a y b; OneNote y práctica)</strong> — Dada f(x) = 1 + x³ en [0, 2], calcular la integral: a) en forma analítica; b) por Trapecios con h = 1 y con h = 0,5.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -286,7 +296,7 @@ Exacto: $1{,}29583687$. Error $0{,}0005$, contra $0{,}0137$ de Trapecios con la 
 ### Tu turno 4
 
 <details>
-<summary><strong>4.A (parcial 2025, 2do recuperatorio, ítems b y c)</strong> — Para la integral entre 4 y 6 de e⁻ˣ(x² − 1): b) con h = 0,25 (N = 8, hallado en el ítem a), ¿se podría usar el método de Simpson? c) Resolver la integral con h = 0,5 usando el método más conveniente.</summary>
+<summary>🔴 <strong>4.A (parcial 2025, 2do recuperatorio, ítems b y c)</strong> — Para la integral entre 4 y 6 de e⁻ˣ(x² − 1): b) con h = 0,25 (N = 8, hallado en el ítem a), ¿se podría usar el método de Simpson? c) Resolver la integral con h = 0,5 usando el método más conveniente.</summary>
 
 $$
 \int_{4}^{6} e^{-x}(x^{2}-1)\,dx
@@ -322,7 +332,7 @@ Coincide con la hoja oficial ($AS=0{,}33640956$; la hoja solo muestra la tabla y
 </details>
 
 <details>
-<summary><strong>4.B (guía ej. 6 c y d; OneNote y práctica)</strong> — Para f(x) = 1 + x³ en [0, 2], aproximar por Simpson con h = 1 y sacar conclusiones comparando con Trapecios (3.A).</summary>
+<summary>⚪ <strong>4.B (guía ej. 6 c y d; OneNote y práctica)</strong> — Para f(x) = 1 + x³ en [0, 2], aproximar por Simpson con h = 1 y sacar conclusiones comparando con Trapecios (3.A).</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -340,7 +350,7 @@ $$
 </details>
 
 <details>
-<summary><strong>4.C (guía ej. 9; OneNote y práctica)</strong> — Hallar el volumen del cuerpo de revolución V = ∫ f(x)² dx entre a y b, siendo x² + y²/9 = 1: a) por Trapecios con h = 1; b) por Simpson con h = 1.</summary>
+<summary>⚪ <strong>4.C (guía ej. 9; OneNote y práctica)</strong> — Hallar el volumen del cuerpo de revolución V = ∫ f(x)² dx entre a y b, siendo x² + y²/9 = 1: a) por Trapecios con h = 1; b) por Simpson con h = 1.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -360,7 +370,7 @@ Exacto: $\int_{-1}^{1}9(1-x^2)\,dx=9\left[x-\frac{x^3}{3}\right]_{-1}^{1}=12$. *
 </details>
 
 <details>
-<summary><strong>4.D (guía ej. 13, 7 y 32 f: funciones dadas por tabla)</strong> — a) Tabla x = 1, 2, 3, 4, 5; y = 21, 38, 62, 104, 175: hallar la integral entre 1 y 5 usando si es posible Simpson, si no Trapecios, e indicar si se puede estimar el error. b) Tabla x = 1,0; 1,1; 1,2; 1,3; 1,4; y = 0,010; 0,252; 0,586; 1,024; 1,578: estimar la integral entre 1 y 1,4 por Trapecios y por Simpson. c) Tabla x = −3, −1, 1, 3, 5, 7; y = 77, 47, 43, −31, −175, −293: integral en [−3, 7] con algún método adecuado.</summary>
+<summary>⚪ <strong>4.D (guía ej. 13, 7 y 32 f: funciones dadas por tabla)</strong> — a) Tabla x = 1, 2, 3, 4, 5; y = 21, 38, 62, 104, 175: hallar la integral entre 1 y 5 usando si es posible Simpson, si no Trapecios, e indicar si se puede estimar el error. b) Tabla x = 1,0; 1,1; 1,2; 1,3; 1,4; y = 0,010; 0,252; 0,586; 1,024; 1,578: estimar la integral entre 1 y 1,4 por Trapecios y por Simpson. c) Tabla x = −3, −1, 1, 3, 5, 7; y = 77, 47, 43, −31, −175, −293: integral en [−3, 7] con algún método adecuado.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -392,7 +402,7 @@ Coincide con la guía ("por Trapecios, ya que hay 5 subintervalos").
 </details>
 
 <details>
-<summary><strong>4.E (verdadero/falso de "¿se puede usar Simpson?": guía ej. 14 e, 14 h, 17 d, 19 b y 25 d; repaso 2026 ej. 10 b)</strong> — a) Para todo a entero es posible resolver una integral en (a; 16a) por Simpson con h = 0,15. b) No es posible calcular la integral entre 0 y 2 de x²eˣ por Simpson con h = 0,4. c) Es posible calcular la integral entre 1 y 4 de e²ˣcos(x) por Simpson con h = 0,04. d) La integral entre −15 y 15 de f(x) se puede resolver por Simpson con h = 0,6. e) No es posible tomar h = 0,8 para aproximar la integral entre 1 y 5 por Simpson. f) La integral entre 1 y 3 de sen(x) + ln(x) se puede resolver por Simpson con h = 0,08.</summary>
+<summary>🟠 <strong>4.E (verdadero/falso de "¿se puede usar Simpson?": guía ej. 14 e, 14 h, 17 d, 19 b y 25 d; repaso 2026 ej. 10 b)</strong> — a) Para todo a entero es posible resolver una integral en (a; 16a) por Simpson con h = 0,15. b) No es posible calcular la integral entre 0 y 2 de x²eˣ por Simpson con h = 0,4. c) Es posible calcular la integral entre 1 y 4 de e²ˣcos(x) por Simpson con h = 0,04. d) La integral entre −15 y 15 de f(x) se puede resolver por Simpson con h = 0,6. e) No es posible tomar h = 0,8 para aproximar la integral entre 1 y 5 por Simpson. f) La integral entre 1 y 3 de sen(x) + ln(x) se puede resolver por Simpson con h = 0,08.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -469,7 +479,7 @@ Casi siempre, pero no: $f(x)=\lvert x\rvert$ en $[-1;1]$ con $h=1$ (figura de ar
 ### Tu turno 5
 
 <details>
-<summary><strong>5.A (repaso 2026, ejercicio 9)</strong> — Al resolver la integral entre −3 y 3 de (x³cos x + x) por Simpson tomando n subintervalos se obtiene el valor exacto si: a) n es par · b) n es mayor que 3 · c) n es par y mayor que 6 · d) nunca es posible · e) n es impar · f) n.a.</summary>
+<summary>🟠 <strong>5.A (repaso 2026, ejercicio 9)</strong> — Al resolver la integral entre −3 y 3 de (x³cos x + x) por Simpson tomando n subintervalos se obtiene el valor exacto si: a) n es par · b) n es mayor que 3 · c) n es par y mayor que 6 · d) nunca es posible · e) n es impar · f) n.a.</summary>
 
 $$
 \int_{-3}^{3}\left(x^{3}\cos x+x\right)dx
@@ -491,7 +501,7 @@ $$
 </details>
 
 <details>
-<summary><strong>5.B (repaso 2026, ejercicio 10 a)</strong> — Dada la integral entre 1 y 3 de (sen(x) + ln(x)), ¿verdadero o falso? «Trapecios devuelve un valor menor al exacto».</summary>
+<summary>🟠 <strong>5.B (repaso 2026, ejercicio 10 a)</strong> — Dada la integral entre 1 y 3 de (sen(x) + ln(x)), ¿verdadero o falso? «Trapecios devuelve un valor menor al exacto».</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -509,7 +519,7 @@ En $[1;3]$: $\operatorname{sen}x>0$ (1 y 3 radianes están entre $0$ y $\pi$) y 
 </details>
 
 <details>
-<summary><strong>5.C (guía ej. 14 a, b, c, d, f y g; OneNote y práctica)</strong> — Verdadero o falso, justificando: a) f positiva y cóncava hacia abajo en [a, b] ⇒ el valor A por Trapecios cumple A &lt; ∫f. b) Si por Trapecios se obtiene el valor exacto ⇒ f''(x) = 0 en todo (a, b). c) Si por Simpson se obtiene error cero ⇒ f es polinómica de grado ≤ 3. d) El error por Simpson de f(x) = ax³ + bx² + 10 en (0; p) depende exclusivamente de p. f) La integral de e^|x|·sen(x) entre −a y a por Trapecios con una cantidad par de subintervalos da siempre exacta. g) Existe h real tal que la integral entre −1 y 1 de sen(πx)/(πx) por Trapecios dé mayor que la exacta.</summary>
+<summary>⚪ <strong>5.C (guía ej. 14 a, b, c, d, f y g; OneNote y práctica)</strong> — Verdadero o falso, justificando: a) f positiva y cóncava hacia abajo en [a, b] ⇒ el valor A por Trapecios cumple A &lt; ∫f. b) Si por Trapecios se obtiene el valor exacto ⇒ f''(x) = 0 en todo (a, b). c) Si por Simpson se obtiene error cero ⇒ f es polinómica de grado ≤ 3. d) El error por Simpson de f(x) = ax³ + bx² + 10 en (0; p) depende exclusivamente de p. f) La integral de e^|x|·sen(x) entre −a y a por Trapecios con una cantidad par de subintervalos da siempre exacta. g) Existe h real tal que la integral entre −1 y 1 de sen(πx)/(πx) por Trapecios dé mayor que la exacta.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -526,7 +536,7 @@ En $[1;3]$: $\operatorname{sen}x>0$ (1 y 3 radianes están entre $0$ y $\pi$) y 
 </details>
 
 <details>
-<summary><strong>5.D (guía ej. 17 a y c, ej. 24; OneNote y práctica)</strong> — Verdadero o falso: a) Al calcular por Trapecios la integral de ln(x)·x³ entre 1 y 2 se obtiene un valor mayor que el exacto. c) Al calcular por Trapecios la integral entre 1 y 4 de e²ˣcos(x) con h = 0,1 se obtiene un valor mayor al exacto. Y el ej. 24: ¿es posible resolver la integral entre −0,5 y 0,5 de e^(−x²) por Trapecios con h = 0,04 y asegurar que el valor obtenido es menor que el exacto?</summary>
+<summary>⚪ <strong>5.D (guía ej. 17 a y c, ej. 24; OneNote y práctica)</strong> — Verdadero o falso: a) Al calcular por Trapecios la integral de ln(x)·x³ entre 1 y 2 se obtiene un valor mayor que el exacto. c) Al calcular por Trapecios la integral entre 1 y 4 de e²ˣcos(x) con h = 0,1 se obtiene un valor mayor al exacto. Y el ej. 24: ¿es posible resolver la integral entre −0,5 y 0,5 de e^(−x²) por Trapecios con h = 0,04 y asegurar que el valor obtenido es menor que el exacto?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -542,7 +552,7 @@ En $[1;3]$: $\operatorname{sen}x>0$ (1 y 3 radianes están entre $0$ y $\pi$) y 
 </details>
 
 <details>
-<summary><strong>5.E (guía ej. 21 y 25 c/e)</strong> — a) La mínima cantidad de subintervalos para calcular el valor exacto de la integral entre 1 y 2 de (3x³ − 2x² + 5) por Simpson es: 1, 2, 3 o 4. b) Para I = integral entre 1 y 5 de f: «si f es polinómica de grado 5, Trapecios no puede dar exacto». c) «Una cota del error de Trapecios con h = 1 es (1/3)·f''(5)».</summary>
+<summary>⚪ <strong>5.E (guía ej. 21 y 25 c/e)</strong> — a) La mínima cantidad de subintervalos para calcular el valor exacto de la integral entre 1 y 2 de (3x³ − 2x² + 5) por Simpson es: 1, 2, 3 o 4. b) Para I = integral entre 1 y 5 de f: «si f es polinómica de grado 5, Trapecios no puede dar exacto». c) «Una cota del error de Trapecios con h = 1 es (1/3)·f''(5)».</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -674,7 +684,7 @@ $$
 ### Tu turno 6
 
 <details>
-<summary><strong>6.A (parcial 2025, Tema 1, Ej4 completo)</strong> — Encontrar el mayor h racional no periódico y conveniente para obtener una aproximación de la integral entre −7 y −5 de eˣ(x³ − 6) con ε &lt; 10⁻³ usando el método de Trapecios.</summary>
+<summary>🔴 <strong>6.A (parcial 2025, Tema 1, Ej4 completo)</strong> — Encontrar el mayor h racional no periódico y conveniente para obtener una aproximación de la integral entre −7 y −5 de eˣ(x³ − 6) con ε &lt; 10⁻³ usando el método de Trapecios.</summary>
 
 $$
 \int_{-7}^{-5} e^{x}(x^{3}-6)\,dx
@@ -728,7 +738,7 @@ $$
 </details>
 
 <details>
-<summary><strong>6.B (parcial 2025, Tema 2, Ej4 completo)</strong> — El mayor h racional no periódico y más conveniente para obtener una aproximación de la integral entre 0 y 2 de eˣ(x² − 9x + 23) usando Trapecios con un error ε &lt; 10⁻² es …… (completar).</summary>
+<summary>🔴 <strong>6.B (parcial 2025, Tema 2, Ej4 completo)</strong> — El mayor h racional no periódico y más conveniente para obtener una aproximación de la integral entre 0 y 2 de eˣ(x² − 9x + 23) usando Trapecios con un error ε &lt; 10⁻² es …… (completar).</summary>
 
 $$
 \int_{0}^{2} e^{x}(x^{2}-9x+23)\,dx
@@ -780,7 +790,7 @@ $$
 </details>
 
 <details>
-<summary><strong>6.C (1er recuperatorio 2025, Ej4 completo, 2 puntos; es el ej. 16 h de la guía, resuelto en el OneNote y en la práctica)</strong> — Hallar un h racional no periódico para poder resolver la integral entre 1 y 3 de (ln(x) + 1)/x por Trapecios con ε &lt; 10⁻².</summary>
+<summary>🔴 <strong>6.C (1er recuperatorio 2025, Ej4 completo, 2 puntos; es el ej. 16 h de la guía, resuelto en el OneNote y en la práctica)</strong> — Hallar un h racional no periódico para poder resolver la integral entre 1 y 3 de (ln(x) + 1)/x por Trapecios con ε &lt; 10⁻².</summary>
 
 $$
 \int_{1}^{3}\frac{\ln(x)+1}{x}\,dx
@@ -832,7 +842,7 @@ $$
 </details>
 
 <details>
-<summary><strong>6.D (2do recuperatorio 2025, Ej4 ítem a)</strong> — Hallar un número conveniente de subintervalos para poder resolver la integral entre 4 y 6 de e⁻ˣ(x² − 1) con un error ε ≤ 10⁻³ usando el método de Trapecios.</summary>
+<summary>🔴 <strong>6.D (2do recuperatorio 2025, Ej4 ítem a)</strong> — Hallar un número conveniente de subintervalos para poder resolver la integral entre 4 y 6 de e⁻ˣ(x² − 1) con un error ε ≤ 10⁻³ usando el método de Trapecios.</summary>
 
 $$
 \int_{4}^{6} e^{-x}(x^{2}-1)\,dx
@@ -886,7 +896,7 @@ $$
 </details>
 
 <details>
-<summary><strong>6.E (repaso 2026, ejercicio 11)</strong> — Hallar el mayor h racional no periódico para asegurar un error menor a 10⁻² con el método de Trapecios en la integral entre 1 y 3 de ln(3x)·x³.</summary>
+<summary>🟠 <strong>6.E (repaso 2026, ejercicio 11)</strong> — Hallar el mayor h racional no periódico para asegurar un error menor a 10⁻² con el método de Trapecios en la integral entre 1 y 3 de ln(3x)·x³.</summary>
 
 $$
 \int_{1}^{3}\ln(3x)\,x^{3}\,dx
@@ -922,7 +932,7 @@ $$
 </details>
 
 <details>
-<summary><strong>6.F (verificar un h dado: guía ej. 17 b y 26 b; teórico ej. 3)</strong> — Verdadero o falso: a) Si la integral de ln(x)·x³ entre 1 y 2 se resuelve por Trapecios con h = 0,1, el error será menor que 0,0001. b) Si se calcula la integral entre 1,7 y 4,7 de (ln(x) + 1)/x por Trapecios con h = 0,125, el error es menor que 10⁻⁴.</summary>
+<summary>⚪ <strong>6.F (verificar un h dado: guía ej. 17 b y 26 b; teórico ej. 3)</strong> — Verdadero o falso: a) Si la integral de ln(x)·x³ entre 1 y 2 se resuelve por Trapecios con h = 0,1, el error será menor que 0,0001. b) Si se calcula la integral entre 1,7 y 4,7 de (ln(x) + 1)/x por Trapecios con h = 0,125, el error es menor que 10⁻⁴.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -946,6 +956,9 @@ $$
 </details>
 
 </details>
+
+<details>
+<summary>⚪ <strong>Se toma poco — abrí solo si te sobra tiempo:</strong> §7. Lo mismo con Simpson: derivada cuarta,  y  par</summary>
 
 ## 7. Lo mismo con Simpson: derivada cuarta, $h^4$ y $N$ par
 
@@ -990,7 +1003,7 @@ Si en vez del $h$ más lindo te piden "la **menor cantidad** de subintervalos", 
 ### Tu turno 7
 
 <details>
-<summary><strong>7.A (guía ej. 15 a pero con Simpson; OneNote y práctica)</strong> — ¿Qué h y cuántos subintervalos hay que tomar para aproximar la integral entre 1 y 2 de 1/x por Simpson con dos cifras decimales correctas?</summary>
+<summary>⚪ <strong>7.A (guía ej. 15 a pero con Simpson; OneNote y práctica)</strong> — ¿Qué h y cuántos subintervalos hay que tomar para aproximar la integral entre 1 y 2 de 1/x por Simpson con dos cifras decimales correctas?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1008,7 +1021,7 @@ $N>1{,}91$ ⇒ $N=2$ (par ✓) ⇒ $h=0{,}5$. Con solo 2 subintervalos Simpson a
 </details>
 
 <details>
-<summary><strong>7.B (repaso 2026, extra del ejercicio 11)</strong> — Para la integral entre 1 y 3 de ln(3x)·x³ y un error menor a 10⁻², ¿qué h habría que tomar si fuera con Simpson?</summary>
+<summary>🟠 <strong>7.B (repaso 2026, extra del ejercicio 11)</strong> — Para la integral entre 1 y 3 de ln(3x)·x³ y un error menor a 10⁻², ¿qué h habría que tomar si fuera con Simpson?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1020,6 +1033,8 @@ $$
 $$
 
 $N>\dfrac{2}{0{,}6223}=3{,}21$ ⇒ $N=4$ (par ✓) ⇒ $h=0{,}5$. Contra $N=64$ de Trapecios.
+
+</details>
 
 </details>
 
@@ -1102,7 +1117,7 @@ $$
 ### Tu turno 8
 
 <details>
-<summary><strong>8.A (guía ej. 1 y 3; PDF de clase, OneNote y práctica)</strong> — a) Con la tabla x = 0,349; 0,436; 0,523 e y = 0,34202; 0,42262; 0,5: estimar f'(0,436) con las diferencias progresiva, regresiva y central, y f''(0,436). b) Con la tabla x = −2, 0, 2, 4, 6, 8, 10 e y = 20, 20, 18, 15, 12, 10, 10: hallar f''(6) con alguna fórmula conveniente.</summary>
+<summary>⚪ <strong>8.A (guía ej. 1 y 3; PDF de clase, OneNote y práctica)</strong> — a) Con la tabla x = 0,349; 0,436; 0,523 e y = 0,34202; 0,42262; 0,5: estimar f'(0,436) con las diferencias progresiva, regresiva y central, y f''(0,436). b) Con la tabla x = −2, 0, 2, 4, 6, 8, 10 e y = 20, 20, 18, 15, 12, 10, 10: hallar f''(6) con alguna fórmula conveniente.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1130,7 +1145,7 @@ $$
 </details>
 
 <details>
-<summary><strong>8.B (guía ej. 4; OneNote y práctica)</strong> — Verdadero o falso: a) No es posible calcular una aproximación de f'(xᵢ) si no se conoce el valor de f(xᵢ). b) Si se dispone de una tabla con valores f₀, f₁, …, fₙ (n ≥ 4), entonces se puede calcular aproximadamente la derivada segunda en x₂ usando diferencias progresivas.</summary>
+<summary>⚪ <strong>8.B (guía ej. 4; OneNote y práctica)</strong> — Verdadero o falso: a) No es posible calcular una aproximación de f'(xᵢ) si no se conoce el valor de f(xᵢ). b) Si se dispone de una tabla con valores f₀, f₁, …, fₙ (n ≥ 4), entonces se puede calcular aproximadamente la derivada segunda en x₂ usando diferencias progresivas.</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1143,7 +1158,7 @@ $$
 </details>
 
 <details>
-<summary><strong>8.C (repaso 2026, ejercicios 7 b y 8 ii)</strong> — a) Con la tabla x = 1, 3, 4, 5, 7 e y = −1,5; −4,5; 0; 12,5; 73,5, hallar f''(4) usando la fórmula central. b) Tabla de consumo acumulado de energía con t = 0, 1, 2, 3, 6, 8 días: para estimar el consumo puntual del octavo día, ¿qué fórmula de diferenciación se puede usar: progresiva, regresiva, central o ninguna?</summary>
+<summary>🟠 <strong>8.C (repaso 2026, ejercicios 7 b y 8 ii)</strong> — a) Con la tabla x = 1, 3, 4, 5, 7 e y = −1,5; −4,5; 0; 12,5; 73,5, hallar f''(4) usando la fórmula central. b) Tabla de consumo acumulado de energía con t = 0, 1, 2, 3, 6, 8 días: para estimar el consumo puntual del octavo día, ¿qué fórmula de diferenciación se puede usar: progresiva, regresiva, central o ninguna?</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1161,7 +1176,7 @@ $$
 </details>
 
 <details>
-<summary><strong>8.D (ejemplo del teórico de cátedra y guía ej. 31 c y 32 e)</strong> — a) Posición de un móvil: t = 0, 2, 4, 6, 8, 10, 12 s; posición = 4; 5,5; 8; 13,5; 22; 31,5; 38 m. Estimar la velocidad inicial, la velocidad a los 5 s y a los 8 s, y la aceleración a los 6 s. b) Tabla x = −3, −1, 1, 3, 5, 7, 9; f = 39, 19, −21, −57, −65, −21, 99: f''(5). c) Tabla x = −3, −1, 1, 3, 5, 7; f = 77, 47, 43, −31, −175, −293: f'(4).</summary>
+<summary>⚪ <strong>8.D (ejemplo del teórico de cátedra y guía ej. 31 c y 32 e)</strong> — a) Posición de un móvil: t = 0, 2, 4, 6, 8, 10, 12 s; posición = 4; 5,5; 8; 13,5; 22; 31,5; 38 m. Estimar la velocidad inicial, la velocidad a los 5 s y a los 8 s, y la aceleración a los 6 s. b) Tabla x = −3, −1, 1, 3, 5, 7, 9; f = 39, 19, −21, −57, −65, −21, 99: f''(5). c) Tabla x = −3, −1, 1, 3, 5, 7; f = 77, 47, 43, −31, −175, −293: f'(4).</summary>
 
 <details>
 <summary><strong>Resolución</strong></summary>
@@ -1250,7 +1265,7 @@ $$
 Solo ayudamemoria (pág. 4) y calculadora. Formato del 2do recuperatorio 2025, con la función del ej. 27 de la guía.
 
 <details>
-<summary><strong>Enunciado</strong> — Dada la integral entre −2,5 y −0,5 de x²·eˣ: a) Hallar el mayor h racional no periódico y conveniente para aproximarla por Trapecios con un error ε &lt; 10⁻³. b) Con el h hallado, ¿se podría usar el método de Simpson? c) Resolver la integral con h = 0,5 usando el método más conveniente. d) (guía ej. 27) Sin resolver la integral: tomando h = 0,05, ¿se puede asegurar que el error por Trapecios es menor que 0,0001?</summary>
+<summary>⚪ <strong>Enunciado</strong> — Dada la integral entre −2,5 y −0,5 de x²·eˣ: a) Hallar el mayor h racional no periódico y conveniente para aproximarla por Trapecios con un error ε &lt; 10⁻³. b) Con el h hallado, ¿se podría usar el método de Simpson? c) Resolver la integral con h = 0,5 usando el método más conveniente. d) (guía ej. 27) Sin resolver la integral: tomando h = 0,05, ¿se puede asegurar que el error por Trapecios es menor que 0,0001?</summary>
 
 $$
 \int_{-2{,}5}^{-0{,}5}x^{2}e^{x}\,dx
