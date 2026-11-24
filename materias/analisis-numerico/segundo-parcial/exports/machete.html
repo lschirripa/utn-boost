@@ -100,7 +100,7 @@ Columna $f(x_i)$ en la tabla; parar en la **primera fila con $\lvert f(x_i)\rver
 
 Teórico: ese criterio vale si $\lvert f'\rvert>1$; con $f$ muy acostada se usa $\lvert x_{i+1}-x_i\rvert<\varepsilon$.
 
-### 1.3 Bisección: cantidad de iteraciones (nunca se itera)
+### 1.3 Bisección: cantidad de iteraciones (casi nunca se itera)
 
 $$
 \frac{b-a}{2^{i}}<\varepsilon\ \Longrightarrow\ i>\frac{\log_{10}\left(\frac{b-a}{\varepsilon}\right)}{\log_{10}2}\ \Longrightarrow\ \text{primer entero mayor}
@@ -110,6 +110,13 @@ $$
 - Siempre se redondea **para arriba**.
 - Frase obligatoria: "son **suficientes**, no necesarias: la fórmula es una cota, la precisión se puede alcanzar antes".
 - No depende de $f$ ni del valor inicial: solo de la longitud y de $\varepsilon$.
+
+**Tabla** (por si piden iterar; $p=\frac{a+b}{2}$ y el intervalo nuevo baja a la fila siguiente):
+
+| $i$ | $a$ | $b$ | $f(a)$ | $f(b)$ | $p$ | $f(p)$ | me quedo con |
+|---|---|---|---|---|---|---|---|
+| 1 | $a$ | $b$ | … | … | $\frac{a+b}{2}$ | … | $[a;p]$ si $f(a)\cdot f(p)<0$; si no, $[p;b]$ |
+| 2 | … | … | … | … | … | … hasta $\lvert f(p)\rvert<\varepsilon$ | |
 
 ### 1.4 Punto fijo: $x_{i+1}=g(x_i)$
 
