@@ -1,10 +1,3 @@
-# MACHETE — Análisis Numérico · Segundo parcial
-
-> Hoja de repaso del último día: recetas, fórmulas y las frases que hay que dejar escritas. Sin ejemplos.
-> Basado en las 4 hojas de 2025 (`examenes/INDICE.md`), el repaso 2026 y las guías `01`–`05`.
-> 📄 = está en el ayudamemoria oficial (pág. 4) · 🧠 = va de memoria.
-> Ajuste por mínimos cuadrados no entra.
-
 ## 0 · Tabla de decisión: ¿qué me están pidiendo?
 
 | El enunciado dice… | Qué hago | Dónde |
@@ -76,6 +69,13 @@ $$
 
 Si hay que iterar: $x_0$ = punto medio o un extremo.
 
+**Tabla** (el $g(x_i)$ de una fila baja como $x_i$ de la siguiente):
+
+| $x_i$ | $g(x_i)$ | $f(x_i)$ |
+|---|---|---|
+| $x_0$ | $g(x_0)$ | $f(x_0)$ |
+| $x_1=g(x_0)$ | … | … hasta $\lvert f(x_i)\rvert<\varepsilon$ |
+
 ### 1.5 Newton-Raphson (el "método conveniente")
 
 $$
@@ -84,8 +84,16 @@ $$
 
 1. Escribir $f$, $f'$ y la fórmula.
 2. $x_0$ = punto medio o extremo del intervalo de la raíz pedida. Chequear y **escribir**: $\lvert f'(x_0)\rvert$ lejos de $0$ y $\left\lvert\frac{f(x_0)}{f'(x_0)}\right\rvert<1$. Mirar el **cociente entero**, no solo la derivada. Si no pasa, probar otro punto.
-3. Tabla: $x_i$ · $f(x_i)$ · $f'(x_i)$ · $x_{i+1}$. Son 2 a 4 filas.
+3. Tabla (abajo). Son 2 a 4 filas.
 4. Parar como en §1.2 y recuadrar.
+
+**Tabla** (el $x_{i+1}$ de una fila baja como $x_i$ de la siguiente):
+
+| $x_i$ | $f(x_i)$ | $f'(x_i)$ | $x_{i+1}$ |
+|---|---|---|---|
+| $x_0$ | $f(x_0)$ | $f'(x_0)$ | $x_1=x_0-\frac{f(x_0)}{f'(x_0)}$ |
+| $x_1$ | … | … | … |
+| $x_n$ | $\lvert f(x_n)\rvert<\varepsilon$ ⇒ paro | | |
 
 Derivadas que traicionan: $\left(\ln(0{,}5x)\right)'=\frac1x$ · $\left(e^{2x}\right)'=2e^{2x}$ · $\left(e^{-2x}\right)'=-2e^{-2x}$ · $\left(\operatorname{sen}(2x)\right)'=2\cos(2x)$.
 
@@ -148,6 +156,13 @@ $$
 \lVert X^{(k)}-X^{(k-1)}\rVert_\infty<\varepsilon\quad\text{(absoluto)}\qquad\frac{\lVert X^{(k)}-X^{(k-1)}\rVert_\infty}{\lVert X^{(k)}\rVert_\infty}<\varepsilon\quad\text{(relativo)}
 $$
 
+**Tabla** (una fila por iteración; la última columna recién desde $k=1$):
+
+| $k$ | $x$ | $y$ | $z$ | $\lVert X^{(k)}-X^{(k-1)}\rVert_\infty$ |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | — |
+| 1 | … | … | … | mayor $\lvert\text{diferencia}\rvert$ con la fila de arriba |
+
 ### 2.6 Matrices $T$ y $C$
 
 - **A mano, $T_J$ sale de los despejes:** a cada fila de $A$ sacarle la diagonal, **cambiarle el signo** a los demás y **dividir por el elemento de la diagonal** (ojo si es negativo). Diagonal de $T_J$ = ceros. $C_J$ = términos independientes de los despejes. Desde el vector nulo, $X^{(1)}=C_J$.
@@ -182,6 +197,15 @@ Inversa $2\times2$: $\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1}=\dfrac{1}{ad-bc}\
 2. **O1:** resta de $y$ sobre resta de sus $x$. **O2:** resta de dos O1 consecutivos sobre la resta de $x$ **salteando una**. **O3:** salteando dos. El denominador es siempre "última $x$ menos primera $x$" de los puntos que abarca.
 3. Siempre **abajo menos arriba**, en numerador y denominador.
 4. **Grado = última columna no nula** (columna constante ⇒ la siguiente se anula).
+
+**Tabla** (cada columna tiene un valor menos que la anterior; cada valor sale de los dos de la columna de la izquierda que tiene al lado):
+
+| $x$ | $y$ | O1 | O2 | O3 |
+|---|---|---|---|---|
+| $x_0$ | $y_0$ | $\frac{y_1-y_0}{x_1-x_0}$ | $\frac{\text{O1}_2-\text{O1}_1}{x_2-x_0}$ | $\frac{\text{O2}_2-\text{O2}_1}{x_3-x_0}$ |
+| $x_1$ | $y_1$ | $\frac{y_2-y_1}{x_2-x_1}$ | $\frac{\text{O1}_3-\text{O1}_2}{x_3-x_1}$ | |
+| $x_2$ | $y_2$ | $\frac{y_3-y_2}{x_3-x_2}$ | | |
+| $x_3$ | $y_3$ | | | |
 
 $$
 P(x)=y_0+f[x_0,x_1](x-x_0)+f[x_0,x_1,x_2](x-x_0)(x-x_1)+f[x_0,\dots,x_3](x-x_0)(x-x_1)(x-x_2)+\dots
@@ -236,7 +260,17 @@ $$
 A_T=\frac h2\,(E+2M)\qquad\qquad A_S=\frac h3\,(E+4I+2P)
 $$
 
-$E$ = primero + último · $M$ = todos los del medio · $I$ = subíndices **impares** (van con el 4) · $P$ = pares que no son extremos. Tabla $i$ · $x_i$ · $y_i$. 🧠
+$E$ = primero + último · $M$ = todos los del medio · $I$ = subíndices **impares** (van con el 4) · $P$ = pares que no son extremos. 🧠
+
+**Tabla** (arranca en $i=0$, $x_i=a+i\,h$; son $N+1$ filas):
+
+| $i$ | $x_i$ | $y_i=f(x_i)$ | va en |
+|---|---|---|---|
+| 0 | $a$ | $y_0$ | $E$ |
+| 1 | $a+h$ | $y_1$ | $M$ (Simpson: $I$) |
+| 2 | $a+2h$ | $y_2$ | $M$ (Simpson: $P$) |
+| … | … | … | … |
+| $N$ | $b$ | $y_N$ | $E$ |
 
 ### 4.2 Elegir $h$ o $N$ para Trapecios (4/4 en 2025)
 
@@ -317,7 +351,14 @@ $$
 w_{i+1}=w_i+h\,f(t_i,w_i)
 $$
 
-Tabla: $t_i$ · $w_i$ · $f(t_i,w_i)$ · $w_{i+1}$. Todo con datos de la **misma fila**. $y(0{,}3)$ con $h=0{,}1$ es $w_3$: el $w_{i+1}$ de la fila $t_i=0{,}2$ (3 filas).
+Todo con datos de la **misma fila**. $y(0{,}3)$ con $h=0{,}1$ es $w_3$: el $w_{i+1}$ de la fila $t_i=0{,}2$ (3 filas).
+
+**Tabla** (el $w_{i+1}$ baja como $w_i$ de la fila siguiente):
+
+| $t_i$ | $w_i$ | $f(t_i,w_i)$ | $w_{i+1}$ |
+|---|---|---|---|
+| $t_0$ | $w_0$ (dato) | … | $w_1$ |
+| $t_0+h$ | $w_1$ | … | $w_2$ |
 
 ### 5.3 Heun = Euler modificado 📄 — implícito (corrector, con Euler de predictor), 1 paso, orden 2
 
@@ -325,7 +366,14 @@ $$
 w^*_{i+1}=w_i+h\,f(t_i,w_i)\qquad w_{i+1}=w_i+\frac h2\Big(f(t_i,w_i)+f(t_{i+1},w^*_{i+1})\Big)
 $$
 
-Tabla: $t_i$ · $w_i$ · $f(t_i,w_i)$ · $w^*_{i+1}$ · $f(t_{i+1},w^*_{i+1})$ · $w_{i+1}$. El segundo $f$ va con $t_{i+1}$. A la fila siguiente pasa el $w_{i+1}$ **corregido**, no el $w^*$.
+El segundo $f$ va con $t_{i+1}$. A la fila siguiente pasa el $w_{i+1}$ **corregido**, no el $w^*$.
+
+**Tabla:**
+
+| $t_i$ | $w_i$ | $f(t_i,w_i)$ | $w^*_{i+1}$ | $f(t_{i+1},w^*_{i+1})$ | $w_{i+1}$ |
+|---|---|---|---|---|---|
+| $t_0$ | $w_0$ (dato) | … | … | … | $w_1$ |
+| $t_0+h$ | $w_1$ | … | … | … | $w_2$ |
 
 ### 5.4 Runge-Kutta 4 📄 — explícito, 1 paso, orden 4
 
@@ -336,7 +384,14 @@ k_1=h\,f(t_i,w_i)\quad k_2=h\,f\!\left(t_i+\tfrac h2,\,w_i+\tfrac{k_1}{2}\right)
 \end{gathered}
 $$
 
-Copiar del ayudamemoria y controlar: cada $k$ lleva su $h$; $k_2$ y $k_3$ usan $t_i+\frac h2$ y **la mitad** del $k$ anterior; $k_4$ usa $t_i+h$ y $k_3$ **entero**. Tabla: $t_i$ · $w_i$ · $k_1$ · $k_2$ · $k_3$ · $k_4$ · $w_{i+1}$.
+Copiar del ayudamemoria y controlar: cada $k$ lleva su $h$; $k_2$ y $k_3$ usan $t_i+\frac h2$ y **la mitad** del $k$ anterior; $k_4$ usa $t_i+h$ y $k_3$ **entero**.
+
+**Tabla:**
+
+| $t_i$ | $w_i$ | $k_1$ | $k_2$ | $k_3$ | $k_4$ | $w_{i+1}$ |
+|---|---|---|---|---|---|---|
+| $t_0$ | $w_0$ (dato) | … | … | … | … | $w_1$ |
+| $t_0+h$ | $w_1$ | … | … | … | … | $w_2$ |
 
 ### 5.5 Clasificar una fórmula 🧠
 
@@ -377,27 +432,6 @@ Presentación: $f$ despejada, dato inicial, fórmula del método, tabla y el res
 | Lipschitz | "Derivada parcial acotada + $f$ continua ⇒ bien planteado" |
 
 En esta materia casi todas las condiciones son **suficientes, no necesarias**, y los recíprocos no valen. La única necesaria y suficiente es $\rho(T)<1$.
-
-## 7 · OJO — errores que cuestan puntos
-
-- **Raíces:** longitud 1 cuando el intervalo es $[a-1;a+1]$; redondear las iteraciones para abajo; chequear $\lvert g'\rvert<1$ en un solo punto u olvidar el módulo; mirar solo la derivada al elegir $x_0$; parar una fila antes.
-- **Sistemas:** hacer Jacobi cuando piden Gauss-Seidel; reordenar sin mover el término independiente; signos de $T_J$ (cambian y se dividen por la diagonal); mirar la diagonal dominante en $T$ o la norma en $A$; cruzar filas y columnas en las normas; unión donde va intersección; no dar vuelta la desigualdad con $-k$.
-- **Interpolación:** dividir por la resta de $x$ equivocada en O2 y O3; restar al revés en una parte sola; tomar coeficientes de una fila en vez de la diagonal; no verificar los puntos que sobran; poner "=" cuando el grado tiene que saltar (va ≠); decir que el grado "sube uno"; contestar "uno" para un grado entre $g$ y $m-1$; distribuir sin que lo pidan.
-- **Integración:** redondear la cota en vez de elegir un $h$ que dé $N$ entero; irse demasiado abajo con $h$; evaluar $f''$ solo en los extremos sin justificar; usar un punto crítico de afuera del intervalo; signos al derivar $e^{-x}$; Simpson con $N$ impar o con el 4 y el 2 cruzados; $h$ en vez de $\frac h2$ o $\frac h3$; central dividida por $h$ en vez de $2h$.
-- **Ecuaciones diferenciales:** no despejar $y'$; una fila de más o de menos; en Heun pasar el $w^*$ a la fila siguiente; en Runge-Kutta $k_1$ entero dentro de $k_2$ o $\frac{k_3}{2}$ dentro de $k_4$; derivar respecto de $t$ en Lipschitz; contar $w_{i+1}$ como paso; decir que Heun es explícito.
-
-## 8 · Datos de las hojas 2025 para comparar después de practicar
-
-| Hoja | Ejercicio | Resultado oficial |
-|---|---|---|
-| T1 | Ej4: $\int_{-7}^{-5}e^{x}(x^{3}-6)\,dx$, $\varepsilon<10^{-3}$ | $h=0{,}2$ |
-| T2 | Ej4: $\int_{0}^{2}e^{x}(x^{2}-9x+23)\,dx$, $\varepsilon<10^{-2}$ | $h=0{,}08$ |
-| R1 | Ej4: $\int_{1}^{3}\frac{\ln(x)+1}{x}\,dx$, $\varepsilon<10^{-2}$ | $h=0{,}2$ (máximo en el extremo, $f''(1)=-1$) |
-| R2 | Ej4: $\int_{4}^{6}e^{-x}(x^{2}-1)\,dx$, $\varepsilon\le10^{-3}$ | $N=8$ ($h=0{,}25$) |
-| T1 / T2 | Ej2: ¿converge Jacobi? | $\rho(T_J)=1$ ⇒ no converge (Gauss-Seidel sí) |
-| T1 / T2 | Ej5 a: Lipschitz | $L=2$ / $L=1$ |
-| T1 / T2 / R2 | Ej1: $x_0$ de Newton | $1{,}5$ en $[1;2]$ / $-0{,}5$ en $[-1;0]$ / $3$ en $[3;4]$ |
-| Repaso 2026 | Ej. 13: Lipschitz | $L=96$ |
 
 ---
 *Generado el 2026-11-24 desde las guías `apuntes/md/01`–`05` (resúmenes, recetas y errores típicos), `estrategia.md` y `examenes/INDICE.md`. Iterar sobre este .md; exportar con `/machete --html` o `/machete --pdf`.*
