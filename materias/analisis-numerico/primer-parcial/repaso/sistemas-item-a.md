@@ -29,4 +29,4 @@ Fuera del ayudamemoria solo va de memoria el paso 4, el 5 y $G = Y/F$. Dentro, l
 
 **Patrón:** en 6 de 9 el polo malo es un entero chico ($1$, $2$, $3$ o $5$) que sale probando divisores, y la cuadrática que queda siempre tiene raíces complejas con parte real negativa. Si tu $K$ no cancela nada, revisá la cuenta.
 
-*Generado el 2026-10-06 desde `examenes/INDICE.md` y `guia/03-sistemas-desde-cero.md`; verificado con sympy.*
+*Generado el 2026-10-06 desde `examenes/INDICE.md` y `guia-2026-10/03-sistemas-desde-cero.md`; verificado con sympy.*

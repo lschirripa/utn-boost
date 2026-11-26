@@ -1,6 +1,6 @@
 # Laplace desde cero — guía lineal (sábado tarde/noche)
 
-> Fuentes: `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de Tema 1 y Tema 2), `repaso/practica-repaso-2026.md` (C y D), `apuntes/md/04-practica-transformada-laplace.md`, `14-video-aplicaciones-laplace.md`, `15-video-teorica-transformada-laplace.md`, `10-video-repaso-primer-parcial.md`, `07-repaso-primer-parcial.md`, `examenes/INDICE.md`, `../fuentes/AYUDAMEMORIA-OFICIAL.pdf`, `../fuentes/metodo-fracciones-simples.pdf` · Generado 2026-10-03
+> Fuentes: `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de Tema 1 y Tema 2), `repaso/practica-repaso-2026.md` (C y D), `apuntes/por-fuente/04-practica-transformada-laplace.md`, `14-video-aplicaciones-laplace.md`, `15-video-teorica-transformada-laplace.md`, `10-video-repaso-primer-parcial.md`, `07-repaso-primer-parcial.md`, `examenes/INDICE.md`, `../fuentes/AYUDAMEMORIA-OFICIAL.pdf`, `../fuentes/metodo-fracciones-simples.pdf` · Generado 2026-10-03
 >
 > **Cómo usarla:** leé de arriba abajo. Los «Ejemplo guiado» están resueltos a la vista: leelos con lápiz, rehaciendo cada paso. Los «Tu turno» se hacen en papel, con reloj y sin mirar; la corrección está plegada.
 >

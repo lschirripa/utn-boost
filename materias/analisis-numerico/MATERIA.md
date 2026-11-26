@@ -103,6 +103,30 @@
   dentro de su hoja de respuestas). Las 3 hojas de respuestas oficiales están en
   `resueltos/` y transcriptas en `resueltos/RESOLUCIONES-2025.md`.
 
+### Fuentes del aula por tema (primer parcial)
+
+Tabla curada el 2026-11-25 desde el Aula Virtual (curso K3572) y `fuentes/clases-virtuales-links.pdf`, con el
+visto bueno de Lucho, para rehacer las guías "desde cero" del 1P con el mismo método que el 2P (recuperatorio
+del 2026-12-01). **Solo** estos archivos, en `fuentes/clases/<carpeta>/`. Descartado por no aportar al parcial:
+números complejos (sin ejercicio propio desde 2025), Teórico 1.2 de señales, **transformada de Fourier** (PDF de
+clase y OneNote `Series Fourier - Transformada de Fourier.pdf`: no tiene ejercicio; el Ej1 es solo series),
+"Ejercicios resueltos de Series de Fourier" (de finales), links interactivos, videos externos de YouTube,
+número áureo y autoevaluaciones.
+
+| Tema (ejercicio) | Carpeta | PDF de clase ("PARA DAR CLASES") | Teórico de cátedra | OneNote práctica | Videos → transcript |
+|---|---|---|---|---|---|
+| Series de Fourier (Ej1) | `series de fourier/` | `Clase - Serie trigonometrica de Fourier.pdf` (26 p.), `Clase - Serie exponencial de Fourier.pdf`, `Clase - Relacion entre periodo y espectro.pdf` | `Teorico catedra 1.3 …` | `Series Fourier - STF.pdf` (11 p.), `Series Fourier - SEF.pdf` (6 p.) | `T_serie_trigonometrica_fourier.mp4` → `16`, `T_serie_exponencial_y_transf_fourier.mp4` → `17`; prácticas en Drive, **descarga bloqueada** |
+| Transformada de Laplace (Ej2) | `Transformadas de Laplace/` | `Clase - Transformada de Laplace.pdf`, `Clase - Propiedades y funciones especiales.pdf` (15 p., manuscrito), `Clase - Resumen de propiedades de Laplace.pdf`, `ejemplos-de-clase/` (ecuaciones diferenciales, convolución, evaluación de integrales), `fuentes/metodo-fracciones-simples.pdf` | `Teorico catedra 1.4 …` | `Transformada de Laplace.pdf` (27 p.) | `T_TLaplace.mp4` → `15`, `P_TLaplace.mp4` (2ª teórica, aplicaciones) → `14`; prácticas en Drive, **descarga bloqueada** |
+| Sistemas estables (Ej3) | `Sistemas Estables/` | `Clase - Funcion de transferencia.pdf`, `Clase - Sistemas estables.pdf`, `Clase - Ejercicio 6g y 6h de la guia.pdf` | `Teorico catedra 1.5 …`, `Teorico catedra 1.6 …` | `Sistemas Estables.pdf` (13 p.) | `T_SE - Teorica.mp4` → `13`, `P_SE - Practica.mp4` → `11` |
+| Transformada Z (Ej4) | `Transformada Z/` | `Clase - Transformada Z.pdf` (18 p.), `Clase - Tabla sintetica de Transformada Z.pdf` | `Teorico catedra 1.7 …` | `Transformada Z.pdf` (6 p.) | `T_TZ.mp4` → `12`; práctica en Drive, **descarga bloqueada** |
+| Repaso 1P | `repaso primer parcial/`, `repaso-clase-2026/` | — | — | `Repaso Primer Parcial.pdf` (17 p.) + 7 fotos de la clase de repaso 2026 | `Repaso Primer Parcial.mp4` → `10` |
+
+Transversales: `fuentes/Guia-ejercicios-parte-1-senales-y-sistemas.pdf` (guía de ejercicios de la cátedra, 64 p.),
+las págs. 1–3 de `fuentes/AYUDAMEMORIA-OFICIAL.pdf` y `primer-parcial/examenes/INDICE.md` +
+`resueltos/RESOLUCIONES-2025.md`. Los transcripts están en `primer-parcial/apuntes/transcripts/10–17`. Las
+transcripciones previas de cada OneNote y de cada video (un apunte por fuente, de septiembre–octubre) quedaron
+archivadas en `primer-parcial/apuntes/por-fuente/`, y las guías lineales del 2026-10-03 en `primer-parcial/guia-2026-10/`.
+
 ### Fuentes del aula por tema (segundo parcial)
 
 Tabla curada el 2026-11-18 desde el Aula Virtual (curso K3572) y `fuentes/clases-virtuales-links.pdf`.
