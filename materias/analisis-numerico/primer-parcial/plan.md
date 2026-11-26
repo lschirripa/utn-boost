@@ -1,125 +1,83 @@
-# Plan de estudio — Primer parcial · Análisis Numérico
+# Plan de estudio — 1er recuperatorio del primer parcial · Análisis Numérico
 
-> Examen: **martes 2026-10-06** · Recalculado: lunes 2026-10-05, 15:00 · **3 días restantes + la
-> mañana/tarde del martes** (sáb/dom/lun ≈ 8–9 h cada uno, mar liviano; el viernes no se usó).
-> Restricciones declaradas: **punto de partida en cero**; objetivo **promocionar (≥ 8)**;
-> no trabaja: tiene el fin de semana y el lunes enteros.
-> Fuentes: [`estrategia.md`](estrategia.md) · [`examenes/INDICE.md`](examenes/INDICE.md) ·
-> [`examenes/resueltos/RESOLUCIONES-2025.md`](examenes/resueltos/RESOLUCIONES-2025.md) ·
-> `../fuentes/formulas-y-metodos-manuscrito.pdf`.
-
----
-
-## ⚠️ No entra todo: triaje para llegar a 8
-
-Hay ≈ **28 h útiles** para 4 bloques 🔴 que arrancan de cero. Alcanza para las **cuatro
-recetas** si cada bloque se cierra en un día y no se abre nada lateral. Lo que **cae**:
-
-- Ecuaciones integrales con convolución (`#EcuacionIntegral`, 0/3 en 2025): solo un ejemplo leído, no practicado.
-- ~~Ecuaciones en diferencias de 2do orden~~ → **vuelven** (2026-10-02): el repaso 2026 resolvió una de 2º orden con raíz doble (guía 7e). Entra la de la hoja de práctica; las otras de 2º orden del dataset, solo si sobra tiempo.
-- Corte de `|G|` por el eje real: 10 min de regla cualitativa, no ejercicios propios.
-- Conjuntos de complejos, método gráfico del módulo, fasores, sistemas de EDO, sumas de series vía Fourier: **fuera**.
-- El segundo simulacro a ciegas (`2024-2C T2`): fuera; queda solo `2025-1C_Recuperatorio.pdf`.
-
-Lo que **no se negocia**, porque son los 8 puntos: Ej1a+b (2), Ej3 completo (3), Ej4 completo (2),
-Ej2a o Ej2b (1). Ej1c (media onda, 1 punto de dibujo) y Ej2c (demostración de 2 líneas) son
-el colchón para que un error en otro ítem no te baje de 8.
-
-**Regla de trabajo:** cada ejercicio se hace **en papel, con reloj (25 min), sin mirar**, y se
-corrige contra la hoja resuelta. Si un tipo de ítem sale bien dos veces seguidas, se cierra y
-no se vuelve a tocar. Terminá cada bloque con `/registrar` (lo que falló manda el lunes).
-
-### Qué apunte leer cada bloque (2026-10-02; **reemplazado el 2026-10-03 por las guías de `guia/`**: esto queda solo como referencia para cuando te trabás)
-
-Leé **solo la teoría visible y la sección "Lo que el profe remarca"**; los ejercicios del
-apunte son para consultar cuando te trabás, no para hacer todos.
-
-| Bloque | Antes de practicar (≈30 min) | Si te trabás |
-|---|---|---|
-| Fourier I (vie) | `01` teoría + `10` "Lo que el profe dice del parcial" | `16` (teórica STF) |
-| Fourier II (sáb mañana) | `02` teoría (impar desplazada, dos condiciones ⇒ cuadruplicar) | `17` (teórica SEF), `07` ej. de Fourier |
-| Laplace (sáb tarde/noche) | `14` "Lo que el profe remarca" + `04` recetas `t·f`, `f/t`, convolución | `15` (teórica), `04` ejercicios |
-| Sistemas (dom) | `11` "Lo que el profe remarca" + `13` tabla de los seis casos de polos | `05` (13 ejercicios resueltos), `07` ej. 8–9 |
-| Z (lun mañana) | `12` "Lo que el profe remarca" + `06` recetas (paridad, ROC, "una z afuera") | `06` ejercicios |
-| Lun noche, después del simulacro | `07` y `10` completos: es el repaso del profe | — |
-
-**Descartado sin culpa:** `03` (transformada de Fourier, el profe dijo que no se toma) y los
-fasores de `16`.
+> Examen: **martes 2026-12-01** (1er recuperatorio) · Hoy: miércoles 2026-11-25, 22:00 ·
+> **6 días restantes** (3 útiles para temas: jue 26, vie 27 y sáb 28; dom 29 y lun 30 son de
+> simulacro; el martes es liviano).
+> Restricciones declaradas: **ninguna**. Supuestos míos, a corregir si no son así: ≈ 5 h el jueves
+> y el viernes, ≈ 8 h el sábado y el domingo, ≈ 4 h el lunes, y el examen a la tarde/noche del martes.
+> Material: las guías nuevas [`01` Fourier](../apuntes/html/01-fourier-desde-cero.html) ·
+> [`02` Laplace](../apuntes/html/02-laplace-desde-cero.html) ·
+> [`03` Sistemas estables](../apuntes/html/03-sistemas-estables-desde-cero.html) ·
+> [`04` Transformada Z](../apuntes/html/04-transformada-z-desde-cero.html) ·
+> [`05` Práctica de repaso](../apuntes/html/05-practica-repaso-primer-parcial.html).
+> Se lleva al examen: el ayudamemoria oficial (págs. 1–3) y la tabla de integrales.
 
 ---
 
-## 🆕 Repaso 2026 de tu curso: va primero en cada bloque
+## ⚠️ No entra todo
 
-La clase de repaso de tu cuatrimestre (fotos en `../fuentes/clases/repaso-clase-2026/`) es la
-fuente **más cercana al parcial** de todas. Sus 9 ejercicios, verificados y con espacio para
-resolver, están en [`repaso/practica-repaso-2026.md`](repaso/practica-repaso-2026.md):
+Son **4 ejercicios 🔴** (uno por tema) y **3 días** para estudiarlos antes de los simulacros. Las
+guías completas suman ≈ 8.600 líneas: enteras no entran. Entra la **ruta corta** de cada una
+(el recuadro 🧭 del principio: ≈ 3 h Fourier, 3 h 30 Laplace, 3 h 30 Sistemas, 2 h 30 Z) más sus
+"tu turno" 🔴. El triaje:
 
-- **Para resolver** (iPad/GoodNotes, una página por ejercicio): `exports/practica-repaso-2026-enunciados.pdf`.
-- **Para corregir**: `exports/practica-repaso-2026.pdf` (con las correcciones abiertas).
+- **Sistemas y Z van primero y con día propio.** En octubre fueron los dos temas que quedaron para
+  la mañana del examen (plan del 2026-10-06); el registro está vacío, así que es la única evidencia
+  de qué está flojo. Además Sistemas es el ejercicio que más vale (2–3 puntos) y sus ítems están
+  encadenados: si el a) sale mal, arrastra al resto.
+- **Laplace y Fourier comparten el sábado.** Los dos se llegaron a cerrar en octubre, así que es
+  repaso con las guías nuevas, no arranque de cero. Si el sábado no alcanza, lo que se recorta es
+  Fourier a sus tres ítems seguros (completar y desarrollar, pase a $C_n$, media onda).
+- **Cae de cada guía** todo lo plegado como "⚪ Se toma poco" y además:
+  - Fourier: §8 hallar $k$ (0 de 3 en 2025), §11 sumar series, §12 verdadero o falso, §13 fasores.
+  - Laplace: §8, §12.1–§12.2 y §13. De §11 (ecuación integral, 0 de 3 en 2025) y §12.3 (sistema)
+    solo los "tu turno" 11.E y 12.C, y solo si el sábado sobra tiempo.
+  - Sistemas: §10 método gráfico del módulo (2 de 16), §11 y el corte por el eje imaginario.
+  - Z: §7 más allá del recuadro de fórmulas, §11; de §10 (2º orden, 3 de 16) solo el 10.C del repaso.
+- **Complejos:** fuera (0 de 3 en 2025). El anexo de la práctica `05` no se toca.
 
-Qué confirma: **los mismos moldes del dataset, casi textuales** (π−t de 2025-1C Ej1a; `K=7` del
-2015-05-29 T2; `e^{−3t}` del 2025-1C rec; `1/(s²+1)²` y `cos³` de 2024-2C/2025-1C). Qué agrega:
-**V/F conceptuales de Fourier** (guía 14), un **circuito RLC** como sistema físico (guía 18) y una
-**ecuación en diferencias de 2º orden con raíz doble** (guía 7e). En la tabla, los ítems del
-repaso van marcados **R-A … R-I** y siempre se hacen **antes** que los del dataset.
+Qué implica en puntos: con la ruta corta quedan cubiertos los 10 tipos de ítem de las tres hojas de
+2025. Lo que cae junto no llega a 1 punto esperado.
 
-## Plan de emergencia (lunes 2026-10-05, 15:00 → examen)
+**Regla de trabajo:** los ejemplos guiados se leen con lápiz; los "tu turno" se hacen **en papel,
+con reloj y sin mirar**, y recién después se abre la corrección. Al terminar cada día, `/registrar`
+con lo que falló: eso decide qué se repite el domingo y el lunes.
 
-**Situación real:** Fourier hecho. Laplace hasta la §5 (división por $t$). Sistemas y Z sin empezar.
-Quedan ≈ 9 h hoy y la mañana del martes. **No entra todo: se estudia solo lo que cayó en 2025
-(T1, T2 y recuperatorio) o en el repaso 2026.** El simulacro a ciegas **se cancela**; el machete
-lo genera Claude esta noche para leer mañana.
+## Plan día por día
 
-### Qué se saltea de cada guía (y por qué)
-
-| Guía | Se hace | Se saltea |
+| Día | Foco | Entregable del día |
 |---|---|---|
-| `02-laplace` | §11 ($\mathcal{L}[a^t]$, 10 min, punto regalado) → §6 Euler + **R-C** → §9 fracciones simples (base de Sistemas) → §10 convolución + **R-D** | §7 (transformada de una integral: 1 ítem en 1 de 3 hojas 2025), §8 (lo repite §9) |
-| `03-sistemas` | §4 polos/ceros/estabilidad → §5 hallar $K$ + **R-F** a/b → §7 respuesta temporal + **R-G** → §8 tipo de respuesta y valor estable → §6 solo la regla cualitativa del corte (10 min) | §3 (ya lo hiciste en Laplace §9), §9 EDO y **R-E** (solo si sobra: 1 punto en 2025-1C T1) |
-| `04-z` | §3 geométrica → §4 paridad y ROC + **R-H** → §5 sumas vía Z (evaluar $X(c)$) → §7 + §8 ecuación en diferencias de 1er orden | §6 secuencia finita, §9 2º orden y **R-I** (solo si sobra) |
+| **Mié 2026-11-25** (hoy, lo que quede de la noche) | Opcional, ≤ 45 min: guía `03` §0–§2 (qué te toman y qué va de memoria). Nada de cuentas. | Saber decir de memoria qué piden los ítems a, b y c del Ej3. Si estás cansado, se saltea sin culpa. |
+| **Jue 2026-11-26** | 🔴 **Sistemas estables** (guía `03`, ruta corta): §5 hallar $K$ → §7 respuesta temporal → §3–§4 polos, ceros y los seis casos → §6.2 corte por el eje real → §8 tipo de respuesta y valor estable → §9 $G(s)$ desde la ecuación diferencial. | **El reciclado a ciegas** (ejemplos guiados 5 + 9 + 11: parcial 2025 Tema 2 = 2024-2C T1 = sin fecha K3521 T2), tiene que dar $y(t)=-3+3\cos(t)e^{-3t}+19\operatorname{sen}(t)e^{-3t}$. Después **3.A, 6.A y 7.A** (1er recuperatorio 2025, ítems a, b y c), **5.A, 6.B y 7.B** (parcial 2015-05-29 T2 = repaso 2026 F), **9.A** (parcial 2025 Tema 1) y **9.B** (repaso 2026 E). Si sobra una hora: 5.C (2024-1C T2 = 2024-2C T2) y 8.A (2024-1C T1). |
+| **Vie 2026-11-27** | 🔴 **Transformada Z** (guía `04`, ruta corta): §3 geométrica → §4 paridad y región de convergencia → §5 suma de una serie → §6 secuencia finita → §8 "una $z$ afuera" → §9 ecuación en diferencias de 1er orden. Al final, 30 min de Sistemas: rehacer lo que falló el jueves. | Las tres hojas de 2025 completas: **4.A y 5.A** (parcial 2025 Tema 1), **5.B y 9.A** (parcial 2025 Tema 2; el 9.A es textual del sin fecha K3521 T2), **4.B y 6.A** (1er recuperatorio 2025). Después **4.C, 4.D y 5.C** (parcial 2024-2C, Temas 1 y 2) y **9.B** (1er recuperatorio 2024-2C). Del repaso de tu curso: **4.G** y, si queda tiempo, **10.C** (2º orden con raíz doble). De memoria al cerrar: la geométrica, $\mathcal{Z}[a^n/n!]=e^{a/z}$ (no está en el ayudamemoria y se tomó en 2025). |
+| **Sáb 2026-11-28** (mañana) | 🔴 **Laplace** (guía `02`, ruta corta): §4 integral impropia → §5 división por $t$ → §10 antitransformar por convolución → §6 potencias de seno y coseno → §7 transformar una convolución → §3.2 demostración de $a^t$ → §9 fracciones simples. | **4.A, 10.A y 3.A** (parcial 2025 Tema 1, ítems a, b y c), **6.A y 10.B** (parcial 2025 Tema 2), **5.A y 7.A** (1er recuperatorio 2025; el 5.A es el $\ln 2$ reciclado), **5.B** (parcial 2024-2C), **6.B** (1er recuperatorio 2024-2C = repaso 2026 C) y **9.A** (parcial 2024-2C T1). Solo si sobra: 11.E, 12.C y 11.A (2022-10-11 = 2024-1C T1). |
+| **Sáb 2026-11-28** (tarde) | 🔴 **Fourier** (guía `01`, ruta corta): §3–§4 herramientas y paridad → §5 completar y desarrollar → §6 pase a $C_n$ → §9 media onda → §10 función que ya es un seno → §7 espectro. | Los 9 ítems de 2025: **5.A, 9.A** (parcial 2025 Tema 1, ítems a y c), **5.B, 9.B** (Tema 2), **10.A** (ítem b de los dos temas), **5.C, 6.A, 7.A** (1er recuperatorio 2025, ítems a, b y c). Si sobra: **8.A** (2015-05-29 T1, reciclado 3 veces). |
+| **Dom 2026-11-29** | **Simulacro 1, cronometrado:** tanda 1 de la práctica `05` (un parcial entero armado con el repaso: 1.3 a y b + 1.4 → 2.2 + 2.5 + 2.4 → 3.1 a y b → 4.2 + 4.1), 2 h 15 min, solo con el ayudamemoria y la tabla de integrales. Tarde: corregir contra el tablero de `05` y rehacer el tema que peor salió con sus "tu turno" 🟠. | Los 10 ítems puntuados y anotados con `/registrar`. De cada ítem perdido, el "tu turno" gemelo de la guía hecho de nuevo en papel. Tanda 2 de `05` (3.3 → 1.1 → 2.3 → 4.4) si queda resto. |
+| **Lun 2026-11-30** | **Simulacro 2, cronometrado (mañana):** uno generado con `/simulacro` en el formato vigente (10 ítems), porque las tres hojas de 2025 y el repaso ya están quemados (el mini-simulacro del 2026-10-06 usó el Tema 2 y el recuperatorio). Tarde: solo los errores de los dos simulacros. Se corta a la tarde. | Simulacro corregido y registrado. Escritos **de memoria** en una hoja: regla par/impar y $C_n=\frac12(a_n-j\,b_n)$, definición de media onda, casos de fracciones simples, tabla polo → tipo de respuesta, receta de $K$, geométrica y regiones de convergencia. |
+| **Mar 2026-12-01** (día del examen) | Repaso liviano: "Resumen en una página" y "Errores típicos" de las cuatro guías, más los errores del registro. **Nada nuevo.** | Un ítem a) de cada tema en limpio para entrar en calor (5.A de Fourier, 4.A de Laplace, 3.A de Sistemas, 4.A de Z) y a rendir. |
 
-### Martes 2026-10-06, el día del examen (Laplace cerrado el lunes a la noche; Sistemas y Z sin empezar)
-
-**Orden por puntos por hora:** primero Z (dos ítems baratos en 2 h), después el primer ítem de
-Sistemas (1 h), después la respuesta temporal (lo único que se recorta si falta tiempo), y al
-final un refresco fijo de Fourier + Laplace, que son los 5–6 puntos que ya tenés.
-
-| Hora | Qué | Puntos |
-|---|---|---|
-| 08:00–10:00 | **Z:** §3 geométrica (20) → §4 paridad + ROC y **R-H** (60) → §5 sumas vía Z (40). Salteá §6–§9. | Ej4 (2) |
-| 10:00–10:15 | Corte. | |
-| 10:15–11:15 | **Sistemas §4 + §5** con **R-F a) y b)**: polos, ceros, estabilidad, hallar $K$. | Ej3a (1) |
-| 11:15–12:45 | **Sistemas §7 + §8** con **R-G**: respuesta temporal (fracciones simples con $s+a$), tipo de respuesta y valor estable. **Se corta a las 12:45 pase lo que pase.** | Ej3b/c (0–2) |
-| 12:45–13:30 | Almuerzo. | |
-| 13:30–15:00 | **Refresco de lo seguro:** machete §Fourier y §Laplace (20) → **R-A** a) en limpio con reloj (25) → **R-C** o **R-D** de Laplace + un ítem de fracciones simples (30) → checkpoints de las guías 01 y 02 de memoria (15). | sostiene Ej1 + Ej2 (5–6) |
-| 15:00–17:00 | Parar. Comer, ducha, viaje. Nada nuevo. | |
-
-**Nota esperada:** Fourier 3 + Laplace 2–3 + Z 1–2 + Sistemas 1–2 = **7–10**. Aprobar (6) está
-prácticamente asegurado con Fourier + Laplace + un ítem más; el 8 lo deciden los dos ítems baratos de la
-mañana (Z paridad+ROC y Sistemas K/polos).
-
-**En el examen:** empezá por Ej1 y Ej2 (lo que sabés), después Ej4a, después Ej3a; la respuesta
-temporal al final, con el tiempo que quede.
-
----
+**En el examen:** arrancá por el ítem a) de cada ejercicio, que son los cuatro puntos de receta,
+y dejá la respuesta temporal de Sistemas para cuando tengas el resto asegurado. Controlá dos veces
+el ítem a) de Sistemas antes de seguir con el b) y el c).
 
 ## Qué cambió respecto del plan anterior
 
-- **2026-10-06 (00:30):** Laplace cerrado; Sistemas no se empezó el lunes. Plan del martes: Z primero (2 ítems baratos), Sistemas K/polos, respuesta temporal con corte fijo a las 12:45, refresco de Fourier + Laplace de 13:30 a 15:00.
-
-- **2026-10-05 (21:00):** Laplace a falta de §11, práctica de fracciones simples y convolución; Sistemas y Z sin empezar. Decisión: no descartar ningún tema; hacer el primer ítem barato de Sistemas (K/polos) hoy y el de Z (paridad+ROC) mañana temprano, respuesta temporal mañana a media mañana, refresco de 2 h al final.
-
-- **2026-10-05 (15:00):** Lucho va por Laplace §5; Sistemas y Z sin empezar. Plan de emergencia: se saltean las secciones que no cayeron en 2025 ni en el repaso 2026, se cancela el simulacro, Claude genera el machete.
-
-- **2026-10-03:** el viernes no se usó y Lucho no podía arrancar desde los apuntes largos. Se armaron **cuatro guías lineales desde cero** (`guia/01`–`04`: idea, receta, ejemplos guiados y tu turno del dataset, verificados con sympy), con los R-A … R-I ya ubicados adentro. Fourier y Laplace pasan al sábado, Sistemas queda el domingo y Z el lunes a la mañana. En el simulacro, además del Ej3 ya reemplazado, el **Ej4a deja de ser ciego**, porque la guía de Z usa la misma sucesión.
-
-- **2026-10-02 (noche):** entraron los 9 ejercicios de la clase de repaso 2026 (fotos). Van **primeros** en cada bloque (R-A … R-I); se sacaron los ítems del dataset que eran idénticos (2024-2C rec Ej3a/b, 2025-1C T1 Ej2b, 2015-05-29 T1 Ej4). Vuelven las ecuaciones en diferencias de 2º orden. El Ej3 del simulacro (2025-1C rec) dejó de ser ciego y se reemplaza por sin-fecha K3521 T1 Ej4.
-
-- Se perdieron los días 23/9 → 1/10 (D1–D8 del plan previo): AM2 y Administración Gerencial ocuparon toda la ventana. Punto de partida: cero.
-- De 13 días útiles a 4: cada bloque pasa a un solo día y cae lo lateral (triaje de arriba).
-- Se saca el segundo simulacro (`2024-2C T2`); queda solo el recuperatorio 2025, que se hace el lunes a la tarde y no el domingo.
-- El objetivo declarado pasa a ser **8 (promoción)**, no 6: por eso Ej3 y Ej4 (5 puntos de receta) tienen día completo y Ej2 queda en un ítem seguro + uno de colchón.
+- **Examen nuevo:** el plan anterior era el de emergencia del parcial del 2026-10-06 (ya rendido).
+  Este apunta al 1er recuperatorio del 2026-12-01.
+- **Material nuevo:** se estudia desde las guías rehechas el 2026-11-25 (`apuntes/md/01–05`, con
+  los PDF de clase, los teóricos, los OneNote y las clases transcriptas). Las de octubre quedaron
+  archivadas en `guia-2026-10/` y los apuntes por fuente en `apuntes/por-fuente/`.
+- **Orden invertido:** en octubre fue Fourier → Laplace → Sistemas → Z y los dos últimos quedaron
+  sin tiempo. Ahora van primero Sistemas y Z, con un día cada uno.
+- **Vuelven los simulacros**, que en octubre se cancelaron: dos, domingo y lunes. Ya no queda
+  ninguna hoja real a ciegas, por eso uno sale de la práctica `05` y el otro se genera.
+- **Vuelve §9 de Sistemas** ($G(s)$ desde la ecuación diferencial), que en octubre se había
+  salteado: cayó en el parcial 2025 Tema 1 y en el repaso de tu curso.
 
 ---
 
-*Generado el 2026-10-02 con: MATERIA.md (examen 2026-10-06), estrategia.md (prioridades y banco, del 2026-09-10), registro.md (vacío, sin sesiones aún), que-saltear.md (no existe: no hay apuntes), input del usuario (arranca en cero; vie noche + sáb + dom + lun completos, martes liviano; busca ≥ 8), y desde la noche del 2026-10-02 las fotos del repaso 2026 (`repaso/practica-repaso-2026.md`).*
+*Generado el 2026-11-25 con: MATERIA.md (1er recuperatorio el 2026-12-01), estrategia.md (prioridades
+y banco, del 2026-09-10, con la actualización del 2026-10-02), las rutas cortas y los "tu turno" de
+las guías `apuntes/md/01–05` (2026-11-25), registro.md (vacío, sin sesiones), plan.md anterior (del
+2026-10-06, para saber qué quedó flojo), que-saltear.md (no existe), input del usuario (recuperatorio
+del 1/12, los 4 temas; sin disponibilidad declarada).*

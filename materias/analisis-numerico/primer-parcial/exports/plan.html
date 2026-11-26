@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan de estudio — 1er recuperatorio del primer parcial · Análisis Numérico</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Plan de estudio — 1er recuperatorio del primer parcial · Análisis Numérico
+
+> Examen: **martes 2026-12-01** (1er recuperatorio) · Hoy: miércoles 2026-11-25, 22:00 ·
+> **6 días restantes** (3 útiles para temas: jue 26, vie 27 y sáb 28; dom 29 y lun 30 son de
+> simulacro; el martes es liviano).
+> Restricciones declaradas: **ninguna**. Supuestos míos, a corregir si no son así: ≈ 5 h el jueves
+> y el viernes, ≈ 8 h el sábado y el domingo, ≈ 4 h el lunes, y el examen a la tarde/noche del martes.
+> Material: las guías nuevas [`01` Fourier](../apuntes/html/01-fourier-desde-cero.html) ·
+> [`02` Laplace](../apuntes/html/02-laplace-desde-cero.html) ·
+> [`03` Sistemas estables](../apuntes/html/03-sistemas-estables-desde-cero.html) ·
+> [`04` Transformada Z](../apuntes/html/04-transformada-z-desde-cero.html) ·
+> [`05` Práctica de repaso](../apuntes/html/05-practica-repaso-primer-parcial.html).
+> Se lleva al examen: el ayudamemoria oficial (págs. 1–3) y la tabla de integrales.
+
+---
+
+## ⚠️ No entra todo
+
+Son **4 ejercicios 🔴** (uno por tema) y **3 días** para estudiarlos antes de los simulacros. Las
+guías completas suman ≈ 8.600 líneas: enteras no entran. Entra la **ruta corta** de cada una
+(el recuadro 🧭 del principio: ≈ 3 h Fourier, 3 h 30 Laplace, 3 h 30 Sistemas, 2 h 30 Z) más sus
+"tu turno" 🔴. El triaje:
+
+- **Sistemas y Z van primero y con día propio.** En octubre fueron los dos temas que quedaron para
+  la mañana del examen (plan del 2026-10-06); el registro está vacío, así que es la única evidencia
+  de qué está flojo. Además Sistemas es el ejercicio que más vale (2–3 puntos) y sus ítems están
+  encadenados: si el a) sale mal, arrastra al resto.
+- **Laplace y Fourier comparten el sábado.** Los dos se llegaron a cerrar en octubre, así que es
+  repaso con las guías nuevas, no arranque de cero. Si el sábado no alcanza, lo que se recorta es
+  Fourier a sus tres ítems seguros (completar y desarrollar, pase a $C_n$, media onda).
+- **Cae de cada guía** todo lo plegado como "⚪ Se toma poco" y además:
+  - Fourier: §8 hallar $k$ (0 de 3 en 2025), §11 sumar series, §12 verdadero o falso, §13 fasores.
+  - Laplace: §8, §12.1–§12.2 y §13. De §11 (ecuación integral, 0 de 3 en 2025) y §12.3 (sistema)
+    solo los "tu turno" 11.E y 12.C, y solo si el sábado sobra tiempo.
+  - Sistemas: §10 método gráfico del módulo (2 de 16), §11 y el corte por el eje imaginario.
+  - Z: §7 más allá del recuadro de fórmulas, §11; de §10 (2º orden, 3 de 16) solo el 10.C del repaso.
+- **Complejos:** fuera (0 de 3 en 2025). El anexo de la práctica `05` no se toca.
+
+Qué implica en puntos: con la ruta corta quedan cubiertos los 10 tipos de ítem de las tres hojas de
+2025. Lo que cae junto no llega a 1 punto esperado.
+
+**Regla de trabajo:** los ejemplos guiados se leen con lápiz; los "tu turno" se hacen **en papel,
+con reloj y sin mirar**, y recién después se abre la corrección. Al terminar cada día, `/registrar`
+con lo que falló: eso decide qué se repite el domingo y el lunes.
+
+## Plan día por día
+
+| Día | Foco | Entregable del día |
+|---|---|---|
+| **Mié 2026-11-25** (hoy, lo que quede de la noche) | Opcional, ≤ 45 min: guía `03` §0–§2 (qué te toman y qué va de memoria). Nada de cuentas. | Saber decir de memoria qué piden los ítems a, b y c del Ej3. Si estás cansado, se saltea sin culpa. |
+| **Jue 2026-11-26** | 🔴 **Sistemas estables** (guía `03`, ruta corta): §5 hallar $K$ → §7 respuesta temporal → §3–§4 polos, ceros y los seis casos → §6.2 corte por el eje real → §8 tipo de respuesta y valor estable → §9 $G(s)$ desde la ecuación diferencial. | **El reciclado a ciegas** (ejemplos guiados 5 + 9 + 11: parcial 2025 Tema 2 = 2024-2C T1 = sin fecha K3521 T2), tiene que dar $y(t)=-3+3\cos(t)e^{-3t}+19\operatorname{sen}(t)e^{-3t}$. Después **3.A, 6.A y 7.A** (1er recuperatorio 2025, ítems a, b y c), **5.A, 6.B y 7.B** (parcial 2015-05-29 T2 = repaso 2026 F), **9.A** (parcial 2025 Tema 1) y **9.B** (repaso 2026 E). Si sobra una hora: 5.C (2024-1C T2 = 2024-2C T2) y 8.A (2024-1C T1). |
+| **Vie 2026-11-27** | 🔴 **Transformada Z** (guía `04`, ruta corta): §3 geométrica → §4 paridad y región de convergencia → §5 suma de una serie → §6 secuencia finita → §8 "una $z$ afuera" → §9 ecuación en diferencias de 1er orden. Al final, 30 min de Sistemas: rehacer lo que falló el jueves. | Las tres hojas de 2025 completas: **4.A y 5.A** (parcial 2025 Tema 1), **5.B y 9.A** (parcial 2025 Tema 2; el 9.A es textual del sin fecha K3521 T2), **4.B y 6.A** (1er recuperatorio 2025). Después **4.C, 4.D y 5.C** (parcial 2024-2C, Temas 1 y 2) y **9.B** (1er recuperatorio 2024-2C). Del repaso de tu curso: **4.G** y, si queda tiempo, **10.C** (2º orden con raíz doble). De memoria al cerrar: la geométrica, $\mathcal{Z}[a^n/n!]=e^{a/z}$ (no está en el ayudamemoria y se tomó en 2025). |
+| **Sáb 2026-11-28** (mañana) | 🔴 **Laplace** (guía `02`, ruta corta): §4 integral impropia → §5 división por $t$ → §10 antitransformar por convolución → §6 potencias de seno y coseno → §7 transformar una convolución → §3.2 demostración de $a^t$ → §9 fracciones simples. | **4.A, 10.A y 3.A** (parcial 2025 Tema 1, ítems a, b y c), **6.A y 10.B** (parcial 2025 Tema 2), **5.A y 7.A** (1er recuperatorio 2025; el 5.A es el $\ln 2$ reciclado), **5.B** (parcial 2024-2C), **6.B** (1er recuperatorio 2024-2C = repaso 2026 C) y **9.A** (parcial 2024-2C T1). Solo si sobra: 11.E, 12.C y 11.A (2022-10-11 = 2024-1C T1). |
+| **Sáb 2026-11-28** (tarde) | 🔴 **Fourier** (guía `01`, ruta corta): §3–§4 herramientas y paridad → §5 completar y desarrollar → §6 pase a $C_n$ → §9 media onda → §10 función que ya es un seno → §7 espectro. | Los 9 ítems de 2025: **5.A, 9.A** (parcial 2025 Tema 1, ítems a y c), **5.B, 9.B** (Tema 2), **10.A** (ítem b de los dos temas), **5.C, 6.A, 7.A** (1er recuperatorio 2025, ítems a, b y c). Si sobra: **8.A** (2015-05-29 T1, reciclado 3 veces). |
+| **Dom 2026-11-29** | **Simulacro 1, cronometrado:** tanda 1 de la práctica `05` (un parcial entero armado con el repaso: 1.3 a y b + 1.4 → 2.2 + 2.5 + 2.4 → 3.1 a y b → 4.2 + 4.1), 2 h 15 min, solo con el ayudamemoria y la tabla de integrales. Tarde: corregir contra el tablero de `05` y rehacer el tema que peor salió con sus "tu turno" 🟠. | Los 10 ítems puntuados y anotados con `/registrar`. De cada ítem perdido, el "tu turno" gemelo de la guía hecho de nuevo en papel. Tanda 2 de `05` (3.3 → 1.1 → 2.3 → 4.4) si queda resto. |
+| **Lun 2026-11-30** | **Simulacro 2, cronometrado (mañana):** uno generado con `/simulacro` en el formato vigente (10 ítems), porque las tres hojas de 2025 y el repaso ya están quemados (el mini-simulacro del 2026-10-06 usó el Tema 2 y el recuperatorio). Tarde: solo los errores de los dos simulacros. Se corta a la tarde. | Simulacro corregido y registrado. Escritos **de memoria** en una hoja: regla par/impar y $C_n=\frac12(a_n-j\,b_n)$, definición de media onda, casos de fracciones simples, tabla polo → tipo de respuesta, receta de $K$, geométrica y regiones de convergencia. |
+| **Mar 2026-12-01** (día del examen) | Repaso liviano: "Resumen en una página" y "Errores típicos" de las cuatro guías, más los errores del registro. **Nada nuevo.** | Un ítem a) de cada tema en limpio para entrar en calor (5.A de Fourier, 4.A de Laplace, 3.A de Sistemas, 4.A de Z) y a rendir. |
+
+**En el examen:** arrancá por el ítem a) de cada ejercicio, que son los cuatro puntos de receta,
+y dejá la respuesta temporal de Sistemas para cuando tengas el resto asegurado. Controlá dos veces
+el ítem a) de Sistemas antes de seguir con el b) y el c).
+
+## Qué cambió respecto del plan anterior
+
+- **Examen nuevo:** el plan anterior era el de emergencia del parcial del 2026-10-06 (ya rendido).
+  Este apunta al 1er recuperatorio del 2026-12-01.
+- **Material nuevo:** se estudia desde las guías rehechas el 2026-11-25 (`apuntes/md/01–05`, con
+  los PDF de clase, los teóricos, los OneNote y las clases transcriptas). Las de octubre quedaron
+  archivadas en `guia-2026-10/` y los apuntes por fuente en `apuntes/por-fuente/`.
+- **Orden invertido:** en octubre fue Fourier → Laplace → Sistemas → Z y los dos últimos quedaron
+  sin tiempo. Ahora van primero Sistemas y Z, con un día cada uno.
+- **Vuelven los simulacros**, que en octubre se cancelaron: dos, domingo y lunes. Ya no queda
+  ninguna hoja real a ciegas, por eso uno sale de la práctica `05` y el otro se genera.
+- **Vuelve §9 de Sistemas** ($G(s)$ desde la ecuación diferencial), que en octubre se había
+  salteado: cayó en el parcial 2025 Tema 1 y en el repaso de tu curso.
+
+---
+
+*Generado el 2026-11-25 con: MATERIA.md (1er recuperatorio el 2026-12-01), estrategia.md (prioridades
+y banco, del 2026-09-10, con la actualización del 2026-10-02), las rutas cortas y los "tu turno" de
+las guías `apuntes/md/01–05` (2026-11-25), registro.md (vacío, sin sesiones), plan.md anterior (del
+2026-10-06, para saber qué quedó flojo), que-saltear.md (no existe), input del usuario (recuperatorio
+del 1/12, los 4 temas; sin disponibilidad declarada).*
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+
+</script>
+</body>
+</html>
