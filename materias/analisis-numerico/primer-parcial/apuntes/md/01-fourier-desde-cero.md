@@ -1,0 +1,2417 @@
+# Series de Fourier desde cero
+
+> Fuentes: `fuentes/clases/series de fourier/Clase - Serie trigonometrica de Fourier.pdf` (PDF de clase, 26 p.), `Clase - Serie exponencial de Fourier.pdf` (4 p.), `Clase - Relacion entre periodo y espectro.pdf` (OneNote del profesor, 3 p.), `Teorico catedra 1.3 - Series de Fourier.pdf` (teórico de cátedra, 31 p.), `Series Fourier - STF.pdf` y `Series Fourier - SEF.pdf` (OneNote de las prácticas, manuscrito del profesor, 11 + 6 p.), transcripts `16-video-teorica-serie-trigonometrica-fourier.json` (2 h 05) y `17-video-teorica-serie-exponencial-fourier.json` (solo la parte de serie exponencial, hasta 1:15), transcript `10-video-repaso-primer-parcial.json` (la parte de Fourier, 26:59 a 1:01:31), `repaso/practica-repaso-2026.md` (ejercicios A y B de la clase de repaso 2026), `examenes/INDICE.md` (el ejercicio de Fourier de las 16 hojas, 2015 a 2025) y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej1 de las 3 hojas 2025), `fuentes/Guia-ejercicios-parte-1-senales-y-sistemas.pdf` (ej. 1 a 16 de Fourier, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (pág. 1). Todos los coeficientes y sumas verificados con Python (sympy). Generado 2026-11-25.
+>
+> **Cómo usarla:** leé de arriba abajo. Los **Ejemplos guiados** están resueltos a la vista: leelos con lápiz y rehacé cada cuenta. Los **Tu turno** se hacen en papel y **sin mirar**; la corrección está plegada (el enunciado va en texto plano en el título desplegable, porque ahí no se renderizan fórmulas). Las notas **En clase** son lo que dijo el profesor en los videos, con el minuto real del transcript (`teórica STF [mm:ss]` = video 16, `teórica SEF [mm:ss]` = video 17, `repaso [mm:ss]` = video 10). Tiempo total: ≈ 7 h con pausas; la ruta corta, ≈ 3 h.
+>
+> **Qué es de la cátedra y qué es mío:** fórmulas, reglas, criterios y ejemplos salen de las fuentes. Son agregados míos (para que se entienda) las explicaciones "en criollo", las cuentas intermedias que las fuentes saltean, los gráficos y los "chequeos rápidos". De los parciales, solo las 3 hojas de 2025 tienen la resolución oficial transcripta; los ítems de 2015 a 2024 están **resueltos para esta guía** con el método de la cátedra (y coinciden con los resultados que el índice de exámenes trae anotados). El **Checkpoint** es un ejercicio armado con el formato 2025, no una hoja real.
+
+---
+
+> **🧭 Ruta corta (si vas contra reloj)** — núcleo ≈ 3 h
+>
+> - **Leyenda de los "tu turno":** 🔴 parcial y recuperatorio 2025, el formato vigente (obligatorio) · 🟠 parciales 2015–2024 y clases de repaso (mismos tipos de ítem; hacé los que alcances, primero los marcados **[RECICLADO]**) · ⚪ práctica y guía de ejercicios (opcional). Lo plegado como **"⚪ Se toma poco"** se puede saltear.
+> - **Leé, en este orden** (de lo más tomado a lo menos tomado): §0–§2 (10 min) → **§3 y §4** (las herramientas: sin esto no sale ninguna cuenta) → **§5** completar y desarrollar (ejemplo guiado 3) → **§6** pasar a la exponencial con $C_n=\frac12(a_n-j\,b_n)$ → **§9** simetría de media onda (ejemplo guiado 8) → **§10** la función que ya es un seno → **§7** espectro → "Resumen en una página".
+> - **Salteá si no llegás:** §8 (valor medio y "hallar $k$": 0 de 3 en 2025, pero reciclado 3 veces antes), §11 (sumar series numéricas: 0 de 3 en 2025), §12 (verdadero o falso) y §13 (fasores).
+> - **"Tu turno" obligatorios (🔴):** 5.A, 5.B, 5.C · 6.A · 7.A · 9.A, 9.B · 10.A. Son los 9 ítems de las tres hojas de 2025.
+> - **Si sobra tiempo (🟠, en este orden):** 8.A (reciclado 3 veces) · 11.A (reciclado 2 veces) · 6.B · 9.C · 12.A.
+> - **Para el 6 alcanza con…** completar bien y desarrollar la serie (ítem a, salió en 15 de 16 hojas) y uno de los otros dos: o el pase a $C_n$ con su espectro, o el dibujo con media onda. Cada ítem vale 1 punto y son independientes.
+> - Del ayudamemoria salen las fórmulas de $a_n$ y $b_n$ y la definición de media onda. **No está** nada de paridad, ni $C_n=\frac12(a_n-j\,b_n)$, ni $\omega_0=\pi/L$: eso va de memoria (§2).
+
+## 0. Qué te toman: el Ej1 vale 3 puntos
+
+En el formato vigente (K3052, 2025) el Ej1 es **siempre** series de Fourier, con tres ítems de **1 punto cada uno**. Así fueron las tres hojas de 2025:
+
+| Hoja 2025 | Ítem a | Ítem b | Ítem c |
+|---|---|---|---|
+| Parcial, Tema 1 | $\pi-t$ en $(0,\pi)$: completar para que la SEF tenga **coeficientes reales** y desarrollar la STF | Justificar cómo es la STF de $2\operatorname{sen}x\cos x$ | $t$ en $(0,1)$: completar (gráfico y fórmula) para $C_n$ **imaginarios puros + media onda** |
+| Parcial, Tema 2 | $-\pi-t$ en $(-\pi,0)$: completar para **coeficientes imaginarios puros** y desarrollar la STF | El mismo | $t$ en $(0,1)$: completar para $C_n$ **reales + media onda** |
+| 1er recuperatorio | $2x$ en $(0,2)$: completar para **serie de senos** y desarrollar | Con ese resultado, hallar los $C_n$ de la SEF | Graficar el **espectro de amplitudes** |
+
+Y esto es lo que salió en las **16 hojas** indexadas (2015 → 2025), por tipo de ítem:
+
+| Tipo de ítem | Qué te piden | Frecuencia | En 2025 | Sección |
+|---|---|---|---|---|
+| **Completar una función** dada en medio período | Extenderla para que la serie sea solo de cosenos o de senos (o los $C_n$ reales o imaginarios puros), con gráfico y fórmula por tramos | **15/16** | 3/3 (ítem a) | §5 |
+| **Desarrollar la STF** | Calcular $a_0$, $a_n$, $b_n$ y escribir la serie | **14/16** | 3/3 (ítem a) | §3 a §5 |
+| **Serie exponencial** | Hallar los $C_n$ "sin resolver la integral" o desarrollar la SEF | **13/16** | 3/3 (en el enunciado de a, o como ítem b) | §6 |
+| **Simetría de media onda** | Completar con paridad + media onda (solo dibujo y tramos), o decir si la tiene y justificar | **7/16** | 2/3 (ítem c) | §9 |
+| **Valor medio / hallar $k$** | Elegir la constante $k$ del otro medio período para que no haya cosenos y el valor medio sea tal número | 5/16 | 0/3 | §8 |
+| **Opción múltiple o V/F para justificar** | STF de $2\operatorname{sen}x\cos x$, de $\cos^3 x$; cómo son los $C_n$ de $x^2\operatorname{sen}x$ | 4/16 | 2/3 (ítem b) | §10 y §12 |
+| **Sumar una serie numérica** | Usar la serie hallada para calcular $\sum\frac{1}{(2k+1)^2}$ o $\sum\frac{(-1)^n}{n^2}$ | 3/16 | 0/3 | §11 |
+| **Espectro de amplitudes** | Bastones de $\lvert C_n\rvert$ en función de $n\omega_0$ | 2/16 | 1/3 (ítem c) | §7 |
+| Fasores | Amplitud de una suma de dos cosenos de igual frecuencia (opción múltiple) | 2/16 (solo 2015) | 0/3 | §13 |
+
+**Lectura rápida:** el ejercicio tipo es **(a) completar + desarrollar la STF**, **(b) algo corto que sale del ítem a o de una identidad** (los $C_n$, o justificar una opción) y **(c) un dibujo** (paridad + media onda, o el espectro). El ítem a casi siempre es una **recta** ($t$, $\pi-t$, $2x$, $x+1$, $3x$, $t+2$) y las integrales son siempre las mismas dos (§3.5).
+
+> **En clase:** "acá tomamos todo lo mismo y los mismos ejercicios y los mismos tipos de ejercicios; de hecho hay muchos ejercicios, honestamente, [que] se reciclan, se les cambian dos numeritos" (repaso [1:06:12]). En el índice se ve: $f=4$ / $k$ salió 3 veces y $t+2$ con la suma de $\frac{1}{(2k+1)^2}$, 2 veces.
+>
+> **En clase:** a la pregunta "¿qué tan probable es que nos aparezca alguno con simetría de media onda?": "puede pasar, está dentro de las posibilidades" (repaso [1:02:01]). Salió en 2 de las 3 hojas de 2025.
+
+## 1. La idea en criollo
+
+Una función **periódica** se repite igual cada $T$ unidades: $f(x)=f(x+T)$. Fourier dice que **casi cualquier función periódica se puede escribir como una constante más una suma de cosenos y senos**: uno lento, que da una vuelta por período, y otros cada vez más rápidos (2, 3, 4… vueltas por período). Cada par coseno + seno de la misma velocidad es una **armónica**.
+
+$$
+S(x)=\underbrace{\frac{a_0}{2}}_{\text{valor medio}}+\underbrace{a_1\cos(\omega_0x)+b_1\operatorname{sen}(\omega_0x)}_{\text{1ª armónica}}+\underbrace{a_2\cos(2\omega_0x)+b_2\operatorname{sen}(2\omega_0x)}_{\text{2ª armónica}}+\cdots
+$$
+
+**Desarrollar la serie** es encontrar los números $a_0$, $a_n$ y $b_n$: cuánto hay de cada armónica. Cada uno sale de una integral. Cuantas más armónicas sumás, más se parece la suma a la función:
+
+![El pulso de la clase (1 entre 0 y 3, 0 entre −3 y 0) y su serie con 1, 2 y 7 armónicas no nulas](../img/01-fig1-sumas-parciales.png)
+
+Tres ideas que ordenan todo el tema:
+
+1. **El término $\frac{a_0}{2}$ es el valor medio**: la altura de la recta horizontal que deja la misma área de la función por arriba que por abajo (la línea verde del gráfico). En funciones constantes o lineales se lee del dibujo.
+2. **La simetría de la función anula coeficientes sin hacer ninguna cuenta.** Función par ⇒ no hay senos. Función impar ⇒ no hay cosenos ni valor medio. Media onda ⇒ no hay armónicas pares. Por eso los parciales piden *completar* la función: te hacen elegir la simetría.
+3. **La serie exponencial es la misma serie escrita con $e^{jn\omega_0x}$.** Sus coeficientes $C_n$ se arman con los de la trigonométrica: $C_n=\frac12(a_n-j\,b_n)$ (§6).
+
+Vocabulario de los enunciados: **STF** = serie trigonométrica de Fourier · **SEF** = serie exponencial · $L$ = semiperíodo · $\omega_0$ = frecuencia fundamental · "armónicas (o frecuencias) impares" = los términos con $n=1,3,5,\dots$ · **espectro** = el gráfico de los coeficientes en función de $n$.
+
+> **En clase:** "esto es lo que se tienen que llevar de hoy: la forma general y las tres integrales […]. En muchos ejercicios, básicamente el ejercicio se reduce a este cálculo de estas tres integrales" (teórica STF [57:48]). Las demostraciones de dónde salen las fórmulas no se piden (teórica STF [45:47]).
+
+## 2. Qué tenés en el ayudamemoria y qué va de memoria
+
+**Está en el ayudamemoria (pág. 1), tal cual:**
+
+$$
+S(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cos(n\omega x)+b_n\operatorname{sen}(n\omega x)
+$$
+
+$$
+a_n=\frac1L\int_{-L}^{L}f(x)\cos(n\omega x)\,dx\qquad b_n=\frac1L\int_{-L}^{L}f(x)\operatorname{sen}(n\omega x)\,dx\qquad\text{con }L=\frac T2
+$$
+
+- "$f$ es periódica alternada o tiene simetría de media onda ⇔ $f(x)=-f\left(x+\frac T2\right)$".
+- La forma de la serie exponencial: $S(x)=c_0+\sum_{n=1}^{\infty}e^{j(n\omega x)}c_n+e^{-j(n\omega x)}c_{-n}$.
+
+Además se puede llevar la **tabla de integrales**, que trae las primitivas de $x\cos(ax)$, $x\operatorname{sen}(ax)$, $x^2\cos(ax)$, $x^2\operatorname{sen}(ax)$ y algunas identidades trigonométricas.
+
+**No está en ningún lado: va de memoria.**
+
+- 🧠 $\omega_0=\dfrac{\pi}{L}=\dfrac{2\pi}{T}$, y $a_0$ es la fórmula de $a_n$ con $n=0$: $a_0=\dfrac1L\displaystyle\int_{-L}^{L}f(x)\,dx$. A la serie va $\dfrac{a_0}{2}$.
+- 🧠 **Par** ⇒ $b_n=0$ (solo cosenos). **Impar** ⇒ $a_0=a_n=0$ (solo senos). Y el atajo $\dfrac2L\displaystyle\int_0^L$.
+- 🧠 $\cos(n\pi)=(-1)^n$, $\operatorname{sen}(n\pi)=0$, $\cos(2n\pi)=1$.
+- 🧠 $C_n=\dfrac12(a_n-j\,b_n)$, $C_0=\dfrac{a_0}{2}$, y la integral $C_n=\dfrac{1}{2L}\displaystyle\int_{-L}^{L}f(x)\,e^{-jn\omega_0x}\,dx$ (el ayudamemoria no trae cómo se calculan los $c_n$).
+- 🧠 Coeficientes **reales** ⇒ par. **Imaginarios puros** ⇒ impar. Imaginarios puros "salvo $C_0$" ⇒ impar desplazada.
+- 🧠 **Media onda** ⇒ solo armónicas impares y valor medio 0. Paridad + media onda ⇒ el período es **4 veces** el largo del dato.
+- 🧠 En un salto la serie vale el **promedio de los límites laterales**: $S(a)=\dfrac{f(a^+)+f(a^-)}{2}$.
+
+> **En clase:** al parcial se lleva la hoja de ayuda "sola", sin apuntes propios, y además "tabla de integrales, derivadas e identidades trigonométricas" (repaso [02:40]–[03:11]). "En series de Fourier […] se va a usar muchísimo" la tabla (teórica STF [53:36]); las integrales que aparecen son "casi siempre o siempre $x$ por el coseno, $x$ por el seno, $x$ al cuadrado por el coseno, $x$ al cuadrado por el seno, y creo que no va a salir de ahí nunca" (teórica STF [1:30:16]).
+>
+> **En clase:** ojo con otra hoja de fórmulas que circula en el campus: ahí el $C_n$ figura con $a_n+b_nj$ y con exponente positivo. "Esto está mal. Es con el menos": $-b_nj$ y menos en el exponente (teórica SEF [27:59]).
+
+---
+
+## 3. Las herramientas: $T$, $L$, $\omega_0$ y las tres integrales
+
+### 3.1 Los tres datos
+
+Todo ejercicio arranca igual: **graficar** y anotar al costado
+
+$$
+T=\text{período},\qquad L=\frac T2,\qquad\omega_0=\frac{\pi}{L}
+$$
+
+Ejemplos: $T=2\pi\Rightarrow L=\pi,\ \omega_0=1$ · $T=4\Rightarrow L=2,\ \omega_0=\frac\pi2$ · $T=6\Rightarrow L=3,\ \omega_0=\frac\pi3$ · $T=2\Rightarrow L=1,\ \omega_0=\pi$.
+
+> **En clase:** "por más fácil que se vea una función, que ustedes digan «esta sale de taquito porque yo ya soy canchero» […], siempre grafiquen" (teórica STF [1:00:25]). En el repaso lo repite como los "dos pasos fundamentales": "siempre graficar y siempre anotarse los tres datos" (repaso [27:30]). El OneNote de la práctica abre con eso mismo: "Siempre: ✓ Graficar ✓ Poner los datos fundamentales ($T$, $L$, $\omega_0$)". En las tres resoluciones oficiales de 2025 los tres datos están anotados al lado del gráfico.
+
+### 3.2 Las tres integrales, siempre en un período completo
+
+$$
+a_0=\frac1L\int_{-L}^{L}f(x)\,dx\qquad a_n=\frac1L\int_{-L}^{L}f(x)\cos(n\omega_0x)\,dx\qquad b_n=\frac1L\int_{-L}^{L}f(x)\operatorname{sen}(n\omega_0x)\,dx
+$$
+
+Los límites $-L$ y $L$ se pueden cambiar por $0$ y $T$, o por cualquier intervalo de largo $T$: lo que importa es integrar **un período completo**. Se elige el intervalo en el que la función está definida con una sola fórmula.
+
+> **En clase:** si la función viene definida entre $0$ y $T$, integrá entre $0$ y $T$: "yo siempre me tengo que centrar en el dibujo del que yo parto" (teórica STF [1:26:03]). Usar la misma fórmula entre $-L$ y $L$ es un error típico, porque del otro lado del eje la función es la copia corrida un período; un compañero lo confirma: "siempre me daba mal y no entendía por qué" (repaso [49:56]).
+
+La cátedra usa $n$ o $m$ como índice (el ayudamemoria y el PDF de clase, $n$; los OneNote, $m$). Es lo mismo.
+
+### 3.3 Qué pasa al evaluar en los extremos
+
+Al aplicar Barrow siempre queda un seno o un coseno de un múltiplo de $\pi$:
+
+$$
+\operatorname{sen}(n\pi)=0\qquad\cos(n\pi)=(-1)^n\qquad\cos(2n\pi)=1\qquad\operatorname{sen}(2n\pi)=0
+$$
+
+Cuando el extremo cae en un cuarto de vuelta, armá la tablita (OneNote, ej. 2b):
+
+| $n$ | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| $\operatorname{sen}\left(n\frac\pi2\right)$ | 1 | 0 | −1 | 0 | 1 | 0 |
+| $\cos\left(n\frac\pi2\right)$ | 0 | −1 | 0 | 1 | 0 | −1 |
+
+> **En clase:** "¿lo de coseno de $n\pi$, que es menos uno a la $n$, eso te lo justificamos?" — "Ponemos menos 1 a la $n$ y listo" (repaso [54:34]). Y ojo con confundirlo: $\cos(2n\pi)$ vale $1$ siempre, no $(-1)^n$ (repaso [45:49]).
+
+### 3.4 Cuando los pares dan cero: pasar a $2k+1$
+
+Muchos resultados traen el factor $1-(-1)^n$ (o $(-1)^n-1$):
+
+- $n$ par: $1-1=0$. **Las armónicas pares no existen.**
+- $n$ impar: $1-(-1)=2$.
+
+Entonces se escribe el coeficiente en dos renglones ("si $n$ es par… si $n$ es impar…") y en la serie se reemplaza **cada** $n$ por $2k+1$, con $k$ desde $0$.
+
+> **En clase:** "esto sí es importante y esto lo tienen que saber: ¿por qué solo tienen sentido las armónicas impares?" (teórica STF [1:13:31]); "esto nos lo vamos a encontrar un montón" (teórica STF [1:15:06]). Con $2k+1$ se arranca en $k=0$ y con $2k-1$ en $k=1$: "siempre la primera tiene que ser el 1 […] no es un error garrafal, pero yo, para que quede prolijita y perfecta, tendría que ser de esa manera" (teórica STF [1:18:14]). Dejarla en $n$ "no es un error […], pero no está pipicucú el ejercicio" (repaso [38:25]).
+
+### 3.5 Las dos integrales que aparecen siempre
+
+Están en la tabla. Si no la tenés a mano, salen por partes con $u=x$:
+
+$$
+\int x\cos(ax)\,dx=\frac{\cos(ax)}{a^2}+\frac{x\operatorname{sen}(ax)}{a}
+$$
+
+$$
+\int x\operatorname{sen}(ax)\,dx=\frac{\operatorname{sen}(ax)}{a^2}-\frac{x\cos(ax)}{a}
+$$
+
+con $a=n\omega_0$ (por ejemplo $a=n$, $a=\frac{n\pi}{2}$ o $a=n\pi$). Al evaluar entre $0$ y $L$:
+
+- el término con $\operatorname{sen}$ **se anula en los dos extremos** casi siempre: arriba porque $\operatorname{sen}(n\pi)=0$, abajo porque $\operatorname{sen}0=0$;
+- el término $x\cos(ax)$ se anula abajo porque está multiplicado por $x=0$;
+- **lo que sobrevive es un coseno**: mirá bien cuál.
+
+> **En clase:** de los cuatro términos de Barrow "el único término que me sobrevive […] es cuando le pongo el 2 al $t$" (repaso [45:49]); "las integrales estas son siempre las mismas: o $t$ por el coseno o $t$ por el seno"; "todo está en la tabla" (repaso [35:18]–[35:50]).
+
+### Ejemplo guiado 1: el pulso de la clase, sin usar simetrías (PDF de clase, ejemplo 1; teórica STF [59:53])
+
+$$
+f(x)=\begin{cases}1&\text{si }x\in(0,3)\\0&\text{si }x\in(-3,0)\end{cases}\qquad f(x)=f(x+6)
+$$
+
+**Paso 1 — gráfico y datos.** Un escalón de altura 1 entre $0$ y $3$, pegado al eje entre $-3$ y $0$, repetido cada 6 (es la función negra de la figura de §1). $T=6$, $L=3$, $\omega_0=\frac\pi3$.
+
+**Paso 2 — $a_0$.** Entre $-3$ y $0$ la función vale $0$ y no aporta:
+
+$$
+a_0=\frac13\left(\int_{-3}^{0}0\,dx+\int_0^3 1\,dx\right)=\frac13\cdot3=1\qquad\Longrightarrow\qquad\frac{a_0}{2}=\frac12
+$$
+
+**Paso 3 — $a_n$.**
+
+$$
+a_n=\frac13\int_0^3\cos\left(\frac{n\pi}{3}x\right)dx=\frac13\left[\frac{\operatorname{sen}\left(\frac{n\pi}{3}x\right)}{\frac{n\pi}{3}}\right]_0^3=\frac{1}{n\pi}\left(\operatorname{sen}(n\pi)-\operatorname{sen}0\right)=0
+$$
+
+**Paso 4 — $b_n$.**
+
+$$
+b_n=\frac13\int_0^3\operatorname{sen}\left(\frac{n\pi}{3}x\right)dx=\frac13\left[\frac{-\cos\left(\frac{n\pi}{3}x\right)}{\frac{n\pi}{3}}\right]_0^3=\frac{1}{n\pi}\left(-\cos(n\pi)+\cos0\right)=\frac{1}{n\pi}\left(1-(-1)^n\right)
+$$
+
+**Paso 5 — separar pares e impares.**
+
+$$
+b_n=\begin{cases}0&n\text{ par}\\[1mm]\dfrac{2}{n\pi}&n\text{ impar}\end{cases}
+$$
+
+**Paso 6 — la serie**, con $n=2k+1$:
+
+$$
+S(x)=\frac12+\sum_{k=0}^{\infty}\frac{2}{\pi(2k+1)}\operatorname{sen}\left((2k+1)\frac\pi3x\right)=\frac12+\frac2\pi\operatorname{sen}\left(\frac\pi3x\right)+\frac{2}{3\pi}\operatorname{sen}(\pi x)+\frac{2}{5\pi}\operatorname{sen}\left(\frac{5\pi}{3}x\right)+\cdots
+$$
+
+**Lo que hay que mirar:** salió una serie **sin cosenos** aunque la función no es impar. Es una **impar desplazada**: si la mirás desde la recta $y=\frac12$, es impar. Se explica en §8.
+
+> **En clase:** "lo que va a parar a la serie de Fourier es el $a_0$ sobre 2, no el $a_0$" (teórica STF [1:02:27]). Y sobre este pulso: "este ejemplo es muy particular […], a este se le va a anular el $a_n$, pero ya vamos a ver por qué" (teórica STF [2:02:20]).
+
+### Tu turno 3
+
+<details>
+<summary>⚪ <strong>3.A (guía ej. 1a; PDF de clase, ejemplo 2; teórica STF [1:25:00])</strong> — Desarrollar en STF f(x) = x² si 0 &lt; x &lt; 2π, con f(x) = f(x + 2π).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** La rama derecha de la parábola entre $0$ y $2\pi$, repetida. $T=2\pi$, $L=\pi$, $\omega_0=1$. No es par ni impar: hay que calcular los tres coeficientes. La función está definida entre $0$ y $T$: integro ahí.
+
+**Paso 2.**
+
+$$
+a_0=\frac1\pi\int_0^{2\pi}x^2\,dx=\frac1\pi\left[\frac{x^3}{3}\right]_0^{2\pi}=\frac{8\pi^2}{3}\qquad\Longrightarrow\qquad\frac{a_0}{2}=\frac{4\pi^2}{3}
+$$
+
+Acá el valor medio no se ve a ojo: con curvas hay que integrar.
+
+**Paso 3.** Con la primitiva de la tabla:
+
+$$
+a_n=\frac1\pi\int_0^{2\pi}x^2\cos(nx)\,dx=\frac1\pi\left[\frac{2x\cos(nx)}{n^2}+\left(\frac{x^2}{n}-\frac{2}{n^3}\right)\operatorname{sen}(nx)\right]_0^{2\pi}=\frac1\pi\cdot\frac{4\pi\cos(2n\pi)}{n^2}=\frac{4}{n^2}
+$$
+
+Los senos se anulan en $0$ y en $2\pi$; el coseno, en $0$, está multiplicado por $x=0$.
+
+**Paso 4.**
+
+$$
+b_n=\frac1\pi\int_0^{2\pi}x^2\operatorname{sen}(nx)\,dx=\frac1\pi\left[\frac{2x\operatorname{sen}(nx)}{n^2}+\left(\frac{2}{n^3}-\frac{x^2}{n}\right)\cos(nx)\right]_0^{2\pi}=\frac1\pi\left(\frac{2}{n^3}-\frac{4\pi^2}{n}-\frac{2}{n^3}\right)=-\frac{4\pi}{n}
+$$
+
+**Respuesta (coincide con la guía):**
+
+$$
+S(x)=\frac{4\pi^2}{3}+\sum_{n=1}^{\infty}\frac{4}{n^2}\cos(nx)-\frac{4\pi}{n}\operatorname{sen}(nx)
+$$
+
+No aparece $(-1)^n$ porque los extremos son $0$ y $2\pi$: no hay que separar pares e impares. Esta serie se usa en §11 para sumar $\sum\frac{1}{n^2}$.
+
+</details>
+
+</details>
+
+---
+
+## 4. Paridad: lo que se anula sin hacer la cuenta
+
+### 4.1 Par e impar, mirando el dibujo
+
+- **Par:** $f(-x)=f(x)$. El dibujo es **simétrico respecto del eje $y$** ($\cos x$, $x^2$, $\lvert x\rvert$).
+- **Impar:** $f(-x)=-f(x)$. El dibujo es **simétrico respecto del origen** ($\operatorname{sen}x$, $x$, $x^3$).
+
+Dos propiedades de las integrales en un intervalo simétrico:
+
+$$
+g\text{ impar}\ \Rightarrow\ \int_{-L}^{L}g(x)\,dx=0\qquad\qquad g\text{ par}\ \Rightarrow\ \int_{-L}^{L}g(x)\,dx=2\int_0^Lg(x)\,dx
+$$
+
+Y los productos: par · par = par, impar · impar = par, par · impar = impar. Como el coseno es par y el seno es impar:
+
+| Si $f$ es… | $f\cdot\cos$ es… | $f\cdot\operatorname{sen}$ es… | Qué queda |
+|---|---|---|---|
+| **par** | par | **impar ⇒ integral 0** | $b_n=0$. Serie **solo de cosenos** (más $\frac{a_0}{2}$) |
+| **impar** | **impar ⇒ integral 0** | par | $a_0=a_n=0$. Serie **solo de senos** |
+
+### 4.2 Las fórmulas que se usan de verdad
+
+$$
+f\text{ par:}\qquad b_n=0\qquad a_0=\frac2L\int_0^Lf(x)\,dx\qquad a_n=\frac2L\int_0^Lf(x)\cos(n\omega_0x)\,dx
+$$
+
+$$
+f\text{ impar:}\qquad a_0=a_n=0\qquad b_n=\frac2L\int_0^Lf(x)\operatorname{sen}(n\omega_0x)\,dx
+$$
+
+**La ventaja es doble:** te ahorrás una integral entera, y la que queda va de $0$ a $L$, donde la función tiene una sola fórmula.
+
+**El "2 por" solo vale en un intervalo simétrico.** Si integrás de $0$ a $T$ va $\frac1L$, sin el 2.
+
+**Valor medio "por gráfico".** Si la función es constante o lineal por tramos, $\frac{a_0}{2}$ se lee del dibujo: el promedio entre lo más alto y lo más bajo (un triángulo que va de $0$ a $h$ tiene valor medio $\frac h2$). Si hay curvas, se integra.
+
+> **En clase:** cuando graficás y "detectan una función par dicen: listo, ya no calculo el $b_n$, me ahorro la integral, me ahorro equivocarme" (teórica STF [1:58:35]). "Las funciones impares no tienen valor medio" (teórica STF [1:59:06]).
+>
+> **En clase:** ¿vale sacar el $a_0$ del gráfico? "Sí, sí, sí […], si quieren aclarar «por gráfico»" (repaso [33:13]). Y el consejo: "yo, que soy a veces desconfiado, si tengo tiempo en un examen, hago la integral para chequear que lo que hice a ojo está bien" (teórica STF [1:29:14]). Las resoluciones oficiales de 2025 anotan "$\frac{a_0}{2}=\frac\pi2$ (por gráfico)".
+>
+> **En clase:** el "2 por" nace de las propiedades de pares e impares en un intervalo simétrico; integrando entre $0$ y $T$ "no aplica" (repaso [47:54]).
+
+### Ejemplo guiado 2: $f(x)=x$ en $(-2,2)$, $f(x)=f(x+4)$ (PDF de clase, "ejemplo de STF de función impar")
+
+**Paso 1.** Rectas de pendiente 1 de $-2$ a $2$, repetidas: un diente de sierra que pasa por el origen. $T=4$, $L=2$, $\omega_0=\frac\pi2$.
+
+**Paso 2.** Es simétrica respecto del origen: **impar** ⇒ $a_0=a_n=0$.
+
+**Paso 3.** Con la integral de $x\operatorname{sen}(ax)$ y $a=\frac{n\pi}{2}$:
+
+$$
+b_n=\frac22\int_0^2x\operatorname{sen}\left(\frac{n\pi}{2}x\right)dx=\left[\frac{\operatorname{sen}\left(\frac{n\pi}{2}x\right)}{\left(\frac{n\pi}{2}\right)^2}-\frac{x\cos\left(\frac{n\pi}{2}x\right)}{\frac{n\pi}{2}}\right]_0^2
+$$
+
+En $x=2$: el seno es $\operatorname{sen}(n\pi)=0$ y el coseno es $\cos(n\pi)=(-1)^n$. En $x=0$ se anula todo. Queda
+
+$$
+b_n=-\frac{2(-1)^n}{\frac{n\pi}{2}}=-\frac{4(-1)^n}{n\pi}
+$$
+
+**Paso 4.**
+
+$$
+S(x)=-\frac4\pi\sum_{n=1}^{\infty}\frac{(-1)^n}{n}\operatorname{sen}\left(\frac{n\pi}{2}x\right)=\frac4\pi\left(\operatorname{sen}\frac{\pi x}{2}-\frac12\operatorname{sen}(\pi x)+\frac13\operatorname{sen}\frac{3\pi x}{2}-\cdots\right)
+$$
+
+No hay factor $1-(-1)^n$: existen todas las armónicas y la serie queda en $n$.
+
+### Tu turno 4
+
+<details>
+<summary>⚪ <strong>4.A (guía ej. 2a, OneNote STF p. 2–3)</strong> — Desarrollar en STF f(x) = 1 si x ∈ (0, 3), −1 si x ∈ (−3, 0), con f(x) = f(x + 6).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Onda cuadrada entre $-1$ y $1$. $T=6$, $L=3$, $\omega_0=\frac\pi3$. **Impar** ⇒ $a_0=a_n=0$.
+
+**Paso 2.**
+
+$$
+b_m=\frac23\int_0^3 1\cdot\operatorname{sen}\left(\frac{m\pi}{3}x\right)dx=\frac23\left[\frac{-\cos\left(\frac{m\pi}{3}x\right)}{\frac{m\pi}{3}}\right]_0^3=-\frac{2}{m\pi}\left[(-1)^m-1\right]
+$$
+
+$m$ par: $b_m=0$. $m$ impar: $b_m=\dfrac{4}{m\pi}$.
+
+**Respuesta (coincide con la guía):**
+
+$$
+S(x)=\frac4\pi\sum_{k=0}^{\infty}\frac{\operatorname{sen}\left[(2k+1)\frac\pi3x\right]}{2k+1}
+$$
+
+Es el pulso del ejemplo guiado 1 multiplicado por 2 y bajado 1: por eso los $b_n$ son el doble y desaparece el $\frac12$.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>4.B (guía ej. 1c; PDF de clase "ejemplo de aplicación"; OneNote STF p. 1)</strong> — Desarrollar en STF f(t) = t² en (−π, π), con f(t + 2π) = f(t).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Parábolas completas repetidas, con picos de altura $\pi^2$ en $\pm\pi$. $T=2\pi$, $L=\pi$, $\omega_0=1$. **Par** ⇒ $b_n=0$.
+
+**Paso 2.**
+
+$$
+a_0=\frac2\pi\int_0^\pi t^2\,dt=\frac2\pi\cdot\frac{\pi^3}{3}=\frac{2\pi^2}{3}\qquad\Longrightarrow\qquad\frac{a_0}{2}=\frac{\pi^2}{3}
+$$
+
+**Paso 3.**
+
+$$
+a_n=\frac2\pi\int_0^\pi t^2\cos(nt)\,dt=\frac2\pi\left[\frac{2t\cos(nt)}{n^2}+\left(\frac{t^2}{n}-\frac{2}{n^3}\right)\operatorname{sen}(nt)\right]_0^\pi=\frac2\pi\cdot\frac{2\pi(-1)^n}{n^2}=\frac{4(-1)^n}{n^2}
+$$
+
+**Respuesta (coincide con la guía):**
+
+$$
+S(t)=\frac{\pi^2}{3}+\sum_{n=1}^{\infty}\frac{4(-1)^n}{n^2}\cos(nt)=\frac{\pi^2}{3}-4\cos t+\cos2t-\frac49\cos3t+\cdots
+$$
+
+El profesor en el OneNote no usa el atajo: integra de $-\pi$ a $\pi$ y calcula también $b_m$, que le da $0$. Llega a lo mismo. Compará con 3.A: la misma fórmula $x^2$, definida en otro intervalo, da otra serie.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>4.C (guía ej. 2b, OneNote STF p. 3–4)</strong> — Desarrollar en STF f(t) = 6 si |t| &lt; 2, 0 si 2 &lt; |t| &lt; 4, con f(t) = f(t + 8).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Pulso de altura 6 entre $-2$ y $2$. $T=8$, $L=4$, $\omega_0=\frac\pi4$. **Par** ⇒ $b_m=0$.
+
+**Paso 2.**
+
+$$
+a_0=\frac24\int_0^2 6\,dt=6\qquad\Longrightarrow\qquad\frac{a_0}{2}=3
+$$
+
+**Paso 3.** La función vale $0$ entre $2$ y $4$: la integral llega hasta $2$.
+
+$$
+a_m=\frac24\int_0^2 6\cos\left(\frac{m\pi}{4}t\right)dt=3\left[\frac{\operatorname{sen}\left(\frac{m\pi}{4}t\right)}{\frac{m\pi}{4}}\right]_0^2=\frac{12}{m\pi}\operatorname{sen}\left(\frac{m\pi}{2}\right)
+$$
+
+**Paso 4.** Ahora el extremo cae en $\frac{m\pi}{2}$: tablita de §3.3. $m$ par ⇒ $a_m=0$; $m$ impar ⇒ $\pm\frac{12}{m\pi}$, alternando. Con $m=2k+1$, $\operatorname{sen}\left((2k+1)\frac\pi2\right)=(-1)^k$.
+
+**Respuesta (coincide con la guía):**
+
+$$
+S(t)=3+\frac{12}{\pi}\sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}\cos\left[(2k+1)\frac\pi4t\right]
+$$
+
+</details>
+
+</details>
+
+---
+
+## 5. Completar una función y desarrollarla (ítem a: 15/16)
+
+### 5.1 La idea
+
+Te dan la función en un **intervalo corto**, por ejemplo $f(x)=x$ en $(0,2)$, y te dejan elegir cómo sigue. Ese intervalo es **medio período**: vos fabricás el otro medio de modo que la función completa tenga la simetría que anula lo que el enunciado no quiere.
+
+![El mismo dato f(x) = x en (0, 2), completado como función par y como función impar](../img/01-fig2-completar-par-impar.png)
+
+El enunciado puede pedir lo mismo con cuatro frases distintas:
+
+| El enunciado dice… | Hay que anular… | Completás como… |
+|---|---|---|
+| "la STF sea **solo de cosenos**" / "no tenga senos" | $b_n$ | **par** |
+| "la SEF tenga **coeficientes reales**" | $b_n$ (porque $C_n=\frac12(a_n-j\,b_n)$) | **par** |
+| "la STF sea **solo de senos**" / "no tenga cosenos" | $a_0$ y $a_n$ | **impar** |
+| "la SEF tenga coeficientes **imaginarios puros**" | $a_n$ | **impar** |
+
+> **En clase:** "en un montonazo de ejercicios siempre se pregunta, por ejemplo, completar la función" (teórica SEF [29:00]); y la misma consigna dicha con la exponencial: "complete […] para que los coeficientes de la serie exponencial sean todos reales" (teórica SEF [30:39]). En el repaso lo llama "la parte conceptual": "series de Fourier solo con cosenos son series de Fourier de funciones pares" (repaso [28:01]). En el OneNote del repaso lo deja escrito como una igualdad: "Cosenos = Par = Coef. reales".
+
+### 5.2 Receta
+
+1. **Traducí el pedido a una paridad** con la tabla de arriba y escribilo: "coeficientes reales ⇒ $b_n=0$ ⇒ completo como función par".
+2. **Graficá el dato y completalo.** Par: espejo respecto del eje $y$. Impar: espejo respecto del origen (girar 180°). Después repetí el dibujo hacia los dos lados.
+3. **Escribí la fórmula del tramo nuevo.** Par: $f(x)=f(-x)$. Impar: $f(x)=-f(-x)$. (Reemplazás $x$ por $-x$ en el dato y, si es impar, cambiás el signo.)
+4. **Escribí $f$ por tramos** en $(-L,L)$, agregá "$f(x)=f(x+T)$" y anotá $T=2\cdot(\text{largo del dato})$, $L$ y $\omega_0$.
+5. **Anulá lo que se anula, con el porqué:** "$b_n=0$ por ser par" o "$a_0=a_n=0$ por ser impar".
+6. Si es par, **valor medio**: por gráfico si es una recta; si no, $a_0=\frac2L\int_0^L f$.
+7. **Calculá el coeficiente que queda** con $\frac2L\int_0^L$ sobre el dato (§3.5) y evaluá con $(-1)^n$.
+8. **Separá $n$ par y $n$ impar** si apareció $1-(-1)^n$, y **escribí la serie** (con $2k+1$ si las pares se anulan).
+
+**Si el dato está a la izquierda** (como en el Tema 2 de 2025, dado en $(-\pi,0)$): hacé igual los pasos 2 a 4 y **integrá sobre el tramo de $(0,L)$ que construiste**. Es lo que hace la resolución oficial.
+
+### 5.3 Qué hay que dejar escrito
+
+Mirando las tres resoluciones oficiales de 2025, el ítem está completo cuando tiene:
+
+- la **palabra** "par" o "impar" con su justificación en una línea;
+- el **gráfico** de la función completada, con al menos un período a cada lado;
+- la **fórmula por tramos** y "$f(t)=f(t+T)$";
+- $T$, $L$ y $\omega_0$ **anotados**;
+- los coeficientes nulos **declarados** y el que no es nulo **calculado** con la primitiva a la vista;
+- el coeficiente separado en par / impar cuando corresponde;
+- la **serie final** escrita con $S(t)=\dots$
+
+> **En clase:** ¿hay que hallar la función completada "analíticamente" o alcanza con el dibujo? "Si lo querés hallar gráficamente o analíticamente te tiene que dar lo mismo" (repaso [29:35]). Los enunciados de 2025 piden las dos cosas ("en forma gráfica y analítica").
+
+### Ejemplo guiado 3: $f(x)=x$ en $(0,2)$, serie de cosenos y serie de senos (guía ej. 4b, OneNote STF p. 7)
+
+**i) Solo cosenos.**
+
+**Paso 1.** Solo cosenos ⇒ $b_m=0$ ⇒ **par**.
+
+**Paso 2 y 3.** Espejo respecto del eje $y$: en $(-2,0)$ va $f(x)=f(-x)=-x$. Queda una "V" (panel izquierdo de la figura).
+
+**Paso 4.**
+
+$$
+f(x)=\begin{cases}-x&-2<x<0\\x&0<x<2\end{cases}\qquad f(x)=f(x+4)\qquad T=4,\ L=2,\ \omega_0=\frac\pi2
+$$
+
+**Paso 5 y 6.** $b_m=0$ por ser par. La recta va de $0$ a $2$: $\dfrac{a_0}{2}=1$ (gráfico).
+
+**Paso 7.**
+
+$$
+a_m=\frac22\int_0^2x\cos\left(\frac{m\pi}{2}x\right)dx=\left[\frac{\cos\left(\frac{m\pi}{2}x\right)}{\frac{m^2\pi^2}{4}}+\frac{x\operatorname{sen}\left(\frac{m\pi}{2}x\right)}{\frac{m\pi}{2}}\right]_0^2=\frac{4(-1)^m}{m^2\pi^2}-\frac{4}{m^2\pi^2}
+$$
+
+**Paso 8.** $m$ par: $a_m=0$. $m$ impar: $a_m=-\dfrac{8}{m^2\pi^2}$.
+
+$$
+S(x)=1-\frac{8}{\pi^2}\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)\frac\pi2x\right]}{(2k+1)^2}
+$$
+
+⚠ En el manuscrito la sumatoria parece arrancar en $k=1$ [poco claro en el manuscrito]. Con $2k+1$ tiene que arrancar en $k=0$ (si no, se pierde la primera armónica); así la da la respuesta de la guía.
+
+El profesor anota al lado: "¿S.M.O.? ¡No!". Tiene solo armónicas impares y sin embargo **no** tiene simetría de media onda (su valor medio es 1). Guardalo para §9 y §12.
+
+**ii) Solo senos.**
+
+**Paso 1.** Solo senos ⇒ $a_0=a_m=0$ ⇒ **impar**.
+
+**Paso 2 y 3.** Espejo respecto del origen: en $(-2,0)$ va $f(x)=-f(-x)=-(-x)=x$. La recta sigue de largo (panel derecho).
+
+**Paso 4.** $f(x)=x$ en $(-2,2)$, $f(x)=f(x+4)$, $T=4$, $L=2$, $\omega_0=\frac\pi2$.
+
+**Paso 5 a 8.** Es exactamente el ejemplo guiado 2:
+
+$$
+b_m=\frac22\int_0^2x\operatorname{sen}\left(\frac{m\pi}{2}x\right)dx=-\frac{4(-1)^m}{m\pi}\qquad\Longrightarrow\qquad S(x)=-\frac4\pi\sum_{m=1}^{\infty}\frac{(-1)^m}{m}\operatorname{sen}\left(\frac{m\pi}{2}x\right)
+$$
+
+**Lo que hay que ver:** el mismo dato da dos series distintas, y las dos valen $x$ en $(0,2)$. Lo único que cambia es lo que pasa fuera del dato.
+
+### Tu turno 5
+
+Los tres ítems a) de 2025, ya completados (para comparar con tu dibujo **después** de hacerlos):
+
+![Las tres funciones completadas de los ítems a) de 2025: en negro el dato, en naranja lo completado](../img/01-fig3-parciales-2025-item-a.png)
+
+<details>
+<summary>🔴 <strong>5.A (parcial 2025, Tema 1, ítem a, 1 punto)</strong> — Dada f(t) = π − t si 0 &lt; t &lt; π: completar en todo el eje real para que la SEF tenga solamente coeficientes reales, y desarrollar la STF.</summary>
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+**Paso 1.** Coeficientes reales ⇒ $b_m=0$ ⇒ completo como función **par**.
+
+**Paso 2.** El dato baja de $\pi$ (en $t=0$) a $0$ (en $t=\pi$). Espejado respecto del eje $y$: en $(-\pi,0)$ va $f(-t)=\pi-(-t)=\pi+t$. Queda un triángulo con pico $\pi$ en $t=0$.
+
+$$
+f(t)=\begin{cases}\pi+t&-\pi<t<0\\\pi-t&0<t<\pi\end{cases}\qquad f(t)=f(t+2\pi)\qquad T=2\pi,\ L=\pi,\ \omega_0=1
+$$
+
+**Paso 3.** $b_m=0$ por ser par. Valor medio por gráfico (área del triángulo sobre el período, o la mitad de la altura):
+
+$$
+\frac{a_0}{2}=\frac\pi2
+$$
+
+**Paso 4.** Separo en dos integrales:
+
+$$
+a_m=\frac2\pi\int_0^\pi(\pi-t)\cos(mt)\,dt=\underbrace{2\int_0^\pi\cos(mt)\,dt}_{=\,0\ \text{porque}\ \operatorname{sen}(m\pi)=0}-\frac2\pi\int_0^\pi t\cos(mt)\,dt
+$$
+
+$$
+a_m=-\frac2\pi\left[\frac{\cos(mt)}{m^2}+\frac{t\operatorname{sen}(mt)}{m}\right]_0^\pi=-\frac2\pi\left[\frac{(-1)^m}{m^2}-\frac{1}{m^2}\right]
+$$
+
+**Paso 5.** $m$ par: $a_m=0$. $m$ impar: $a_m=-\dfrac2\pi\cdot\dfrac{-2}{m^2}=\dfrac{4}{\pi m^2}$.
+
+**Respuesta (coincide con la oficial):**
+
+$$
+S(t)=\frac\pi2+\frac4\pi\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)t\right]}{(2k+1)^2}
+$$
+
+**Chequeo rápido (mío):** en $t=0$ la función vale $\pi$ y la serie da $\frac\pi2+\frac4\pi\left(1+\frac19+\frac1{25}+\cdots\right)=\frac\pi2+\frac4\pi\cdot\frac{\pi^2}{8}=\pi$ ✓.
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>5.B (parcial 2025, Tema 2, ítem a, 1 punto)</strong> — Dada f(t) = −π − t si −π &lt; t &lt; 0: completar en todo el eje real para que la SEF tenga solamente coeficientes imaginarios puros, y desarrollar la STF.</summary>
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+**Paso 1.** Imaginarios puros ⇒ $a_m=0$ ⇒ completo como función **impar**.
+
+**Paso 2.** El dato está a la izquierda: baja de $0$ (en $t=-\pi$) a $-\pi$ (en $t=0$). Para $t\in(0,\pi)$: $f(t)=-f(-t)=-\left(-\pi-(-t)\right)=\pi-t$. Queda un diente de sierra que baja, con un salto de $-\pi$ a $\pi$ en $t=0$.
+
+$$
+f(t)=\begin{cases}-\pi-t&-\pi<t<0\\\pi-t&0<t<\pi\end{cases}\qquad f(t)=f(t+2\pi)\qquad T=2\pi,\ L=\pi,\ \omega_0=1
+$$
+
+**Paso 3.** $a_0=a_m=0$ por ser impar.
+
+**Paso 4.** Integro sobre el tramo de $(0,\pi)$:
+
+$$
+b_m=\frac2\pi\int_0^\pi(\pi-t)\operatorname{sen}(mt)\,dt=2\left[\frac{-\cos(mt)}{m}\right]_0^\pi-\frac2\pi\left[\frac{\operatorname{sen}(mt)}{m^2}-\frac{t\cos(mt)}{m}\right]_0^\pi
+$$
+
+$$
+b_m=2\cdot\frac{-(-1)^m+1}{m}-\frac2\pi\cdot\left(-\frac{\pi(-1)^m}{m}\right)=-\frac{2(-1)^m}{m}+\frac2m+\frac{2(-1)^m}{m}=\frac2m
+$$
+
+Los términos con $(-1)^m$ se cancelan: no hay que separar pares e impares.
+
+**Respuesta (coincide con la oficial):**
+
+$$
+S(t)=2\sum_{m=1}^{\infty}\frac{\operatorname{sen}(mt)}{m}
+$$
+
+**Ojo:** una función impar no tiene por qué valer $0$ en el origen si ahí tiene un salto. La serie sí vale $0$ en $t=0$: el promedio de $-\pi$ y $\pi$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>5.C (1er recuperatorio 2025, ítem a, 1 punto)</strong> — Dada f(x) = 2x en (0, 2): completar para que la STF sea de senos y desarrollar.</summary>
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+**Paso 1.** Serie de senos ⇒ $a_0=a_m=0$ ⇒ **impar**.
+
+**Paso 2.** En $(-2,0)$: $f(x)=-f(-x)=-(2\cdot(-x))=2x$. La recta sigue de largo.
+
+$$
+f(x)=2x\ \text{ si }x\in(-2,2)\qquad f(x)=f(x+4)\qquad T=4,\ L=2,\ \omega_0=\frac\pi2
+$$
+
+**Paso 3.**
+
+$$
+b_m=\frac22\int_0^2 2x\operatorname{sen}\left(\frac{m\pi}{2}x\right)dx=2\left[\frac{\operatorname{sen}\left(\frac{m\pi}{2}x\right)}{\frac{m^2\pi^2}{4}}-\frac{x\cos\left(\frac{m\pi}{2}x\right)}{\frac{m\pi}{2}}\right]_0^2=2\cdot\left(-\frac{2(-1)^m}{\frac{m\pi}{2}}\right)=-\frac{8(-1)^m}{m\pi}
+$$
+
+El término del seno se anula (en la hoja está tachado) y $\cos(m\pi)=(-1)^m$.
+
+**Respuesta (coincide con la oficial):**
+
+$$
+S(x)=-\frac8\pi\sum_{m=1}^{\infty}\frac{(-1)^m}{m}\operatorname{sen}\left(\frac{m\pi}{2}x\right)
+$$
+
+Es el doble de la serie del ejemplo guiado 3 ii), como tiene que ser: $2x$ es el doble de $x$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>5.D (clase de repaso 2026, ejercicio A; guía ej. 4e)</strong> — Dada f(t) = π − t si 0 &lt; t &lt; π: a) completarla para que la STF tenga solo cosenos y desarrollarla; b) completarla para que tenga solo senos, desarrollarla y pasarla a SEF.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** Es **el mismo ítem que 5.A** (solo cosenos = coeficientes reales = par):
+
+$$
+S(t)=\frac\pi2+\frac4\pi\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)t\right]}{(2k+1)^2}
+$$
+
+**b)** Da **la misma función que 5.B** (impar: en $(-\pi,0)$ va $-\pi-t$), con $b_m=\dfrac2m$:
+
+$$
+S(t)=2\sum_{m=1}^{\infty}\frac{\operatorname{sen}(mt)}{m}
+$$
+
+Para la SEF (§6): $C_0=0$ y $C_m=\frac12\left(0-j\,\frac2m\right)=-\dfrac jm$.
+
+$$
+S(t)=\sum_{\substack{m=-\infty\\m\neq0}}^{\infty}\left(-\frac jm\right)e^{jmt}
+$$
+
+⚠ En la foto de la clase el planteo de $b_m$ dice $\frac1\pi\cdot2\int_0^{2\pi}$. Con límites de $0$ a $2\pi$ ese 2 sobra (daría $\frac4m$): va $\frac2\pi\int_0^\pi$ o $\frac1\pi\int_0^{2\pi}$. El resultado $\frac2m$ que anotaron está bien.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>5.E (parcial ≈2019, K3521 Tema 2, Ej3a)</strong> — f(x) = 3x en (0, 2). Completar la función para que la STF sea de cosenos y desarrollar.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**Paso 1.** Cosenos ⇒ **par**: $f(x)=3\lvert x\rvert$ en $(-2,2)$, $f(x)=f(x+4)$. $T=4$, $L=2$, $\omega_0=\frac\pi2$.
+
+**Paso 2.** $b_m=0$. El triángulo va de $0$ a $6$: $\dfrac{a_0}{2}=3$ (gráfico).
+
+**Paso 3.**
+
+$$
+a_m=\frac22\int_0^2 3x\cos\left(\frac{m\pi}{2}x\right)dx=3\left[\frac{\cos\left(\frac{m\pi}{2}x\right)}{\frac{m^2\pi^2}{4}}+\frac{x\operatorname{sen}\left(\frac{m\pi}{2}x\right)}{\frac{m\pi}{2}}\right]_0^2=\frac{12\left((-1)^m-1\right)}{m^2\pi^2}
+$$
+
+$m$ par: $0$. $m$ impar: $a_m=-\dfrac{24}{m^2\pi^2}$.
+
+**Respuesta:**
+
+$$
+S(x)=3-\frac{24}{\pi^2}\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)\frac\pi2x\right]}{(2k+1)^2}
+$$
+
+Es 3 veces la serie del ejemplo guiado 3 i). El resto del ejercicio (los $C_n$ "sin resolver la integral" y la pregunta de media onda) está en 6.C y 9.F.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>5.F (parcial ≈2015, sin fecha, Tema 2, Ej3a)</strong> — f(x) = x + 1 en (0, 1). Completar con período T = 2 para que la STF sea solo de senos y desarrollarla.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**Paso 1.** Senos ⇒ **impar**. En $(-1,0)$: $f(x)=-f(-x)=-(-x+1)=x-1$.
+
+$$
+f(x)=\begin{cases}x-1&-1<x<0\\x+1&0<x<1\end{cases}\qquad f(x)=f(x+2)\qquad T=2,\ L=1,\ \omega_0=\pi
+$$
+
+En $x=0$ salta de $-1$ a $1$.
+
+**Paso 2.** $a_0=a_m=0$.
+
+**Paso 3.**
+
+$$
+b_m=\frac21\int_0^1(x+1)\operatorname{sen}(m\pi x)\,dx=2\left[\frac{\operatorname{sen}(m\pi x)}{m^2\pi^2}-\frac{x\cos(m\pi x)}{m\pi}-\frac{\cos(m\pi x)}{m\pi}\right]_0^1=2\left(-\frac{2(-1)^m}{m\pi}+\frac{1}{m\pi}\right)
+$$
+
+$$
+b_m=\frac{2\left(1-2(-1)^m\right)}{m\pi}=\begin{cases}\dfrac{6}{m\pi}&m\text{ impar}\\[2mm]-\dfrac{2}{m\pi}&m\text{ par}\end{cases}
+$$
+
+**Respuesta.** Los dos casos son distintos de cero: la serie queda en $m$.
+
+$$
+S(x)=\frac2\pi\sum_{m=1}^{\infty}\frac{1-2(-1)^m}{m}\operatorname{sen}(m\pi x)
+$$
+
+La pregunta b) ("¿tiene simetría de media onda?") está en 9.F.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>5.G (parcial 2022-10-11, Ej1.1, y parcial 2024-1C Tema 1, Ej1a) [RECICLADO]</strong> — f(t) = t + 2 si t ∈ (0, 2), f(t) = f(t + 4). Completar la función en todo el eje real para que su STF sea solo de cosenos y desarrollarla.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**Paso 1.** Cosenos ⇒ **par**. En $(-2,0)$: $f(t)=f(-t)=-t+2$. O sea $f(t)=\lvert t\rvert+2$: una "V" con el vértice en $(0;2)$ que llega a $4$ en $t=\pm2$.
+
+$$
+f(t)=\begin{cases}-t+2&-2<t<0\\t+2&0<t<2\end{cases}\qquad f(t)=f(t+4)\qquad T=4,\ L=2,\ \omega_0=\frac\pi2
+$$
+
+**Paso 2.** $b_m=0$. La recta va de $2$ a $4$: $\dfrac{a_0}{2}=3$ (gráfico).
+
+**Paso 3.** Separo: la parte del $2$ da un seno que se anula.
+
+$$
+a_m=\frac22\int_0^2(t+2)\cos\left(\frac{m\pi}{2}t\right)dt=\left[\frac{\cos\left(\frac{m\pi}{2}t\right)}{\frac{m^2\pi^2}{4}}+\frac{(t+2)\operatorname{sen}\left(\frac{m\pi}{2}t\right)}{\frac{m\pi}{2}}\right]_0^2=\frac{4\left((-1)^m-1\right)}{m^2\pi^2}
+$$
+
+$m$ par: $0$. $m$ impar: $a_m=-\dfrac{8}{m^2\pi^2}$.
+
+**Respuesta:**
+
+$$
+S(t)=3-\frac{8}{\pi^2}\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)\frac\pi2t\right]}{(2k+1)^2}
+$$
+
+Es la serie del ejemplo guiado 3 i) con otro valor medio: sumarle 2 a la función solo cambia $\frac{a_0}{2}$. Los otros ítems de estas hojas están en 6.D ($C_n$), 9.D (media onda en $(-8,8)$) y 11.A (la suma).
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>5.H (parcial 2024-1C, Tema 2, Ej1a)</strong> — f(t) = t², t ∈ (0, 2). Completar la función para que la STF sea solo de cosenos y desarrollarla.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**Paso 1.** Cosenos ⇒ **par**: en $(-2,0)$ va $(-t)^2=t^2$. $f(t)=t^2$ en $(-2,2)$, $f(t)=f(t+4)$, $T=4$, $L=2$, $\omega_0=\frac\pi2$. $b_m=0$.
+
+**Paso 2.** Es una curva: el valor medio se integra.
+
+$$
+a_0=\frac22\int_0^2t^2\,dt=\frac83\qquad\Longrightarrow\qquad\frac{a_0}{2}=\frac43
+$$
+
+**Paso 3.** Con la primitiva de $x^2\cos(ax)$ y $a=\frac{m\pi}{2}$:
+
+$$
+a_m=\frac22\int_0^2t^2\cos\left(\frac{m\pi}{2}t\right)dt=\left[\frac{2t\cos(at)}{a^2}+\left(\frac{t^2}{a}-\frac{2}{a^3}\right)\operatorname{sen}(at)\right]_0^2=\frac{4(-1)^m}{\frac{m^2\pi^2}{4}}=\frac{16(-1)^m}{m^2\pi^2}
+$$
+
+**Respuesta:**
+
+$$
+S(t)=\frac43+\frac{16}{\pi^2}\sum_{m=1}^{\infty}\frac{(-1)^m}{m^2}\cos\left(\frac{m\pi}{2}t\right)
+$$
+
+Los ítems b) y c) están en 11.B (la suma) y 9.C (impar + media onda).
+
+</details>
+
+</details>
+
+---
+
+## 6. De la trigonométrica a la exponencial: $C_n=\frac12(a_n-j\,b_n)$ (13/16)
+
+### 6.1 La idea
+
+La serie exponencial (SEF) es **la misma serie**, con cada coseno y cada seno escritos con exponenciales complejas (fórmula de Euler):
+
+$$
+\cos\varphi=\frac{e^{j\varphi}+e^{-j\varphi}}{2}\qquad\qquad\operatorname{sen}\varphi=\frac{e^{j\varphi}-e^{-j\varphi}}{2j}
+$$
+
+Reemplazando en la STF y agrupando las exponenciales de exponente positivo por un lado y las de exponente negativo por el otro (PDF de clase de SEF):
+
+$$
+S(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\underbrace{\frac12(a_n-j\,b_n)}_{C_n}e^{jn\omega_0x}+\underbrace{\frac12(a_n+j\,b_n)}_{C_{-n}}e^{-jn\omega_0x}
+$$
+
+Con esos nombres queda la forma compacta, con $n$ recorriendo **todos los enteros**:
+
+$$
+S(x)=\sum_{n=-\infty}^{\infty}C_n\,e^{jn\omega_0x}=C_0+\sum_{\substack{n=-\infty\\n\neq0}}^{\infty}C_n\,e^{jn\omega_0x}
+$$
+
+### 6.2 Las tres fórmulas
+
+$$
+C_n=\frac12\left(a_n-j\,b_n\right)\qquad\qquad C_0=\frac{a_0}{2}\qquad\qquad C_n=\frac{1}{2L}\int_{-L}^{L}f(x)\,e^{-jn\omega_0x}\,dx
+$$
+
+- La primera es **el puente**: si ya tenés $a_n$ y $b_n$, los $C_n$ salen sin integrar. Es lo que piden los enunciados que dicen "hallar los $C_n$ **sin resolver la integral**" o "con ese resultado calcular los $C_n$".
+- $C_0$ **es el valor medio** (la integral ya trae el $\frac{1}{2L}$: no hay que dividir por 2 después).
+- La fórmula vale también para $n$ negativo: $C_{-n}$ sale de poner $-n$ en la misma expresión.
+- La integral directa conviene solo cuando la función **no tiene paridad** y es constante por tramos (ejemplo guiado 4).
+
+De la primera fórmula salen las dos reglas del ítem a:
+
+$$
+f\text{ par}\ \Rightarrow\ b_n=0\ \Rightarrow\ C_n=\frac{a_n}{2}\ \text{(reales)}\qquad\qquad f\text{ impar}\ \Rightarrow\ a_n=0\ \Rightarrow\ C_n=-\frac{b_n}{2}\,j\ \text{(imaginarios puros)}
+$$
+
+> **En clase:** "esto es súper importante: que el $C_n$ sea igual a un medio de $a_n$ menos $b_nj$ […]. Es básicamente un puente entre la serie trigonométrica y la serie exponencial" (teórica SEF [18:09]). La recomendación: "cuando hay una cierta paridad en la función […] yo la verdad es que prefiero que ustedes trabajen con esta fórmula […] y calcular el $a_n$ y/o el $b_n$ de la forma trigonométrica" (teórica SEF [23:52]), porque con la integral del $C_n$ la ventaja de la paridad "la pierdo: […] la $e$ no es una función par o impar" (teórica SEF [23:20]). Encararlo igual con la integral "será más largo, más complicado, pero no pasa nada" (teórica SEF [24:53]).
+>
+> **En clase:** el $C_{-n}$ "solo sirve para mostrar el desarrollo, pero después solo vamos a calcular un término, que es el $C_n$" (teórica SEF [16:28]).
+>
+> **En clase:** el encabezado del OneNote de la práctica de SEF lo resume: "Lo importante es que sepan distinguir cuándo conviene utilizar los coef. de la STF y cuándo los de la SEF. Para pares e impares, mejor la STF. Si no hay nada de eso, quizás es mejor ya trabajar directamente con el $C_n$".
+
+### 6.3 Receta para pasar de STF a SEF
+
+1. Escribí el puente: $C_n=\frac12(a_n-j\,b_n)$, y tachá el coeficiente que es nulo.
+2. $C_0=\frac{a_0}{2}$ (el valor medio que ya tenías).
+3. Reemplazá $a_n$ o $b_n$ por la expresión hallada. Si había "par / impar", el $C_n$ también va en dos renglones.
+4. Escribí la serie con el $C_0$ afuera y **$n\neq0$ debajo de la sumatoria**. Si solo hay armónicas impares, usá $2k+1$ con $k$ de $-\infty$ a $\infty$ (ahí no hace falta aclarar nada, porque $2k+1$ nunca vale $0$).
+5. Si el denominador queda con una $j$, multiplicá y dividí por $j$: $\dfrac{1}{j}=-j$.
+
+**Qué hay que dejar escrito:** el puente con el término tachado, $C_0$ y $C_n$ recuadrados, y (si la piden) la serie. En el recuperatorio 2025 la resolución oficial del ítem b son dos renglones: el puente y el resultado.
+
+> **En clase:** si no hay distinción de pares e impares, "lo correcto es […] poner el $n$ distinto de cero […] abajo del límite inferior de la sumatoria, como para aclarar que el cero no está incluido porque ya está explícito afuera"; si no, "lo está sumando dos veces" (repaso [41:35]). También vale escribirla de $k=0$ a $\infty$ con las dos exponenciales $e^{+j\dots}$ y $e^{-j\dots}$ (repaso [40:02]).
+
+### Ejemplo guiado 4: SEF por la integral directa (PDF de clase de SEF; teórico de cátedra; teórica SEF [31:48])
+
+$$
+f(t)=\begin{cases}0&-\pi<t<0\\\pi&0<t<\pi\end{cases}\qquad f(t)=f(t+2\pi)
+$$
+
+**Paso 1.** Pulso de altura $\pi$ entre $0$ y $\pi$. $T=2\pi$, $L=\pi$, $\omega_0=1$. A primera vista no es par ni impar: voy por la integral del $C_n$.
+
+**Paso 2.**
+
+$$
+C_0=\frac{1}{2\pi}\int_0^\pi\pi\,dt=\frac{\pi^2}{2\pi}=\frac\pi2
+$$
+
+**Paso 3.**
+
+$$
+C_n=\frac{1}{2\pi}\int_0^\pi\pi\,e^{-jnt}\,dt=\frac12\left[\frac{e^{-jnt}}{-jn}\right]_0^\pi=\frac{e^{-jn\pi}-1}{-2jn}=\frac{1-e^{-jn\pi}}{2jn}
+$$
+
+**Paso 4.** $e^{\pm jn\pi}=\cos(n\pi)\pm j\operatorname{sen}(n\pi)=(-1)^n$:
+
+$$
+C_n=\frac{1}{2jn}\left(1-(-1)^n\right)=\begin{cases}0&n\text{ par}\\[1mm]\dfrac{1}{jn}=-\dfrac jn&n\text{ impar}\end{cases}
+$$
+
+**Paso 5.** Algunos valores: $C_1=-j$, $C_{-1}=j$, $C_3=-\frac j3$, $C_{-3}=\frac j3$, $C_{\pm2}=0$.
+
+$$
+S(t)=\frac\pi2-j\sum_{k=-\infty}^{\infty}\frac{1}{2k+1}\,e^{j(2k+1)t}=\cdots+\frac j3e^{-j3t}+j\,e^{-jt}+\frac\pi2-j\,e^{jt}-\frac j3e^{j3t}-\cdots
+$$
+
+**Lo que hay que ver:** los $C_n$ salieron imaginarios puros salvo $C_0$. Es la firma de una **impar desplazada** (§8): este pulso es el del ejemplo guiado 1 con otra altura.
+
+### Ejemplo guiado 5 (parcial 2024-2C, Tema 1, Ej2): $f(t)=t$ en $0<t<\pi$, completar para que los $C_n$ sean imaginarios puros; hallar la STF y la SEF
+
+El enunciado está reconstruido en el índice desde la hoja de respuestas («≈»); el período es $f(t)=f(t+2\pi)$.
+
+**Paso 1.** Imaginarios puros ⇒ $C_n=\frac12(\cancel{a_n}-j\,b_n)$ ⇒ hay que anular $a_n$ ⇒ **impar**.
+
+**Paso 2.** En $(-\pi,0)$: $f(t)=-f(-t)=t$. La recta sigue de largo: diente de sierra.
+
+$$
+f(t)=t\ \text{ en }(-\pi,\pi)\qquad f(t)=f(t+2\pi)\qquad T=2\pi,\ L=\pi,\ \omega_0=1
+$$
+
+**Paso 3.** $a_0=a_n=0$ por ser impar.
+
+$$
+b_n=\frac2\pi\int_0^\pi t\operatorname{sen}(nt)\,dt=\frac2\pi\left[\frac{\operatorname{sen}(nt)}{n^2}-\frac{t\cos(nt)}{n}\right]_0^\pi=\frac2\pi\cdot\left(-\frac{\pi(-1)^n}{n}\right)=-\frac{2(-1)^n}{n}
+$$
+
+**Paso 4 — STF.**
+
+$$
+S(t)=-2\sum_{n=1}^{\infty}\frac{(-1)^n}{n}\operatorname{sen}(nt)=2\left(\operatorname{sen}t-\frac{\operatorname{sen}2t}{2}+\frac{\operatorname{sen}3t}{3}-\cdots\right)
+$$
+
+**Paso 5 — SEF.**
+
+$$
+C_0=0\qquad C_n=\frac12\left(0-j\cdot\frac{-2(-1)^n}{n}\right)=\frac{(-1)^n}{n}\,j\quad(n\neq0)
+$$
+
+$$
+S(t)=\sum_{\substack{n=-\infty\\n\neq0}}^{\infty}\frac{(-1)^n}{n}\,j\,e^{jnt}
+$$
+
+Imaginarios puros, como pedían ✓.
+
+### Tu turno 6
+
+<details>
+<summary>🔴 <strong>6.A (1er recuperatorio 2025, ítem b, 1 punto)</strong> — Con el resultado del ítem a) (f(x) = 2x en (0, 2) completada para serie de senos: bₘ = −8(−1)ᵐ/(mπ)), calcular los Cₙ de la SEF.</summary>
+
+**Dato del ítem a) en limpio:** $b_m=-\dfrac{8(-1)^m}{m\pi}$, $a_0=a_m=0$, $T=4$, $\omega_0=\dfrac\pi2$.
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+$$
+C_n=\frac12\left(\cancel{a_n}-j\,b_n\right)=-\frac j2\cdot\left(-\frac{8(-1)^n}{n\pi}\right)
+$$
+
+**Respuesta (coincide con la oficial):**
+
+$$
+C_n=\frac{4}{n\pi}(-1)^n\,j\qquad(n\neq0),\qquad C_0=0
+$$
+
+Si además pidieran la serie: $S(x)=\displaystyle\sum_{\substack{n=-\infty\\n\neq0}}^{\infty}\frac{4(-1)^n}{n\pi}\,j\,e^{jn\frac\pi2x}$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>6.B (parcial 2015-05-29, Tema 2, Ej1; es el ejercicio 3 de la clase de repaso grabada, repaso [26:59])</strong> — f(t) = 2t si 0 &lt; t &lt; 2, k(t) si −2 &lt; t &lt; 0, f(t) = f(t + 4). a) Hallar k(t) para que la STF tenga solo términos con cosenos. b) Desarrollar f(t) en serie exponencial de Fourier.</summary>
+
+<details>
+<summary><strong>Resolución (del profesor, en el repaso)</strong></summary>
+
+**a)** Solo cosenos ⇒ **par** ⇒ espejo respecto del eje $y$: $k(t)=f(-t)=-2t$. Queda una "V" que llega a $4$ en $t=\pm2$. $T=4$, $L=2$, $\omega_0=\frac\pi2$.
+
+**b)** Par ⇒ $b_n=0$ ⇒ $C_n=\frac12a_n$.
+
+Valor medio por gráfico (promedio entre $0$ y $4$), o integrando:
+
+$$
+a_0=\frac22\int_0^22t\,dt=4\qquad\Longrightarrow\qquad\frac{a_0}{2}=C_0=2
+$$
+
+$$
+a_n=\frac22\int_0^22t\cos\left(\frac{n\pi}{2}t\right)dt=2\left[\frac{\cos\left(\frac{n\pi}{2}t\right)}{\left(\frac{n\pi}{2}\right)^2}+\frac{t\operatorname{sen}\left(\frac{n\pi}{2}t\right)}{\frac{n\pi}{2}}\right]_0^2=2\left(\frac{4(-1)^n}{n^2\pi^2}-\frac{4}{n^2\pi^2}\right)
+$$
+
+$n$ par: $a_n=0$. $n$ impar: $a_n=-\dfrac{16}{n^2\pi^2}$, así que $C_n=-\dfrac{8}{n^2\pi^2}$.
+
+**Respuesta:**
+
+$$
+S(t)=2-\frac{8}{\pi^2}\sum_{k=-\infty}^{\infty}\frac{1}{(2k+1)^2}\,e^{j(2k+1)\frac\pi2t}
+$$
+
+o, en el otro formato válido,
+
+$$
+S(t)=2-\frac{8}{\pi^2}\sum_{k=0}^{\infty}\frac{1}{(2k+1)^2}\left(e^{j(2k+1)\frac\pi2t}+e^{-j(2k+1)\frac\pi2t}\right)
+$$
+
+Reales, como corresponde a una función par ✓.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>6.C (parcial ≈2019, K3521 Tema 2, Ej3a, segunda parte)</strong> — Para f(x) = 3x en (0, 2) completada para serie de cosenos (5.E: a₀/2 = 3, aₘ = −24/(m²π²) con m impar, 0 con m par), usar el resultado para hallar los Cₙ de la SEF sin resolver la integral.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+Par ⇒ $b_n=0$ ⇒ $C_n=\frac12a_n$:
+
+$$
+C_0=3\qquad C_n=-\frac{12}{n^2\pi^2}\ (n\text{ impar})\qquad C_n=0\ (n\text{ par},\ n\neq0)
+$$
+
+Reales ✓. El $n^2$ hace que la misma fórmula sirva para $n$ negativo.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>6.D (parcial 2022-10-11, Ej1.2) [RECICLADO]</strong> — Para f(t) = t + 2 en (0, 2) completada para serie de cosenos (5.G), hallar con ese desarrollo los Cₙ de la SEF.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+De 5.G: $\dfrac{a_0}{2}=3$, $a_m=-\dfrac{8}{m^2\pi^2}$ ($m$ impar), $0$ ($m$ par), $b_m=0$.
+
+$$
+C_0=3\qquad C_n=\frac12a_n=-\frac{4}{n^2\pi^2}\ (n\text{ impar})\qquad C_n=0\ (n\text{ par},\ n\neq0)
+$$
+
+$$
+S(t)=3-\frac{4}{\pi^2}\sum_{k=-\infty}^{\infty}\frac{1}{(2k+1)^2}\,e^{j(2k+1)\frac\pi2t}
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>6.E (guía ej. 8b, OneNote SEF p. 3–4)</strong> — f(t) = t si t ∈ (0, 2), 4 − t si t ∈ (2, 4), f(t + 4) = f(t). Desarrollar en SEF.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Triángulo que sube de $0$ a $2$ y vuelve a $0$. Corrido un período hacia la izquierda se ve que es **par**: en $(-2,2)$ es $\lvert t\rvert$. $T=4$, $L=2$, $\omega_0=\frac\pi2$.
+
+**Paso 2.** Par ⇒ $C_m=\frac12a_m$. El OneNote plantea las dos opciones para que se vea la diferencia:
+
+$$
+\text{por la STF:}\quad a_m=\frac22\int_0^2x\cos\left(\frac{m\pi}{2}x\right)dx\qquad\qquad\text{por la SEF:}\quad C_m=\frac14\left[\int_{-2}^{0}-t\,e^{-jm\frac\pi2t}\,dt+\int_0^2t\,e^{-jm\frac\pi2t}\,dt\right]
+$$
+
+y anota al lado de la segunda: "Hay que abrir → + trabajo". El manuscrito llega hasta ahí.
+
+**Paso 3.** La integral de la STF es la del ejemplo guiado 3 i): $\frac{a_0}{2}=1$, $a_m=-\dfrac{8}{m^2\pi^2}$ ($m$ impar), $0$ ($m$ par).
+
+**Respuesta (coincide con la guía):**
+
+$$
+C_0=1,\qquad C_m=-\frac{4}{m^2\pi^2}\ (m\text{ impar}),\qquad S(t)=1+\sum_{k=-\infty}^{\infty}\frac{-4}{(2k+1)^2\pi^2}\,e^{j(2k+1)\frac\pi2t}
+$$
+
+</details>
+
+</details>
+
+---
+
+## 7. El espectro de amplitudes (2/16; ítem c del recuperatorio 2025)
+
+### 7.1 La idea
+
+Cada $C_n$ es un número complejo: tiene **módulo** y **argumento**. Si graficás el módulo de cada uno en función de la frecuencia que le corresponde, $n\omega_0$, tenés el **espectro de amplitudes**: un bastón por cada armónica, que dice cuánto pesa esa frecuencia en la señal. El gráfico de los argumentos es el **espectro de fase**.
+
+Como $n$ es entero, el espectro de una función periódica son **bastones separados** (espectro **discreto**), y la separación entre uno y el siguiente es $\omega_0$.
+
+### 7.2 Receta
+
+1. Calculá $\lvert C_n\rvert$. Si $C_n$ es real o imaginario puro, es sacarle el signo y la $j$: $\left\lvert\frac{4(-1)^n}{n\pi}j\right\rvert=\frac{4}{\lvert n\rvert\pi}$.
+2. Armá una tablita con $n=0,\pm1,\pm2,\pm3,\pm4$: frecuencia $n\omega_0$ y altura $\lvert C_n\rvert$. No te olvides de $n=0$: su bastón mide $\lvert C_0\rvert$ (el valor medio, en módulo).
+3. Dibujá los ejes: horizontal $n\omega_0$ (marcá $\pm\omega_0,\pm2\omega_0,\dots$), vertical $\lvert C_n\rvert$.
+4. Un bastón por cada $n$. El gráfico es **simétrico** respecto del eje vertical ($\lvert C_{-n}\rvert=\lvert C_n\rvert$) y **nunca baja del eje** (son módulos).
+5. Si hay armónicas nulas (las pares, por ejemplo), en esos lugares no va bastón: marcá el punto sobre el eje.
+
+**Qué hay que dejar escrito:** la fórmula de $\lvert C_n\rvert$, los ejes rotulados y tres o cuatro bastones a cada lado con su altura. La hoja oficial del recuperatorio 2025 es eso: bastones simétricos en $\pm1\omega_0,\pm2\omega_0,\pm3\omega_0,\pm4\omega_0$, nada en $n=0$ y una envolvente punteada.
+
+**Propiedad:** $\displaystyle\lim_{n\to\pm\infty}\lvert C_n\rvert=0$. Los bastones siempre se achican hacia los costados (lo mismo pasa con $a_n$ y $b_n$).
+
+> **En clase:** "en la cátedra la verdad es que se le da mucha más bola al espectro de amplitud […] y no tanto al espectro de fase" (teórica SEF [40:41]). "Estos gráficos se grafican en el eje $x$ en función de $\omega n$. O sea, cada separación entre un punto y otro es un $\omega$, la frecuencia fundamental" (teórica SEF [42:12]).
+>
+> **En clase:** el gráfico de $C_n$ (que puede cruzar el eje) **no** es el espectro de amplitudes: "las amplitudes son positivas siempre, son módulos" (teórica SEF [1:14:38]).
+
+### Ejemplo guiado 6: espectros del pulso del ejemplo guiado 4 (PDF de clase de SEF; teórica SEF [40:41])
+
+Teníamos $C_0=\frac\pi2$, $C_n=-\frac jn$ ($n$ impar) y $C_n=0$ ($n$ par), con $\omega_0=1$.
+
+**Amplitud.**
+
+$$
+\lvert C_n\rvert=\left\lvert-\frac jn\right\rvert=\frac{1}{\lvert n\rvert}\ (n\text{ impar})\qquad\lvert C_n\rvert=0\ (n\text{ par},\ n\neq0)\qquad\lvert C_0\rvert=\frac\pi2
+$$
+
+| $n\omega_0$ | −5 | −4 | −3 | −2 | −1 | 0 | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| $\lvert C_n\rvert$ | 0,2 | 0 | 0,333 | 0 | 1 | 1,571 | 1 | 0 | 0,333 | 0 | 0,2 |
+
+Es el panel izquierdo de la figura de abajo.
+
+**Fase.** $C_n=-\frac jn$ con $n$ impar **positivo** es un imaginario puro negativo: argumento $\frac{3\pi}{2}$. Con $n$ impar **negativo** queda $+\frac{j}{\lvert n\rvert}$: argumento $\frac\pi2$. $C_0$ es real positivo: argumento $0$. La fase no cambia con $n$ porque todos son imaginarios puros; solo cambia el lado.
+
+⚠ **Discrepancia entre fuentes:** para los $n$ pares ($C_n=0$) el teórico de cátedra dice "no existe $\varphi_n$ si $n$ es par" y el profesor en clase le pone fase $0$ ("el número cero tiene ángulo cero", teórica SEF [43:15]). Si te lo piden, aclaralo con una línea; la fase casi no se toma.
+
+![Tres espectros de amplitud: el pulso de la clase, el recuperatorio 2025 y el recuperatorio 2024-2C](../img/01-fig6-espectros-amplitud.png)
+
+### Tu turno 7
+
+<details>
+<summary>🔴 <strong>7.A (1er recuperatorio 2025, ítem c, 1 punto)</strong> — Con los Cₙ del ítem b) (Cₙ = 4(−1)ⁿ j/(nπ), T = 4), graficar el espectro de amplitudes: |Cₙ| en función de ω₀·n.</summary>
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+**Paso 1.**
+
+$$
+\lvert C_n\rvert=\left\lvert\frac{4(-1)^n}{n\pi}\,j\right\rvert=\frac{4}{\lvert n\rvert\pi}\quad(n\neq0),\qquad\lvert C_0\rvert=0
+$$
+
+**Paso 2.** $\omega_0=\frac\pi2$: los bastones van en $\pm\frac\pi2,\ \pm\pi,\ \pm\frac{3\pi}{2},\ \pm2\pi,\dots$
+
+| $n$ | 0 | ±1 | ±2 | ±3 | ±4 |
+|---|---|---|---|---|---|
+| $n\omega_0$ | 0 | ±π/2 | ±π | ±3π/2 | ±2π |
+| $\lvert C_n\rvert$ | 0 | 1,273 | 0,637 | 0,424 | 0,318 |
+
+**Paso 3.** Bastones simétricos respecto de $0$, **sin bastón en $n=0$** (la función es impar: valor medio nulo), decrecientes como $\frac{1}{\lvert n\rvert}$ (envolvente hiperbólica punteada). Es el panel del medio de la figura de arriba.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>7.B (1er recuperatorio 2024-2C, Ej2, 2 puntos)</strong> — Hallar la SEF de f(t) = 1 en (−π/5, π/5) y 0 en (−π, −π/5) ∪ (π/5, π). Dibujar el espectro de Cₙ.</summary>
+
+**Enunciado en limpio:** $f(t)=1$ si $\lvert t\rvert<\frac\pi5$, $f(t)=0$ si $\frac\pi5<\lvert t\rvert<\pi$, con período $2\pi$.
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**Paso 1.** Pulso de ancho $\frac{2\pi}{5}$ centrado en el origen. $T=2\pi$, $L=\pi$, $\omega_0=1$. Es **par** ⇒ $b_n=0$ ⇒ $C_n=\frac12a_n$.
+
+**Paso 2.** Valor medio: área del pulso sobre el período.
+
+$$
+C_0=\frac{a_0}{2}=\frac{1}{2\pi}\cdot\frac{2\pi}{5}=\frac15
+$$
+
+**Paso 3.**
+
+$$
+a_n=\frac2\pi\int_0^{\pi/5}\cos(nt)\,dt=\frac2\pi\left[\frac{\operatorname{sen}(nt)}{n}\right]_0^{\pi/5}=\frac{2}{n\pi}\operatorname{sen}\left(\frac{n\pi}{5}\right)\qquad\Longrightarrow\qquad C_n=\frac{\operatorname{sen}\left(\frac{n\pi}{5}\right)}{n\pi}
+$$
+
+(Por la integral directa da lo mismo: $C_n=\frac{1}{2\pi}\int_{-\pi/5}^{\pi/5}e^{-jnt}\,dt=\frac{1}{n\pi}\cdot\frac{e^{jn\pi/5}-e^{-jn\pi/5}}{2j}$.)
+
+**Paso 4 — la serie.**
+
+$$
+S(t)=\frac15+\sum_{\substack{n=-\infty\\n\neq0}}^{\infty}\frac{\operatorname{sen}\left(\frac{n\pi}{5}\right)}{n\pi}\,e^{jnt}
+$$
+
+Es la misma respuesta que da la guía para el ej. 8a (pulso de ancho 4 con período 20: la misma proporción ancho/período).
+
+**Paso 5 — el espectro.** $\operatorname{sen}\left(\frac{n\pi}{5}\right)=0$ cuando $n$ es múltiplo de 5.
+
+| $n$ | 0 | ±1 | ±2 | ±3 | ±4 | ±5 | ±6 |
+|---|---|---|---|---|---|---|---|
+| $C_n$ | 0,2 | 0,187 | 0,151 | 0,101 | 0,047 | 0 | −0,031 |
+| $\lvert C_n\rvert$ | 0,2 | 0,187 | 0,151 | 0,101 | 0,047 | 0 | 0,031 |
+
+Bastones cada $\omega_0=1$, simétricos, con ceros en $n=\pm5,\pm10$ (panel derecho de la figura). El enunciado dice "espectro de $C_n$": como acá los $C_n$ son reales, podés graficar $C_n$ (cruza el eje a partir de $n=6$) y aclarar que el de amplitudes es su módulo.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>Se toma poco: relación entre período y espectro, y espectro discreto o continuo (PDF "Relación entre período y espectro"; teórica SEF [45:57]–[1:14:05]). Es pregunta teórica de final.</strong></summary>
+
+**El ejercicio de la clase.** Tren de pulsos de **ancho fijo 1** y período $T$: $f(t)=1$ si $\lvert t\rvert<\frac12$, $0$ en el resto del período. $L=\frac T2$, $\omega_0=\frac{2\pi}{T}$.
+
+$$
+C_0=\frac1T\int_{-1/2}^{1/2}1\,dt=\frac1T
+$$
+
+$$
+C_n=\frac1T\int_{-1/2}^{1/2}e^{-jn\frac{2\pi}{T}t}\,dt=\frac{1}{n\pi}\cdot\frac{e^{jn\pi/T}-e^{-jn\pi/T}}{2j}=\frac{1}{n\pi}\operatorname{sen}\left(\frac{n\pi}{T}\right)=\frac1T\cdot\frac{\operatorname{sen}\left(\frac{n\pi}{T}\right)}{\frac{n\pi}{T}}
+$$
+
+$C_n$ se anula cuando $\frac{n\pi}{T}=k\pi$, o sea en $n=kT$:
+
+| $T$ | $\omega_0=\frac{2\pi}{T}$ | $C_0$ | $C_n=0$ en… | Armónicas entre $C_0$ y el primer cero |
+|---|---|---|---|---|
+| 2 | $\pi\approx3{,}14$ | $\frac12$ | $n=2k$ | 1 |
+| 4 | $\frac\pi2\approx1{,}57$ | $\frac14$ | $n=4k$ | 3 |
+| 10 | $\frac\pi5\approx0{,}63$ | $\frac1{10}$ | $n=10k$ | 9 |
+
+![El espectro C_n del tren de pulsos de ancho 1 para T = 2, 4 y 10: cuanto mayor el período, más juntos los bastones](../img/01-fig8-periodo-y-espectro.png)
+
+**La conclusión.** Al agrandar $T$ los pulsos se separan y $\omega_0$ (la distancia entre bastones) se achica: el espectro se "puebla". Cuando $T\to\infty$ queda un solo pulso, la función **deja de ser periódica** y el espectro pasa de **discreto** a **continuo** (ahí ya es la transformada de Fourier, que no se toma).
+
+| Señal | Herramienta | Espectro |
+|---|---|---|
+| **Periódica** | Serie de Fourier (STF o SEF) | **Discreto** |
+| **Aperiódica** | Transformada de Fourier | **Continuo** |
+
+> **En clase:** "esto se viene preguntando mucho en los finales, de forma teórica: […] si tengo esta función, y ustedes ya se dan cuenta que es periódica o no es periódica, ¿cómo va a ser su espectro? ¿Será discreto o será continuo?" (teórica SEF [1:02:01]). "No me importa que $T$ sea infinito, eso no es el punto": lo importante es que la función deje de ser periódica (teórica SEF [1:13:35]).
+
+⚠ **Error de la guía (señalado por el profesor).** El ejercicio 10 de la guía (pulso entre $-\frac\pi k$ y $\frac\pi k$ con el período fijo, haciendo crecer $k$) llega a esa conclusión por un camino equivocado: achicar el ancho del pulso **sin tocar el período** no vuelve continuo el espectro, porque la función sigue siendo periódica. "Si […] encuentran algún ejercicio que hable de que a partir del ancho del pulso, sin tocar el período, el espectro se vuelve continuo", está mal (teórica SEF [1:04:39]). La respuesta de la guía para ese ejercicio, $S(t)=\frac1k+\sum\frac{\operatorname{sen}(n\pi/k)}{n\pi}e^{jn\omega x}$, como cuenta está bien (con $k=5$ es el 7.B).
+
+</details>
+
+---
+
+## 8. Valor medio e "impar desplazada": hallar $k$ (5/16, reciclado 3 veces)
+
+### 8.1 La idea
+
+Una función impar tiene valor medio $0$. Si a una impar $g$ le **sumás una constante** $k$, la subís (o bajás) entera:
+
+$$
+f(t)=g(t)+k\qquad\Longrightarrow\qquad S_f(t)=k+\sum_{n=1}^{\infty}b_n\operatorname{sen}(n\omega_0t)
+$$
+
+La serie de $f$ es la de $g$ más la constante. O sea: **sigue sin tener cosenos** ($a_n=0$), pero ahora tiene valor medio $\frac{a_0}{2}=k$. El profesor la llama **impar desplazada**. No es impar (no cumple $f(-x)=-f(x)$), pero si la mirás desde la recta $y=k$, lo es.
+
+![Dos impares desplazadas: el escalón 4/2 del parcial reciclado y el diente de sierra 4t del OneNote](../img/01-fig7-impar-desplazada.png)
+
+En la exponencial: $C_0=k$ (real) y el resto $C_n=-\frac{b_n}{2}j$, imaginarios puros. Por eso estas tres frases piden lo mismo:
+
+- "que la STF **no tenga cosenos** y su **valor medio sea 3**";
+- "que los $C_n$ sean todos **imaginarios puros excepto $C_0$**, que debe valer 3";
+- "complete para que **no tenga cosenos** y el valor medio sea 1".
+
+> **En clase:** "las funciones impares puras, del libro, tienen valor medio cero"; si además piden un valor medio, lo que piden es una impar corrida hacia arriba (repaso [43:11]). El OneNote de la práctica lo deja tipeado: "las funciones impares desplazadas no son funciones impares puras porque no se cumple que $f(x)=-f(-x)$, pero sus series de Fourier comparten similitudes: el $a_n$ se anula".
+
+### 8.2 Receta para "hallar $k$"
+
+1. **Valor medio de una función constante por tramos** = promedio ponderado: $\dfrac{\text{área en un período}}{T}$.
+2. **Sin cosenos + valor medio $V$:** restale $V$ a la función; lo que queda tiene que ser impar. Si el dato vale $c$ en $(0,L)$, del otro lado tiene que valer $k$ con $k-V=-(c-V)$, es decir $k=2V-c$.
+3. **Verificá** que con ese $k$ el valor medio da $V$.
+4. Para desarrollar: $\frac{a_0}{2}=V$ (gráfico), $a_n=0$ ("impar desplazada"), y $b_n$ integrando en un período completo. Podés calcular los $b_n$ de $g=f-V$ con $\frac2L\int_0^L$, que es impar de verdad.
+
+**Qué hay que dejar escrito:** la frase "impar desplazada", el gráfico con la recta del valor medio marcada, y la cuenta del valor medio.
+
+### Ejemplo guiado 7: $f(t)=4t$, $0<t<10$, $f(t)=f(t+10)$ (guía ej. 2d, OneNote STF p. 5)
+
+**Paso 1.** Rampas de $0$ a $40$ repetidas cada 10 (panel derecho de la figura). $T=10$, $L=5$, $\omega_0=\frac\pi5$.
+
+**Paso 2.** Valor medio por gráfico: $\frac{a_0}{2}=20$. Defino $g(t)=4t-20$: es la misma rampa bajada 20, y es **impar** (en $(-5,5)$ es $g(t)=4t$). Entonces $f=g+20$ es una **impar desplazada** ⇒ $a_m=0$.
+
+**Paso 3.** La función está definida de $0$ a $T$: integro ahí, con $\frac1L$ y **sin** el "2 por".
+
+$$
+b_m=\frac15\int_0^{10}4t\operatorname{sen}\left(\frac{m\pi}{5}t\right)dt=\frac45\left[\frac{\operatorname{sen}\left(\frac{m\pi}{5}t\right)}{\frac{m^2\pi^2}{25}}-\frac{t\cos\left(\frac{m\pi}{5}t\right)}{\frac{m\pi}{5}}\right]_0^{10}=\frac45\cdot\left(-\frac{10\cos(2m\pi)}{\frac{m\pi}{5}}\right)=-\frac{40}{m\pi}
+$$
+
+El extremo cae en $2m\pi$: $\cos(2m\pi)=1$, no $(-1)^m$.
+
+**Respuesta (coincide con la guía):**
+
+$$
+S(t)=20-\frac{40}{\pi}\sum_{m=1}^{\infty}\frac{\operatorname{sen}\left(\frac{m\pi}{5}t\right)}{m}
+$$
+
+(Los $b_m$ son los mismos para $f$ y para $g$, porque la constante 20 por un seno integra $0$ en un período.)
+
+### Tu turno 8
+
+<details>
+<summary>🟠 <strong>8.A (parcial 2015-05-29, Tema 1, Ej1) [RECICLADO: salió 3 veces]</strong> — f(x) = 4 si 0 &lt; x &lt; 2, k si −2 &lt; x &lt; 0, f(x) = f(x + 4). a) Indicar, si es posible, un valor de k para que la STF no tenga términos con cosenos y su valor medio sea 3; justificar. b) Con k = −4, desarrollar f(x) en serie exponencial de Fourier.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía; k = 2 es el resultado anotado en el índice)</strong></summary>
+
+**a)** Sin cosenos y con valor medio distinto de $0$ ⇒ **impar desplazada** con $V=3$. $f-3$ vale $1$ en $(0,2)$; para que sea impar tiene que valer $-1$ en $(-2,0)$:
+
+$$
+k-3=-1\qquad\Longrightarrow\qquad k=2
+$$
+
+Verificación del valor medio: $\dfrac{4\cdot2+2\cdot2}{4}=3$ ✓. Es posible, con $k=2$ (panel izquierdo de la figura de §8.1).
+
+**b)** Con $k=-4$ la función es una onda cuadrada entre $-4$ y $4$: **impar** pura. $T=4$, $L=2$, $\omega_0=\frac\pi2$. $a_0=a_m=0$.
+
+$$
+b_m=\frac22\int_0^24\operatorname{sen}\left(\frac{m\pi}{2}x\right)dx=4\left[\frac{-\cos\left(\frac{m\pi}{2}x\right)}{\frac{m\pi}{2}}\right]_0^2=\frac{8}{m\pi}\left(1-(-1)^m\right)
+$$
+
+$m$ par: $0$. $m$ impar: $b_m=\dfrac{16}{m\pi}$.
+
+$$
+C_0=0\qquad C_m=-\frac j2\,b_m=-\frac{8j}{m\pi}\ (m\text{ impar})\qquad C_m=0\ (m\text{ par})
+$$
+
+**Respuesta:**
+
+$$
+S(x)=-\frac{8j}{\pi}\sum_{k=-\infty}^{\infty}\frac{1}{2k+1}\,e^{j(2k+1)\frac\pi2x}
+$$
+
+Si pidieran también la STF (como en 2024-2C): $S(x)=\dfrac{16}{\pi}\displaystyle\sum_{k=0}^{\infty}\frac{1}{2k+1}\operatorname{sen}\left[(2k+1)\frac\pi2x\right]$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>8.B (las otras dos apariciones del mismo ejercicio) [RECICLADO]</strong> — Misma f (4 en (0, 2), k en (−2, 0), período 4). i) Parcial ≈2015 sin fecha, Tema 1, Ej3: hallar k para que no haya cosenos y el valor medio sea 3; con k = 0, desarrollar en SEF. ii) Parcial 2024-2C, Tema 2, Ej2: hallar k para que los Cₙ sean todos imaginarios puros excepto C₀, que debe valer 3; con k = −4, desarrollar en SEF y STF.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**i) a)** Igual que 8.A: $k=2$.
+
+**i) b)** Con $k=0$ es un pulso: $4$ en $(0,2)$, $0$ en $(-2,0)$. Valor medio $\frac{4\cdot2}{4}=2$. $f-2$ vale $2$ y $-2$: impar. Entonces $f$ es **impar desplazada**: $C_0=2$, $a_m=0$.
+
+$$
+b_m=\frac12\int_0^24\operatorname{sen}\left(\frac{m\pi}{2}x\right)dx=\frac{4}{m\pi}\left(1-(-1)^m\right)=\begin{cases}\dfrac{8}{m\pi}&m\text{ impar}\\[1mm]0&m\text{ par}\end{cases}
+$$
+
+(Integré un período completo, de $-2$ a $2$, con $\frac1L=\frac12$; de $-2$ a $0$ la función vale $0$.)
+
+$$
+C_m=-\frac j2\,b_m=-\frac{4j}{m\pi}\ (m\text{ impar})\qquad\Longrightarrow\qquad S(x)=2-\frac{4j}{\pi}\sum_{k=-\infty}^{\infty}\frac{1}{2k+1}\,e^{j(2k+1)\frac\pi2x}
+$$
+
+Por la integral directa sale igual de rápido: $C_m=\frac14\int_0^24\,e^{-jm\frac\pi2x}dx=\dfrac{2\left(1-(-1)^m\right)}{jm\pi}$. Es el ejemplo guiado 4 con otros números.
+
+**ii) a)** Imaginarios puros excepto $C_0=3$ ⇒ impar desplazada con valor medio 3 ⇒ $k=2$ (la misma respuesta, pedida con otras palabras).
+
+**ii) b)** Con $k=-4$: la STF y la SEF de 8.A b).
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>8.C (parcial ≈2019, K3521 Tema 1, Ej3)</strong> — f(t) = |t| si −1 &lt; t &lt; 1, k si 1 &lt; |t| &lt; 2, f(t) = f(t + 4). a) Indicar k ∈ ℝ para que el valor medio de la señal sea 1; justificar. b) Para k = 0, desarrollar en STF.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**a)** $T=4$. Área en un período: los dos triángulos de $\lvert t\rvert$ suman $2\cdot\frac{1\cdot1}{2}=1$; los dos tramos constantes, $2k$.
+
+$$
+\frac{a_0}{2}=\frac{1+2k}{4}=1\qquad\Longrightarrow\qquad k=\frac32
+$$
+
+**b)** Con $k=0$: una "V" entre $-1$ y $1$ y cero hasta $\pm2$. Es **par** ⇒ $b_m=0$. $L=2$, $\omega_0=\frac\pi2$.
+
+$$
+a_0=\frac22\int_0^1t\,dt=\frac12\qquad\Longrightarrow\qquad\frac{a_0}{2}=\frac14
+$$
+
+$$
+a_m=\frac22\int_0^1t\cos\left(\frac{m\pi}{2}t\right)dt=\left[\frac{\cos\left(\frac{m\pi}{2}t\right)}{\frac{m^2\pi^2}{4}}+\frac{t\operatorname{sen}\left(\frac{m\pi}{2}t\right)}{\frac{m\pi}{2}}\right]_0^1=\frac{4}{m^2\pi^2}\left(\cos\frac{m\pi}{2}-1\right)+\frac{2}{m\pi}\operatorname{sen}\frac{m\pi}{2}
+$$
+
+La integral llega hasta $1$ (después la función vale $0$), así que el extremo cae en $\frac{m\pi}{2}$ y **no** se anula el seno. Se deja así, o con la tablita de §3.3:
+
+| $m$ | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| $a_m$ | $\frac2\pi-\frac{4}{\pi^2}=0{,}231$ | $-\frac{2}{\pi^2}=-0{,}203$ | $-\frac{2}{3\pi}-\frac{4}{9\pi^2}=-0{,}257$ | $0$ |
+
+**Respuesta:**
+
+$$
+S(t)=\frac14+\sum_{m=1}^{\infty}\left[\frac{4}{m^2\pi^2}\left(\cos\frac{m\pi}{2}-1\right)+\frac{2}{m\pi}\operatorname{sen}\frac{m\pi}{2}\right]\cos\left(\frac{m\pi}{2}t\right)
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>8.D (2do recuperatorio 2025-02-13, Ej2b)</strong> — Señal f(t) = 4 si 0 &lt; t &lt; 2, 3 si 2 &lt; t &lt; 4, 2 si 4 &lt; t &lt; 6, f(t) = f(t + 6). I) Hallar el valor medio. ¿Tiene simetría de media onda? Si no, justificar. II) ¿Qué coeficientes tiene el desarrollo en STF?</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**I)** Escalera que baja: $4$, $3$, $2$. $T=6$, $L=3$, $\omega_0=\frac\pi3$.
+
+$$
+\frac{a_0}{2}=\frac{4\cdot2+3\cdot2+2\cdot2}{6}=3
+$$
+
+**No tiene simetría de media onda:** con media onda el valor medio tiene que ser $0$, y es $3$. (También por definición: $f(1)=4$ y $-f(1+3)=-2$.)
+
+**II)** Le resto el valor medio: $g=f-3$ vale $1$ en $(0,2)$, $0$ en $(2,4)$ y $-1$ en $(4,6)$. Llevando el tramo $(4,6)$ a $(-2,0)$ por periodicidad: $g=-1$ en $(-2,0)$, $g=1$ en $(0,2)$ y $g=0$ en $2<\lvert t\rvert<3$. Es **impar** ⇒ $f$ es **impar desplazada**:
+
+$$
+\frac{a_0}{2}=3,\qquad a_n=0\ \ \forall n\ge1,\qquad b_n\neq0
+$$
+
+La serie tiene **el valor medio y términos con senos; ningún coseno**. Si querés los $b_n$ (los de $g$, con $\frac2L\int_0^L$):
+
+$$
+b_n=\frac23\int_0^2\operatorname{sen}\left(\frac{n\pi}{3}t\right)dt=\frac{2}{n\pi}\left(1-\cos\frac{2n\pi}{3}\right)=\begin{cases}\dfrac{3}{n\pi}&n\text{ no múltiplo de 3}\\[1mm]0&n\text{ múltiplo de 3}\end{cases}
+$$
+
+porque $\cos\frac{2n\pi}{3}$ vale $-\frac12$ salvo cuando $n$ es múltiplo de 3, que vale $1$. Hay armónicas pares ($b_2=\frac{3}{2\pi}$): otra confirmación de que no hay media onda.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>8.E (clase de repaso grabada, ejercicio 4, ítem a; repaso [42:07])</strong> — Dada f(t) = t en (1, 2), completar en (0, 1) con T = 2 para que la STF no tenga cosenos y su valor medio sea 1. Desarrollar la serie.</summary>
+
+<details>
+<summary><strong>Resolución (del profesor, en el repaso)</strong></summary>
+
+**Paso 1.** Sin cosenos y con valor medio 1 ⇒ **impar desplazada** una unidad hacia arriba. Se completa con la continuación natural de la recta: $f(t)=t$ en $(0,2)$, $f(t)=f(t+2)$. Mirada desde $y=1$ es un diente de sierra impar.
+
+**Paso 2.** $T=2$, $L=1$, $\omega_0=\pi$. $\dfrac{a_0}{2}=1$ (gráfico: promedio entre $0$ y $2$), $a_n=0$.
+
+**Paso 3.** Integro el período completo de $0$ a $2$, con $\frac1L=1$ y sin "2 por":
+
+$$
+b_n=\frac11\int_0^2t\operatorname{sen}(n\pi t)\,dt=\left[\frac{\operatorname{sen}(n\pi t)}{n^2\pi^2}-\frac{t\cos(n\pi t)}{n\pi}\right]_0^2=-\frac{2\cos(2n\pi)}{n\pi}=-\frac{2}{n\pi}
+$$
+
+**Respuesta:**
+
+$$
+S(t)=1-\frac2\pi\sum_{n=1}^{\infty}\frac1n\operatorname{sen}(n\pi t)
+$$
+
+El ítem b) (usar esta serie para sumar $\sum\frac{(-1)^k}{2k+1}$) está en 11.C.
+
+En el repaso el profesor compara tres caminos para este $b_n$: $\frac1L\int_0^2$ (el elegido), $\frac2L\int_0^1$ sobre la impar $g=f-1$ (da lo mismo) y $\frac1L\int_{-1}^{1}$ partiendo la integral en $t+2$ y $t$: "este camino es el peor de todos, lejos" (repaso [51:29]–[52:00]).
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>8.F (guía ej. 9b, OneNote SEF p. 5)</strong> — Dar un ejemplo de una función periódica f(x) con T = 2 tal que los coeficientes de la SEF sean todos imaginarios puros excepto C₀ = 3.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+Imaginarios puros ⇒ impar; además $C_0\neq0$ ⇒ **impar desplazada**. Propongo un diente de sierra corrido, $f(x)=x+k$ en $(0,2)$, $f(x)=f(x+2)$, y ajusto $k$ con el valor medio:
+
+$$
+C_0=\frac{1}{2L}\int_0^Tf(x)\,dx=\frac12\int_0^2(x+k)\,dx=\frac12\left[\frac{x^2}{2}+kx\right]_0^2=\frac12(2+2k)=3\qquad\Longrightarrow\qquad k=2
+$$
+
+**Respuesta del profesor:** $f(x)=x+2$ en $(0,2)$, con $T=2$. La guía da otro ejemplo igual de válido: $f(x)=2x+1$ en $(0,2)$ (valor medio $\frac{1+5}{2}=3$).
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>8.G (guía ej. 8c, OneNote SEF p. 1–3)</strong> — f(t) = 2t si t ∈ [0, 2), f(t) = f(t + 2). Graficarla, desarrollarla en SEF y graficar el espectro de amplitud.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Diente de sierra de $0$ a $4$. $T=2$, $L=1$, $\omega_0=\pi$. Con la línea del valor medio dibujada se ve que es **impar desplazada**: $\dfrac{a_0}{2}=2$ (gráfico), $a_m=0$.
+
+**Paso 2.**
+
+$$
+b_m=\frac11\int_0^22t\operatorname{sen}(m\pi t)\,dt=2\left[\frac{\operatorname{sen}(m\pi t)}{m^2\pi^2}-\frac{t\cos(m\pi t)}{m\pi}\right]_0^2=-\frac{4}{m\pi}
+$$
+
+**Paso 3.**
+
+$$
+C_m=\frac12\left(\cancel{a_m}-j\,b_m\right)=\frac{2j}{m\pi}\quad(m\neq0),\qquad C_0=2
+$$
+
+**Respuesta (coincide con la guía):**
+
+$$
+S(t)=2+\sum_{\substack{m=-\infty\\m\neq0}}^{\infty}\frac{2j}{m\pi}\,e^{jm\pi t}=2+\sum_{m=1}^{\infty}\frac{2j}{m\pi}\,e^{jm\pi t}-\frac{2j}{m\pi}\,e^{-jm\pi t}
+$$
+
+**Espectro:** $\lvert C_0\rvert=2$ y $\lvert C_m\rvert=\dfrac{2}{\lvert m\rvert\pi}$: $0{,}637$ en $m=\pm1$, $0{,}318$ en $\pm2$, $0{,}212$ en $\pm3$. Un bastón alto en el centro y los demás decreciendo a los dos lados, separados $\omega_0=\pi$.
+
+</details>
+
+</details>
+
+---
+
+## 9. Simetría de media onda (7/16; ítem c de los dos temas del parcial 2025)
+
+### 9.1 La idea
+
+$$
+f\ \text{tiene simetría de media onda (es "periódica alternada")}\iff f\left(x+\frac T2\right)=-f(x)
+$$
+
+En criollo: **la segunda mitad del período es la primera mitad dada vuelta** (espejada respecto del eje $x$). El profesor lo piensa siempre en dos pasos:
+
+1. tomás medio período y lo **corrés $L$** (a la derecha o a la izquierda);
+2. lo **das vuelta** respecto del eje $x$.
+
+Si el resultado coincide con el dibujo de la función, tiene media onda. El $\operatorname{sen}x$ la tiene: la joroba de $(0,\pi)$, corrida $\pi$ y dada vuelta, es la joroba negativa.
+
+![A la izquierda, los dos pasos de la media onda. A la derecha, una función con solo armónicas impares que no tiene media onda](../img/01-fig4-media-onda.png)
+
+### 9.2 Lo que implica (y lo que no)
+
+- **Media onda ⇒ solo armónicas impares:** $a_0=0$, $a_n=b_n=0$ para todo $n$ par. En particular, **el valor medio es $0$**.
+- Se combina con la paridad: **par + media onda** ⇒ solo cosenos impares. **Impar + media onda** ⇒ solo senos impares.
+- **No vale al revés.** $\lvert x\rvert$ en $(-2,2)$ tiene solo cosenos de armónicas impares (ejemplo guiado 3) y no tiene media onda: su valor medio es $1$ (panel derecho de la figura). Lo mismo con par e impar: son "condicionales de ida".
+
+**Cómo justificar "¿tiene media onda?" en una línea:**
+
+- **No**, si el valor medio no es $0$ (alcanza con eso: una función que nunca es negativa no puede tenerla).
+- **No**, si encontrás una armónica par distinta de cero.
+- **No**, si un punto falla: $f(x_0+L)\neq-f(x_0)$.
+- **Sí**, verificando la definición tramo por tramo: $f(x+L)=-f(x)$.
+
+> **En clase:** "yo esto siempre lo pienso como dos pasos" (teórica SEF [04:18]); si el dibujo "que yo trasladé y di vuelta coincide con la gráfica de la función, quiere decir que esa función tiene simetría de media onda" (teórica SEF [05:52]). "Cuando la función tiene simetría de media onda, todas las armónicas pares se me anulan" (teórica SEF [08:28]).
+>
+> **En clase:** par ⇒ $b_n=0$, impar ⇒ $a_n=0$, media onda ⇒ solo impares "es algo que se tomó en el último final y nadie lo hizo bien […]. Si es par, sé que pasa esto, pero que pase esto no quiere decir que necesariamente sea par o impar o que tenga simetría de media onda" (teórica SEF [1:36:46]–[1:37:24]).
+
+### 9.3 Cómo completar
+
+**Con una sola condición (solo media onda).** El dato es **medio período**: $T=2\cdot(\text{largo del dato})$. El otro medio es el dato corrido $L$ y dado vuelta:
+
+$$
+f(x)=-f(x-L)\ \text{ a la derecha}\qquad\text{o}\qquad f(x)=-f(x+L)\ \text{ a la izquierda}
+$$
+
+**Con dos condiciones (paridad + media onda).** Es el ítem c de 2025. El dato tiene largo $\ell$ y cada condición duplica el intervalo: **$T=4\ell$**.
+
+1. **Paridad primero.** Espejá el dato: respecto del eje $y$ (par) o del origen (impar). Ya tenés $(-\ell,\ell)$, que es medio período.
+2. **Media onda después.** Ese pedazo, corrido $2\ell$ y dado vuelta, llena el otro medio. En fórmulas, con $L=2\ell$:
+   - en $(\ell,2\ell)$: $f(t)=-f(t-2\ell)$, y $t-2\ell$ cae en $(-\ell,0)$;
+   - en $(-2\ell,-\ell)$: $f(t)=-f(t+2\ell)$, y $t+2\ell$ cae en $(0,\ell)$.
+3. **Escribí los cuatro tramos** en $(-2\ell,2\ell)$ y "$f(t)=f(t+4\ell)$".
+4. **Chequeo visual:** la paridad se tiene que seguir viendo en el dibujo completo, y la mitad derecha tiene que ser la izquierda corrida y dada vuelta.
+
+**Qué hay que dejar escrito:** el gráfico de un período entero (mejor dos), la fórmula por tramos, el período, y las dos palabras: "impar" (o "par") y "S.M.O.". Así está en las hojas oficiales de 2025. **No se pide la serie.**
+
+> **En clase:** el OneNote de la práctica de SEF lo anota en un recuadro: "Necesitamos cuadruplicar la longitud del intervalo porque tenemos dos condiciones".
+
+### Ejemplo guiado 8: $f(t)=t^2$ si $0\le t<1$, completar para que la SEF tenga coeficientes imaginarios puros y además simetría de media onda (guía ej. 9a, OneNote SEF p. 4–5)
+
+**Paso 1 — traducir.** Imaginarios puros ⇒ $C_m=\frac12(\cancel{a_m}-j\,b_m)$ ⇒ **impar**. Nos piden: impar y S.M.O. Dos condiciones ⇒ $T=4\cdot1=4$, y defino la función en $(-2,2)$.
+
+**Paso 2 — impar.** En $(-1,0)$: $f(t)=-f(-t)=-(-t)^2=-t^2$.
+
+**Paso 3 — media onda** ($L=2$).
+
+- En $(1,2)$: $f(t)=-f(t-2)$. Como $t-2\in(-1,0)$, ahí $f(t-2)=-(t-2)^2$. Entonces $f(t)=(t-2)^2$: baja de $1$ a $0$.
+- En $(-2,-1)$: $f(t)=-f(t+2)$, con $t+2\in(0,1)$. Entonces $f(t)=-(t+2)^2$: baja de $0$ a $-1$.
+
+**Paso 4.**
+
+$$
+f(t)=\begin{cases}-(t+2)^2&-2<t<-1\\-t^2&-1<t<0\\t^2&0<t<1\\(t-2)^2&1<t<2\end{cases}\qquad f(t)=f(t+4)
+$$
+
+**Chequeo:** la joroba positiva de $(0,2)$, corrida $2$ y dada vuelta, es la joroba negativa de $(2,4)$, que por periodicidad es la de $(-2,0)$ ✓. Y es impar ✓. (Coincide con la respuesta de la guía.)
+
+### Tu turno 9
+
+<details>
+<summary>🔴 <strong>9.A (parcial 2025, Tema 1, ítem c, 1 punto)</strong> — f(t) = t si 0 &lt; t &lt; 1. Completar en forma gráfica y analítica para que la SEF tenga coeficientes imaginarios puros y además f(t) tenga simetría de media onda.</summary>
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+**Paso 1.** Imaginarios puros ⇒ **impar** ($a_m=0$). Más S.M.O.: dos condiciones ⇒ $T=4$.
+
+**Paso 2 — impar.** En $(-1,0)$: $f(t)=-f(-t)=-(-t)=t$. La recta sigue: $f(t)=t$ en $(-1,1)$.
+
+**Paso 3 — media onda** ($L=2$). En $(1,2)$: $f(t)=-f(t-2)=-(t-2)=-t+2$ (baja de $1$ a $0$). En $(-2,-1)$: $f(t)=-f(t+2)=-(t+2)=-t-2$ (baja de $0$ a $-1$).
+
+**Respuesta (coincide con la oficial):**
+
+$$
+f(t)=\begin{cases}-t-2&-2<t<-1\\t&-1<t<1\\-t+2&1<t<2\end{cases}\qquad f(t)=f(t+4)
+$$
+
+Una **onda triangular** que pasa por el origen. En la hoja está anotado "impar" y "S.M.O.". Gráfico: primer panel de la figura del final de esta sección.
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>9.B (parcial 2025, Tema 2, ítem c, 1 punto)</strong> — f(t) = t si 0 &lt; t &lt; 1. Completar en forma gráfica y analítica para que la SEF tenga coeficientes reales y además f(t) tenga simetría de media onda.</summary>
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+**Paso 1.** Reales ⇒ **par** ($b_m=0$). Más S.M.O. ⇒ $f(t+2)=-f(t)$, $T=4$.
+
+**Paso 2 — par.** En $(-1,0)$: $f(t)=f(-t)=-t$. Una "V" entre $-1$ y $1$.
+
+**Paso 3 — media onda.** En $(1,2)$: $f(t)=-f(t-2)$; como $t-2\in(-1,0)$, $f(t-2)=-(t-2)$, así que $f(t)=t-2$ (sube de $-1$ a $0$). En $(-2,-1)$: $f(t)=-f(t+2)=-(t+2)=-t-2$ (baja de $0$ a $-1$).
+
+**Respuesta (coincide con la oficial):**
+
+$$
+f(t)=\begin{cases}-t-2&-2<t<-1\\-t&-1<t<0\\t&0<t<1\\t-2&1<t<2\end{cases}\qquad f(t)=f(t+4)
+$$
+
+Anotado "par" y "S.M.O.". Tiene **saltos** en $t=\pm1$ (de $1$ a $-1$): una "V" arriba del eje y una "Λ" debajo, alternadas. Gráfico: segundo panel de la figura.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>9.C (parcial 2024-1C, Tema 2, Ej1c)</strong> — Dada f(t) = t² en (0, 2), completarla analítica y gráficamente para que sea impar y tenga simetría de media onda.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+Es el ejemplo guiado 8 con el dato de largo $\ell=2$: $T=4\cdot2=8$, $L=4$, y se define en $(-4,4)$.
+
+**Impar.** En $(-2,0)$: $f(t)=-(-t)^2=-t^2$.
+
+**Media onda.** En $(2,4)$: $f(t)=-f(t-4)$, con $t-4\in(-2,0)$: $f(t)=(t-4)^2$ (baja de $4$ a $0$). En $(-4,-2)$: $f(t)=-f(t+4)=-(t+4)^2$ (baja de $0$ a $-4$).
+
+**Respuesta:**
+
+$$
+f(t)=\begin{cases}-(t+4)^2&-4<t<-2\\-t^2&-2<t<0\\t^2&0<t<2\\(t-4)^2&2<t<4\end{cases}\qquad f(t)=f(t+8)
+$$
+
+Gráfico: tercer panel de la figura.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>9.D (parcial 2024-1C, Tema 1, Ej1b)</strong> — Usando la función del ítem a) (f(t) = t + 2 en (0, 2), completada par: f(t) = |t| + 2 en (−2, 2)), completar analítica y gráficamente en el intervalo (−8, 8) para que tenga simetría de media onda.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía; no tengo transcripta la resolución de la cátedra)</strong></summary>
+
+**Paso 1.** Ya se usó la paridad: el pedazo conocido es $\lvert t\rvert+2$ en $(-2,2)$, de largo $4$. Para que haya media onda ese pedazo pasa a ser **medio período**: $T=8$, $L=4$. Por eso el enunciado pide dibujar en $(-8,8)$: son dos períodos.
+
+**Paso 2 — media onda.** En $(2,6)$: $f(t)=-f(t-4)=-\left(\lvert t-4\rvert+2\right)$. Es la "V" corrida 4 y dada vuelta: una "Λ" con el pico en $(4;-2)$ que llega a $-4$ en $t=2$ y $t=6$.
+
+**Paso 3 — repetir con período 8.** En $(-6,-2)$: $-\left(\lvert t+4\rvert+2\right)$. En $(6,8)$ y $(-8,-6)$ vuelve la "V": $\lvert t-8\rvert+2$ y $\lvert t+8\rvert+2$.
+
+**Respuesta:**
+
+$$
+f(t)=\begin{cases}\lvert t+8\rvert+2&-8<t<-6\\-\lvert t+4\rvert-2&-6<t<-2\\\lvert t\rvert+2&-2<t<2\\-\lvert t-4\rvert-2&2<t<6\\\lvert t-8\rvert+2&6<t<8\end{cases}\qquad f(t)=f(t+8)
+$$
+
+Sigue siendo par ✓ y ahora el valor medio es $0$ ✓ (antes era $3$). Tiene saltos de $4$ a $-4$ en $t=\pm2,\pm6$. Gráfico: cuarto panel de la figura.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>9.E (2do recuperatorio 2025-02-13, Ej2a)</strong> — f(x) = x en [0, 2], f(x) = f(x + 4). Completar en forma gráfica y analítica para que: 1) tenga simetría de media onda; 2) la SEF tenga todos los coeficientes reales.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+El período ya viene dado: $T=4$, $L=2$. El dato ocupa medio período, así que cada pedido es **una sola condición** y da una función distinta (las tomo como dos completaciones separadas; con $T=4$ no se pueden cumplir las dos a la vez, ver abajo).
+
+**1) Media onda.** En $(2,4)$: $f(x)=-f(x-2)=-(x-2)=2-x$ (baja de $0$ a $-2$). Lo mismo, visto a la izquierda: en $(-2,0)$, $f(x)=-f(x+2)=-(x+2)$.
+
+$$
+f(x)=\begin{cases}-x-2&-2<x<0\\x&0<x<2\end{cases}\qquad f(x)=f(x+4)
+$$
+
+**2) Coeficientes reales ⇒ par.** En $(-2,0)$: $f(x)=f(-x)=-x$.
+
+$$
+f(x)=\begin{cases}-x&-2<x<0\\x&0<x<2\end{cases}=\lvert x\rvert\qquad f(x)=f(x+4)
+$$
+
+**Por qué no las dos juntas con $T=4$:** la par es $\lvert x\rvert\ge0$, con valor medio $1$; no puede tener media onda. Para tener las dos haría falta $T=8$, como en 9.D.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>9.F (parcial ≈2015 sin fecha Tema 2, Ej3b, y parcial ≈2019 K3521 Tema 2, Ej3b)</strong> — ¿Tiene simetría de media onda la función completada? Justificar. i) f(x) = x + 1 en (0, 1) completada impar con T = 2 (5.F). ii) f(x) = 3x en (0, 2) completada par con T = 4 (5.E).</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía)</strong></summary>
+
+**i) No.** $L=1$. Por definición tendría que ser $f(x+1)=-f(x)$. Pruebo con $x=-\frac14$: $f\left(\frac34\right)=\frac34+1=1{,}75$ y $-f\left(-\frac14\right)=-\left(-\frac14-1\right)=1{,}25$. No coinciden. Otra forma: la serie de 5.F tiene armónicas pares no nulas ($b_2=-\frac1\pi$), y con media onda todas las pares valen $0$.
+
+**ii) No.** $3\lvert x\rvert$ nunca es negativa: su valor medio es $3\neq0$. (Tiene solo cosenos de armónicas impares, pero eso no alcanza: es el contraejemplo de §9.2.)
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>9.G (guía ej. 5 y 6, OneNote STF p. 8–9)</strong> — a) La onda triangular que sube de 0 a 1 en (0, π/2), baja a −1 en 3π/2 y vuelve a 0 en 2π tiene serie (8/π²)(sen ωt − (1/9) sen 3ωt + (1/25) sen 5ωt − …). ¿Por qué solo aparecen senos? ¿Por qué solo frecuencias impares? b) Una función definida en [−π/2, π/2] vale 0 en [−π/2, 0], 1 en [0, π/4] y sube en línea recta de 1 a 2 en [π/4, π/2]. Completarla en [−π, π] para que tenga simetría de media onda.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** Completando el dibujo hacia la izquierda se ve que es **impar** ⇒ solo senos. Y tiene **simetría de media onda**: el triángulo de $(0,\pi)$, corrido $L=\pi$ y dado vuelta, es el de $(\pi,2\pi)$ ⇒ solo armónicas impares. (Coincide con la respuesta de la guía.)
+
+**b)** El dato ocupa $\left[-\frac\pi2,\frac\pi2\right]$, de largo $\pi$: es medio período. $T=2\pi$, $L=\pi$. Receta del OneNote: "1°) desplazar $L$ (izq. o der.); 2°) espejar con respecto al eje $x$".
+
+- En $\left[\frac\pi2,\pi\right]$ va el tramo $\left[-\frac\pi2,0\right]$ corrido $\pi$ y dado vuelta: $-0=0$.
+- En $\left[-\pi,-\frac\pi2\right]$ va el tramo $\left[0,\frac\pi2\right]$ corrido $-\pi$ y dado vuelta: vale $-1$ en $\left[-\pi,-\frac{3\pi}{4}\right]$ y baja en línea recta de $-1$ a $-2$ en $\left[-\frac{3\pi}{4},-\frac\pi2\right]$.
+
+Es el dibujo de la respuesta de la guía: a la izquierda el escalón y la rampa por debajo del eje, a la derecha cero.
+
+</details>
+
+</details>
+
+Los cuatro ítems de parcial con paridad + media onda, graficados (para comparar con tu dibujo):
+
+![Las funciones completadas de 9.A, 9.B, 9.C y 9.D](../img/01-fig5-paridad-mas-media-onda.png)
+
+---
+
+## 10. Cuando la función ya es una suma de senos y cosenos (ítem b del parcial 2025)
+
+### 10.1 La idea
+
+Una serie de Fourier es una suma de senos y cosenos de frecuencias $\omega_0, 2\omega_0, 3\omega_0,\dots$ que representa a la función. Si la función **ya está escrita así**, o se puede llevar a esa forma con una identidad, **esa es su serie**: no hay que integrar nada, y tiene **una cantidad finita de términos**.
+
+Herramientas, de la más rápida a la más segura:
+
+$$
+2\operatorname{sen}x\cos x=\operatorname{sen}2x\qquad\cos^2x=\frac{1+\cos2x}{2}\qquad\operatorname{sen}^2x=\frac{1-\cos2x}{2}
+$$
+
+Y si no te acordás de la identidad, **exponenciales complejas**: escribís cada seno y coseno con Euler, multiplicás (binomio de Newton, que está en el ayudamemoria) y reagrupás.
+
+$$
+\cos x=\frac{e^{jx}+e^{-jx}}{2}\qquad\operatorname{sen}x=\frac{e^{jx}-e^{-jx}}{2j}
+$$
+
+**Qué hay que dejar escrito:** la identidad (o la cuenta con exponenciales), la frase "la función ya es una armónica (o una suma finita de armónicas), así que esa es su STF", y cuántos términos no nulos tiene y cuáles ($b_2=1$, por ejemplo).
+
+### Ejemplo guiado 9: $f(x)=\operatorname{sen}x$ en $(0,\pi)$, serie de senos (guía ej. 4a ii, OneNote STF p. 8)
+
+**Paso 1.** Solo senos ⇒ impar. La media onda de $(0,\pi)$, espejada respecto del origen, da la media onda negativa en $(-\pi,0)$: queda $f(x)=\operatorname{sen}x$ en todo el eje. $T=2\pi$, $L=\pi$, $\omega_0=1$.
+
+**Paso 2 — razonando** (texto del OneNote): "¿Qué senos y qué cosenos debo sumar para obtener al $\operatorname{sen}(x)$? Simplemente el $\operatorname{sen}(x)$. Su serie de Fourier tiene un solo término".
+
+$$
+S(x)=\operatorname{sen}x
+$$
+
+**Paso 3 — con las fórmulas, para convencerse.** $a_0=a_m=0$ y
+
+$$
+b_m=\frac2\pi\int_0^\pi\operatorname{sen}(x)\operatorname{sen}(mx)\,dx=\frac{2\operatorname{sen}(m\pi)}{\pi-\pi m^2}
+$$
+
+Si $m\neq1$, el numerador es $0$: $b_m=0$. Si $m=1$ queda $\frac00$ y el profesor lo saca por L'Hôpital: $\displaystyle\lim_{m\to1}\frac{2\pi\cos(m\pi)}{-2\pi m}=1$. O sea $b_1=1$ y nada más ✓.
+
+**Más fácil, con la tabla de integrales** (fórmula 688, que es la ortogonalidad):
+
+$$
+\int_0^\pi\operatorname{sen}(nx)\operatorname{sen}(kx)\,dx=\int_0^\pi\cos(nx)\cos(kx)\,dx=\begin{cases}0&n\neq k\\[1mm]\dfrac\pi2&n=k\end{cases}
+$$
+
+### Tu turno 10
+
+<details>
+<summary>🔴 <strong>10.A (parcial 2025, Temas 1 y 2, ítem b, 1 punto; es el ítem 6 del ej. 16 de la guía)</strong> — Justificar cuál es la opción correcta. La STF de f(x) = 2 sen(x) cos(x) es: a) la misma función · b) una serie con infinitos términos no nulos en senos · c) un solo término no nulo · d) infinitos términos en cosenos.</summary>
+
+<details>
+<summary><strong>Resolución (oficial)</strong></summary>
+
+**Por identidad:**
+
+$$
+2\operatorname{sen}x\cos x=\operatorname{sen}(x+x)+\operatorname{sen}(x-x)=\operatorname{sen}2x
+$$
+
+**"Si no"** (el camino alternativo que muestra la hoja), con exponenciales:
+
+$$
+2\cdot\frac{e^{jx}-e^{-jx}}{2j}\cdot\frac{e^{jx}+e^{-jx}}{2}=\frac{1}{2j}\left(e^{2jx}+1-1-e^{-2jx}\right)=\frac{e^{2jx}-e^{-2jx}}{2j}=\operatorname{sen}2x
+$$
+
+La función ya **es** una armónica: su STF es $S(x)=\operatorname{sen}2x$, con $b_2=1$ y todos los demás coeficientes nulos.
+
+**Respuesta:** **c) un solo término no nulo.** La hoja oficial concluye "$=\operatorname{sen}(2x)$" sin marcar la letra; la guía (ej. 16, ítem 6) da **c**.
+
+Cómo se descartan las otras: b) y d) hablan de infinitos términos, y hay uno; d) además pide cosenos y la función es impar. La a) es la tentadora: la serie vale lo mismo que la función, pero la pregunta es cómo es la serie, y la respuesta que caracteriza es "un solo término".
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>10.B (parcial 2015-05-29, Tema 2, Ej2 i, opción múltiple)</strong> — El desarrollo en STF de f(x) = cos³(x) tiene: a) solo dos términos y valor medio nulo · b) dos términos y valor medio no nulo · c) infinitos términos · d) un solo término.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía; la opción marcada en la hoja corregida es la a)</strong></summary>
+
+Con exponenciales y el binomio $(a+b)^3=a^3+3a^2b+3ab^2+b^3$:
+
+$$
+\cos^3x=\left(\frac{e^{jx}+e^{-jx}}{2}\right)^3=\frac{e^{3jx}+3e^{jx}+3e^{-jx}+e^{-3jx}}{8}=\frac{2\cos3x+6\cos x}{8}
+$$
+
+$$
+\cos^3x=\frac34\cos x+\frac14\cos3x
+$$
+
+Dos términos ($a_1=\frac34$, $a_3=\frac14$), sin constante ⇒ valor medio $0$. **Respuesta: a).**
+
+Coherente con las simetrías: $\cos^3x$ es par (solo cosenos) y tiene media onda ($\cos^3(x+\pi)=-\cos^3x$: solo impares, valor medio nulo).
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>10.C (guía ej. 13; teórico de cátedra, "caso particular de STF")</strong> — Desarrollar f(t) = sen⁵(t) en STF. Sugerencia: binomio de Newton.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+El teórico arranca mirando simetrías: es impar (solo senos), tiene media onda (solo frecuencias impares), $T=2\pi$. Plantear $b_n=\frac1\pi\int_{-\pi}^{\pi}\operatorname{sen}^5(t)\operatorname{sen}(nt)\,dt$ "es bastante incómodo". Opción 1: exponenciales y binomio. Como $(2j)^5=32j$:
+
+$$
+\operatorname{sen}^5t=\left(\frac{e^{jt}-e^{-jt}}{2j}\right)^5=\frac{e^{5jt}-5e^{3jt}+10e^{jt}-10e^{-jt}+5e^{-3jt}-e^{-5jt}}{32j}
+$$
+
+Agrupo de a pares, usando $e^{jkt}-e^{-jkt}=2j\operatorname{sen}(kt)$:
+
+$$
+\operatorname{sen}^5t=\frac{2j\operatorname{sen}5t-10j\operatorname{sen}3t+20j\operatorname{sen}t}{32j}
+$$
+
+**Respuesta (coincide con la guía):**
+
+$$
+\operatorname{sen}^5t=\frac58\operatorname{sen}t-\frac{5}{16}\operatorname{sen}3t+\frac{1}{16}\operatorname{sen}5t
+$$
+
+Tres armónicas, todas impares y de senos, como anticipaban las simetrías.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>10.D (guía ej. 4a i y 4c i; OneNote STF p. 8)</strong> — Completar para que la STF sea solo de cosenos y desarrollar: a) f(x) = sen x en (0, π) · c) f(t) = cos(t) en (0, π).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**c)** Cosenos ⇒ par. El $\cos t$ ya es par: completado queda $\cos t$ en todo el eje. $T=2\pi$, $\omega_0=1$. Su serie es él mismo:
+
+$$
+S(t)=\cos t
+$$
+
+(Coincide con la guía. Es lo que el profesor anticipa en el OneNote: "algo similar va a suceder en el ej. 4) c) i)".)
+
+**a)** Acá **no** queda una sola armónica. Espejando la joroba respecto del eje $y$ queda $\lvert\operatorname{sen}x\rvert$, que se repite cada $\pi$: $T=\pi$, $L=\frac\pi2$, $\omega_0=2$. Par ⇒ $b_m=0$. Integrando en el período $(0,\pi)$:
+
+$$
+a_0=\frac{1}{L}\int_0^\pi\operatorname{sen}x\,dx=\frac2\pi\left[-\cos x\right]_0^\pi=\frac4\pi\qquad\Longrightarrow\qquad\frac{a_0}{2}=\frac2\pi
+$$
+
+$$
+a_m=\frac2\pi\int_0^\pi\operatorname{sen}(x)\cos(2mx)\,dx=\frac2\pi\cdot\frac{2}{1-4m^2}=\frac{4}{\pi(1-4m^2)}
+$$
+
+**Respuesta (coincide con la guía):**
+
+$$
+S(x)=\frac2\pi+\sum_{n=1}^{\infty}\frac{4}{\pi(1-4n^2)}\cos(2nx)
+$$
+
+Moraleja: "ya es un seno" no alcanza. La serie es de un solo término cuando la función **completada** es esa armónica en todo el eje.
+
+</details>
+
+</details>
+
+---
+
+## 11. Usar la serie para sumar una serie numérica (3/16)
+
+### 11.1 La idea
+
+La serie de Fourier vale lo mismo que la función en cada punto donde la función es continua. Si evaluás las dos en un punto bien elegido, los cosenos y senos se vuelven $1$, $0$ o $\pm1$ y lo que queda es una **serie de números** igualada a un número conocido. Despejás.
+
+¿Y si el punto elegido es un salto? Ahí vale la **propiedad 2** del PDF de clase (el profesor la llama teorema de Dirichlet):
+
+$$
+S(a)=\frac{f(a^+)+f(a^-)}{2}
+$$
+
+La serie toma el **promedio de los límites laterales**. En un punto de continuidad eso es $f(a)$.
+
+### 11.2 Receta
+
+1. **Compará** la serie pedida con la que tenés: "jugar a las diferencias y similitudes". Mirá qué coeficiente se parece ($\frac{1}{n^2}$, $\frac{1}{(2k+1)^2}$, $\frac{(-1)^n}{n^2}$).
+2. **Elegí el punto** que hace desaparecer lo que molesta:
+   - $x=0$: todos los cosenos valen $1$ y todos los senos $0$.
+   - $x=L$: $\cos(n\pi)=(-1)^n$ (agrega o saca un signo alternado).
+   - el punto donde $\operatorname{sen}\left(n\frac\pi2\right)$: se anulan las pares y las impares alternan, $(-1)^k$.
+3. **Calculá $S$ en ese punto**: $f(a)$ si es continua ahí, el promedio de los laterales si hay salto. Mirá el gráfico.
+4. **Igualá y despejá.** Las constantes pasan restando y dividiendo.
+
+**Qué hay que dejar escrito:** el punto elegido y por qué ("en $t=0$ el coseno vale 1"), el valor de $S$ en el punto con su justificación ("$f$ es continua en $0$" o la semisuma) y el despeje.
+
+> **En clase:** "yo le digo jugar a las diferencias y similitudes entre una y la otra" (teórica STF [1:44:43]). "Siempre vamos a estar trabajando o con cero, o con $\pi$, o con dos $\pi$, o con cosas así, fáciles" (teórica STF [1:52:10]). La propiedad 1 ($a_n,b_n\to0$) es la menos importante; "a la segunda le vamos a dar un poquito más de bola" (teórica STF [1:19:18]).
+
+### Ejemplo guiado 10: el problema de Basilea, $\sum\frac{1}{n^2}$ (guía ej. 1b; PDF de clase; teórica STF [1:43:41])
+
+De 3.A, para $f(x)=x^2$ en $(0,2\pi)$ con período $2\pi$:
+
+$$
+S(x)=\frac{4\pi^2}{3}+\sum_{n=1}^{\infty}\frac{4}{n^2}\cos(nx)-\frac{4\pi}{n}\operatorname{sen}(nx)
+$$
+
+**Paso 1.** Lo que se parece a $\frac{1}{n^2}$ es el coeficiente del coseno. Quiero que el coseno valga $1$ y el seno $0$: $x=0$.
+
+$$
+S(0)=\frac{4\pi^2}{3}+\sum_{n=1}^{\infty}\frac{4}{n^2}
+$$
+
+**Paso 2.** En $x=0$ la función **salta**: por la derecha $x^2\to0$; por la izquierda viene la copia del período anterior, $(x+2\pi)^2\to4\pi^2$.
+
+$$
+S(0)=\frac{f(0^+)+f(0^-)}{2}=\frac{0+4\pi^2}{2}=2\pi^2
+$$
+
+**Paso 3.**
+
+$$
+\frac{4\pi^2}{3}+4\sum_{n=1}^{\infty}\frac{1}{n^2}=2\pi^2\qquad\Longrightarrow\qquad\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac14\left(2\pi^2-\frac{4\pi^2}{3}\right)=\frac{\pi^2}{6}
+$$
+
+### Tu turno 11
+
+<details>
+<summary>🟠 <strong>11.A (parcial 2022-10-11, Ej1.3, y parcial 2024-1C Tema 1, Ej1c) [RECICLADO]</strong> — Con la serie de f(t) = t + 2 en (0, 2) completada par (5.G): S(t) = 3 − (8/π²) Σ cos[(2k+1)πt/2]/(2k+1)², hallar el valor al que converge Σ 1/(2k+1)², con k desde 0.</summary>
+
+**Serie de 5.G en limpio:** $S(t)=3-\dfrac{8}{\pi^2}\displaystyle\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)\frac\pi2t\right]}{(2k+1)^2}$.
+
+<details>
+<summary><strong>Resolución (para esta guía; π²/8 es el resultado anotado en el índice)</strong></summary>
+
+**Paso 1.** Necesito que todos los cosenos valgan $1$: $t=0$.
+
+**Paso 2.** La función completada par es $\lvert t\rvert+2$: **continua** en $t=0$, vale $2$. Entonces $S(0)=f(0)=2$.
+
+**Paso 3.**
+
+$$
+2=3-\frac{8}{\pi^2}\sum_{k=0}^{\infty}\frac{1}{(2k+1)^2}\qquad\Longrightarrow\qquad\sum_{k=0}^{\infty}\frac{1}{(2k+1)^2}=\frac{\pi^2}{8}
+$$
+
+(También sale con $t=2$: $\cos\left((2k+1)\pi\right)=-1$ y $f(2)=4$, continua.)
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>11.B (parcial 2024-1C, Tema 2, Ej1b; es el ej. 1d de la guía con otro período)</strong> — Con la serie de f(t) = t² en (0, 2) completada par (5.H): S(t) = 4/3 + (16/π²) Σ (−1)ᵐ cos(mπt/2)/m², hallar el valor al que converge Σ (−1)ⁿ/n², con n desde 1.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía; −π²/12 es el resultado anotado en el índice y la respuesta de la guía)</strong></summary>
+
+**Paso 1.** La serie ya tiene el $(-1)^m$: solo hay que sacar el coseno. $t=0$.
+
+**Paso 2.** $f(t)=t^2$ en $(-2,2)$ es continua en $0$: $S(0)=f(0)=0$.
+
+**Paso 3.**
+
+$$
+0=\frac43+\frac{16}{\pi^2}\sum_{m=1}^{\infty}\frac{(-1)^m}{m^2}\qquad\Longrightarrow\qquad\sum_{m=1}^{\infty}\frac{(-1)^m}{m^2}=-\frac43\cdot\frac{\pi^2}{16}=-\frac{\pi^2}{12}
+$$
+
+(Si en cambio evaluás en $t=2$, donde $\cos(m\pi)=(-1)^m$ cancela el signo y $f(2)=4$: $4=\frac43+\frac{16}{\pi^2}\sum\frac{1}{m^2}$, que da $\frac{\pi^2}{6}$.)
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>11.C (clase de repaso grabada, ejercicio 4, ítem b; repaso [55:37])</strong> — Con la serie de 8.E, S(t) = 1 − (2/π) Σ (1/n) sen(nπt), calcular Σ (−1)ᵏ/(2k+1), con k desde 0.</summary>
+
+<details>
+<summary><strong>Resolución (del profesor, en el repaso)</strong></summary>
+
+**Paso 1.** La serie pedida tiene $(-1)^k$ y $2k+1$; la hallada tiene todas las $n$ y senos. El seno no puede valer $1$ para todas las armónicas, pero con $t=\frac12$ queda $\operatorname{sen}\left(n\frac\pi2\right)$:
+
+| $n$ | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| $\operatorname{sen}\left(n\frac\pi2\right)$ | 1 | 0 | −1 | 0 | 1 | 0 |
+
+Se anulan las pares y las impares alternan: con $n=2k+1$ es $(-1)^k$ (la primera, $k=0$, positiva).
+
+**Paso 2.** $f(t)=t$ es continua en $t=\frac12$: $S\left(\frac12\right)=f\left(\frac12\right)=\frac12$.
+
+**Paso 3.**
+
+$$
+\frac12=1-\frac2\pi\sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}\qquad\Longrightarrow\qquad\sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}=\frac\pi4
+$$
+
+El teórico de cátedra llega a la misma suma con otra función (la onda cuadrada $\pm\frac\pi4$ evaluada en $x=\frac\pi2$), y otra vez en su "ejemplo integrador" (pulso $5$/$1$ de período 4, evaluado en $t=1$: $3+\frac8\pi\sum\frac{(-1)^k}{2k+1}=5$).
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>11.D (guía ej. 3, OneNote STF p. 6–7)</strong> — Sea f(t) = 2 − t si 0 &lt; t &lt; 4, t − 6 si 4 &lt; t &lt; 8, f(t) = f(t + 8). a) Graficar y redefinir para el período (−4; 4). b) Desarrollar la STF teniendo en cuenta la paridad. c) Calcular Σ 1/(2k−1)², con k desde 1.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** Baja de $2$ a $-2$ en $(0,4)$ y vuelve a subir en $(4,8)$. Llevando el tramo $(4,8)$ a $(-4,0)$ (restando el período): $t-6\to(t+8)-6=t+2$.
+
+$$
+f(t)=\begin{cases}t+2&-4<t<0\\2-t&0<t<4\end{cases}\qquad T=8,\ L=4,\ \omega_0=\frac\pi4
+$$
+
+**b)** Es **par** ⇒ $b_m=0$. $\frac{a_0}{2}=0$ (se ve en el gráfico: va de $2$ a $-2$).
+
+$$
+a_m=\frac24\int_0^4(2-t)\cos\left(\frac{m\pi}{4}t\right)dt=\frac12\left[\frac{2\operatorname{sen}\left(\frac{m\pi}{4}t\right)}{\frac{m\pi}{4}}-\frac{\cos\left(\frac{m\pi}{4}t\right)}{\frac{m^2\pi^2}{16}}-\frac{t\operatorname{sen}\left(\frac{m\pi}{4}t\right)}{\frac{m\pi}{4}}\right]_0^4=\frac12\left[-\frac{16(-1)^m}{m^2\pi^2}+\frac{16}{m^2\pi^2}\right]
+$$
+
+$m$ par: $0$. $m$ impar: $a_m=\dfrac{16}{m^2\pi^2}$.
+
+$$
+S(t)=\frac{16}{\pi^2}\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)\frac\pi4t\right]}{(2k+1)^2}=\frac{16}{\pi^2}\sum_{k=1}^{\infty}\frac{\cos\left[(2k-1)\frac\pi4t\right]}{(2k-1)^2}
+$$
+
+El profesor anota: "Solo frecuencias impares… ¿tiene simetría de media onda?". Acá **sí**: valor medio $0$ y $f(t+4)=-f(t)$.
+
+**c)** $t=0$, donde $f$ es continua y vale $2$:
+
+$$
+\frac{16}{\pi^2}\sum_{k=1}^{\infty}\frac{1}{(2k-1)^2}=2\qquad\Longrightarrow\qquad\sum_{k=1}^{\infty}\frac{1}{(2k-1)^2}=\frac{\pi^2}{8}
+$$
+
+(Coincide con la guía. Es la misma suma de 11.A, escrita con $2k-1$ desde $k=1$.)
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>11.E ("Bonus track" del OneNote STF, p. 9–10)</strong> — a) Desarrollar f(t) = t³ para t ∈ (0, 1) en serie de cosenos con T = 2. b) Con ese desarrollo, y sabiendo que Σ (−1)ⁿ/n² = −π²/12, hallar Σ 1/(2k+1)⁴, con k desde 0.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** Cosenos ⇒ par: en $(-1,0)$ va $-t^3$. $T=2$, $L=1$, $\omega_0=\pi$. $b_m=0$.
+
+$$
+a_0=\frac21\int_0^1t^3\,dt=\frac12\qquad\Longrightarrow\qquad\frac{a_0}{2}=\frac14
+$$
+
+$$
+a_m=2\int_0^1t^3\cos(m\pi t)\,dt=2\left[\left(\frac{3t^2}{m^2\pi^2}-\frac{6}{m^4\pi^4}\right)\cos(m\pi t)+\left(\frac{t^3}{m\pi}-\frac{6t}{m^3\pi^3}\right)\operatorname{sen}(m\pi t)\right]_0^1
+$$
+
+⚠ En el manuscrito el último término de la primitiva figura como $\frac{6t}{m^2\pi^2}$; lo correcto es $\frac{6t}{m^3\pi^3}$. No cambia el resultado, porque todo el término del seno se anula en $0$ y en $1$ (el profesor lo marca "$=0$").
+
+$$
+a_m=\frac{6(-1)^m}{m^2\pi^2}+\frac{12\left[1-(-1)^m\right]}{m^4\pi^4}
+$$
+
+El segundo sumando vale $0$ si $m$ es par y $\frac{24}{m^4\pi^4}$ si es impar:
+
+$$
+S(t)=\frac14+\sum_{m=1}^{\infty}\frac{6(-1)^m}{m^2\pi^2}\cos(m\pi t)+24\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)\pi t\right]}{(2k+1)^4\pi^4}
+$$
+
+**b)** $t=0$, con $f(0)=0$ (continua):
+
+$$
+0=\frac14+\frac{6}{\pi^2}\underbrace{\sum_{m=1}^{\infty}\frac{(-1)^m}{m^2}}_{-\pi^2/12}+\frac{24}{\pi^4}\sum_{k=0}^{\infty}\frac{1}{(2k+1)^4}=\frac14-\frac12+\frac{24}{\pi^4}\sum_{k=0}^{\infty}\frac{1}{(2k+1)^4}
+$$
+
+$$
+\sum_{k=0}^{\infty}\frac{1}{(2k+1)^4}=\frac14\cdot\frac{\pi^4}{24}=\frac{\pi^4}{96}
+$$
+
+</details>
+
+</details>
+
+---
+
+## 12. Verdadero o falso y opción múltiple: la teoría que hay que tener clara
+
+Todos los ítems conceptuales del tema salen de estas ocho ideas:
+
+1. **Par** ⇒ solo cosenos (más $\frac{a_0}{2}$) ⇒ $C_n$ **reales**.
+2. **Impar** ⇒ solo senos, valor medio $0$ ⇒ $C_n$ **imaginarios puros**.
+3. **Impar desplazada** ⇒ sin cosenos pero con valor medio ⇒ $C_n$ imaginarios puros salvo $C_0$.
+4. **Media onda** ⇒ solo armónicas impares y valor medio $0$.
+5. Las cuatro anteriores son **condicionales de ida**. "No tiene cosenos" no implica impar (puede ser impar desplazada). "Solo armónicas impares" no implica media onda ($\lvert x\rvert$ en $(-2,2)$). $b_n=0$ no implica par.
+6. $\frac{a_0}{2}=C_0=$ **valor medio**. Sin ninguna simetría (ni desplazada), hay de todo: $a_n$, $b_n$ y $C_n$ complejos.
+7. En un salto la serie vale el **promedio** de los laterales. Dos funciones que difieren solo en puntos sueltos tienen la misma serie.
+8. La serie de una función es **única**: si ya la escribiste como suma de senos y cosenos, esa es.
+
+**Cómo se contesta:** primero **graficá** la función en $(-L,L)$ (si viene dada en $(0,T)$, corré medio dibujo), mirá valor medio, paridad (pura o desplazada) y media onda, y recién ahí leé las opciones. La justificación es una línea: la simetría y lo que implica, o un contraejemplo.
+
+> **En clase:** "si son cosas directas, se resuelven y chau"; si el resultado "se puede interpretar de una manera o de otra", justificá: "eso siempre se valora" (repaso [1:33:03]–[1:33:34], dicho a propósito de otro ejercicio, como criterio general).
+
+### Tu turno 12
+
+<details>
+<summary>🟠 <strong>12.A (clase de repaso 2026, ejercicio B; guía ej. 14 a, b y g)</strong> — Verdadero o falso, justificando. a) La STF de f(t) = |t| − 3 para t ∈ (−6, 6), f(t) = f(t + 12), solo tiene términos con cosenos de frecuencias pares. b) Los Cₙ de la SEF de esa función son todos reales. g) Si f y g son periódicas con dominio en ℝ y tienen la misma serie de Fourier, entonces f(t) = g(t) para todo t ∈ ℝ.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a) FALSO.** $f$ es par (solo cosenos: esa parte es cierta), pero además tiene **media onda**: para $0<t<6$, $f(t)=t-3$ y $f(t-6)=\lvert t-6\rvert-3=3-t=-f(t)$. Con media onda sobreviven solo las armónicas **impares**. (Con la cuenta: $a_m=\frac{12\left((-1)^m-1\right)}{m^2\pi^2}$, nulo para $m$ par, y valor medio $0$.)
+
+**b) VERDADERO.** $f$ par ⇒ $b_n=0$ ⇒ $C_n=\frac12a_n\in\mathbb R$.
+
+**g) FALSO.** Dos funciones que difieren solo en los puntos de discontinuidad (o en un número finito de puntos por período) tienen los mismos coeficientes, porque las integrales no cambian. En cada salto la serie vale el promedio de los laterales: no puede coincidir con las dos.
+
+Coinciden con las respuestas de la guía (a Falso, b Verdadero, g Falso).
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>12.B (parcial ≈2015 sin fecha, Tema 2, Ej1c, opción múltiple)</strong> — La señal f(x) = x² sen(x) en [−1, 1), f(x) = f(x + 2), tiene los coeficientes de su SEF: a) todos reales · b) todos imaginarios puros · c) uno real y el resto imaginarios · d) solo los impares no nulos · e) ninguna de las anteriores.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía; la opción marcada en la hoja corregida es la b)</strong></summary>
+
+$x^2$ es par y $\operatorname{sen}x$ es impar: el producto es **impar**, y está definida en un intervalo simétrico. Impar ⇒ $a_0=a_n=0$ ⇒ $C_n=-\frac{b_n}{2}j$, con $C_0=0$.
+
+**Respuesta: b) todos imaginarios puros.** (La c) sería una impar desplazada. La d) no: no tiene media onda, $L=1$ y $f(x+1)\neq-f(x)$.)
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>12.C (guía ej. 14 c, d, e, f, h)</strong> — Verdadero o falso. c) La STF de f(t) = |t − 2| para t ∈ (0, 4), f(t) = f(t + 4), solo tiene términos con frecuencias impares. d) Los Cₙ de la SEF de esa función son imaginarios puros. e) Si la STF de f solo tiene términos con frecuencias impares, entonces f tiene simetría de media onda. f) Si la STF de f no tiene términos con cosenos, entonces f es impar. h) Al desarrollar f(t) = sen(πt) si t ∈ (0, 1), f(t) = f(t + 1), en SEF solo hay términos con coeficientes reales.</summary>
+
+<details>
+<summary><strong>Resolución (respuestas de la guía, justificadas para esta guía)</strong></summary>
+
+**c) VERDADERO** (según la guía). Corriendo el dibujo: en $(-2,2)$ es $f(t)=2-\lvert t\rvert$, un triángulo par con $a_m=\frac{4\left(1-(-1)^m\right)}{m^2\pi^2}$: solo cosenos de $m$ impar. Ojo: tiene además valor medio $\frac{a_0}{2}=1$; la guía no cuenta la constante como "frecuencia".
+
+**d) FALSO.** Es par ⇒ $C_n$ reales.
+
+**e) FALSO.** Es un condicional de ida. Contraejemplo: la función de c), con solo frecuencias impares y sin media onda (valor medio $1$, nunca es negativa).
+
+**f) FALSO.** Puede ser una impar desplazada (el pulso del ejemplo guiado 1, o $f(t)=4t$ en $(0,10)$).
+
+**h) VERDADERO.** $\operatorname{sen}(\pi t)$ en $(0,1)$ repetida con período 1 es $\lvert\operatorname{sen}(\pi t)\rvert$: **par** ⇒ $b_n=0$ ⇒ $C_n$ reales.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>12.D (guía ej. 16, "tomados en finales": ítems 1 a 5 y 7 a 10)</strong> — Marcar la única correcta. 1) Tiene STF solo de cosenos con valor medio distinto de 2: a) t² en (0, 2), T = 2 · b) t en (0, 6), T = 6 · c) t en (0, 4) y −t en (−4, 0), T = 8 · d) 3 en (−1, 1) y 1 si 1 &lt; |t| &lt; 3, T = 6. 2) Tiene SEF con coeficientes reales y solo de frecuencias impares: a) t² en (−2, 2), T = 4 · b) t en (0, 4), T = 4 · c) y d) las mismas de 1. 3) f(t) = t en (0, 2), T = 2, tiene su STF: a) solo con senos · b) solo con cosenos · c) con valor medio 1 · d) ninguna. 4) Los coeficientes de la SEF de x² en (0, 1), T = 1, son: a) todos reales · b) todos imaginarios puros · c) uno real y los demás imaginarios · d) ninguna. 5) f(t) = e^|t| en [−1, 1], T = 2, tiene su STF: a) con valor medio nulo · b) solo frecuencias impares · c) sin términos con senos · d) solo frecuencias pares. 7) f(t) = t² en (0, 1), 2 − (t − 2)² en (1, 2), T = 2, tiene STF: a) sin cosenos · b) con valor medio nulo · c) solo de cosenos · d) solo de frecuencias impares. 8) S(x) = 1 + (8/π²) Σ cos((2k+1)πx/2)/(2k+1)² puede corresponder a: a) 2 − |x| en (−2, 2), T = 4 · b) x² en (−2, 2), T = 4 · c) x en (0, 4), T = 4 · d) ninguna. 9) f(x) = x + 1 en [0, 1): para que tenga media onda con T = 2 hay que definirla en [1, 2) como: a) x + 1 · b) −x · c) −x − 1 · d) −x + 1. 10) f(x) = x² − 2 en [0; 2), T = 2, tiene su STF: a) con valor medio negativo · b) solo de senos · c) tal que S(2) = −2 · d) ninguna.</summary>
+
+<details>
+<summary><strong>Resolución (respuestas de la guía, justificadas para esta guía)</strong></summary>
+
+| Ítem | Respuesta | Por qué |
+|---|---|---|
+| 1 | **d** | d) es par (pulso centrado) con valor medio $\frac{3\cdot2+1\cdot4}{6}=\frac53\neq2$. c) también es par, $\lvert t\rvert$ en $(-4,4)$, pero su valor medio es justo $2$. a) no tiene paridad; b) es impar desplazada. |
+| 2 | **c** | $\lvert t\rvert$ en $(-4,4)$: par ⇒ reales, y triángulo ⇒ solo $n$ impar (más $C_0$). d) es par, pero $a_n=\frac{4}{n\pi}\operatorname{sen}\frac{n\pi}{3}$ no se anula en $n=2$. |
+| 3 | **c** | Diente de sierra de $0$ a $2$: impar desplazada con valor medio $1$. No es "solo senos" porque tiene $\frac{a_0}{2}$. |
+| 4 | **d** | $x^2$ en $(0,1)$ repetida no es par, ni impar, ni impar desplazada: $C_n$ complejos. |
+| 5 | **c** | $e^{\lvert t\rvert}$ es par ⇒ sin senos. |
+| 7 | **a** | $f-1$ vale $t^2-1$ en $(0,1)$ y, llevando $(1,2)$ a $(-1,0)$, $1-t^2$: impar. $f$ es impar desplazada con valor medio $1$ ⇒ sin cosenos. |
+| 8 | **a** | $2-\lvert x\rvert$: par, valor medio $1$, $a_n=\frac{4\left(1-(-1)^n\right)}{n^2\pi^2}=\frac{8}{n^2\pi^2}$ con $n$ impar ✓. |
+| 9 | **b** | $f(x)=-f(x-1)=-\left((x-1)+1\right)=-x$. |
+| 10 | **a** | Valor medio $\frac12\int_0^2(x^2-2)\,dx=-\frac23<0$. La c) es falsa: en $x=2$ hay salto y $S(2)=\frac{2+(-2)}{2}=0$. |
+
+⚠ En el ítem 8 la guía imprime $\cos\left(n\frac\pi2x\right)$ dentro de una sumatoria en $k$: tiene que decir $\cos\left((2k+1)\frac\pi2x\right)$. El ítem 6 es el del parcial 2025 (10.A).
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>12.E (guía ej. 7, OneNote STF p. 9)</strong> — a) Si una función es par y además tiene simetría de media onda, ¿qué términos de la STF son nulos? b) Sea S(x) = −π/4 + Σ [2/(π(2n−1)²)] cos(nx) + [(−1)^(2n−1)/n] sen(nx) la STF de f(x). ¿Puede ser f par? ¿O impar? Justificar.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** Par ⇒ $b_m=0$ (todos los senos). Media onda ⇒ de los $a_m$, los de $m$ par valen $0$ (y también $a_0$). Sobreviven solo los cosenos de frecuencia impar.
+
+**b)** **No**, ninguna de las dos: si fuera par no tendría senos y si fuera impar no tendría cosenos, y $S(x)$ tiene ambos. (Tampoco es impar desplazada: ahí también $a_n=0$, y acá hay cosenos.)
+
+Coinciden con las respuestas de la guía.
+
+</details>
+
+</details>
+
+---
+
+## 13. Fasores
+
+<details>
+<summary>⚪ <strong>Se toma poco: fasores (2/16, solo como opción múltiple en parciales de 2015; teórica STF [00:31]–[28:47])</strong></summary>
+
+**Para qué sirven.** Fourier suma senos y cosenos de **distintas** frecuencias; los fasores son una técnica para sumar dos sinusoides de **la misma** frecuencia y obtener una sola.
+
+**Definición.** A la sinusoide $g(t)=A\cos(\omega t+\varphi)$ se le asocia el número complejo
+
+$$
+F=A\,e^{j\varphi}
+$$
+
+con la amplitud como módulo y el desfasaje como argumento. La frecuencia $\omega$ no entra en el fasor.
+
+**Condiciones para usarlos:** las dos sinusoides tienen que tener **la misma frecuencia** y ser **la misma función** (dos cosenos o dos senos). Si hay un seno y un coseno, primero se lleva todo a una sola con $\operatorname{sen}x=\cos\left(x-\frac\pi2\right)$ o $\cos x=\operatorname{sen}\left(x+\frac\pi2\right)$.
+
+**Receta.** (1) Chequeá frecuencia y función. (2) Escribí los dos fasores. (3) Pasalos a forma binómica y sumalos. (4) Módulo y argumento del resultado (cuidando el cuadrante). (5) La suma es $\lvert F_1+F_2\rvert\cos\left(\omega t+\arg(F_1+F_2)\right)$, con la misma $\omega$.
+
+> **En clase:** "además de chequear que tenga siempre la misma frecuencia […], también me tengo que fijar que tenga el mismo tipo de función trigonométrica" (teórica STF [08:32]). Los ejemplos de fasores se hacen todos en la teórica: "meterlo en la práctica es inútil, porque los ejercicios son iguales" (teórica STF [16:34]).
+
+**Ejemplo de la clase** (teórica STF [23:02]): $2\cos(4t)+4\operatorname{sen}(4t)$. El seno pasa a coseno: $4\cos\left(4t-\frac\pi2\right)$. $F_1=2$, $F_2=4e^{-j\pi/2}=-4j$. Suma: $2-4j$, de módulo $\sqrt{20}\approx4{,}472$ y argumento $\operatorname{arctg}(-2)\approx-1{,}107$. Resultado: $4{,}472\cos(4t-1{,}107)$.
+
+<details>
+<summary>🟠 <strong>13.A (parcial 2015-05-29, Tema 1, Ej2 iv, opción múltiple)</strong> — La amplitud de f(t) = cos(4t + π/2) + 2cos(4t − π/2) es: a) √5 · b) 3 · c) 1 · d) ninguna de las anteriores.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía; la opción marcada en la hoja corregida es la c)</strong></summary>
+
+Misma frecuencia ($4t$) y misma función (cosenos) ✓.
+
+$$
+F_1=1\cdot e^{j\pi/2}=j\qquad F_2=2\,e^{-j\pi/2}=-2j\qquad F_1+F_2=-j=1\cdot e^{-j\pi/2}
+$$
+
+Módulo $1$ ⇒ **amplitud 1, opción c)**. La suma es $\cos\left(4t-\frac\pi2\right)=\operatorname{sen}(4t)$. Tiene sentido: los dos cosenos están en contrafase y las amplitudes se restan, $2-1=1$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>13.B (parcial ≈2015 sin fecha, Tema 1, Ej1b, opción múltiple)</strong> — La superposición de dos ondas senoidales de igual frecuencia y distinta amplitud puede ser: a) de distinta frecuencia · b) de amplitud igual a la suma de ambas · c) una función no senoidal · d) ninguna de las anteriores.</summary>
+
+<details>
+<summary><strong>Resolución (para esta guía; la opción marcada en la hoja corregida es la b)</strong></summary>
+
+La suma de dos sinusoides de igual frecuencia es **otra sinusoide de la misma frecuencia** (el fasor suma gira a la misma velocidad): se descartan a) y c). Su amplitud es $\lvert F_1+F_2\rvert$, que va desde $\lvert A_1-A_2\rvert$ (en contrafase, como en 13.A) hasta $A_1+A_2$ (en fase, cuando los dos fasores apuntan para el mismo lado). "**Puede** ser la suma": **opción b)**.
+
+</details>
+
+</details>
+
+</details>
+
+---
+
+## Resumen en una página
+
+**Siempre.** Graficar, anotar $T$, $L=\frac T2$, $\omega_0=\frac\pi L$. Integrar en un período completo, donde la función tenga una sola fórmula.
+
+**Traducir el enunciado.**
+
+| Piden… | Completás… | Queda… |
+|---|---|---|
+| solo cosenos · $C_n$ reales | **par** (espejo en el eje $y$): $f(-t)=f(t)$ | $b_n=0$ · $\frac{a_0}{2}$ por gráfico · $a_n=\frac2L\int_0^Lf\cos(n\omega_0t)\,dt$ |
+| solo senos · $C_n$ imaginarios puros | **impar** (espejo en el origen): $f(-t)=-f(t)$ | $a_0=a_n=0$ · $b_n=\frac2L\int_0^Lf\operatorname{sen}(n\omega_0t)\,dt$ |
+| sin cosenos + valor medio $V$ · imaginarios puros salvo $C_0=V$ | **impar desplazada**: $f-V$ impar | $\frac{a_0}{2}=V$ · $a_n=0$ · $b_n$ en un período completo |
+| media onda | segunda mitad = primera, corrida $L$ y dada vuelta: $f(t+L)=-f(t)$ | solo armónicas impares · valor medio $0$ |
+| paridad **y** media onda | paridad primero, media onda después · $T=4\ell$ | cuatro tramos; no se pide la serie |
+
+**Las dos integrales** (con $a=n\omega_0$):
+
+$$
+\int x\cos(ax)\,dx=\frac{\cos(ax)}{a^2}+\frac{x\operatorname{sen}(ax)}{a}\qquad\qquad\int x\operatorname{sen}(ax)\,dx=\frac{\operatorname{sen}(ax)}{a^2}-\frac{x\cos(ax)}{a}
+$$
+
+**Al evaluar:** $\operatorname{sen}(n\pi)=0$ · $\cos(n\pi)=(-1)^n$ · $\cos(2n\pi)=1$. Si queda $1-(-1)^n$: par ⇒ $0$, impar ⇒ $2$, y la serie va con $n=2k+1$, $k$ desde $0$.
+
+**Exponencial.**
+
+$$
+C_n=\frac12(a_n-j\,b_n)\qquad C_0=\frac{a_0}{2}\qquad S(t)=C_0+\sum_{\substack{n=-\infty\\n\neq0}}^{\infty}C_n\,e^{jn\omega_0t}\qquad C_n=\frac{1}{2L}\int_{-L}^{L}f(t)\,e^{-jn\omega_0t}\,dt
+$$
+
+**Espectro de amplitudes.** Bastones de $\lvert C_n\rvert$ sobre $n\omega_0$ (separados $\omega_0$), simétrico, nunca negativo, con $\lvert C_0\rvert$ en el centro. Periódica ⇒ espectro discreto; aperiódica ⇒ continuo.
+
+**Ya es un seno o un coseno.** Identidad o Euler ⇒ suma finita de armónicas ⇒ esa es la serie. $2\operatorname{sen}x\cos x=\operatorname{sen}2x$: un solo término.
+
+**Sumar una serie numérica.** Elegir $t$ para que el coseno valga $1$ o el seno desaparezca ($0$, $L$, o donde $\operatorname{sen}\left(n\frac\pi2\right)$), igualar a $f(t)$ si es continua ahí o a $\frac{f(t^+)+f(t^-)}{2}$ si salta, despejar.
+
+**Resultados para chequear** (los tres ítems a de 2025):
+
+$$
+\pi-t\ \text{par:}\ \frac\pi2+\frac4\pi\sum_{k=0}^{\infty}\frac{\cos[(2k+1)t]}{(2k+1)^2}\qquad\pi-t\ \text{impar:}\ 2\sum_{m=1}^{\infty}\frac{\operatorname{sen}(mt)}{m}\qquad2x\ \text{impar:}\ -\frac8\pi\sum_{m=1}^{\infty}\frac{(-1)^m}{m}\operatorname{sen}\left(\frac{m\pi}{2}x\right)
+$$
+
+## Errores típicos
+
+1. **No graficar**, o graficar solo el dato sin la parte completada ni la repetición.
+2. **Tomar el dato como período entero.** En "completar", el dato es **medio** período: $L$ = largo del dato, $T=2L$. Con dos condiciones, $T$ = 4 veces el largo.
+3. **Dar vuelta la traducción:** reales ⇒ par, imaginarios puros ⇒ impar. Se deduce en diez segundos de $C_n=\frac12(a_n-j\,b_n)$.
+4. **Completar la impar como si fuera par** (espejo en el eje $y$ en lugar de en el origen), o no cambiar el signo de $t$ adentro de la fórmula: la impar de $\pi-t$ es $-\pi-t$, no $-\pi+t$.
+5. **Usar el "2 por" fuera de un intervalo simétrico.** De $0$ a $T$ va $\frac1L$; el $\frac2L\int_0^L$ solo si el integrando es par.
+6. **Integrar de $-L$ a $L$ con la fórmula que vale en $(0,T)$.** Del otro lado del eje la función es la copia corrida.
+7. **Poner $a_0$ en la serie** en lugar de $\frac{a_0}{2}$.
+8. **Confundir $\cos(n\pi)=(-1)^n$ con $\cos(2n\pi)=1$**, o suponer que el seno se anula cuando el extremo no es un múltiplo de $\pi$ (8.C).
+9. **Olvidarse de $\omega_0$** dentro del coseno y en la primitiva: con $L=2$ el argumento es $\frac{n\pi}{2}x$ y el denominador $\left(\frac{n\pi}{2}\right)^2$.
+10. **Dejar $1-(-1)^n$ sin abrir**, o reemplazar $n$ por $2k+1$ solo en el denominador y no en el argumento, o arrancar la sumatoria de $2k+1$ en $k=1$.
+11. **En la SEF:** escribir $a_n+j\,b_n$, olvidarse del $\frac12$, dejar la $j$ en el denominador, o no aclarar $n\neq0$ con el $C_0$ afuera.
+12. **En el espectro:** graficar $C_n$ con signo (o con la $j$) en lugar del módulo, rotular el eje con $n$ cuando piden $n\omega_0$, olvidarse de $n=0$ o del lado negativo.
+13. **Media onda:** concluir que la hay porque "solo hay armónicas impares", o no chequear el valor medio. Y al completar con dos condiciones, hacer la media onda sobre el dato antes de la paridad.
+14. **Decir "es impar" de una impar desplazada**, o concluir "es impar" porque no hay cosenos.
+15. **Al sumar una serie numérica:** igualar a $f(a)$ en un punto donde la función salta, en lugar de usar el promedio de los laterales.
+16. **Integrar cuando no hacía falta** ($2\operatorname{sen}x\cos x$, $\cos^3x$, $\operatorname{sen}x$ completada impar).
+
+## Checkpoint (≈ 35 min, con reloj)
+
+Ejercicio **armado para esta guía** con el formato del parcial 2025 (tres ítems de 1 punto); no es una hoja real. Con el ayudamemoria y la tabla de integrales, nada más.
+
+<details>
+<summary>🔴 <strong>Ejercicio 1 (3 puntos)</strong> — Dada f(t) = 4 − 2t si 0 &lt; t &lt; 2: a) Completar en todo el eje real para que la SEF tenga solamente coeficientes reales, y desarrollar la STF. b) Con el resultado de a), hallar los Cₙ de la SEF y graficar el espectro de amplitudes (|Cₙ| en función de n·ω₀). c) Dada g(t) = 1 − t si 0 &lt; t &lt; 1, completarla en forma gráfica y analítica para que la SEF tenga coeficientes imaginarios puros y además g tenga simetría de media onda.</summary>
+
+<details>
+<summary><strong>Resolución y puntaje</strong></summary>
+
+**a) (1 punto)** Coeficientes reales ⇒ $b_m=0$ ⇒ **par**. En $(-2,0)$: $f(-t)=4+2t$. Triángulo con pico $4$ en $t=0$ que toca el eje en $t=\pm2$.
+
+$$
+f(t)=\begin{cases}4+2t&-2<t<0\\4-2t&0<t<2\end{cases}\qquad f(t)=f(t+4)\qquad T=4,\ L=2,\ \omega_0=\frac\pi2
+$$
+
+$b_m=0$ por ser par. $\dfrac{a_0}{2}=2$ (gráfico: va de $0$ a $4$).
+
+$$
+a_m=\frac22\int_0^2(4-2t)\cos\left(\frac{m\pi}{2}t\right)dt=\underbrace{4\int_0^2\cos\left(\frac{m\pi}{2}t\right)dt}_{=\,0}-2\left[\frac{\cos\left(\frac{m\pi}{2}t\right)}{\frac{m^2\pi^2}{4}}+\frac{t\operatorname{sen}\left(\frac{m\pi}{2}t\right)}{\frac{m\pi}{2}}\right]_0^2=-\frac{8\left((-1)^m-1\right)}{m^2\pi^2}
+$$
+
+$m$ par: $a_m=0$. $m$ impar: $a_m=\dfrac{16}{m^2\pi^2}$.
+
+$$
+S(t)=2+\frac{16}{\pi^2}\sum_{k=0}^{\infty}\frac{\cos\left[(2k+1)\frac\pi2t\right]}{(2k+1)^2}
+$$
+
+Chequeo: en $t=0$, $2+\frac{16}{\pi^2}\cdot\frac{\pi^2}{8}=4=f(0)$ ✓. *Puntaje orientativo: paridad justificada, gráfico y tramos con $T$, $L$, $\omega_0$ (la mitad); $a_m$ con la primitiva, par/impar y serie (la otra mitad).*
+
+**b) (1 punto)** Par ⇒ $C_n=\frac12a_n$:
+
+$$
+C_0=2\qquad C_n=\frac{8}{n^2\pi^2}\ (n\text{ impar})\qquad C_n=0\ (n\text{ par},\ n\neq0)
+$$
+
+Son reales y positivos: $\lvert C_n\rvert=C_n$. Con $\omega_0=\frac\pi2$:
+
+| $n$ | 0 | ±1 | ±2 | ±3 | ±4 | ±5 |
+|---|---|---|---|---|---|---|
+| $n\omega_0$ | 0 | ±π/2 | ±π | ±3π/2 | ±2π | ±5π/2 |
+| $\lvert C_n\rvert$ | 2 | 0,811 | 0 | 0,090 | 0 | 0,032 |
+
+Un bastón alto en el centro ($2$), bastones en $\pm\frac\pi2$, $\pm\frac{3\pi}{2}$, $\pm\frac{5\pi}{2}$ que caen como $\frac{1}{n^2}$, y nada en las pares. *Puntaje orientativo: el puente y los $C_n$ (la mitad); el gráfico con ejes rotulados, simétrico y con $C_0$ (la otra mitad).*
+
+**c) (1 punto)** Imaginarios puros ⇒ **impar**; más S.M.O.: dos condiciones ⇒ $T=4$, $L=2$.
+
+Impar: en $(-1,0)$, $g(t)=-g(-t)=-(1+t)=-1-t$.
+
+Media onda: en $(1,2)$, $g(t)=-g(t-2)$ con $t-2\in(-1,0)$: $g(t)=-\left(-1-(t-2)\right)=t-1$. En $(-2,-1)$, $g(t)=-g(t+2)$ con $t+2\in(0,1)$: $g(t)=-\left(1-(t+2)\right)=t+1$.
+
+$$
+g(t)=\begin{cases}t+1&-2<t<-1\\-1-t&-1<t<0\\1-t&0<t<1\\t-1&1<t<2\end{cases}\qquad g(t)=g(t+4)
+$$
+
+Gráfico: en $(0,1)$ baja de $1$ a $0$ y en $(1,2)$ vuelve a subir de $0$ a $1$ (una "V"); en $(-2,0)$ la misma "V" dada vuelta, por debajo del eje. Salta de $-1$ a $1$ en $t=0$ y de $1$ a $-1$ en $t=\pm2$. Anotar "impar" y "S.M.O.". *Puntaje orientativo: la traducción y $T=4$ (un tercio), el gráfico (un tercio), los cuatro tramos (un tercio).*
+
+</details>
+
+</details>
+
+Si te sobra tiempo, rehacé de corrido una hoja real: el **Tema 1 de 2025** entero está en 5.A, 10.A y 9.A; el **Tema 2** en 5.B, 10.A y 9.B; el **1er recuperatorio 2025** en 5.C, 6.A y 7.A. De las viejas, la más repetida es la de 8.A.
+
+---
+
+*Guía generada el 2026-11-25. Fuentes: PDF de clase "Serie trigonométrica de Fourier", "Serie exponencial de Fourier" y "Relación entre período y espectro", teórico de cátedra 1.3, OneNote de las prácticas de STF y de SEF, transcripciones de las clases teóricas de STF (video 16) y de SEF (video 17, hasta 1:15; la transformada de Fourier no entra) y de la parte de Fourier de la clase de repaso grabada (video 10), ejercicios A y B de la clase de repaso 2026, ejercicio de Fourier de las 16 hojas del `INDICE.md` con las resoluciones oficiales de las 3 hojas de 2025, guía de ejercicios parte 1 (ej. 1 a 16 de Fourier, con respuestas) y ayudamemoria oficial pág. 1. Figuras: `apuntes/img/01-figuras.py`.*

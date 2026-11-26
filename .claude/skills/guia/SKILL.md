@@ -11,7 +11,7 @@ el tema en el orden en que conviene aprenderlo y lo ata a lo que realmente se to
 
 Modelos de referencia (leer uno antes de escribir):
 `materias/analisis-numerico/segundo-parcial/apuntes/md/01-raices-desde-cero.md` y
-`materias/analisis-numerico/primer-parcial/guia/03-sistemas-desde-cero.md`.
+`materias/analisis-numerico/primer-parcial/apuntes/md/03-sistemas-estables-desde-cero.md`.
 
 ## 1. Contexto
 

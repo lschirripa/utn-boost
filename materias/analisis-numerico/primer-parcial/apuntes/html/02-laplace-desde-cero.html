@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transformada de Laplace desde cero</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<style>
+:root { color-scheme: light; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65; max-width: 820px; margin: 2.5rem auto; padding: 0 1.25rem;
+  color: #1a1a1a; background: #fff;
+}
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { line-height: 1.25; margin-top: 1.8rem; }
+h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .25rem; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { margin: 1rem 0; padding: .2rem 1rem; border-left: 4px solid #ddd; color: #555; }
+code { background: #f3f4f6; padding: .12em .35em; border-radius: 4px; font-size: .9em; }
+details {
+  border: 1px solid #e1e4e8; border-radius: 8px; padding: 0 1rem; margin: .8rem 0;
+  background: #fafbfc;
+}
+details[open] { padding-bottom: .6rem; }
+summary {
+  cursor: pointer; font-weight: 600; padding: .7rem 1rem; margin: 0 -1rem;
+  background: #f1f3f5; border-radius: 8px; user-select: none;
+}
+details details { margin-left: .2rem; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3rem 0; }
+.katex-error { color: #d1242f; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c9ccd1; padding: .35rem .65rem; text-align: left; vertical-align: top; }
+th { background: #f1f3f5; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+@media print {
+  body { margin: 1.2cm; max-width: none; color: #000; background: #fff; }
+  summary { background: none; margin: 0; padding: .2rem 0; }
+  details { border-color: #ccc; background: #fff; padding: 0; }
+  a { color: #000; }
+  tr, blockquote, .katex-display { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  h1, h2, h3 { page-break-after: avoid; }
+  th, td { border-color: #999; }
+  th { background: #ececec; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  tbody tr:nth-child(even) { background: #f5f5f5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+<div id="content">Renderizando…</div>
+
+<script type="text/markdown" id="md-source">
+# Transformada de Laplace desde cero
+
+> Fuentes: `fuentes/clases/Transformadas de Laplace/Clase - Transformada de Laplace.pdf` (PDF de clase, 3 p.), `Clase - Propiedades y funciones especiales.pdf` (15 p., teórico con las demostraciones manuscritas del profesor), `Clase - Resumen de propiedades de Laplace.pdf` (2 p.), `ejemplos-de-clase/` (`ECUACIONES DIFERENCIALES ejemplos.pdf`, `Teorema de convolucion.pdf`, `evaluacion integrales.pdf`), `fuentes/metodo-fracciones-simples.pdf`, `Teorico catedra 1.4 - Transformada de Laplace.pdf` (29 p.), `Transformada de Laplace.pdf` (OneNote de la práctica, 27 p. manuscritas), transcripts `15-video-teorica-transformada-laplace.json` (teórica, 1 h 53), `14-video-teorica-aplicaciones-laplace.json` (aplicaciones, 1 h 17) y `10-video-repaso-primer-parcial.json` (repaso, parte de Laplace), `examenes/INDICE.md` (Laplace en las 16 hojas) y `examenes/resueltos/RESOLUCIONES-2025.md` (Ej2 de las 3 hojas 2025), `repaso/practica-repaso-2026.md` (C y D), `fuentes/Guia-ejercicios-parte-1-senales-y-sistemas.pdf` (ej. 1 a 14 de Laplace, con sus respuestas) y `fuentes/AYUDAMEMORIA-OFICIAL.pdf` (págs. 1–2). Todos los resultados verificados con Python (sympy). Generado 2026-11-25.
+>
+> **Cómo usarla:** leé de arriba abajo con el **ayudamemoria oficial abierto al lado** (es lo que vas a tener en el examen). Los **Ejemplos guiados** están resueltos a la vista: rehacé cada cuenta en papel. Los **Tu turno** se hacen **sin mirar**; la corrección está plegada (el enunciado va en texto plano en el título desplegable, porque ahí no se renderizan fórmulas). Las notas **En clase** son lo que dijo el profesor, con el minuto real del transcript: `teórica [mm:ss]` = video 15, `aplicaciones [mm:ss]` = video 14, `repaso [mm:ss]` = video 10. Tiempo total: ≈ 6 h; la ruta corta, ≈ 3 h 30.
+>
+> **Qué es de la cátedra y qué es mío:** métodos, fórmulas, criterios y ejemplos salen de las fuentes. Son agregados míos las explicaciones "en criollo", las cuentas intermedias que las fuentes saltean, el gráfico de §4, la tabla "qué veo → qué hago" del resumen y las resoluciones de los ítems que la fuente trae sin resolver (están indicados). El **Checkpoint** es un ejercicio con formato de parcial armado con tres ítems de la guía y del teórico. Los sistemas estables (función de transferencia, polos, respuesta) son la guía `03`: acá no se desarrollan.
+
+---
+
+> **🧭 Ruta corta (si vas contra reloj)** — núcleo ≈ 3 h 30
+>
+> - **Leyenda de los "tu turno":** 🔴 ítem de las hojas más recientes (2024-2C en adelante: parciales y **recuperatorios**, más los dos del repaso 2026): obligatorio · 🟠 ítem de examen anterior (2015 a 2024-1C) o del repaso grabado · ⚪ extra de la guía o del OneNote (opcional). Lo plegado como **"⚪ Se toma poco"** se puede saltear.
+> - **Leé, en este orden** (de lo más tomado a lo menos tomado): §0–§2 (15 min) → **§4** integral impropia = transformada evaluada → **§5** división por $t$ → **§10** antitransformar por convolución → **§6** potencias de seno y coseno → **§7** transformar una convolución → **§3** (solo la demostración de $a^t$) → **§9** fracciones simples → **§11** ecuaciones integrales → **§12.3** sistema de ecuaciones diferenciales → "Resumen en una página".
+> - **Salteá:** §8 si ya completás cuadrados sin pensar, §12.1–§12.2 (se practican en la guía `03`), §13 (plegada) y los ⚪.
+> - **"Tu turno" obligatorios (🔴):** 4.A · 5.A, 5.B · 10.A, 10.B · 6.A, 6.B · 7.A · 3.A · 9.A · 11.E · 12.C. Si sobra tiempo: 11.A (el más reciclado del formato anterior) y 12.A.
+> - **Para sacar 2 de los 3 puntos alcanza con…** la integral impropia (§4 o §5, son 4 renglones) y una antitransformada por convolución (§10). Los ítems son independientes: cada uno vale 1 punto y suma aunque falle otro.
+> - **Lo que se recicla:** $\int_0^\infty \frac{e^{-5t}-e^{-10t}}{t}dt=\ln 2$ (2 hojas), $\mathcal{L}^{-1}\left[\frac{1}{(s^2+1)^2}\right]$ (2 hojas + repaso 2026), $y(t)-\int_0^t y(u)\operatorname{sen}(t-u)\,du=t^4$ (2 hojas), $\mathcal{L}[t\cos t]=\frac{s^2-1}{(s^2+1)^2}$ (aparece adentro de 2 ítems de 2025).
+
+## 0. Qué te toman: el Ej2 vale 2 o 3 puntos
+
+En el formato vigente (curso K3052, 2025) el **Ej2 es siempre Laplace**, con 2 o 3 ítems de **1 punto cada uno**. En el formato anterior (2015–2024) era un ejercicio de 2 puntos, casi siempre una **ecuación integral**. Esto es todo lo que hay de Laplace en las 16 hojas del `INDICE.md` (lo de sistemas estables va en la guía `03`):
+
+| Tipo de ítem | Qué te piden | Hojas | Frecuencia | Sección |
+|---|---|---|---|---|
+| **Integral impropia con factor $t^n$** | $\int_0^\infty t\,e^{-5t}\cos t\,dt$ y parecidas: es una transformada evaluada en un número | 2015-T1 (MC), sin-fecha K3521-T1 (MC), **2025-1C T1 a** | 3/16 | §4 |
+| **Integral impropia dividida por $t$** | $\int_0^\infty \frac{e^{-5t}-e^{-10t}}{t}dt$, $\int_0^\infty\frac{\operatorname{sen}t}{t}dt$ | 2015-T2 (MC), K3521-T2 (MC), 2024-2C T1 b, 2024-2C T2 b, **2025-1C rec. a** | 5/16 | §5 |
+| **Antitransformar por convolución** | $\frac{1}{(s^2+1)^2}$, $\frac{s^2}{(s^2+1)^2}$ | 2024-2C rec. b, **2025-1C T1 b**, **2025-1C T2 b**, repaso 2026 (D) | 3/16 + repaso | §10 |
+| **Transformar una potencia de seno o coseno** | $\mathcal{L}[\cos^3t]$, $\mathcal{L}[\operatorname{sen}^3t]$ | 2024-2C rec. a, **2025-1C T2 a**, repaso 2026 (C) | 2/16 + repaso | §6 |
+| **Transformar una integral de convolución** | $\mathcal{L}\left[\int_0^t u\cos u\,e^{t-u}du\right]$ | **2025-1C rec. b** | 1/16 | §7 |
+| **Transformada de $a^t$** | Demostrar $\mathcal{L}(2^t)=\frac{1}{s-\ln 2}$; multiple choice con $a^t$ o $2^te^{-4t}$ | 2015-T2 (MC), sin-fecha-2 T1 (MC), **2025-1C T1 c** | 3/16 | §3 |
+| **Ecuación integral (convolución)** | $y(t)-\int_0^t y(u)\operatorname{sen}(t-u)\,du=t^4$ y la familia con coseno | sin-fecha-2 T1 y T2, 2022, 2024-1C T1 y T2 | 5/16 | §11 |
+| **Ecuación integro-diferencial** | $y'(t)-2y(t)=2-\dots$ con $y(0)=0$ | 2024-2C T1 a, 2024-2C T2 a | 2/16 | §11 |
+| **Sistema de ecuaciones diferenciales** | $x'=2x-3y$, $-2y'=-2y+4x$, $x(0)=8$, $y(0)=3$ | **2025-02-13 (2do recuperatorio)** | 1/16 | §12 |
+
+MC = multiple choice justificado (formato viejo). En negrita, las hojas del formato vigente (2025) y el 2do recuperatorio del 2025-02-13.
+
+**Lectura rápida.** Las 3 hojas de 2025 se arman con las mismas piezas: **una integral impropia** (2/3), **una antitransformada por convolución** (2/3), **una transformada "con truco"** (potencia de seno, convolución o $a^t$). Los **recuperatorios** van por ahí o un poco más lejos: $\cos^3t$ + $\frac{1}{(s^2+1)^2}$ (2024-2C), $\ln 2$ + convolución (2025-1C) y un sistema de ecuaciones diferenciales (2025-02-13). Las **fracciones simples** (§9) no son un ítem suelto del Ej2, pero son la herramienta de las ecuaciones de §11–§12 y de todo el Ej3.
+
+> **En clase:** "acá tomamos todo lo mismo y los mismos ejercicios y los mismos tipos de ejercicios; de hecho hay muchos ejercicios, honestamente, se reciclan, se les cambian dos numeritos" (repaso [1:06:12]).
+>
+> **En clase:** "es casi seguro que entre el ejercicio de transformada de Laplace o el de sistemas estables […] en el parcial o en el final, alguna ecuación diferencial sí o sí van a tener que resolver" (aplicaciones [14:17]).
+
+## 1. La idea en criollo
+
+Laplace es una **máquina de traducir**: le das una función del tiempo $f(t)$ (con $t>0$) y te devuelve una función de otra variable, $F(s)$. La traducción está definida por una integral:
+
+$$
+\mathcal{L}[f(t)]=F(s)=\int_0^\infty f(t)\,e^{-st}\,dt
+$$
+
+$t$ es una variable real positiva y $s$ una variable compleja (en los ejercicios siempre vas a evaluar $F$ en números reales). El viaje de vuelta se llama **antitransformada**: $\mathcal{L}^{-1}[F(s)]=f(t)$.
+
+Tres cosas que hay que tener claras desde el arranque:
+
+1. **La integral casi nunca se calcula.** Se usa la **tabla** (para ir y para volver) y las **propiedades**, que son atajos: "si en el tiempo multiplicás por $t$, en $s$ derivás", "si multiplicás por $e^{at}$, corrés la $s$", etc. Tabla y propiedades están en el ayudamemoria.
+2. **La definición sí hay que saberla**, porque hay un tipo de ítem que sale directo de ella: como la definición *es* una integral de $0$ a $\infty$, cualquier integral $\int_0^\infty f(t)\,e^{-5t}dt$ es $F(5)$ (§4 y §5).
+3. **Para qué sirve:** convierte derivadas en multiplicaciones por $s$, así que una ecuación diferencial se vuelve una ecuación algebraica (§12 y toda la guía `03`).
+
+El PDF de clase lo muestra con el ejemplo más simple, $f(t)=1$:
+
+$$
+F(s)=\int_0^\infty e^{-st}\,dt=\left[\frac{e^{-st}}{-s}\right]_0^\infty=\frac1s
+$$
+
+> **En clase:** "nosotros no vamos a estar resolviendo estas integrales todo el tiempo […] vamos a trabajar con una tablita que te dice, che, si vos querés transformar esta función, su transformada es esta. Y que también nos sirve en el camino contrario" (teórica [05:13]).
+>
+> **En clase:** sobre las demostraciones de las propiedades (las manuscritas del PDF "Propiedades y funciones especiales"): "nadie se las va a pedir" (teórica [17:30]); "¿las demostraciones para el parcial? […] ni para final […] no son importantes" (teórica [1:27:45]). La única "demostración" que se tomó es la de $\mathcal{L}(2^t)$, que son dos renglones (§3).
+
+**¿Toda función tiene transformada?** (PDF de clase y teórico, una sola lectura.) Alcanza con que $f$ sea **seccionalmente continua** (continua salvo en una cantidad finita de saltos finitos) y **de orden exponencial** (a partir de algún $t_0$ queda encerrada entre dos exponenciales: $\lvert f(t)\rvert\le Me^{\alpha t}$). Es una condición **suficiente, no necesaria**: $\frac{1}{\sqrt t}$ no es seccionalmente continua (se va a infinito en $0$) y sin embargo tiene transformada. Todas las funciones de la tabla la cumplen.
+
+## 2. Qué tenés en el ayudamemoria y qué va de memoria
+
+En el parcial se puede usar **solo el ayudamemoria oficial + una tabla de integrales**. Abrilo y ubicá cada cosa (págs. 1 y 2):
+
+**Está en el ayudamemoria** (no se memoriza: se sabe encontrar y aplicar):
+
+- 📄 La definición $\mathcal{L}[f(t)]=\int_0^\infty f(t)e^{-st}dt$.
+- 📄 1ª traslación $\mathcal{L}[e^{at}f(t)]=F(s-a)$; 2ª traslación; cambio de escala.
+- 📄 Derivada: $\mathcal{L}[f'(t)]=sF(s)-f(0)$. **Solo la primera.**
+- 📄 Integral: $\mathcal{L}\left[\int_0^tf(u)\,du\right]=\frac{F(s)}{s}$.
+- 📄 Multiplicación por $t^n$: $\mathcal{L}[t^nf(t)]=(-1)^nF^{(n)}(s)$.
+- 📄 División por $t$: $\mathcal{L}\left[\frac{f(t)}{t}\right]=\int_s^\infty F(u)\,du$, "siempre que exista $\lim_{t\to0}\frac{f(t)}{t}$".
+- 📄 Teoremas del valor inicial y final.
+- 📄 Convolución: $\mathcal{L}^{-1}[F(s)\cdot G(s)]=\int_0^tf(u)\,g(t-u)\,du$.
+- 📄 Tabla: $1\to\frac1s$, $t\to\frac1{s^2}$, $t^n\to\frac{n!}{s^{n+1}}$, $e^{at}\to\frac{1}{s-a}$, $\operatorname{sen}(at)\to\frac{a}{s^2+a^2}$, $\cos(at)\to\frac{s}{s^2+a^2}$, $\delta(t)\to1$.
+- 📄 En "otras fórmulas útiles" (pág. 3): Euler $e^{jx}=\cos x+j\operatorname{sen}x$ y el binomio de Newton.
+- 📄 En la **tabla de integrales**: primitivas ($\int\frac{du}{u^2+1}=\operatorname{arctg}u$, $\int e^{au}\operatorname{sen}(bu)\,du$, $\int e^{au}\cos(bu)\,du$) e identidades trigonométricas.
+
+**No está: va de memoria.**
+
+- 🧠 **Derivada segunda:** $\mathcal{L}[f''(t)]=s^2F(s)-s\,f(0)-f'(0)$.
+- 🧠 **Seno y coseno con exponenciales** (salen de Euler, pero conviene tenerlas listas): $\operatorname{sen}x=\frac{e^{jx}-e^{-jx}}{2j}$, $\cos x=\frac{e^{jx}+e^{-jx}}{2}$.
+- 🧠 **Producto → suma** (si tu tabla de integrales no las trae): $\operatorname{sen}A\operatorname{sen}B=\frac12[\cos(A-B)-\cos(A+B)]$ · $\cos A\cos B=\frac12[\cos(A-B)+\cos(A+B)]$ · $\operatorname{sen}A\cos B=\frac12[\operatorname{sen}(A+B)+\operatorname{sen}(A-B)]$.
+- 🧠 **Derivada de un cociente:** $\left(\frac ND\right)'=\frac{N'D-ND'}{D^2}$.
+- 🧠 **L'Hôpital** y logaritmos: $\ln a-\ln b=\ln\frac ab$, $\ln1=0$. Arcotangentes: $\operatorname{arctg}0=0$, $\operatorname{arctg}1=\frac\pi4$, $\operatorname{arctg}\sqrt3=\frac\pi3$, $\operatorname{arctg}u\to\frac\pi2$ si $u\to\infty$.
+- 🧠 **Completar cuadrados:** $s^2+bs+c=\left(s+\frac b2\right)^2+\left(c-\frac{b^2}{4}\right)$.
+- 🧠 **Fracciones simples:** los casos, el "tapado" y Ruffini (§9).
+- 🧠 $a^t=e^{t\ln a}$ (§3) y la **receta de cada tipo de ítem** (esta guía).
+
+> **En clase:** se puede llevar la "hoja de ayuda para el primer parcial" **sola**, sin apuntes propios (repaso [02:40]), más "tabla de integrales, derivadas e […] identidades trigonométricas […] con esto ya deberían andar" (repaso [03:11]).
+>
+> **En clase:** "las que traje son las que vamos a usar […] tanto la tablita esta […] y las propiedades están en los resúmenes que después ustedes van a poder utilizar en el parcial" (teórica [15:24]).
+
+---
+
+## 3. Transformar con la tabla, linealidad y 1ª traslación (y la "demostración" de $a^t$)
+
+### 3.1 Receta
+
+1. **Linealidad:** separá las sumas y sacá las constantes afuera.
+2. Cada pedazo, a la **tabla**. Leé quién es $a$ o $n$ en tu función.
+3. Si un pedazo está multiplicado por $e^{at}$: transformalo **sin** la exponencial y después cambiá **toda** $s$ por $s-a$ (1ª traslación).
+4. Dejá el resultado separado en fracciones: no hace falta denominador común.
+
+> **En clase:** "¿sacar un denominador común o algo así? No, esto no hace falta, es mejor dejarlo así separado, que es claro de dónde viene cada cosa" (teórica [23:49]).
+
+### Ejemplo guiado 1: $\mathcal{L}[4t^2-3\cos(2t)+5e^{-t}]$ (teórico y PDF de propiedades)
+
+**Paso 1 — linealidad:** $4\,\mathcal{L}[t^2]-3\,\mathcal{L}[\cos(2t)]+5\,\mathcal{L}[e^{-t}]$.
+
+**Paso 2 — tabla** ($t^2\to\frac{2!}{s^3}$; coseno con $a=2$; exponencial con $a=-1$):
+
+$$
+F(s)=4\cdot\frac{2}{s^3}-3\cdot\frac{s}{s^2+4}+5\cdot\frac{1}{s+1}=\frac{8}{s^3}-\frac{3s}{s^2+4}+\frac{5}{s+1}
+$$
+
+### Ejemplo guiado 2: $\mathcal{L}[e^{-t}\cos(2t)]$ (teórico)
+
+**Paso 1 — sin la exponencial:** $\mathcal{L}[\cos(2t)]=\dfrac{s}{s^2+4}$.
+
+**Paso 2 — 1ª traslación con $a=-1$:** cada $s$ pasa a ser $s-(-1)=s+1$, **también la del numerador**:
+
+$$
+\mathcal{L}[e^{-t}\cos(2t)]=\frac{s+1}{(s+1)^2+4}
+$$
+
+### 3.2 La transformada de $a^t$ (el ítem de "demostrar")
+
+La tabla solo tiene exponenciales de base $e$. Cualquier otra base se pasa a base $e$ aplicando logaritmo y volviendo a exponenciar (así lo hace el profesor en el OneNote, guía ej. 3d):
+
+$$
+a^t=e^{\ln(a^t)}=e^{t\ln a}\qquad(a>0)
+$$
+
+Y eso ya es una fila de la tabla, $e^{ct}\to\frac{1}{s-c}$, con el número $c=\ln a$:
+
+$$
+\mathcal{L}[a^t]=\mathcal{L}\left[e^{t\ln a}\right]=\frac{1}{s-\ln a}
+$$
+
+**Qué hay que dejar escrito** (resolución oficial 2025, Tema 1 c): los dos renglones. (1) $2^t=e^{\ln 2^t}=e^{t\ln2}$; (2) "por tabla, $\mathcal{L}[e^{at}]=\frac{1}{s-a}$ con $a=\ln2$".
+
+### Tu turno 3
+
+<details>
+<summary>🔴 <strong>3.A (parcial 2025, Tema 1, ítem c)</strong> — Demostrar que L(2ᵗ) = 1/(s − ln 2).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Paso la base 2 a base $e$:
+
+$$
+2^t=e^{\ln(2^t)}=e^{t\ln 2}
+$$
+
+**Paso 2.** Tabla: $\mathcal{L}[e^{at}]=\dfrac{1}{s-a}$, con $a=\ln2$ (un número):
+
+$$
+\mathcal{L}[2^t]=\mathcal{L}\left[e^{t\ln2}\right]=\frac{1}{s-\ln2}
+$$
+
+Es exactamente la resolución oficial.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>3.B (parcial sin fecha ≈2015, Tema 1, Ej1 a, multiple choice)</strong> — Si f(t) = 2ᵗ·e⁻⁴ᵗ, L[f(t)] es: a) 1/ln(2s+4) · b) 1/(s − ln 2 + 4) · c) 1/(s − ln 2) · 1/(s + 4) · d) otra.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Sin la exponencial $e^{-4t}$: $\mathcal{L}[2^t]=\dfrac{1}{s-\ln2}$ (§3.2).
+
+**Paso 2.** 1ª traslación con $a=-4$: $s\to s+4$.
+
+$$
+\mathcal{L}[2^te^{-4t}]=\frac{1}{(s+4)-\ln2}
+$$
+
+**Respuesta: b).** La c) es la trampa: una exponencial **multiplicando** en el tiempo no da un producto de transformadas (eso es la convolución, §7).
+
+Otro camino: $2^te^{-4t}=e^{t\ln2}e^{-4t}=e^{(\ln2-4)t}$, tabla con $a=\ln2-4$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>3.C (parcial 2015-05-29, Tema 2, Ej2 ii, multiple choice)</strong> — L(aᵗ) es: a) 1/(s − a) · b) 1/(s − eᵃ) · c) 1/(s − ln a) · d) ninguna.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+$a^t=e^{t\ln a}$ y por tabla $\mathcal{L}[a^t]=\dfrac{1}{s-\ln a}$. **Respuesta: c).** (La a) es la transformada de $e^{at}$, no de $a^t$.)
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>3.D (guía ej. 2a, 2b y 2e; OneNote)</strong> — Hallar L[f(t)]: a) t²·e⁴ᵗ · b) 5·e⁻⁵ᵗ·cos(3t) · e) e⁻²ᵗ·sen(2t) + t²·e³ᵗ.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** $t^2\to\dfrac{2}{s^3}$ y traslación con $a=4$:
+
+$$
+F(s)=\frac{2}{(s-4)^3}
+$$
+
+**b)** $5\cos(3t)\to\dfrac{5s}{s^2+9}$ y traslación con $a=-5$ (arriba y abajo):
+
+$$
+F(s)=\frac{5(s+5)}{(s+5)^2+9}
+$$
+
+La guía lo da desarrollado: $5\cdot\dfrac{s+5}{s^2+10s+34}$. Es lo mismo.
+
+**e)** $\operatorname{sen}(2t)\to\dfrac{2}{s^2+4}$ con $s\to s+2$; el segundo como en a) con $a=3$:
+
+$$
+F(s)=\frac{2}{(s+2)^2+4}+\frac{2}{(s-3)^3}
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>3.E (guía ej. 14.10, tomado en finales, multiple choice)</strong> — La transformada de f(t) = −5e²ᵗ + 2cos(t)·e³ᵗ − 19 sen(t)·e³ᵗ es: a) (−3s² + s)/((s − 2)(s² − 6s + 10)) · b) (s² − 4s − 5)/(s³ − 7s² + 17s + 25) · c) (6s + 3)/(s³ + 4s² + 13s) · d) ninguna.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — término a término** (los dos últimos con traslación $s\to s-3$):
+
+$$
+F(s)=-\frac{5}{s-2}+\frac{2(s-3)}{(s-3)^2+1}-\frac{19}{(s-3)^2+1}=-\frac{5}{s-2}+\frac{2s-25}{s^2-6s+10}
+$$
+
+**Paso 2 — denominador común** (acá sí, porque hay que comparar con las opciones):
+
+$$
+F(s)=\frac{-5(s^2-6s+10)+(2s-25)(s-2)}{(s-2)(s^2-6s+10)}=\frac{-5s^2+30s-50+2s^2-29s+50}{(s-2)(s^2-6s+10)}=\frac{-3s^2+s}{(s-2)(s^2-6s+10)}
+$$
+
+**Respuesta: a)** (coincide con la guía). Atajo: mirando solo los denominadores ya se descartan b) y c).
+
+</details>
+
+</details>
+
+---
+
+## 4. Integral impropia = transformada evaluada. Multiplicación por $t^n$ (3/16; ítem a de 2025 Tema 1)
+
+### 4.1 La idea
+
+Compará lo que te dan con la definición:
+
+$$
+\int_0^\infty f(t)\,e^{-kt}\,dt=F(k)
+$$
+
+La integral es **la transformada de $f$ evaluada en $s=k$**. $f(t)$ es *todo lo que no es la exponencial*; el número que acompaña a $-t$ en el exponente es dónde se evalúa. Si no hay exponencial, es $e^{-0\cdot t}$ y se evalúa en $s=0$.
+
+![A la izquierda t² y la exponencial por separado; a la derecha el producto, cuya área es F(2) = 1/4](../img/02-fig1-integral-impropia-es-F-evaluada.png)
+
+Como en estos ítems $f(t)$ trae una $t$ (o $t^2$) multiplicando, hace falta la propiedad de **multiplicación por $t^n$**:
+
+$$
+\mathcal{L}[t^n f(t)]=(-1)^n\,F^{(n)}(s)
+$$
+
+En criollo: **derivo $n$ veces la transformada de $f$ y cambio el signo $n$ veces**.
+
+> **En clase:** "derivo una vez, cambio el signo una vez; si fuera $t$ al cuadrado, derivo dos veces, cambio el signo dos veces" (repaso [1:13:30]). "Cambiar de signo un número par de veces es lo mismo que nada" (repaso [1:16:06]).
+
+### 4.2 Receta
+
+1. Separá la exponencial $e^{-kt}$: te da $s=k$. Lo que queda es $f(t)$.
+2. Escribí: "la integral es $\mathcal{L}[f(t)]$ evaluada en $s=k$".
+3. Calculá $F(s)$ **genérica**: tabla para la parte sin $t$, después derivar y cambiar el signo.
+4. **Recién al final** reemplazá $s=k$.
+
+**Cuándo falla:** si reemplazás $s$ por el número antes de derivar, derivás una constante y da $0$. Y la exponencial de la integral **no** es una 1ª traslación: es el $e^{-st}$ de la definición.
+
+**Qué hay que dejar escrito** (resolución oficial 2025, Tema 1 a): (1) "$\int_0^\infty t\,e^{-st}\cos t\,dt=\mathcal{L}\{t\cos t\}(s)$ con $s=5$"; (2) el nombre de la propiedad y la derivada hecha; (3) $F(s)$ genérica; (4) el valor en $s=5$. La oficial deja $\frac{24}{676}$ sin simplificar.
+
+### Ejemplo guiado 3: $\int_0^\infty t^2e^{-2t}\,dt$ (guía ej. 13c, OneNote, aplicaciones [58:44])
+
+**Paso 1.** $e^{-2t}\Rightarrow s=2$; $f(t)=t^2$.
+
+**Paso 2.** Tabla: $F(s)=\mathcal{L}[t^2]=\dfrac{2}{s^3}$.
+
+**Paso 3.** Evalúo:
+
+$$
+\int_0^\infty t^2e^{-2t}\,dt=F(2)=\frac{2}{8}=\frac14
+$$
+
+Sin integrar por partes dos veces.
+
+### Ejemplo guiado 4: $\int_0^\infty t\,e^{-2t}\cos t\,dt$ (teórico)
+
+**Paso 1.** $e^{-2t}\Rightarrow s=2$; $f(t)=t\cos t$: hay una $t$ multiplicando ⇒ multiplicación por $t$ con $n=1$.
+
+**Paso 2 — tabla, sin la $t$:** $\mathcal{L}[\cos t]=\dfrac{s}{s^2+1}$.
+
+**Paso 3 — derivo** (regla del cociente: $N=s$, $D=s^2+1$):
+
+$$
+\frac{d}{ds}\left(\frac{s}{s^2+1}\right)=\frac{1\cdot(s^2+1)-s\cdot2s}{(s^2+1)^2}=\frac{1-s^2}{(s^2+1)^2}
+$$
+
+**Paso 4 — cambio el signo una vez:**
+
+$$
+\mathcal{L}[t\cos t]=\frac{s^2-1}{(s^2+1)^2}
+$$
+
+**Paso 5 — evalúo en $s=2$:**
+
+$$
+\int_0^\infty t\,e^{-2t}\cos t\,dt=\frac{4-1}{(4+1)^2}=\frac{3}{25}
+$$
+
+> **Guardate este resultado:** $\mathcal{L}[t\cos t]=\dfrac{s^2-1}{(s^2+1)^2}$ aparece en el parcial 2025 Tema 1 (ítem a) y adentro del recuperatorio 2025 (ítem b).
+
+### Ejemplo guiado 5: $\int_0^\infty t^2e^{-5t}\operatorname{sen}t\,dt$ (ejemplos de clase "evaluación de integrales", ejemplo 1)
+
+**Paso 1.** $s=5$; $f(t)=t^2\operatorname{sen}t$ ⇒ $n=2$: derivo dos veces y el signo no cambia.
+
+**Paso 2.** $\mathcal{L}[\operatorname{sen}t]=\dfrac{1}{s^2+1}$.
+
+**Paso 3 — primera derivada:**
+
+$$
+\left(\frac{1}{s^2+1}\right)'=\frac{-2s}{(s^2+1)^2}
+$$
+
+**Paso 4 — segunda derivada** (cociente, y simplifico un factor $s^2+1$):
+
+$$
+\left(\frac{-2s}{(s^2+1)^2}\right)'=\frac{-2(s^2+1)^2+2s\cdot2(s^2+1)\cdot2s}{(s^2+1)^4}=\frac{-2(s^2+1)+8s^2}{(s^2+1)^3}=\frac{6s^2-2}{(s^2+1)^3}
+$$
+
+**Paso 5.** $(-1)^2=1$, así que $F(s)=\dfrac{6s^2-2}{(s^2+1)^3}$. En $s=5$:
+
+$$
+F(5)=\frac{150-2}{26^3}=\frac{148}{17576}=\frac{37}{4394}\approx0{,}00842
+$$
+
+### Tu turno 4
+
+<details>
+<summary>🔴 <strong>4.A (parcial 2025, Tema 1, ítem a)</strong> — Resolver con Laplace: ∫₀^∞ t·e⁻⁵ᵗ·cos(t) dt.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $\displaystyle\int_0^\infty t\,e^{-st}\cos t\,dt=\mathcal{L}[t\cos t]$ con $s=5$.
+
+**Paso 2.** Multiplicación por $t$: $\mathcal{L}[\cos t]=\dfrac{s}{s^2+1}$; derivo y cambio el signo (es el Ejemplo guiado 4):
+
+$$
+\mathcal{L}[t\cos t]=-\left(\frac{s}{s^2+1}\right)'=-\frac{s^2+1-2s^2}{(s^2+1)^2}=\frac{s^2-1}{(s^2+1)^2}
+$$
+
+**Paso 3.** En $s=5$:
+
+$$
+\int_0^\infty t\,e^{-5t}\cos t\,dt=\frac{25-1}{26^2}=\frac{24}{676}=\frac{6}{169}\approx0{,}0355
+$$
+
+Coincide con la oficial ($\frac{24}{676}$).
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>4.B (parcial sin fecha K3521 ≈2019, Tema 1, Ej2, multiple choice)</strong> — ∫₀^∞ t·cos(3t)·e⁻⁵ᵗ dt = a) 4/289 · b) 5/34 · c) 5/1156 · d) ∞ · e) ninguna. Justificar con Laplace.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $s=5$, $f(t)=t\cos(3t)$.
+
+**Paso 2.** $\mathcal{L}[\cos(3t)]=\dfrac{s}{s^2+9}$. Derivo:
+
+$$
+\left(\frac{s}{s^2+9}\right)'=\frac{(s^2+9)-2s^2}{(s^2+9)^2}=\frac{9-s^2}{(s^2+9)^2}
+$$
+
+Cambio el signo: $\mathcal{L}[t\cos(3t)]=\dfrac{s^2-9}{(s^2+9)^2}$.
+
+**Paso 3.** En $s=5$:
+
+$$
+\frac{25-9}{34^2}=\frac{16}{1156}=\frac{4}{289}
+$$
+
+**Respuesta: a).** (La b) es $\mathcal{L}[\cos3t]$ en $s=5$, sin la $t$: la trampa es olvidarse de derivar.)
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>4.C (parcial 2015-05-29, Tema 1, Ej2 i, multiple choice)</strong> — ∫₀^∞ tⁿ·e⁻²ᵗ dt vale: a) (n+1)!/2ⁿ⁺¹ · b) (n+1)!/2ⁿ · c) n!/2ⁿ⁺¹ · d) ninguna.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+$s=2$, $f(t)=t^n$. Tabla: $\mathcal{L}[t^n]=\dfrac{n!}{s^{n+1}}$. Evalúo:
+
+$$
+\int_0^\infty t^ne^{-2t}\,dt=\frac{n!}{2^{n+1}}
+$$
+
+**Respuesta: c).** Chequeo con $n=2$: $\frac{2}{8}=\frac14$, el Ejemplo guiado 3.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>4.D (clase de repaso grabada, ej. 6, multiple choice)</strong> — ∫₀^∞ t·sen(at)·e⁻²ᵗ dt es: a) 4/(4 + a²) · b) −4a/(4 − a²)² · c) 4a/(4 + a²)² · d) −4/(a² + 4)² · e) ninguna.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $s=2$, $f(t)=t\operatorname{sen}(at)$.
+
+**Paso 2.** $\mathcal{L}[\operatorname{sen}(at)]=\dfrac{a}{s^2+a^2}$. Derivo (numerador constante):
+
+$$
+\left(\frac{a}{s^2+a^2}\right)'=\frac{-2as}{(s^2+a^2)^2}
+$$
+
+Cambio el signo: $\mathcal{L}[t\operatorname{sen}(at)]=\dfrac{2as}{(s^2+a^2)^2}$.
+
+**Paso 3.** En $s=2$: $\dfrac{4a}{(4+a^2)^2}$. **Respuesta: c)** (repaso [1:11:26]–[1:14:00]).
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>4.E (guía ej. 13a, 13b y 13e; sin resolver en el OneNote)</strong> — Calcular con Laplace: a) ∫₀^∞ t³·e⁻ᵗ·sen(t) dt · b) ∫₀^∞ e⁻³ᵗ·t·sen(t) dt · e) ∫₀^∞ t·e⁻²ᵗ·cos(4t) dt.</summary>
+
+<details>
+<summary><strong>Resolución</strong> (mía, con la receta; resultados de la guía)</summary>
+
+**b)** $s=3$. $\mathcal{L}[t\operatorname{sen}t]=\dfrac{2s}{(s^2+1)^2}$ (4.D con $a=1$). En $s=3$: $\dfrac{6}{100}=\dfrac{3}{50}$ ✓.
+
+**e)** $s=2$. Como en 4.B con $\cos(4t)$: $\mathcal{L}[t\cos(4t)]=\dfrac{s^2-16}{(s^2+16)^2}$. En $s=2$: $\dfrac{4-16}{20^2}=-\dfrac{12}{400}=-0{,}03$ ✓.
+
+**a)** $s=1$, $n=3$: derivo tres veces $\dfrac{1}{s^2+1}$ y cambio el signo tres veces. Las dos primeras derivadas están en el Ejemplo guiado 5: $F''=\dfrac{6s^2-2}{(s^2+1)^3}$. La tercera:
+
+$$
+F'''=\frac{12s(s^2+1)^3-(6s^2-2)\cdot3(s^2+1)^2\cdot2s}{(s^2+1)^6}=\frac{12s(s^2+1)-6s(6s^2-2)}{(s^2+1)^4}=\frac{24s-24s^3}{(s^2+1)^4}
+$$
+
+$$
+\mathcal{L}[t^3\operatorname{sen}t]=-F'''=\frac{24s(s^2-1)}{(s^2+1)^4}
+$$
+
+En $s=1$ el numerador se anula: la integral vale $0$ ✓.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>4.F (guía ej. 2c, OneNote)</strong> — Hallar L[e⁻ᵗ·t·sen(2t)]. (Hay exponencial y t: ¿en qué orden?)</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+El profesor lo hace en este orden: **primero** la multiplicación por $t$, **después** la traslación.
+
+**Paso 1 (multiplicación por $t$).** $\mathcal{L}[\operatorname{sen}2t]=\dfrac{2}{s^2+4}$ → derivo: $\dfrac{-4s}{(s^2+4)^2}$ → cambio el signo: $\dfrac{4s}{(s^2+4)^2}$.
+
+**Paso 2 (1ª traslación, $a=-1$).** $s\to s+1$ en todos lados:
+
+$$
+\mathcal{L}[e^{-t}\,t\operatorname{sen}(2t)]=\frac{4(s+1)}{\left[(s+1)^2+4\right]^2}
+$$
+
+Coincide con la guía ($\frac{4s+4}{((s+1)^2+4)^2}$). Acá la exponencial sí es una traslación, porque no hay integral de $0$ a $\infty$: te piden la transformada, no un número.
+
+</details>
+
+</details>
+
+---
+
+## 5. División por $t$: las integrales con $/t$ (5/16; ítem a del recuperatorio 2025)
+
+### 5.1 La idea
+
+Del ayudamemoria:
+
+$$
+\mathcal{L}\left[\frac{f(t)}{t}\right]=\int_s^\infty F(u)\,du\qquad\text{siempre que exista }\lim_{t\to0}\frac{f(t)}{t}
+$$
+
+$F$ es la transformada del **numerador**, escrita con la letra $u$. Las primitivas que aparecen son siempre directas: logaritmos o arcotangentes.
+
+> **En clase:** "esta propiedad es importante, aparece en varios ejercicios y es siempre muy parecida" (teórica [46:37]). "Es una propiedad que en este tipo de ejercicios se toma bastante, o será por el seno de $t$ sobre $t$ o exponenciales sobre $t$" (aplicaciones [1:04:00]). "Es un ejercicio bastante típico, clásico, así que ténganlo en cuenta" (repaso [1:14:33]).
+
+### 5.2 Receta
+
+1. Si hay **dos exponenciales** sobre $t$, sacá factor común la de **menor** exponente: queda $e^{-kt}\cdot\dfrac{1-e^{-mt}}{t}$. La $e^{-kt}$ dice dónde evaluar ($s=k$). Si no hay exponencial suelta, $s=0$.
+2. **Verificá el límite** $\lim_{t\to0}\dfrac{f(t)}{t}$ (da $\frac00$: L'Hôpital) y **escribilo**.
+3. Transformá el numerador, pasalo a $u$ e integrá de $s$ a $\infty$.
+4. Si en $\infty$ queda $\infty-\infty$ con logaritmos, **juntalos en uno solo**: el cociente tiende a $1$ y $\ln1=0$.
+5. Evaluá en $s=k$.
+
+**Cuándo falla:** si separás $\frac{e^{-3t}-e^{-6t}}{t}$ en dos integrales con $\frac{e^{-3t}}{t}$ y $\frac{e^{-6t}}{t}$, cada una sería "la transformada de $\frac1t$", y $\lim_{t\to0}\frac1t$ no existe: la propiedad no se puede usar.
+
+**Qué hay que dejar escrito** (resolución oficial del recuperatorio 2025, ítem a): el factor común, **el límite verificado con L'Hôpital antes de aplicar la propiedad**, la integral en $u$, el paso de juntar logaritmos y la evaluación final.
+
+> **En clase:** "ustedes pueden llegar a tener el impulso de dividir […] esta integral en dos integrales diferentes" (aplicaciones [1:10:15]): por ahí no se llega a nada, porque no existe el límite de $\frac1t$.
+>
+> **En clase:** "me termina quedando […] un infinito menos infinito, que obviamente es una indeterminación. Pero en este caso se salva muy fácil […] la resta de dos logaritmos es igual al logaritmo de la división" (aplicaciones [1:13:58]).
+>
+> **En clase:** "este es un ejercicio que se toma bastante. Si no se toma con 3 y 6, lo he visto con 4 y con 8 […] capaz no da logaritmo de 2 y da logaritmo de 3, pero que los pasos son los mismos […] es un ejercicio tomable" (aplicaciones [1:16:04]).
+
+### Ejemplo guiado 6: $\int_0^\infty\dfrac{e^{-2t}-e^{-8t}}{t}\,dt$ (ejemplos de clase, y ejercicio c del teórico)
+
+**Paso 1 — factor común $e^{-2t}$:**
+
+$$
+\int_0^\infty e^{-2t}\,\frac{1-e^{-6t}}{t}\,dt=\mathcal{L}\left[\frac{1-e^{-6t}}{t}\right]\Bigg|_{s=2}
+$$
+
+**Paso 2 — el límite** ($\frac00$, derivo arriba y abajo):
+
+$$
+\lim_{t\to0}\frac{1-e^{-6t}}{t}=\lim_{t\to0}\frac{6e^{-6t}}{1}=6\quad\text{(existe ⇒ puedo usar la propiedad)}
+$$
+
+**Paso 3 — división por $t$** ($\mathcal{L}[1]=\frac1s$, $\mathcal{L}[e^{-6t}]=\frac{1}{s+6}$, en $u$):
+
+$$
+\mathcal{L}\left[\frac{1-e^{-6t}}{t}\right]=\int_s^\infty\left(\frac1u-\frac{1}{u+6}\right)du=\Big[\ln u-\ln(u+6)\Big]_s^\infty
+$$
+
+**Paso 4 — juntar logaritmos** ($\frac{u}{u+6}\to1$ cuando $u\to\infty$):
+
+$$
+\left[\ln\frac{u}{u+6}\right]_s^\infty=\ln1-\ln\frac{s}{s+6}=\ln\frac{s+6}{s}
+$$
+
+**Paso 5 — evaluar en $s=2$:**
+
+$$
+\int_0^\infty\frac{e^{-2t}-e^{-8t}}{t}\,dt=\ln\frac{8}{2}=\ln4
+$$
+
+**Atajo para controlar (agregado mío):** con esta receta, $\int_0^\infty\frac{e^{-at}-e^{-bt}}{t}dt$ siempre da $\ln\frac ba$. En el examen hay que hacer los pasos igual.
+
+### Ejemplo guiado 7: $\int_{-\infty}^{\infty}\dfrac{\operatorname{sen}t}{t}\,dt$ (ejemplos de clase, ejemplo 2; aplicaciones [1:00:18])
+
+**Paso 1 — paridad.** $\frac{\operatorname{sen}t}{t}$ es par (impar sobre impar), así que la integral en toda la recta es el doble de la de $0$ a $\infty$.
+
+**Paso 2.** $\int_0^\infty\frac{\operatorname{sen}t}{t}\,e^{-0t}dt$: no hay exponencial ⇒ $s=0$. El límite: $\lim_{t\to0}\frac{\operatorname{sen}t}{t}=1$, existe.
+
+**Paso 3 — división por $t$** ($\mathcal{L}[\operatorname{sen}t]=\frac{1}{s^2+1}$):
+
+$$
+\mathcal{L}\left[\frac{\operatorname{sen}t}{t}\right]=\int_s^\infty\frac{du}{u^2+1}=\Big[\operatorname{arctg}u\Big]_s^\infty=\frac\pi2-\operatorname{arctg}s
+$$
+
+**Paso 4.** $F(0)=\frac\pi2-0=\frac\pi2$. Entonces:
+
+$$
+\int_0^\infty\frac{\operatorname{sen}t}{t}\,dt=\frac\pi2\qquad\Longrightarrow\qquad\int_{-\infty}^{\infty}\frac{\operatorname{sen}t}{t}\,dt=\pi
+$$
+
+### Tu turno 5
+
+<details>
+<summary>🔴 <strong>5.A (1er recuperatorio 2025, ítem a; idéntico al parcial sin fecha K3521, Tema 2, Ej2, que daba las opciones ln 2 / ln 5 / ∞ / ninguna)</strong> — Calcular ∫₀^∞ (e⁻⁵ᵗ − e⁻¹⁰ᵗ)/t dt.</summary>
+
+**Enunciado en limpio:** $\displaystyle\int_0^\infty\frac{e^{-5t}-e^{-10t}}{t}\,dt$.
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — factor común $e^{-5t}$:**
+
+$$
+\int_0^\infty e^{-5t}\,\frac{1-e^{-5t}}{t}\,dt=\mathcal{L}\left[\frac{1-e^{-5t}}{t}\right]\Bigg|_{s=5}
+$$
+
+**Paso 2 — límite:** $\displaystyle\lim_{t\to0}\frac{1-e^{-5t}}{t}=\lim_{t\to0}5e^{-5t}=5$. Existe.
+
+**Paso 3 — división por $t$:**
+
+$$
+\int_s^\infty\left(\frac1u-\frac{1}{u+5}\right)du=\left[\ln\left\lvert\frac{u}{u+5}\right\rvert\right]_s^\infty=0-\ln\left\lvert\frac{s}{s+5}\right\rvert=\ln\left\lvert\frac{s+5}{s}\right\rvert
+$$
+
+**Paso 4 — en $s=5$:**
+
+$$
+\int_0^\infty\frac{e^{-5t}-e^{-10t}}{t}\,dt=\ln\frac{10}{5}=\ln2
+$$
+
+Coincide con la oficial (recuadrado: $\ln2$). En el multiple choice, opción a).
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>5.B (parcial 2024-2C, Tema 1, Ej3 b y Tema 2, Ej3 b)</strong> — Resolver: Tema 1) ∫₀^∞ sen(t)/t dt · Tema 2) ∫ de −∞ a ∞ de sen(t)/t dt.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+Es el Ejemplo guiado 7.
+
+**Tema 1.** Sin exponencial ⇒ $s=0$. $\lim_{t\to0}\frac{\operatorname{sen}t}{t}=1$ (existe).
+
+$$
+\mathcal{L}\left[\frac{\operatorname{sen}t}{t}\right]=\int_s^\infty\frac{du}{u^2+1}=\frac\pi2-\operatorname{arctg}s\quad\Rightarrow\quad\int_0^\infty\frac{\operatorname{sen}t}{t}\,dt=F(0)=\frac\pi2
+$$
+
+**Tema 2.** El integrando es par ⇒ el doble: $\pi$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>5.C (parcial 2015-05-29, Tema 2, Ej2 iii, multiple choice)</strong> — ∫₀^∞ (sen t / t)·e^(−√3·t) dt es: a) 0 · b) π/2 · c) π/4 · d) π/6.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+La misma $F(s)=\frac\pi2-\operatorname{arctg}s$ de 5.B, pero ahora la exponencial manda evaluar en $s=\sqrt3$:
+
+$$
+F(\sqrt3)=\frac\pi2-\operatorname{arctg}\sqrt3=\frac\pi2-\frac\pi3=\frac\pi6
+$$
+
+**Respuesta: d).**
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>5.D (guía ej. 14.6 y 14.11, tomados en finales, multiple choice)</strong> — 6) ∫₀^∞ (e⁻²ᵗ − e⁻⁶ᵗ)/t dt es: 0 / ln 2 / ln 3 / ninguna. 11) ∫₀^∞ e⁻ᵗ·sen(t)/t dt es: 0 / 1/2 / π/4 / infinito.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**6)** Factor común $e^{-2t}$: queda $\frac{1-e^{-4t}}{t}$ evaluada en $s=2$. Límite: $4$. $F(s)=\ln\frac{s+4}{s}$; $F(2)=\ln\frac62=\ln3$. **Opción c).**
+
+**11)** $F(s)=\frac\pi2-\operatorname{arctg}s$ en $s=1$: $\frac\pi2-\frac\pi4=\frac\pi4$. **Opción c).**
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>5.E (ejemplos de clase "evaluación de integrales", ejemplo 4)</strong> — Calcular ∫₀^∞ (cos(t) − e⁻⁸ᵗ)/t dt.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** No hay una exponencial común para sacar: $f(t)=\cos t-e^{-8t}$ y $s=0$.
+
+**Paso 2 — límite:** $\displaystyle\lim_{t\to0}\frac{\cos t-e^{-8t}}{t}=\lim_{t\to0}\frac{-\operatorname{sen}t+8e^{-8t}}{1}=8$. Existe.
+
+**Paso 3 — división por $t$:**
+
+$$
+\int_s^\infty\left(\frac{u}{u^2+1}-\frac{1}{u+8}\right)du=\left[\frac12\ln(u^2+1)-\ln(u+8)\right]_s^\infty=\left[\ln\frac{\sqrt{u^2+1}}{u+8}\right]_s^\infty
+$$
+
+**Paso 4.** Cuando $u\to\infty$, $\frac{\sqrt{u^2+1}}{u+8}\to1$ y el logaritmo tiende a $0$:
+
+$$
+F(s)=-\ln\frac{\sqrt{s^2+1}}{s+8}=\ln\frac{s+8}{\sqrt{s^2+1}}\qquad\Rightarrow\qquad F(0)=\ln8
+$$
+
+> ⚠ **Errata del PDF de clase:** al juntar los logaritmos escribe $\ln\frac{u^2+1}{u+8}$, sin la raíz. Con el $\frac12$ adelante corresponde $\sqrt{u^2+1}$ (si no, el cociente no tendería a $1$). El resultado final $\ln8$ del PDF está bien.
+
+</details>
+
+</details>
+
+---
+
+## 6. Potencias y productos de senos y cosenos (2/16 + repaso; ítem a de 2025 Tema 2)
+
+### 6.1 La idea y la receta
+
+La tabla no tiene $\cos^3t$ ni $\operatorname{sen}(5t)\cos(2t)$. Hay que **convertir el producto en una suma** de senos y cosenos simples. La cátedra lo hace con exponenciales complejas:
+
+$$
+\operatorname{sen}x=\frac{e^{jx}-e^{-jx}}{2j}\qquad\qquad\cos x=\frac{e^{jx}+e^{-jx}}{2}
+$$
+
+1. Reemplazá cada seno/coseno por su forma exponencial.
+2. Desarrollá: binomio $1\ 3\ 3\ 1$ para un cubo (signos alternados si es una resta); distributiva para un producto. Sumá exponentes: $e^{2jt}e^{-jt}=e^{jt}$.
+3. Reagrupá en parejas $e^{jkt}$, $e^{-jkt}$ y rearmá $\cos(kt)$ o $\operatorname{sen}(kt)$, multiplicando y dividiendo por lo que falte.
+4. Tabla y linealidad.
+
+Alternativa igual de válida (el profesor la anota en el OneNote): las identidades producto → suma de la tabla de integrales.
+
+**Qué hay que dejar escrito** (resolución oficial 2025, Tema 2 a): la forma exponencial elevada al cubo, el binomio desarrollado, el reagrupamiento que muestra la función como suma ($\operatorname{sen}^3t=-\frac14\operatorname{sen}3t+\frac34\operatorname{sen}t$) y la transformada.
+
+### Ejemplo guiado 8: $\mathcal{L}[\operatorname{sen}(5t)\cos(2t)]$ (guía ej. 3f, OneNote)
+
+**Paso 1 — exponenciales:**
+
+$$
+\operatorname{sen}(5t)\cos(2t)=\frac{e^{5jt}-e^{-5jt}}{2j}\cdot\frac{e^{2jt}+e^{-2jt}}{2}
+$$
+
+**Paso 2 — distributiva** ($2j\cdot2=4j$; exponentes $5+2$, $5-2$, $-5+2$, $-5-2$):
+
+$$
+=\frac{1}{4j}\left(e^{7jt}+e^{3jt}-e^{-3jt}-e^{-7jt}\right)
+$$
+
+**Paso 3 — reagrupar** ($\frac{1}{4j}=\frac12\cdot\frac{1}{2j}$; cada pareja arma un seno):
+
+$$
+=\frac12\cdot\frac{e^{7jt}-e^{-7jt}}{2j}+\frac12\cdot\frac{e^{3jt}-e^{-3jt}}{2j}=\frac12\operatorname{sen}(7t)+\frac12\operatorname{sen}(3t)
+$$
+
+**Paso 4 — tabla:**
+
+$$
+F(s)=\frac12\cdot\frac{7}{s^2+49}+\frac12\cdot\frac{3}{s^2+9}
+$$
+
+(La guía lo da junto: $\frac{5s^2+105}{(s^2+49)(s^2+9)}$. Es lo mismo.)
+
+### Tu turno 6
+
+<details>
+<summary>🔴 <strong>6.A (parcial 2025, Tema 2, ítem a)</strong> — Transformada de Laplace de sen³(t), t &gt; 0.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — exponencial y cubo.** Ojo con el denominador: $(2j)^3=8j^3=-8j$.
+
+$$
+\operatorname{sen}^3t=\left(\frac{e^{jt}-e^{-jt}}{2j}\right)^3=-\frac{1}{8j}\left(e^{3jt}-3e^{2jt}e^{-jt}+3e^{jt}e^{-2jt}-e^{-3jt}\right)=-\frac{1}{8j}\left(e^{3jt}-3e^{jt}+3e^{-jt}-e^{-3jt}\right)
+$$
+
+**Paso 2 — reagrupar** ($-\frac{1}{8j}=-\frac14\cdot\frac{1}{2j}$):
+
+$$
+=-\frac14\left[\frac{e^{3jt}-e^{-3jt}}{2j}-3\,\frac{e^{jt}-e^{-jt}}{2j}\right]=-\frac14\operatorname{sen}(3t)+\frac34\operatorname{sen}t
+$$
+
+**Paso 3 — tabla:**
+
+$$
+\mathcal{L}[\operatorname{sen}^3t]=-\frac14\cdot\frac{3}{s^2+9}+\frac34\cdot\frac{1}{s^2+1}
+$$
+
+Es la respuesta oficial (que la deja como $-\frac34\cdot\frac{1}{s^2+9}+\frac34\cdot\frac{1}{s^2+1}$).
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>6.B (1er recuperatorio 2024-2C, Ej3 a = repaso 2026, ejercicio C = guía ej. 3c)</strong> — Transformada de Laplace de y(t) = cos³(t), t &gt; 0.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — exponencial y cubo** (acá el denominador es $2^3=8$, sin $j$, y todos los signos son $+$):
+
+$$
+\cos^3t=\left(\frac{e^{jt}+e^{-jt}}{2}\right)^3=\frac18\left(e^{3jt}+3e^{jt}+3e^{-jt}+e^{-3jt}\right)
+$$
+
+**Paso 2 — reagrupar** ($\frac18=\frac14\cdot\frac12$):
+
+$$
+=\frac14\cdot\frac{e^{3jt}+e^{-3jt}}{2}+\frac34\cdot\frac{e^{jt}+e^{-jt}}{2}=\frac14\cos(3t)+\frac34\cos t
+$$
+
+**Paso 3 — tabla:**
+
+$$
+\mathcal{L}[\cos^3t]=\frac14\cdot\frac{s}{s^2+9}+\frac34\cdot\frac{s}{s^2+1}
+$$
+
+Coincide con la guía y con el OneNote.
+
+> ⚠ **En la foto del repaso 2026** la línea intermedia quedó copiada como $\frac14\operatorname{sen}(3t)+\frac34\cos(3t)$. Es un error de copia: lo correcto es $\frac14\cos(3t)+\frac34\cos t$, y la $F(s)$ final de la foto corresponde a esto.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>6.C (guía ej. 3b, OneNote)</strong> — Transformada de Laplace de y(t) = sen(5t + π/3), t &gt; 0.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+El profesor lo hace con exponenciales y anota que sale igual con la fórmula de la tabla de integrales, que es más corta:
+
+$$
+\operatorname{sen}(x+y)=\operatorname{sen}x\cos y+\operatorname{sen}y\cos x
+$$
+
+Con $x=5t$, $y=\frac\pi3$ ($\cos\frac\pi3=\frac12$, $\operatorname{sen}\frac\pi3=\frac{\sqrt3}{2}$):
+
+$$
+y(t)=\frac12\operatorname{sen}(5t)+\frac{\sqrt3}{2}\cos(5t)
+$$
+
+$$
+Y(s)=\frac12\cdot\frac{5}{s^2+25}+\frac{\sqrt3}{2}\cdot\frac{s}{s^2+25}=\frac{s\sqrt3+5}{2(s^2+25)}
+$$
+
+Coincide con la guía. **No** es una 2ª traslación: ahí el corrimiento es en $t$ y con dominio $t>a$ (§13).
+
+</details>
+
+</details>
+
+---
+
+## 7. Transformar una integral de convolución (ítem b del recuperatorio 2025)
+
+### 7.1 La idea y la receta
+
+El teorema de convolución (o de Borel), leído hacia la transformada:
+
+$$
+\mathcal{L}\left[\int_0^tf(u)\,g(t-u)\,du\right]=F(s)\cdot G(s)
+$$
+
+La transformada de esa integral rara es simplemente el **producto** de dos transformadas.
+
+1. Mirá adentro de la integral: lo que depende **solo de $u$** es $f(u)$; lo que depende de **$t-u$** es $g(t-u)$.
+2. Transformá cada una por separado, pensando $u$ y $t-u$ **como si fueran $t$**. Si $f(u)$ trae una $u$ multiplicando, es multiplicación por $t$ (§4).
+3. Multiplicá y simplificá.
+
+**Qué hay que dejar escrito** (resolución oficial del recuperatorio 2025, ítem b): el teorema, quién es $f(u)$ y quién $g(t-u)$, cómo sale cada transformada y el producto simplificado.
+
+### Ejemplo guiado 9: $\mathcal{L}\left[\int_0^te^{u}\,e^{2(t-u)}\,du\right]$ (teórico; aplicaciones [29:02])
+
+**Paso 1.** $f(u)=e^{u}$ (solo $u$) y $g(t-u)=e^{2(t-u)}$.
+
+**Paso 2.** Pensadas como $e^{t}$ y $e^{2t}$: tabla con $a=1$ y $a=2$.
+
+**Paso 3.**
+
+$$
+\mathcal{L}\left[\int_0^te^{u}\,e^{2(t-u)}\,du\right]=\frac{1}{s-1}\cdot\frac{1}{s-2}
+$$
+
+### Tu turno 7
+
+<details>
+<summary>🔴 <strong>7.A (1er recuperatorio 2025, ítem b = guía ej. 10, resuelto en el OneNote)</strong> — Resolver L[∫₀ᵗ u·cos(u)·e^(t−u) du].</summary>
+
+**Enunciado en limpio:** $\mathcal{L}\left[\displaystyle\int_0^tu\cos(u)\,e^{t-u}\,du\right]$.
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — identificar.** $f(u)=u\cos u$ y $g(t-u)=e^{t-u}$ ("pensarlo como $e^{t}$", anota el profesor).
+
+**Paso 2 — $F(s)$, multiplicación por $t$:** $\mathcal{L}[\cos u]=\dfrac{s}{s^2+1}$; derivo: $\dfrac{s^2+1-2s^2}{(s^2+1)^2}$; cambio el signo:
+
+$$
+F(s)=\frac{s^2-1}{(s^2+1)^2}
+$$
+
+**Paso 3 — $G(s)$:** $\mathcal{L}[e^{t}]=\dfrac{1}{s-1}$.
+
+**Paso 4 — producto**, con $s^2-1=(s-1)(s+1)$:
+
+$$
+F(s)\cdot G(s)=\frac{(s-1)(s+1)}{(s^2+1)^2}\cdot\frac{1}{s-1}=\frac{s+1}{(s^2+1)^2}
+$$
+
+Coincide con la oficial y con la guía.
+
+</details>
+
+</details>
+
+---
+
+## 8. Antitransformar I: tabla, ajustar constantes y completar cuadrados
+
+Sola no se toma, pero es el último paso de §9, §11 y §12.
+
+> **En clase:** una antitransformada directa "no sé si es un ejercicio de examen […] nunca hacemos solo eso" (teórica [1:41:03]). "Las antitransformadas son […] un poquito más artesanales, hay como que ver a qué se parece la función" (teórica [1:40:33]).
+
+### 8.1 Receta
+
+1. Buscá a qué fila de la tabla **se parece**. Con denominador $s^2+a^2$: si arriba hay $s$ viene de un coseno; si hay una constante, de un seno (teórica [1:30:52]).
+2. Si falta una constante, **multiplicá y dividí** por ella.
+3. Si el denominador es un cuadrático sin raíces reales, **completá el cuadrado**: $(s-\alpha)^2+\beta^2$.
+4. Si arriba hay $s$, **partí el numerador** para que aparezca el mismo $(s-\alpha)$ de abajo.
+5. **1ª traslación al revés:** lo que está en función de $(s-\alpha)$ sale multiplicado por $e^{\alpha t}$.
+
+$$
+\mathcal{L}^{-1}\left[\frac{s-\alpha}{(s-\alpha)^2+\beta^2}\right]=e^{\alpha t}\cos(\beta t)\qquad\qquad\mathcal{L}^{-1}\left[\frac{\beta}{(s-\alpha)^2+\beta^2}\right]=e^{\alpha t}\operatorname{sen}(\beta t)
+$$
+
+> **En clase:** "hago aparecer lo que quiero hacer aparecer […] y así como lo hago aparecer lo tengo que compensar: multiplico y divido por 2" (teórica [1:35:15]). "Practiquen si no se acuerdan cómo completar el cuadrado, porque lo vamos a usar bastante" (teórica [1:37:29]).
+
+### Ejemplo guiado 10: $\mathcal{L}^{-1}\left[\dfrac{1}{s^2-2s+5}\right]$ (teórico y PDF de propiedades; teórica [1:36:58])
+
+**Paso 1 — completar el cuadrado** (mitad de $-2$ es $-1$; $5-1=4$): $s^2-2s+5=(s-1)^2+4$.
+
+**Paso 2 — ajustar la constante.** Se parece a $\operatorname{sen}(2t)\to\frac{2}{s^2+4}$; falta un $2$ arriba:
+
+$$
+\frac{1}{(s-1)^2+4}=\frac12\cdot\frac{2}{(s-1)^2+4}
+$$
+
+**Paso 3 — traslación al revés** ($s-1\Rightarrow e^{t}$):
+
+$$
+\mathcal{L}^{-1}\left[\frac{1}{s^2-2s+5}\right]=\frac12\,e^{t}\operatorname{sen}(2t)
+$$
+
+### Ejemplo guiado 11: $\mathcal{L}^{-1}\left[\dfrac{s-1}{s^2+2s+2}\right]$ (guía ej. 5g, OneNote)
+
+**Paso 1.** $s^2+2s+2=(s+1)^2+1$.
+
+**Paso 2 — partir el numerador** para que aparezca $s+1$: $s-1=(s+1)-2$.
+
+$$
+\frac{s-1}{(s+1)^2+1}=\frac{s+1}{(s+1)^2+1}-\frac{2}{(s+1)^2+1}
+$$
+
+**Paso 3 — tabla + traslación** ($\beta=1$; $s+1\Rightarrow e^{-t}$):
+
+$$
+y(t)=e^{-t}\cos t-2e^{-t}\operatorname{sen}t
+$$
+
+### Tu turno 8
+
+<details>
+<summary>⚪ <strong>8.A (guía ej. 5b, 5f y 5h; OneNote)</strong> — Antitransformar: b) 8/(s² + 3) + 1/s · f) (s + 3)/(s² + 6s + 13) · h) 4s/(s² + 4)².</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**b)** $3=a^2\Rightarrow a=\sqrt3$. Multiplico y divido por $\sqrt3$:
+
+$$
+y(t)=\frac{8}{\sqrt3}\operatorname{sen}(\sqrt3\,t)+1
+$$
+
+**f)** $s^2+6s+13=(s+3)^2+4$ y el numerador ya es $s+3$:
+
+$$
+y(t)=e^{-3t}\cos(2t)
+$$
+
+**h)** Denominador al cuadrado: "hace pensar en $t\cos(2t)$ o $t\operatorname{sen}(2t)$" (OneNote). Pruebo con $t\operatorname{sen}(2t)$: $\frac{2}{s^2+4}$ → derivo $\frac{-4s}{(s^2+4)^2}$ → cambio el signo $\frac{4s}{(s^2+4)^2}$ ✓.
+
+$$
+y(t)=t\operatorname{sen}(2t)
+$$
+
+</details>
+
+</details>
+
+---
+
+## 9. Antitransformar II: fracciones simples
+
+Cuando $F(s)$ es un cociente de polinomios que no se parece a nada de la tabla, se lo parte en **fracciones simples**, cada una antitransformable.
+
+> **En clase:** "sepan cómo se resuelve, porque sí o sí va a haber […] alguna fracción simple en alguno de los ejercicios" (repaso [1:04:04]): en Laplace, en sistemas estables "siempre aparece", o en transformada Z. "Raíces complejas múltiples ya sería una banda […] eso no lo voy a tomar" (repaso [1:04:36]).
+>
+> **En clase:** "vamos a usar muchísimo, muchísimo el método de fracciones simples" (teórica [1:52:47]); "en el 99% de los casos voy a tener que usar fracciones simples" (aplicaciones [53:00]).
+
+### 9.1 Los casos (PDF "Método de fracciones simples")
+
+| Raíces del denominador | Qué fracción se propone | Antitransformada de cada una |
+|---|---|---|
+| Real simple $p$ | $\dfrac{A}{s-p}$ | $Ae^{pt}$ |
+| Real doble $p$ | $\dfrac{A}{(s-p)^2}+\dfrac{B}{s-p}$ | $Ate^{pt}+Be^{pt}$ |
+| Real triple $p$ | $\dfrac{A}{(s-p)^3}+\dfrac{B}{(s-p)^2}+\dfrac{C}{s-p}$ | $\dfrac A2t^2e^{pt}+Bte^{pt}+Ce^{pt}$ |
+| Complejas conjugadas simples (cuadrático con $b^2-4ac<0$) | $\dfrac{Bs+C}{s^2+bs+c}$: **dos incógnitas arriba** | completar cuadrado ⇒ $e^{\alpha t}\cos(\beta t)$ y $e^{\alpha t}\operatorname{sen}(\beta t)$ (§8) |
+| Complejas conjugadas múltiples | $\dfrac{As+B}{(\dots)^2}+\dfrac{Cs+D}{(\dots)}$ | no se toma: $\frac{1}{(s^2+1)^2}$ va por convolución (§10) |
+
+### 9.2 Receta
+
+0. **Grados.** Hace falta grado del numerador < grado del denominador. Si no, primero se divide: $\frac PQ=C+\frac RQ$ (caso raro; ver 9.D).
+1. **Factorizá el denominador** (resolvente con calculadora; Ruffini si es cúbico) y **sacá afuera el coeficiente principal**: $2s^2+7s+3=2(s+3)\left(s+\frac12\right)$.
+2. **Proponé** las fracciones según la tabla de 9.1.
+3. **Tapado** ("el truquito"): para cada raíz real simple, y para la **mayor potencia** de una raíz repetida, tapá ese factor en la $F(s)$ original y evaluá lo que queda en la raíz. Ese número es el coeficiente.
+4. **Lo que falte** (la $B$ de una doble, el $Bs+C$ de un cuadrático): sumá las fracciones, igualá el numerador al original y **compará coeficientes**, eligiendo los grados que despejan fácil (el mayor y el independiente suelen alcanzar).
+5. **Antitransformá** cada fracción.
+
+**Qué hay que dejar escrito** (resoluciones oficiales 2025 del Ej3, donde se usa): la propuesta de fracciones, el valor de tapado anotado sobre cada constante, las igualdades de coeficientes ("cuadráticos", "lineales", "independientes"), el cuadrado completado con el numerador partido y la $y(t)$.
+
+> **En clase:** el coeficiente principal "hay que sacarla para afuera" (aplicaciones [10:36]); si no, las fracciones simples dan mal.
+>
+> **En clase:** "sacarme de encima todas las incógnitas que pueda antes de arrancar con el sistema" (aplicaciones [49:13]): con el tapado, lo que parecía un sistema de 3×3 queda en dos ecuaciones sueltas.
+>
+> **En clase:** con raíces complejas conjugadas "en el numerador hay […] dos incógnitas" (teórica [1:49:02]). Las raíces de una cuadrática que aparece "en el medio de un ejercicio de fracciones simples" se pueden sacar con la calculadora (repaso [14:50]).
+
+### Ejemplo guiado 12 — raíces reales simples: $F(s)=\dfrac{s+7}{s^2-6s+5}$ (guía ej. 6a, OneNote)
+
+**Paso 1 — factorizar.** Raíces $5$ y $1$: $s^2-6s+5=(s-5)(s-1)$.
+
+**Paso 2 — proponer:** $\dfrac{s+7}{(s-5)(s-1)}=\dfrac{A}{s-5}+\dfrac{B}{s-1}$.
+
+**Paso 3 — tapado.** Para $A$ tapo $(s-5)$ y evalúo el resto en $s=5$; para $B$ tapo $(s-1)$ y evalúo en $s=1$:
+
+$$
+A=\frac{5+7}{5-1}=\frac{12}{4}=3\qquad\qquad B=\frac{1+7}{1-5}=\frac{8}{-4}=-2
+$$
+
+**Paso 4 — antitransformar:**
+
+$$
+f(t)=3e^{5t}-2e^{t}
+$$
+
+(El profesor también lo resuelve con el sistema $A+B=1$, $-A-5B=7$ y anota "se puede resolver más fácil": el tapado.)
+
+### Ejemplo guiado 13 — raíz doble: $F(s)=\dfrac{1}{(s+2)^2(s+1)}$ (guía ej. 6c, OneNote)
+
+**Paso 1 — proponer:**
+
+$$
+F(s)=\frac{A}{(s+2)^2}+\frac{B}{s+2}+\frac{C}{s+1}
+$$
+
+**Paso 2 — tapado** para $A$ (tapo $(s+2)^2$, evalúo en $-2$) y para $C$ (tapo $(s+1)$, evalúo en $-1$):
+
+$$
+A=\frac{1}{-2+1}=-1\qquad\qquad C=\frac{1}{(-1+2)^2}=1
+$$
+
+**Paso 3 — $B$ comparando coeficientes.** Numerador común: $-1(s+1)+B(s+1)(s+2)+1(s+2)^2=1$. Miro solo los términos en $s^2$: $B+1=0\Rightarrow B=-1$.
+
+**Paso 4 — antitransformar** ($\frac{1}{(s+2)^2}$ es $\frac{1}{s^2}$ trasladada: $te^{-2t}$):
+
+$$
+f(t)=-te^{-2t}-e^{-2t}+e^{-t}
+$$
+
+### Ejemplo guiado 14 — raíces complejas: $F(s)=\dfrac{7s^2-41s+84}{(s-1)(s^2-4s+13)}$ (guía ej. 6h, OneNote)
+
+**Paso 1 — el cuadrático.** $b^2-4ac=16-52<0$: complejas, lleva $Bs+C$.
+
+$$
+F(s)=\frac{A}{s-1}+\frac{Bs+C}{s^2-4s+13}
+$$
+
+**Paso 2 — tapado para $A$** (evalúo en $s=1$): $A=\dfrac{7-41+84}{1-4+13}=\dfrac{50}{10}=5$.
+
+**Paso 3 — comparar coeficientes:**
+
+$$
+5(s^2-4s+13)+(Bs+C)(s-1)=7s^2-41s+84
+$$
+
+Cuadráticos: $5+B=7\Rightarrow B=2$. Independientes: $65-C=84\Rightarrow C=-19$. (Control con los lineales: $-20-B+C=-20-2-19=-41$ ✓.)
+
+**Paso 4 — completar el cuadrado y partir el numerador.** $s^2-4s+13=(s-2)^2+9$; $2s-19=2(s-2)+4-19=2(s-2)-15$:
+
+$$
+F(s)=\frac{5}{s-1}+\frac{2(s-2)}{(s-2)^2+9}-\frac{15}{(s-2)^2+9}
+$$
+
+**Paso 5 — antitransformar** ($\beta=3$ y $15=5\cdot3$; $s-2\Rightarrow e^{2t}$):
+
+$$
+f(t)=5e^{t}+2e^{2t}\cos(3t)-5e^{2t}\operatorname{sen}(3t)
+$$
+
+### 9.3 El atajo del teórico: acomodar antes de plantear
+
+El teórico avisa que "muchas veces la descomposición en fracciones simples puede hacerse mediante algún paso algebraico sin necesidad de plantear un sistema". Su ejemplo:
+
+$$
+Y(s)=\frac{2s^2-4s+5}{s^2(s^2-4s+5)}=\frac{s^2+(s^2-4s+5)}{s^2(s^2-4s+5)}=\frac{1}{s^2-4s+5}+\frac{1}{s^2}
+$$
+
+y como $s^2-4s+5=(s-2)^2+1$: $y(t)=e^{2t}\operatorname{sen}t+t$. En la misma línea, el profesor insiste en **factorizar y cancelar antes** de las fracciones simples (aplicaciones [55:05]); lo vas a ver en el Ejemplo guiado 19.
+
+### Tu turno 9
+
+<details>
+<summary>🔴 <strong>9.A (parcial 2024-2C, Tema 1, Ej3 a: la Y(s) de la respuesta oficial)</strong> — Antitransformar Y(s) = (s − 2)(s + 1) / (s·(s − 1)²).</summary>
+
+**Enunciado en limpio:** $Y(s)=\dfrac{(s-2)(s+1)}{s\,(s-1)^2}$. El enunciado completo era una ecuación integro-diferencial que no se pudo extraer del archivo original (ver `INDICE.md`); la hoja de respuestas oficial da esta $Y(s)$ y el resultado. Acá se practica el paso que define el ítem.
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — proponer** (raíz simple $0$, raíz doble $1$):
+
+$$
+Y(s)=\frac{A}{s}+\frac{B}{(s-1)^2}+\frac{C}{s-1}
+$$
+
+**Paso 2 — tapado.** $A$ (en $s=0$): $\dfrac{(-2)(1)}{(-1)^2}=-2$. $B$ (en $s=1$): $\dfrac{(-1)(2)}{1}=-2$.
+
+**Paso 3 — $C$ por coeficientes.** $A(s-1)^2+Bs+Cs(s-1)=s^2-s-2$. Cuadráticos: $A+C=1\Rightarrow C=3$.
+
+**Paso 4 — antitransformar:**
+
+$$
+y(t)=-2-2te^{t}+3e^{t}
+$$
+
+Coincide con la respuesta oficial.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>9.B (guía ej. 6d, sin resolver en el OneNote)</strong> — Antitransformar F(s) = (s² + 9s + 19) / ((s + 1)(s + 2)(s + 4)).</summary>
+
+<details>
+<summary><strong>Resolución</strong> (mía; resultado de la guía)</summary>
+
+Tres raíces reales simples: todo por tapado.
+
+$$
+A=\frac{1-9+19}{(1)(3)}=\frac{11}{3}\ (s=-1)\qquad B=\frac{4-18+19}{(-1)(2)}=-\frac52\ (s=-2)\qquad C=\frac{16-36+19}{(-3)(-2)}=-\frac16\ (s=-4)
+$$
+
+$$
+f(t)=\frac{11}{3}e^{-t}-\frac52e^{-2t}-\frac16e^{-4t}
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>9.C (guía ej. 6i, sin resolver en el OneNote)</strong> — Antitransformar F(s) = (−2s² + 8s − 14) / ((s + 1)(s² − 2s + 5)).</summary>
+
+<details>
+<summary><strong>Resolución</strong> (mía; resultado de la guía)</summary>
+
+$s^2-2s+5$: $4-20<0$, complejas. Propongo $\dfrac{A}{s+1}+\dfrac{Bs+C}{s^2-2s+5}$.
+
+Tapado en $s=-1$: $A=\dfrac{-2-8-14}{1+2+5}=-3$.
+
+$A(s^2-2s+5)+(Bs+C)(s+1)=-2s^2+8s-14$. Cuadráticos: $-3+B=-2\Rightarrow B=1$. Independientes: $-15+C=-14\Rightarrow C=1$.
+
+$s^2-2s+5=(s-1)^2+4$ y $s+1=(s-1)+2$:
+
+$$
+F(s)=-\frac{3}{s+1}+\frac{s-1}{(s-1)^2+4}+\frac{2}{(s-1)^2+4}
+$$
+
+$$
+f(t)=-3e^{-t}+e^{t}\cos(2t)+e^{t}\operatorname{sen}(2t)
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>9.D (guía ej. 6b y 6j, OneNote: los dos casos raros)</strong> — Antitransformar: b) F(s) = (s² + 2s + 2)/(s² + 3s + 2) · j) F(s) = (4s + 2)·e⁻²ˢ / ((s − 1)(s + 2)).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**b) Grados iguales: primero dividir.** El profesor suma y resta $s$ arriba:
+
+$$
+F(s)=\frac{(s^2+3s+2)-s}{s^2+3s+2}=1-\frac{s}{(s+2)(s+1)}
+$$
+
+Tapado sobre $\dfrac{-s}{(s+2)(s+1)}$: $A=\dfrac{2}{-1}=-2$ (en $-2$), $B=\dfrac{1}{1}=1$ (en $-1$). Y la antitransformada de $1$ es $\delta(t)$:
+
+$$
+f(t)=\delta(t)-2e^{-2t}+e^{-t}
+$$
+
+**j) Factor $e^{-2s}$ afuera.** Fracciones simples de lo que queda: $A=\dfrac{6}{3}=2$ (en $1$), $B=\dfrac{-6}{-3}=2$ (en $-2$). Después, 2ª traslación al revés, $\mathcal{L}^{-1}[e^{-as}F(s)]=f(t-a)$ para $t>a$:
+
+$$
+f(t)=2e^{(t-2)}+2e^{-2(t-2)}\qquad(t>2)
+$$
+
+> **En clase:** el caso de dividir polinomios "no es muy importante, lo que me importa es el caso normal" (teórica [1:46:22]).
+
+</details>
+
+</details>
+
+---
+
+## 10. Antitransformar III: por convolución (3/16 + repaso; ítem b de las dos hojas del parcial 2025)
+
+### 10.1 La idea
+
+El mismo teorema de §7, leído al revés:
+
+$$
+\mathcal{L}^{-1}[F(s)\cdot G(s)]=\int_0^tf(u)\,g(t-u)\,du
+$$
+
+Se usa cuando la consigna dice "utilizando convolución" o cuando el denominador tiene **complejas dobles**, como $(s^2+1)^2$, que por fracciones simples no se toman.
+
+> **En clase:** para antitransformar "me parece a mí más fácil trabajar con fracciones simples […] aunque también valga usar convolución, porque […] ahora voy a tener que resolver esa integral" (aplicaciones [33:56]). Conclusión práctica: convolución **solo** si la piden o si hay complejas dobles.
+
+### 10.2 Receta
+
+1. **Partí** $Y(s)$ en dos factores que estén en la tabla. Las constantes se reparten como convenga.
+2. **Antitransformá** cada uno: $f(t)$ y $g(t)$.
+3. **Armá la integral:** a una le ponés $u$ y a la otra $t-u$. Si hay una exponencial, **dale el $t-u$ a la exponencial**: $e^{a(t-u)}=e^{at}e^{-au}$ y el $e^{at}$ sale afuera de la integral.
+4. **Integrá en $u$** ($t$ es constante ahí adentro). Seno/coseno por seno/coseno: primero producto → suma. Exponencial por seno/coseno: primitiva de la tabla de integrales.
+5. **Barrow** entre $0$ y $t$, usando $\operatorname{sen}(-t)=-\operatorname{sen}t$ y $\cos(-t)=\cos t$.
+
+Las dos identidades que resuelven los ítems de examen, con $A=u$ y $B=t-u$ (entonces $A-B=2u-t$ y $A+B=t$):
+
+$$
+\operatorname{sen}u\,\operatorname{sen}(t-u)=\frac12\big[\cos(2u-t)-\cos t\big]\qquad\qquad\cos u\,\cos(t-u)=\frac12\big[\cos(2u-t)+\cos t\big]
+$$
+
+**Qué hay que dejar escrito** (resoluciones oficiales 2025, T1 b y T2 b): $F$ y $G$ con sus antitransformadas, la integral de convolución armada, la identidad producto → suma aplicada, la primitiva con Barrow y el paso $\operatorname{sen}t-\operatorname{sen}(-t)=2\operatorname{sen}t$.
+
+> **En clase:** "tienen que tener el criterio […] a qué función yo le voy a dar el $t-u$, porque eso me puede ayudar o complicar con la dificultad de la integral" (aplicaciones [37:05]). En el OneNote lo anota así: "más fácil que el $(t-u)$ sea para la exponencial".
+
+### Ejemplo guiado 15: $Y(s)=\dfrac{2s}{(s-3)(s^2+1)}$ por convolución (teórico y ejemplos de clase "Teorema de convolución")
+
+**Paso 1 — partir:**
+
+$$
+F(s)=\frac{s}{s^2+1}\Rightarrow f(t)=\cos t\qquad\qquad G(s)=\frac{2}{s-3}\Rightarrow g(t)=2e^{3t}
+$$
+
+**Paso 2 — armar**, con el $t-u$ para la exponencial, y sacar $e^{3t}$ afuera:
+
+$$
+y(t)=\int_0^t\cos(u)\cdot2e^{3(t-u)}\,du=2e^{3t}\int_0^t\cos(u)\,e^{-3u}\,du
+$$
+
+**Paso 3 — primitiva de tabla** ($\int e^{au}\cos(bu)\,du=\frac{e^{au}}{a^2+b^2}\left(a\cos bu+b\operatorname{sen}bu\right)$ con $a=-3$, $b=1$):
+
+$$
+y(t)=2e^{3t}\cdot\frac{1}{10}\Big[e^{-3u}\big(-3\cos u+\operatorname{sen}u\big)\Big]_0^t=2e^{3t}\cdot\frac{1}{10}\Big[e^{-3t}\big(-3\cos t+\operatorname{sen}t\big)+3\Big]
+$$
+
+**Paso 4 — distributiva** ($e^{3t}e^{-3t}=1$):
+
+$$
+y(t)=-\frac35\cos t+\frac15\operatorname{sen}t+\frac35e^{3t}
+$$
+
+**Control por fracciones simples** (el teórico lo hace para mostrar que coincide): $\dfrac{A}{s-3}+\dfrac{Bs+C}{s^2+1}$ con tapado $A=\dfrac{6}{10}=\dfrac35$; cuadráticos $A+B=0\Rightarrow B=-\dfrac35$; independientes $A-3C=0\Rightarrow C=\dfrac15$. Da lo mismo ✓.
+
+### Ejemplo guiado 16: $Y(s)=\dfrac{1}{(s^2+1)^2}$ (repaso 2026 ejercicio D, guía ej. 11b, OneNote)
+
+**Paso 1 — partir:** $F(s)=G(s)=\dfrac{1}{s^2+1}\Rightarrow f(t)=g(t)=\operatorname{sen}t$.
+
+**Paso 2 — convolución e identidad:**
+
+$$
+y(t)=\int_0^t\operatorname{sen}(u)\operatorname{sen}(t-u)\,du=\frac12\int_0^t\big[\cos(2u-t)-\cos t\big]\,du
+$$
+
+**Paso 3 — integrar en $u$.** $\cos t$ es constante respecto de $u$ (su integral es $u\cos t$); la primitiva de $\cos(2u-t)$ es $\frac{\operatorname{sen}(2u-t)}{2}$:
+
+$$
+y(t)=\frac12\left[\frac{\operatorname{sen}(2u-t)}{2}-u\cos t\right]_0^t=\frac12\left(\frac{\operatorname{sen}t-\operatorname{sen}(-t)}{2}-t\cos t\right)
+$$
+
+**Paso 4.** $\operatorname{sen}t-\operatorname{sen}(-t)=2\operatorname{sen}t$:
+
+$$
+y(t)=\frac12\operatorname{sen}t-\frac12\,t\cos t
+$$
+
+### Tu turno 10
+
+<details>
+<summary>🔴 <strong>10.A (parcial 2025, Tema 1, ítem b = 1er recuperatorio 2024-2C, Ej3 b)</strong> — Antitransformar Y(s) = 1/(s² + 1)².</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+Es el Ejemplo guiado 16: hacelo de nuevo, en blanco, sin mirar. Los cuatro renglones que tienen que quedar:
+
+$$
+F(s)=G(s)=\frac{1}{s^2+1}\ \Rightarrow\ f(t)=g(t)=\operatorname{sen}t
+$$
+
+$$
+y(t)=\int_0^t\operatorname{sen}(u)\operatorname{sen}(t-u)\,du=\frac12\int_0^t\big[\cos(2u-t)-\cos t\big]\,du
+$$
+
+$$
+y(t)=\frac12\left[\frac{\operatorname{sen}(2u-t)}{2}\right]_0^t-\frac12\,t\cos t=\frac14\big(\operatorname{sen}t-\operatorname{sen}(-t)\big)-\frac12\,t\cos t
+$$
+
+$$
+y(t)=-\frac12\,t\cos t+\frac12\operatorname{sen}t
+$$
+
+Coincide con la oficial (recuadrado).
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>10.B (parcial 2025, Tema 2, ítem b = guía ej. 11c)</strong> — Antitransformar utilizando convolución: Y(s) = s²/(s² + 1)².</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $F(s)=G(s)=\dfrac{s}{s^2+1}\Rightarrow f(t)=g(t)=\cos t$.
+
+**Paso 2 — convolución e identidad:**
+
+$$
+y(t)=\int_0^t\cos(u)\cos(t-u)\,du=\frac12\int_0^t\big[\cos t+\cos(2u-t)\big]\,du
+$$
+
+**Paso 3 — integrar en $u$:**
+
+$$
+y(t)=\frac12\,t\cos t+\frac12\left[\frac{\operatorname{sen}(2u-t)}{2}\right]_0^t=\frac12\,t\cos t+\frac14\big(\operatorname{sen}t-\operatorname{sen}(-t)\big)
+$$
+
+**Paso 4:**
+
+$$
+y(t)=\frac12\,t\cos t+\frac12\operatorname{sen}t
+$$
+
+Coincide con la oficial. Mismo esqueleto que 10.A: solo cambia un signo.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>10.C (guía ej. 11a, OneNote; aplicaciones [34:27])</strong> — Antitransformar utilizando convolución: Y(s) = 6/((s + 1)(s² + 4)).</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $F(s)=\dfrac{6}{s+1}\Rightarrow f(t)=6e^{-t}$; $G(s)=\dfrac{1}{s^2+4}\Rightarrow g(t)=\dfrac12\operatorname{sen}(2t)$.
+
+**Paso 2 — el $t-u$ a la exponencial** ($6\cdot\frac12=3$):
+
+$$
+y(t)=3\int_0^te^{-(t-u)}\operatorname{sen}(2u)\,du=3e^{-t}\int_0^te^{u}\operatorname{sen}(2u)\,du
+$$
+
+**Paso 3 — primitiva de tabla** ($\int e^{au}\operatorname{sen}(bu)\,du=\frac{e^{au}}{a^2+b^2}\left(a\operatorname{sen}bu-b\cos bu\right)$ con $a=1$, $b=2$):
+
+$$
+y(t)=3e^{-t}\left[\frac15e^{u}\big(\operatorname{sen}2u-2\cos2u\big)\right]_0^t=3e^{-t}\left[\frac15e^{t}\big(\operatorname{sen}2t-2\cos2t\big)+\frac25\right]
+$$
+
+**Paso 4:**
+
+$$
+y(t)=\frac35\operatorname{sen}(2t)-\frac65\cos(2t)+\frac65e^{-t}
+$$
+
+Coincide con la guía.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>10.D (guía ej. 14.5, tomado en finales, multiple choice)</strong> — La antitransformada de Y(s) = 2·(s² + 1)⁻² es: a) 2 sen²(t) · b) sen(t) − t·cos(t) · c) 2t·sen(t) · d) ninguna.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+Es el doble de 10.A: $y(t)=2\left(\frac12\operatorname{sen}t-\frac12t\cos t\right)=\operatorname{sen}t-t\cos t$. **Respuesta: b).**
+
+Para descartar c) sin convolución: $\mathcal{L}[t\operatorname{sen}t]=\frac{2s}{(s^2+1)^2}$ (tiene una $s$ arriba).
+
+</details>
+
+</details>
+
+---
+
+## 11. Ecuaciones integrales e integro-diferenciales (7/16: el Ej2 del formato anterior y de 2024-2C)
+
+### 11.1 La idea y la receta
+
+Una **ecuación integral de tipo convolutorio** tiene la incógnita adentro de una integral de convolución:
+
+$$
+y(t)=f(t)+\int_0^ty(u)\,k(t-u)\,du
+$$
+
+Si además aparece $y'(t)$ es **integro-diferencial** y trae una condición inicial.
+
+1. **Laplace miembro a miembro.** La integral es una convolución: da $Y(s)\cdot K(s)$, con $K$ la transformada del otro factor pensado como función de $t$ ($\operatorname{sen}(t-u)\to\frac{1}{s^2+1}$, $\cos(t-u)\to\frac{s}{s^2+1}$, $(t-u)\to\frac{1}{s^2}$). Si hay $y'(t)$: $sY(s)-y(0)$.
+2. **Factor común $Y(s)$** y despejar.
+3. **Factorizar y cancelar** lo que se pueda.
+4. **Antitransformar** (tabla o fracciones simples).
+
+> **En clase:** "todos los ejercicios arrancan así […] transformada de Laplace miembro a miembro" (aplicaciones [03:41]). "La convolución en realidad la vamos a aplicar más que nada a […] ecuaciones integrales o íntegro diferenciales" (aplicaciones [41:51]).
+>
+> **En clase:** "era identificar las dos funciones que hay adentro de esa integral y era el producto de las transformadas […] ahí no deberían tener inconveniente tampoco si fuera una íntegro diferencial o una ecuación integral" (repaso [1:10:54]).
+
+### Ejemplo guiado 17: $y(t)=t^2+\int_0^ty(u)\operatorname{sen}(t-u)\,du$ (teórico y ejemplos de clase)
+
+**Paso 1 — miembro a miembro:**
+
+$$
+Y(s)=\frac{2}{s^3}+Y(s)\cdot\frac{1}{s^2+1}
+$$
+
+**Paso 2 — factor común** ($1-\frac{1}{s^2+1}=\frac{s^2}{s^2+1}$):
+
+$$
+Y(s)\,\frac{s^2}{s^2+1}=\frac{2}{s^3}\qquad\Rightarrow\qquad Y(s)=\frac{2(s^2+1)}{s^5}=\frac{2}{s^3}+\frac{2}{s^5}
+$$
+
+**Paso 3 — antitransformar.** $\frac{2}{s^3}\to t^2$. Para $\frac{2}{s^5}$ necesito $\frac{4!}{s^5}=\frac{24}{s^5}\to t^4$: multiplico y divido por $12$.
+
+$$
+y(t)=t^2+\frac{t^4}{12}
+$$
+
+### Ejemplo guiado 18: $y(t)+4\int_0^t(t-u)^2\,y(u)\,du=t^2$ (guía ej. 12a, OneNote; aplicaciones [42:25])
+
+**Paso 1.** El núcleo $(t-u)^2$ se piensa como $t^2\to\frac{2}{s^3}$:
+
+$$
+Y(s)+4\cdot\frac{2}{s^3}\cdot Y(s)=\frac{2}{s^3}\qquad\Rightarrow\qquad Y(s)\,\frac{s^3+8}{s^3}=\frac{2}{s^3}\qquad\Rightarrow\qquad Y(s)=\frac{2}{s^3+8}
+$$
+
+**Paso 2 — Ruffini.** $s=-2$ anula $s^3+8$. Coeficientes $1\ \ 0\ \ 0\ \ 8$ con raíz $-2$:
+
+| | 1 | 0 | 0 | 8 |
+|---|---|---|---|---|
+| $-2$ | | $-2$ | $4$ | $-8$ |
+| | **1** | $\mathbf{-2}$ | **4** | 0 |
+
+$s^3+8=(s+2)(s^2-2s+4)$, y el cuadrático tiene $4-16<0$: complejas.
+
+**Paso 3 — fracciones simples.** $\dfrac{2}{(s+2)(s^2-2s+4)}=\dfrac{A}{s+2}+\dfrac{Bs+C}{s^2-2s+4}$. Tapado en $-2$: $A=\dfrac{2}{4+4+4}=\dfrac16$.
+
+$\frac16(s^2-2s+4)+(Bs+C)(s+2)=2$. Cuadráticos: $\frac16+B=0\Rightarrow B=-\frac16$. Independientes: $\frac23+2C=2\Rightarrow C=\frac23$.
+
+**Paso 4 — completar y partir.** $s^2-2s+4=(s-1)^2+3$; $-\frac16s+\frac23=-\frac16(s-1)+\frac12$:
+
+$$
+Y(s)=\frac16\cdot\frac{1}{s+2}-\frac16\cdot\frac{s-1}{(s-1)^2+3}+\frac12\cdot\frac{1}{(s-1)^2+3}
+$$
+
+**Paso 5 — antitransformar** ($\beta=\sqrt3$; al último le falta un $\sqrt3$ arriba):
+
+$$
+y(t)=\frac16e^{-2t}-\frac16e^{t}\cos(\sqrt3\,t)+\frac{1}{2\sqrt3}e^{t}\operatorname{sen}(\sqrt3\,t)
+$$
+
+> **En clase:** "otra herramienta que vamos a usar muchísimo en estas próximas clases, que es Ruffini" (aplicaciones [45:36]).
+
+### Ejemplo guiado 19 (integro-diferencial): $\int_0^ty(u)(t-u)\,du+y'(t)=\dfrac{t^4}{12}+t+1$, $y(0)=-1$ (guía ej. 12e, ejemplos de clase y OneNote)
+
+**Paso 1 — miembro a miembro** (núcleo $(t-u)\to\frac{1}{s^2}$; derivada con $y(0)=-1$; $\frac{t^4}{12}\to\frac{1}{12}\cdot\frac{24}{s^5}$):
+
+$$
+Y(s)\cdot\frac{1}{s^2}+sY(s)-(-1)=\frac{2}{s^5}+\frac{1}{s^2}+\frac1s
+$$
+
+**Paso 2 — despejar:**
+
+$$
+Y(s)\,\frac{1+s^3}{s^2}=\frac{2+s^3+s^4-s^5}{s^5}\qquad\Rightarrow\qquad Y(s)=\frac{2+s^3+s^4-s^5}{s^3(s^3+1)}
+$$
+
+**Paso 3 — factorizar y cancelar.** Ruffini con raíz $-1$: $s^3+1=(s+1)(s^2-s+1)$. Y el numerador **también** es divisible por $s^2-s+1$: $-s^5+s^4+s^3+2=(-s^3+2s+2)(s^2-s+1)$.
+
+$$
+Y(s)=\frac{-s^3+2s+2}{s^3(s+1)}
+$$
+
+**Paso 4 — fracciones simples** (raíz triple $0$, simple $-1$): $\dfrac{A}{s^3}+\dfrac{B}{s^2}+\dfrac Cs+\dfrac{D}{s+1}$. Tapado: $A=\dfrac{2}{1}=2$ (en $0$), $D=\dfrac{1-2+2}{-1}=-1$ (en $-1$).
+
+$2(s+1)+Bs(s+1)+Cs^2(s+1)-s^3=-s^3+2s+2$. Cúbicos: $C-1=-1\Rightarrow C=0$. Cuadráticos: $B+C=0\Rightarrow B=0$.
+
+**Paso 5:**
+
+$$
+Y(s)=\frac{2}{s^3}-\frac{1}{s+1}\qquad\Rightarrow\qquad y(t)=t^2-e^{-t}
+$$
+
+Sin la cancelación del Paso 3 quedaba un sistema de 6 incógnitas (aplicaciones [55:05]). El teórico llega a lo mismo acomodando el numerador: $2+s^3+s^4-s^5=2(1+s^3)-s^3(s^2-s+1)$.
+
+### Tu turno 11
+
+<details>
+<summary>🟠 <strong>11.A (parcial 2022-10-11, Ej2 = parcial 2024-1C, Tema 1, Ej2: reciclado textual)</strong> — Resolver por Laplace la ecuación integral y(t) − ∫₀ᵗ y(u)·sen(t − u) du = t⁴.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — miembro a miembro:**
+
+$$
+Y(s)-\frac{Y(s)}{s^2+1}=\frac{24}{s^5}
+$$
+
+**Paso 2 — despejar:**
+
+$$
+Y(s)\,\frac{s^2}{s^2+1}=\frac{24}{s^5}\qquad\Rightarrow\qquad Y(s)=\frac{24(s^2+1)}{s^7}=\frac{24}{s^5}+\frac{24}{s^7}
+$$
+
+**Paso 3 — antitransformar.** $\frac{24}{s^5}\to t^4$. Para $\frac{24}{s^7}$: $t^6\to\frac{720}{s^7}$, y $\frac{24}{720}=\frac{1}{30}$.
+
+$$
+y(t)=t^4+\frac{t^6}{30}
+$$
+
+Es el Ejemplo guiado 17 con $t^4$ en lugar de $t^2$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>11.B (parcial 2024-1C, Tema 2, Ej2)</strong> — Resolver por Laplace: y(t) − 2·∫₀ᵗ y(u)·cos(t − u) du = 1.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $Y(s)-2Y(s)\cdot\dfrac{s}{s^2+1}=\dfrac1s$.
+
+**Paso 2.** $1-\dfrac{2s}{s^2+1}=\dfrac{s^2-2s+1}{s^2+1}=\dfrac{(s-1)^2}{s^2+1}$:
+
+$$
+Y(s)=\frac{s^2+1}{s\,(s-1)^2}
+$$
+
+**Paso 3 — fracciones simples.** $\dfrac As+\dfrac{B}{(s-1)^2}+\dfrac{C}{s-1}$. Tapado: $A=\dfrac{1}{1}=1$ (en $0$), $B=\dfrac{2}{1}=2$ (en $1$). Cuadráticos de $A(s-1)^2+Bs+Cs(s-1)=s^2+1$: $A+C=1\Rightarrow C=0$.
+
+$$
+y(t)=1+2te^{t}
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>11.C (parcial sin fecha ≈2015, Tema 1, Ej2)</strong> — Resolver por Laplace: y(t) + 2·∫₀ᵗ cos(t − u)·y(u) du = e⁻ᵗ.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $Y(s)+2Y(s)\cdot\dfrac{s}{s^2+1}=\dfrac{1}{s+1}$.
+
+**Paso 2.** $1+\dfrac{2s}{s^2+1}=\dfrac{(s+1)^2}{s^2+1}$:
+
+$$
+Y(s)=\frac{s^2+1}{(s+1)^3}
+$$
+
+**Paso 3 — raíz triple.** $\dfrac{A}{(s+1)^3}+\dfrac{B}{(s+1)^2}+\dfrac{C}{s+1}$. Tapado (mayor potencia, en $s=-1$): $A=1+1=2$. Numerador: $A+B(s+1)+C(s+1)^2=s^2+1$. Cuadráticos: $C=1$. Lineales: $B+2C=0\Rightarrow B=-2$.
+
+**Paso 4.** $\frac{2}{(s+1)^3}\to t^2e^{-t}$ (es $\frac{2}{s^3}$ trasladada), $\frac{1}{(s+1)^2}\to te^{-t}$:
+
+$$
+y(t)=t^2e^{-t}-2te^{-t}+e^{-t}=(t-1)^2e^{-t}
+$$
+
+</details>
+
+</details>
+
+<details>
+<summary>🟠 <strong>11.D (parcial sin fecha ≈2015, Tema 2, Ej2)</strong> — Resolver por Laplace: y(t) = e⁻ᵗ + 2·∫₀ᵗ y(u)·cos(t − u) du.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $Y(s)=\dfrac{1}{s+1}+2Y(s)\cdot\dfrac{s}{s^2+1}$.
+
+**Paso 2.** $Y(s)\,\dfrac{(s-1)^2}{s^2+1}=\dfrac{1}{s+1}$:
+
+$$
+Y(s)=\frac{s^2+1}{(s+1)(s-1)^2}
+$$
+
+**Paso 3.** $\dfrac{A}{s+1}+\dfrac{B}{(s-1)^2}+\dfrac{C}{s-1}$. Tapado: $A=\dfrac{2}{(-2)^2}=\dfrac12$ (en $-1$), $B=\dfrac{2}{2}=1$ (en $1$). Cuadráticos: $A+C=1\Rightarrow C=\dfrac12$.
+
+$$
+y(t)=\frac12e^{-t}+te^{t}+\frac12e^{t}
+$$
+
+Mismo enunciado que 11.C con el signo de la integral cambiado: el denominador pasa de $(s+1)^2$ a $(s-1)^2$.
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>11.E (parcial 2024-2C, Tema 2, Ej3 a; enunciado reconstruido en el INDICE a partir de la respuesta oficial)</strong> — Resolver la ecuación integro-diferencial y'(t) − 2y(t) = 2 − 2·∫₀ᵗ u·eᵘ du, con y(0) = 0.</summary>
+
+**Aviso:** el término integral no se pudo extraer del archivo original; en el `INDICE.md` figura como "≈ 2∫₀ᵗ u·eᵘ du". Con ese término la cuenta da exactamente la respuesta oficial, $Y(s)=\frac{2}{(s-1)^2}$, $y(t)=2te^{t}$.
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1 — miembro a miembro.** La integral no es una convolución sino la "transformada de una integral" del ayudamemoria: $\mathcal{L}\left[\int_0^tf(u)\,du\right]=\frac{F(s)}{s}$, con $f(u)=ue^{u}\to\frac{1}{(s-1)^2}$ ($\frac{1}{s^2}$ trasladada).
+
+$$
+sY(s)-0-2Y(s)=\frac2s-\frac{2}{s\,(s-1)^2}
+$$
+
+**Paso 2 — denominador común a la derecha:**
+
+$$
+Y(s)\,(s-2)=\frac{2(s-1)^2-2}{s\,(s-1)^2}=\frac{2s^2-4s}{s\,(s-1)^2}=\frac{2s\,(s-2)}{s\,(s-1)^2}
+$$
+
+**Paso 3 — cancelar** $s$ y $(s-2)$:
+
+$$
+Y(s)=\frac{2}{(s-1)^2}\qquad\Rightarrow\qquad y(t)=2te^{t}
+$$
+
+Control: $y(0)=0$ ✓.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>11.F (guía ej. 12b, 12d y 12f; sin resolver en el OneNote)</strong> — Resolver: b) y(t) = t + 2·∫₀ᵗ cos(t − u)·y(u) du · d) y(t) = ∫₀ᵗ y(u) du + cos(t) · f) y'(t) = 1 − ∫₀ᵗ y(u)·e^(2(t−u)) du, con y(0) = 1.</summary>
+
+<details>
+<summary><strong>Resolución</strong> (mía; resultados de la guía)</summary>
+
+**b)** $Y\left(1-\dfrac{2s}{s^2+1}\right)=\dfrac{1}{s^2}\Rightarrow Y(s)=\dfrac{s^2+1}{s^2(s-1)^2}$.
+
+$\dfrac{A}{s^2}+\dfrac Bs+\dfrac{C}{(s-1)^2}+\dfrac{D}{s-1}$. Tapado: $A=1$ (en $0$), $C=2$ (en $1$). Numerador: $A(s-1)^2+Bs(s-1)^2+Cs^2+Ds^2(s-1)=s^2+1$. Lineales: $-2A+B=0\Rightarrow B=2$. Cúbicos: $B+D=0\Rightarrow D=-2$.
+
+$$
+y(t)=t+2+2te^{t}-2e^{t}
+$$
+
+**d)** $Y=\dfrac Ys+\dfrac{s}{s^2+1}\Rightarrow Y\,\dfrac{s-1}{s}=\dfrac{s}{s^2+1}\Rightarrow Y(s)=\dfrac{s^2}{(s-1)(s^2+1)}$.
+
+$\dfrac{A}{s-1}+\dfrac{Bs+C}{s^2+1}$: tapado $A=\dfrac12$; cuadráticos $A+B=1\Rightarrow B=\dfrac12$; independientes $A-C=0\Rightarrow C=\dfrac12$.
+
+$$
+y(t)=\frac12e^{t}+\frac12\cos t+\frac12\operatorname{sen}t
+$$
+
+**f)** $sY-1=\dfrac1s-\dfrac{Y}{s-2}\Rightarrow Y\,\dfrac{s^2-2s+1}{s-2}=\dfrac{s+1}{s}\Rightarrow Y(s)=\dfrac{(s+1)(s-2)}{s\,(s-1)^2}$.
+
+Es exactamente la $Y(s)$ de 9.A: $A=\dfrac{(1)(-2)}{1}=-2$, $B=\dfrac{(2)(-1)}{1}=-2$, $A+C=1\Rightarrow C=3$.
+
+$$
+y(t)=-2+3e^{t}-2te^{t}
+$$
+
+> **Dato útil:** la $Y(s)$ del ítem f) es **exactamente** la de la respuesta oficial del parcial 2024-2C Tema 1 (9.A), y el resultado también. Es muy probable que aquel enunciado "no extraíble" fuera este ejercicio 12f de la guía (inferencia mía a partir de las respuestas; el `INDICE.md` no lo afirma).
+
+</details>
+
+</details>
+
+---
+
+## 12. Ecuaciones diferenciales y sistemas (el 2do recuperatorio del 2025-02-13)
+
+### 12.1 La idea y la receta
+
+La propiedad que hace famoso a Laplace: transformar una derivada es multiplicar por $s$ y restar las condiciones iniciales.
+
+$$
+\mathcal{L}[y'(t)]=sY(s)-y(0)\qquad\qquad\mathcal{L}[y''(t)]=s^2Y(s)-s\,y(0)-y'(0)
+$$
+
+1. **Laplace miembro a miembro**, reemplazando las condiciones iniciales.
+2. **Despejar $Y(s)$.**
+3. **Antitransformar** (casi siempre con fracciones simples).
+
+> **En clase:** "la derivada primera y la derivada segunda la vamos a usar muy seguido […] la derivada tercera, la verdad es que no" (teórica [37:08]). "¿Dónde va a venir la dificultad? Básicamente en la antitransformada. Todo lo demás va a ser muy parecido siempre" (aplicaciones [07:30]).
+
+En el formato vigente la ecuación diferencial se toma dentro del **Ej3** (respuesta de un sistema): se practica a fondo en la guía `03`. Acá va un ejemplo completo y el caso que sí cayó en un Ej de Laplace: el **sistema**.
+
+### Ejemplo guiado 20: $y''-2y'+5y=-8e^{-t}$, $y(0)=2$, $y'(0)=12$ (guía ej. 8g, ejemplos de clase)
+
+**Paso 1 — miembro a miembro:**
+
+$$
+s^2Y-2s-12-2\,(sY-2)+5Y=\frac{-8}{s+1}
+$$
+
+**Paso 2 — despejar:**
+
+$$
+Y(s)\,(s^2-2s+5)=\frac{-8}{s+1}+2s+8=\frac{-8+(2s+8)(s+1)}{s+1}=\frac{2s^2+10s}{s+1}
+$$
+
+$$
+Y(s)=\frac{2s^2+10s}{(s+1)(s^2-2s+5)}
+$$
+
+**Paso 3 — fracciones simples.** $s^2-2s+5$ tiene $4-20<0$. $\dfrac{A}{s+1}+\dfrac{Bs+C}{s^2-2s+5}$. Tapado en $-1$: $A=\dfrac{2-10}{1+2+5}=-1$.
+
+$-1(s^2-2s+5)+(Bs+C)(s+1)=2s^2+10s$. Cuadráticos: $-1+B=2\Rightarrow B=3$. Independientes: $-5+C=0\Rightarrow C=5$.
+
+**Paso 4 — completar y partir.** $s^2-2s+5=(s-1)^2+4$; $3s+5=3(s-1)+8$:
+
+$$
+Y(s)=\frac{-1}{s+1}+\frac{3(s-1)}{(s-1)^2+4}+\frac{8}{(s-1)^2+4}
+$$
+
+**Paso 5** ($\beta=2$ y $8=4\cdot2$):
+
+$$
+y(t)=-e^{-t}+3e^{t}\cos(2t)+4e^{t}\operatorname{sen}(2t)
+$$
+
+Coincide con la guía.
+
+> ⚠ **Errata del PDF "Ecuaciones diferenciales ejemplos"** (pág. 8): un renglón escribe $Y(s)=\frac{1}{s+1}+\frac{3s+5}{(s-1)^2+4}$, con el primer término en positivo. Es $\frac{-1}{s+1}$ ($A=-1$), como figura en los renglones siguientes y en el resultado.
+
+### 12.2 Sistemas de ecuaciones diferenciales: Cramer
+
+Se transforma **cada** ecuación y queda un sistema algebraico de 2×2 con incógnitas $X(s)$ e $Y(s)$. Vale cualquier método; el teórico y el profesor recomiendan **Cramer**:
+
+1. Laplace a las dos ecuaciones, con las condiciones iniciales.
+2. Ordenar: $X(s)$ e $Y(s)$ a la izquierda, números a la derecha.
+3. $\Delta$ = determinante de los coeficientes. $\Delta_X$ = el mismo con la columna de $X$ reemplazada por los términos independientes; $\Delta_Y$ igual con la columna de $Y$.
+4. $X(s)=\dfrac{\Delta_X}{\Delta}$, $Y(s)=\dfrac{\Delta_Y}{\Delta}$. Fracciones simples y antitransformar cada una.
+
+> **En clase:** el sistema es "otro tipo de ejercicio, que creo que lo tomaron hace poco en un final o en un recuperatorio" (aplicaciones [14:51]). Con Cramer "no tuve que operar con polinomios, con choclos muy grandes" (aplicaciones [25:24]).
+>
+> **En clase:** en ese examen lo escribieron sin el $(t)$, "y esto la gente lo volvió bastante loca […] pensaron que se trataban de incógnitas que son números en vez de ser incógnitas que son funciones" (aplicaciones [26:27]). Si ves $x'$ y $x$, es un sistema de ecuaciones diferenciales.
+
+### Ejemplo guiado 21: $x'=x-y$, $y'=2x+4y$, $x(0)=-1$, $y(0)=0$ (guía ej. 9b; OneNote por sustitución, aplicaciones [20:45] por Cramer)
+
+**Paso 1 — Laplace:**
+
+$$
+sX+1=X-Y\qquad\qquad sY-0=2X+4Y
+$$
+
+**Paso 2 — ordenar:**
+
+$$
+\begin{cases}(s-1)\,X+Y=-1\\-2X+(s-4)\,Y=0\end{cases}
+$$
+
+**Paso 3 — determinantes:**
+
+$$
+\Delta=\begin{vmatrix}s-1&1\\-2&s-4\end{vmatrix}=(s-1)(s-4)+2=s^2-5s+6=(s-2)(s-3)
+$$
+
+$$
+\Delta_X=\begin{vmatrix}-1&1\\0&s-4\end{vmatrix}=-(s-4)=4-s\qquad\qquad\Delta_Y=\begin{vmatrix}s-1&-1\\-2&0\end{vmatrix}=-2
+$$
+
+**Paso 4 — $X(s)$.** $\dfrac{4-s}{(s-3)(s-2)}=\dfrac{A}{s-3}+\dfrac{B}{s-2}$, tapado: $A=\dfrac{1}{1}=1$, $B=\dfrac{2}{-1}=-2$.
+
+$$
+x(t)=e^{3t}-2e^{2t}
+$$
+
+**Paso 5 — $Y(s)$.** $\dfrac{-2}{(s-3)(s-2)}$, tapado: $A=\dfrac{-2}{1}=-2$, $B=\dfrac{-2}{-1}=2$.
+
+$$
+y(t)=-2e^{3t}+2e^{2t}
+$$
+
+Coincide con la guía. Control rápido: $x(0)=1-2=-1$ ✓, $y(0)=0$ ✓.
+
+### Tu turno 12
+
+<details>
+<summary>🟠 <strong>12.A (clase de repaso grabada, ej. 5; el profesor lo llama "ejercicio típico de Laplace")</strong> — Resolver por transformada de Laplace: y' − y = 2t − t², con y(0) = 1.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** $sY-1-Y=\dfrac{2}{s^2}-\dfrac{2}{s^3}$.
+
+**Paso 2.** $Y(s)\,(s-1)=\dfrac{2}{s^2}-\dfrac{2}{s^3}+1=\dfrac{s^3+2s-2}{s^3}$:
+
+$$
+Y(s)=\frac{s^3+2s-2}{s^3\,(s-1)}
+$$
+
+**Paso 3 — fracciones simples** (raíz triple $0$, simple $1$): $\dfrac{A}{s^3}+\dfrac{B}{s^2}+\dfrac Cs+\dfrac{D}{s-1}$. Tapado: $A=\dfrac{-2}{-1}=2$ (en $0$), $D=\dfrac{1+2-2}{1}=1$ (en $1$).
+
+$2(s-1)+Bs(s-1)+Cs^2(s-1)+s^3=s^3+2s-2$. Cúbicos: $C+1=1\Rightarrow C=0$. Cuadráticos: $B-C=0\Rightarrow B=0$.
+
+**Paso 4:**
+
+$$
+Y(s)=\frac{2}{s^3}+\frac{1}{s-1}\qquad\Rightarrow\qquad y(t)=t^2+e^{t}
+$$
+
+(repaso [1:02:32]–[1:10:23]). Control: $y(0)=1$ ✓.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>12.B (guía ej. 8a, OneNote; aplicaciones [07:30])</strong> — Resolver: 2x''(t) + 7x'(t) + 3x(t) = 6, con x(0) = 0 y x'(0) = 0.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 1.** Con condiciones nulas: $X(s)\,(2s^2+7s+3)=\dfrac6s$.
+
+**Paso 2 — factorizar sacando el 2.** Raíces de $2s^2+7s+3$: $-3$ y $-\frac12$. Entonces $2s^2+7s+3=2(s+3)\left(s+\frac12\right)$:
+
+$$
+X(s)=\frac{6}{2\,s\,(s+3)\left(s+\frac12\right)}=\frac{3}{s\,(s+3)\left(s+\frac12\right)}
+$$
+
+**Paso 3 — tapado:**
+
+$$
+A=\frac{3}{3\cdot\frac12}=2\ (s=0)\qquad B=\frac{3}{(-3)\left(-\frac52\right)}=\frac25\ (s=-3)\qquad C=\frac{3}{\left(-\frac12\right)\left(\frac52\right)}=-\frac{12}{5}\ \left(s=-\tfrac12\right)
+$$
+
+**Paso 4:**
+
+$$
+x(t)=2+\frac25e^{-3t}-\frac{12}{5}e^{-\frac12t}
+$$
+
+Si no sacás el $2$ afuera, las tres constantes salen multiplicadas por 2 (mal).
+
+</details>
+
+</details>
+
+<details>
+<summary>🔴 <strong>12.C (2do recuperatorio del 1P, 2025-02-13, Ej3; es el Ejemplo 3 del teórico y el de los ejemplos de clase)</strong> — Resolver por Laplace el sistema x'(t) = 2x(t) − 3y(t), −2y'(t) = −2y(t) + 4x(t), con x(0) = 8, y(0) = 3.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**Paso 0.** Divido la segunda ecuación por $-2$: $y'(t)=y(t)-2x(t)$.
+
+**Paso 1 — Laplace:**
+
+$$
+sX-8=2X-3Y\qquad\qquad sY-3=Y-2X
+$$
+
+**Paso 2 — ordenar:**
+
+$$
+\begin{cases}(s-2)\,X+3Y=8\\2X+(s-1)\,Y=3\end{cases}
+$$
+
+**Paso 3 — determinantes:**
+
+$$
+\Delta=\begin{vmatrix}s-2&3\\2&s-1\end{vmatrix}=(s-2)(s-1)-6=s^2-3s-4=(s-4)(s+1)
+$$
+
+$$
+\Delta_X=\begin{vmatrix}8&3\\3&s-1\end{vmatrix}=8(s-1)-9=8s-17\qquad\qquad\Delta_Y=\begin{vmatrix}s-2&8\\2&3\end{vmatrix}=3(s-2)-16=3s-22
+$$
+
+**Paso 4 — $X(s)=\dfrac{8s-17}{(s-4)(s+1)}$.** Tapado: $A=\dfrac{32-17}{5}=3$ (en $4$), $B=\dfrac{-8-17}{-5}=5$ (en $-1$).
+
+$$
+x(t)=3e^{4t}+5e^{-t}
+$$
+
+**Paso 5 — $Y(s)=\dfrac{3s-22}{(s-4)(s+1)}$.** Tapado: $A=\dfrac{12-22}{5}=-2$, $B=\dfrac{-3-22}{-5}=5$.
+
+$$
+y(t)=-2e^{4t}+5e^{-t}
+$$
+
+Coincide con el teórico. Control: $x(0)=8$ ✓, $y(0)=3$ ✓. (El teórico saca $A$ y $B$ con el sistema $A+B=8$, $A-4B=-17$; con tapado es más corto.)
+
+</details>
+
+</details>
+
+---
+
+<details>
+<summary>⚪ <strong>Se toma poco — abrí solo si te sobra tiempo:</strong> §13. Segunda traslación y escalón, valor inicial y final, impulso</summary>
+
+## 13. Lo que se toma poco: 2ª traslación y escalón, TVI/TVF, impulso
+
+Nada de esto apareció en un Ej2 de las 16 hojas. Sí está en la guía y en los multiple choice "tomados en finales" (guía ej. 14). Los teoremas del valor inicial y final se usan en el Ej3 (guía `03`).
+
+**Escalón unitario** $E(t-a)$: vale $0$ antes de $a$ y $1$ después. $\mathcal{L}[E(t-a)]=\dfrac{e^{-as}}{s}$.
+
+**2ª traslación.** Si $g(t)=f(t-a)$ para $t>a$ y $0$ para $t<a$ (o sea $f(t-a)\,E(t-a)$): $\mathcal{L}[g(t)]=e^{-as}F(s)$. Condición para usarla: **todas las $t$ de la fórmula con el mismo corrimiento, y ese mismo corrimiento en el dominio**.
+
+- $(t-1)^4$ con $t>1$ (guía 2d): sí ⇒ $\dfrac{24}{s^5}e^{-s}$.
+- $(t-1)^4$ con $t>0$ (guía 3e): **no**; se desarrolla el binomio: $t^4-4t^3+6t^2-4t+1\to\dfrac{24}{s^5}-\dfrac{24}{s^4}+\dfrac{12}{s^3}-\dfrac{4}{s^2}+\dfrac1s$.
+
+> **En clase:** "siempre es importante que vean que hay el mismo desplazamiento" en la fórmula y en el dominio (teórica [28:41]).
+
+**Funciones partidas en un renglón** (PDF de propiedades, manuscrito): se "prende" y se "apaga" cada tramo con escalones. Ejemplo del profesor: $f(t)=t$ si $1<t<2$ y $0$ en el resto.
+
+![La recta prendida en 1, lo que hay que restar desde 2 y la función que queda](../img/02-fig2-funcion-partida-con-escalones.png)
+
+$f(t)=t\,E(t-1)-t\,E(t-2)$. Para que cada $t$ tenga el corrimiento de su escalón se suma y se resta: $t=(t-1)+1$ y $t=(t-2)+2$.
+
+$$
+f(t)=(t-1)\,E(t-1)+1\cdot E(t-1)-(t-2)\,E(t-2)-2\,E(t-2)
+$$
+
+$$
+F(s)=\frac{e^{-s}}{s^2}+\frac{e^{-s}}{s}-\frac{e^{-2s}}{s^2}-\frac{2e^{-2s}}{s}
+$$
+
+**Teoremas del valor inicial y final** (si existen los límites):
+
+$$
+\lim_{t\to0}f(t)=\lim_{s\to\infty}s\,F(s)\qquad\qquad\lim_{t\to\infty}f(t)=\lim_{s\to0}s\,F(s)
+$$
+
+**Impulso** $\delta(t)$: $\mathcal{L}[\delta(t)]=1$ (está en la tabla). Aparece al antitransformar una constante (9.D).
+
+<details>
+<summary>⚪ <strong>Tu turno 13.A (guía ej. 4 y 7a, OneNote)</strong> — a) Sea f(t) = k·sen(2t + π/6). Hallar k sabiendo que el límite de s·F(s) cuando s → ∞ vale 4. b) Con el teorema del valor final, hallar f(t) para t → ∞ si F(s) = 10/(s² + s), y verificar.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**a)** Por el TVI ese límite es $\lim_{t\to0}f(t)=k\operatorname{sen}\frac\pi6=\frac k2$. Entonces $\frac k2=4\Rightarrow k=8$.
+
+**b)** $\displaystyle\lim_{s\to0}s\cdot\frac{10}{s(s+1)}=\lim_{s\to0}\frac{10}{s+1}=10$. Verificación: $\dfrac{10}{s(s+1)}=\dfrac{10}{s}-\dfrac{10}{s+1}$ (tapado), $f(t)=10-10e^{-t}\to10$ ✓.
+
+</details>
+
+</details>
+
+<details>
+<summary>⚪ <strong>Tu turno 13.B (guía ej. 14.2, 14.3, 14.7 y 14.8, tomados en finales, multiple choice)</strong> — 2) Si F = L[f] y G = L[g]: a) L[f·g] = F·G · b) si f(t) = δ(t) entonces F·G = G · c) si f(t) = 1 entonces F·G = G · d) ninguna. 3) f(t) = t si t ∈ [0,1] y 0 fuera: a) no existe la transformada · b) 1/s² · c) (1/s²)(1 − e⁻ˢ) − e⁻ˢ/s · d) (1/s²)(1 − e⁻ˢ). 7) La transformada de f(t) = 3δ(t) + t, cuando s → ∞, tiende a: cero / tres / infinito / ninguna. 8) Si F(s) = (3s² + 9)/(2s³ − 23s² + 43s − 42), f(0) vale: 0 / 3/2 / 3 / infinito.</summary>
+
+<details>
+<summary><strong>Resolución</strong></summary>
+
+**2) b).** $\mathcal{L}[\delta]=1$, así que $F\cdot G=G$. La a) es falsa: el producto de transformadas corresponde a la **convolución**, no al producto de funciones.
+
+**3) c).** $f(t)=t-t\,E(t-1)=t-(t-1)\,E(t-1)-E(t-1)$:
+
+$$
+F(s)=\frac{1}{s^2}-\frac{e^{-s}}{s^2}-\frac{e^{-s}}{s}=\frac{1}{s^2}\left(1-e^{-s}\right)-\frac{e^{-s}}{s}
+$$
+
+**7) b).** $F(s)=3+\dfrac{1}{s^2}\to3$.
+
+**8) b).** TVI: $f(0)=\displaystyle\lim_{s\to\infty}\frac{s(3s^2+9)}{2s^3-23s^2+43s-42}=\frac32$.
+
+</details>
+
+</details>
+
+</details>
+
+---
+
+## Resumen en una página
+
+**Qué veo → qué hago** (agregado mío, armado con las recetas de arriba):
+
+| Veo en el enunciado | Hago | Sección |
+|---|---|---|
+| $\int_0^\infty(\dots)\,e^{-kt}dt$ con $t$ o $t^n$ multiplicando | $F(k)$: tabla, derivar $n$ veces, cambiar signo $n$ veces, evaluar **al final** | §4 |
+| $\int_0^\infty\frac{(\dots)}{t}dt$ | Factor común, **límite con L'Hôpital**, $\int_s^\infty F(u)\,du$, juntar logaritmos, evaluar | §5 |
+| $\cos^3$, $\operatorname{sen}^3$, seno por coseno | Exponenciales complejas (o producto → suma), reagrupar, tabla | §6 |
+| $\mathcal{L}\left[\int_0^tf(u)\,g(t-u)\,du\right]$ | $F(s)\cdot G(s)$ | §7 |
+| "Demostrar $\mathcal{L}(a^t)$" o $a^t$ en un multiple choice | $a^t=e^{t\ln a}$, tabla | §3 |
+| "Antitransformar por convolución", o $(s^2+1)^2$ abajo | Partir en $F\cdot G$, $\int_0^tf(u)g(t-u)du$, producto → suma, Barrow | §10 |
+| Cociente de polinomios para antitransformar | Fracciones simples con tapado | §9 |
+| $y(t)$ adentro de $\int_0^t\dots(t-u)\,du$ | Laplace miembro a miembro, la integral es $Y\cdot K$, despejar | §11 |
+| $x'$, $y'$ y dos condiciones iniciales | Laplace a cada ecuación, Cramer | §12 |
+
+**Las transformadas que conviene tener armadas:**
+
+$$
+\mathcal{L}[t\cos(at)]=\frac{s^2-a^2}{(s^2+a^2)^2}\qquad\mathcal{L}[t\operatorname{sen}(at)]=\frac{2as}{(s^2+a^2)^2}\qquad\mathcal{L}[a^t]=\frac{1}{s-\ln a}
+$$
+
+$$
+\mathcal{L}\left[\frac{\operatorname{sen}t}{t}\right]=\frac\pi2-\operatorname{arctg}s\qquad\mathcal{L}\left[\frac{1-e^{-mt}}{t}\right]=\ln\frac{s+m}{s}
+$$
+
+**Potencias:** $\cos^3t=\frac14\cos3t+\frac34\cos t$ · $\operatorname{sen}^3t=-\frac14\operatorname{sen}3t+\frac34\operatorname{sen}t$. Ojo: $(2j)^3=-8j$.
+
+**Convolución de examen:**
+
+$$
+\mathcal{L}^{-1}\left[\frac{1}{(s^2+1)^2}\right]=\frac12\operatorname{sen}t-\frac12t\cos t\qquad\qquad\mathcal{L}^{-1}\left[\frac{s^2}{(s^2+1)^2}\right]=\frac12\operatorname{sen}t+\frac12t\cos t
+$$
+
+con $\operatorname{sen}u\operatorname{sen}(t-u)=\frac12[\cos(2u-t)-\cos t]$ y $\cos u\cos(t-u)=\frac12[\cos(2u-t)+\cos t]$.
+
+**Fracciones simples.** Sacar el coeficiente principal. Real simple $\frac{A}{s-p}$; doble $\frac{A}{(s-p)^2}+\frac{B}{s-p}$; complejas $\frac{Bs+C}{s^2+bs+c}$. Tapado para las simples y para la mayor potencia; el resto, comparando coeficientes. Complejas: completar cuadrado, partir numerador, $e^{\alpha t}\cos\beta t$ y $e^{\alpha t}\operatorname{sen}\beta t$.
+
+**Ecuaciones.** Siempre "Laplace miembro a miembro". $\mathcal{L}[y']=sY-y(0)$; $\mathcal{L}[y'']=s^2Y-s\,y(0)-y'(0)$. Antes de las fracciones simples: factorizar (Ruffini) y cancelar.
+
+## Errores típicos
+
+1. **Evaluar antes de derivar** en una integral con $t$: derivás una constante y da $0$.
+2. **Olvidarse el cambio de signo** de la multiplicación por $t$ (o cambiarlo con $n$ par).
+3. **Tratar el $e^{-5t}$ de la integral como 1ª traslación.** En una integral de $0$ a $\infty$ es el $e^{-st}$ de la definición: dice dónde evaluar.
+4. **Derivar mal el cociente:** $\left(\frac{s}{s^2+1}\right)'=\frac{1-s^2}{(s^2+1)^2}$, y recién después el signo.
+5. **Separar $\frac{e^{-at}-e^{-bt}}{t}$ en dos integrales** con $\frac1t$.
+6. **No escribir el límite** de la división por $t$: es parte de la resolución oficial.
+7. **Dejar $\infty-\infty$** sin juntar los logaritmos, u olvidarse de evaluar en el número al final.
+8. **$(2j)^3=8j$** (es $-8j$), o quedarse con $\frac{1}{4j}$ sin convertirlo en $\frac12\cdot\frac{1}{2j}$.
+9. **Trasladar solo el denominador** y olvidarse de la $s$ del numerador.
+10. **Transformar $g(t-u)$ con el corrimiento**: se piensa como $g(t)$.
+11. **En la convolución, integrar $\cos t$ como si dependiera de $u$**: es constante, da $u\cos t$. Y olvidarse el $\frac12$ de la primitiva de $\cos(2u-t)$.
+12. **Equivocarse con $\operatorname{sen}(-t)=-\operatorname{sen}t$** en Barrow.
+13. **Darle el $t-u$ al seno** cuando había una exponencial.
+14. **No sacar el coeficiente principal** al factorizar.
+15. **Una sola constante arriba de un cuadrático** con raíces complejas (van dos: $Bs+C$).
+16. **Completar el cuadrado y no partir el numerador.**
+17. **Olvidarse las condiciones iniciales** al transformar $y'$ o $y''$, o equivocar el signo de $-y(0)$ cuando $y(0)$ es negativo.
+18. **Leer $x'=x-y$ como un sistema de números**: son funciones de $t$.
+
+## Checkpoint (≈ 35 min, con reloj)
+
+Ejercicio con formato de parcial (3 ítems de 1 punto), **armado** con ítems de las fuentes que no usaste arriba: a) guía ej. 14.9; b) ejercicio a) del teórico (pág. 94, sin resolver en la fuente); c) guía ej. 12b. Solo ayudamemoria y tabla de integrales.
+
+<details>
+<summary>🔴 <strong>Ejercicio 2 (3 puntos)</strong> — a) Calcular con Laplace ∫₀^∞ sen(2t)·t²·e⁻³ᵗ dt. b) Antitransformar utilizando convolución Y(s) = 10/((s − 1)(s² + 4)). c) Resolver por Laplace y(t) = t + 2·∫₀ᵗ cos(t − u)·y(u) du.</summary>
+
+**Enunciado en limpio:** a) $\displaystyle\int_0^\infty\operatorname{sen}(2t)\,t^2e^{-3t}\,dt$ · b) $Y(s)=\dfrac{10}{(s-1)(s^2+4)}$ · c) $y(t)=t+2\displaystyle\int_0^t\cos(t-u)\,y(u)\,du$.
+
+<details>
+<summary><strong>Resolución y puntaje</strong></summary>
+
+**a) (1 punto)** $s=3$; $f(t)=t^2\operatorname{sen}(2t)$, $n=2$: derivo dos veces, el signo no cambia.
+
+$$
+F_0(s)=\frac{2}{s^2+4}\qquad F_0'(s)=\frac{-4s}{(s^2+4)^2}\qquad F_0''(s)=\frac{-4(s^2+4)+16s^2}{(s^2+4)^3}=\frac{12s^2-16}{(s^2+4)^3}
+$$
+
+$$
+\int_0^\infty\operatorname{sen}(2t)\,t^2e^{-3t}\,dt=\frac{108-16}{13^3}=\frac{92}{2197}\approx0{,}0419
+$$
+
+Opción c) de la guía. *Puntaje: 0,25 reconocer $\mathcal{L}[t^2\operatorname{sen}2t]$ en $s=3$; 0,5 las dos derivadas; 0,25 evaluar.*
+
+**b) (1 punto)** $F(s)=\dfrac{10}{s-1}\Rightarrow f(t)=10e^{t}$; $G(s)=\dfrac{1}{s^2+4}\Rightarrow g(t)=\dfrac12\operatorname{sen}(2t)$. El $t-u$ a la exponencial:
+
+$$
+y(t)=5\int_0^te^{(t-u)}\operatorname{sen}(2u)\,du=5e^{t}\int_0^te^{-u}\operatorname{sen}(2u)\,du
+$$
+
+Primitiva de tabla con $a=-1$, $b=2$: $\dfrac{e^{-u}}{5}\left(-\operatorname{sen}2u-2\cos2u\right)$.
+
+$$
+y(t)=5e^{t}\left[\frac{e^{-t}}{5}\big(-\operatorname{sen}2t-2\cos2t\big)+\frac25\right]=-\operatorname{sen}(2t)-2\cos(2t)+2e^{t}
+$$
+
+Control por fracciones simples: $\dfrac{2}{s-1}-\dfrac{2s+2}{s^2+4}$ ✓. *Puntaje: 0,25 partir y antitransformar; 0,25 armar la integral; 0,5 integrar y Barrow.*
+
+**c) (1 punto)** $Y=\dfrac{1}{s^2}+2Y\,\dfrac{s}{s^2+1}\Rightarrow Y\,\dfrac{(s-1)^2}{s^2+1}=\dfrac{1}{s^2}$:
+
+$$
+Y(s)=\frac{s^2+1}{s^2\,(s-1)^2}=\frac{A}{s^2}+\frac Bs+\frac{C}{(s-1)^2}+\frac{D}{s-1}
+$$
+
+Tapado: $A=1$, $C=2$. Lineales: $-2A+B=0\Rightarrow B=2$. Cúbicos: $B+D=0\Rightarrow D=-2$.
+
+$$
+y(t)=t+2+2te^{t}-2e^{t}
+$$
+
+Coincide con la guía. *Puntaje: 0,25 transformar (la integral como producto); 0,25 despejar; 0,5 fracciones simples y antitransformada.*
+
+</details>
+
+</details>
+
+Si te sobra tiempo, rehacé de corrido una hoja real: el **Tema 1 de 2025** está en 4.A, 10.A y 3.A; el **Tema 2** en 6.A y 10.B; el **1er recuperatorio 2025** en 5.A y 7.A; el **recuperatorio 2024-2C** en 6.B y 10.A; el **2do recuperatorio 2025-02-13** en 12.C.
+
+---
+
+*Guía generada el 2026-11-25. Fuentes: PDF de clase "Transformada de Laplace", "Propiedades y funciones especiales" y "Resumen de propiedades de Laplace"; ejemplos de clase (ecuaciones diferenciales, teorema de convolución, evaluación de integrales); apunte "Método de fracciones simples"; teórico de cátedra 1.4; OneNote de la práctica de Laplace; transcripciones de la teórica (video 15), de la clase de aplicaciones (video 14) y del repaso (video 10); Laplace en las 16 hojas del `INDICE.md` con las resoluciones oficiales 2025; ejercicios C y D del repaso 2026; guía de ejercicios parte 1 (Laplace, ej. 1 a 14) y ayudamemoria oficial. Figuras: `apuntes/img/02-figuras.py`.*
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.js"></script>
+<script>
+  const source = document.getElementById("md-source").textContent;
+  const md = window.markdownit({ html: true, linkify: true })
+    .use(window.texmath, {
+      engine: window.katex,
+      delimiters: "dollars",
+      katexOptions: { throwOnError: false },
+    });
+  document.getElementById("content").innerHTML = md.render(source);
+
+</script>
+</body>
+</html>
