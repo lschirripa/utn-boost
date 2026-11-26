@@ -190,53 +190,67 @@
 - **Ej3)** `G(s) = 2(s² + 2s − 3) / ((s − 1)(s + 2)(s² + 8s + 17))`. a) Indicar los polos y ceros de `G(s)` y si representa un sistema estable o no. b) Graficar un corte por el eje real de `|G(s)|`. c) Hallar la respuesta `y(t)` sabiendo que la entrada es `f(t) = e^{−3t}`. → #PolosCeros #Estabilidad #CorteEje #RespuestaTemporal
 - **Ej4)** a) Verdadero o falso (justificar): la región de convergencia de la transformada Z de `x(n) = (−2)ⁿ` si `n` es par, `4^{−n}` si `n` es impar, es `|z| > 2`. b) Dada la secuencia finita del gráfico (`x(1) = 1, x(2) = 3, x(3) = 2, x(4) = 1`), hallar su transformada Z. → #ROC #VoF #SecuenciaFinita #TransformadaZ **[RECICLADO]**
 
+## 2026-10-06 · Tema 1 · `resueltos/2026-10-06_Parcial_respuestas.pdf` (el parcial de la cursada 2026-2C, curso K3572; enunciados tipeados + resolución manuscrita del profesor en la misma hoja OneNote, publicada en Avisos del aula el 2026-10-07; **formato vigente: 4 ejercicios, 10 ítems (3 + 2 + 3 + 2)**) · el enunciado solo existe dentro de la hoja de respuestas; transcripción del método en `resueltos/RESOLUCIONES-2026.md`
+
+- **Ej1)** `f(t) = t + 2` si `t ∈ (0, 2)`, `f(t) = f(t + 4)`. a) Completar en todo el eje real para que la STF sea solo de cosenos y desarrollarla. b) Usando el desarrollo anterior hallar los `Cₙ` de la SEF. c) Con el resultado anterior hallar el valor al cual converge `Σ_{k=0}^∞ 1/(2k+1)²`. → #CompletarFuncion #SerieTrigonometrica #SerieExponencial #SumaSerieNumerica **[RECICLADO]**
+- **Ej2)** a) Calcular `∫₀^∞ e^{−t}·sen(t)/t dt`. b) Calcular la transformada de Laplace de `(t − 1)³`, `t > 0`. → #IntegralPorLaplace #TransformadaLaplace
+- **Ej3)** `G(s) = (3s² + 3s − 6) / (s³ + 5s² + 3s − k)`. a) Hallar `k` para que `s = 1` no sea un cero. b) Calcular `|G(1 + j)|` en forma gráfica. c) Hallar la respuesta temporal `y(t)` sabiendo que la entrada es un escalón unitario `E(t)`. → #Estabilidad #PolosCeros #ModuloGrafico #RespuestaTemporal
+- **Ej4)** a) Usando transformada Z hallar la solución de `x(n+1) + 3x(n) = 5·2ⁿ`, `x(0) = 2`; verificar hallando `x(3)` con la ecuación y con la solución. b) Resolver mediante transformada Z: `Σ_{n=0}^∞ (2n + 3)(−1/4)ⁿ`. → #EcuacionDiferencia #SumaSeriePorZ
+
+## 2026-10-06 · Tema 2 · `resueltos/2026-10-06_Parcial_respuestas.pdf` (mismo archivo, K3572)
+
+- **Ej1)** `f(t) = t²` si `t ∈ (0; 2)`, a completar en `(−2; 0)` (período 4). a) Completar en todo el eje real para que la STF sea solo de cosenos y desarrollarla. b) Usando el desarrollo anterior hallar los `Cₙ` de la SEF. c) Con el resultado anterior hallar el valor al cual converge `Σ_{n=1}^∞ (−1)ⁿ/n²`. → #CompletarFuncion #SerieTrigonometrica #SerieExponencial #SumaSerieNumerica **[RECICLADO]**
+- **Ej2)** a) Calcular `∫₀^∞ sen(2t)·t²·e^{−3t} dt`. b) Calcular la transformada de Laplace de `sen(2t − π/3)`, `t > 0`. → #IntegralPorLaplace #TransformadaLaplace
+- **Ej3)** `G(s) = 17(s² + s − k) / ((s − 2)(s² + 8s + 17))`. a) Hallar `k` para que `G(s)` sea estable. Con entrada escalón unitario `E(t)`: b) dibujar un corte por el eje real de `Y(s)`; c) hallar la respuesta temporal `y(t)`. → #Estabilidad #CorteEje #RespuestaTemporal **[RECICLADO]**
+- **Ej4)** a) Usando transformada Z hallar la solución de `x(n+1) = 3x(n) + 2`, `x(0) = 2`; verificar hallando `x(2)` con la ecuación y con la solución. b) Resolver mediante transformada Z: `Σ_{n=0}^∞ (n + 1)(1/3)ⁿ`. → #EcuacionDiferencia #SumaSeriePorZ
+
 ---
 
 ## Índice inverso: tema → hojas (para búsqueda rápida)
 
-Nombres cortos: `2015-T1/T2`, `sf2-T1/T2` (sin-fecha-2, ≈2015), `sfK-T1/T2` (sin-fecha K3521, ≈2019), `2022`, `2024-1C-T1/T2`, `2024-2C-T1/T2`, `2024-2C-rec`, `2025-02-13`, `2025-1C-T1/T2`, `2025-1C-rec`. Total: **16 hojas**.
+Nombres cortos: `2015-T1/T2`, `sf2-T1/T2` (sin-fecha-2, ≈2015), `sfK-T1/T2` (sin-fecha K3521, ≈2019), `2022`, `2024-1C-T1/T2`, `2024-2C-T1/T2`, `2024-2C-rec`, `2025-02-13`, `2025-1C-T1/T2`, `2025-1C-rec`, `2026-T1/T2` (parcial del 2026-10-06). Total: **18 hojas**.
 
 | Tag | Aparece en | Hojas |
 |---|---|---|
-| `#CompletarFuncion` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec | 15/16 |
-| `#SerieTrigonometrica` | 2015-T1, 2015-T2, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec (+ 2015-T2 y 2025-1C como MC) | 14/16 |
-| `#SerieExponencial` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T2, 2022, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec | 13/16 |
-| `#Estabilidad` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T2, 2025-1C-rec | 15/16 |
-| `#RespuestaTemporal` | 2015-T1, 2015-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec | 14/16 |
-| `#Antitransformada` | sf2-T1, sf2-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T1, 2025-1C-T2 (y, en la práctica, en toda respuesta temporal) | 11/16 |
-| `#TransformadaZ` / `#ROC` | sf2-T2, sfK-T1, 2024-2C-T1, 2024-2C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-rec | 7/16 |
-| `#EcuacionDiferencia` | 2015-T1, 2015-T2, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-rec, 2025-1C-T2 | 8/16 |
-| `#IntegralPorLaplace` | 2015-T1, 2015-T2, sfK-T1, sfK-T2, 2024-2C-T1, 2024-2C-T2, 2025-1C-T1, 2025-1C-rec | 8/16 |
-| `#EcuacionIntegral` | sf2-T1, sf2-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2 | 7/16 |
-| `#Convolucion` | sf2-T1, sf2-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-rec, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec | 9/16 |
-| `#CorteEje` | 2015-T1, 2015-T2, sfK-T1, 2022, 2024-1C-T1, 2024-2C-T2, 2025-1C-rec | 7/16 |
-| `#TipoRespuesta` | sfK-T2, 2024-1C-T1, 2024-2C-T1, 2025-1C-T2 | 4/16 |
-| `#PolosCeros` | sfK-T1, 2024-1C-T1, 2025-1C-rec | 3/16 |
-| `#ModuloGrafico` | 2015-T1, 2024-1C-T2 | 2/16 |
-| `#FuncionTransferencia` | 2025-1C-T1 | 1/16 |
-| `#SistemaEDO` | 2025-02-13 | 1/16 |
-| `#TransformadaLaplace` (calcular una transformada / propiedad) | 2015-T2, sf2-T1, 2024-2C-rec, 2025-1C-T2, 2025-1C-rec | 5/16 |
-| `#SimetriaMediaOnda` | sf2-T2, sfK-T2, 2024-1C-T1, 2024-1C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-T2 | 7/16 |
-| `#ValorMedio` | 2015-T1, sf2-T1, sfK-T1, 2024-2C-T2, 2025-02-13 | 5/16 |
-| `#SumaSerieNumerica` | 2022, 2024-1C-T1, 2024-1C-T2 | 3/16 |
-| `#SumaSeriePorZ` | 2024-2C-T1, 2024-2C-T2, 2025-1C-T1, 2025-1C-T2 | 4/16 |
-| `#SecuenciaFinita` | sf2-T2, 2025-1C-rec | 2/16 |
-| `#AntitransformadaZ` (suelta) | sf2-T1 | 1/16 |
-| `#Espectro` | 2024-2C-rec, 2025-1C-rec | 2/16 |
-| `#Fasores` | 2015-T1, sf2-T1 | 2/16 |
-| `#Complejos` (cualquier tag de complejos) | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13 — **0 en las 3 hojas de 2025-1C** | 13/16 |
-| `#ConjuntosComplejos` | sf2-T2, sfK-T1, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T2, 2024-2C-rec | 7/16 |
-| `#PotenciasRaices` | 2015-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-2C-T1, 2024-2C-T2, 2025-02-13 | 9/16 |
-| `#LogaritmoComplejo` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, 2022, 2024-1C-T2, 2024-2C-T1, 2024-2C-rec | 8/16 |
-| `#MultipleChoice` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2025-1C-T1, 2025-1C-T2 (solo el ítem 1b) | 8/16 |
-| `#VoF` | 2024-1C-T2, 2025-02-13, 2025-1C-rec | 3/16 |
-| `#Demostracion` | 2025-1C-T1 (demostrar `L(2ᵗ)`) | 1/16 |
+| `#CompletarFuncion` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec, 2026-T1, 2026-T2 | 17/18 |
+| `#SerieTrigonometrica` | 2015-T1, 2015-T2, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec (+ 2015-T2 y 2025-1C como MC), 2026-T1, 2026-T2 | 16/18 |
+| `#SerieExponencial` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T2, 2022, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec, 2026-T1, 2026-T2 | 15/18 |
+| `#Estabilidad` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T2, 2025-1C-rec, 2026-T1, 2026-T2 | 17/18 |
+| `#RespuestaTemporal` | 2015-T1, 2015-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec, 2026-T1, 2026-T2 | 16/18 |
+| `#Antitransformada` | sf2-T1, sf2-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13, 2025-1C-T1, 2025-1C-T2 (y, en la práctica, en toda respuesta temporal) | 11/18 |
+| `#TransformadaZ` / `#ROC` | sf2-T2, sfK-T1, 2024-2C-T1, 2024-2C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-rec | 7/18 |
+| `#EcuacionDiferencia` | 2015-T1, 2015-T2, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-rec, 2025-1C-T2, 2026-T1, 2026-T2 | 10/18 |
+| `#IntegralPorLaplace` | 2015-T1, 2015-T2, sfK-T1, sfK-T2, 2024-2C-T1, 2024-2C-T2, 2025-1C-T1, 2025-1C-rec, 2026-T1, 2026-T2 | 10/18 |
+| `#EcuacionIntegral` | sf2-T1, sf2-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2 | 7/18 |
+| `#Convolucion` | sf2-T1, sf2-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-rec, 2025-1C-T1, 2025-1C-T2, 2025-1C-rec | 9/18 |
+| `#CorteEje` | 2015-T1, 2015-T2, sfK-T1, 2022, 2024-1C-T1, 2024-2C-T2, 2025-1C-rec, 2026-T2 | 8/18 |
+| `#TipoRespuesta` | sfK-T2, 2024-1C-T1, 2024-2C-T1, 2025-1C-T2 | 4/18 |
+| `#PolosCeros` | sfK-T1, 2024-1C-T1, 2025-1C-rec, 2026-T1 | 4/18 |
+| `#ModuloGrafico` | 2015-T1, 2024-1C-T2, 2026-T1 | 3/18 |
+| `#FuncionTransferencia` | 2025-1C-T1 | 1/18 |
+| `#SistemaEDO` | 2025-02-13 | 1/18 |
+| `#TransformadaLaplace` (calcular una transformada / propiedad) | 2015-T2, sf2-T1, 2024-2C-rec, 2025-1C-T2, 2025-1C-rec, 2026-T1, 2026-T2 | 7/18 |
+| `#SimetriaMediaOnda` | sf2-T2, sfK-T2, 2024-1C-T1, 2024-1C-T2, 2025-02-13, 2025-1C-T1, 2025-1C-T2 | 7/18 |
+| `#ValorMedio` | 2015-T1, sf2-T1, sfK-T1, 2024-2C-T2, 2025-02-13 | 5/18 |
+| `#SumaSerieNumerica` | 2022, 2024-1C-T1, 2024-1C-T2, 2026-T1, 2026-T2 | 5/18 |
+| `#SumaSeriePorZ` | 2024-2C-T1, 2024-2C-T2, 2025-1C-T1, 2025-1C-T2, 2026-T1, 2026-T2 | 6/18 |
+| `#SecuenciaFinita` | sf2-T2, 2025-1C-rec | 2/18 |
+| `#AntitransformadaZ` (suelta) | sf2-T1 | 1/18 |
+| `#Espectro` | 2024-2C-rec, 2025-1C-rec | 2/18 |
+| `#Fasores` | 2015-T1, sf2-T1 | 2/18 |
+| `#Complejos` (cualquier tag de complejos) | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T1, 2024-2C-T2, 2024-2C-rec, 2025-02-13 — **0 en las 3 hojas de 2025-1C** | 13/18 |
+| `#ConjuntosComplejos` | sf2-T2, sfK-T1, 2022, 2024-1C-T1, 2024-1C-T2, 2024-2C-T2, 2024-2C-rec | 7/18 |
+| `#PotenciasRaices` | 2015-T1, sf2-T2, sfK-T1, sfK-T2, 2022, 2024-1C-T1, 2024-2C-T1, 2024-2C-T2, 2025-02-13 | 9/18 |
+| `#LogaritmoComplejo` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, 2022, 2024-1C-T2, 2024-2C-T1, 2024-2C-rec | 8/18 |
+| `#MultipleChoice` | 2015-T1, 2015-T2, sf2-T1, sf2-T2, sfK-T1, sfK-T2, 2025-1C-T1, 2025-1C-T2 (solo el ítem 1b) | 8/18 |
+| `#VoF` | 2024-1C-T2, 2025-02-13, 2025-1C-rec | 3/18 |
+| `#Demostracion` | 2025-1C-T1 (demostrar `L(2ᵗ)`) | 1/18 |
 
 ## Problemas reciclados (idénticos o casi entre hojas)
 
 - **`G(s) = 10(s² − 4s + k) / (s³ + 5s² + 4s − 10)`** → K estable (`k = 3`, cancela `(s − 1)`), respuesta al escalón, tipo de respuesta y valor estable: **sfK-T2 Ej4, 2024-2C-T1 Ej4 «≈», 2025-1C-T2 Ej3**. **(3 veces, textual)** Respuesta oficial: `y(t) = −3 + 3cos(t)e^{−3t} + 19sen(t)e^{−3t}`, oscilatoria amortiguada, valor estable `−3`.
 - **`f(x) = 4` en `(0,2)`, `k` en `(−2,0)`, período 4 → `k` para que no haya cosenos (impar desplazada) y valor medio 3 (`k = 2`); con `k = −4` (o `k = 0`) desarrollar la SEF** → **2015-T1 Ej1, sf2-T1 Ej3, 2024-2C-T2 Ej2 «≈»**. **(3 veces)** Variante lineal: `f(t) = 2t` / `k(t)` (2015-T2 Ej1); variante `|t|`/`k` con valor medio 1 (sfK-T1 Ej3).
-- **`f(t) = t + 2` en `(0,2)`, período 4 → completar solo cosenos, `Cₙ`, y usar la serie para sumar `Σ 1/(2k+1)² = π²/8`** → **2022 Ej1, 2024-1C-T1 Ej1** (esta última suma el ítem de SMO en `(−8,8)`). Variante `t²` con `Σ(−1)ⁿ/n² = −π²/12` (2024-1C-T2 Ej1).
+- **`f(t) = t + 2` en `(0,2)`, período 4 → completar solo cosenos, `Cₙ`, y usar la serie para sumar `Σ 1/(2k+1)² = π²/8`** → **2022 Ej1, 2024-1C-T1 Ej1, 2026-T1 Ej1** (la de 2024 suma el ítem de SMO en `(−8,8)`). **(3 veces, textual)** Variante `t²` con `Σ(−1)ⁿ/n² = −π²/12`: **2024-1C-T2 Ej1, 2026-T2 Ej1**.
 - **Ecuación integral con convolución `y(t) − ∫₀ᵗ y(u) sen(t−u) du = t⁴`** → **2022 Ej2, 2024-1C-T1 Ej2** (textual). Familia con coseno: `y(t) − 2∫y(u)cos(t−u)du = 1` (2024-1C-T2 Ej2), `y(t) + 2∫cos(t−u)y(u)du = e^{−t}` (sf2-T1 Ej2), `y(t) = e^{−t} + 2∫y(u)cos(t−u)du` (sf2-T2 Ej2). **(5 hojas, misma receta)**
 - **Ecuación en diferencias `2x(n+2) − x(n+1) = 3x(n) − 1`, `x(0)=0, x(1)=1`** → **2022 Ej4, 2024-1C-T1 Ej4** (textual; respuesta `x(n) = ½ − ½(−1)ⁿ`).
 - **`x(n+1) − 4x(n) = 4(1 − n)·2ⁿ`, `x(0) = 3`** → **sfK-T2 Ej5, 2025-1C-T2 Ej4b** (textual; respuesta oficial `x(n) = 2n·2ⁿ + 3·4ⁿ`).
@@ -244,11 +258,11 @@ Nombres cortos: `2015-T1/T2`, `sf2-T1/T2` (sin-fecha-2, ≈2015), `sfK-T1/T2` (s
 - **`∫₀^∞ (e^{−5t} − e^{−10t})/t dt = ln 2`** → **sfK-T2 Ej2, 2025-1C-rec Ej2a** (textual). Familia "integral impropia por Laplace": `∫ t cos(3t) e^{−5t}` (sfK-T1), `∫ t e^{−5t} cos(t)` (2025-1C-T1), `∫ tⁿ e^{−2t}` (2015-T1), `∫ sen(t)/t` (2024-2C-T1/T2, 2015-T2 con `e^{−√3 t}`).
 - **Antitransformar `1/(s² + 1)²` (polo doble complejo / convolución)** → **2024-2C-rec Ej3b, 2025-1C-T1 Ej2b** (textual); variante `s²/(s²+1)²` por convolución (2025-1C-T2 Ej2b).
 - **Secuencia finita del gráfico `x = (0, 1, 3, 2, 1)` → `X(z) = z^{−1} + 3z^{−2} + 2z^{−3} + z^{−4}`** → **sf2-T2 Ej4, 2025-1C-rec Ej4b** (mismo gráfico).
-- **`G(s)` con factor `(s² + 8s + 17)` y un polo inestable a cancelar con el numerador** → sf2-T2 Ej1b, 2022 Ej5 (`17(s²+s−k)/((s−2)(s²+8s+17))`), 2024-2C-rec Ej4 (`34(s³−3s²−as)/((s−5)(s+b)(s²+8s+17))`), 2025-1C-rec Ej3 (`2(s²+2s−3)/((s−1)(s+2)(s²+8s+17))`). **(4 hojas, misma receta: elegir K para que el numerador se anule en el polo positivo)**
+- **`G(s)` con factor `(s² + 8s + 17)` y un polo inestable a cancelar con el numerador** → sf2-T2 Ej1b, 2022 Ej5 = **2026-T2 Ej3** (`17(s²+s−k)/((s−2)(s²+8s+17))`, textual: `k = 6`, `y(t) = 3 − 3cos(t)e^{−4t} + 5sen(t)e^{−4t}`), 2024-2C-rec Ej4 (`34(s³−3s²−as)/((s−5)(s+b)(s²+8s+17))`), 2025-1C-rec Ej3 (`2(s²+2s−3)/((s−1)(s+2)(s²+8s+17))`). **(4 hojas, misma receta: elegir K para que el numerador se anule en el polo positivo)**
 - **`G(s) = 5(s² − ks − 2) / ((s² + s − 6)(s² + 2s + 2))`** → **2024-1C-T2 Ej4, 2024-2C-T2 Ej4** (textual, `k = 1`).
 - **`(s² − ks + 12)` como numerador con `k` a elegir** → sf2-T1 Ej1c (`/((s²+8s+25)(s−2))`, `k = 8`), 2015-T2 Ej3 (`25(s²−Ks+12)/((s²+4s+5)(s²−3s))`, `K = 7`).
 - **`cos³(t)` / `sen³(t)` / `2sen(x)cos(x)`: reducir con identidades antes de transformar o desarrollar** → 2015-T2 Ej2i (STF de `cos³`), 2024-2C-rec Ej3a (`L(cos³ t)`), 2025-1C-T2 Ej2a (`L(sen³ t)`), 2025-1C Ej1b (STF de `2sen x cos x`).
-- **Sumas numéricas vía Z evaluando `X(z)` en un punto** (`Σ n·2^{−n} = 2`, `Σ n²·4^{−n} = 20/27`, `Σ cos(πn)3^{−n} = 3/4`, `Σ (3ⁿ/n!)2^{−n} = e^{3/2}`) → 2024-2C-T1/T2 Ej5b, 2025-1C-T1 Ej4b, 2025-1C-T2 Ej4a. **(4 hojas, formato vigente)**
+- **Sumas numéricas vía Z evaluando `X(z)` en un punto** (`Σ n·2^{−n} = 2`, `Σ n²·4^{−n} = 20/27`, `Σ cos(πn)3^{−n} = 3/4`, `Σ (3ⁿ/n!)2^{−n} = e^{3/2}`) → 2024-2C-T1/T2 Ej5b, 2025-1C-T1 Ej4b, 2025-1C-T2 Ej4a, y con `(2n+3)(−1/4)ⁿ → 52/25` y `(n+1)(1/3)ⁿ → 9/4` en 2026-T1/T2 Ej4b. **(6 hojas, formato vigente)**
 - **Completar `f(t) = t` (o `2x`, `x+1`, `3x`) en medio período para senos / cosenos / SMO / coeficientes reales o imaginarios** → sf2-T2 Ej3, sfK-T2 Ej3, 2025-02-13 Ej2a, 2025-1C-T1 Ej1c, 2025-1C-T2 Ej1c, 2025-1C-rec Ej1. **(6 hojas; el ítem c) del Ej1 vigente)**
 
 ## Equivalencias (mismo archivo o mismo examen, no practicar dos veces)
@@ -267,3 +281,5 @@ Nombres cortos: `2015-T1/T2`, `sf2-T1/T2` (sin-fecha-2, ≈2015), `sfK-T1/T2` (s
 ---
 
 *Índice generado el 2026-09-10 a partir de la lectura (con visión) de 26 archivos originales: 7 PDFs escaneados, 16 fotos JPG/JPEG (unidas en 3 PDFs), 4 `.docx` (texto y ecuaciones OMML extraídos; los objetos MathType quedaron sin renderizar y se reconstruyeron «≈» desde las respuestas oficiales) y 4 PDFs tipeados. Los enunciados de fotos/escaneos pueden tener detalles menores aproximados.*
+
+*Actualización 2026-11-26: se sumaron las dos hojas del parcial del 2026-10-06 (Tema 1 y Tema 2, leídas con visión desde la hoja de respuestas que el profesor publicó en Avisos del aula). El dataset pasa a **18 hojas de 12 instancias**; las menciones a "16 hojas" de más arriba y de `estrategia.md` son anteriores a esta actualización.*

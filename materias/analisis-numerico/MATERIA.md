@@ -10,8 +10,8 @@
 | Evaluación | Carpeta | Fecha | Estado |
 |---|---|---|---|
 | Primer parcial | `primer-parcial/` | 2026-10-06 | rendido |
-| Segundo parcial | `segundo-parcial/` | **2026-11-24** | **próximo** |
-| 1er recuperatorio (1P y 2P) | carpeta del parcial | **2026-12-01** (confirmado por Lucho el 2026-11-10: lo tiene que rendir) | pendiente |
+| Segundo parcial | `segundo-parcial/` | 2026-11-24 | rendido (aprobado) |
+| 1er recuperatorio (1P y 2P) | carpeta del parcial | **2026-12-01** (Lucho rinde el del **1P**; el 2P quedó aprobado) | **próximo** |
 | 2do recuperatorio (1P y 2P) | carpeta del parcial | _(a definir, finales de febrero 2027)_ | pendiente |
 | Final | `final/` | _(a definir)_ | pendiente |
 
@@ -92,8 +92,10 @@
   versionar) y OneNote `Ajuste.pdf` en `fuentes/clases/Ajuste-Aproximacion/`, pasadas a
   `segundo-parcial/ajuste/md/01–02`.
 - **Clases grabadas (descargadas, en `fuentes/clases/<tema>/`, prefijo `T_` teórica / `P_` práctica; los mp4 no se versionan):** teórica STF, teórica SEF + transformada de Fourier, teórica Laplace, teórica aplicaciones de Laplace (`P_TLaplace.mp4`, que en realidad es la 2ª teórica), teórica y práctica de sistemas estables, teórica de Z y repaso del 1P. Transcriptas con `tools/transcribe_local.py` (Whisper large-v3-turbo en la Mac) a `primer-parcial/apuntes/transcripts/10–17`. **Las prácticas de Fourier, Laplace y Z están en Google Drive con descarga bloqueada por el dueño**: se cubren con sus OneNote (transcriptos en `primer-parcial/apuntes/por-fuente/01–06`). El repaso descargado (`Repaso Primer Parcial.mp4`) es la grabación de SharePoint; el repaso 2026 del Ing. Paoli en Zoom está **roto** ("Esta grabación no existe"); en su lugar están las **fotos de la clase de repaso 2026 del curso** en `fuentes/clases/repaso-clase-2026/` (7 páginas), pasadas a `primer-parcial/repaso/practica-repaso-2026.md`.
-- **Exámenes reales:** primer parcial: **16 hojas de examen distintas (11 instancias,
-  2015 → 2025)** en `primer-parcial/examenes/`, indexadas en `INDICE.md`. 4 archivos son
+- **Exámenes reales:** primer parcial: **18 hojas de examen distintas (12 instancias,
+  2015 → 2026; las dos últimas son el parcial de esta cursada, 2026-10-06, Tema 1 y Tema 2, con la
+  resolución del profesor: `resueltos/2026-10-06_Parcial_respuestas.pdf`, bajado del link de Drive que
+  publicó en Avisos del aula el 2026-10-07 y transcripto en `resueltos/RESOLUCIONES-2026.md`)** en `primer-parcial/examenes/`, indexadas en `INDICE.md`. 4 archivos son
   enunciados puros (2024-2C y 2025-1C, parcial + 1er recuperatorio), 14 están en
   `resueltos/` (8 resueltos a mano por alumnos con corrección del docente, 3 resueltos por
   la cátedra, 4 hojas de respuestas oficiales). Segundo parcial: **4 hojas de examen
@@ -126,6 +128,12 @@ las págs. 1–3 de `fuentes/AYUDAMEMORIA-OFICIAL.pdf` y `primer-parcial/examene
 `resueltos/RESOLUCIONES-2025.md`. Los transcripts están en `primer-parcial/apuntes/transcripts/10–17`. Las
 transcripciones previas de cada OneNote y de cada video (un apunte por fuente, de septiembre–octubre) quedaron
 archivadas en `primer-parcial/apuntes/por-fuente/`, y las guías lineales del 2026-10-03 en `primer-parcial/guia-2026-10/`.
+
+**Parciales de la cursada en el aula:** el profesor no los sube a la sección "Parciales" sino al foro
+**Avisos**, en el post de notas de cada parcial, como link de Drive a la hoja de respuestas (enunciados de los
+dos temas + resolución). El del 1P (post del 2026-10-07) es público y está bajado e indexado. El del **2P**
+(post del 2026-11-25) pide iniciar sesión en Drive: **pendiente de bajar** desde el Chrome de Lucho si hace
+falta para el final.
 
 ### Fuentes del aula por tema (segundo parcial)
 
@@ -204,5 +212,5 @@ número de subintervalos, que garantiza la cota de error) `#Simpson`
 
 | Evaluación | Apuntes | INDICE | Estrategia | Poda | Plan | Registro | Flashcards | Machete | Simulacros |
 |---|---|---|---|---|---|---|---|---|---|
-| Primer parcial (2026-10-06, rendido; **1er recuperatorio 2026-12-01**) | ✅ 5 rehechos el 2026-11-25 con el método del 2P (`apuntes/md/01–04`: guías "desde cero" de Fourier, Laplace, sistemas estables y transformada Z, numeradas igual que el ejercicio del parcial, desde los PDF de clase + teóricos de cátedra + OneNote + clases transcriptas + guía de ejercicios, con todos los ítems de las 16 hojas como "tu turno", notas "En clase", figuras y checkpoint; `05`: práctica integradora del repaso, 20 ejercicios). Los 15 apuntes anteriores, uno por fuente, están en `apuntes/por-fuente/` y las guías lineales de octubre en `guia-2026-10/` | ✅ 16 hojas / 11 instancias + 14 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (para el recuperatorio del 2026-12-01, recalculado 2026-11-25 sobre las guías nuevas: Sistemas jue 26, Z vie 27, Laplace + Fourier sáb 28, simulacros dom 29 y lun 30; `exports/plan.html`) | ✅ (vacío) | — | ✅ (`primer-parcial/repaso/machete.md` + `exports/machete.pdf`, 2026-10-05; complemento del ayudamemoria) | — |
+| Primer parcial (2026-10-06, rendido; **1er recuperatorio 2026-12-01**) | ✅ 5 rehechos el 2026-11-25 con el método del 2P (`apuntes/md/01–04`: guías "desde cero" de Fourier, Laplace, sistemas estables y transformada Z, numeradas igual que el ejercicio del parcial, desde los PDF de clase + teóricos de cátedra + OneNote + clases transcriptas + guía de ejercicios, con todos los ítems de las 16 hojas como "tu turno", notas "En clase", figuras y checkpoint; `05`: práctica integradora del repaso, 20 ejercicios; `06`: el parcial del 2026-10-06, los dos temas resueltos paso a paso). Los 15 apuntes anteriores, uno por fuente, están en `apuntes/por-fuente/` y las guías lineales de octubre en `guia-2026-10/` | ✅ 18 hojas / 12 instancias (incluye el parcial 2026-10-06) + 15 resueltos | ✅ (+ actualización 2026-10-02) | — | ✅ (para el recuperatorio del 2026-12-01, recalculado 2026-11-25 sobre las guías nuevas: Sistemas jue 26, Z vie 27, Laplace + Fourier sáb 28, simulacros dom 29 (el otro tema del parcial 2026) y lun 30; recalculado el 2026-11-26 al entrar el parcial 2026; `exports/plan.html`) | ✅ (vacío) | — | ✅ (`primer-parcial/repaso/machete.md` + `exports/machete.pdf`, 2026-10-05; complemento del ayudamemoria) | — |
 | **Segundo parcial (2026-11-24)** | ✅ 6 (01–05 guías "desde cero" de raíces, sistemas lineales, interpolación, diferenciación/integración y ecuaciones diferenciales, con todos los ítems de parcial 2025 y del repaso como "tu turno" + checkpoint, numeradas igual que el ejercicio del parcial; 06 práctica del repaso 2026, 15 ejercicios; aparte, en `ajuste/`, 00–02 de **ajuste por mínimos cuadrados**, fuera de alcance en 2026) | ✅ 4 hojas / 3 instancias (2025-1C) + 3 hojas de respuestas transcriptas en `resueltos/RESOLUCIONES-2025.md` | ✅ (2026-11-19; dataset chico, complementado con el repaso 2026 y las notas "En clase") | — | ✅ (5 días, 2026-11-19; núcleo de cada guía por día, `08` a ciegas + simulacro el 2026-11-23) | ✅ (vacío) | — | ✅ (`segundo-parcial/repaso/machete.md` + `exports/machete.html`, 2026-11-24; recetas por ejercicio, frases a escribir y errores típicos) | — |
