@@ -85,7 +85,7 @@ materias/
 | `/plan` | Recalcula `plan.md` según días restantes, avance y registro de errores. |
 | `/simulacro` | Genera un examen simulado nuevo respetando estructura y frecuencias. |
 | `/flashcards` | Genera `repaso/flashcards.md` + `flashcards-anki.tsv` desde el checklist teórico. |
-| `/machete` | Genera/itera `repaso/machete.md` (hoja final de fórmulas); `--pdf` exporta la versión cerrada a `exports/`. |
+| `/machete` | Genera/itera `repaso/machete.md` (recetas por ejercicio, tablas modelo, frases a escribir) + `exports/machete.html`; `--pdf` solo a pedido. |
 | `/registrar` | Anota una sesión de práctica/errores en `registro.md` y actualiza su tablero. |
 | `/carrera` | Planificador de carrera: finales por mesa, prioridades, cursada futura, graduación, objetivos, promociones e intentos. Regenera `carrera/plan-carrera.md` + exports (incluido el tablero arrastrable). |
 
@@ -133,6 +133,10 @@ el usuario no la da:
 - **Renders:** los `.md` son la verdad canónica. Todo html/pdf de los documentos de la
   evaluación (machete, flashcards…) va a `<eval>/exports/` (regenerable, no editar a
   mano); los apuntes usan sus subcarpetas `apuntes/html/` y `apuntes/pdf/`.
+- **HTML por defecto, PDF solo a pedido:** todo documento de estudio se exporta a HTML
+  (`md_to_html.py` sin `--pdf`) en la misma corrida que lo genera o lo retoca, y al usuario se
+  le pasa el link al `.html` (su visor de `.md` no renderiza LaTeX). El PDF se genera
+  únicamente cuando lo pide. El HTML sale siempre en **tema claro**.
 - **Fechas:** siempre absolutas (AAAA-MM-DD). Los documentos generados llevan al pie
   la fecha de generación y sus fuentes.
 - **Prioridades:** la escala compartida es 🔴 dominar / 🟠 alta / 🟡 media / ⚪ baja-
@@ -166,8 +170,38 @@ el usuario no la da:
   html/ics). CLI: `venv/bin/python -m tools.planificador.cli`.
   Tests: `venv/bin/python -m unittest discover -s tools/planificador/tests -t .`
   (fixtures congeladas en `tests/fixtures/`, no dependen de `carrera/datos/`).
+- **Verificar un HTML:** la vista previa de archivos locales no ejecuta KaTeX, así que el
+  render se comprueba con Chrome headless (`"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  --headless --dump-dom --virtual-time-budget=8000 file://…`) y contando en el DOM los
+  `katex-error` (tiene que dar 0) y los `$` sueltos fuera de las fórmulas.
 - **Rate-limit de YouTube:** bajar transcripciones de a una, con pausa. Si aparece
   `IpBlocked`/`RequestBlocked` en IP de nube, usar `fetch_transcripts.py` en la Mac.
+
+## Material del aula virtual (MCP `utn`)
+
+El aula de la facultad se lee con el MCP `utn`; no hace falta que el usuario baje nada a mano.
+
+1. **Ver qué hay:** `aula_list_courses` → `aula_open` del curso (secciones, PDFs, links a
+   grabaciones y a OneNote).
+2. **Curar antes de bajar:** cada materia es distinta y no todos los PDF sirven. Proponer por
+   tema qué se usa y qué se descarta, esperar el visto bueno del usuario y dejarlo escrito en
+   la tabla **"Fuentes del aula por tema"** de `MATERIA.md`. Las skills leen esa tabla, nunca
+   "todo el aula".
+3. **Bajar** a `materias/<slug>/fuentes/clases/<tema>/`:
+   - PDF del aula: `aula_download_file` (uno) o `aula_study_pack` (varios unidos; separar con
+     pymupdf). `aula_read_file` para leer sin guardar.
+   - Links públicos de Drive: `curl`.
+   - Lo que pide sesión institucional (grabaciones en SharePoint/Stream, OneNote, Drive
+     privado): desde el Chrome del usuario, con la cuenta del dominio de la facultad. Si la
+     descarga está bloqueada, anotarlo en la tabla y cubrir el tema con el resto.
+4. **Videos:** `tools/transcribe_local.py <video.mp4> --out <eval>/apuntes/transcripts/NN-….json`
+   (los mp4 no se versionan). Del video sale sobre todo lo que el profesor **dice** (qué toma,
+   cómo corrige, errores típicos); las cuentas salen de los PDF y OneNote.
+5. **Generar:** `/guia` por tema (explicación + ítems reales de parcial) o `/apunte-doc` para un
+   documento suelto.
+
+Las herramientas del MCP que **escriben** en el aula (entregar tareas, postear en foros, enviar
+mensajes) no se usan salvo pedido explícito del usuario.
 
 ## Reglas para Claude en este repo
 

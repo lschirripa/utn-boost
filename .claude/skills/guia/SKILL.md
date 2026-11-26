@@ -31,7 +31,8 @@ más las fuentes transversales que la sección declare, p. ej. guía de ejercici
   (`aula_list_courses` → `aula_open`), proponer por tema qué archivos sirven y cuáles se
   descartan (con el motivo), **mostrarle la propuesta al usuario y esperar su visto bueno**, y
   recién entonces escribirla en `MATERIA.md` y bajar los archivos a `fuentes/clases/<tema>/`.
-- **Cómo se bajan:** PDF del aula con `aula_study_pack` (une varios; separar por material con
+- **Cómo se bajan** (detalle en "Material del aula virtual" de `CLAUDE.md`): PDF del aula con
+  `aula_download_file` o `aula_study_pack` (une varios; separar por material con
   pymupdf usando `empiezaEn`/`paginas`); links de Drive públicos con `curl`; lo que pide sesión
   institucional (SharePoint/Stream, Drive) desde el Chrome del usuario con su cuenta; videos →
   `tools/transcribe_local.py` a `<eval>/apuntes/transcripts/NN-….json` (los mp4 no se versionan).
@@ -74,6 +75,11 @@ más las fuentes transversales que la sección declare, p. ej. guía de ejercici
   primera línea del desplegable. En tablas, `\lvert … \rvert` en lugar de `|`.
 - Gráficos con matplotlib en `<eval>/apuntes/img/NN-figK-<slug>.png` (referencia `../img/…`), con
   el script en `img/NN-figuras.py`.
+- **Numeración:** si el examen tiene un ejercicio por tema, la guía lleva el número de ese
+  ejercicio (`01` = Ej1…) y la práctica integradora va al final. Los temas que NO entran en la
+  evaluación no se numeran en la serie: van a una subcarpeta propia (`<eval>/<tema>/`).
+- Marcar cada ejercicio con su prioridad (🔴/🟠/⚪), dar una "ruta corta" al principio y dejar
+  plegado lo que casi no se toma: el largo se resuelve con presentación, no recortando contenido.
 - Extensión: priorizar los ítems de examen y del repaso; el resto de la práctica es selección,
   no exhaustividad (orientativo 900–1300 líneas).
 

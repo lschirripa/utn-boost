@@ -10,9 +10,10 @@ fórmulas, recetas y criterios de decisión, **sin explicaciones** — para el r
 Es el destilado de todo el sistema: prioridades de `estrategia.md`, fórmulas exactas de
 los apuntes, patrón real de los exámenes y errores propios del `registro.md`.
 
-**Ciclo de trabajo (importante):** el machete se itera SOLO como `.md` (rápido y barato
-de regenerar/retocar). El export a PDF/HTML es un paso aparte, cuando el usuario dice
-que la versión está lista. No exportar por las dudas.
+**Ciclo de trabajo (importante):** el machete se itera sobre el `.md` (la verdad canónica)
+y en cada corrida o retoque se regenera el **HTML** en `exports/` (es barato y el visor de
+`.md` del usuario no renderiza LaTeX: lo que lee es el HTML). El **PDF** es un paso aparte,
+solo cuando el usuario lo pide.
 
 ## Invocación
 
@@ -21,8 +22,8 @@ que la versión está lista. No exportar por las dudas.
 | Argumento | Efecto |
 |---|---|
 | ruta `materias/<m>/<e>` | Evaluación objetivo explícita. |
-| _(sin flags)_ | Genera o actualiza `repaso/machete.md`. NO exporta. |
-| `--pdf` / `--html` | Exporta el `.md` YA existente a `exports/`. Si se pasa solo el flag (sin pedidos de contenido), **no regenerar**: exportar tal cual está. |
+| _(sin flags)_ | Genera o actualiza `repaso/machete.md` y regenera `exports/machete.html`. |
+| `--pdf` | Exporta además el PDF del `.md` YA existente. Si se pasa solo el flag (sin pedidos de contenido), **no regenerar**: exportar tal cual está. |
 | pedidos puntuales | "agregá X", "sacá la sección Y", "achicá Z" → edición dirigida del `.md`, sin regenerar el resto. |
 
 Si no dan la ruta, aplicá la **Resolución de contexto** de `CLAUDE.md` (materia
@@ -51,15 +52,17 @@ Si no dan la ruta, aplicá la **Resolución de contexto** de `CLAUDE.md` (materi
 
 4. **Escribir `repaso/machete.md`** con la estructura de abajo.
 
-5. **Confirmar** ruta y tamaño, y actualizar la columna **Machete** de la tabla
-   "Estado del material" de `MATERIA.md`. Recordale al usuario que cuando lo dé por
-   cerrado, `/machete --pdf` genera la versión imprimible.
+5. **Exportar el HTML**, comprobar el render (ver "Verificar un HTML" en `CLAUDE.md`) y
+   pasarle al usuario el link al `.html`, no al `.md`.
 
-### Export (solo con `--pdf` / `--html`)
+6. **Confirmar** ruta y actualizar la columna **Machete** de la tabla "Estado del
+   material" de `MATERIA.md`. Commitear md + html.
+
+### Export
 
 ```bash
-venv/bin/python tools/md_to_html.py <eval>/repaso/machete.md --pdf --no-html --out-dir <eval>/exports   # --pdf
-venv/bin/python tools/md_to_html.py <eval>/repaso/machete.md --out-dir <eval>/exports                   # --html
+venv/bin/python tools/md_to_html.py <eval>/repaso/machete.md --out-dir <eval>/exports                   # siempre
+venv/bin/python tools/md_to_html.py <eval>/repaso/machete.md --pdf --no-html --out-dir <eval>/exports   # solo con --pdf
 ```
 
 (fallback `python tools/…` si no está el venv). El PDF renderiza la matemática sin
@@ -81,8 +84,19 @@ internet — es la versión para imprimir/iPad. Confirmar la ruta escrita en `ex
 
 ## 1..N · <Un tema por sección, en el orden del examen (P1→Tn) o de prioridad>
 
-- Fórmulas en bloque `$$…$$` o tablas compactas; recetas como pasos numerados mínimos
-  ("1. plantear → 2. jacobiano → 3. integrar"), atajos y casos especiales en una línea.
+- Una subsección por tipo de ítem (`### N.M`), con la **receta en pasos numerados** y una
+  frase de *por qué* en el paso que suele trabar. Tiene que alcanzar para hacer el ejercicio
+  sin abrir la guía: si un punto queda en una sola línea críptica, ampliarlo.
+- Fórmulas en bloque `$$…$$`; atajos y casos especiales en una línea.
+- **Recordatorio de tabla** en todo ejercicio que se resuelve con tabla (iteraciones,
+  diferencias divididas, métodos paso a paso…): un esqueleto chico con los encabezados y una
+  o dos filas con símbolos, y una línea de qué valor baja a la fila siguiente y cuándo parar.
+- Si el examen permite ayudamemoria: marcar 📄 (está en la hoja oficial) / 🧠 (va de memoria).
+- **Sin ejemplos resueltos ni resultados numéricos dentro de las secciones.**
+
+## N+1 · Las frases que valen puntos        ← si la cátedra corrige justificaciones
+
+| Situación | Lo que hay que escribir |
 
 ## N+1 · Reciclados con resultado verificado (autocorrección)
 
@@ -104,8 +118,11 @@ La **tabla de decisión** inicial es obligatoria: es el índice mental del exame
 
 ## Reglas
 
-- **Denso de verdad:** objetivo 2–5 carillas. Nada de teoría explicada, demostraciones
-  completas ni ejercicios resueltos — para eso están apuntes y flashcards. Si una
+- **Denso pero entendible:** recetas explicadas en palabras, sin demostraciones completas
+  ni ejercicios resueltos — para eso están apuntes y flashcards. Las secciones finales de
+  resultados verificados y de errores son **opcionales**: van todas juntas al final (nunca
+  mezcladas en las recetas) y se sacan si el usuario no las quiere. Título y subtítulo
+  también son prescindibles: el documento puede arrancar en la tabla de decisión. Si una
   demostración es checklist del examen, va solo el esqueleto (pasos clave en una línea).
 - **No inventar:** cada fórmula sale de `apuntes/md/` (o del INDICE para resultados de
   reciclados). Ante duda, se omite — un machete con una fórmula errada es peor que

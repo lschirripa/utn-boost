@@ -88,7 +88,7 @@ Cada video produce 3 archivos, cada uno en su carpeta, con el mismo nombre `NN-s
 > 4. Escribí el `.md` en `<eval>/apuntes/md/<NN>-<slug>.md`.
 > 5. Exportá:
 >    - HTML: `venv/bin/python tools/md_to_html.py <eval>/apuntes/md/<NN>-<slug>.md --out-dir <eval>/apuntes/html`
->    - PDF:  `venv/bin/python tools/md_to_html.py <eval>/apuntes/md/<NN>-<slug>.md --pdf --no-html --out-dir <eval>/apuntes/pdf`
+>    (PDF solo si el usuario lo pidió: mismo comando con `--pdf --no-html --out-dir <eval>/apuntes/pdf`.)
 > 6. Devolvé UNA línea de resumen: `NN | título | <eval>/apuntes/md/<NN>-<slug>.md |
 >    N ejercicios | <ok / problema>`.
 
